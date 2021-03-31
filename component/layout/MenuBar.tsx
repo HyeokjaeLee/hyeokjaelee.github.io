@@ -1,59 +1,33 @@
-import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  NavbarText,
-  UncontrolledCollapse,
-} from "reactstrap";
+import React, { useState } from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+export const Example = (props) => {
+  const [collapsed, setCollapsed] = useState(true);
 
-const MyProject: JSX.Element = 
-  <ul>
-    <li>Webtoon-Hub</li>
-    <li>Insider-Trade-Dashboard</li>
-    <li>Toy-project-api</li>
-  </ul>
-;
-
-export const Menubar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavbarBrand href="/">NAGLE</NavbarBrand>
+    <div style={{paddingBottom:"1%"}}>
+      <Navbar color="dark" light={false} dark={true} full={true}>
+        <NavbarBrand href="/" className="mr-auto">Nagle</NavbarBrand>
+        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!collapsed} navbar>
+          <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/posts/">Posts</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/HyeokjaeLee">Github</NavLink>
+              <NavLink href="/components/">Demo Projects</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <Toggle name={"MyProject"} item={MyProject} />
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/components/">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+            </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>
   );
-};
-
-const Toggle = (props: any) => (
-  <div>
-    <NavLink id="toggler" href="#">
-      {props.name}
-    </NavLink>
-    <UncontrolledCollapse toggler="#toggler">{props.item}</UncontrolledCollapse>
-  </div>
-);
+}
