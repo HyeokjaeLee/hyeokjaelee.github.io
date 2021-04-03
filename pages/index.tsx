@@ -9,12 +9,11 @@ import { Button } from "reactstrap";
 import {MainCard} from "../component/layout/MainCard"
 
 export default function Home() {
-  const test = "안녕하세요";
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Nalge</title>
+        <link rel="icon" href="/char.png" />
       </Head>
       <TobBar />
       <main className={styles.main}>

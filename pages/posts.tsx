@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Head from "next/head";
-import {Footer} from "../component/layout/Footer"
 import styles from '../styles/Home.module.css'
 import {TobBar,BottomBar} from "../component/layout/PageForm"
 import {List_Group} from "../component/common/ListGroup"
