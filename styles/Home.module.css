@@ -127,7 +127,6 @@
 	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 .test{
-  animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +134,7 @@
 .test2{
   padding-bottom: 1px;
   margin-top:3vh;
-  animation: jello-vertical 1s 1s both;
+  animation: jello-vertical 1s 2s both;
 }
 
 .test3{
@@ -341,8 +340,8 @@
  */
 
  .texttest {
-	-webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	-webkit-animation: tracking-in-contract-bck 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract-bck 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
  @-webkit-keyframes tracking-in-contract-bck {
