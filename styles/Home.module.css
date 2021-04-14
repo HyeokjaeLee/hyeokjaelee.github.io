@@ -133,13 +133,9 @@
   align-items: center;
 }
 .test2{
-  padding-left: 10px;
-  padding-right: 7px;
-  padding-top: 1px;
   padding-bottom: 1px;
   margin-top:3vh;
   animation: jello-vertical 1s 1s both;
-  text-decoration:none
 }
 
 .test3{
