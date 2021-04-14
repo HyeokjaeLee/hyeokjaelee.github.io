@@ -18,11 +18,9 @@ export default function Home() {
       <TobBar />
       <main className={styles.main}>
         <span className={styles.test}>
-          <h1>Thank you for visiting my site.</h1>
-          <div className={styles.test3}><MainCard/></div>
-          <Button color="secondary" className={styles.test2}>
-            View posts
-          </Button>{" "}
+          <h1 className={styles.texttest}>Lazy developer<br/>이혁재입니다.</h1>
+         {/*<div className={styles.test3}><MainCard/></div>*/}
+          <Button outline color="primary" className={styles.test2}><h2>▶</h2></Button>
         </span>
       </main>
       <footer className={styles.footer}>
