@@ -18,7 +18,7 @@ export default function Home() {
       <TobBar />
       <main className={styles.main}>
         <span className={styles.test}>
-          <h1 className={styles.texttest}>Lazy developer<br/>이혁재입니다.</h1>
+          <h1 className={styles.texttest}><span style={{color:"#A892DD"}}>const </span>lazy_developer<span style={{color:"#89DDFF"}}>=</span><br/><span style={{color:"#B9E876"}}>"이혁재입니다."</span></h1>
          {/*<div className={styles.test3}><MainCard/></div>*/}
           <Button outline color="primary" className={styles.test2}><h2>▶</h2></Button>
         </span>
