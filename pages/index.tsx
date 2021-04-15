@@ -20,7 +20,7 @@ export default function Home() {
       <main className={styles.main}>
         <Jumbotron className={styles.title_container}>
           <span className={styles.title_container}>
-            <h3 className={styles.title_text}>
+            <div className={styles.title_text}>
               <span style={{ color: "#A892DD" }}>const </span>lazy_developer
               <span style={{ color: "#89DDFF" }}>=</span>
               <span style={{ color: "#B9E876" }}>"이혁재"</span><br/>
@@ -33,13 +33,13 @@ export default function Home() {
                 <span style={{ color: "#B9E876" }}>입니다.</span>
                 `
               <span style={{ color: "#F1D714" }}>)</span>
-            </h3>
+            </div>
             <hr/>
             {/*<div className={styles.test3}><MainCard/></div>*/}
             <div className={styles.title_button}>
               Heroku 서버를 깨우는 중입니다.<br/>
               잠시만 기다려주세요.
-            <Progress multi style={{ width: "60%", marginTop: "20px"}}>
+            <Progress multi style={{ marginTop: "20px"}}>
               <Progress bar animated value="15">
                 Stripes
               </Progress>
