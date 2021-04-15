@@ -7,7 +7,8 @@ import styles from "../styles/Home.module.css";
 import { TobBar, BottomBar } from "../component/layout/PageForm";
 import { Button, Progress, Jumbotron } from "reactstrap";
 import { MainCard } from "../component/layout/MainCard";
-
+const test=""
+console.log(`${test}test`)
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -19,12 +20,20 @@ export default function Home() {
       <main className={styles.main}>
         <Jumbotron className={styles.title_container}>
           <span className={styles.title_container}>
-            <h2 className={styles.title_text}>
+            <h3 className={styles.title_text}>
               <span style={{ color: "#A892DD" }}>const </span>lazy_developer
               <span style={{ color: "#89DDFF" }}>=</span>
-              <br/>
-              <span style={{ color: "#B9E876" }}>"이혁재입니다."</span>
-            </h2>
+              <span style={{ color: "#B9E876" }}>"이혁재"</span><br/>
+              console.<span style={{ color: "#3D94C3" }}>log</span>
+              <span style={{ color: "#F1D714" }}>(</span>
+              `
+                <span style={{ color: "#70DDFF" }}>{"${"}</span>
+                lazy_developer
+                <span style={{ color: "#70DDFF" }}>{"}"}</span>
+                <span style={{ color: "#B9E876" }}>입니다.</span>
+                `
+              <span style={{ color: "#F1D714" }}>)</span>
+            </h3>
             <hr/>
             {/*<div className={styles.test3}><MainCard/></div>*/}
             <div className={styles.title_button}>
