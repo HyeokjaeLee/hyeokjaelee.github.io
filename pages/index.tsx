@@ -39,7 +39,7 @@ export default function Home() {
             <div className={styles.title_button}>
               Heroku 서버를 깨우는 중입니다.<br/>
               잠시만 기다려주세요.
-            <Progress multi style={{ marginTop: "20px"}}>
+            <Progress multi style={{ width:"100%", marginTop: "20px"}}>
               <Progress bar animated value="15">
                 Stripes
               </Progress>
