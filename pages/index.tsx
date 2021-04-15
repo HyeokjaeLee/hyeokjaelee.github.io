@@ -18,8 +18,9 @@ export default function Home() {
       </Head>
       <TobBar />
       <main className={styles.main}>
-        <Jumbotron className={styles.title_container}>
-          <span className={styles.title_container}>
+        <div className={styles.title_container}>
+          <div style={{width:"100%",height:"2vh", backgroundColor:"#C8C8CB", marginBottom:"3vh", textAlign:"right", color:"black"}}>
+          </div>
             <div className={styles.title_text}>
               <span style={{ color: "#A892DD" }}>const </span>lazy_developer
               <span style={{ color: "#89DDFF" }}>=</span>
@@ -39,7 +40,7 @@ export default function Home() {
             <div className={styles.title_button}>
               Heroku 서버를 깨우는 중입니다.<br/>
               잠시만 기다려주세요.
-            <Progress multi style={{ width:"100%", marginTop: "20px"}}>
+            <Progress multi style={{ width:"100%", marginTop: "1vh"}}>
               <Progress bar animated value="15">
                 Stripes
               </Progress>
@@ -51,8 +52,7 @@ export default function Home() {
                 <h2>▶</h2>
               </Button>*/}
             </div>
-          </span>
-        </Jumbotron>
+        </div>
       </main>
       <footer className={styles.footer}>
         <BottomBar />
