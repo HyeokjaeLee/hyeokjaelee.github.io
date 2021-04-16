@@ -7,22 +7,27 @@
   align-items: center;
   background: linear-gradient(
     to bottom,
-    rgba(20, 20, 20, 0.1) 10%,
-    rgba(20, 20, 20, 0.7) 40%,
-    rgba(20, 20, 20, 1)
-  ),url(/background.png);
+    rgba(214, 195, 157, 1) 50%,
+    rgba(52, 49, 72, 1) 90%,
+    rgba(52, 49, 72, 1)
+  );
   color: white;
   background-size: cover;
-  background-attachment:fixed ;
+  background-attachment: fixed;
+  font-family: "sub_font";
 }
-
 @font-face {
   font-family: "main_font";
   src: url(/font/BMHANNAAir.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "sub_font";
+  src: url(/font/neodgm.ttf) format("truetype");
+}
+
 .main {
-  font-family: "main_font";
+  height: 100vh;
   padding: 5rem 0;
   flex: 1;
   display: flex;
@@ -32,10 +37,9 @@
 }
 
 .footer {
-  font-size:1vh;
+  font-size: 1vh;
   width: 100%;
   height: 8vh;
-  border-top: 2px solid #656565;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,19 +139,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
-  border-radius: 10px;
-  background-color: #252526;
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s both;
+  border-radius: 5px;
+  background-color: #343148;
+  color: #d7c49e;
   min-height: 30vh;
   overflow: hidden;
 }
 
-
 .title_text {
   text-align: left;
-	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2s both;
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
   display: inline;
   font-size: 2.5vh;
+  margin: 4vh;
 }
 
 @keyframes tracking-in-expand {
@@ -163,18 +168,19 @@
   }
 }
 
-
 .title_button {
-  width:80%;
+  width: 80%;
   font-size: 1.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top:1vh;
-	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3s both;
+  margin: 1vh;
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 3s both;
 }
-
+.test {
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 3s both;
+}
 
 @keyframes fade-in {
   0% {
