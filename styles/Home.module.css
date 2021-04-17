@@ -1,154 +1,42 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(214, 195, 157, 1) 50%,
-    rgba(52, 49, 72, 1) 90%,
-    rgba(52, 49, 72, 1)
-  );
-  color: white;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: "sub_font";
-}
-@font-face {
-  font-family: "main_font";
-  src: url(/font/BMHANNAAir.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "sub_font";
-  src: url(/font/neodgm.ttf) format("truetype");
-}
-
-.main {
-  height: 100vh;
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  font-size: 1vh;
-  width: 100%;
-  height: 8vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer img {
-  margin-left: 0.5rem;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 3em;
-}
-
 .title_container {
-  min-width: 42vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-width: 45vh;
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s both;
   border-radius: 5px;
-  background-color: #343148;
-  color: #d7c49e;
-  min-height: 30vh;
   overflow: hidden;
+  width: 50%;
+  height: 40vh;
+  background-color: #f0edcc;
+}
+
+.main_title {
+  width: 100%;
+  height: 90%;
+  padding: 5%;
+  color: #02343f;
+  font-size: 1.5vh;
+}
+
+.test {
+  width: 10vh;
+  height: 10vh;
+  background: url("/img/char.gif");
+  background-size: cover;
+}
+.main_title h1 {
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
+  text-align: left;
+}
+
+.sub_title {
+  width: 100%;
+  height: 10%;
+  padding: 5%;
+  background-color: #bcb99f;
+  color: #343148;
 }
 
 .title_text {
-  text-align: left;
+  text-align: center;
   animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
   display: inline;
   font-size: 2.5vh;
@@ -178,9 +66,6 @@
   margin: 1vh;
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 3s both;
 }
-.test {
-  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 3s both;
-}
 
 @keyframes fade-in {
   0% {
@@ -189,4 +74,33 @@
   100% {
     opacity: 1;
   }
+}
+
+#hexagon {
+  width: 100px;
+  height: 55px;
+  background: pink;
+  position: relative;
+}
+#hexagon:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid pink;
+}
+#hexagon:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid pink;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Page.module.css";
 import {
   Collapse,
   Navbar,
@@ -9,55 +9,61 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Input,
-  Label,
-  FormGroup,
-  Form,
-  Button,
 } from "reactstrap";
-//<Input type="text" name="search" id="search" placeholder="Search" />
 import "bootstrap/dist/css/bootstrap.min.css";
-export const BottomBar = (props) => {
+import Head from "next/head";
+
+export const Page = (props) => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className={styles.container}>
+      <Head>
+        <title>{props.title}</title>
+        <link rel="icon" href="/img/Logo.png" />
+      </Head>
+      <TobBar />
+      <main className={styles.main}>{props.children}</main>
+
+      <Footer />
+    </div>
+  );
+};
+
+const Footer = (props) => {
+  return (
+    <footer className={styles.footer}>
       <div style={{ display: "flex", flexDirection: "row", paddingTop: "1em" }}>
         <a href="https://www.instagram.com/2z_4_me/" target="_blank">
-          <img src="https://img.shields.io/badge/Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white" />
+          <img src="https://img.shields.io/badge/Instagram-d7c49e?style=flat-square&logo=Instagram&logoColor=343148" />
         </a>
         <a href="https://github.com/HyeokjaeLee" target="_blank">
-          <img src="https://img.shields.io/badge/Github-F1F1F1?style=flat-square&logo=Github&logoColor=black" />
+          <img src="https://img.shields.io/badge/Github-d7c49e?style=flat-square&logo=Github&logoColor=343148" />
         </a>
         <a href="mailto:leehyeokjae97@gmail.com" target="_blank">
-          <img src="https://img.shields.io/badge/Gmail-ea4335?style=flat-square&logo=Gmail&logoColor=white" />
+          <img src="https://img.shields.io/badge/Gmail-d7c49e?style=flat-square&logo=Gmail&logoColor=343148" />
         </a>
       </div>
       <div
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
-        <img src="/engLogo.png" alt="Logo" className={styles.logo} />
-        <span>© All rights reserved.</span>
+        <img src="/img/Logo.png" alt="Logo" className={styles.logo} />
+        <span style={{ color: "#d7c49e", fontSize: "15px" }}>
+          © All rights reserved.
+        </span>
       </div>
-    </div>
+    </footer>
   );
 };
-export const TobBar = (props) => {
+
+const TobBar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
   const toggleNavbar = () => setCollapsed(!collapsed);
   return (
     <div style={{ paddingBottom: "1%", width: "100%" }}>
-      <Navbar dark={true} full={true} style={{ backgroundColor: "#343148" }}>
+      <Navbar light={true} full={true} style={{ backgroundColor: "#F0EDCC" }}>
         <NavbarBrand
           href="/"
           className="mr-auto"
-          style={{ fontSize: "3vh", color: "#d7c49e" }}
+          style={{ fontSize: "3vh", color: "#02343F" }}
         >
           {"<Nagle/>"}
         </NavbarBrand>
