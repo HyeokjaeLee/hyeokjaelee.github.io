@@ -33,13 +33,13 @@ const Footer = (props) => {
     <footer className={styles.footer}>
       <div style={{ display: "flex", flexDirection: "row", paddingTop: "1em" }}>
         <a href="https://www.instagram.com/2z_4_me/" target="_blank">
-          <img src="https://img.shields.io/badge/Instagram-d7c49e?style=flat-square&logo=Instagram&logoColor=343148" />
+          <img src="https://img.shields.io/badge/Instagram-F1354D?style=flat-square&logo=Instagram&logoColor=white" />
         </a>
         <a href="https://github.com/HyeokjaeLee" target="_blank">
-          <img src="https://img.shields.io/badge/Github-d7c49e?style=flat-square&logo=Github&logoColor=343148" />
+          <img src="https://img.shields.io/badge/Github-3B3B3B?style=flat-square&logo=Github&logoColor=white" />
         </a>
         <a href="mailto:leehyeokjae97@gmail.com" target="_blank">
-          <img src="https://img.shields.io/badge/Gmail-d7c49e?style=flat-square&logo=Gmail&logoColor=343148" />
+          <img src="https://img.shields.io/badge/Gmail-BE293C?style=flat-square&logo=Gmail&logoColor=white" />
         </a>
       </div>
       <div

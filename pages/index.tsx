@@ -17,9 +17,17 @@ export default function Home() {
             이혁재입니다.
           </h1>
         </div>
-        <div className={styles.sub_title}></div>
+        <div className={styles.sub_title}>
+          <Progress multi style={{ width: "50%", height: "33%" }}>
+            <Progress
+              bar
+              animated
+              value="70"
+              style={{ backgroundColor: "#343148" }}
+            ></Progress>
+          </Progress>
+        </div>
       </div>
-      <div id={styles.hexagon} />
     </Page>
   );
 }
@@ -35,14 +43,7 @@ export default function Home() {
           heroku 서버를 켜는 중입니다.
         </div>
         <div className={styles.sub_title}>
-          <Progress multi style={{ flex: 1, width: "18vh" }}>
-            <Progress
-              bar
-              animated
-              value="70"
-              style={{ backgroundColor: "#343148" }}
-            ></Progress>
-          </Progress>
+         
         </div>
       </div>*/
 }
