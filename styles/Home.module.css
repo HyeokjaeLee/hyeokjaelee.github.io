@@ -13,7 +13,7 @@
   height: 80%;
   padding: 5%;
   color: #02343f;
-  font-size: 1em;
+  font-size: 2vh;
 }
 
 .test {
@@ -23,6 +23,7 @@
   background-size: cover;
 }
 .main_title span {
+  font-size: 4vh;
   animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
   text-align: left;
 }

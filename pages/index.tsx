@@ -11,14 +11,17 @@ export default function Home() {
       <div className={styles.title_container}>
         <div className={styles.main_title}>
           <div className={styles.test} />
-          <h1>
+          <span>
             Lazy Developer
             <br />
             이혁재입니다.
-          </h1>
+          </span>
         </div>
         <div className={styles.sub_title}>
-          <Progress multi style={{ width: "50%", height: "33%" }}>
+          <Progress
+            multi
+            style={{ width: "50%", height: "33%", borderRadius: "100px" }}
+          >
             <Progress
               bar
               animated
