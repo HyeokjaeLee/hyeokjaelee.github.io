@@ -9,11 +9,9 @@
     "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0",
     "next": "latest",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "reactstrap": "^8.9.0"
+    "react-dom": "^16.7.0"
   },
   "license": "MIT",
   "devDependencies": {
