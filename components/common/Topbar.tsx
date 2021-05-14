@@ -14,6 +14,7 @@ import {
   NavbarText,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "../../styles/Topbar.module.css";
 
 export const TobBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +22,10 @@ export const TobBar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <Navbar
-      dark={true}
-      expand="md"
-      style={{ width: "100%", backgroundColor: "black" }}
-    >
-      <NavbarBrand href="/">reactstrap</NavbarBrand>
+    <Navbar dark={true} expand="md" className={styles.navbar}>
+      <NavbarBrand className={styles.brand} href="/">
+        HYEOKJAE.
+      </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
@@ -34,9 +33,7 @@ export const TobBar = (props) => {
             <NavLink href="/components/">Components</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://github.com/reactstrap/reactstrap">
-              GitHub
-            </NavLink>
+            <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>

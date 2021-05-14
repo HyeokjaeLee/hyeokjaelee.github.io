@@ -1,0 +1,29 @@
+.gradient {
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 10%,
+    rgba(255, 255, 255, 1) 80%
+  );
+  height: 2vh;
+}
+
+.navbar {
+  width: 100%;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 1.5vh;
+}
+@font-face {
+  font-family: "main_bold";
+  src: url(/font/BlackHanSans.ttf) format("truetype");
+}
+@font-face {
+  font-family: "main_Regular";
+  src: url(/font/JSDongkang-Regular.ttf) format("truetype");
+}
+
+.brand {
+  font-family: "main_bold";
+  font-weight: 900;
+}

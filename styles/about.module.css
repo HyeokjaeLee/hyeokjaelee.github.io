@@ -1,0 +1,105 @@
+.color {
+  width: 100%;
+  height: 60vh;
+  -webkit-animation: color-change-5x 10s linear infinite alternate both;
+  animation: color-change-5x 10s linear infinite alternate both;
+  padding: 5%;
+}
+
+@-webkit-keyframes color-change-5x {
+  0% {
+    background: #282c34;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #82a9fb;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #282c34;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #82a9fb;
+  }
+}
+.text {
+  display: inline;
+  color: white;
+  -webkit-animation: tracking-in-contract-bck 1s
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+  font-family: "main_Regular";
+}
+
+.text h1 {
+  font-family: "main_Bold";
+}
+
+@-webkit-keyframes tracking-in-contract-bck {
+  0% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(400px);
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract-bck {
+  0% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(400px);
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: "main_bold";
+  src: url(/font/JSDongkang-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "main_Regular";
+  src: url(/font/JSDongkang-Regular.ttf) format("truetype");
+}
+
+.dev_img {
+  width: 22vh;
+  height: 22vh;
+  background: url("/img/dev.gif");
+  background-size: cover;
+  margin-left: 15vh;
+}
