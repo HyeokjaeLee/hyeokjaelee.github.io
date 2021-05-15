@@ -22,9 +22,9 @@
   overflow: hidden;
 }
 .button {
-  font-size: 2vh;
+  font-size: 1vmax;
   font-weight: 100;
-  padding: 2vh;
+  padding: 1.5vmax;
 }
 @-webkit-keyframes color-change-5x {
   0% {
