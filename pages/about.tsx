@@ -22,11 +22,26 @@ export default function About() {
         <img src="img/dev.png" className={styles.img} />
       </div>
       <ButtonGroup className={styles.buttonGroup}>
-        <Button className={styles.button}>&#x1F4E3; About Me</Button>
-        <Button className={styles.button}>&#x1F528; Skills</Button>
-        <Button className={styles.button}>&#x1F4AD; Experience</Button>
-        <Button className={styles.button}>&#x1F4CB; Project</Button>
-        <Button className={styles.button}>&#x1F4CB; Education</Button>
+        <Button className={styles.button}>
+          &#x1F4E3;
+          <br /> About Me
+        </Button>
+        <Button className={styles.button}>
+          &#x1F528; <br />
+          Skills
+        </Button>
+        <Button className={styles.button}>
+          &#x1F4AD; <br />
+          Experience
+        </Button>
+        <Button className={styles.button}>
+          &#x1F4CB;
+          <br /> Project
+        </Button>
+        <Button className={styles.button}>
+          &#x1F393; <br />
+          Education
+        </Button>
       </ButtonGroup>
     </div>
   );
