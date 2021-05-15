@@ -19,7 +19,7 @@ export default function About() {
             Developer ;
           </div>
         </div>
-        <img src="/img/dev.png" className={styles.img} />
+        <img src="img/dev.png" className={styles.img} />
       </div>
       <ButtonGroup className={styles.buttonGroup}>
         <Button className={styles.button}>&#x1F4E3; About Me</Button>
