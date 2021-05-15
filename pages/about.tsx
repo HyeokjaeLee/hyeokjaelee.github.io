@@ -26,6 +26,7 @@ export default function About() {
         <Button className={styles.button}>&#x1F528; Skills</Button>
         <Button className={styles.button}>&#x1F4AD; Experience</Button>
         <Button className={styles.button}>&#x1F4CB; Project</Button>
+        <Button className={styles.button}>&#x1F4CB; Education</Button>
       </ButtonGroup>
     </div>
   );
