@@ -12,7 +12,8 @@
   background-color: black;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 1.5vh;
+  border-bottom: 2px solid black;
+  box-shadow: 0 10px 20px -10px black;
 }
 @font-face {
   font-family: "main_bold";

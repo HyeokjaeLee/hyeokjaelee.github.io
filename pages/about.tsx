@@ -4,21 +4,29 @@ import React, { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/about.module.css";
 import { TobBar } from "../components/common/Topbar";
+import { Button, ButtonGroup } from "reactstrap";
+import base from "../styles/base.module.css";
 export default function About() {
   return (
-    <div>
+    <div className={base.body}>
       <TobBar />
       <div className={styles.color}>
-        <span className={styles.text}>
+        <div className={styles.text_container}>
           HYEOKJAE LEE
-          <h1>
+          <div className={styles.title}>
             I'm Lazy
             <br />
-            Developer;
-          </h1>
-        </span>
-        <div className={styles.dev_img} />
+            Developer ;
+          </div>
+        </div>
+        <img src="/img/dev.png" className={styles.img} />
       </div>
+      <ButtonGroup className={styles.buttonGroup}>
+        <Button className={styles.button}>&#x1F4E3; About Me</Button>
+        <Button className={styles.button}>&#x1F528; Skills</Button>
+        <Button className={styles.button}>&#x1F4AD; Experience</Button>
+        <Button className={styles.button}>&#x1F4CB; Project</Button>
+      </ButtonGroup>
     </div>
   );
 }
