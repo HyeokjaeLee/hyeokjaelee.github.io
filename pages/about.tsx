@@ -21,7 +21,10 @@ export default function About() {
         </div>
         <img src="img/dev.png" className={styles.img} />
       </div>
-      <ButtonGroup className={styles.buttonGroup}>
+    </div>
+  );
+}
+/*<ButtonGroup className={styles.buttonGroup}>
         <Button className={styles.button}>
           &#x1F4E3;
           <br /> About Me
@@ -42,7 +45,4 @@ export default function About() {
           &#x1F393; <br />
           Education
         </Button>
-      </ButtonGroup>
-    </div>
-  );
-}
+      </ButtonGroup>*/
