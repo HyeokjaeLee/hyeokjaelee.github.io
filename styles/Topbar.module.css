@@ -1,0 +1,38 @@
+.gradient {
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 10%,
+    rgba(255, 255, 255, 1) 80%
+  );
+  height: 2vh;
+}
+
+.navbar {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 0px solid black;
+  box-shadow: 0 10px 20px -10px black;
+  font-size: smaller;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1;
+}
+.brand {
+  font-size: larger;
+  font-weight: 900;
+}
+
+.menu {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-weight: 100;
+  font-size: large;
+}
+
+.menu:active {
+  color: gray;
+}

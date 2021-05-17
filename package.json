@@ -13,8 +13,7 @@
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "reactstrap": "^8.9.0",
-    "sass": "^1.32.13"
+    "reactstrap": "^8.9.0"
   },
   "license": "MIT",
   "devDependencies": {

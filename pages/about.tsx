@@ -2,14 +2,13 @@
 
 import React, { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/about.module.scss";
+import styles from "../styles/about.module.css";
 import { TobBar } from "../components/common/Topbar";
 import { Button, ButtonGroup } from "reactstrap";
-import base from "../styles/base.module.scss";
+import base from "../styles/base.module.css";
 export default function About() {
   return (
-    <div className={base.body}>
-      <TobBar />
+    <>
       <div className={styles.color}>
         <div className={styles.text_container}>
           HYEOKJAE LEE
@@ -19,9 +18,10 @@ export default function About() {
             Developer ;
           </div>
         </div>
+        <div className={styles.clock}>D+3222</div>
         <img src="img/dev.png" className={styles.img} />
       </div>
-    </div>
+    </>
   );
 }
 /*<ButtonGroup className={styles.buttonGroup}>

@@ -14,10 +14,44 @@ import {
   NavbarText,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../../styles/Topbar.module.scss";
+import styles from "../../styles/Topbar.module.css";
 
 export const TobBar = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  const [menuText, setMenuText] = useState(">");
+  const toggleNavbar = () => {
+    setCollapsed(!collapsed);
+    if (collapsed == true) {
+      setMenuText("∨");
+    } else {
+      setMenuText(">");
+    }
+  };
+
+  return (
+    <div>
+      <Navbar dark className={styles.navbar}>
+        <NavbarBrand className={styles.brand} href="/">
+          HYEOKJAE.
+        </NavbarBrand>
+        <button onClick={toggleNavbar} className={styles.menu}>
+          {menuText + " MENU"}
+        </button>
+        <Collapse isOpen={!collapsed} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/components/">Posts</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
+};
+/*  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -26,29 +60,14 @@ export const TobBar = (props) => {
       <NavbarBrand className={styles.brand} href="/">
         HYEOKJAE.
       </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className="mr-auto" navbar>
-          <NavItem>
-            <NavLink href="/components/">Components</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
-          </NavItem>
-          <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-              Options
-            </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem>Option 1</DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-        </Nav>
-        <NavbarText>Simple Text</NavbarText>
-      </Collapse>
+      <Nav className="mr-auto" navbar={true} justified={true}>
+        <NavItem>
+          <NavLink href="/components/">Posts</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
+        </NavItem>
+        <NavLink href="https://github.com/HyeokjaeLee">About</NavLink>
+      </Nav>
     </Navbar>
-  );
-};
+  ); */
