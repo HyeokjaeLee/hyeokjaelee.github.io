@@ -14,7 +14,7 @@ import {
   NavbarText,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../../styles/Topbar.module.css";
+import styles from "../../styles/Topbar.module.scss";
 
 export const TobBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);

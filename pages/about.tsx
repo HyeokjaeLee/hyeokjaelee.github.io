@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/about.module.css";
+import styles from "../styles/about.module.scss";
 import { TobBar } from "../components/common/Topbar";
 import { Button, ButtonGroup } from "reactstrap";
-import base from "../styles/base.module.css";
+import base from "../styles/base.module.scss";
 export default function About() {
   return (
     <div className={base.body}>

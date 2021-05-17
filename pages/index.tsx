@@ -1,23 +1,11 @@
-// pages/index.tsx
-
 import React, { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/about.module.css";
-import { TobBar } from "../components/common/Topbar";
-export default function About() {
+import styles from "../styles/Home.module.scss";
+export default function Home() {
   return (
-    <div>
-      <TobBar />
-      <div className={styles.color}>
-        <span className={styles.text}>
-          HYEOKJAE LEE
-          <h1>
-            I'm Lazy
-            <br />
-            Developer;
-          </h1>
-        </span>
-        <div className={styles.dev_img} />
+    <div className="container">
+      <div>
+        <span>Next.js+Typescript+Sass+gh-pages</span>
       </div>
     </div>
   );
