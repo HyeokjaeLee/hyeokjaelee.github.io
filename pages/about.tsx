@@ -9,18 +9,24 @@ import base from "../styles/base.module.css";
 export default function About() {
   return (
     <>
-      <div className={styles.color}>
+      <section className={styles.color}>
         <div className={styles.text_container}>
           HYEOKJAE LEE
           <div className={styles.title}>
             I'm Lazy
             <br />
-            Developer ;
+            Coder ;
           </div>
         </div>
-        <div className={styles.clock}>D+3222</div>
+        <div className={styles.clock}>
+          개발자를 꿈꾼지
+          <br />
+          D+3212
+        </div>
         <img src="img/dev.png" className={styles.img} />
-      </div>
+      </section>
+      <section></section>
+      <section />
     </>
   );
 }

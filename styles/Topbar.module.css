@@ -9,17 +9,18 @@
 
 .navbar {
   width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-bottom: 0px solid black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
   box-shadow: 0 10px 20px -10px black;
   font-size: smaller;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   z-index: 1;
 }
 .brand {
-  font-size: larger;
+  font-size: 3vh;
   font-weight: 900;
 }
 

@@ -29,26 +29,24 @@ export const TobBar = (props) => {
   };
 
   return (
-    <div>
-      <Navbar dark className={styles.navbar}>
-        <NavbarBrand className={styles.brand} href="/">
-          HYEOKJAE.
-        </NavbarBrand>
-        <button onClick={toggleNavbar} className={styles.menu}>
-          {menuText + " MENU"}
-        </button>
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
-            <NavItem>
-              <NavLink href="/components/">Posts</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+    <Navbar dark className={styles.navbar}>
+      <NavbarBrand className={styles.brand} href="/">
+        HYEOKJAE.
+      </NavbarBrand>
+      <button onClick={toggleNavbar} className={styles.menu}>
+        {menuText + " MENU"}
+      </button>
+      <Collapse isOpen={!collapsed} navbar>
+        <Nav navbar>
+          <NavItem>
+            <NavLink href="/components/">Posts</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
+          </NavItem>
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 };
 /*  const [isOpen, setIsOpen] = useState(false);
