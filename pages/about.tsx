@@ -6,7 +6,17 @@ import styles from "../styles/about.module.css";
 import { TobBar } from "../components/common/Topbar";
 import { Button, ButtonGroup } from "reactstrap";
 import base from "../styles/base.module.css";
+const since = new Date("2008-2-9");
+const today = new Date();
+const test =
+  Math.ceil((today.getTime() - since.getTime()) / (1000 * 3600 * 24)) % 365;
 export default function About() {
+  const [dDay, setDday] = useState(0);
+  if (dDay < test)
+    setTimeout(() => {
+      setDday(dDay + 1);
+    }, 10);
+
   return (
     <>
       <section className={styles.color}>
@@ -21,7 +31,7 @@ export default function About() {
         <div className={styles.clock}>
           개발자를 꿈꾼지
           <br />
-          D+3212
+          D+{dDay}
         </div>
         <img src="img/dev.png" className={styles.img} />
       </section>
