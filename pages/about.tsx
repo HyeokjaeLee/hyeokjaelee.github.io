@@ -22,7 +22,7 @@ export default function About() {
             Coder;
           </div>
         </div>
-        <img src="img/dev.png" className={styles.img} />
+        <img src="img/deno.png" className={styles.img} />
       </section>
       <section></section>
       <section />
