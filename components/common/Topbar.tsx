@@ -18,13 +18,13 @@ import styles from "../../styles/Topbar.module.css";
 
 export const TobBar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
-  const [menuText, setMenuText] = useState(">");
+  const [menu, setMenu] = useState("");
   const toggleNavbar = () => {
     setCollapsed(!collapsed);
-    if (collapsed == true) {
-      setMenuText("∨");
+    if (collapsed) {
+      setMenu(styles.menu_arrow_bottom);
     } else {
-      setMenuText(">");
+      setMenu(styles.menu_arrow_right);
     }
   };
 
@@ -33,9 +33,14 @@ export const TobBar = (props) => {
       <NavbarBrand className={styles.brand} href="/">
         HYEOKJAE.
       </NavbarBrand>
+
       <button onClick={toggleNavbar} className={styles.menu}>
-        {menuText + " MENU"}
+        <div style={{ float: "left", marginRight: "1em" }} className={menu}>
+          {">"}
+        </div>
+        MENU
       </button>
+
       <Collapse isOpen={!collapsed} navbar>
         <Nav navbar>
           <NavItem>

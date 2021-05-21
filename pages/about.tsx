@@ -11,12 +11,6 @@ const today = new Date();
 const test =
   Math.ceil((today.getTime() - since.getTime()) / (1000 * 3600 * 24)) % 365;
 export default function About() {
-  const [dDay, setDday] = useState(0);
-  if (dDay < test)
-    setTimeout(() => {
-      setDday(dDay + 1);
-    }, 10);
-
   return (
     <>
       <section className={styles.color}>
@@ -25,13 +19,8 @@ export default function About() {
           <div className={styles.title}>
             I'm Lazy
             <br />
-            Coder ;
+            Coder;
           </div>
-        </div>
-        <div className={styles.clock}>
-          개발자를 꿈꾼지
-          <br />
-          D+{dDay}
         </div>
         <img src="img/dev.png" className={styles.img} />
       </section>
