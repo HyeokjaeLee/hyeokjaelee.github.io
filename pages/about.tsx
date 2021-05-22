@@ -3,9 +3,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/about.module.css";
-import { TobBar } from "../components/common/Topbar";
-import { Button, ButtonGroup } from "reactstrap";
-import base from "../styles/base.module.css";
 const since = new Date("2008-2-9");
 const today = new Date();
 const test =
@@ -37,7 +34,7 @@ const Introduce = () => (
   <section>
     <div className={styles.intro}>
       <div className={styles.title2}>
-        <img src="img/test.png" className={styles.profile} />
+        <img src="img/profile.png" className={styles.profile} />
         <h2>Javascript Fullstack 개발자를 꿈꾸는 이혁재입니다.</h2>
       </div>
       <div className={styles.contents}>
