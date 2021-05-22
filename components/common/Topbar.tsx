@@ -44,13 +44,13 @@ export const TobBar = (props) => {
       <Collapse isOpen={!collapsed} navbar>
         <Nav navbar>
           <NavItem>
-            <NavLink href="/Posts/">Posts</NavLink>
+            <NavLink href="../Posts">Posts</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/about/">About</NavLink>
+            <NavLink href="../about">About</NavLink>
           </NavItem>
         </Nav>
       </Collapse>

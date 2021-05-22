@@ -71,11 +71,11 @@ const TobBar = props => {
   }, __jsx(external_reactstrap_namespaceObject.Nav, {
     navbar: true
   }, __jsx(external_reactstrap_namespaceObject.NavItem, null, __jsx(external_reactstrap_namespaceObject.NavLink, {
-    href: "/Posts/"
+    href: "../Posts"
   }, "Posts")), __jsx(external_reactstrap_namespaceObject.NavItem, null, __jsx(external_reactstrap_namespaceObject.NavLink, {
     href: "https://github.com/HyeokjaeLee"
   }, "GitHub")), __jsx(external_reactstrap_namespaceObject.NavItem, null, __jsx(external_reactstrap_namespaceObject.NavLink, {
-    href: "/about/"
+    href: "../about"
   }, "About")))));
 };
 /*  const [isOpen, setIsOpen] = useState(false);
