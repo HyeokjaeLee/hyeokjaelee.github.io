@@ -31,7 +31,7 @@ export const TobBar = (props) => {
   return (
     <Navbar dark className={styles.navbar}>
       <NavbarBrand className={styles.brand} href="/">
-        HYEOKJAE.
+        HJ.
       </NavbarBrand>
 
       <button onClick={toggleNavbar} className={styles.menu}>
@@ -44,10 +44,13 @@ export const TobBar = (props) => {
       <Collapse isOpen={!collapsed} navbar>
         <Nav navbar>
           <NavItem>
-            <NavLink href="/components/">Posts</NavLink>
+            <NavLink href="/Posts/">Posts</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="https://github.com/HyeokjaeLee">GitHub</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/about/">About</NavLink>
           </NavItem>
         </Nav>
       </Collapse>
