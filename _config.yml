@@ -1,7 +1,7 @@
 # Site
-title: HJ
+title: NAGLE
 bio: "Jekyll version of the Massively theme by HTML5UP"
-description: "Jekyll version of the Massively theme by HTML5UP"
+description: "NAGLE의 개발 블로그"
 locale: en_US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://hyeokjaelee.github.io/" # the base hostname & protocol for your site
