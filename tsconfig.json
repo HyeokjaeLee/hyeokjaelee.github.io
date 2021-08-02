@@ -10,7 +10,8 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "allowJs": true
+    "allowJs": true,
+    "typeRoots": ["./node_modules/@types", "@types"]
   },
   "exclude": ["node_modules", "public", ".cache"]
 }

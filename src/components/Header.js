@@ -7,7 +7,7 @@ const Header = (props) => (
     <span className="logo">
       <img src={logo} alt="" />
     </span>
-    <h1>Hyeok_Jae</h1>
+    <h1>Hyeok - Jae</h1>
     <p>개발자를 꿈꾸는 코더.</p>
   </header>
 )
