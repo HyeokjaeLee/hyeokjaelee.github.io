@@ -42,7 +42,7 @@ const Posts = ({ data }: Props) => {
   })
   return (
     <Layout>
-      <HeaderGeneric title="Posts" subTitle="" />
+      <HeaderGeneric title="Posts" slug="" />
       <div id="main">
         <NavGeneric />
         <section id="content" className="main">

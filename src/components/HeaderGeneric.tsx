@@ -2,15 +2,15 @@ import React from 'react'
 import Helmet from 'react-helmet'
 interface Props {
   title: string
-  subTitle: string
+  slug: string
 }
 
-const HeaderGeneric = ({ title, subTitle }: Props) => (
+const HeaderGeneric = ({ title, slug }: Props) => (
   <>
     <Helmet title={title} />
     <header id="header">
       <h1>{title}</h1>
-      <p>{subTitle}</p>
+      <p>{slug}</p>
     </header>
   </>
 )
