@@ -48,91 +48,15 @@ body,
   }
 }
 
-#navGeneric {
-  top: 0;
-  position: sticky;
-  display: flex;
-  justify-content: center;
-  background-color: rgba(247, 247, 247, 0.9);
-  box-shadow: 0 0 15px;
-  border-radius: 3px 3px 0 0;
-  z-index: 3;
-  ul {
-    display: flex;
-    margin: 1em;
-    padding: 0;
-    list-style: none;
-    li {
-      display: inline-block;
-      margin: 0 0.35em;
-      padding: 0;
-      vertical-align: middle;
-
-      a {
-        display: inline-block;
-        height: 2.25em;
-        line-height: 2.25em;
-        padding: 0 1.25em;
-        border: 0;
-        border-radius: _size(border-radius);
-        box-shadow: inset 0 0 0 1px transparent;
-
-        &:hover {
-          background-color: _palette(invert, border-bg);
-        }
-      }
-    }
-  }
+::-webkit-scrollbar {
+  position: fixed;
+  width: 5px;
+  height: 5px;
 }
-ul {
-  text-align: left;
+::-webkit-scrollbar-thumb {
+  background-color: #f7f7f7;
 }
-#posts {
-  list-style: none;
-  padding: 0;
-  color: black;
-  li {
-    a {
-      ul {
-        width: 100%;
-        border-radius: 5px;
-        background-color: #f8f8f8;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        transition: box-shadow 0.2s, background-color 0.2s;
-        li {
-          border-radius: 5px;
-          padding: 0.2em 1em;
-          margin: 0;
-          text-align: center;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-        :nth-child(1) {
-          width: 8em;
-          background-color: #c4c4c4;
-          color: white;
-        }
-        :nth-child(2) {
-          text-align: left;
-          width: 100%;
-        }
-        :nth-child(3) {
-          width: 11em;
-          background-color: #c4c4c4;
-          color: white;
-        }
-      }
-      ul:hover {
-        color: white;
-        background-color: #c4c4c4;
-        box-shadow: 0 0 8px rgba(156, 112, 112, 0.4);
-      }
-    }
-    margin: 0.3em;
-  }
+
+#shortcut {
+  float: right;
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-
 import Layout from '../components/layout'
 import HeaderGeneric from '../components/HeaderGeneric'
 import { NavGeneric } from '../components/NavGeneric'
 import { graphql } from 'gatsby'
+import '../assets/scss/pages/_posts.scss'
 interface Data {
   excerpt: string
   fields: { slug: string }
@@ -20,13 +19,7 @@ interface Props {
 
 const Posts = ({ data }: Props) => {
   const postsDataList = data.allMarkdownRemark.nodes
-  console.log(postsDataList)
-  const test1 = '/Idea/test2/react/test/'
-  const test2 = test1.split('/').slice(1, -1)
-  console.log(test2)
-  console.log(test2.splice(-1))
-  console.log(test2)
-  const Test: JSX.Element[] = postsDataList.map((postsData) => {
+  const PostsList: JSX.Element[] = postsDataList.map((postsData) => {
     const classification = postsData.fields.slug.split('/')[1]
     return (
       <li key={postsData.fields.slug}>
@@ -46,7 +39,7 @@ const Posts = ({ data }: Props) => {
       <div id="main">
         <NavGeneric />
         <section id="content" className="main">
-          <ul id="posts">{Test}</ul>
+          <ul id="posts">{PostsList}</ul>
         </section>
       </div>
     </Layout>

@@ -1,0 +1,55 @@
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+.date {
+  background-color: #c4c4c4;
+  padding: 0.5em;
+  border-radius: 0 0 0 3px;
+  float: right;
+}
+
+.smallImg {
+  position: relative;
+  width: 20em;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+#main {
+  padding-bottom: 1em;
+}
+
+#postsList {
+  background-color: #f8f8f8;
+  margin: 1em 2em;
+  box-shadow: 0 0 2px gray inset;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 1em 1em;
+  ul {
+    list-style: none;
+    li {
+      font-size: smaller;
+      padding: 0.3em 0;
+      :nth-child(3) {
+        color: #c4c4c4;
+        float: right;
+      }
+    }
+  }
+  a {
+    border-style: none;
+  }
+  .title {
+    font-size: medium;
+    padding: 0.1em 0.5em 0.2em 0.5em;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+  }
+  .title:hover {
+    background-color: #c4c4c4;
+  }
+}
