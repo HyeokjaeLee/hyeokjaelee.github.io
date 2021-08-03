@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.2",
+    "@types/react-scrollspy": "^3.3.4",
     "gh-pages": "^3.2.3",
     "prettier": "^2.3.2"
   },
