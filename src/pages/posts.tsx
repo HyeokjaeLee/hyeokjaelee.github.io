@@ -1,33 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout'
 import HeaderGeneric from '../components/HeaderGeneric'
-import { NavGeneric } from '../components/NavGeneric'
 import { graphql } from 'gatsby'
+import { Waypoint } from 'react-waypoint'
+import Nav from '../components/Nav'
 import '../assets/scss/pages/_posts.scss'
-interface Data {
+interface Nodes {
   excerpt: string
   fields: { slug: string }
-  frontmatter: { title: string; date: string }
+  frontmatter: {
+    title: string
+    date: string
+    description: string
+    tag: string[]
+  }
+}
+interface Group {
+  tag: string
+  totalCount: number
 }
 interface Props {
   data: {
     allMarkdownRemark: {
-      nodes: Data[]
+      group: Group[]
+      nodes: Nodes[]
     }
   }
 }
 
 const Posts = ({ data }: Props) => {
-  const postsDataList = data.allMarkdownRemark.nodes
-  const PostsList: JSX.Element[] = postsDataList.map((postsData) => {
-    const classification = postsData.fields.slug.split('/')[1]
+  const [stickyNav, setStickyNav] = useState(false)
+  console.log(data)
+  const { group, nodes } = data.allMarkdownRemark
+  const PostsList = nodes.map((node) => {
     return (
-      <li key={postsData.fields.slug}>
-        <a href={postsData.fields.slug}>
+      <li key={node.fields.slug}>
+        <a href={node.fields.slug}>
           <ul>
-            <li>{classification}</li>
-            <li>{postsData.frontmatter.title}</li>
-            <li>{postsData.frontmatter.date}</li>
+            <li>{'empty'}</li>
+            <li>{node.frontmatter.title}</li>
+            <li>{node.frontmatter.description}</li>
           </ul>
         </a>
       </li>
@@ -36,8 +48,17 @@ const Posts = ({ data }: Props) => {
   return (
     <Layout>
       <HeaderGeneric title="Posts" slug="" />
+
+      <Waypoint
+        onEnter={() => {
+          setStickyNav(false)
+        }}
+        onLeave={() => {
+          setStickyNav(true)
+        }}
+      ></Waypoint>
+      <Nav sticky={stickyNav} />
       <div id="main">
-        <NavGeneric />
         <section id="content" className="main">
           <ul id="posts">{PostsList}</ul>
         </section>
@@ -63,6 +84,8 @@ export const data = graphql`
         frontmatter {
           date
           title
+          description
+          tag
         }
       }
     }
