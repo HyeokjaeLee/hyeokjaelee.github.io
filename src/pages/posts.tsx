@@ -50,7 +50,11 @@ export default Posts
 
 export const data = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      group(field: frontmatter___tag) {
+        tag: fieldValue
+        totalCount
+      }
       nodes {
         excerpt
         fields {

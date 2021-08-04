@@ -1,6 +1,8 @@
 ---
 title: 'SWEET Pandas Eating Sweets'
 date: '2020-08-07'
+tag: [test]
+description: '테스트입니다'
 ---
 
 Pandas are really sweet.
