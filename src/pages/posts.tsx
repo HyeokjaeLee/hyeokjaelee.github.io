@@ -59,7 +59,24 @@ const Posts = ({ data }: Props) => {
       ></Waypoint>
       <Nav sticky={stickyNav} />
       <div id="main">
-        <section id="content" className="main">
+        <section id="content" className="main posts">
+          <ul id="tags">
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+          </ul>
           <ul id="posts">{PostsList}</ul>
         </section>
       </div>

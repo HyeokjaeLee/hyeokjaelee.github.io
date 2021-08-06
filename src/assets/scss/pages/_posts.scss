@@ -86,3 +86,18 @@ ul {
     margin: 0.3em;
   }
 }
+
+#tags {
+  background-color: black;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 4px;
+  li {
+    background-color: bisque;
+    margin: 5px;
+    padding: 0px 10px;
+    border-radius: 10px;
+  }
+}
