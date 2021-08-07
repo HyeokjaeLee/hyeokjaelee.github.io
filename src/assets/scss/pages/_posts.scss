@@ -46,35 +46,28 @@ ul {
       ul {
         width: 100%;
         border-radius: 5px;
-        background-color: #f8f8f8;
+        border-bottom: solid 1px;
         padding: 0;
         margin: 0;
         list-style: none;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         transition: box-shadow 0.2s, background-color 0.2s;
         li {
           border-radius: 5px;
-          padding: 0.2em 1em 0.4em 1em;
+          padding: 0.4em 1em;
           margin: 0;
-          text-align: center;
+          text-align: left;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
         :nth-child(1) {
-          width: 8em;
-          background-color: #c4c4c4;
-          color: white;
+          color: gray;
         }
         :nth-child(2) {
-          text-align: left;
-          width: 100%;
-        }
-        :nth-child(3) {
-          width: 11em;
-          background-color: #c4c4c4;
-          color: white;
+          font-weight: 400;
+          font-size: larger;
         }
       }
       ul:hover {

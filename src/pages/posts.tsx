@@ -37,7 +37,7 @@ const Posts = ({ data }: Props) => {
       <li key={node.fields.slug}>
         <a href={node.fields.slug}>
           <ul>
-            <li>{'empty'}</li>
+            <li>{node.frontmatter.date}</li>
             <li>{node.frontmatter.title}</li>
             <li>{node.frontmatter.description}</li>
           </ul>
@@ -61,7 +61,9 @@ const Posts = ({ data }: Props) => {
       <div id="main">
         <section id="content" className="main posts">
           <ul id="tags">
-            <li>test</li>
+            <li>
+              React <span>(12)</span>
+            </li>
             <li>test</li>
             <li>test</li>
             <li>test</li>
