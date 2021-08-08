@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
-import HeaderGeneric from '../components/HeaderGeneric'
-import { NavGeneric } from '../components/NavGeneric'
+import Header from '../components/Header'
 import '../assets/scss/pages/_blog-spots.scss'
-
+import { Waypoint } from 'react-waypoint'
+import Nav from '../components/Nav'
 interface Data {
   excerpt: string
   fields: { slug: string }
@@ -30,6 +30,7 @@ interface Props {
 }
 
 const BlogSpots = ({ data }: Props) => {
+  const [stickyNav, setStickyNav] = useState(false)
   const postInfo = data.markdownRemark
   const slug = postInfo.fields.slug.split(`/`).slice(1, -2).join(`/`)
   const postsDataList = data.allMarkdownRemark.nodes
@@ -47,9 +48,20 @@ const BlogSpots = ({ data }: Props) => {
   })
   return (
     <Layout>
-      <HeaderGeneric title={postInfo.frontmatter.title} slug={slug} />
+      <Header
+        title={postInfo.frontmatter.title}
+        subTitle={postInfo.frontmatter.date}
+      />
+      <Waypoint
+        onEnter={() => {
+          setStickyNav(false)
+        }}
+        onLeave={() => {
+          setStickyNav(true)
+        }}
+      ></Waypoint>
+      <Nav sticky={stickyNav} />
       <div id="main">
-        <NavGeneric />
         <span className="date">{postInfo.frontmatter.date}</span>
         <section id="content" className="main">
           <div dangerouslySetInnerHTML={{ __html: postInfo.html }} />

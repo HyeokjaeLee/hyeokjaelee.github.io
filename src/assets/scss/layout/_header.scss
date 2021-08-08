@@ -33,11 +33,9 @@
     }
 
     .logo {
-      @include vendor(
-        'transition',
-        ('opacity 1.25s ease', 'transform 0.5s ease')
-      );
-      @include vendor('transition-delay', '0s');
+      -webkit-animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        both;
+      animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       display: block;
       margin: 0 0 (_size(element-margin) * 0.75) 0;
 
@@ -50,6 +48,31 @@
         background-color: #f7f7f7;
         border-radius: 5px;
       }
+    }
+  }
+
+  @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 

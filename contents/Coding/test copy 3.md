@@ -1,7 +1,7 @@
 ---
 title: 'SWEET Pandas Eating Sweets'
 date: '2020-08-07'
-tag: [test]
+tag: [test, test2, test3, test4, test5, test6, test7, test9]
 description: '테스트입니다'
 ---
 

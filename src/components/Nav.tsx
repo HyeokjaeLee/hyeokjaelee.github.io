@@ -2,7 +2,7 @@ import React from 'react'
 import Scrollspy from 'react-scrollspy'
 import Scroll from './Scroll'
 import '../assets/scss/components/_nav.scss'
-
+import { Link } from 'gatsby'
 interface Props {
   sticky: boolean
   aboutPage?: boolean
@@ -40,16 +40,13 @@ const Nav = (props: Props) => {
         <li id="shortcut">
           <ul>
             <li>
-              <a href="/">&nbsp; Home</a>
+              <Link to="/">Posts</Link>
             </li>
             <li>
-              <a href="/posts">&nbsp; Posts</a>
+              <Link to="/projects">Projects</Link>
             </li>
             <li>
-              <a href="/projects">&nbsp; Projects</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </li>

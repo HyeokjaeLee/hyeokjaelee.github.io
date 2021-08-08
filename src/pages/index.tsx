@@ -1,44 +1,116 @@
-import { Link } from 'gatsby'
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import Header from '../components/Header'
 import logo from '../assets/images/logo.png'
-import '../assets/scss/pages/_index.scss'
+import { graphql } from 'gatsby'
+import { Waypoint } from 'react-waypoint'
+import Nav from '../components/Nav'
+import '../assets/scss/pages/_posts.scss'
+interface Nodes {
+  excerpt: string
+  fields: { slug: string }
+  frontmatter: {
+    title: string
+    date: string
+    description: string
+    tag: string[]
+  }
+}
+interface Group {
+  tag: string
+  totalCount: number
+}
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      group: Group[]
+      nodes: Nodes[]
+    }
+  }
+}
 
-const Index = () => {
+const Posts = ({ data }: Props) => {
+  const [stickyNav, setStickyNav] = useState(false)
+  console.log(data)
+  const { group, nodes } = data.allMarkdownRemark
+  const PostsList = nodes.map((node) => {
+    return (
+      <li key={node.fields.slug}>
+        <a href={node.fields.slug}>
+          <ul>
+            <li>{node.frontmatter.date}</li>
+            <li>{node.frontmatter.title}</li>
+            <li>{node.frontmatter.description}</li>
+            <li>
+              {
+                <ul className="tags">
+                  {node.frontmatter.tag.map((tag) => {
+                    return <li>{tag}</li>
+                  })}
+                </ul>
+              }
+            </li>
+          </ul>
+        </a>
+      </li>
+    )
+  })
+  const TagList = group.map((groupItem) => {
+    return (
+      <li key={groupItem.tag}>
+        <a>
+          <span>{groupItem.tag}</span>
+          <span> ({groupItem.totalCount})</span>
+        </a>
+      </li>
+    )
+  })
   return (
     <Layout>
-      <Helmet title="Nagle" />
-      <header id="header" className="alt">
-        <span className="logo">
-          <img src={logo} alt="" />
-        </span>
-        <h1>Hyeok - Jae</h1>
-        <p>
-          Nagle의 개발 블로그
-          <br />
-          Nagle's programming & tech blog
-        </p>
-      </header>
-      <ul className="actions text-center">
-        <li>
-          <Link to="/posts" className="button">
-            Posts
-          </Link>
-        </li>
-        <li>
-          <Link to="/posts" className="button">
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className="button special">
-            About
-          </Link>
-        </li>
-      </ul>
+      <Header title="Hyeok-Jae" subTitle={"Nagle's programming & tech blog"} />
+
+      <Waypoint
+        onEnter={() => {
+          setStickyNav(false)
+        }}
+        onLeave={() => {
+          setStickyNav(true)
+        }}
+      ></Waypoint>
+      <Nav sticky={stickyNav} />
+      <div id="main" className="text-center">
+        <section id="content" className="main posts">
+          <ul id="tags" className="tags">
+            {TagList}
+          </ul>
+          <ul id="posts">{PostsList}</ul>
+        </section>
+      </div>
     </Layout>
   )
 }
 
-export default Index
+export default Posts
+
+export const data = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      group(field: frontmatter___tag) {
+        tag: fieldValue
+        totalCount
+      }
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date
+          title
+          description
+          tag
+        }
+      }
+    }
+  }
+`

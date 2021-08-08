@@ -11,9 +11,7 @@ const About = () => {
   const [stickyNav, setStickyNav] = useState(false)
   return (
     <Layout>
-      <Helmet title="Nagle" />
-
-      <Header />
+      <Header title="Hyeok-Jae" subTitle="개발자를 꿈꾸는 코더." />
 
       <Waypoint
         onEnter={() => {
