@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../components/layout'
 import Header from '../components/Header'
-import logo from '../assets/images/logo.png'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Waypoint } from 'react-waypoint'
 import Nav from '../components/Nav'
 import '../assets/scss/pages/_posts.scss'
@@ -33,10 +32,10 @@ const Posts = ({ data }: Props) => {
   const [stickyNav, setStickyNav] = useState(false)
   console.log(data)
   const { group, nodes } = data.allMarkdownRemark
-  const PostsList = nodes.map((node) => {
+  const totalPostList = nodes.map((node) => {
     return (
       <li key={node.fields.slug}>
-        <a href={node.fields.slug}>
+        <Link to={node.fields.slug}>
           <ul>
             <li>{node.frontmatter.date}</li>
             <li>{node.frontmatter.title}</li>
@@ -51,16 +50,34 @@ const Posts = ({ data }: Props) => {
               }
             </li>
           </ul>
-        </a>
+        </Link>
       </li>
     )
   })
+
+  const [postList, setPostList] = useState(totalPostList)
+  const [checkedTagList, setCheckedTagList] = useState<string[]>([])
+  const filterPostList = (tag: string) => {
+    if (checkedTagList.includes(tag)) {
+      setCheckedTagList(
+        checkedTagList.filter((checkedTag) => checkedTag !== tag)
+      )
+      console.log(checkedTagList)
+    } else {
+      checkedTagList.push(tag)
+      setCheckedTagList(checkedTagList)
+    }
+  }
   const TagList = group.map((groupItem) => {
     return (
       <li key={groupItem.tag}>
-        <a>
+        <a
+          onClick={() => {
+            filterPostList(groupItem.tag)
+          }}
+        >
           <span>{groupItem.tag}</span>
-          <span> ({groupItem.totalCount})</span>
+          <span>&nbsp;({groupItem.totalCount})</span>
         </a>
       </li>
     )
@@ -78,12 +95,18 @@ const Posts = ({ data }: Props) => {
         }}
       ></Waypoint>
       <Nav sticky={stickyNav} />
-      <div id="main" className="text-center">
+      <div id="main">
         <section id="content" className="main posts">
           <ul id="tags" className="tags">
+            <li>
+              <a>
+                <span>Total</span>
+                <span>&nbsp;({nodes.length})</span>
+              </a>
+            </li>
             {TagList}
           </ul>
-          <ul id="posts">{PostsList}</ul>
+          <ul id="posts">{postList}</ul>
         </section>
       </div>
     </Layout>
