@@ -1,25 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter - Stellar by HTML5 UP',
-    author: 'Hunter Chang',
-    description: 'A Gatsby.js Starter based on Stellar by HTML5 UP',
+    title: `Gatsby Default Starter`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-sass",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-layout`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/assets/images/website-icon.png', // This path is relative to the root of the site.
+        component: require.resolve(`./src/layouts/index.tsx`),
       },
     },
-    'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,4 +21,4 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
   ],
-}
+};
