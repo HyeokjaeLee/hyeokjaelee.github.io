@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       // slug를 만들고 -> page를 만든다
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-spots.tsx`),
+      component: path.resolve(`./src/templates/markdown-layout.tsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.

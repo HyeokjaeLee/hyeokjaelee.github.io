@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { Nav } from "../components/Nav";
 
-const Index = () => (
+const About = () => (
   <>
     <Nav />
     <h1>animals</h1>
@@ -19,4 +19,4 @@ const Index = () => (
   </>
 );
 
-export default Index;
+export default About;

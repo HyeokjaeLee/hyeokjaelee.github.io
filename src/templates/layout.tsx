@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Transition from "../components/transition";
 import logo from "../assets/img/logo.png";
 
-import "./layout.scss";
+import "../assets/sass/layout/layout.scss";
 
 const Header = ({ title }: any) => {
   return (
