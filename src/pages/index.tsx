@@ -1,21 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "gatsby";
-import { Nav } from "../components/Nav";
-
+import { Nav } from "../components/nav";
+import "../assets/sass/pages/index.scss";
 const Index = () => (
   <>
     <Nav />
-    <h1>animals</h1>
-    <div>
-      <Link to="/cat/">Go to cat</Link>
-    </div>
-    <div>
-      <Link to="/dog/">Go to dog</Link>
-    </div>
-    <div>
-      <Link to="/long-page/">Go to long page</Link>
-    </div>
+    <div id="test">test</div>
   </>
 );
 

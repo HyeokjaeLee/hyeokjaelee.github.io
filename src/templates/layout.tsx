@@ -3,27 +3,11 @@ import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Transition from "../components/transition";
-import logo from "../assets/img/logo.png";
+import "../assets/sass/global.scss";
+import "../assets/sass/components/layout.scss";
 
-import "../assets/sass/layout/layout.scss";
-
-const Header = ({ title }: any) => {
-  return (
-    <header id="header">
-      <img src={logo} className="logo"></img>
-      <h1>Hyeok - Jae</h1>
-      <p>Nagle의 개발 블로그</p>
-      <p>Nagle's programming & tech blog</p>
-    </header>
-  );
-};
-
-const Footer = () => (
-  <footer id="footer">
-    <p>© HyeokjaeLee. All rights reserved. Powered by GitHub Pages.</p>
-  </footer>
-);
-
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 const TemplateWrapper = ({ children, location }: any) => (
   <>
     <Helmet
