@@ -1,0 +1,12 @@
+@import "../libs/libs-index.scss";
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  > p {
+    font-size: smaller;
+    color: #e3c0c6;
+  }
+}

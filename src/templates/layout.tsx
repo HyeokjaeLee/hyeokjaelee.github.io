@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import Transition from "../components/transition";
+import { Main } from "../components/main";
 import "../assets/sass/global.scss";
-import "../assets/sass/components/layout.scss";
 
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
@@ -19,7 +18,7 @@ const TemplateWrapper = ({ children, location }: any) => (
     />
     <Header />
     <div>
-      <Transition location={location}>{children}</Transition>
+      <Main location={location}>{children}</Main>
     </div>
     <Footer />
   </>

@@ -1,7 +1,7 @@
 import React from "react";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
+import "../assets/sass/components/main.scss";
 const timeout = 400;
-
 interface TransitionStatus {
   entering: string;
   entered: string;
@@ -10,12 +10,12 @@ interface TransitionStatus {
   unmounted?: string;
 }
 const transitionStatusClass: TransitionStatus = {
-  entering: "slide ing",
-  entered: "slide in",
-  exiting: "slide out",
+  entering: "ing",
+  entered: "in",
+  exiting: "out",
 };
 
-const Transition = (props: any) => {
+export const Main = (props: any) => {
   const { children, location } = props;
   return (
     <TransitionGroup>
@@ -28,7 +28,7 @@ const Transition = (props: any) => {
       >
         {(status) => {
           return (
-            <div id="contents" className={transitionStatusClass[status]}>
+            <div id="contents" className={"slide " + transitionStatusClass[status]}>
               <section>{children}</section>
             </div>
           );
@@ -37,5 +37,3 @@ const Transition = (props: any) => {
     </TransitionGroup>
   );
 };
-
-export default Transition;

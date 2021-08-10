@@ -1,4 +1,5 @@
 import React from "react";
+import "../assets/sass/components/header.scss";
 import logo from "../assets/img/logo.png";
 export const Header = ({ title }: any) => {
   return (
