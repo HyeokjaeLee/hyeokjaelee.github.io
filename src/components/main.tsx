@@ -28,9 +28,9 @@ export const Main = (props: any) => {
       >
         {(status) => {
           return (
-            <div id="contents" className={"slide " + transitionStatusClass[status]}>
-              <section>{children}</section>
-            </div>
+            <main id="main" className={"slide " + transitionStatusClass[status]}>
+              {children}
+            </main>
           );
         }}
       </ReactTransition>

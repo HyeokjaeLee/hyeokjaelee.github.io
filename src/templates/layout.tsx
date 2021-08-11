@@ -17,9 +17,7 @@ const TemplateWrapper = ({ children, location }: any) => (
       ]}
     />
     <Header />
-    <div>
-      <Main location={location}>{children}</Main>
-    </div>
+    <Main location={location}>{children}</Main>
     <Footer />
   </>
 );

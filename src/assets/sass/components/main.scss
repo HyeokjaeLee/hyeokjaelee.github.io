@@ -1,6 +1,6 @@
 @import "../libs/libs-index.scss";
 
-#contents {
+#main {
   background-color: $whiteMainColor1;
   margin: {
     left: 10%;
@@ -8,8 +8,8 @@
   }
   border-radius: $borderRadius;
   box-shadow: $boxShadow;
-  > section {
-    min-height: 300vh;
+  > #contents {
+    padding: 2rem;
   }
 }
 

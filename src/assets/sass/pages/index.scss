@@ -1,8 +1,50 @@
-#test {
-  margin: 20px;
-  width: 13em;
-  height: 5em;
-  background-color: beige;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+@import "../libs/libs-index.scss";
+#contents {
+  ul {
+    list-style: none;
+  }
+}
+#posts {
+  a {
+    display: flex;
+    text-decoration: none;
+    transition: padding-left 0.3s;
+    &:link {
+      color: $darkMainColor1;
+      background-color: $bgColor1;
+    }
+    &:visited {
+      color: $darkMainColor2;
+      background-color: $bgColor2;
+    }
+    &:hover {
+      padding-left: 0.5em;
+    }
+    > div {
+      padding: 1em;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: $whiteMainColor1;
+      border-bottom: 1px solid $middleColor;
+      .date {
+        font-size: smaller;
+        color: $middleColor;
+      }
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  margin-top: 0.5em;
+  > li {
+    font-weight: lighter;
+    font-size: small;
+    padding: 0.1em 0.5em 0.2em 0.5em;
+    background-color: $bgColor1;
+    border-radius: 2em;
+    margin: 0 0.2em;
+    color: $whiteMainColor1;
+  }
 }
