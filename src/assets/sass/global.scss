@@ -22,6 +22,7 @@ html {
 
 @mixin switch($color: $darkColor) {
   .switch {
+    cursor: pointer;
     position: absolute;
     right: 0;
     background-color: lighten(invert($color), 30%);
