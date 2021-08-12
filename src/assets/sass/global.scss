@@ -9,8 +9,11 @@ li {
   margin: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 html {
-  color: $darkColor;
   font-size: 20px;
   font-family: "NotoSans";
   overflow-x: hidden;
@@ -52,7 +55,7 @@ body {
     height: 0.25em;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: lighten($darkColor, 5%);
+    background-color: lighten($darkColor, 20%);
   }
   @include switch;
   &.dark {

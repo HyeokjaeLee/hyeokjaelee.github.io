@@ -1,5 +1,8 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { Helmet } from "react-helmet";
+import "../assets/sass/pages/markdown-page.scss";
+import { Nav } from "../components/nav";
 interface Data {
   excerpt: string;
   fields: { slug: string };
@@ -11,8 +14,11 @@ interface Props {
     markdownRemark: {
       html: string;
       frontmatter: {
+        emoji: string;
         date: string;
         title: string;
+        description: string;
+        tag: string[];
       };
       fields: {
         slug: string;
@@ -25,16 +31,31 @@ interface Props {
 }
 
 const BlogSpots = ({ data }: Props) => {
-  const postInfo = data.markdownRemark;
+  const { markdownRemark, allMarkdownRemark } = data;
+  const postInfo = markdownRemark.frontmatter;
   const postsDataList = data.allMarkdownRemark.nodes;
   return (
-    <div id="main">
-      <span className="date">{postInfo.frontmatter.date}</span>
-      <section id="content" className="main">
-        <div dangerouslySetInnerHTML={{ __html: postInfo.html }} />
+    <>
+      <Helmet
+        title={postInfo.title}
+        meta={[
+          { name: "description", content: postInfo.description },
+          { name: "keywords", content: postInfo.tag.join() },
+        ]}
+      />
+      <Nav />
+      <section id="contents">
+        <header>
+          <p>{postInfo.date}</p>
+          <h2>
+            {postInfo.emoji} {postInfo.title}
+          </h2>
+          <p>tag</p>
+        </header>
+        <hr />
+        <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </section>
-      <hr />
-    </div>
+    </>
   );
 };
 
@@ -43,8 +64,11 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        emoji
         title
         date
+        description
+        tag
       }
       fields {
         slug

@@ -16,7 +16,8 @@ const TemplateWrapper = ({ children, location }: any) => {
         title="Gatsby Default Starter"
         meta={[
           { name: `description`, content: `Sample` },
-          { name: `keywords`, content: `sample, something` },
+          { name: `generator`, content: `gatsby` },
+          { name: `author`, content: `HyeokjaeLee` },
         ]}
         bodyAttributes={{ class: mode }}
       />
