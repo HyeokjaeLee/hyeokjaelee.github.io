@@ -1,12 +1,13 @@
 @import "../libs/libs-index.scss";
 
 #footer {
+  font-weight: lighter;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15rem;
   > p {
     font-size: smaller;
-    color: #e3c0c6;
+    color: $lightColor;
   }
 }

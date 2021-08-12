@@ -1,15 +1,24 @@
 @import "../libs/libs-index.scss";
 
-#main {
-  background-color: $whiteMainColor1;
-  margin: {
-    left: 10%;
-    right: 10%;
+@mixin main($color: $lightColor) {
+  #main {
+    background-color: lighten($color, 30%);
+    margin: {
+      left: 10%;
+      right: 10%;
+    }
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+    > #contents {
+      padding: 2rem;
+    }
   }
-  border-radius: $borderRadius;
-  box-shadow: $boxShadow;
-  > #contents {
-    padding: 2rem;
+}
+
+body {
+  @include main($lightColor);
+  &.dark {
+    @include main($darkColor);
   }
 }
 

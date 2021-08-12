@@ -10,23 +10,52 @@ li {
 }
 
 html {
-  color: $darkMainColor2;
+  color: $darkColor;
   font-size: 20px;
   font-family: "NotoSans";
   overflow-x: hidden;
   font-weight: regural;
 }
-::-webkit-scrollbar {
-  background-color: $bgColor2;
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: $bgColor1;
+
+@mixin switch($color: $darkColor) {
+  .switch {
+    position: absolute;
+    right: 0;
+    background-color: lighten(invert($color), 30%);
+    width: 3.5em;
+    height: 2em;
+    border: none;
+    border-radius: 2em;
+    margin: 1em;
+    > div {
+      background-color: lighten($color, 20%);
+      height: 1.6em;
+      width: 1.6em;
+      border-radius: 1.5em;
+      margin: 0.2em;
+      transition: transform 0.2s;
+      &.dark {
+        transform: translateX(1.5em);
+      }
+    }
+  }
 }
 
 body {
   height: 100vh;
   width: 100%;
-  background: url(../img/overlay.png), linear-gradient(90deg, $bgColor1, $bgColor2);
+  background: url(../img/overlay.png), linear-gradient(90deg, lighten($darkColor, 15%), $darkColor);
+
+  &::-webkit-scrollbar {
+    background-color: $darkColor;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($darkColor, 5%);
+  }
+  @include switch;
+  &.dark {
+    @include switch($lightColor);
+  }
 }

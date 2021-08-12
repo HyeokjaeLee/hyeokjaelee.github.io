@@ -1,50 +1,64 @@
 @import "../libs/libs-index.scss";
+
+@mixin index($color: $lightColor) {
+  #posts {
+    a {
+      margin-bottom: 0.5em;
+      border-radius: $borderRadius;
+      display: flex;
+      text-decoration: none;
+      transition: padding-left 0.2s, color 0.2s;
+      &:link {
+        color: lighten(invert($color), 10%);
+        background-color: lighten(invert($color), 10%);
+      }
+      &:visited {
+        color: lighten(invert($color), 30%);
+        background-color: lighten(invert($color), 30%);
+      }
+      &:hover {
+        color: lighten(invert($color), 40%);
+        padding-left: 0.5em;
+      }
+      > div {
+        padding: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: lighten($color, 30%);
+        border-bottom: 1.5px solid $mediumColor;
+        .date {
+          font-size: smaller;
+        }
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5em;
+    > li {
+      font-weight: lighter;
+      font-size: small;
+      padding: 0.1em 0.5em 0.2em 0.5em;
+      background-color: lighten(invert($color), 15%);
+      border-radius: 2em;
+      margin: 0.2em;
+      color: $color;
+    }
+  }
+}
+
 #contents {
   ul {
     list-style: none;
   }
 }
-#posts {
-  a {
-    display: flex;
-    text-decoration: none;
-    transition: padding-left 0.3s;
-    &:link {
-      color: $darkMainColor1;
-      background-color: $bgColor1;
-    }
-    &:visited {
-      color: $darkMainColor2;
-      background-color: $bgColor2;
-    }
-    &:hover {
-      padding-left: 0.5em;
-    }
-    > div {
-      padding: 1em;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      background-color: $whiteMainColor1;
-      border-bottom: 1px solid $middleColor;
-      .date {
-        font-size: smaller;
-        color: $middleColor;
-      }
-    }
-  }
-}
 
-.tags {
-  display: flex;
-  margin-top: 0.5em;
-  > li {
-    font-weight: lighter;
-    font-size: small;
-    padding: 0.1em 0.5em 0.2em 0.5em;
-    background-color: $bgColor1;
-    border-radius: 2em;
-    margin: 0 0.2em;
-    color: $whiteMainColor1;
+body {
+  @include index;
+  &.dark {
+    @include index($darkColor);
   }
 }

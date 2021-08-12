@@ -1,16 +1,12 @@
 //사용할 색상 선언
-$darkMainColor1: #3b3b3b;
-$darkMainColor2: #2e2e2e;
-$middleColor: #b4b4b4;
-$whiteMainColor1: #ffffff;
-$whiteMainColor2: #f7f7f7;
-$staticTxtColor1: #d3c0d6;
-$staticTxtColor2: #e3c0c6;
-$bgColor1: #e37682;
-$bgColor2: #5f4d93;
+
+$lightColor: #e9e9e9;
+$darkColor: #3b3b3b;
+$mediumColor: mix($lightColor, $darkColor, 90%);
+$staticColor: #4838ff;
 
 $boxShadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 
-$borderRadius: 5px;
+$borderRadius: 0.5em;
 $txtColor: #e3c0c6;
 $animationDuration: 0.4s;
