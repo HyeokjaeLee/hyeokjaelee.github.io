@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "HyeokjaeLee",
   "dependencies": {
+    "trim": ">=0.0.3",
+    "sanitize-html": ">=2.3.2",
     "gatsby": "next",
     "gatsby-plugin-layout": "next",
     "gatsby-plugin-react-helmet": "next",
