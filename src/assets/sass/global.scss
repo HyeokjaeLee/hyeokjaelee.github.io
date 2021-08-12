@@ -48,8 +48,8 @@ body {
 
   &::-webkit-scrollbar {
     background-color: $darkColor;
-    width: 5px;
-    height: 5px;
+    width: 0.25em;
+    height: 0.25em;
   }
   &::-webkit-scrollbar-thumb {
     background-color: lighten($darkColor, 5%);
@@ -57,5 +57,23 @@ body {
   @include switch;
   &.dark {
     @include switch($lightColor);
+  }
+}
+
+//모바일 인터페이스 개선
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus {
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  #main {
+    margin: 0;
   }
 }

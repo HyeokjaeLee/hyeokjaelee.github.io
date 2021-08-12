@@ -1,17 +1,20 @@
 @import "../libs/libs-index.scss";
 
+#main {
+  margin: {
+    left: 10%;
+    right: 10%;
+  }
+  border-radius: $borderRadius;
+  box-shadow: $boxShadow;
+  > #contents {
+    padding: 1em;
+  }
+}
+
 @mixin main($color: $lightColor) {
   #main {
     background-color: lighten($color, 30%);
-    margin: {
-      left: 10%;
-      right: 10%;
-    }
-    border-radius: $borderRadius;
-    box-shadow: $boxShadow;
-    > #contents {
-      padding: 2rem;
-    }
   }
 }
 
