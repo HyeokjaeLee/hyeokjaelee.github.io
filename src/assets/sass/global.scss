@@ -22,7 +22,6 @@ html {
 
 @mixin switch($color: $darkColor) {
   .switch {
-    cursor: pointer;
     position: absolute;
     right: 0;
     background-color: lighten(invert($color), 30%);
@@ -65,7 +64,9 @@ body {
 }
 
 //모바일 인터페이스 개선
-a {
+a,
+button {
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 button:focus {
