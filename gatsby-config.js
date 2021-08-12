@@ -3,6 +3,14 @@ module.exports = {
     title: `Gatsby Default Starter`,
   },
   plugins: [
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-emoji`, // <-- this line adds emoji
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-typescript",
     "gatsby-plugin-sass",
@@ -19,6 +27,5 @@ module.exports = {
         path: `./contents`,
       },
     },
-    `gatsby-transformer-remark`,
   ],
 };
