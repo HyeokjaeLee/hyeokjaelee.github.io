@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-tsx-266738d2e8693f860127.js","mappings":"uJAIA,UAFqB,kBAAM","sources":["webpack://hyeokjaelee.github.io/./src/pages/404.tsx"],"sourcesContent":["import React from \"react\";\r\nimport { Nav } from \"../components/nav\";\r\nconst NotFoundPage = () => <></>;\r\n\r\nexport default NotFoundPage;\r\n"],"names":[],"sourceRoot":""}
