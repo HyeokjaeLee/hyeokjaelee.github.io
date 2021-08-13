@@ -33,7 +33,7 @@ const BlogSpots = ({ data }: Props) => {
   const { markdownRemark, allMarkdownRemark } = data;
   const postInfo = markdownRemark.frontmatter;
   const postsDataList = data.allMarkdownRemark.nodes;
-  postInfo.tag.map((_tag) => {});
+  const tags = postInfo.tag.map((_tag) => <li>{_tag}</li>);
   return (
     <>
       <Helmet
@@ -50,7 +50,7 @@ const BlogSpots = ({ data }: Props) => {
           <h2>
             {postInfo.emoji} {postInfo.title}
           </h2>
-          <p></p>
+          <ul className="tags individuals">{tags}</ul>
         </header>
         <hr />
         <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
