@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import "../assets/sass/components/nav.scss";
 export const Nav = () => {
   return (
     <>

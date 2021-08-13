@@ -1,7 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import "../assets/sass/pages/markdown-page.scss";
 import { Nav } from "../components/nav";
 interface Data {
   excerpt: string;
@@ -34,6 +33,7 @@ const BlogSpots = ({ data }: Props) => {
   const { markdownRemark, allMarkdownRemark } = data;
   const postInfo = markdownRemark.frontmatter;
   const postsDataList = data.allMarkdownRemark.nodes;
+  postInfo.tag.map((_tag) => {});
   return (
     <>
       <Helmet
@@ -50,7 +50,7 @@ const BlogSpots = ({ data }: Props) => {
           <h2>
             {postInfo.emoji} {postInfo.title}
           </h2>
-          <p>tag</p>
+          <p></p>
         </header>
         <hr />
         <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />

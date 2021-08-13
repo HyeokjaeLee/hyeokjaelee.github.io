@@ -1,52 +1,43 @@
-@import "./libs/libs-index.scss";
+//libs scss
+@import "./libs/_animations.scss";
+@import "./libs/_vars.scss";
 @import "../fonts/font.css";
-*,
-body,
-div,
-ul,
-li {
-  padding: 0;
-  margin: 0;
+//components scss
+@import "./components/_footer.scss";
+@import "./components/_header.scss";
+@import "./components/_main.scss";
+@import "./components/_nav.scss";
+@import "./components/theme-switch";
+//pages scss
+@import "./pages/_index.scss";
+@import "./pages/_markdown.scss";
+
+//다크모드 지원
+@mixin theme($color: $lightColor) {
+  //components
+  @include header($color);
+  @include main($color);
+  @include nav($color);
+  @include theme-switch($color);
+  //pages
+  @include index($color);
 }
 
 img {
-  max-width: 100%;
+  max-height: 100%;
+  max-height: 40em;
 }
 
 html {
   font-size: 20px;
   font-family: "NotoSans";
-  overflow-x: hidden;
   font-weight: regural;
-}
-
-@mixin switch($color: $darkColor) {
-  .switch {
-    position: absolute;
-    right: 0;
-    background-color: lighten(invert($color), 30%);
-    width: 3.5em;
-    height: 2em;
-    border: none;
-    border-radius: 2em;
-    margin: 1em;
-    > div {
-      background-color: lighten($color, 20%);
-      height: 1.6em;
-      width: 1.6em;
-      border-radius: 1.5em;
-      margin: 0.2em;
-      transition: transform 0.2s;
-      &.dark {
-        transform: translateX(1.5em);
-      }
-    }
-  }
 }
 
 body {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
   background: url(../img/overlay.png), linear-gradient(90deg, lighten($darkColor, 15%), $darkColor);
 
   &::-webkit-scrollbar {
@@ -57,9 +48,9 @@ body {
   &::-webkit-scrollbar-thumb {
     background-color: lighten($darkColor, 20%);
   }
-  @include switch;
+  @include theme;
   &.dark {
-    @include switch($lightColor);
+    @include theme($darkColor);
   }
 }
 

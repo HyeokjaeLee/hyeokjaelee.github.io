@@ -1,5 +1,3 @@
-@import "../libs/libs-index.scss";
-
 #main {
   margin: {
     left: 10%;
@@ -16,13 +14,6 @@
   #main {
     color: lighten(invert($color), 30%);
     background-color: lighten($color, 30%);
-  }
-}
-
-body {
-  @include main($lightColor);
-  &.dark {
-    @include main($darkColor);
   }
 }
 

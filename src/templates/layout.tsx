@@ -3,13 +3,13 @@ import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Main } from "../components/main";
-import "../assets/sass/global.scss";
-
+import "../assets/sass/index.scss";
+import { ThemeSwitch } from "../components/theme-switch";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 const TemplateWrapper = ({ children, location }: any) => {
   const [mode, setMode] = useState("light");
-  const click = () => setMode(mode === "light" ? "dark" : "light");
+
   return (
     <>
       <Helmet
@@ -21,15 +21,7 @@ const TemplateWrapper = ({ children, location }: any) => {
         ]}
         bodyAttributes={{ class: mode }}
       />
-      <button
-        className="switch"
-        onClick={() => {
-          click();
-        }}
-      >
-        <div className={mode} />
-      </button>
-
+      <ThemeSwitch theme={mode} setTheme={setMode} />
       <Header />
       <Main location={location}>{children}</Main>
       <Footer />

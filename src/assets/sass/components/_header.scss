@@ -1,0 +1,33 @@
+@mixin header($color: $lightColor) {
+  #header {
+    font-weight: lighter;
+    color: lighten($lightColor, 20%);
+    display: flex;
+    align-items: center;
+
+    padding: {
+      top: 15vh;
+      bottom: 10vh;
+    }
+    flex-direction: column;
+    > .title {
+      @include text-focus-in(0.6s);
+      text-align: center;
+      > h1 {
+        font-weight: 100;
+      }
+      > p {
+        color: $lightColor;
+      }
+    }
+    > .logo {
+      margin: 2em;
+      background-color: lighten($color, 20%);
+      padding: 1.2em;
+      height: 4em;
+      border-radius: $borderRadius;
+      box-shadow: $boxShadow;
+      @include bounce-in-top(1s, 0.4s);
+    }
+  }
+}

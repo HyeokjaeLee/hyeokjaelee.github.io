@@ -2,7 +2,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { Nav } from "../components/nav";
-import "../assets/sass/pages/index.scss";
 
 interface Nodes {
   excerpt: string;
@@ -29,6 +28,11 @@ interface Props {
 }
 const Index = ({ data }: Props) => {
   const { group, nodes } = data.allMarkdownRemark;
+  const tagList = group.map((item) => (
+    <li>
+      {item.tag} ({item.totalCount})
+    </li>
+  ));
   const postList = nodes.map((node) => {
     const { emoji, title, date, description, tag } = node.frontmatter;
     const tagListElement = tag.map((_tag) => <li>{_tag}</li>);
@@ -41,7 +45,7 @@ const Index = ({ data }: Props) => {
               {emoji} {title}
             </h2>
             <p>{description}</p>
-            <ul className="tags">{tagListElement}</ul>
+            <ul className="tags individuals">{tagListElement}</ul>
           </div>
         </Link>
       </li>
@@ -51,6 +55,7 @@ const Index = ({ data }: Props) => {
     <>
       <Nav />
       <section id="contents">
+        <ul className="tags entire">{tagList}</ul>
         <ul id="posts">{postList}</ul>
       </section>
     </>

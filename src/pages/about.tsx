@@ -6,16 +6,9 @@ import { Nav } from "../components/nav";
 const About = () => (
   <>
     <Nav />
-    <h1>animals</h1>
-    <div>
-      <Link to="/cat/">Go to cat</Link>
-    </div>
-    <div>
-      <Link to="/dog/">Go to dog</Link>
-    </div>
-    <div>
-      <Link to="/long-page/">Go to long page</Link>
-    </div>
+    <section id="contents">
+      <h1>🚧준비중입니다.</h1>
+    </section>
   </>
 );
 

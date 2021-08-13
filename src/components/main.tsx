@@ -1,6 +1,5 @@
 import React from "react";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
-import "../assets/sass/components/main.scss";
 const timeout = 400;
 interface TransitionStatus {
   entering: string;

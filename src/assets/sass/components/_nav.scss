@@ -1,5 +1,3 @@
-@import "../libs/vars.scss";
-
 @mixin nav($mode: $lightColor) {
   .nav,
   .topPadding,
@@ -16,6 +14,7 @@
     position: sticky;
     top: 0;
     > ul {
+      margin: 0;
       list-style: none;
       box-sizing: border-box;
       padding: 0 0.5em;
@@ -47,11 +46,4 @@
 }
 .bottomPadding {
   height: 0.5em;
-}
-
-body {
-  @include nav($lightColor);
-  &.dark {
-    @include nav($darkColor);
-  }
 }
