@@ -7,6 +7,7 @@ export const ThemeSwitch = (props: Props) => {
   const { theme, setTheme } = props;
   return (
     <button
+      title="themeSwitch"
       className={`theme-switch`}
       onClick={() => {
         setTheme(theme === "light" ? "dark" : "light");

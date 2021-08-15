@@ -42,7 +42,7 @@
     > li {
       padding: 0.1em 0.5em 0.2em 0.5em;
       border-radius: 2em;
-      margin: 0.5em 0.2em;
+      margin: 0.3em 0.2em;
     }
     &.entire {
       margin : {
@@ -55,8 +55,10 @@
         border: 1px solid $mediumColor;
         transition: background-color 0.3s;
         cursor: pointer;
-        &:hover {
-          background-color: lighten($mediumColor, 10%);
+        &:hover,
+        &.checked {
+          background-color: lighten(invert($color), 50%);
+          color: $color;
         }
       }
     }
@@ -65,7 +67,23 @@
         font-size: small;
         background-color: lighten(invert($color), 15%);
         color: $color;
+        transition: background-color 0.5s;
+        &.checked {
+          background-color: lighten(invert($color), 50%);
+          color: $color;
+        }
       }
     }
+  }
+}
+
+.emptyPost {
+  padding: 3em 0;
+  text-align: center;
+  > .icon {
+    font-size: 3em;
+  }
+  > h1 {
+    margin-bottom: 1em;
   }
 }
