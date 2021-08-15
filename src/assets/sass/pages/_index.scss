@@ -20,9 +20,6 @@
         padding-left: 0.5em;
       }
       > div {
-        > * {
-          margin: 0;
-        }
         padding: 1em;
         width: 100%;
         display: flex;
@@ -30,6 +27,7 @@
         background-color: lighten($color, 30%);
         border-bottom: 1.5px solid $mediumColor;
         .date {
+          font-style: italic;
           font-size: smaller;
         }
       }
@@ -41,26 +39,31 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 0.2em;
-    padding: 0;
     > li {
       padding: 0.1em 0.5em 0.2em 0.5em;
       border-radius: 2em;
       margin: 0.5em 0.2em;
     }
     &.entire {
+      margin : {
+        left: 10%;
+        right: 10%;
+      }
       justify-content: center;
       > li {
+        font-size: 0.9em;
         border: 1px solid $mediumColor;
-        font-size: smaller;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        &:hover {
+          background-color: lighten($mediumColor, 10%);
+        }
       }
     }
     &.individuals {
       > li {
-        font-weight: lighter;
         font-size: small;
-
         background-color: lighten(invert($color), 15%);
-
         color: $color;
       }
     }

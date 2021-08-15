@@ -28,11 +28,7 @@ interface Props {
 }
 const Index = ({ data }: Props) => {
   const { group, nodes } = data.allMarkdownRemark;
-  const tagList = group.map((item) => (
-    <li>
-      {item.tag} ({item.totalCount})
-    </li>
-  ));
+  const tagList = group.map((item) => <li>{item.tag}</li>);
   const postList = nodes.map((node) => {
     const { emoji, title, date, description, tag } = node.frontmatter;
     const tagListElement = tag.map((_tag) => <li>{_tag}</li>);
@@ -40,7 +36,7 @@ const Index = ({ data }: Props) => {
       <li>
         <Link to={node.fields.slug}>
           <div>
-            <p className="date">{date}</p>
+            <p className="date">Posted on {date}</p>
             <h2>
               {emoji} {title}
             </h2>
