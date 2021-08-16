@@ -27,3 +27,10 @@
     color: gray;
   }
 }
+
+#comments {
+  background-color: lighten($lightColor, 5%);
+  border-radius: $borderRadius;
+  margin: 2em;
+  border: 1px solid $mediumColor;
+}

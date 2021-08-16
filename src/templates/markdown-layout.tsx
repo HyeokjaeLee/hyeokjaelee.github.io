@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Nav } from "../components/nav";
+import { Utterances } from "../components/utterances";
 interface Data {
   excerpt: string;
   fields: { slug: string };
@@ -33,7 +34,7 @@ const BlogSpots = ({ data }: Props) => {
   const { markdownRemark, allMarkdownRemark } = data;
   const postInfo = markdownRemark.frontmatter;
   const postsDataList = data.allMarkdownRemark.nodes;
-  const tags = postInfo.tag.map((_tag) => <li>{_tag}</li>);
+  const tags = postInfo.tag.map((_tag, index) => <li key={index}>{_tag}</li>);
   return (
     <>
       <Helmet
@@ -55,6 +56,7 @@ const BlogSpots = ({ data }: Props) => {
         <hr />
         <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </section>
+      <Utterances />
     </>
   );
 };

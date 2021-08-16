@@ -2,6 +2,7 @@
   .nav,
   .topPadding,
   .bottomPadding {
+    z-index: 3;
     border-style: hidden;
     background-color: $mode;
   }
