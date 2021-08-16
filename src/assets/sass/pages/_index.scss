@@ -2,6 +2,7 @@
   #posts {
     list-style: none;
     a {
+      padding: 0;
       margin-bottom: 0.5em;
       border-radius: $borderRadius;
       display: flex;

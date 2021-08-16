@@ -21,29 +21,16 @@
   @include theme-switch($color);
   //pages
   @include index($color);
-  button,
   a {
-    color: lighten(invert($color), 40%);
-    border-radius: $borderRadius;
-    padding: 0.3em 1em;
-    font-weight: lighter;
-    cursor: pointer;
-  }
-  button {
-    border-style: none;
-    font-size: 1em;
-    font-family: "NotoSans";
-    background-color: rgba(255, 255, 255, 0);
-    transition: background-color 0.3s;
-  }
-  a {
-    display: block;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  button:hover,
-  a:hover {
-    background-color: lighten($color, 4%);
+    &:link {
+      color: lighten(invert($color), 10%);
+    }
+    &:visited {
+      color: lighten(invert($color), 30%);
+    }
+    &:hover {
+      color: lighten(invert($color), 40%);
+    }
   }
 }
 
