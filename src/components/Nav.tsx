@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "gatsby";
-export const Nav = () => {
+export const Nav = (props: any) => {
+  const { elements } = props;
   return (
     <>
-      <div className="topPadding" />
+      <div className="nav-padding top" />
       <nav className="nav">
-        <ul>
+        <div className="nav-item"> {elements}</div>
+        <ul className="nav-item link">
           <li>
             <Link to="/">Posts</Link>
           </li>
@@ -17,7 +19,7 @@ export const Nav = () => {
           </li>
         </ul>
       </nav>
-      <div className="bottomPadding" />
+      <div className="nav-padding" />
     </>
   );
 };

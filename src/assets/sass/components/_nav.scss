@@ -1,50 +1,34 @@
-@mixin nav($mode: $lightColor) {
+@mixin nav($color: $lightColor) {
   .nav,
-  .topPadding,
-  .bottomPadding {
-    z-index: 3;
+  .nav-padding {
+    z-index: 2;
     border-style: hidden;
-    background-color: $mode;
+    background-color: $color;
   }
   .nav {
-    font-weight: lighter;
-    a {
-      color: invert($mode);
-      text-decoration: none;
-    }
+    padding: 0.2em 1em;
+    flex-wrap: wrap;
     position: sticky;
     top: 0;
-    > ul {
-      margin: 0;
-      list-style: none;
-      box-sizing: border-box;
-      padding: 0 0.5em;
-      width: 100%;
-      height: 100%;
+    display: flex;
+    .nav-item {
       display: flex;
-      justify-content: flex-end;
+      flex-wrap: nowrap;
+      flex: 1;
       align-items: center;
-      > li {
-        text-align: center;
-        width: 5em;
-        border-radius: $borderRadius;
-        padding: 0.2em 0 0.3em 0;
-        font-size: smaller;
-        margin: 0.3em;
-        transition: background-color 0.3s;
-      }
-      > li:hover {
-        background-color: lighten($mode, 10%);
+      &.link {
+        justify-content: flex-end;
+        > li {
+          display: inline-block;
+        }
       }
     }
   }
 }
-
-.topPadding {
-  border-top-left-radius: $borderRadius;
-  border-top-right-radius: $borderRadius;
+.nav-padding {
   height: 0.5em;
-}
-.bottomPadding {
-  height: 0.5em;
+  &.top {
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+  }
 }

@@ -1,4 +1,4 @@
-#contents {
+.contentsWrap {
   > header {
     p {
       font-size: smaller;
@@ -28,9 +28,41 @@
   }
 }
 
-#comments {
-  background-color: lighten($lightColor, 5%);
+.comments {
+  margin-top: 2em;
+  display: none;
+  z-index: 3;
+  position: absolute;
+  box-shadow: $boxShadow;
+  background-color: rgba($mediumColor, 98%);
+  width: 80%;
+  max-width: 40em;
+  max-height: 80vh;
+  top: 0;
+
   border-radius: $borderRadius;
-  margin: 2em;
-  border: 1px solid $mediumColor;
+  border-top-left-radius: 0px;
+  padding: 1em;
+  &.open {
+    @include fade-in(0.2s);
+    display: block;
+  }
+
+  > div {
+    padding: 1em;
+    margin: 1em;
+    max-height: 70vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    box-shadow: $boxShadow inset;
+    border-radius: $borderRadius;
+  }
+}
+.commentsBtn {
+  &.open {
+    color: $darkColor;
+    background-color: rgba($mediumColor, 98%);
+  }
 }

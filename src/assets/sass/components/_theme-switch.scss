@@ -21,4 +21,7 @@
       }
     }
   }
+  .theme-switch:hover {
+    background-color: lighten($color, 20%);
+  }
 }

@@ -1,20 +1,17 @@
-#main {
-  margin: {
-    left: 10%;
-    right: 10%;
-  }
-  border-radius: $borderRadius;
-  box-shadow: $boxShadow;
-  > #contents {
-    padding: 1em;
-  }
-}
-
 @mixin main($color: $lightColor) {
   #main {
-    color: lighten(invert($color), 30%);
-    background-color: lighten($color, 30%);
     padding-bottom: 0.1px;
+    > .contentsWrap {
+      margin: 0 10%;
+      border-radius: $borderRadius;
+      box-shadow: $boxShadow;
+      color: lighten(invert($color), 30%);
+      background-color: lighten($color, 30%);
+      padding-bottom: 1em;
+      > .contents {
+        margin: 2em 3em;
+      }
+    }
   }
 }
 

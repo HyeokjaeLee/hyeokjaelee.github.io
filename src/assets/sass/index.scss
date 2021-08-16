@@ -21,6 +21,30 @@
   @include theme-switch($color);
   //pages
   @include index($color);
+  button,
+  a {
+    color: lighten(invert($color), 40%);
+    border-radius: $borderRadius;
+    padding: 0.3em 1em;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+  button {
+    border-style: none;
+    font-size: 1em;
+    font-family: "NotoSans";
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  button:hover,
+  a:hover {
+    background-color: lighten($color, 4%);
+  }
 }
 
 * {
@@ -47,36 +71,38 @@ body {
   overflow-x: hidden;
   background: url(../img/overlay.png), linear-gradient(90deg, lighten($darkColor, 15%), $darkColor);
   word-break: keep-all;
-  &::-webkit-scrollbar {
-    background-color: $darkColor;
-    width: 0.25em;
-    height: 0.25em;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: lighten($darkColor, 20%);
-  }
+
   @include theme;
   &.dark {
     @include theme($darkColor);
   }
 }
 
+::-webkit-scrollbar {
+  background-color: $darkColor;
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: lighten($darkColor, 20%);
+}
+
 //모바일 인터페이스 개선
-a,
-button {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-button:focus {
-  border: none;
-  outline: none;
-}
 
 @media screen and (max-width: 768px) {
   html {
     font-size: 14px;
   }
   #main {
-    margin: 0;
+    margin: 0.5em;
+  }
+  a,
+  button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:focus {
+    border: none;
+    outline: none;
   }
 }

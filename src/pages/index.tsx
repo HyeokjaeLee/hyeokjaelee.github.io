@@ -93,13 +93,13 @@ const Index = ({ data }: Props) => {
     );
   });
   return (
-    <>
+    <div className="contentsWrap">
       <Nav />
-      <section id="contents">
+      <section className="contents">
         <ul className="tags entire">{entireTagList}</ul>
         <ul id="posts">{PostList.length !== 0 ? PostList : EmptyPostElement}</ul>
       </section>
-    </>
+    </div>
   );
 };
 

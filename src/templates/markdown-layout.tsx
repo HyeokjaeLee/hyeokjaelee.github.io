@@ -1,8 +1,45 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Nav } from "../components/nav";
-import { Utterances } from "../components/utterances";
+
+export const Utterances = () => {
+  //알맞은 타입을 못찾겠음.
+  const commentsEl: any = useRef();
+  const [status, setStatus] = useState("pending");
+  useEffect(() => {
+    const scriptEl = document.createElement("script");
+    scriptEl.onload = () => setStatus("success");
+    scriptEl.onerror = () => setStatus("failed");
+    scriptEl.async = true;
+    scriptEl.src = "https://utteranc.es/client.js";
+    scriptEl.setAttribute("repo", "HyeokjaeLee/hyeokjaelee.github.io");
+    scriptEl.setAttribute("issue-term", "title");
+    scriptEl.setAttribute("theme", "github-light");
+    scriptEl.setAttribute("crossorigin", "anonymous");
+    commentsEl.current.appendChild(scriptEl);
+  }, []);
+  const [windowState, setWindowState] = useState("");
+  return (
+    <>
+      <section className={`comments ${windowState}`}>
+        <div ref={commentsEl}></div>
+      </section>
+      <button
+        onClick={() => {
+          const window = windowState === "" ? "open" : "";
+          setWindowState(window);
+        }}
+        className={`commentsBtn ${windowState}`}
+      >
+        Comment
+      </button>
+      {status === "failed" && <div>Error. Please try again.</div>}
+      {status === "pending" && <div>Loading script...</div>}
+    </>
+  );
+};
+
 interface Data {
   excerpt: string;
   fields: { slug: string };
@@ -44,19 +81,22 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tag.join() },
         ]}
       />
-      <Nav />
-      <section id="contents">
-        <header>
-          <p>{postInfo.date}</p>
-          <h2>
-            {postInfo.emoji} {postInfo.title}
-          </h2>
-          <ul className="tags individuals">{tags}</ul>
-        </header>
-        <hr />
-        <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-      </section>
-      <Utterances />
+
+      <div className="contentsWrap">
+        <Nav elements={<Utterances />} />
+
+        <section className="contents">
+          <header>
+            <p>{postInfo.date}</p>
+            <h2>
+              {postInfo.emoji} {postInfo.title}
+            </h2>
+            <ul className="tags individuals">{tags}</ul>
+          </header>
+          <hr />
+          <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        </section>
+      </div>
     </>
   );
 };
