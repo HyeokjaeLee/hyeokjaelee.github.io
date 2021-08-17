@@ -3,7 +3,6 @@ $lightColor: #e9e9e9;
 $darkColor: #3b3b3b;
 $mediumColor: mix($lightColor, $darkColor, 90%);
 //공통 그림자
-$boxShadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-
+$boxShadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 $borderRadius: 5px;
 $mobileWidth: 767px;

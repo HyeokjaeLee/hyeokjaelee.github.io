@@ -1,6 +1,6 @@
 import React from "react";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
-const timeout = 400;
+const timeout = 600;
 interface TransitionStatus {
   entering: string;
   entered: string;

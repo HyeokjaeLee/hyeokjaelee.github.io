@@ -109,71 +109,14 @@
   }
 }
 
-//오른쪽에서 들어오는 슬라이드 효과
-@mixin slide-in-right($duration: 1s, $delay: 0s) {
-  -webkit-animation: slide-in-right $duration cubic-bezier(0.25, 0.46, 0.45, 0.94) $delay both;
-  animation: slide-in-right $duration cubic-bezier(0.25, 0.46, 0.45, 0.94) $delay both;
-}
-@-webkit-keyframes slide-in-right {
-  0% {
-    -webkit-transform: translateX(100vw);
-    transform: translateX(100vw);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-right {
-  0% {
-    -webkit-transform: translateX(100vw);
-    transform: translateX(100vw);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
+//블러 포커스인 효과
+@mixin focus-in($duration: 1s, $delay: 0s) {
+  -webkit-animation: focus-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+  animation: focus-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
 }
 
-//왼쪽으로 나가는 슬라이드 효과
-@mixin slide-out-left($duration: 1s, $delay: 0s) {
-  -webkit-animation: slide-out-left $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-  animation: slide-out-left $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-}
-@-webkit-keyframes slide-out-left {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(-100vw);
-    transform: translateX(-100vw);
-    opacity: 0;
-  }
-}
-@keyframes slide-out-left {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(-100vw);
-    transform: translateX(-100vw);
-    opacity: 0;
-  }
-}
-@mixin text-focus-in($duration: 1s, $delay: 0s) {
-  -webkit-animation: text-focus-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-  animation: text-focus-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-}
-
-@-webkit-keyframes text-focus-in {
+//
+@-webkit-keyframes focus-in {
   0% {
     -webkit-filter: blur(12px);
     filter: blur(12px);
@@ -185,7 +128,7 @@
     opacity: 1;
   }
 }
-@keyframes text-focus-in {
+@keyframes focus-in {
   0% {
     -webkit-filter: blur(12px);
     filter: blur(12px);
@@ -195,5 +138,64 @@
     -webkit-filter: blur(0px);
     filter: blur(0px);
     opacity: 1;
+  }
+}
+@mixin slide-in-bottom($duration: 1s, $delay: 0s) {
+  -webkit-animation: slide-in-bottom $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+  animation: slide-in-bottom $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(100vh);
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@mixin slide-out-bottom($duration: 1s, $delay: 0s) {
+  -webkit-animation: slide-out-bottom $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+  animation: slide-out-bottom $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+}
+
+@-webkit-keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(100vh);
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(100vh);
+    transform: translateY(100vh);
+    opacity: 0;
   }
 }

@@ -3,18 +3,18 @@
     color: lighten(invert($color), 30%);
     margin: 0 10%;
     @media screen and (max-width: $mobileWidth) {
-      margin: 0 2%;
+      margin: 0 4%;
     }
     > .slide {
       &.in {
-        @include slide-in-right(0.4s);
+        @include slide-in-bottom(0.6s);
       }
       &.ing {
         position: absolute;
         opacity: 0;
       }
       &.out {
-        @include slide-out-left(0.4s);
+        @include slide-out-bottom(0.6s);
       }
     }
   }
@@ -25,6 +25,7 @@
       border-radius: $borderRadius;
       padding: 1.8em;
       background-color: lighten($color, 30%);
+      margin-bottom: 2em;
       &.first {
         border-top-left-radius: 0;
         border-top-right-radius: 0;

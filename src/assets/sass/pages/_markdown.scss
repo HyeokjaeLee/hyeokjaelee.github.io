@@ -1,4 +1,38 @@
 @mixin markdown-page($color: $lightColor) {
+  #otherContents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    > a {
+      padding: 10px;
+      display: flex;
+      flex: 1;
+      align-items: center;
+
+      transition: padding 0.3s, background-color 0.3s;
+      border-radius: $borderRadius;
+
+      @media screen and (min-width: $mobileWidth) {
+        &:hover {
+          background-color: $color;
+          padding: 10px 0;
+        }
+      }
+      &.left {
+        text-align: left;
+        justify-content: flex-start;
+      }
+      &.right {
+        text-align: right;
+        justify-content: flex-end;
+      }
+    }
+    .arrow {
+      height: 2em;
+      width: 2em;
+      margin: 0 1.5em;
+    }
+  }
   #md-article {
     > header {
       p {
@@ -20,6 +54,27 @@
       h5,
       h6 {
         margin-top: 1em;
+      }
+    }
+    > footer {
+      border-radius: $borderRadius;
+      background-color: $color;
+      display: flex;
+      margin-top: 2em;
+      padding: 2em;
+      > .profile {
+        &.pic {
+          width: 8em;
+          height: 8em;
+          border-radius: 4em;
+        }
+        &.text {
+          > h1 {
+            font-weight: normal;
+          }
+          font-weight: lighter;
+          margin: 2em;
+        }
       }
     }
     .descriptionPic {
@@ -45,7 +100,7 @@
     padding: 1em;
     overflow-y: scroll;
     &.open {
-      @include text-focus-in(0.2s);
+      @include focus-in(0.2s);
       display: block;
     }
   }
