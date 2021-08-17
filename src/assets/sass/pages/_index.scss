@@ -2,7 +2,6 @@
   #posts {
     list-style: none;
     a {
-      padding: 0;
       margin-bottom: 0.5em;
       border-radius: $borderRadius;
       display: flex;
@@ -76,15 +75,14 @@
       }
     }
   }
-}
-
-.emptyPost {
-  padding: 3em 0;
-  text-align: center;
-  > .icon {
-    font-size: 3em;
-  }
-  > h1 {
-    margin-bottom: 1em;
+  .emptyPost {
+    padding: 3em 0;
+    text-align: center;
+    > .icon {
+      font-size: 3em;
+    }
+    > h1 {
+      margin-bottom: 1em;
+    }
   }
 }

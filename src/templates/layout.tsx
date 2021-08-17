@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children, location }: any) => {
       <Helmet
         title="Gatsby Default Starter"
         meta={[
-          { name: `description`, content: `Sample` },
+          { name: `description`, content: `programming & tech blog` },
           { name: `generator`, content: `gatsby` },
           { name: `author`, content: `HyeokjaeLee` },
         ]}

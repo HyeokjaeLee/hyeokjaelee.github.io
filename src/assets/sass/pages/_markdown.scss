@@ -1,74 +1,66 @@
-.contents {
-  > header {
-    p {
-      font-size: smaller;
+@mixin markdown-page($color: $lightColor) {
+  #md-article {
+    > header {
+      p {
+        font-size: smaller;
+      }
+      margin-bottom: 1em;
     }
-    margin-bottom: 1em;
-  }
-  > article {
-    ul,
-    li {
-      margin-top: 0.5em;
-      font-size: 0.95em;
-      margin-left: 0.9em;
-      list-style: inside;
+    > section {
+      ul,
+      li {
+        margin-top: 0.5em;
+        font-size: 0.95em;
+        margin-left: 0.9em;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 1em;
+      }
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 1em;
+    .descriptionPic {
+      font-size: 0.9em;
+      color: gray;
     }
   }
-  .descriptionPic {
-    font-size: 0.9em;
-    color: gray;
-  }
-}
 
-.comments {
-  margin-top: 2em;
-  display: none;
-  z-index: 3;
-  position: absolute;
-  box-shadow: $boxShadow;
-  background-color: rgba($mediumColor, 98%);
-  width: 80%;
-  max-width: 40em;
-  max-height: 80vh;
-  top: 0;
-  border-radius: $borderRadius;
-  border-top-left-radius: 0;
-  padding: 1em;
-  &.open {
-    @include fade-in(0.2s);
-    display: block;
-  }
-  > div {
-    padding: 1em;
-    margin: 1em;
-    max-height: 70vh;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    box-shadow: $boxShadow inset;
-    border-radius: $borderRadius;
-  }
-}
-.commentsBtn {
-  font-weight: lighter;
-  border-radius: $borderRadius;
-  padding: 0.3em 1em;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-style: none;
-  font-size: 1em;
-  font-family: "NotoSans";
-  transition: background-color 0.3s;
-  &.open {
-    color: $darkColor;
+  .comments {
+    margin-top: 2em;
+    display: none;
+    z-index: 3;
+    position: absolute;
+    box-shadow: $boxShadow;
     background-color: rgba($mediumColor, 98%);
+    width: 80%;
+    max-width: 40em;
+    max-height: 80vh;
+    top: 0;
+    border-radius: $borderRadius;
+    overflow: hidden;
+    border-top-left-radius: 0;
+    padding: 1em;
+    overflow-y: scroll;
+    &.open {
+      @include text-focus-in(0.2s);
+      display: block;
+    }
+  }
+  .commentsBtn {
+    color: lighten(invert($color), 40%);
+    font-weight: lighter;
+    border-radius: $borderRadius;
+    padding: 0.3em 1em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-style: none;
+
+    transition: background-color 0.3s;
+    &.open {
+      color: invert($mediumColor);
+      background-color: rgba($mediumColor, 98%);
+    }
   }
 }

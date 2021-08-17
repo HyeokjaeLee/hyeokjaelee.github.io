@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Nav } from "../components/nav";
 
-export const Utterances = () => {
+const Utterances = () => {
   //알맞은 타입을 못찾겠음.
   const commentsEl: any = useRef();
   const [status, setStatus] = useState("pending");
@@ -22,9 +22,7 @@ export const Utterances = () => {
   const [windowState, setWindowState] = useState("");
   return (
     <>
-      <section className={`comments ${windowState}`}>
-        <div ref={commentsEl}></div>
-      </section>
+      <section ref={commentsEl} className={`comments ${windowState}`}></section>
       <button
         onClick={() => {
           const window = windowState === "" ? "open" : "";
@@ -81,21 +79,19 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tag.join() },
         ]}
       />
-
-      <div className="contentsWrap">
-        <Nav elements={<Utterances />} />
-
-        <section className="contents">
+      <Nav navItem={<Utterances />} />
+      <div className="content first">
+        <article id="md-article">
           <header>
-            <p>{postInfo.date}</p>
+            <i>Posted on {postInfo.date}</i>
             <h2>
               {postInfo.emoji} {postInfo.title}
             </h2>
             <ul className="tags individuals">{tags}</ul>
           </header>
           <hr />
-          <article dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        </section>
+          <section dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        </article>
       </div>
     </>
   );

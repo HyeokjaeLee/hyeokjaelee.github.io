@@ -197,25 +197,3 @@
     opacity: 1;
   }
 }
-
-@mixin fade-in($duration: 1s, $delay: 0s) {
-  -webkit-animation: fade-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-  animation: fade-in $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-}
-
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}

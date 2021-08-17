@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 export const Nav = (props: any) => {
-  const { elements } = props;
+  const { navItem } = props;
   return (
     <>
       <div className="nav-padding top" />
       <nav className="nav">
-        <div className="nav-item"> {elements}</div>
+        <div className="nav-item"> {navItem}</div>
         <ul className="nav-item link">
           <li>
             <Link to="/">Posts</Link>
