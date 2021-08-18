@@ -1,11 +1,11 @@
 @mixin if-mobile {
-  @media screen and (max-width: $mobileWidth) {
+  @media (hover: none) and (pointer: coarse) {
     @content;
   }
 }
 
 @mixin if-not-mobile {
-  @media screen and (min-width: $mobileWidth) {
+  @media (hover: hover) and (pointer: fine) {
     @content;
   }
 }

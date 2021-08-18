@@ -12,16 +12,27 @@
       border-radius: $borderRadius;
       @include hover {
         background-color: $color;
-        padding: 10px 0;
       }
 
       &.left {
         text-align: left;
         justify-content: flex-start;
+        @include hover {
+          padding: {
+            left: 0;
+            right: 20px;
+          }
+        }
       }
       &.right {
         text-align: right;
         justify-content: flex-end;
+        @include hover {
+          padding: {
+            left: 20px;
+            right: 0;
+          }
+        }
       }
     }
     .arrow {
@@ -57,20 +68,28 @@
       border-radius: $borderRadius;
       background-color: $color;
       display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       margin-top: 2em;
-      padding: 2em;
+      padding: 1.5em;
+      flex-wrap: wrap;
       > .profile {
         &.pic {
+          box-shadow: $boxShadow inset;
           width: 8em;
           height: 8em;
           border-radius: 4em;
         }
         &.text {
+          white-space: nowrap;
+          flex-direction: column;
+          text-align: center;
           > h1 {
             font-weight: normal;
           }
           font-weight: lighter;
-          margin: 2em;
+          margin: 0.5em 2em;
         }
       }
     }
