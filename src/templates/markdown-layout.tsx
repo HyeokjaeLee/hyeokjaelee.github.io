@@ -16,7 +16,7 @@ const Utterances = () => {
     scriptEl.async = true;
     scriptEl.src = "https://utteranc.es/client.js";
     scriptEl.setAttribute("repo", "HyeokjaeLee/hyeokjaelee.github.io");
-    scriptEl.setAttribute("issue-term", "title");
+    scriptEl.setAttribute("issue-term", "url");
     scriptEl.setAttribute("theme", "github-light");
     scriptEl.setAttribute("crossorigin", "anonymous");
     commentsEl.current.appendChild(scriptEl);
