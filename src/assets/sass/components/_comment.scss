@@ -1,0 +1,7 @@
+@mixin comment($color: $lightColor) {
+  .comment {
+    background-color: $color;
+    border-radius: $borderRadius;
+    padding: 0 1em;
+  }
+}

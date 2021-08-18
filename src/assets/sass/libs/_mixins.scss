@@ -17,3 +17,9 @@
     }
   }
 }
+
+@mixin if-small-device {
+  @media (max-width: $mobileWidth) {
+    @content;
+  }
+}

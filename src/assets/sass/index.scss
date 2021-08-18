@@ -10,6 +10,7 @@
 @import "./components/_main.scss";
 @import "./components/_nav.scss";
 @import "./components/theme-switch.scss";
+@import "./components/comment.scss";
 //pages scss
 @import "./pages/_index.scss";
 @import "./pages/_markdown.scss";
@@ -22,6 +23,7 @@
   @include main($color);
   @include nav($color);
   @include theme-switch($color);
+  @include comment($color);
   //pages
   @include index($color);
   @include markdown-page($color);
@@ -46,6 +48,10 @@ button {
   cursor: pointer;
   font-family: "NotoSans";
   font-size: 1em;
+  &:focus {
+    border: none;
+    outline: none;
+  }
 }
 
 * {
@@ -61,6 +67,9 @@ img {
 html {
   max-width: 100vw;
   font-size: 18px;
+  @include if-small-device {
+    font-size: 16px;
+  }
   font-family: "NotoSans";
   font-weight: regural;
   overflow-x: hidden;
@@ -87,15 +96,4 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
   background-color: lighten($darkColor, 30%);
-}
-
-//모바일 인터페이스 개선
-@include if-mobile {
-  html {
-    font-size: 15px;
-  }
-  button:focus {
-    border: none;
-    outline: none;
-  }
 }

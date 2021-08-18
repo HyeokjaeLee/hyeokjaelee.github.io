@@ -2,9 +2,10 @@
   #main {
     color: lighten(invert($color), 30%);
     margin: 0 10%;
-    @media screen and (max-width: $mobileWidth) {
-      margin: 0 4%;
+    @include if-small-device {
+      margin: 0 3%;
     }
+
     > .slide {
       &.in {
         @include slide-in-bottom(0.6s);

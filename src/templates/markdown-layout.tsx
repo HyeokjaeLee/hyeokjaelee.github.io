@@ -5,40 +5,8 @@ import { Nav } from "../components/nav";
 import postProfile from "../assets/img/post-profile.jpg";
 import LeftArrow from "../assets/img/left-arrow.svg";
 import RightArrow from "../assets/img/right-arrow.svg";
-const Utterances = () => {
-  //알맞은 타입을 못찾겠음.
-  const commentsEl: any = useRef();
-  const [status, setStatus] = useState("pending");
-  useEffect(() => {
-    const scriptEl = document.createElement("script");
-    scriptEl.onload = () => setStatus("success");
-    scriptEl.onerror = () => setStatus("failed");
-    scriptEl.async = true;
-    scriptEl.src = "https://utteranc.es/client.js";
-    scriptEl.setAttribute("repo", "HyeokjaeLee/hyeokjaelee.github.io");
-    scriptEl.setAttribute("issue-term", "url");
-    scriptEl.setAttribute("theme", "github-light");
-    scriptEl.setAttribute("crossorigin", "anonymous");
-    commentsEl.current.appendChild(scriptEl);
-  }, []);
-  const [windowState, setWindowState] = useState("");
-  return (
-    <>
-      <section ref={commentsEl} className={`comments ${windowState}`}></section>
-      <button
-        onClick={() => {
-          const window = windowState === "" ? "open" : "";
-          setWindowState(window);
-        }}
-        className={`commentsBtn ${windowState}`}
-      >
-        Comment
-      </button>
-      {status === "failed" && <div>Error. Please try again.</div>}
-      {status === "pending" && <div>Loading script...</div>}
-    </>
-  );
-};
+import { Comment } from "../components/comment";
+import ContextConsumer from "./Context";
 
 interface Data {
   excerpt: string;
@@ -103,7 +71,7 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tag.join() },
         ]}
       />
-      <Nav navItem={<Utterances />} />
+      <Nav />
       <div className="content first">
         <article id="md-article">
           <header>
@@ -124,6 +92,9 @@ const BlogSpots = ({ data }: Props) => {
           </footer>
         </article>
       </div>
+      <Comment></Comment>
+      <div className="content">ss</div>
+
       <div id="otherContents" className="content">
         {get_other_post(prevPostInfo, Arrow.left)}
         {get_other_post(nextPostInfo, Arrow.right)}

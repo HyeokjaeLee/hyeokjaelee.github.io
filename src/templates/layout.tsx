@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
@@ -7,11 +8,12 @@ import "../assets/sass/index.scss";
 import { ThemeSwitch } from "../components/theme-switch";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { useContext } from "react";
+import { ThemeContext } from "../components/global-data";
 const TemplateWrapper = ({ children, location }: any) => {
-  const [mode, setMode] = useState("light");
-
+  const [theme, setTheme] = useState("");
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <Helmet
         title="Gatsby Default Starter"
         meta={[
@@ -19,13 +21,13 @@ const TemplateWrapper = ({ children, location }: any) => {
           { name: `generator`, content: `gatsby` },
           { name: `author`, content: `HyeokjaeLee` },
         ]}
-        bodyAttributes={{ class: mode }}
+        bodyAttributes={{ class: theme }}
       />
-      <ThemeSwitch theme={mode} setTheme={setMode} />
+      <ThemeSwitch />
       <Header />
       <Main location={location}>{children}</Main>
       <Footer />
-    </>
+    </ThemeContext.Provider>
   );
 };
 
