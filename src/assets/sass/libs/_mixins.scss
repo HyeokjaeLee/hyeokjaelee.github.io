@@ -1,0 +1,19 @@
+@mixin if-mobile {
+  @media screen and (max-width: $mobileWidth) {
+    @content;
+  }
+}
+
+@mixin if-not-mobile {
+  @media screen and (min-width: $mobileWidth) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include if-not-mobile {
+    &:hover {
+      @content;
+    }
+  }
+}

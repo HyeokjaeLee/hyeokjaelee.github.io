@@ -6,6 +6,9 @@
     background-color: $color;
   }
   .nav {
+    @include if-mobile {
+      font-size: 1.1em;
+    }
     padding: 0.2em 1em;
     flex-wrap: wrap;
     position: sticky;
@@ -32,9 +35,9 @@
       display: block;
       text-decoration: none;
       transition: background-color 0.3s;
-    }
-    a:hover {
-      background-color: lighten($color, 4%);
+      @include hover {
+        background-color: lighten($color, 4%);
+      }
     }
   }
 }

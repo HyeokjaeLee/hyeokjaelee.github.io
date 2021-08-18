@@ -15,10 +15,11 @@
         color: lighten(invert($color), 30%);
         background-color: lighten(invert($color), 30%);
       }
-      &:hover {
+      @include hover {
         color: lighten(invert($color), 40%);
         padding-left: 0.5em;
       }
+
       > div {
         padding: 1em;
         width: 100%;
@@ -35,6 +36,7 @@
   }
 
   .tags {
+    $checked-bgcolor: lighten(invert($color), 50%);
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -55,9 +57,13 @@
         border: 1px solid $mediumColor;
         transition: background-color 0.3s;
         cursor: pointer;
-        &:hover,
+
         &.checked {
-          background-color: lighten(invert($color), 50%);
+          background-color: $checked-bgcolor;
+          color: $color;
+        }
+        @include hover {
+          background-color: $checked-bgcolor;
           color: $color;
         }
       }
@@ -69,8 +75,7 @@
         color: $color;
         transition: background-color 0.5s;
         &.checked {
-          background-color: lighten(invert($color), 50%);
-          color: $color;
+          background-color: $checked-bgcolor;
         }
       }
     }

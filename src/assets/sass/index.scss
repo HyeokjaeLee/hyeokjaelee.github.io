@@ -1,19 +1,22 @@
 //libs scss
 @import "./libs/_animations.scss";
 @import "./libs/_vars.scss";
+@import "../sass/libs/mixins.scss";
 @import "../fonts/font.css";
+
 //components scss
 @import "./components/_footer.scss";
 @import "./components/_header.scss";
 @import "./components/_main.scss";
 @import "./components/_nav.scss";
-@import "./components/theme-switch";
+@import "./components/theme-switch.scss";
 //pages scss
 @import "./pages/_index.scss";
 @import "./pages/_markdown.scss";
 
 //다크모드 지원
 @mixin theme($color: $lightColor) {
+  -webkit-tap-highlight-color: rgba(invert($color), 0.05);
   //components
   @include header($color);
   @include main($color);
@@ -33,7 +36,7 @@
     &:visited {
       color: lighten(invert($color), 30%);
     }
-    &:hover {
+    @include hover {
       color: lighten(invert($color), 40%);
     }
   }
@@ -87,9 +90,9 @@ body {
 }
 
 //모바일 인터페이스 개선
-@media screen and (max-width: 768px) {
+@include if-mobile {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
   button:focus {
     border: none;
