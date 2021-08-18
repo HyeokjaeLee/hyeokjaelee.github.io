@@ -6,7 +6,6 @@ import postProfile from "../assets/img/post-profile.jpg";
 import LeftArrow from "../assets/img/left-arrow.svg";
 import RightArrow from "../assets/img/right-arrow.svg";
 import { Comment } from "../components/comment";
-import ContextConsumer from "./Context";
 
 interface Data {
   excerpt: string;
@@ -40,7 +39,6 @@ enum Arrow {
   left = "left",
   right = "right",
 }
-const test: ReactElement = RightArrow;
 const BlogSpots = ({ data }: Props) => {
   const { markdownRemark, allMarkdownRemark } = data;
   const postInfo = markdownRemark.frontmatter;
@@ -50,14 +48,16 @@ const BlogSpots = ({ data }: Props) => {
   const nextPostInfo = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
   const get_other_post = (postInfo: Data | null, arrow: Arrow) =>
     postInfo! ? (
-      <Link className={arrow} to={postInfo.fields.slug}>
-        {arrow == "left" ? <LeftArrow className="arrow" /> : <></>}
-        <div>
-          <h2>{postInfo.frontmatter.title}</h2>
-          <p>{postInfo.frontmatter.description}</p>
-        </div>
-        {arrow == "right" ? <RightArrow className="arrow" /> : <></>}
-      </Link>
+      <div id="otherContents" className="content">
+        <Link className={arrow} to={postInfo.fields.slug}>
+          {arrow == "left" ? <LeftArrow className="arrow" /> : <></>}
+          <div>
+            <h2>{postInfo.frontmatter.title}</h2>
+            <p>{postInfo.frontmatter.description}</p>
+          </div>
+          {arrow == "right" ? <RightArrow className="arrow" /> : <></>}
+        </Link>
+      </div>
     ) : (
       <></>
     );
@@ -92,13 +92,9 @@ const BlogSpots = ({ data }: Props) => {
           </footer>
         </article>
       </div>
-      <Comment></Comment>
-      <div className="content">ss</div>
-
-      <div id="otherContents" className="content">
-        {get_other_post(prevPostInfo, Arrow.left)}
-        {get_other_post(nextPostInfo, Arrow.right)}
-      </div>
+      <Comment />
+      {get_other_post(prevPostInfo, Arrow.left)}
+      {get_other_post(nextPostInfo, Arrow.right)}
     </>
   );
 };

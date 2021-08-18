@@ -21,8 +21,8 @@ export const Comment = () => {
     commentsElement.current.appendChild(commentScript);
   }, [theme]);
   return (
-    <div className="content">
-      <section ref={commentsElement} className="comment" />
+    <div className="content otherColor">
+      <section ref={commentsElement} />
       {status === "failed" && <div>Error. Please try again.</div>}
       {status === "pending" && <div>Loading script...</div>}
     </div>

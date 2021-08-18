@@ -1,18 +1,17 @@
 @mixin nav($color: $lightColor) {
-  .nav,
-  .nav-padding {
-    z-index: 2;
-    border-style: hidden;
-    background-color: $color;
-  }
   .nav {
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    box-shadow: $boxShadow;
+    background-color: $color;
+    z-index: 2;
     @include if-mobile {
       font-size: 1.1em;
     }
-    padding: 0.2em 1em;
+    padding: 0.5em;
     flex-wrap: wrap;
     position: sticky;
-    top: 0;
+    top: -$borderRadius;
     display: flex;
     .nav-item {
       display: flex;
@@ -29,7 +28,7 @@
     a {
       color: lighten(invert($color), 40%);
       border-radius: $borderRadius;
-      padding: 0.3em 1em;
+      padding: 0.5em 1em;
       font-weight: lighter;
       cursor: pointer;
       display: block;
