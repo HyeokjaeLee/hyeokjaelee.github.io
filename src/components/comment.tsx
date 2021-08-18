@@ -5,18 +5,19 @@ export const Comment = () => {
   const commentsElement: any = useRef();
   const [status, setStatus] = useState("pending");
   const { theme } = useContext(ThemeContext);
-  const commentScript = document.createElement("script");
-  const commentTheme = theme === "dark" ? "photon-dark" : "github-light";
-  commentScript.onload = () => setStatus("success");
-  commentScript.onerror = () => setStatus("failed");
-  commentScript.async = true;
-  commentScript.src = "https://utteranc.es/client.js";
-  commentScript.setAttribute("repo", "HyeokjaeLee/hyeokjaelee.github.io");
-  commentScript.setAttribute("issue-term", "url");
-  commentScript.setAttribute("theme", commentTheme);
-  commentScript.setAttribute("crossorigin", "anonymous");
-  commentScript.setAttribute("id", "test");
+
   useEffect(() => {
+    const commentScript = document.createElement("script");
+    const commentTheme = theme === "dark" ? "photon-dark" : "github-light";
+    commentScript.onload = () => setStatus("success");
+    commentScript.onerror = () => setStatus("failed");
+    commentScript.async = true;
+    commentScript.src = "https://utteranc.es/client.js";
+    commentScript.setAttribute("repo", "HyeokjaeLee/hyeokjaelee.github.io");
+    commentScript.setAttribute("issue-term", "url");
+    commentScript.setAttribute("theme", commentTheme);
+    commentScript.setAttribute("crossorigin", "anonymous");
+    commentScript.setAttribute("id", "test");
     commentsElement.current.innerHTML = "";
     commentsElement.current.appendChild(commentScript);
   }, [theme]);
