@@ -3,7 +3,7 @@
 @import "./libs/_vars.scss";
 @import "../sass/libs/mixins.scss";
 @import "../fonts/font.css";
-
+@import "../sass//libs/functions.scss";
 //components scss
 @import "./components/_footer.scss";
 @import "./components/_header.scss";
@@ -28,19 +28,26 @@
   @include index($color);
   @include markdown-page($color);
   svg {
-    fill: lighten(invert($color), 30%);
+    fill: textColor($color);
   }
   a {
     text-decoration: none;
     &:link {
-      color: lighten(invert($color), 10%);
+      color: textColor($color);
     }
     &:visited {
-      color: lighten(invert($color), 30%);
+      color: subTextColor($color);
     }
     @include hover {
-      color: lighten(invert($color), 40%);
+      color: subTextColor($color);
     }
+  }
+  hr {
+    height: 4px;
+    border-radius: 2px;
+    background-color: textColor($color);
+    border: 0;
+    margin: 1em 0;
   }
 }
 

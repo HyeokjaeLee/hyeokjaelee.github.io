@@ -6,17 +6,15 @@
       border-radius: $borderRadius;
       display: flex;
       text-decoration: none;
-      transition: padding-left 0.2s, color 0.2s;
+      transition: padding-left 0.2s;
       &:link {
-        color: lighten(invert($color), 10%);
-        background-color: lighten(invert($color), 10%);
+        background-color: textColor($color);
       }
       &:visited {
-        color: lighten(invert($color), 30%);
-        background-color: lighten(invert($color), 30%);
+        background-color: subTextColor($color);
       }
       @include hover {
-        color: lighten(invert($color), 40%);
+        color: subTextColor($color);
         padding-left: 0.5em;
       }
 
@@ -25,18 +23,20 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        background-color: lighten($color, 30%);
-        border-bottom: 1.5px solid $mediumColor;
-        .date {
-          font-style: italic;
-          font-size: smaller;
+        background-color: $color;
+        border-bottom: 1.5px solid subColor($color);
+        > p {
+          padding-left: 0.2em;
+        }
+        > i {
+          font-size: 0.9em;
         }
       }
     }
   }
 
   .tags {
-    $checked-bgcolor: lighten(invert($color), 50%);
+    font-weight: lighter;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -54,16 +54,16 @@
       justify-content: center;
       > li {
         font-size: 0.9em;
-        border: 1px solid $mediumColor;
+        border: 1px solid subTextColor($color);
         transition: background-color 0.3s;
         cursor: pointer;
 
         &.checked {
-          background-color: $checked-bgcolor;
+          background-color: subTextColor($color);
           color: $color;
         }
         @include hover {
-          background-color: $checked-bgcolor;
+          background-color: subTextColor($color);
           color: $color;
         }
       }
@@ -71,11 +71,11 @@
     &.individuals {
       > li {
         font-size: small;
-        background-color: lighten(invert($color), 15%);
+        background-color: textColor($color);
         color: $color;
         transition: background-color 0.5s;
         &.checked {
-          background-color: $checked-bgcolor;
+          background-color: subTextColor($color);
         }
       }
     }

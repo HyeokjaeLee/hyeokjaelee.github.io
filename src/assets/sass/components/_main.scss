@@ -1,6 +1,6 @@
 @mixin main($color: $lightColor) {
   #main {
-    color: lighten(invert($color), 30%);
+    color: textColor($color);
     margin: 0 10%;
     @include if-small-device {
       margin: 0 3%;
@@ -25,7 +25,7 @@
       box-shadow: $boxShadow;
       border-radius: $borderRadius;
       padding: 1.8em;
-      background-color: lighten($color, 30%);
+      background-color: $color;
       margin-bottom: 2em;
       &.first {
         border-top-left-radius: 0;

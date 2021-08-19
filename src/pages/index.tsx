@@ -81,7 +81,7 @@ const Index = ({ data }: Props) => {
       <li key={`postList${postListIndex}`}>
         <Link to={node.fields.slug}>
           <div>
-            <p className="date">Posted on {date}</p>
+            <i>Posted on {date}</i>
             <h2>
               {emoji} {title}
             </h2>

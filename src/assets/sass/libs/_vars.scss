@@ -1,7 +1,7 @@
 //사용할 색상 선언
-$lightColor: #e9e9e9;
-$darkColor: #232326;
-$mediumColor: mix($lightColor, $darkColor, 90%);
+$lightColor: white;
+$darkColor: #2a2a2e;
+$mediumColor: mix($lightColor, $darkColor, 50%);
 //공통 그림자
 $boxShadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 $borderRadius: 5px;

@@ -3,7 +3,7 @@
     border-top-left-radius: $borderRadius;
     border-top-right-radius: $borderRadius;
     box-shadow: $boxShadow;
-    background-color: $color;
+    background-color: subColor($color);
     z-index: 2;
     @include if-mobile {
       font-size: 1.1em;
@@ -26,7 +26,6 @@
       }
     }
     a {
-      color: lighten(invert($color), 40%);
       border-radius: $borderRadius;
       padding: 0.5em 1em;
       font-weight: lighter;
@@ -35,7 +34,10 @@
       text-decoration: none;
       transition: background-color 0.3s;
       @include hover {
-        background-color: lighten($color, 4%);
+        background-color: $color;
+      }
+      &:visited {
+        color: textColor($color);
       }
     }
   }

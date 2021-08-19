@@ -18,11 +18,11 @@ export const Comment = () => {
     commentScript.setAttribute("theme", commentTheme);
     commentScript.setAttribute("crossorigin", "anonymous");
     commentScript.setAttribute("id", "test");
-    commentsElement.current.innerHTML = "";
+    commentsElement.current.innerHTML = ""; //초기화
     commentsElement.current.appendChild(commentScript);
   }, [theme]);
   return (
-    <div className="content otherColor">
+    <div className="content">
       <section ref={commentsElement} />
       {status === "failed" && <div>Error. Please try again.</div>}
       {status === "pending" && <div>Loading script...</div>}

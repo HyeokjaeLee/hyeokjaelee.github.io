@@ -1,7 +1,7 @@
 @mixin header($color: $lightColor) {
   #header {
     font-weight: lighter;
-    color: lighten($lightColor, 20%);
+    color: $lightColor;
     display: flex;
     align-items: center;
 

@@ -11,7 +11,7 @@
       transition: padding 0.3s, background-color 0.3s;
       border-radius: $borderRadius;
       @include hover {
-        background-color: $color;
+        background-color: subColor($color);
       }
 
       &.left {
@@ -95,43 +95,7 @@
     }
     .descriptionPic {
       font-size: 0.9em;
-      color: gray;
-    }
-  }
-
-  .comments {
-    margin-top: 2em;
-    display: none;
-    z-index: 3;
-    position: absolute;
-    box-shadow: $boxShadow;
-    background-color: rgba($mediumColor, 98%);
-    width: 80%;
-    max-width: 40em;
-    max-height: 80vh;
-    top: 0;
-    border-radius: $borderRadius;
-    overflow: hidden;
-    border-top-left-radius: 0;
-    padding: 1em;
-    overflow-y: scroll;
-    &.open {
-      @include focus-in(0.2s);
-      display: block;
-    }
-  }
-  .commentsBtn {
-    color: lighten(invert($color), 40%);
-    font-weight: lighter;
-    border-radius: $borderRadius;
-    padding: 0.3em 1em;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-style: none;
-
-    transition: background-color 0.3s;
-    &.open {
-      color: invert($mediumColor);
-      background-color: rgba($mediumColor, 98%);
+      color: subTextColor($color);
     }
   }
 }
