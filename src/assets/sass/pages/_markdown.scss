@@ -63,6 +63,15 @@
       h6 {
         margin-top: 1em;
       }
+      code {
+        white-space: pre-wrap;
+        display: block;
+        font-size: 0.9em;
+        border-radius: 0.2em;
+        padding: 0.3em 0.5em;
+        background-color: subColor($lightColor);
+        color: $darkColor;
+      }
     }
     > footer {
       display: flex;
