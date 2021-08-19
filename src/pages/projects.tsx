@@ -5,8 +5,9 @@ import { Nav } from "../components/nav";
 
 const Projects = () => (
   <>
-    <section id="contents">
-      <h1>🚧준비중입니다.</h1>
+    <Nav />
+    <section className="content first">
+      <h1>🚧 준비중입니다. (Projects)</h1>
     </section>
   </>
 );

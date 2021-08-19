@@ -65,8 +65,6 @@
       }
     }
     > footer {
-      border-radius: $borderRadius;
-      background-color: $color;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -77,9 +75,9 @@
       > .profile {
         &.pic {
           box-shadow: $boxShadow inset;
-          width: 8em;
-          height: 8em;
-          border-radius: 4em;
+          width: 5em;
+          height: 5em;
+          border-radius: 5em;
         }
         &.text {
           white-space: nowrap;

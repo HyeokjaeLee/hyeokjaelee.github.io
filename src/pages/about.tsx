@@ -6,8 +6,8 @@ import { Nav } from "../components/nav";
 const About = () => (
   <>
     <Nav />
-    <section id="contents">
-      <h1>🚧준비중입니다.</h1>
+    <section className="content first">
+      <h1>🚧 준비중입니다. (About)</h1>
     </section>
   </>
 );
