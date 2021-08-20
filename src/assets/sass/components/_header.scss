@@ -22,7 +22,7 @@
     }
     > .logo {
       margin: 2em;
-      background-color: lighten($color, 20%);
+      background-color: $color;
       padding: 1.2em;
       height: 4em;
       border-radius: $borderRadius;

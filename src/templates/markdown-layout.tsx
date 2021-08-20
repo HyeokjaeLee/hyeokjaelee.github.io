@@ -1,5 +1,5 @@
 import { graphql, Link } from "gatsby";
-import React, { ReactComponentElement, ReactElement, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { Nav } from "../components/nav";
 import postProfile from "../assets/img/post-profile.jpg";
