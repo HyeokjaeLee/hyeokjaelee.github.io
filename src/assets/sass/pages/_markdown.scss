@@ -49,6 +49,9 @@
       margin-bottom: 1em;
     }
     > section {
+      * {
+        margin: 0.5em;
+      }
       ul,
       li {
         margin-top: 0.5em;
@@ -66,11 +69,26 @@
       code {
         white-space: pre-wrap;
         display: block;
-        font-size: 0.9em;
+        font-size: 0.8em;
         border-radius: 0.2em;
-        padding: 0.3em 0.5em;
-        background-color: subColor($lightColor);
-        color: $darkColor;
+        padding: 0.5em;
+        background-color: subColor($color);
+      }
+      table {
+        border-collapse: collapse;
+        word-break: break-all;
+        max-width: 100%;
+      }
+      tr,
+      th,
+      td {
+        padding: 0.2em 0.5em;
+        border: 1px solid textColor($color);
+      }
+      th {
+        text-align: center;
+        color: $color;
+        background-color: textColor($color);
       }
     }
     > footer {
