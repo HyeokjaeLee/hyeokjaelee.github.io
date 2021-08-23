@@ -23,7 +23,7 @@ const About = () => {
     <>
       {helemt}
       <Nav />
-      <iframe src="/covid19-dashboard/"></iframe>
+      <section className="content"></section>
     </>
   );
 };

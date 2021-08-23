@@ -8,7 +8,7 @@
       display: flex;
       flex: 1;
       align-items: center;
-      transition: padding 0.3s, background-color 0.3s;
+      transition: padding 0.3s;
       border-radius: $borderRadius;
       @include hover {
         background-color: subColor($color);

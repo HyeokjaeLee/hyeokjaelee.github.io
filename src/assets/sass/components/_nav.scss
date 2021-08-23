@@ -32,7 +32,6 @@
       cursor: pointer;
       display: block;
       text-decoration: none;
-      transition: background-color 0.3s;
       @include hover {
         background-color: $color;
       }

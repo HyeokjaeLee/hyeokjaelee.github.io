@@ -1,5 +1,6 @@
 @mixin main($color: $lightColor) {
   #main {
+    transition: margin 0.3s;
     color: textColor($color);
     margin: 0 10%;
     @include if-small-device {

@@ -23,7 +23,6 @@
       border-radius: 2em;
       height: 1.2em;
       width: 1.2em;
-      transition: background-color 0.4s;
       @include hover {
         background-color: rgba(subColor($lightColor), 0.5);
       }
