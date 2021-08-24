@@ -10,9 +10,6 @@ export const Nav = (props: any) => {
           <Link to="/">Posts</Link>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li>
           <Link to="/about">About</Link>
         </li>
       </ul>

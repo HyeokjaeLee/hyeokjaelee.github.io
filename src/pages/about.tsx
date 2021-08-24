@@ -1,13 +1,42 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { Nav } from "../components/nav";
 import { Helmet } from "react-helmet";
+import Gmail from "../assets/img/gmail.svg";
+import Github from "../assets/img/github.svg";
+import Naver from "../assets/img/naver.svg";
+
+interface Props {
+  name: string;
+  backgroundColor: string;
+  logoColor: string;
+  displayName?: string;
+}
+const Label = (props: Props) => {
+  let { name, backgroundColor, logoColor, displayName } = props;
+  displayName = displayName || name;
+  return (
+    <img
+      className="label"
+      src={`https://img.shields.io/badge/${displayName}-${backgroundColor}?style=flat-square&logo=${name}&logoColor=${logoColor}`}
+    />
+  );
+};
 
 const About = () => {
-  const [helemt, setHelemt] = useState(<Helmet />);
-  setTimeout(() => {
-    setHelemt(
+  useEffect(() => {
+    const header = document.getElementById("header")!;
+    setTimeout(() => {
+      header.style.display = "none";
+    }, 600);
+    return () => {
+      header.style.display = "flex";
+    };
+  });
+
+  return (
+    <>
       <Helmet
         title="Gatsby Default Starter"
         meta={[
@@ -17,13 +46,111 @@ const About = () => {
         ]}
         bodyAttributes={{ id: "about" }}
       />
-    );
-  }, 600);
-  return (
-    <>
-      {helemt}
       <Nav />
-      <section className="content"></section>
+      <section className="content first">
+        <h2>About Me</h2>
+        <dl>
+          <dt>
+            <h3>Introduction</h3>
+          </dt>
+          <dd>
+            <ul>
+              <li>풀스택 개발자를 꿈꾸는 이혁재입니다.</li>
+              <li>항상 더 편리한 방법을 고민합니다.</li>
+              <li>Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
+              <li>웹 기술 트렌드에 관심이 많습니다.</li>
+              <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
+            </ul>
+          </dd>
+          <dt>
+            <h3>Contact & Channel</h3>
+          </dt>
+          <dd>
+            <ul className="listNone">
+              <li>
+                <Gmail className="icon small" />
+                <a href="mailto:leehyeokjae97@gmail.com">leehyeokjae97@gmail.com</a>
+              </li>
+              <li>
+                <Github className="icon small" />
+                <a href="https://github.com/HyeokjaeLee">https://github.com/HyeokjaeLee</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section className="content">
+        <h2>Skills</h2>
+        <dl>
+          <dt>
+            <h3>Frontend & Backend</h3>
+          </dt>
+          <dd>
+            <ul className="skillList">
+              <li>
+                <Label name="JavaScript" backgroundColor="F7DF1E" logoColor="black" />
+                <Label name="TypeScript" backgroundColor="3178C6" logoColor="white" />
+              </li>
+              <li>
+                <Label name="HTML5" backgroundColor="E34F26" logoColor="white" />
+                <Label name="CSS3" backgroundColor="1572B6" logoColor="white" />
+                <Label name="Sass" backgroundColor="CC6699" logoColor="white" />
+              </li>
+              <li>
+                <Label name="React" backgroundColor="61DAFB" logoColor="black" />
+                <Label name="Next.js" backgroundColor="000000" logoColor="white" />
+              </li>
+              <li>
+                <Label name="Express" backgroundColor="000000" logoColor="white" />
+              </li>
+            </ul>
+          </dd>
+          <dt>
+            <h3>Backend</h3>
+          </dt>
+          <dd>
+            <ul>
+              <li>
+                <Label name="Express" backgroundColor="000000" logoColor="white" />
+              </li>
+            </ul>
+          </dd>
+          <dt>
+            <h3>Frontend</h3>
+          </dt>
+          <dd>
+            <ul>
+              <li>
+                <Label name="React" backgroundColor="61DAFB" logoColor="black" />
+                <Label name="Next.js" backgroundColor="000000" logoColor="white" />
+              </li>
+              <li>항상 더 편리한 방법을 고민합니다.</li>
+              <li>Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
+              <li>웹 기술 트렌드에 관심이 많습니다.</li>
+              <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
+              <Label name="GraphQL" backgroundColor="E434AA" logoColor="white" />
+            </ul>
+          </dd>
+          <dt>
+            <h3>Collaboration</h3>
+          </dt>
+          <dd>
+            <ul>
+              <li>.</li>
+              <li>항상 더 편리한 방법을 고민합니다.</li>
+              <li>Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
+              <li>웹 기술 트렌드에 관심이 많습니다.</li>
+              <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section className="content">
+        <h2>Work Experience</h2>
+      </section>
+      <section className="content">
+        <h2>Projects</h2>
+      </section>
     </>
   );
 };
