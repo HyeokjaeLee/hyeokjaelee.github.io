@@ -45,7 +45,7 @@
     }
   }
   hr {
-    height: 4px;
+    height: 2px;
     border-radius: 2px;
     background-color: textColor($color);
     border: 0;
@@ -64,7 +64,6 @@ button {
 }
 
 * {
-  transition: background-color 0.3s, color 0.3s;
   margin: 0;
   padding: 0;
 }

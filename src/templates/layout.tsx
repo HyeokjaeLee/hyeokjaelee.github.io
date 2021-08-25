@@ -8,7 +8,6 @@ import "../assets/sass/index.scss";
 import { ThemeSwitch } from "../components/theme-switch";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { useContext } from "react";
 import { ThemeContext } from "../components/global-data";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");

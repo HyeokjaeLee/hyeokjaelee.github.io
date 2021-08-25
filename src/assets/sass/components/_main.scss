@@ -8,14 +8,14 @@
     }
 
     > .slide {
-      &.in {
+      &.entered {
         @include slide-in-bottom(0.6s);
       }
-      &.ing {
+      &.entering {
         position: absolute;
         opacity: 0;
       }
-      &.out {
+      &.exiting {
         @include slide-out-bottom(0.6s);
       }
     }

@@ -1,10 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 
-interface Theme {
+const defaultTheme: {
   theme: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
-}
-const defaultTheme: Theme = {
+} = {
   theme: "",
   setTheme: () => {},
 };

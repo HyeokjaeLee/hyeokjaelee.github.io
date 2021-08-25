@@ -34,46 +34,6 @@
     }
   }
 
-  .tags {
-    font-weight: lighter;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.2em;
-    > li {
-      padding: 0.1em 0.5em 0.2em 0.5em;
-      border-radius: 2em;
-      margin: 0.3em 0.2em;
-    }
-    &.entire {
-      margin: 2em 10%;
-      justify-content: center;
-      > li {
-        font-size: 0.9em;
-        border: 1px solid subTextColor($color);
-        cursor: pointer;
-        &.checked {
-          background-color: subTextColor($color);
-          color: $color;
-        }
-        @include hover {
-          background-color: subTextColor($color);
-          color: $color;
-        }
-      }
-    }
-    &.individuals {
-      > li {
-        font-size: small;
-        background-color: textColor($color);
-        color: $color;
-        transition: background-color 0.5s;
-        &.checked {
-          background-color: subTextColor($color);
-        }
-      }
-    }
-  }
   .emptyPost {
     padding: 3em 0;
     text-align: center;
@@ -101,6 +61,52 @@
       > .arrow {
         margin-top: 0.1em;
         height: 1.5em;
+      }
+    }
+  }
+
+  .tags {
+    font-weight: lighter;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    font-size: 0.8em;
+
+    > * {
+      padding: {
+        left: 0.7em;
+        right: 0.7em;
+        top: 0.2em;
+        bottom: 0.3em;
+      }
+      border-radius: 1em;
+    }
+
+    &.entire {
+      margin: 0 15%;
+      justify-content: center;
+      > * {
+        transition: background-color 0.3s, color 0.3s;
+        border: 1px solid textColor($color);
+        @include hover {
+          background-color: subColor($color);
+        }
+        &.checked {
+          color: textColor($color);
+          background-color: subColor($color);
+        }
+      }
+    }
+    &.individuals {
+      margin-top: 0.5em;
+      list-style: none;
+      > * {
+        color: textColor($color);
+        background-color: subColor($color);
+        &.checked {
+          color: $color;
+          background-color: subTextColor($color);
+        }
       }
     }
   }

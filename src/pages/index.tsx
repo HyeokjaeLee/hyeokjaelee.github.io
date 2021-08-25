@@ -30,18 +30,17 @@ interface Props {
 
 const Index = ({ data }: Props) => {
   /**페이지 당 보여줄 포스트 갯수*/
-  const postsPerPage = 5;
+  const postsPerPage = 8;
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
   const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
   const [currentPage, setCurrentPage] = useState(1);
   /**필터링할 태그 선택*/
-  const checkTag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
-  const EntireTags = () => {
-    const entireTagList = group.map((item, entireTagListIndex) => (
-      <li
-        key={`entireTag${entireTagListIndex}`}
-        onClick={() => {
+  const check_tag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
+  const TagFilter = () => (
+    <div className="tags entire">
+      {group.map((item, entireTagListIndex) => {
+        const filter_posts_by_tag = () => {
           setCurrentPage(1);
           setFilteredNodes(nodes);
           const tagIndex = targetTagList.indexOf(item.tag);
@@ -61,14 +60,19 @@ const Index = ({ data }: Props) => {
               )
             );
           }
-        }}
-        className={checkTag(item.tag)}
-      >
-        {item.tag}
-      </li>
-    ));
-    return <ul className="tags entire">{entireTagList}</ul>;
-  };
+        };
+        return (
+          <a
+            key={`entireTag${entireTagListIndex}`}
+            onClick={filter_posts_by_tag}
+            className={"tag " + check_tag(item.tag)}
+          >
+            {item.tag}
+          </a>
+        );
+      })}
+    </div>
+  );
   const PageNavi = () => {
     const totalPostCount = filteredNodes.length;
     const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
@@ -98,7 +102,7 @@ const Index = ({ data }: Props) => {
       );
     }
     const leftArrowHide = startPageIndex === 1 ? "hide" : "";
-    const rightArrowHide = endPageIndex === totalPageCount ? "hide" : "";
+    const rightArrowHide = endPageIndex >= totalPageCount ? "hide" : "";
     const PageNaviArrow = (props: { Arrow: any; toMove: number; hide: "hide" | "" }) => (
       <a
         onClick={() => {
@@ -132,7 +136,7 @@ const Index = ({ data }: Props) => {
     const postList = viewingNodes.map((node, postListIndex) => {
       const { emoji, title, date, description, tag } = node.frontmatter;
       const IndividualsTagList = tag.map((_tag, individualsTagIndex) => (
-        <li key={`individualsTag${individualsTagIndex}`} className={checkTag(_tag)}>
+        <li key={`individualsTag${individualsTagIndex}`} className={check_tag(_tag)}>
           {_tag}
         </li>
       ));
@@ -158,7 +162,7 @@ const Index = ({ data }: Props) => {
     <>
       <Nav />
       <section className="content first">
-        <EntireTags />
+        <TagFilter />
         <Posts />
         <PageNavi />
       </section>

@@ -13,7 +13,6 @@ export const ThemeSwitch = () => {
       className={`theme-switch`}
       onClick={() => {
         setTheme(theme === "" ? "dark" : "");
-        console.log(theme);
       }}
     >
       <div className={`ball ${theme}`}></div>
