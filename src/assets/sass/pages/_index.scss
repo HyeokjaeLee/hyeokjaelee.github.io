@@ -1,4 +1,7 @@
 @mixin index($color: $lightColor) {
+  .currentPage {
+    border-bottom: 1px solid textColor($color);
+  }
   #posts {
     list-style: none;
     a {
@@ -35,6 +38,19 @@
     }
   }
 
+  .pageIndex {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin-top: 2em;
+    > li {
+      display: flex;
+      justify-content: center;
+      height: 1em;
+      margin: 0.5em;
+    }
+  }
   .tags {
     font-weight: lighter;
     list-style: none;

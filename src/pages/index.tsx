@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { Nav } from "../components/nav";
+import LeftArrow from "../assets/img/left-arrow.svg";
+import RightArrow from "../assets/img/right-arrow.svg";
 
 interface Node {
   excerpt: string;
@@ -69,7 +70,48 @@ const Index = ({ data }: Props) => {
       {item.tag}
     </li>
   ));
-  const PostList = filteredNodes.map((node, postListIndex) => {
+  const postsPerPage = 2;
+  /**총 페이지 수*/
+  const totalPostCount = filteredNodes.length;
+  const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
+  /**현재 페이지*/
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageIndexListElement: JSX.Element[] = [];
+  const nearPageCount = totalPageCount < 5 ? totalPageCount : 5;
+  let startPageIndex = currentPage,
+    endPageIndex = currentPage;
+  for (
+    let viewingPage = 0;
+    viewingPage < nearPageCount;
+    viewingPage = endPageIndex - startPageIndex + 1
+  ) {
+    startPageIndex = startPageIndex <= 1 ? 1 : startPageIndex - 1;
+    endPageIndex = endPageIndex >= totalPageCount ? totalPageCount : endPageIndex + 1;
+  }
+  for (let pageIndex = startPageIndex; pageIndex <= endPageIndex; pageIndex++) {
+    const className = pageIndex === currentPage ? "currentPage" : "";
+    pageIndexListElement.push(
+      <li
+        onClick={() => {
+          setCurrentPage(pageIndex);
+        }}
+        className={className}
+      >
+        {pageIndex}
+      </li>
+    );
+  }
+  const leftArrowHide = startPageIndex === 1 ? "hide" : "";
+  const rightArrowHide = endPageIndex === totalPageCount ? "hide" : "";
+  const viewingNodes = filteredNodes.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
+
+  /**Post 정보가 담긴 링크
+   * @return Post 정보와 링크를 담은 Element
+   */
+  const PostList = viewingNodes.map((node, postListIndex) => {
     const { emoji, title, date, description, tag } = node.frontmatter;
     const IndividualsTagList = tag.map((_tag, individualsTagIndex) => {
       return (
@@ -99,6 +141,23 @@ const Index = ({ data }: Props) => {
       <section className="content first">
         <ul className="tags entire">{entireTagList}</ul>
         <ul id="posts">{PostList.length !== 0 ? PostList : EmptyPostElement}</ul>
+        <ul className="pageIndex">
+          <li className={`arrow ${leftArrowHide}`}>
+            <LeftArrow
+              onClick={() => {
+                setCurrentPage(startPageIndex - 1);
+              }}
+            />
+          </li>
+          {pageIndexListElement}
+          <li className={`arrow ${rightArrowHide}`}>
+            <RightArrow
+              onClick={() => {
+                setCurrentPage(endPageIndex + 1);
+              }}
+            />
+          </li>
+        </ul>
       </section>
     </>
   );

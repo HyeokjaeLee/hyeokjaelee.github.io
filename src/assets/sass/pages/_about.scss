@@ -1,28 +1,60 @@
 @mixin about-page($color: $lightColor) {
   &#about {
-    dd,
-    dt,
-    dl,
-    ul,
-    li {
-      margin-left: 0.5em;
+    .nav {
+      margin-top: 5em;
     }
-    .icon {
-      &.small {
-        width: 1.7em;
-        height: 1.7em;
-        margin-right: 0.5em;
+    .content {
+      dl,
+      ul,
+      li {
+        margin: 0 1em;
       }
-    }
-    .listNone {
-      font-size: 0.8em;
-      margin-left: 0;
-      list-style: none;
-      > li {
-        display: flex;
-        margin: 0.5em 0;
-        a {
-          border-bottom: 1px solid textColor($color);
+      dt {
+        margin-top: 1.5em;
+      }
+      .label {
+        margin: 0.2em;
+      }
+      .icon {
+        &.small {
+          width: 1.7em;
+          height: 1.7em;
+          margin-right: 0.5em;
+        }
+      }
+      .list {
+        font-size: 0.8em;
+        list-style: none;
+        &.techStack {
+          margin: 1em;
+          padding: 1em;
+          border-radius: $borderRadius;
+          background-color: subColor($color);
+          justify-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          > li {
+            margin: 0 0.2em;
+          }
+        }
+        &.contactChannel {
+          > li {
+            display: flex;
+            margin: 0.5em 0;
+            a {
+              border-bottom: 1px solid textColor($color);
+            }
+          }
+        }
+      }
+      .labelList {
+        font-size: 0.8em;
+        margin-left: 0;
+        list-style: none;
+        > li {
+          a {
+            border-bottom: 1px solid textColor($color);
+          }
         }
       }
     }
