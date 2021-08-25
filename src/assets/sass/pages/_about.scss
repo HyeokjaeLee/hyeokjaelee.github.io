@@ -1,33 +1,17 @@
 @mixin about-page($color: $lightColor) {
   &#about {
-    #header {
-      @include slide-out-top(0.6s);
-    }
-    .nav {
-      margin-top: 5em;
-    }
     dd,
     dt,
     dl,
     ul,
     li {
-      margin-left: 1em;
-    }
-    .label {
-      margin-top: 0.4em;
-      margin-right: 0.5em;
+      margin-left: 0.5em;
     }
     .icon {
       &.small {
         width: 1.7em;
         height: 1.7em;
         margin-right: 0.5em;
-      }
-    }
-    .skillList {
-      li {
-        align-items: center;
-        justify-content: center;
       }
     }
     .listNone {

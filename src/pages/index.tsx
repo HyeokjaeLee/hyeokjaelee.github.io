@@ -26,7 +26,7 @@ interface Props {
     };
   };
 }
-//필터 수정하기
+
 const Index = ({ data }: Props) => {
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
@@ -38,11 +38,14 @@ const Index = ({ data }: Props) => {
       <p>조건을 만족하는 Post가 없습니다.</p>
     </div>
   );
+
+  /**필터링할 태그 선택*/
   const checkTag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
   const entireTagList = group.map((item, entireTagListIndex) => (
     <li
       key={`entireTag${entireTagListIndex}`}
       onClick={() => {
+        setFilteredNodes(nodes);
         const tagIndex = targetTagList.indexOf(item.tag);
         if (tagIndex === -1) {
           targetTagList.push(item.tag);
@@ -50,15 +53,13 @@ const Index = ({ data }: Props) => {
           targetTagList.splice(tagIndex, 1);
         }
         setTargetTagList(targetTagList);
-        if (targetTagList.length === 0) {
-          setFilteredNodes(nodes);
-        } else {
+        if (targetTagList.length > 0) {
           setFilteredNodes(
-            nodes.filter((node) =>
-              node.frontmatter.tag.filter((_tag) => targetTagList.includes(_tag)).length ===
-              targetTagList.length
-                ? true
-                : false
+            //선택된 태그의 갯수와 Post의 태그가 선택된 태그에 포함되는 갯수가 같아야 함
+            nodes.filter(
+              (node) =>
+                node.frontmatter.tag.filter((_tag) => targetTagList.includes(_tag)).length ===
+                targetTagList.length
             )
           );
         }

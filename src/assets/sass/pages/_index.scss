@@ -52,7 +52,6 @@
       > li {
         font-size: 0.9em;
         border: 1px solid subTextColor($color);
-        transition: background-color 0.3s;
         cursor: pointer;
 
         &.checked {
