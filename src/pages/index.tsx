@@ -29,135 +29,138 @@ interface Props {
 }
 
 const Index = ({ data }: Props) => {
+  /**페이지 당 보여줄 포스트 갯수*/
+  const postsPerPage = 5;
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
   const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
-  const EmptyPostElement = (
-    <div className="emptyPost">
-      <div className="icon">🚧</div>
-      <h1>OOPSE!</h1>
-      <p>조건을 만족하는 Post가 없습니다.</p>
-    </div>
-  );
-
+  const [currentPage, setCurrentPage] = useState(1);
   /**필터링할 태그 선택*/
   const checkTag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
-  const entireTagList = group.map((item, entireTagListIndex) => (
-    <li
-      key={`entireTag${entireTagListIndex}`}
-      onClick={() => {
-        setFilteredNodes(nodes);
-        const tagIndex = targetTagList.indexOf(item.tag);
-        if (tagIndex === -1) {
-          targetTagList.push(item.tag);
-        } else {
-          targetTagList.splice(tagIndex, 1);
-        }
-        setTargetTagList(targetTagList);
-        if (targetTagList.length > 0) {
-          setFilteredNodes(
-            //선택된 태그의 갯수와 Post의 태그가 선택된 태그에 포함되는 갯수가 같아야 함
-            nodes.filter(
-              (node) =>
-                node.frontmatter.tag.filter((_tag) => targetTagList.includes(_tag)).length ===
-                targetTagList.length
-            )
-          );
-        }
-      }}
-      className={checkTag(item.tag)}
-    >
-      {item.tag}
-    </li>
-  ));
-  const postsPerPage = 2;
-  /**총 페이지 수*/
-  const totalPostCount = filteredNodes.length;
-  const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
-  /**현재 페이지*/
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageIndexListElement: JSX.Element[] = [];
-  const nearPageCount = totalPageCount < 5 ? totalPageCount : 5;
-  let startPageIndex = currentPage,
-    endPageIndex = currentPage;
-  for (
-    let viewingPage = 0;
-    viewingPage < nearPageCount;
-    viewingPage = endPageIndex - startPageIndex + 1
-  ) {
-    startPageIndex = startPageIndex <= 1 ? 1 : startPageIndex - 1;
-    endPageIndex = endPageIndex >= totalPageCount ? totalPageCount : endPageIndex + 1;
-  }
-  for (let pageIndex = startPageIndex; pageIndex <= endPageIndex; pageIndex++) {
-    const className = pageIndex === currentPage ? "currentPage" : "";
-    pageIndexListElement.push(
+  const EntireTags = () => {
+    const entireTagList = group.map((item, entireTagListIndex) => (
       <li
+        key={`entireTag${entireTagListIndex}`}
         onClick={() => {
-          setCurrentPage(pageIndex);
+          setCurrentPage(1);
+          setFilteredNodes(nodes);
+          const tagIndex = targetTagList.indexOf(item.tag);
+          if (tagIndex === -1) {
+            targetTagList.push(item.tag);
+          } else {
+            targetTagList.splice(tagIndex, 1);
+          }
+          setTargetTagList(targetTagList);
+          if (targetTagList.length > 0) {
+            setFilteredNodes(
+              //선택된 태그의 갯수와 Post의 태그가 선택된 태그에 포함되는 갯수가 같아야 함
+              nodes.filter(
+                (node) =>
+                  node.frontmatter.tag.filter((_tag) => targetTagList.includes(_tag)).length ===
+                  targetTagList.length
+              )
+            );
+          }
         }}
-        className={className}
+        className={checkTag(item.tag)}
       >
-        {pageIndex}
+        {item.tag}
       </li>
+    ));
+    return <ul className="tags entire">{entireTagList}</ul>;
+  };
+  const PageNavi = () => {
+    const totalPostCount = filteredNodes.length;
+    const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
+    const pageIndexList: JSX.Element[] = [];
+    const nearPageCount = totalPageCount < 5 ? totalPageCount : 5;
+    let startPageIndex = currentPage,
+      endPageIndex = currentPage;
+    for (
+      let viewingPage = 0;
+      viewingPage < nearPageCount;
+      viewingPage = endPageIndex - startPageIndex + 1
+    ) {
+      startPageIndex = startPageIndex <= 1 ? 1 : startPageIndex - 1;
+      endPageIndex = endPageIndex >= totalPageCount ? totalPageCount : endPageIndex + 1;
+    }
+    for (let pageIndex = startPageIndex; pageIndex <= endPageIndex; pageIndex++) {
+      const className = pageIndex === currentPage ? "currentPage" : "";
+      pageIndexList.push(
+        <a
+          onClick={() => {
+            setCurrentPage(pageIndex);
+          }}
+          className={className}
+        >
+          {pageIndex}
+        </a>
+      );
+    }
+    const leftArrowHide = startPageIndex === 1 ? "hide" : "";
+    const rightArrowHide = endPageIndex === totalPageCount ? "hide" : "";
+    const PageNaviArrow = (props: { Arrow: any; toMove: number; hide: "hide" | "" }) => (
+      <a
+        onClick={() => {
+          setCurrentPage(props.toMove);
+        }}
+        className={props.hide}
+      >
+        <props.Arrow className="arrow" />
+      </a>
     );
-  }
-  const leftArrowHide = startPageIndex === 1 ? "hide" : "";
-  const rightArrowHide = endPageIndex === totalPageCount ? "hide" : "";
-  const viewingNodes = filteredNodes.slice(
-    (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage
-  );
-
-  /**Post 정보가 담긴 링크
-   * @return Post 정보와 링크를 담은 Element
-   */
-  const PostList = viewingNodes.map((node, postListIndex) => {
-    const { emoji, title, date, description, tag } = node.frontmatter;
-    const IndividualsTagList = tag.map((_tag, individualsTagIndex) => {
-      return (
+    return (
+      <div className="pageNav">
+        <PageNaviArrow Arrow={LeftArrow} toMove={startPageIndex - 1} hide={leftArrowHide} />
+        {pageIndexList}
+        <PageNaviArrow Arrow={RightArrow} toMove={endPageIndex + 1} hide={rightArrowHide} />
+      </div>
+    );
+  };
+  const Posts = () => {
+    const viewingNodes = filteredNodes.slice(
+      (currentPage - 1) * postsPerPage,
+      currentPage * postsPerPage
+    );
+    const emptyPost = (
+      <div className="emptyPost">
+        <div className="icon">🚧</div>
+        <h1>OOPSE!</h1>
+        <p>조건을 만족하는 Post가 없습니다.</p>
+      </div>
+    );
+    const postList = viewingNodes.map((node, postListIndex) => {
+      const { emoji, title, date, description, tag } = node.frontmatter;
+      const IndividualsTagList = tag.map((_tag, individualsTagIndex) => (
         <li key={`individualsTag${individualsTagIndex}`} className={checkTag(_tag)}>
           {_tag}
         </li>
+      ));
+      return (
+        <li key={`postList${postListIndex}`}>
+          <Link to={node.fields.slug}>
+            <div>
+              <i>Posted on {date}</i>
+              <h2>
+                {emoji} {title}
+              </h2>
+              <p>{description}</p>
+              <ul className="tags individuals">{IndividualsTagList}</ul>
+            </div>
+          </Link>
+        </li>
       );
     });
-    return (
-      <li key={`postList${postListIndex}`}>
-        <Link to={node.fields.slug}>
-          <div>
-            <i>Posted on {date}</i>
-            <h2>
-              {emoji} {title}
-            </h2>
-            <p>{description}</p>
-            <ul className="tags individuals">{IndividualsTagList}</ul>
-          </div>
-        </Link>
-      </li>
-    );
-  });
+    return <ul className="posts">{postList.length === 0 ? emptyPost : postList}</ul>;
+  };
+
   return (
     <>
       <Nav />
       <section className="content first">
-        <ul className="tags entire">{entireTagList}</ul>
-        <ul id="posts">{PostList.length !== 0 ? PostList : EmptyPostElement}</ul>
-        <ul className="pageIndex">
-          <li className={`arrow ${leftArrowHide}`}>
-            <LeftArrow
-              onClick={() => {
-                setCurrentPage(startPageIndex - 1);
-              }}
-            />
-          </li>
-          {pageIndexListElement}
-          <li className={`arrow ${rightArrowHide}`}>
-            <RightArrow
-              onClick={() => {
-                setCurrentPage(endPageIndex + 1);
-              }}
-            />
-          </li>
-        </ul>
+        <EntireTags />
+        <Posts />
+        <PageNavi />
       </section>
     </>
   );

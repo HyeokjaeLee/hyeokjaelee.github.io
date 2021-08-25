@@ -32,6 +32,7 @@
     fill: textColor($color);
   }
   a {
+    cursor: pointer;
     text-decoration: none;
     &:link {
       color: textColor($color);

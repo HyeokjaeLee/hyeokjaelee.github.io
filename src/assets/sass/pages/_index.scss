@@ -1,8 +1,5 @@
 @mixin index($color: $lightColor) {
-  .currentPage {
-    border-bottom: 1px solid textColor($color);
-  }
-  #posts {
+  .posts {
     list-style: none;
     a {
       margin-bottom: 0.5em;
@@ -20,7 +17,6 @@
         color: subTextColor($color);
         padding-left: 0.5em;
       }
-
       > div {
         padding: 1em;
         width: 100%;
@@ -38,19 +34,6 @@
     }
   }
 
-  .pageIndex {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    list-style: none;
-    margin-top: 2em;
-    > li {
-      display: flex;
-      justify-content: center;
-      height: 1em;
-      margin: 0.5em;
-    }
-  }
   .tags {
     font-weight: lighter;
     list-style: none;
@@ -69,7 +52,6 @@
         font-size: 0.9em;
         border: 1px solid subTextColor($color);
         cursor: pointer;
-
         &.checked {
           background-color: subTextColor($color);
           color: $color;
@@ -100,6 +82,26 @@
     }
     > h1 {
       margin-bottom: 1em;
+    }
+  }
+  .pageNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    > a {
+      margin: 0 0.5em;
+      display: flex;
+      &.hide {
+        visibility: hidden;
+      }
+      &.currentPage {
+        border-bottom: 1px solid textColor($color);
+      }
+      > .arrow {
+        margin-top: 0.1em;
+        height: 1.5em;
+      }
     }
   }
 }
