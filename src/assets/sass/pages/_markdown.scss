@@ -43,6 +43,12 @@
     }
   }
   #md-article {
+    a {
+      border-bottom: 1px solid textColor($color);
+      @include hover {
+        background-color: subColor($color);
+      }
+    }
     > header {
       p {
         font-size: smaller;
