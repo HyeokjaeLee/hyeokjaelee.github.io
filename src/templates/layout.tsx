@@ -9,19 +9,22 @@ import { ThemeSwitch } from "../components/theme-switch";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { ThemeContext } from "../components/global-data";
+import favicon from "../assets/img/favicon.ico";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Helmet
-        title="Gatsby Default Starter"
+        title="Nagle`s Blog"
         meta={[
           { name: `description`, content: `programming & tech blog` },
           { name: `generator`, content: `gatsby` },
           { name: `author`, content: `HyeokjaeLee` },
         ]}
         bodyAttributes={{ class: theme }}
-      />
+      >
+        <link rel="icon" href={favicon} />
+      </Helmet>
       <ThemeSwitch />
       <Header />
       <Main location={location}>{children}</Main>
