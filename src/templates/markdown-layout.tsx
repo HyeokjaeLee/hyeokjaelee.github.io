@@ -6,7 +6,8 @@ import postProfile from "../assets/img/post-profile.jpg";
 import LeftArrow from "../assets/img/left-arrow.svg";
 import RightArrow from "../assets/img/right-arrow.svg";
 import { Comment } from "../components/comment";
-
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
 interface Data {
   excerpt: string;
   fields: { slug: string };

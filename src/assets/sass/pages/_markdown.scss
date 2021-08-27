@@ -43,6 +43,15 @@
     }
   }
   #md-article {
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 5em;
+      }
+    }
+    align-items: center;
     a {
       border-bottom: 1px solid textColor($color);
       @include hover {
@@ -73,14 +82,7 @@
       h6 {
         margin-top: 1em;
       }
-      code {
-        white-space: pre-wrap;
-        display: block;
-        font-size: 0.8em;
-        border-radius: 0.2em;
-        padding: 0.5em;
-        background-color: subColor($color);
-      }
+
       table {
         border-collapse: collapse;
         word-break: break-all;

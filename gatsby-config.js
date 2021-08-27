@@ -6,9 +6,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          `gatsby-remark-emoji`, // <-- this line adds emoji
-        ],
+        plugins: [`gatsby-remark-emoji`, `gatsby-remark-highlight-code`],
       },
     },
     `gatsby-plugin-react-helmet`,
