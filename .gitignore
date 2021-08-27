@@ -4,7 +4,6 @@ node_modules
 yarn-error.log
 package-lock.json
 yarn.lock
-contents
 # Build directory
 /public
 .DS_Store
