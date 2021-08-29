@@ -83,8 +83,9 @@
         margin-top: 1em;
       }
       code {
+        font-size: 0.9em;
         background-color: subColor($color);
-        padding: 0.2em 0.5em;
+        padding: 0.1em 0.5em;
         border-radius: $borderRadius;
       }
       table {
