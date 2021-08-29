@@ -21,7 +21,8 @@
     "react-transition-group": "^4.4.2",
     "sanitize-html": ">=2.3.2",
     "sass": "^1.37.5",
-    "trim": ">=0.0.3"
+    "trim": ">=0.0.3",
+    "ws": ">=7.4.6"
   },
   "keywords": [
     "gatsby"
