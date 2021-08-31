@@ -50,14 +50,7 @@
       }
     }
     align-items: center;
-    a {
-      border-bottom: 1px solid textColor($color);
-      padding: 0 0.2em;
-      transition: background-color 0.3s;
-      @include hover {
-        background-color: subColor($color);
-      }
-    }
+
     > header {
       p {
         font-size: smaller;
@@ -67,6 +60,15 @@
     > section {
       * {
         margin: 0.5em;
+      }
+      a {
+        border-bottom: 1px solid textColor($color);
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s;
+        @include hover {
+          background-color: subColor($color);
+        }
       }
       ul,
       li {
