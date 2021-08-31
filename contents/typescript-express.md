@@ -3,7 +3,7 @@ emoji: "📢"
 title: "Typescript + Express 설정하기"
 description: "Typescript를 이용한 Express 설정을 공유합니다."
 date: "2021-08-12"
-tag: [Express, Typescript]
+tag: [Backend, Typescript]
 ---
 
 ## Typescript를 사용하는 이유
@@ -35,7 +35,7 @@ $ tsc --init
 $ mkdir src
 ```
 
-### npm 모듈 설치
+### 사용할 node.js 모듈 설치
 
 ```bash
 $ npm i express
