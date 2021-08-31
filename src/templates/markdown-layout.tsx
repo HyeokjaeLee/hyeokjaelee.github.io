@@ -7,7 +7,7 @@ import LeftArrow from "../assets/img/left-arrow.svg";
 import RightArrow from "../assets/img/right-arrow.svg";
 import { Comment } from "../components/comment";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
-deckDeckGoHighlightElement();
+deckDeckGoHighlightElement(); //code 하이라이트
 interface Data {
   excerpt: string;
   fields: { slug: string };
@@ -73,7 +73,7 @@ const BlogSpots = ({ data }: Props) => {
         title={postInfo.title}
         meta={[
           { name: "description", content: postInfo.description },
-          { name: "keywords", content: postInfo.tag.join() },
+          { name: "keywords", content: postInfo.tag.join(",") },
         ]}
       />
       <Nav />

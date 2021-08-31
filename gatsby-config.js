@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Nagle's Blog`,
+    siteUrl: `https://hyeokjaelee.github.io/`,
   },
   plugins: [
     {
@@ -12,6 +13,20 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-typescript",
     "gatsby-plugin-sass",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://hyeokjaelee.github.io",
+        sitemap: "https://hyeokjaelee.github.io/sitemap/sitemap-index.xml",
+        policy: [
+          {
+            userAgent: "*",
+            allow: "/",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {

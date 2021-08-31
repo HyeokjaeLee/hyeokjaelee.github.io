@@ -20,6 +20,10 @@ const TemplateWrapper = ({ children, location }: any) => {
           { name: `description`, content: `programming & tech blog` },
           { name: `generator`, content: `gatsby` },
           { name: `author`, content: `HyeokjaeLee` },
+          {
+            name: `google-site-verification`,
+            content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
+          },
         ]}
         bodyAttributes={{ class: theme }}
       >
