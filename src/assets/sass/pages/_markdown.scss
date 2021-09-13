@@ -43,11 +43,13 @@
     }
   }
   #md-article {
+    svg {
+      display: block;
+      width: 2.5em;
+    }
     .center {
+      margin-top: 2em;
       text-align: center;
-      svg {
-        width: 5em;
-      }
     }
     align-items: center;
 
@@ -87,7 +89,8 @@
       code {
         font-size: 0.9em;
         background-color: subColor($color);
-        padding: 0.1em 0.5em;
+        padding: 0.2em 0.4em;
+        margin: 0 0.1em;
         border-radius: $borderRadius;
       }
       table {
