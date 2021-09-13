@@ -6,10 +6,10 @@ date: "2021-08-31"
 tag: [Javascript, Data]
 ---
 
-## 크롤링(Crawling)이란?
+## 크롤링(Crawling)
 
 크롤링은 웹 페이지에서 원하는 데이터를 추출해 내는 행위입니다.
-<br>크롤링을 위해 개발된 소프트웨어를 크롤러(crawler)라 합니다.
+<br>크롤링을 위해 개발된 소프트웨어를 크롤러(Crawler)라 합니다.
 
 <img src="https://user-images.githubusercontent.com/71566740/131489009-db9d044d-b05e-4c6b-b322-7076d5d70cab.png" width="500px"/>
 
@@ -94,7 +94,7 @@ const axios = require("axios");
 
 <br>
 <div class="center">
-  `node index`로 실행하보면 결과는 다음과 같이 나오는걸 확인할수 있습니다.
+  <code>node index</code>로 실행해보면 결과는 다음과 같이 나오는 걸 확인할 수 있습니다.
   <br>
   <img src="https://user-images.githubusercontent.com/71566740/131484221-8eaa2b8f-749e-46d9-8efe-486e4630e963.png" width="500px"/>
 </div>

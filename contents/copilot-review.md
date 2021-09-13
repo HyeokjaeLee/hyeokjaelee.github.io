@@ -6,6 +6,8 @@ date: "2021-08-26"
 tag: [etc., Review]
 ---
 
+![image](https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png)
+
 ## Copilot
 
 Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI입니다.
