@@ -18,7 +18,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://hyeokjaelee.github.io",
-        sitemap: "https://hyeokjaelee.github.io/sitemap/sitemap-index.xml",
+        sitemap: "https://hyeokjaelee.github.io/sitemap-index.xml",
         policy: [
           {
             userAgent: "*",
