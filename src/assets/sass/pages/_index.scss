@@ -71,7 +71,6 @@
     flex-wrap: wrap;
     gap: 0.5em;
     font-size: 0.8em;
-
     > * {
       padding: {
         left: 0.7em;
@@ -82,7 +81,7 @@
       border-radius: 1em;
     }
 
-    &.entire {
+    &.all-posts {
       margin: 0 15%;
       justify-content: center;
       > * {
@@ -91,23 +90,35 @@
         @include hover {
           background-color: subColor($color);
         }
-        &.checked {
-          color: textColor($color);
-          background-color: subColor($color);
-        }
+        @include checked($color);
       }
     }
-    &.individuals {
-      margin-top: 0.5em;
+    &.each-post {
       list-style: none;
-      > * {
-        color: textColor($color);
-        background-color: subColor($color);
-        &.checked {
-          color: $color;
-          background-color: subTextColor($color);
+      &.on-index {
+        margin-top: 0.5em;
+        @include each-post($color);
+        > li {
+          @include checked($color);
         }
       }
+      &.in-nav {
+        @include each-post(subColor($color));
+      }
     }
+  }
+}
+
+@mixin each-post($color: $lightColor) {
+  > li {
+    color: textColor($color);
+    background-color: subColor($color);
+  }
+}
+
+@mixin checked($color: $lightColor) {
+  &.checked {
+    color: $color;
+    background-color: subTextColor($color);
   }
 }

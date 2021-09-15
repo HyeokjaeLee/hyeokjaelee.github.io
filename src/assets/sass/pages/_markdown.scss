@@ -1,96 +1,59 @@
 @mixin markdown-page($color: $lightColor) {
-  #otherContents {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-size: 0.9em;
-    > a {
-      padding: 10px;
-      display: flex;
-      flex: 1;
-      align-items: center;
-      transition: padding 0.3s, background-color 0.3s;
-      border-radius: $borderRadius;
-      @include hover {
-        background-color: subColor($color);
-      }
-
-      &.left {
-        text-align: left;
-        justify-content: flex-start;
-        @include hover {
-          padding: {
-            left: 0;
-            right: 20px;
-          }
-        }
-      }
-      &.right {
-        text-align: right;
-        justify-content: flex-end;
-        @include hover {
-          padding: {
-            left: 20px;
-            right: 0;
-          }
-        }
-      }
-    }
-    .arrow {
-      height: 2em;
-      width: 2em;
-      margin: 0 1.5em;
-    }
-  }
-  #md-article {
-    .svg-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2.5em;
-      font-weight: 900;
-      svg {
-        border: 1px solid subColor($color);
-        padding: 0.2em;
-        border-radius: $borderRadius;
-        background-color: textColor($color);
-        margin: {
-          bottom: 0.35em;
-          left: 0.1em;
-          right: 0.1em;
-        }
-        fill: $color;
-        width: 1em;
-      }
-    }
-    svg {
-      display: block;
-      width: 2.5em;
-    }
-
-    img {
-      position: relative;
-      border-radius: $borderRadius;
-      border: 1px solid subColor($color);
-      padding: 0.1em;
-      display: block;
+  .post {
+    * {
       box-sizing: border-box;
     }
-    p {
-      img {
-        width: 100%;
-      }
-    }
-
-    align-items: center;
-
+    position: relative;
+    //헤더
     > header {
-      p {
-        font-size: smaller;
+      margin: {
+        top: 1em;
+        bottom: 4em;
       }
-      margin-bottom: 1em;
+      .post-title {
+        text-align: center;
+        font-size: 2em;
+      }
+      .posted-on {
+        text-align: center;
+        width: 100%;
+        border-radius: $borderRadius;
+        font-weight: 100;
+        font-size: 1.1em;
+      }
     }
+    //본문
     > section {
+      img {
+        position: relative;
+        border-radius: $borderRadius;
+        border: 1px solid subColor($color);
+        display: block;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        svg {
+          padding: 0.5em;
+          background-color: subColor($color);
+          width: 2em;
+          height: 2em;
+          margin-right: 0.5em;
+          fill: textColor($color);
+          border-radius: 100%;
+        }
+        margin: {
+          top: 1em;
+          bottom: 0.5em;
+        }
+        display: flex;
+        align-items: center;
+      }
       a {
         border-bottom: 1px solid textColor($color);
         margin: 0;
@@ -159,6 +122,49 @@
     .descriptionPic {
       font-size: 0.9em;
       color: subTextColor($color);
+    }
+  }
+  #otherContents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 0.9em;
+    > a {
+      padding: 10px;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      transition: padding 0.3s, background-color 0.3s;
+      border-radius: $borderRadius;
+      @include hover {
+        background-color: subColor($color);
+      }
+
+      &.left {
+        text-align: left;
+        justify-content: flex-start;
+        @include hover {
+          padding: {
+            left: 0;
+            right: 20px;
+          }
+        }
+      }
+      &.right {
+        text-align: right;
+        justify-content: flex-end;
+        @include hover {
+          padding: {
+            left: 20px;
+            right: 0;
+          }
+        }
+      }
+    }
+    .arrow {
+      height: 2em;
+      width: 2em;
+      margin: 0 1.5em;
     }
   }
 }

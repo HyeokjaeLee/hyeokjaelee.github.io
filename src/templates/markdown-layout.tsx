@@ -44,6 +44,13 @@ const BlogSpots = ({ data }: Props) => {
   const postIndex = postsDataList.findIndex((postData) => postData.id === markdownRemark.id);
   const prevPostNode = postIndex > 0 ? postsDataList[postIndex - 1] : null;
   const nextPostNode = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
+  const postTags = (
+    <ul className="tags each-post in-nav">
+      {postInfo.tag.map((_tag, index) => (
+        <li key={index}>{_tag}</li>
+      ))}
+    </ul>
+  );
   const NearPost = (props: { postNode: Data | null; direction: "left" | "right" }) => {
     const { postNode, direction } = props;
     if (!!postNode) {
@@ -66,7 +73,7 @@ const BlogSpots = ({ data }: Props) => {
     }
     return <></>;
   };
-  const tags = postInfo.tag.map((_tag, index) => <li key={index}>{_tag}</li>);
+
   return (
     <>
       <Helmet
@@ -76,17 +83,15 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tag.join(",") },
         ]}
       />
-      <Nav />
+      <Nav navItem={postTags} />
       <div className="content first">
-        <article id="md-article">
+        <article className="post">
           <header>
-            <i>Posted on {postInfo.date}</i>
-            <h2>
+            <p className="posted-on">Posted on {postInfo.date}</p>
+            <h1 className="post-title">
               {postInfo.emoji} {postInfo.title}
-            </h2>
-            <ul className="tags individuals">{tags}</ul>
+            </h1>
           </header>
-          <hr />
           <section dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
           <footer>
             <img className="profile pic" src={postProfile} />

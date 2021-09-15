@@ -38,7 +38,7 @@ const Index = ({ data }: Props) => {
   /**필터링할 태그 선택*/
   const check_tag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
   const TagFilter = () => (
-    <div className="tags entire">
+    <div className="tags all-posts">
       {group.map((item, entireTagListIndex) => {
         const filter_posts_by_tag = () => {
           setCurrentPage(1);
@@ -149,7 +149,7 @@ const Index = ({ data }: Props) => {
                 {emoji} {title}
               </h2>
               <p>{description}</p>
-              <ul className="tags individuals">{IndividualsTagList}</ul>
+              <ul className="tags each-post on-index">{IndividualsTagList}</ul>
             </div>
           </Link>
         </li>
