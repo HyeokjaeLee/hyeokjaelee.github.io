@@ -96,7 +96,7 @@ const BlogSpots = ({ data }: Props) => {
           <footer>
             <img className="profile pic" src={postProfile} />
             <div className="profile text">
-              <h1>Hyeok-Jae Lee</h1>
+              <h1>Hyeok-jae Lee</h1>
               <p>개발자를 꿈꾸는 코더</p>
             </div>
           </footer>
