@@ -9,14 +9,14 @@
 
     > .slide {
       &.entered {
-        @include slide-in-bottom(0.6s);
+        @include fadeInRight;
       }
       &.entering {
         position: absolute;
         opacity: 0;
       }
       &.exiting {
-        @include slide-out-bottom(0.6s);
+        @include fadeOutLeft;
       }
     }
   }
