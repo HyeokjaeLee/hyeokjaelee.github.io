@@ -88,7 +88,7 @@ const BlogSpots = ({ data }: Props) => {
         <article className="post">
           <header>
             <p className="posted-on">Posted on {postInfo.date}</p>
-            <h1 className="post-title">
+            <h1>
               {postInfo.emoji} {postInfo.title}
             </h1>
           </header>

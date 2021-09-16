@@ -5,7 +5,7 @@ const timeout = 700;
 export const Main = (props: any) => {
   const { children, location } = props;
   return (
-    <TransitionGroup id="main-wrap">
+    <TransitionGroup>
       <ReactTransition
         key={location.pathname}
         timeout={{
