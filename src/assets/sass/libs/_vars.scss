@@ -4,5 +4,6 @@ $darkColor: #2a2a2e;
 $mediumColor: mix($lightColor, $darkColor, 50%);
 //공통 그림자
 $boxShadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+$boxShadow2: 0 0px 10px rgba(0, 0, 0, 0.1);
 $borderRadius: 5px;
 $mobileWidth: 767px;
