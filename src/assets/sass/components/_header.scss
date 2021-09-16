@@ -13,8 +13,8 @@
     > .title {
       @include focus-in(0.6s);
       text-align: center;
-      > h2 {
-        font-size: 1.9em;
+      > h1 {
+        font-size: 2em;
         font-weight: 100;
       }
       > p {

@@ -5,9 +5,8 @@ export const Header = ({ title }: any) => {
     <header id="header">
       <img src={logo} className="logo"></img>
       <span className="title">
-        <h2>Hyeok - Jae</h2>
-        <p>Nagle의 개발 블로그</p>
-        <p>Nagle's programming & tech blog</p>
+        <h1>Nagle's blog</h1>
+        <p>Programming & Tech</p>
       </span>
     </header>
   );
