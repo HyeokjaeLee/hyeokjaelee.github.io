@@ -11,6 +11,7 @@
         bottom: 4em;
       }
       .posted-on {
+        font-style: italic;
         text-align: center;
         width: 100%;
         border-radius: $borderRadius;
@@ -29,27 +30,32 @@
         width: 100%;
         margin: 5px 0;
       }
-
+      svg {
+        padding: 0.5em;
+        background-color: subColor($color);
+        width: 2em;
+        margin-right: 0.5em;
+        fill: textColor($color);
+        border-radius: $borderRadius;
+      }
       h1,
       h2,
       h3,
       h4,
       h5,
       h6 {
-        svg {
-          padding: 0.5em;
-          background-color: subColor($color);
-          width: 2em;
-          margin-right: 0.5em;
-          fill: textColor($color);
-          border-radius: $borderRadius;
-        }
         margin: {
           top: 1em;
           bottom: 0.5em;
         }
         display: flex;
         align-items: center;
+      }
+      h2 {
+        background-color: textColor($color);
+        color: $color;
+        border-radius: $borderRadius;
+        padding: 0 0.5em;
       }
       a {
         border-bottom: 1px solid textColor($color);
