@@ -30,7 +30,7 @@ interface Props {
 
 const Index = ({ data }: Props) => {
   /**페이지 당 보여줄 포스트 갯수*/
-  const postsPerPage = 8;
+  const postsPerPage = 5;
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
   const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
@@ -108,9 +108,9 @@ const Index = ({ data }: Props) => {
         onClick={() => {
           setCurrentPage(props.toMove);
         }}
-        className={props.hide}
+        className={"arrow " + props.hide}
       >
-        <props.Arrow className="arrow" />
+        <props.Arrow className="arrow-svg" />
       </a>
     );
     return (
