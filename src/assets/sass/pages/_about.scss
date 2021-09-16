@@ -19,6 +19,7 @@
       background-color: subColor($color);
       border-radius: $borderRadius;
       .name {
+        margin-top: 0.5em;
         font-weight: 100;
       }
     }
@@ -28,10 +29,6 @@
     .profile {
       width: 12em;
       border-radius: 100%;
-      margin: {
-        top: 2em;
-        bottom: 1em;
-      }
     }
     h2,
     h3,

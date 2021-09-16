@@ -35,7 +35,7 @@ const About = () => {
         <article className="about">
           <div className="profile-wrap">
             <img className="profile" src={postProfile} title="Hyeokjae" />
-            <h2 className="name">Lee Hyeok-jae</h2>
+            <h2 className="name">Hyeok-jae Lee</h2>
           </div>
           <div className="text-wrap">
             <h2>📋 Introduction</h2>
