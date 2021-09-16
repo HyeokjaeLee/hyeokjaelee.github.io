@@ -52,13 +52,28 @@
     > a {
       margin: 0 0.5em;
       display: flex;
+      width: 2em;
+      height: 2em;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      border: 1px solid subColor($color);
+      transition: background-color 0.2s, color 0.2s;
+      @include hover {
+        background-color: subTextColor($color);
+        color: $color;
+      }
+      &.arrow {
+        border: none;
+      }
       &.hide {
         visibility: hidden;
       }
       &.currentPage {
-        border-bottom: 1px solid textColor($color);
+        background-color: textColor($color);
+        color: $color;
       }
-      > .arrow {
+      > .arrow-svg {
         margin-top: 0.1em;
         height: 1.5em;
       }
