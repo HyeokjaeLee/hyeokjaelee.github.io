@@ -1,5 +1,46 @@
 @mixin about-page($color: $lightColor) {
+  .about-text {
+    margin: {
+      bottom: 1em;
+    }
+  }
   .about {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    .profile-wrap {
+      box-shadow: $boxShadow2 inset;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2em;
+      background-color: subColor($color);
+      border-radius: $borderRadius;
+      .name {
+        font-weight: 100;
+      }
+    }
+    .text-wrap {
+      flex: 1;
+    }
+    .profile {
+      width: 12em;
+      border-radius: 100%;
+      margin: {
+        top: 2em;
+        bottom: 1em;
+      }
+    }
+    h2,
+    h3,
+    h4 {
+      margin: {
+        top: 1em;
+        bottom: 0.5em;
+      }
+    }
     dl,
     ul,
     li {
@@ -22,6 +63,7 @@
       font-size: 0.8em;
       list-style: none;
       &.techStack {
+        box-shadow: $boxShadow2 inset;
         margin: 1em;
         padding: 1em;
         border-radius: $borderRadius;
@@ -38,18 +80,15 @@
           display: flex;
           margin: 0.5em 0;
           a {
-            border-bottom: 1px solid textColor($color);
+            border-radius: $borderRadius;
+            padding: 0 0.7em;
+            border: 1px solid subColor($color);
+            margin: 0 0.5em;
+            transition: background-color 0.2s;
+            @include hover {
+              background-color: subColor($color);
+            }
           }
-        }
-      }
-    }
-    .labelList {
-      font-size: 0.8em;
-      margin-left: 0;
-      list-style: none;
-      > li {
-        a {
-          border-bottom: 1px solid textColor($color);
         }
       }
     }
