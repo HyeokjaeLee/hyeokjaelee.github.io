@@ -5,7 +5,6 @@ import { Nav } from "../components/nav";
 import { Helmet } from "react-helmet";
 import Gmail from "../assets/img/gmail.svg";
 import Github from "../assets/img/github.svg";
-import Naver from "../assets/img/naver.svg";
 import postProfile from "../assets/img/about-profile.jpg";
 interface Props {
   name: string;
@@ -36,17 +35,7 @@ const About = () => {
           <div className="profile-wrap">
             <img className="profile" src={postProfile} title="Hyeokjae" />
             <h2 className="name">Hyeok-jae Lee</h2>
-          </div>
-          <div className="text-wrap">
-            <h2>📋 Introduction</h2>
-            <ul>
-              <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
-              <li>항상 더 편리한 방법을 고민합니다.</li>
-              <li>Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
-              <li>웹 기술 트렌드에 관심이 많습니다.</li>
-              <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
-            </ul>
-            <h2>📪 Contact & Channel</h2>
+            <h3>📪 Contact & Channel</h3>
             <ul className="list contactChannel">
               <li>
                 <Gmail className="icon small" />
@@ -56,6 +45,16 @@ const About = () => {
                 <Github className="icon small" />
                 <a href="https://github.com/HyeokjaeLee">https://github.com/HyeokjaeLee</a>
               </li>
+            </ul>
+          </div>
+          <div className="text-wrap">
+            <h2>📋 Introduction</h2>
+            <ul>
+              <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
+              <li>항상 더 편리한 방법을 고민합니다.</li>
+              <li>Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
+              <li>웹 기술 트렌드에 관심이 많습니다.</li>
+              <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
             </ul>
             <h2>📒 Interested tech stack</h2>
             <ul className="list techStack">
