@@ -6,6 +6,8 @@ date: "2021-07-03"
 tag: [Git]
 ---
 
+![git](https://user-images.githubusercontent.com/71566740/133915828-2a45cb95-7be9-4b0e-aace-821865f70c99.png)
+
 ## 좋은 Commit Message의 필요성
 
 커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 합니다.
@@ -21,13 +23,13 @@ tag: [Git]
 
 ## Commit Message 구조
 
-- 해당 커밋 메시지의 구조는 emoji를 제외하면 Angural Commit Message Format과 동일합니다.
+- 해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일합니다.
 - header, body, footer는 빈 행으로 구분합니다.
 
 <br>
 
 ```
-<emoji> <type>(<scope>): <subject> //header
+<emoji> <type>(<scope>): <short summary> //header
 
 <body>
 
@@ -44,14 +46,18 @@ tag: [Git]
 
 #### 반드시 다음 중 하나여야 합니다.
 
-- **build**: 빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항
-- **ci**: CI 구성 파일 및 스크립트의 변경 사항
-- **docs**: 단순 문서 수정
-- **feat**: 새로운 기능 추가
-- **fix**: 버그 수정
-- **perf**: 성능 개선이 있는 변경
-- **refactor**: 버그 수정, 기능 추가, 성능 개선을 제외한 모든 변경
-- **test**: 테스트 관련 변경
+- **build**: 빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항이 있을 때
+- **ci**: CI 구성 파일 및 스크립트의 변경 사항이 있을 때
+- **docs**: 단순 문서 수정이 있을 때
+- **feat**: 새로운 기능 추가가 있을 때
+- **fix**: 버그 수정이 있을 때
+- **perf**: 성능 개선이 있는 변경이 있을 때
+- **refactor**: 버그 수정, 기능 추가, 성능 개선을 제외한 변경이 있을 때
+- **test**: 테스트 관련 변경이 있을 때
+- **revert**: 이전 커밋으로 회귀할 때
+  - type은 revert를 사용하되 short summary는 회귀 대상 커밋의 그것과 같아야 함
+  - 명확한 회귀 이유를 body에 설명해 주어야 함
+  - 회귀 대상의 커밋 SHA 정보를 다음과 같이 body에 표시해 주어야 함<br>`This reverts commit <SHA>`
 
 ### 🎯 Scope (생략 가능)
 
