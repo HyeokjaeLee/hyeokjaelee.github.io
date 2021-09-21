@@ -142,27 +142,5 @@ tag: [Git]
 - **Set**: 변수, 리터럴, 텍스트 등 단순 값을 변경하는 경우
 - **Pass**: 매개변수를 전달하는 경우
 
-- ### 영어로 작성 시
-
-  ```
-  🐛 Fix(Filter): Fix data filtering method
-
-  * Fix bug that filtering method access parent variables.
-  * Delete unnecessary code.
-
-  Resoloves: #123, #1234
-  ```
-
-- ### 한글로 작성 시
-
-  ```
-  🐛 Fix(필터): 데이터 필터링 메소드 수정
-
-  * 필터링 메소드가 상위 변수에 접근하는 버그 수정
-  * 불필요한 코드 삭제
-
-  Resoloves: #123, #1234
-  ```
-
 <br>
 해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.
