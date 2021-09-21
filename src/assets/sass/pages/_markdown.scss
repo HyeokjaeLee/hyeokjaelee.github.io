@@ -58,13 +58,16 @@
         padding: 0 0.5em;
       }
       a {
-        border-bottom: 1px solid textColor($color);
+        font-weight: bolder;
+        border-bottom: 2px solid subColor($color);
         margin: 0;
-        padding: 0;
+        padding: 0 0.3em;
         transition: background-color 0.3s;
         @include hover {
           background-color: subColor($color);
         }
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
       }
       ul,
       li {
@@ -82,6 +85,7 @@
         border-collapse: collapse;
         word-break: break-all;
         max-width: 100%;
+        margin: 1em 0;
       }
       tr,
       th,
