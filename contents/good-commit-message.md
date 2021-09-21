@@ -178,11 +178,10 @@ Angural문서에 따르면 Breaking change는 어플리케이션을 구성하고
 ## 마지막으로
 
 긴글 읽어 주셔서 감사합니다.
-<br>지금은 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중입니다.
+<br>해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.
+<br>지금까지 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중입니다.
 <br>관련 내용은 다음 링크들에서 확인 가능합니다.
 
 - [Blog post](/gititle-project/)
 - [Github repository](https://github.com/HyeokjaeLee/gititle)
 - [Gititle](https://hyeokjaelee.github.io/gititle/)
-
-<br>해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.

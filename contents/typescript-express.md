@@ -10,12 +10,12 @@ tag: [Backend, Typescript]
 
 ## Typescript를 사용하는 이유
 
-저는 Node.js 사용할 때 Javascript보다는 Typescript를 선호합니다.
+저는 Node.js 사용할 때 Javascript보다는 Typescript를 선호합는데
 <br>여러 가지 이유가 있겠지만 Javascript는 보통 실행되는 프로그램을 보면서 오류를 잡거나 따로 디버깅을 하는데 Typescript는 정적 타입을 지원해서 컴파일 단계에서 오류를 찾기 쉬운 점이 가장 큰 것 같습니다.
 
-데이터 타입이 중요한 서버를 구축할 때는 특히 더 유용하다고 느끼는데 오늘은 Node.js의 대표격인 서버 프레임워크 Express를 Typescript로 작성하기 위한 기본 설정을 다뤄보려 합니다.
-![0_foMyEI_p9itich5y](https://user-images.githubusercontent.com/71566740/133249267-4a39fcb1-e7d4-4158-84af-b38b3046661e.png)
-이전에는 Typescript로 Express를 이용할 때는 코드는 Typescript로 작성하고 이후 해당 코드를 Javascript로 컴파일 후 실행하는 방법을 사용했는데 바로 이전 Toy Project를 진행하면서 `ts-node`와 `nodemon`을 이용해 훨씬 편한 개발 환경을 구축할 수 있게 되어 해당 방법으로 진행하겠습니다.
+<br>데이터 타입이 중요한 서버를 구축할 때는 특히 더 유용하다고 느끼는데 오늘은 Node.js의 대표격인 서버 프레임워크 Express를 Typescript로 작성하기 위한 기본 설정을 다뤄보려 합니다.
+
+<br>이전에는 Typescript로 Express를 이용할 때는 코드는 Typescript로 작성하고 이후 해당 코드를 Javascript로 컴파일 후 실행하는 방법을 사용했는데 바로 이전 Toy Project를 진행하면서 `ts-node`와 `nodemon`을 이용해 훨씬 편한 개발 환경을 구축할 수 있게 되어 해당 방법으로 진행하겠습니다.
 
 ## 설정
 
@@ -107,5 +107,5 @@ exp.get("/", (req, res) => {
 
 ## 마지막으로
 
-저는 토이 프로젝트에 Typescript, Express, GraphQL을 이용하는 경우가 종종 있습니다.
-<br> cli를 지원하지 않는 자주 사용하는 조합은 초기 설정을 마치고 Github에 올려놓고 필요할 때 clone 해서 일부 수정 후 사용하는 방법으로 이용하면 편리합니다.
+저는 토이 프로젝트에 Typescript를 자주 사용합니다.
+<br>cli를 지원하지 않는 자주 사용하는 조합은 초기 설정을 마치고 Github에 올려놓고 필요할 때 clone 해서 일부 수정 후 사용하는 방법으로 이용하면 편리하게 사용할 수 있습니다.
