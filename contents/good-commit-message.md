@@ -21,22 +21,25 @@ tag: [Git]
 <br>커밋 메시지 작성법은 큰 틀은 있지만 개발자분들마다 스타일이 다르고 정확하게 이렇게 작성해야 한다는 규칙은 없습니다.
 <br>다음 내용은 Angural Commit Message Format을 기반으로 제 나름대로 보기 편하다고 느낀 구조로 작성하는 것 입니다.
 
-## Commit Message 구조
-
-- 해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일합니다.
-- header, body, footer는 빈 행으로 구분합니다.
-
-<br>
+## Commit Message
 
 ```
-<emoji> <type>(<scope>): <short summary> //header
+<header>//필수
 
 <body>
 
 <footer>
 ```
 
-## Header (필수)
+- 해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일합니다.
+- header, body, footer는 빈 행으로 구분합니다.
+- header를 제외하면 모두 생략이 가능합니다.
+
+## Header
+
+```
+<emoji> <type>(<scope>): <short summary>
+```
 
 ### 😀 Emoji
 
@@ -70,8 +73,6 @@ tag: [Git]
 
 ### 📃 Short summary
 
-#### 규칙
-
 - 첫글자를 대문자로 작성하지 않는다.
 - 50글자 내로 제한한다.
 - 과거형으로 작성하지 않는다.
@@ -79,9 +80,7 @@ tag: [Git]
 - 끝에 특수문자를 사용하지 않는다.
   <br>(마침표, 느낌표, 물음표 등)
 
-## Body (생략 가능)
-
-#### 규칙
+## Body
 
 - 각 내용의 시작은 `*`로 시작하고 공백 한칸 띄우고 작성한다.
 - 각 내용은 72글자 내로 제한한다.
@@ -90,34 +89,68 @@ tag: [Git]
 - 어떻게 보다는 무엇과 왜를 설명한다.
   - 변경의 영향을 설명하기 위해 이전 동작과 새 동작을 비교 할 수 있다.
 
-## Footer (생략 가능)
+## Footer
 
-이슈 트래킹을 위한 이슈 ID를 작성한다.
+```
+BREAKING CHANGE: <breaking change summary>
 
-- 이슈 트래커 ID 작성한다.
-- "유형: #이슈 번호" 형식으로 작성한다.
-  > Resolves: #123, #1234<br>
-  > See also: #124
-- 여러 개의 이슈 번호를 적을 때는 쉼표로 구분한다.
-- 이슈 트래커 유형
-  > Fixes: issue 수정중<br>
-  > Resovles: issue 해결<br>
-  > Ref: 참고할 issue가 있을 때 사용<br>
-  > Related to: 해당 커밋에 관련된 issue 번호 (아직 해결되지 않은 경우)
+<breaking change description>
+
+
+<linked issue>
+```
+
+### Breaking Change
+
+Angural문서에 따르면 Breaking change는 어플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야하는 변화를 의미합니다.
+<br>간략하게 대규모 변경사항(?) 정도로 생각하시면 좋을 것 같습니다.
+
+<br>저는 그 외에 API를 만들때 해당 API를 사용하는 다른 앱들의 코드를 수정해야 하는 경우에도 API 소스 코드 커밋 메시지에 Breaking Change라고 표기합니다.
+
+<br>Footer에는 breaking change와 관련된 정보를 포함할 수 있습니다.
+
+### Linked issue
+
+저는 이슈 연결을 할 때 다음 두가지 키워드를 사용합니다.
+
+- **resolve**: 이슈를 해결한 경우
+- **related to**: 연관된 이슈가 있는 경우
+
+<br>다음은 pull request의 description이나 커밋 메시지에서 Issue 연결을 제공하는 키워드 입니다.
+<br>(pull request는 기본 branch에 있어야 합니다.)
+
+- close
+- closes
+- closed
+- fix
+- fixes
+- fixed
+- resolve
+- resolves
+- resolved
+
+<br>이슈가 같은 repository에 있는지 여부에 따라 닫는 구문이 달라집니다.
+<br>해당 내용은 [Github 공식 문서](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)에 원문이 있으니 확인해 보시는걸 추천드립니다.
+
+| 연결된 이슈                 | 구문                                  | 예시                                                               |
+| --------------------------- | ------------------------------------- | ------------------------------------------------------------------ |
+| 같은 repository에 있는 경우 | KEYWORD #ISSUE-NUMBER                 | closes #10                                                         |
+| 다른 repository에 있는 경우 | KEYWORD OWNER/REPOSITORY#ISSUE-NUMBER | fixes octo-org/octo-repo#100                                       |
+| 복합 적인 경우              | 각 이슈의 전체 구문을 작성            | resolves #10,<br>resolves #123,<br>resolves octo-org/octo-repo#100 |
 
 ## 자주 쓰이는 영어 단어 목록
 
 다음은 커밋에 자주 사용하는 영어 단어 목록입니다.
-<br>한국 개발자 분이 [블로그](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)에 잘 정리해 주신 글이 있습니다.
-<br>해당 글을 참고하시는걸 추천 드립니다.
+<br>해당 내용도 한국 개발자 분이 [블로그](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)에 잘 정리해 주신 글이 있습니다.
+<br>해당 글도 확인해 보시는걸 추천 드립니다.
 
 - **Fix**: 버그, 이슈 등 잘못된 무언가를 고치는 경우
 - **Correct**: 문법 오류, 타입, 이름, 오타 등을 수정하는 경우
-  - **Fix**와 비슷하지만 보다 단순한 수정에 자주 쓰임
+  - `Fix`와 비슷하지만 보다 단순한 수정에 자주 쓰임
 - **Remove**: 코드나 파일을 삭제하는 경우
 - **Add**: 새 코드나 파일을 추가하는 경우
 - **Implement**: 무언가를 구현한 경우
-  - Add와 비슷하지만 좀더 큰 코드 단위 추가에 자주 쓰임
+  - `Add`와 비슷하지만 좀더 큰 코드 단위 추가에 자주 쓰임
   - 구현한 대상을 강조할때 사용
 - **Use**: 구현을 위해 무언가를 사용한 경우
   - 특정 라이브러리나 프레임워크를 사용하기 위한 코드를 추가하는 경우
@@ -142,5 +175,14 @@ tag: [Git]
 - **Set**: 변수, 리터럴, 텍스트 등 단순 값을 변경하는 경우
 - **Pass**: 매개변수를 전달하는 경우
 
-<br>
-해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.
+## 마지막으로
+
+긴글 읽어 주셔서 감사합니다.
+<br>지금은 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중입니다.
+<br>관련 내용은 다음 링크들에서 확인 가능합니다.
+
+- [Blog post](/gititle-project/)
+- [Github repository](https://github.com/HyeokjaeLee/gititle)
+- [Gititle](https://hyeokjaelee.github.io/gititle/)
+
+<br>해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.
