@@ -6,7 +6,7 @@ date: "2021-09-14"
 tag: [Project, Frontend]
 ---
 
-![Gititle](https://user-images.githubusercontent.com/71566740/133243088-ce29c1c0-e610-4ced-ada7-35a31a0222f2.png)
+![capture](https://user-images.githubusercontent.com/71566740/135963287-e5c18f62-da16-4dda-98cb-1dd4a7c2b720.png)
 
 ## Gititle 프로젝트
 
