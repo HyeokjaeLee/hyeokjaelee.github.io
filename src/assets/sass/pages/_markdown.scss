@@ -21,13 +21,17 @@
     }
     //본문
     > section {
+      .img-wrap {
+        display: flex;
+        flex-wrap: wrap;
+      }
       img {
         position: relative;
         border-radius: $borderRadius;
         border: 1px solid subColor($color);
         display: block;
         box-sizing: border-box;
-        width: 100%;
+        max-width: 100%;
         margin: 5px 0;
       }
       svg {
