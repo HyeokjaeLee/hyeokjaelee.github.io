@@ -24,6 +24,7 @@
     }
     //본문
     > section {
+      line-height: 1.8em;
       .img-txt-wrap {
         margin: 0.5em 0;
         display: flex;
@@ -76,10 +77,9 @@
         align-items: center;
       }
       h2 {
-        background-color: textColor($color);
-        color: $color;
         border-radius: $borderRadius;
-        padding: 0 0.5em;
+        border-left: 0.3em solid textColor($color);
+        padding: 0 0.3em;
       }
       a {
         font-weight: bolder;
