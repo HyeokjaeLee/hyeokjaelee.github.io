@@ -1,5 +1,8 @@
 @mixin markdown-page($color: $lightColor) {
   .post {
+    @include if-not-small-device {
+      padding: 0 1em;
+    }
     * {
       box-sizing: border-box;
     }
@@ -21,18 +24,35 @@
     }
     //본문
     > section {
-      .img-wrap {
+      .img-txt-wrap {
+        margin: 0.5em 0;
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
+        .img-wrap {
+          display: flex;
+          flex-direction: column;
+
+          align-items: center;
+          img {
+            padding: 0.5em;
+            margin: 0.2em;
+          }
+        }
+        .txt-wrap {
+          flex: 1;
+        }
+      }
+      .img {
+        &.large {
+          width: 100%;
+        }
       }
       img {
-        position: relative;
+        max-width: 100%;
         border-radius: $borderRadius;
         border: 1px solid subColor($color);
-        display: block;
-        box-sizing: border-box;
-        max-width: 100%;
-        margin: 5px 0;
       }
       svg {
         padding: 0.5em;

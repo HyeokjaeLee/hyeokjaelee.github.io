@@ -2,11 +2,8 @@
   #main {
     transition: margin 0.3s;
     color: textColor($color);
-    margin: 0 10%;
-    @include if-small-device {
-      margin: 0 3%;
-    }
-
+    margin: 0 auto;
+    max-width: 60em;
     > .slide {
       &.entered {
         @include fadeInRight;
