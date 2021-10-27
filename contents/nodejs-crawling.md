@@ -6,17 +6,19 @@ date: "2021-08-31"
 tag: [Javascript, Data]
 ---
 
-![Robot](https://user-images.githubusercontent.com/71566740/131489009-db9d044d-b05e-4c6b-b322-7076d5d70cab.png)
-
 ## 크롤링(Crawling)
 
+<img src="https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png" class="img large">
+
 크롤링은 웹 페이지에서 원하는 데이터를 추출해 내는 행위입니다.
-<br>크롤링을 위해 개발된 소프트웨어를 크롤러(Crawler)라 합니다.
+
+크롤링을 위해 개발된 소프트웨어를 크롤러(Crawler)라 합니다.
 
 <br>저는 보통 API를 만들거나 Tensorflow 학습 데이터를 수집하는데 크롤링을 자주 이용합니다.
 
-<br>크롤링에 활용 가능한 도구는 언어별로 Jsoup(Java), BeautifulSoup(Python) 등 여러 종류가 있지만 이번 포스트에서는 제가 가장 자주 사용하는 Javascript, Node.js 도구들을 이용하겠습니다.
-<br>(언어마다 도구는 달라도 동작 방식은 대체로 비슷합니다.)
+크롤링에 활용 가능한 도구는 언어별로 Jsoup(Java), BeautifulSoup(Python) 등 여러 종류가 있지만 이번 포스트에서는 제가 가장 자주 사용하는 Javascript, Node.js 도구들을 이용하겠습니다.
+
+(언어마다 도구는 달라도 동작 방식은 대체로 비슷합니다.)
 
 ## 도구 선택
 

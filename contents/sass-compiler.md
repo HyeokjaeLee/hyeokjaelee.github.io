@@ -6,9 +6,9 @@ date: "2021-09-01"
 tag: [Frontend]
 ---
 
-![Sass](https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png)
-
 ## Sass(SCSS)
+
+<img src="https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png" class="img large">
 
 Sass는 CSS로 컴파일 가능한 스크립트 언어입니다.
 <br>CSS의 확장판 정도라고 생각하시면 될것 같습니다.
