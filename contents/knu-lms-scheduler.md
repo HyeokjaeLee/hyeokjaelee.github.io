@@ -1,6 +1,6 @@
 ---
 emoji: "🎉"
-title: "대학교 유틸리티 배포"
+title: "KNU LMS Scheduler 프로젝트"
 description: "학교 온라인 강의와 관련된 프로젝트를 진행하고 배포하면서 느낀 경험을 공유합니다."
 date: "2021-10-14"
 tag: [Project, Review]
@@ -8,7 +8,7 @@ tag: [Project, Review]
 
 ## KNU LMS Scheduler
 
-![image](https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png)
+<img src="https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png" class="img large">
 
 ### 🎉 프로젝트 시작 이유
 
@@ -18,9 +18,8 @@ tag: [Project, Review]
 
 <br>기존 학교의 온라인 강의 시스템은 인터페이스가 보기 너무 힘들었습니다.
 
-특히 과목별로 분리되어 모든 강의들을 돌아다니면서 완료하지 못한 강의들을 찾아다녀야 했고 내가 신청한 강의 외에 학교에서 강제로 저의 수강 목록에 넣어둔 불필요한 강의들을 사용자가 선택하지 못하게 화면에 표시되는데 이 두 가지의 환장의 콜라보로 내가 못 듣고 결석 처리되어버리는 과목들이 생겼습니다.
-
-<br>최소한 과제는 몰라도 수업은 모두 출석하자는 생각으로 이번 프로젝트를 시작하게 되었습니다.
+특히 과목별로 분리되어 모든 강의들을 돌아다니면서 완료하지 못한 강의들을 찾아다녀야 했고 제가 신청한 강의 외에 학교에서 강제로 저의 수강 목록에 넣어둔 불필요한 강의들을 사용자가 선택하지 못하게 화면에 표시되는데 이 두 가지의 환장의 콜라보로 제가 못 듣고 결석 처리되어버리는 과목들이 생겼습니다.
+최소한 과제는 몰라도 수업은 모두 출석하자는 생각으로 이번 프로젝트를 시작하게 되었습니다.
 
 ### 👉 개발방향
 
@@ -28,15 +27,15 @@ tag: [Project, Review]
 
 또한 처음에는 저 혼자 사용할 생각이었기 때문에 인터페이스의 디자인적인 부분에 대해서는 생각하지 않았습니다.
 
-<br> 무엇보다 최소한의 페이지 이동으로 원하는 정보들을 한눈에 확인할 수 있게 하는 게 목표였습니다.
+무엇보다 최소한의 페이지 이동으로 원하는 정보들을 한눈에 확인할 수 있게 하는 게 목표였습니다.
 
 ### 💭 배포를 결심하게된 이유
 
 처음에는 혼자 쓰려고 만들었지만 다 만든 후에 나름 괜찮은 것 같아서 일단 주변 학교 동기들에게 공유해줬습니다.
 
-<br>그렇게 한 학기 동안 잘 사용한 뒤, 하고 있던 토이 프로젝트를 마치고 이번엔 어떤 프로젝트를 해볼까 고민하던 중 이 프로그램을 쓰면서 동기들이 해주었던 피드백들과 제가 불편하다고 느낀 점 들이 생각났습니다.
+그렇게 한 학기 동안 잘 사용한 뒤, 하고 있던 토이 프로젝트를 마치고 이번엔 어떤 프로젝트를 해볼까 고민하던 중 이 프로그램을 쓰면서 동기들이 해주었던 피드백들과 제가 불편하다고 느낀 점 들이 생각났습니다.
 
-<br>이렇게 이 프로그램을 업데이트하고 나니 이 프로그램을 그냥 혼자 쓰고 졸업하면 버리긴 아까워서 배포하게 되었습니다.
+이렇게 이 프로그램을 업데이트하고 나니 이 프로그램을 그냥 혼자 쓰고 졸업하면 버리긴 아까워서 배포하게 되었습니다.
 
 ## 개발 과정
 
@@ -132,14 +131,13 @@ electron에서 javascript로 작성한 내용들은 로그인 정보, 크롤링�
 
 ### 👂 반응
 
-<div class="img-wrap"><img  height="200" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png">
-<img  height="200" src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png">
-<img  height="200" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png">
-<img  height="200" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png"></div>
-
+<div class="img-txt-wrap"><div class="img-wrap"><img width="400" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png">
+<img width="400"  src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png">
+<img width="400" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png">
+<img width="400" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png"></div>
+<div class="img-wrap"><img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png"></div></div>
 올린지 몇분만에 HOT 게시물과 실시간 인기 검색 게시물이 되었고 에브리타임에는 인기 있던 글을 연도와 학기별로 구분해 박제해놓는 특이한 시스템이 있던데 재미있는 경험이었습니다.
 
-<img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png">
 분명히 익명으로 올렸는데 깃허브 링크에 이름이 포함되어있어서 의도치 않게 익명성이 전혀 없어졌지만 게시물 댓글들도 재미있는 댓글들이 많았습니다.
 
 ### ❤️ 느낀점
