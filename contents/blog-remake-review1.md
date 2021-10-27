@@ -8,7 +8,7 @@ tag: [Frontend, Review]
 
 ## 기존 블로그
 
-<img src="https://user-images.githubusercontent.com/71566740/138984519-ab414f4d-216b-4e9d-b83c-f40edf0d5f78.jpeg" class="img large">
+<img src="https://user-images.githubusercontent.com/71566740/138984519-ab414f4d-216b-4e9d-b83c-f40edf0d5f78.jpeg" class="img large"/>
 
 ### ❓ Next.js 선택 이유
 
@@ -43,7 +43,7 @@ tag: [Frontend, Review]
 
 ## 새로운 블로그
 
-<img src="https://user-images.githubusercontent.com/71566740/138983411-93742554-e2ab-4e18-9588-f2dc9aaf2883.png" class="img large">
+<img src="https://user-images.githubusercontent.com/71566740/138983411-93742554-e2ab-4e18-9588-f2dc9aaf2883.png" class="img large"/>
 
 ### ✅ 새로운 블로그 고려사항
 

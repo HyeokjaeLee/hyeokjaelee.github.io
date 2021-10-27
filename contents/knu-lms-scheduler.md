@@ -131,11 +131,18 @@ electron에서 javascript로 작성한 내용들은 로그인 정보, 크롤링�
 
 ### 👂 반응
 
-<div class="img-txt-wrap"><div class="img-wrap"><img width="400" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png">
-<img width="400"  src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png">
-<img width="400" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png">
-<img width="400" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png"></div>
-<div class="img-wrap"><img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png"></div></div>
+<div class="img-txt-wrap">
+    <div class="img-wrap">
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png">
+        <img width="400"  src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png">
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png">
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png">
+    </div>
+    <div class="img-wrap">
+        <img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png">
+    </div>
+</div>
+
 올린지 몇분만에 HOT 게시물과 실시간 인기 검색 게시물이 되었고 에브리타임에는 인기 있던 글을 연도와 학기별로 구분해 박제해놓는 특이한 시스템이 있던데 재미있는 경험이었습니다.
 
 분명히 익명으로 올렸는데 깃허브 링크에 이름이 포함되어있어서 의도치 않게 익명성이 전혀 없어졌지만 게시물 댓글들도 재미있는 댓글들이 많았습니다.
@@ -144,4 +151,4 @@ electron에서 javascript로 작성한 내용들은 로그인 정보, 크롤링�
 
 학교 온라인 강의 시스템에서 제가 불편하다고 느끼는 부분들을 다른 사람들도 똑같이 공감하고 있다는 것도 신기했고 프로젝트도 그냥 혼자 만들고 끝나는게 아니라 완성후 배포도 해보고 사용자들의 반응도 보고 하는게 더 재미있는 것 같습니다.
 
-<br> 해당 프로젝트도 일회성으로 끝나는게 아니라 사용자들이 준 피드백을 기반으로 시간 날 때마다 업데이트를 하는 것도 좋을 것 같습니다.
+<br>해당 프로젝트도 일회성으로 끝나는게 아니라 사용자들이 준 피드백을 기반으로 시간 날 때마다 업데이트를 하는 것도 좋을 것 같습니다.

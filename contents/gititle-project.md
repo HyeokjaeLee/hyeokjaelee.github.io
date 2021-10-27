@@ -10,7 +10,7 @@ tag: [Project, Frontend]
 
 <img src="https://user-images.githubusercontent.com/71566740/135963287-e5c18f62-da16-4dda-98cb-1dd4a7c2b720.png" class="img large">
 
-### 🎉 해당 프로젝트의 결과물은 [**Gititle**](https://hyeokjaelee.github.io/gititle/)에서 확인할 수 있습니다.
+**해당 프로젝트의 결과물은 [Gititle](https://hyeokjaelee.github.io/gititle/)에서 확인할 수 있습니다.**
 
 ### 👉 프로젝트 목적
 
@@ -29,8 +29,6 @@ tag: [Project, Frontend]
 - 대부분의 Git을 사용하는 환경이 PC 환경이므로 모바일 환경에 대한 UI는 크게 생각하지 않고 최소한 화면 크기에 따른 UI만 고려했습니다.
 
 ## 도구 선정
-
-<div class="svg-wrap"></div>
 
 ### <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js</title><path d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z"/></svg>Vue.js
 
@@ -52,7 +50,13 @@ React 코드를 작성하다 보면 HTML보다는 Js에 힘이 실어진 느낌�
 
 예를 들면 같은 태그를 반복해서 사용하는 경우 React는 Js에서 map, forEach, for문 등등 여러 가지 방법으로 태그를 핸들링할 수 있다면 Vue는 HTML 태그에서 v-for을 이용해 반복합니다.
 
-<div class="img-txt-wrap"><div class="img-wrap"><img width="500" src="https://user-images.githubusercontent.com/71566740/133247169-745841aa-f06c-47dd-be7e-9ad19e31767c.jpg"/></div></div>
+<br/>
+<div class="img-txt-wrap">
+  <div class="img-wrap">
+    <img width="500" src="https://user-images.githubusercontent.com/71566740/133247169-745841aa-f06c-47dd-be7e-9ad19e31767c.jpg"/>
+  </div>
+</div>
+<br/>
 
 확실히 전체 코드 구성을 보면 React의 JSX 문법보다 훨씬 기본 HTML에 친화적인 문법으로 코드를 작성할 수 있었습니다.
 
@@ -65,24 +69,28 @@ React 코드를 작성하다 보면 HTML보다는 Js에 힘이 실어진 느낌�
 ### 🔍 자료 조사
 
 일단 제가 작성하던 커밋 메시지 규칙을 손볼 필요가 있었습니다.
-<br>아무래도 개인이다 보니 혼자 관련 규칙들을 모두 정의하고 진행하기엔 문제가 있어서 관련 정보들을 찾아 참고했습니다.
+
+아무래도 개인이다 보니 혼자 관련 규칙들을 모두 정의하고 진행하기엔 문제가 있어서 관련 정보들을 찾아 참고했습니다.
+
 제 Git 커밋 메시지 규칙은 해당 [포스트](https://hyeokjaelee.github.io/good-commit-message/)에서 보다 자세하게 알 수 있습니다.
 
 - [AngularJS commit conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit)
 - [Angular Github](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type)
 - Git에 Emoji를 사용하기 위한 가이드 [Gitmoji](https://gitmoji.dev/)
 - 커밋메시지 키워드 [블로그 포스트](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
-  <br>(한국 개발자분의 블로그 포스트 중에 잘 정리되어있는 포스트가 있어 참고했습니다.)
+
+  (한국 개발자분의 블로그 포스트 중에 잘 정리되어있는 포스트가 있어 참고했습니다.)
 
 ### 🔥 발생했던 이슈
 
-- 우선 일반적인 평소 사용하던 PWA Builder를 이용해 간편하게 PWA로 만들 생각이었는데 로컬 환경에서는 정상적으로 작동하지만
-  Github page에서 해당 블로그를 운영하고 있고 프로젝트 URL이 해당 블로그 하위 URL로 포함되어있다 보니 정상적으로 작동하지 않았습니다.
-  <br>해당 문제는 여러 gh-pages의 PWA를 찾아보며 해결했습니다.
+- 우선 일반적인 평소 사용하던 PWA Builder를 이용해 간편하게 PWA로 만들 생각이었는데 로컬 환경에서는 정상적으로 작동하지만 Github page에서 해당 블로그를 운영하고 있고 프로젝트 URL이 해당 블로그 하위 URL로 포함되어있다 보니 정상적으로 작동하지 않았습니다.
+
+  해당 문제는 여러 gh-pages의 PWA를 찾아보며 해결했습니다.
 
 - 새로운 deploy가 있어도 이전에 오프라인 사용을 위해 저장했던 캐시가 지워지지 않아 수동으로 사용자가 캐시를 지우고 사용해야 했던 문제가 있었습니다.
-  <br>버전 태그를 만들고 버전이 바뀌면 캐시를 날리고 새로 저장하는 방식으로 해결했습니다.
+
+  버전 태그를 만들고 버전이 바뀌면 캐시를 날리고 새로 저장하는 방식으로 해결했습니다.
 
 ## 마지막으로
 
-<br>소스코드는 [Github Repository](https://github.com/HyeokjaeLee/gititle)에서 확인할 수 있고 수정할 부분이나 추가하고 싶으신 내용이 있다면 [Issues section](https://github.com/HyeokjaeLee/gititle/issues)을 이용해주세요.
+소스코드는 [Github Repository](https://github.com/HyeokjaeLee/gititle)에서 확인할 수 있고 수정할 부분이나 추가하고 싶으신 내용이 있다면 [Issues section](https://github.com/HyeokjaeLee/gititle/issues)을 이용해주세요.
