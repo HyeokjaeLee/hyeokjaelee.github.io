@@ -8,7 +8,7 @@ tag: [Javascript, Data]
 
 ## 크롤링(Crawling)
 
-<img src="https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png" class="img large">
+<img src="https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png" class="img large"/>
 
 크롤링은 웹 페이지에서 원하는 데이터를 추출해 내는 행위입니다.
 
@@ -20,10 +20,11 @@ tag: [Javascript, Data]
 
 (언어마다 도구는 달라도 동작 방식은 대체로 비슷합니다.)
 
+<br>**이 포스트에서는 [OpenInsider](http://openinsider.com/insider-purchases-25k)(해외 내부자 거래 정보 사이트)를 크롤링 해보겠습니다.**
+
 ## 도구 선택
 
 node.js에서도 크롤링에 사용할 수 있는 도구도 종류가 많고 그중에 용도에 맞는 도구를 선택하면 되겠습니다.
-<br>이 포스트에서는 [OpenInsider](http://openinsider.com/insider-purchases-25k)(해외 내부자 거래 정보 사이트)를 크롤링 해보겠습니다.
 
 <br>해당 페이지는 로그인도 필요 없고 따로 크롤링이 차단되어 있지도 않기 때문에 단순 http 라이브러리와 parsing 라이브러리만 사용하겠습니다.
 
@@ -34,7 +35,7 @@ node.js에서도 크롤링에 사용할 수 있는 도구도 종류가 많고 �
 
 #### HTTP 라이브러리: Axios
 
-- http 라이브러리에는 종류가 굉장히 많고 저는 평소 Request를 자주 사용해 왔는데 해당 라이브러리가 deprecated 되었다는 소식을 듣고 이번에는 가장 성능이 좋다는 Axios를 사용해 보기로 했습니다.
+- http 라이브러리에는 종류가 굉장히 많고 저는 평소 Request를 자주 사용해 왔는데 해당 라이브러리가 deprecated 되었다는 소식을 듣고 성능이 좋다는 Axios를 사용해 보기로 했습니다.
 
 #### Parsing 라이브러리: Cheerio
 
@@ -63,7 +64,8 @@ npm install axios cheerio
 <br>원하는 정보를 오른쪽 마우스로 클릭후 검사를 사용하면 쉽게 찾을 수 있습니다.
 <br>저는 거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보겠습니다.
 
-![capture](https://user-images.githubusercontent.com/71566740/131478329-82d599e6-56fa-44df-b80a-e609896315f8.png)
+<img src="https://user-images.githubusercontent.com/71566740/131478329-82d599e6-56fa-44df-b80a-e609896315f8.png" class="img large"/>
+
 첫번째 값을 기준으로 각 정보의 slector는 다음과 같은걸 확인 할 수 있습니다.
 
 <br>**거래날짜**: `#tablewrapper > table > tbody > tr:nth-child(1) > td:nth-child(3) > div`
@@ -98,7 +100,7 @@ const axios = require("axios");
 
 `node index`로 실행해보면 결과는 다음과 같이 나오는 걸 확인할 수 있습니다.
 
-![131484221-8eaa2b8f-749e-46d9-8efe-486e4630e963](https://user-images.githubusercontent.com/71566740/133531609-93363fba-e51e-47aa-b03a-5cad03bc1795.png)
+<img src="https://user-images.githubusercontent.com/71566740/133531609-93363fba-e51e-47aa-b03a-5cad03bc1795.png" class="img large"/>
 
 ## 마지막으로
 

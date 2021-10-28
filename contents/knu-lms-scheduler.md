@@ -8,7 +8,7 @@ tag: [Project, Review]
 
 ## KNU LMS Scheduler
 
-<img src="https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png" class="img large">
+<img src="https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png" class="img large"/>
 
 ### 🎉 프로젝트 시작 이유
 
@@ -133,13 +133,13 @@ electron에서 javascript로 작성한 내용들은 로그인 정보, 크롤링�
 
 <div class="img-txt-wrap">
     <div class="img-wrap">
-        <img width="400" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png">
-        <img width="400"  src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png">
-        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png">
-        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png">
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137476272-c7fd50c7-fd63-46ae-9efa-f86a1f443054.png"/>
+        <img width="400"  src="https://user-images.githubusercontent.com/71566740/137476954-bf40e990-565c-4201-826b-5de982a2b5b5.png"/>
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477586-15b1310e-2e01-47c5-87cb-0cb70c4f8a4a.png"/>
+        <img width="400" src="https://user-images.githubusercontent.com/71566740/137477108-c005b793-9662-4dd2-8ff4-c0322471f5e6.png"/>
     </div>
     <div class="img-wrap">
-        <img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png">
+        <img  width="400" src="https://user-images.githubusercontent.com/71566740/137478218-900da4b5-f6a0-43ce-93ab-4b54306fe35a.png"/>
     </div>
 </div>
 
