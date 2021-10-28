@@ -103,9 +103,5 @@ exp.get("/", (req, res) => {
 ```
 
 `$ npm start`로 서버를 작동시키고 `http://localhost:3000/`로 접속하면 `Hello World`가 출력됩니다.
-<br>만약 `http://localhost:3000/?name=Nagle` 이런 식으로 쿼리 값을 주게 된다면 `Hello Nagle`이 출력됩니다.
 
-## 마지막으로
-
-저는 토이 프로젝트에 Typescript를 자주 사용합니다.
-<br>cli를 지원하지 않는 자주 사용하는 조합은 초기 설정을 마치고 Github에 올려놓고 필요할 때 clone 해서 일부 수정 후 사용하는 방법으로 이용하면 편리하게 사용할 수 있습니다.
+만약 `http://localhost:3000/?name=Nagle` 이런 식으로 쿼리 값을 주게 된다면 `Hello Nagle`이 출력됩니다.
