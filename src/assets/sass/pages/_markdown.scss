@@ -17,9 +17,16 @@
         font-style: italic;
         text-align: center;
         width: 100%;
-        border-radius: $borderRadius;
         font-weight: 100;
         font-size: 1.1em;
+      }
+      .description {
+        text-align: center;
+        margin-top: 0.5em;
+        color: txtColor($color);
+        background-color: subColor($color);
+        padding: 0.1em;
+        border-radius: $borderRadius;
       }
     }
     //본문

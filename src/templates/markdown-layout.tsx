@@ -91,6 +91,7 @@ const BlogSpots = ({ data }: Props) => {
             <h1>
               {postInfo.emoji} {postInfo.title}
             </h1>
+            <h4 className="description">{postInfo.description}</h4>
           </header>
           <section dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
           <footer>
