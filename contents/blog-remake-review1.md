@@ -1,5 +1,5 @@
 ---
-emoji: "🚧"
+emoji: "🤔"
 title: "Next.js에서 Gatsby로 블로그 이사 중간 리뷰"
 description: "블로그를 다시 만들기 시작하면서 느낀점을 공유합니다."
 date: "2021-08-02"
