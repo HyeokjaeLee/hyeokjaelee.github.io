@@ -1,7 +1,7 @@
 ---
 emoji: "📢"
-title: "크롤링을 통한 데이터 수집"
-description: "Node.js에서 크롤링을 이용해 데이터를 수집해보겠습니다."
+title: "크롤링을 통한 데이터 수집하기"
+description: "Node.js 크롤링을 통한 데이터 수집"
 date: "2021-08-31"
 tag: [Javascript, Data]
 ---

@@ -1,7 +1,7 @@
 ---
 emoji: "🤔"
 title: "Copilot 사용 후기"
-description: "Github의 코딩 AI Copilot을 한 달간 사용해본 경험을 공유합니다."
+description: "Github의 코딩 AI, Copilot 한 달 사용 리뷰"
 date: "2021-08-26"
 tag: [etc., Review]
 ---

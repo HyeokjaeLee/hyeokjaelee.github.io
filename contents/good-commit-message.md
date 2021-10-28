@@ -1,7 +1,7 @@
 ---
 emoji: "📝"
-title: "깃 커밋 메시지 컨벤션 (Git Commit Message Convention)"
-description: "제가 사용하는 커밋 메시지 작성 규칙을 공유합니다."
+title: "Git Commit Message Convention"
+description: "Commit Message 작성을 위한 나와의 약속"
 date: "2021-07-03"
 tag: [Git]
 ---

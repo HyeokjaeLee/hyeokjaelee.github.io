@@ -1,7 +1,7 @@
 ---
 emoji: "📢"
 title: "Typescript + Express 웹서버 구축하기"
-description: "Typescript를 이용해 Express 코드를 작성해봅시다."
+description: "Typescript를 이용한 Express 코드 작성"
 date: "2021-08-12"
 tag: [Backend, Typescript]
 ---

@@ -1,7 +1,7 @@
 ---
 emoji: "📢"
 title: "Live Sass Compiler 사용하기"
-description: "non-Node.js 환경에서 Sass를 사용해 봅시다."
+description: "편리한 Sass 사용을 위한 익스텐션"
 date: "2021-09-01"
 tag: [Frontend]
 ---
