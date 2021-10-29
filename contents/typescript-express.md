@@ -17,9 +17,9 @@ tag: [Backend, Typescript]
 
 <br>이전에는 Typescript로 Express를 이용할 때는 코드는 Typescript로 작성하고 이후 해당 코드를 Javascript로 컴파일 후 실행하는 방법을 사용했는데 바로 이전 Toy Project를 진행하면서 `ts-node`와 `nodemon`을 이용해 훨씬 편한 개발 환경을 구축할 수 있게 되어 해당 방법으로 진행하겠습니다.
 
-## 설정
+## 개발환경 설정
 
-### 전역 모듈 설치
+### 전역 node 모듈 설치
 
 ```bash
 $ npm install -g typescript nodemon ts-node
