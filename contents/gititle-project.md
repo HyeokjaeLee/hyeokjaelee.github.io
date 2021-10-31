@@ -32,7 +32,7 @@ tag: [Project, Frontend]
 
 ### <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js</title><path d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z"/></svg>Vue.js
 
-- 새로운 프론트엔드 프레임워크를 사용해 보고 싶었음
+- 새로운 front-end 프레임워크를 사용해 보고 싶었음
 - node.js 없이 cdn만으로 작업이 가능해서 별도 컴파일 없이 gh-pages로 배포 가능
 - 쉬운 문법과 작업 속도가 이번 토이프로젝트에 적합하다 판단
 - Vue.js의 개발자 도구가 엄청 편하다는데 써보고 싶었음
