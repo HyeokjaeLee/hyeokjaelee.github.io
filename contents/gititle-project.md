@@ -3,7 +3,7 @@ emoji: "🚀"
 title: "Gititle 프로젝트"
 description: "좋은 커밋 메시지를 작성하기 위한 프로젝트"
 date: "2021-09-14"
-tag: [Project, Frontend]
+tag: [Project]
 ---
 
 ## Gititle 프로젝트

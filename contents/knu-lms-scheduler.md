@@ -3,7 +3,7 @@ emoji: "🚀"
 title: "KNU LMS Scheduler 프로젝트"
 description: "공주대학교 비대면 강의 시스템 UI 개선 프로젝트"
 date: "2021-10-14"
-tag: [Project, Review]
+tag: [Project]
 ---
 
 ## KNU LMS Scheduler

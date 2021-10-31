@@ -3,7 +3,7 @@ emoji: "📢"
 title: "NestJS 웹서버 구축하기"
 description: "Typescript를 이용한 NestJS 코드 작성"
 date: "2021-10-29"
-tag: [Javascript, Data]
+tag: [Backend, Typescript]
 ---
 
 ## NestJS를 사용하는 이유
