@@ -31,6 +31,7 @@
     }
     //본문
     > section {
+      font-weight: 100;
       line-height: 1.8em;
       .img-txt-wrap {
         margin: 0.5em 0;
@@ -63,12 +64,9 @@
         border: 1px solid subColor($color);
       }
       svg {
-        padding: 0.5em;
-        background-color: subColor($color);
-        width: 2em;
+        width: 1.3em;
         margin-right: 0.5em;
         fill: textColor($color);
-        border-radius: $borderRadius;
       }
       h1,
       h2,
