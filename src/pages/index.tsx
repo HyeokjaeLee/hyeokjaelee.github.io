@@ -30,7 +30,7 @@ interface Props {
 
 const Index = ({ data }: Props) => {
   /**페이지 당 보여줄 포스트 갯수*/
-  const postsPerPage = 5;
+  const postsPerPage = 7;
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
   const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
