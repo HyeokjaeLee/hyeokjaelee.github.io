@@ -1,94 +1,75 @@
 @mixin about-page($color: $lightColor) {
-  .about-text {
-    padding-bottom: 0.2em;
-    margin: {
-      bottom: 2em;
-    }
-  }
-
-  .about {
-    display: flex;
-    gap: 2em;
-    flex-wrap: wrap;
-    justify-content: center;
-    .profile-wrap {
-      box-shadow: $boxShadow2 inset;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2em;
-      background-color: subColor($color);
-      border-radius: $borderRadius;
-      .name {
-        margin-top: 0.5em;
-      }
-    }
-    .text-wrap {
-      flex: 1;
-    }
+  .about-article {
     .profile {
-      width: 12em;
-      border-radius: 100%;
+      width: 7em;
+      border-radius: $borderRadius;
+      margin-right: 0.5em;
+      box-shadow: $boxShadow;
+      margin-bottom: 1em;
     }
-    h2,
-    h3,
-    h4 {
-      margin: {
-        top: 1em;
-        bottom: 0.5em;
-      }
+    h2 {
+      margin-bottom: 0.7em;
     }
-    dl,
     ul,
     li {
-      margin: 0 1em;
+      margin: 0.7em 1em;
     }
-    dt {
-      margin-top: 1.5em;
-    }
-    .label {
-      margin: 0.2em;
-    }
-    .icon {
-      &.small {
-        width: 1.7em;
-        height: 1.7em;
-        margin-right: 0.5em;
-      }
-    }
-    .list {
-      font-size: 0.8em;
-      list-style: none;
-      &.techStack {
-        box-shadow: $boxShadow2 inset;
-        margin: 1em;
-        padding: 1em;
-        border-radius: $borderRadius;
-        background-color: subColor($color);
-        justify-content: center;
+
+    .contact-channel-list {
+      margin: 0;
+      .contact-channel-wrap {
         display: flex;
-        flex-wrap: wrap;
-        > li {
-          margin: 0 0.2em;
+        border-radius: 100%;
+        border: 4px solid textColor($color);
+        min-width: 2em;
+        width: 2em;
+        height: 2em;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5em;
+        > svg {
+          width: 1em;
         }
       }
-      &.contactChannel {
-        > li {
-          display: flex;
-          margin: 0.5em 0;
-          a {
-            border-radius: $borderRadius;
-            padding: 0 0.7em;
-            border: 1px solid subTextColor($color);
-            background-color: subTextColor($color);
-            color: $color;
-            margin: 0 0.5em;
-            transition: background-color 0.2s;
-            @include hover {
-              background-color: textColor($color);
-            }
-          }
+      label {
+        white-space: nowrap;
+      }
+      a {
+        border-radius: $borderRadius;
+        padding: 0.2em 0.5em;
+        text-decoration: none;
+        color: textColor($color);
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition: background-color 0.4s, color 0.4s;
+        @include hover {
+          color: $color;
+          background-color: lighten(subTextColor($color), 40%);
+        }
+      }
+      > li {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .languages-tools-list {
+      list-style: none;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      > li {
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        > svg {
+          margin-bottom: 0.4em;
+          width: 3em;
         }
       }
     }
