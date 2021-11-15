@@ -1,11 +1,18 @@
 @mixin about-page($color: $lightColor) {
   .about-article {
+    &.about-me {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2em;
+    }
     .profile {
+      margin-top: 2em;
       width: 7em;
       border-radius: $borderRadius;
-      margin-right: 0.5em;
-      box-shadow: $boxShadow;
-      margin-bottom: 1em;
+      box-shadow: $boxShadow2;
+      border: 4px solid subTextColor($color);
     }
     h2 {
       margin-bottom: 0.7em;

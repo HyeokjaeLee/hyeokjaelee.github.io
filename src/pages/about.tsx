@@ -31,9 +31,11 @@ const About = () => {
     <>
       <Nav />
       <section className="content first">
-        <article className="about-article">
-          <img src={postProfile} className="profile" />
-          <h2>About Me</h2>
+        <article className="about-article about-me">
+          <div>
+            <img src={postProfile} className="profile" />
+            <h2>About Me</h2>
+          </div>
           <ul>
             <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
             <li>일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
