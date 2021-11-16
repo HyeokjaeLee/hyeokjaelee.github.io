@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
-
+import "styles/index.scss";
+import { useState } from "react";
 import React from "react";
-import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Main } from "../components/main";
-import "../assets/sass/index.scss";
 import { ThemeSwitch } from "../components/theme-switch";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";

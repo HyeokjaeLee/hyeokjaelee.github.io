@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Nav } from "../components/nav";
 import Gmail from "../assets/img/gmail.svg";
 import Github from "../assets/img/github.svg";
