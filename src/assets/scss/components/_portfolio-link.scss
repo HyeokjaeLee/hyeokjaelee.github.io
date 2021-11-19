@@ -13,6 +13,10 @@
     align-items: center;
     overflow: hidden;
     @include focus-in;
+    &.hide {
+      display: none;
+    }
+
     > .portfolio-link {
       display: flex;
       justify-content: center;

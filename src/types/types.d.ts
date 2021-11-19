@@ -4,5 +4,5 @@ declare module "*.svg";
 declare module "*.ico";
 declare module "*.gif";
 
-type Display = "hide" | "show";
-type SetDisplay = Dispatch<SetStateAction<"hide" | "show">>;
+type Display = "hide" | "";
+type SetDisplay = Dispatch<SetStateAction<"hide" | "">>;

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import Gmail from "img/gmail.svg";
 import Github from "img/github.svg";
@@ -22,10 +22,12 @@ import Instagram from "img/instagram.svg";
 import Naver from "img/naver.svg";
 import Chrome from "img/chrome.svg";
 import { useContext } from "react";
-import { ThemeContext } from "contexts/theme";
-
+import { PortfolioContext } from "contexts/theme";
 const About = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { portfolio, setPortfolio } = useContext(PortfolioContext);
+  useEffect(() => {
+    setPortfolio("hide");
+  }, []);
   return (
     <>
       <section className="content first">
@@ -74,7 +76,7 @@ const About = () => {
               <Link
                 to="/"
                 onClick={() => {
-                  setTheme(`${theme} portfolio`);
+                  setPortfolio("");
                 }}
               >
                 https://hyeokjaelee.github.io

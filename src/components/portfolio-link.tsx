@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PortfolioContext } from "contexts/theme";
 import { Link } from "gatsby";
 import RightArrow from "img/right-arrow.svg";
-export const PortfolioLink = (props: any) => {
-  const { display } = props;
+export const PortfolioLink = () => {
+  const { portfolio, setPortfolio } = useContext(PortfolioContext);
   return (
-    <div className={`portfolio-link-wrap ${display}`}>
+    <div className={`portfolio-link-wrap ${portfolio}`}>
       <Link to="/HyeokjaeLee" className="portfolio-link">
         Portfolio 돌아가기
         <RightArrow />
