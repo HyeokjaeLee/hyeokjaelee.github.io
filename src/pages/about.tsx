@@ -31,18 +31,19 @@ const About = () => {
             <h2>About Me</h2>
           </div>
           <ul>
-            <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
-            <li>일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
-            <li>어렸을 때부터 새로운 IT제품과 그것의 작동원리에 관심이 많았습니다.</li>
-            <li>여러 언어들에 발만 담궈보던중 1년전 Javascript를 만나 푹 빠져있습니다.</li>
-            <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
-            <li>빠르게 발전하는 Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 즐깁니다.</li>
+            <li>🙏 풀스택 개발자를 꿈꾸고 있습니다.</li>
+            <li>🤔 일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
+            <li>🌱 Know-What, Know-Where을 중요하게 생각합니다.</li>
+            <li>🏊‍♀️ 여러 언어들에 발만 담궈보던중 2020년에 Javascript를 만나 푹 빠져있습니다.</li>
+            <li>
+              ❤️ 빠르게 발전하는 Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 좋아합니다.
+            </li>
           </ul>
         </article>
       </section>
       <section className="content">
         <article className="about-article">
-          <h2>Contact & Channel</h2>
+          <h2>🤝 Contact & Channel</h2>
           <ul className="contact-channel-list">
             <li>
               <div className="contact-channel-wrap">
@@ -79,7 +80,7 @@ const About = () => {
       </section>
       <section className="content">
         <article className="about-article">
-          <h2>Languages & Tools</h2>
+          <h2>🔧 Languages & Tools</h2>
           <ul className="languages-tools-list">
             <li>
               <Javascript />

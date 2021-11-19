@@ -12,12 +12,13 @@
     }
     ul,
     li {
+      list-style: none;
       margin: 0.7em 1em;
     }
     .profile {
       margin-top: 2em;
       width: 7em;
-      border-radius: $borderRadius;
+      border-radius: 100%;
       box-shadow: $boxShadow2;
       border: 4px solid subTextColor($color);
     }
