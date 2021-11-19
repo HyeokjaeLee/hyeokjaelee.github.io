@@ -106,6 +106,7 @@
         margin: 1em 0;
       }
       code {
+        word-break: break-all;
         font-size: 0.9em;
         background-color: subColor($color);
         padding: 0.2em 0.4em;
