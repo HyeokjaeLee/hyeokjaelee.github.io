@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "img/logo.png";
-export const Header = ({ title }: any) => {
+export const Header = () => {
   return (
     <header id="header">
       <img src={logo} className="logo"></img>

@@ -1,0 +1,96 @@
+.hello {
+  width: 100%;
+  text-align: center;
+}
+
+.about-title {
+  display: flex;
+  align-items: center;
+  > svg {
+    height: 1.5em;
+    margin-right: 0.5em;
+  }
+  margin-bottom: 0.2em;
+}
+
+.work-experience-txt {
+  margin: {
+    top: 0.8em;
+    bottom: 1.5em;
+  }
+}
+
+@mixin HyeokjaeLee-page($color: $lightColor) {
+  .projects-wrap {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2em;
+  }
+
+  .project {
+    border-radius: $borderRadius;
+    border: 3px solid textColor($color);
+    width: 100%;
+    background-color: textColor($color);
+    p {
+      margin-bottom: 1em;
+    }
+    ul,
+    li {
+      margin: 0.5em 0.7em;
+    }
+    display: flex;
+    flex-direction: column;
+  }
+  .project-title {
+    margin-bottom: 0.5em;
+    display: flex;
+    svg {
+      height: 1.5em;
+      transition: fill 0.4s;
+    }
+    > h3 {
+      flex: 1;
+    }
+    > div {
+      display: flex;
+      gap: 0.5em;
+    }
+  }
+  .additional-project {
+    background-color: textColor($color);
+    height: 3em;
+    color: $color;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    > svg {
+      margin: 0 0.5em;
+      fill: $color;
+      height: 1.5em;
+    }
+    transition: margin-left 0.4s;
+    @include hover {
+      margin-left: 1.5em;
+    }
+  }
+  .additional-project-wrap {
+    background-color: subTextColor($color);
+  }
+  .project-info {
+    background-color: darken($color, 2%);
+    flex: 1;
+    padding: 1em;
+    border-bottom: 2px solid textColor($color);
+    transition: background-color 0.4s, color 0.4s;
+    @include hover {
+      background-color: textColor($color);
+      color: $color;
+      svg {
+        fill: $color;
+      }
+    }
+  }
+}

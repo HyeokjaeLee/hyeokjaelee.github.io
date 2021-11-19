@@ -7,4 +7,14 @@ const defaultTheme: {
   theme: "",
   setTheme: () => {},
 };
+
+const portfolio: {
+  portfolio: Display;
+  setPortfolio: SetDisplay;
+} = {
+  portfolio: "hide",
+  setPortfolio: () => {},
+};
+
 export const ThemeContext = createContext(defaultTheme);
+export const PortfolioContext = createContext(portfolio);
