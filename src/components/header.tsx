@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/img/logo.png";
+import logo from "img/logo.png";
 export const Header = ({ title }: any) => {
   return (
     <header id="header">

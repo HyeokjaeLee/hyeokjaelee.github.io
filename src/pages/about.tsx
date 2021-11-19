@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Nav } from "../components/nav";
-import Gmail from "../assets/img/gmail.svg";
-import Github from "../assets/img/github.svg";
-import postProfile from "../assets/img/about-profile.jpg";
+import { Nav } from "components/nav";
+import Gmail from "img/gmail.svg";
+import Github from "img/github.svg";
+import postProfile from "img/about-profile.jpg";
 import Javascript from "img/javascript.svg";
 import Typescript from "img/typescript.svg";
 import HTML5 from "img/html5.svg";
@@ -19,12 +19,6 @@ import Facebook from "img/facebook.svg";
 import Express from "img/express.svg";
 import GraphQL from "img/graphql.svg";
 import Instagram from "img/instagram.svg";
-interface Props {
-  name: string;
-  backgroundColor: string;
-  logoColor: string;
-  displayName?: string;
-}
 
 const About = () => {
   return (

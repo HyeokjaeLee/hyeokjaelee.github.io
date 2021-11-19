@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
-import { Nav } from "../components/nav";
-import LeftArrow from "../assets/img/left-arrow.svg";
-import RightArrow from "../assets/img/right-arrow.svg";
+import { Nav } from "components/nav";
+import LeftArrow from "img/left-arrow.svg";
+import RightArrow from "img/right-arrow.svg";
 
 interface Node {
   excerpt: string;

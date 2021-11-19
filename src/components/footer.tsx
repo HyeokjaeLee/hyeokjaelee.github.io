@@ -1,8 +1,8 @@
 import React from "react";
-import Facebook from "../assets/img/facebook.svg";
-import Gmail from "../assets/img/gmail.svg";
-import Github from "../assets/img/github.svg";
-import Instagram from "../assets/img/instagram.svg";
+import Facebook from "img/facebook.svg";
+import Gmail from "img/gmail.svg";
+import Github from "img/github.svg";
+import Instagram from "img/instagram.svg";
 export const Footer = () => (
   <footer id="footer">
     <h3>Contact & Channel</h3>

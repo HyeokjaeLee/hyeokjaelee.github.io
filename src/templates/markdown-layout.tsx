@@ -1,11 +1,11 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Nav } from "../components/nav";
-import postProfile from "../assets/img/post-profile.jpg";
-import LeftArrow from "../assets/img/left-arrow.svg";
-import RightArrow from "../assets/img/right-arrow.svg";
-import { Comment } from "../components/comment";
+import { Nav } from "components/nav";
+import postProfile from "img/post-profile.jpg";
+import LeftArrow from "img/left-arrow.svg";
+import RightArrow from "img/right-arrow.svg";
+import { Comment } from "components/comment";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement(); //code 하이라이트
 interface Data {
