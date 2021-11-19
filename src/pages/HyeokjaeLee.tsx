@@ -228,7 +228,7 @@ const About = () => {
       </section>
       <section className="content">
         <article className="about-article">
-          <h2>🎓 Projects</h2>
+          <h2>🎮 Projects</h2>
           <p>아래 프로젝트들은 혼자 진행한 프로젝트들이며 꾸준히 리팩토링, 업데이트 중입니다.</p>
         </article>
         <section className="projects-wrap">
