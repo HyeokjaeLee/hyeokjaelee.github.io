@@ -50,28 +50,34 @@ const About = () => {
                 <Gmail />
               </div>
               <label>Email |</label>
-              <a href="mailto:leehyeokjae97@gmail.com">leehyeokjae97@gmail.com</a>
+              <a href="mailto:leehyeokjae97@gmail.com" className="default-link">
+                leehyeokjae97@gmail.com
+              </a>
             </li>
             <li>
               <div className="contact-channel-wrap">
                 <Github />
               </div>
               <label>Github |</label>
-              <a href="https://github.com/HyeokjaeLee">https://github.com/HyeokjaeLee</a>
+              <a href="https://github.com/HyeokjaeLee" className="default-link">
+                https://github.com/HyeokjaeLee
+              </a>
             </li>
             <li>
               <div className="contact-channel-wrap">
                 <Instagram />
               </div>
               <label>Instagram |</label>
-              <a href="https://www.instagram.com/2z_4_me">https://www.instagram.com/2z_4_me</a>
+              <a href="https://www.instagram.com/2z_4_me" className="default-link">
+                https://www.instagram.com/2z_4_me
+              </a>
             </li>
             <li>
               <div className="contact-channel-wrap">
                 <Facebook />
               </div>
               <label>Facebook |</label>
-              <a href="https://www.facebook.com/leehyeokjae97">
+              <a href="https://www.facebook.com/leehyeokjae97" className="default-link">
                 https://www.facebook.com/leehyeokjae97
               </a>
             </li>
