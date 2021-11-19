@@ -9,6 +9,7 @@
     }
     h2 {
       margin-bottom: 0.7em;
+      width: 100%;
     }
     ul,
     li {
@@ -25,6 +26,7 @@
   }
 
   .languages-tools-list {
+    flex: 1;
     list-style: none;
     display: flex;
     gap: 1em;
@@ -50,15 +52,16 @@
       white-space: nowrap;
     }
     a {
-      border-radius: $borderRadius;
       padding: 0.2em 0.5em;
       text-decoration: none;
+      margin-left: 0.5em;
       color: textColor($color);
       width: auto;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       transition: background-color 0.4s, color 0.4s;
+      border-radius: $borderRadius;
       @include hover {
         color: $color;
         background-color: lighten(subTextColor($color), 40%);

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { ThemeContext } from "./global-data";
+import { ThemeContext } from "contexts/theme";
 export const Comment = () => {
   //적당한 타입을 못찾겠음.
   const comment: any = useRef();
