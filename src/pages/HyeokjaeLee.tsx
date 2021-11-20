@@ -187,7 +187,7 @@ const About = () => {
           <p>컴퓨터공학과 (2016.03 ~ 졸업예정)</p>
           <ul>
             <li>
-              개발 & 창업 동아리 (2016 ~)
+              개발 & 창업 동아리 (2016 ~ )
               <a
                 href="https://namu.wiki/w/%EA%B3%B5%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%99%EB%B6%80/%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99?rev=316#s-2.3.4"
                 className="default-link"

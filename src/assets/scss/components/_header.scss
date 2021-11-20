@@ -27,7 +27,7 @@
       height: 4em;
       border-radius: $borderRadius;
       box-shadow: $boxShadow;
-      @include bounce-in-top(1s, 0.4s);
+      @include bounce-in-top(1s, 1s);
     }
   }
 }

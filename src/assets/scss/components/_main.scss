@@ -6,14 +6,14 @@
     max-width: 60em;
     > .slide {
       &.entered {
-        @include fadeInRight;
+        @include slide-in-bottom(0.8s);
       }
       &.entering {
         position: absolute;
         opacity: 0;
       }
       &.exiting {
-        @include fadeOutLeft;
+        @include slide-out-bottom(0.6s);
       }
     }
   }

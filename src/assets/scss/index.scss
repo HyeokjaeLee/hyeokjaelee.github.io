@@ -90,12 +90,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background-color: 10px;
-  width: 7px;
-  height: 7px;
-  border-radius: $borderRadius;
+  display: none;
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 7px;
-  background-color: lighten($darkColor, 30%);
+  display: none;
 }
