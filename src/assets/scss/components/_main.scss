@@ -7,6 +7,10 @@
     > .slide {
       &.entered {
         @include slide-in-bottom(0.8s);
+        .nav {
+          @include focus-in(0.5s, 0.8s);
+          display: flex;
+        }
       }
       &.entering {
         position: absolute;

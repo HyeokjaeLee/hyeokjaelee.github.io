@@ -199,7 +199,7 @@ const About = () => {
           <h3 className="about-title">
             <Coupang />
           </h3>
-          <p>Eats EDP Operations (2019.08 ~ 2020.02)</p>
+          <p>Eats EDP Operations (2019.08 ~ )</p>
           <p className="work-experience-txt">
             주로 데이터 클렌징과 시각화 업무를 담당했습니다.
             <br />
