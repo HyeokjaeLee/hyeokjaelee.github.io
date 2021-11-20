@@ -22,8 +22,6 @@ import Chrome from "img/chrome.svg";
 import KNU from "img/knu.svg";
 import Coupang from "img/coupang.svg";
 import RightArrow from "img/right-arrow.svg";
-import { useContext } from "react";
-import { PortfolioContext } from "contexts/theme";
 
 const React_svg = () => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +30,7 @@ const React_svg = () => (
   </svg>
 );
 const About = () => {
-  const { portfolio, setPortfolio } = useContext(PortfolioContext);
+  const [portfolio, setPortfolio] = useState("hide");
   useEffect(() => {
     setPortfolio("hide");
   }, []);
