@@ -60,7 +60,7 @@ const About = () => {
           </div>
         </section>
         <section>
-          <h2>🤝 Contact & Channel</h2>
+          <h2>✉️ Contact & Channel</h2>
           <ul className="contact-channel-list">
             <li>
               <Gmail />
@@ -100,15 +100,185 @@ const About = () => {
           <h3>Coupang Eats</h3>
           <p className="description">2019년 5월부터 서비스 중인 30분 로켓 음식 배달 서비스</p>
           <div className="content-wrap">
-            <div style={{ width: "12em" }}>
+            <div className="content-title">
               <p>EDP Operations</p>
               <p>2019.08 ~ 2020.02</p>
             </div>
             <div>
-              주로 데이터 클렌징과 시각화 업무를 담당했습니다.
-              <br />
-              비록 처음에 개발자로 입사한 것은 아니었지만 팀 리더분의 배려와 서비스 초기에 합류할 수
-              있었던 덕분에 관련 업무를 할 수 있었습니다.
+              <ul>
+                <li>배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발</li>
+                <li>지역별 배달 엣지 케이스 딥다이브 과정에 필요한 데이터 클렌징/시각화</li>
+                <li>고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스 개발</li>
+                <li>업무에 필요한 자동화 스크립트 & 매크로 개발</li>
+                <li>배달파트너 센터 챗봇 개발</li>
+                <li>
+                  식사시간과 서비스 피크타임이 겹처 식사 중 발생하는 이슈 트래킹을 위한 노트북
+                  소지의 불편함 해소를 위해 봇 개발
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section className="about-article languages-tools-wrap">
+          <h2>🔨 Languages & Tools</h2>
+          <ul className="languages-tools-list">
+            <li>
+              <Javascript />
+              Javascript
+            </li>
+            <li>
+              <Typescript />
+              Typescript
+            </li>
+            <li>
+              <HTML5 />
+              HTML5
+            </li>
+            <li>
+              <CSS3 />
+              CSS3
+            </li>
+            <li>
+              <Sass />
+              Sass
+            </li>
+            <li>
+              <React_svg />
+              React
+            </li>
+            <li>
+              <NextJS />
+              Next.js
+            </li>
+            <li>
+              <Gatsby />
+              Gatsby
+            </li>
+            <li>
+              <VueJS />
+              Vue.js
+            </li>
+            <li>
+              <Express />
+              Express
+            </li>
+            <li>
+              <NestJS />
+              NestJS
+            </li>
+            <li>
+              <GraphQL />
+              GraphQL
+            </li>
+            <li>
+              <Electron />
+              Electron
+            </li>
+            <li>
+              <Git />
+              Git
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>🔖 Projects</h2>
+          <div className="content-wrap">
+            <div className="content-title">
+              <h3>Gititle</h3>
+              <section className="stack-wrap">
+                <VueJS />
+                <Sass />
+                <Javascript />
+              </section>
+              <span className="team">팀 구성 - 개인</span>
+            </div>
+            <div>
+              <div className="description">
+                직관적이고 정형화된 Git Commit message 작성 도우미
+                <p className="project-link">
+                  <Github />
+                  <span>Github -</span>
+                  <a>https://github.com/HyeokjaeLee/gititle</a>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post -</span>
+                  <Link
+                    to="/gititle-project"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    https://hyeokjaelee.github.io/gititle-project
+                  </Link>
+                </p>
+              </div>
+              <ul>
+                <li>
+                  커밋 규칙 정리
+                  <Link
+                    to="/good-commit-message"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    (https://hyeokjaelee.github.io/good-commit-message)
+                  </Link>
+                </li>
+                <li>커밋에 사용할 키워드 데이터 정형화</li>
+                <li>PWA를 지원하는 프론트엔드 개발</li>
+                <li>편의 기능 개발</li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div className="content-wrap">
+            <div className="content-title">
+              <h3>KNU LMS Scheduler</h3>
+              <section className="stack-wrap">
+                <Electron />
+                <React_svg />
+                <Javascript />
+              </section>
+              <span className="team">팀 구성 - 개인</span>
+            </div>
+            <div>
+              <div className="description">
+                공주대학교 비대면 강의 시스템 편의성 개선 프로그램
+                <p className="project-link">
+                  <Github />
+                  <span>Github -</span>
+                  <a>https://github.com/HyeokjaeLee/gititle</a>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post -</span>
+                  <Link
+                    to="/gititle-project"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    https://hyeokjaelee.github.io/gititle-project
+                  </Link>
+                </p>
+              </div>
+              <ul>
+                <li>
+                  커밋 규칙 정리
+                  <Link
+                    to="/good-commit-message"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    (https://hyeokjaelee.github.io/good-commit-message)
+                  </Link>
+                </li>
+                <li>커밋에 사용할 키워드 데이터 정형화</li>
+                <li>PWA를 지원하는 프론트엔드 개발</li>
+                <li>편의 기능 개발</li>
+              </ul>
             </div>
           </div>
         </section>

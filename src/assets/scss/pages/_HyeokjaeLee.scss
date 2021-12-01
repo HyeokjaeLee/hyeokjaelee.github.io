@@ -23,7 +23,7 @@
 @mixin HyeokjaeLee-page($color: $lightColor) {
   .portfolio {
     font-weight: 200;
-    padding: 2em;
+    padding: 1em 2em;
     .profile {
       width: 9em;
       border-radius: $borderRadius;
@@ -41,24 +41,59 @@
     .content-wrap {
       display: flex;
       gap: 2em;
+      > .content-title {
+        width: 10em;
+      }
       ul {
-        list-style: none;
+        margin-left: 1.5em;
       }
     }
     .description {
-      margin-bottom: 1em;
+      margin-bottom: 0.8em;
     }
-  }
 
-  .contact-channel-list {
-    > li {
-      margin-bottom: 0.7em;
-      svg {
-        height: 1.5em;
-        margin-right: 0.5em;
+    .contact-channel-list {
+      > li {
+        margin-bottom: 0.7em;
+        svg {
+          height: 1.5em;
+          min-width: 1.5em;
+          margin-right: 0.5em;
+        }
+        a {
+          margin-left: 0.5em;
+        }
       }
-      a {
-        margin-left: 0.5em;
+    }
+    .stack-wrap {
+      display: flex;
+      gap: 0.5em;
+      margin-bottom: 0.5em;
+      > svg {
+        height: 1em;
+      }
+    }
+    .team {
+      font-size: 0.9em;
+      font-weight: 400;
+    }
+    hr {
+      background-color: lighten(textColor($color), 70%);
+      height: 1px;
+    }
+    .project-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      > svg {
+        width: 1em;
+        padding-top: 0.2em;
+      }
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

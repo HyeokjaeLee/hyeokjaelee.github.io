@@ -12,7 +12,7 @@ import favicon from "assets/img/favicon.ico";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
-  const _Header = location.pathname !== "/HyeokjaeLee/" ? <Header /> : <></>;
+  const _Header = location.pathname.includes("HyeokjaeLee") ? <></> : <Header />;
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
