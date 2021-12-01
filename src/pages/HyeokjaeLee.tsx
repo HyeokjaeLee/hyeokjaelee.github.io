@@ -34,7 +34,7 @@ const About = () => {
     setPortfolio("hide");
   }, []);
   return (
-    <section className="content" style={{ marginTop: "5em", minHeight: "300vh" }}>
+    <section className="content" style={{ marginTop: "5em" }}>
       <article className="portfolio">
         <section>
           <h2>💡 About Me</h2>
@@ -85,7 +85,7 @@ const About = () => {
             </li>
             <li>
               <Naver />
-              <b>Blog.</b>
+              <b>Blog(2011~2015).</b>
               <a href="https://blog.naver.com/leehyeokjae7" target="_blank">
                 https://blog.naver.com/leehyeokjae7
               </a>
