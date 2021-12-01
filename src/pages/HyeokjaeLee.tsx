@@ -37,405 +37,83 @@ const About = () => {
     setPortfolio("hide");
   }, []);
   return (
-    <>
-      <section className="content first">
-        <article className="about-article about-me">
-          <h2 className="hello">👋 안녕하세요! 개발자를 꿈꾸는 코더, 이혁재입니다.</h2>
-          <div>
-            <img src={postProfile} className="profile" />
-            <h2>About Me</h2>
+    <section className="content" style={{ marginTop: "5em", minHeight: "300vh" }}>
+      <article className="portfolio">
+        <section>
+          <h2>💡 About Me</h2>
+          <div className="content-wrap">
+            <div>
+              <img src={postProfile} className="profile" />
+            </div>
+            <div>
+              <h3>"개발자를 꿈꾸는 코더, 이혁재입니다."</h3>
+              <ul>
+                <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
+                <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
+                <li>일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
+                <li>여러 언어들에 발만 담궈보던중 2020년에 Javascript를 만나 푹 빠져있습니다.</li>
+                <li>
+                  빠르게 발전하는 Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 좋아합니다.
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul>
-            <li>🙏 풀스택 개발자를 꿈꾸고 있습니다.</li>
-            <li>🌱 Know-What, Know-Where을 중요하게 생각합니다.</li>
-            <li>🤔 일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
-            <li>🏊‍♀️ 여러 언어들에 발만 담궈보던중 2020년에 Javascript를 만나 푹 빠져있습니다.</li>
-            <li>
-              ❤️ 빠르게 발전하는 Javascript 생태계를 사랑하고 새로운 기술을 배우는걸 좋아합니다.
-            </li>
-          </ul>
-        </article>
-      </section>
-      <section className="content">
-        <article className="about-article">
+        </section>
+        <section>
           <h2>🤝 Contact & Channel</h2>
           <ul className="contact-channel-list">
             <li>
-              <div className="contact-channel-wrap">
-                <Gmail />
-              </div>
-              <label>Email |</label>
-              <a href="mailto:leehyeokjae97@gmail.com" className="default-link">
-                leehyeokjae97@gmail.com
-              </a>
+              <Gmail />
+              <b>Email.</b>
+              <a href="mailto:leehyeokjae97@gmail.com">leehyeokjae97@gmail.com</a>
             </li>
             <li>
-              <div className="contact-channel-wrap">
-                <Github />
-              </div>
-              <label>Github |</label>
-              <a href="https://github.com/HyeokjaeLee" target="_blank" className="default-link">
+              <Github />
+              <b>Github.</b>
+              <a href="https://github.com/HyeokjaeLee" target="_blank">
                 https://github.com/HyeokjaeLee
               </a>
             </li>
             <li>
-              <div className="contact-channel-wrap">
-                <Chrome />
-              </div>
-              <label>Blog |</label>
+              <Chrome />
+              <b>Blog.</b>
               <Link
                 to="/"
                 onClick={() => {
                   setPortfolio("");
                 }}
-                className="default-link"
               >
                 https://hyeokjaelee.github.io
               </Link>
             </li>
             <li>
-              <div className="contact-channel-wrap">
-                <Naver />
-              </div>
-              <label>Blog (2011~2015) |</label>
-              <a
-                href="https://blog.naver.com/leehyeokjae7"
-                target="_blank"
-                className="default-link"
-              >
+              <Naver />
+              <b>Blog.</b>
+              <a href="https://blog.naver.com/leehyeokjae7" target="_blank">
                 https://blog.naver.com/leehyeokjae7
               </a>
             </li>
           </ul>
-        </article>
-      </section>
-      <section className="content">
-        <article className="about-article languages-tools-wrap">
-          <h2>🔧 Languages & Tools</h2>
-          <ul className="languages-tools-list">
-            <li>
-              <Javascript />
-              Javascript
-            </li>
-            <li>
-              <Typescript />
-              Typescript
-            </li>
-            <li>
-              <HTML5 />
-              HTML5
-            </li>
-            <li>
-              <CSS3 />
-              CSS3
-            </li>
-            <li>
-              <Sass />
-              Sass
-            </li>
-            <li>
-              <React_svg />
-              React
-            </li>
-            <li>
-              <NextJS />
-              Next.js
-            </li>
-            <li>
-              <Gatsby />
-              Gatsby
-            </li>
-            <li>
-              <VueJS />
-              Vue.js
-            </li>
-            <li>
-              <Express />
-              Express
-            </li>
-            <li>
-              <NestJS />
-              NestJS
-            </li>
-            <li>
-              <GraphQL />
-              GraphQL
-            </li>
-            <li>
-              <Electron />
-              Electron
-            </li>
-            <li>
-              <Git />
-              Git
-            </li>
-          </ul>
-        </article>
-      </section>
-      <section className="content">
-        <article className="about-article">
-          <h2>🎓 Education</h2>
-          <h3 className="about-title">
-            <KNU />
-            공주대학교
-          </h3>
-          <p>컴퓨터공학과 (2016.03 ~ 졸업예정)</p>
-          <ul>
-            <li>
-              개발 & 창업 동아리 (2016 ~ )
-              <a
-                href="https://namu.wiki/w/%EA%B3%B5%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%99%EB%B6%80/%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99?rev=316#s-2.3.4"
-                className="default-link"
-              >
-                PRIMITVE
-              </a>
-            </li>
-            <li>Webtoon Hub 저작권 등록 (C-2021-020527)</li>
-            <li>정보처리기사 취득 (2021.6)</li>
-          </ul>
-        </article>
-      </section>
-      <section className="content">
-        <article className="about-article">
-          <h2>👨🏻‍💻 Work Experience</h2>
-          <h3 className="about-title">
-            <Coupang />
-          </h3>
-          <p>Eats EDP Operations (2019.08 ~ 2020.02)</p>
-          <p className="work-experience-txt">
-            주로 데이터 클렌징과 시각화 업무를 담당했습니다.
-            <br />
-            비록 처음에 개발자로 입사한 것은 아니었지만 팀 리더분의 배려와 서비스 초기에 합류할 수
-            있었던 점 덕분에 관련 업무를 할 수 있었습니다.
-          </p>
-          <ul>
-            <li>배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시 및 개발</li>
-            <li>지역별 배달 엣지 케이스 딥다이브 과정에 필요한 데이터 클렌징 및 시각화</li>
-            <li>고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스</li>
-            <li>
-              식사시간과 서비스 피크타임이 겹처 식사 중 발생하는 이슈 트래킹을 위한 노트북 소지의
-              불편함 해소를 위해 슬랙봇 제작
-            </li>
-            <li>배달파트너 센터 챗봇 제작</li>
-            <li>그외 업무에 필요한 자동화 스크립트 & 매크로 제작</li>
-          </ul>
-        </article>
-      </section>
-      <section className="content">
-        <article className="about-article">
-          <h2>🎮 Projects</h2>
-          <p>아래 프로젝트들은 혼자 진행한 프로젝트들이며 꾸준히 리팩토링, 업데이트 중입니다.</p>
-        </article>
-        <section className="projects-wrap">
-          <article className="project">
-            <a
-              className="project-info"
-              href="https://github.com/HyeokjaeLee/korea-webtoon-api"
-              target="_blank"
-            >
-              <div className="project-title">
-                <h3>Korea Webtoon API</h3>
-                <div>
-                  <NestJS />
-                  <Typescript />
-                </div>
-              </div>
-              <p>여러가지 플랫폼의 웹툰 정보를 제공</p>
-              <ul>
-                <li>여러가지 플랫폼의 웹툰을 한 웹이나 앱에서 보고싶어서 만들게되었습니다.</li>
-                <li>
-                  최근 Daum 웹툰이 Kakao 웹툰으로 개편에 대응 겸 Express ▶ NestJS 프레임워크 변경
-                </li>
-                <li>다른 학생들의 Toy project용 API 제공</li>
-              </ul>
-            </a>
-            <a
-              className="additional-project-wrap"
-              href="https://github.com/HyeokjaeLee/webtoon-hub"
-              target="_blank"
-            >
-              <div className="additional-project">
-                사용 예시 프로젝트
-                <React_svg />
-                <RightArrow />
-              </div>
-            </a>
-            <Link
-              to="/korea-webtoon-api-update"
-              className="additional-project-wrap"
-              onClick={() => {
-                setPortfolio("");
-              }}
-            >
-              <div className="additional-project">
-                관련 블로그 포스팅
-                <RightArrow />
-              </div>
-            </Link>
-          </article>
-          <article className="project">
-            <a
-              className="project-info"
-              href="https://github.com/HyeokjaeLee/korea-covid19-api"
-              target="_blank"
-            >
-              <div className="project-title">
-                <h3>Korea COVID-19 API</h3>
-                <div>
-                  <Express />
-                  <GraphQL />
-                  <Typescript />
-                </div>
-              </div>
-              <p>한국의 COVID-19 관련 통합 정보 제공</p>
-              <ul>
-                <li>
-                  공공데이터 포털의 API에 이상치가 많고 관련 API마다 데이터 형식이 달라 만들게
-                  되었습니다.
-                </li>
-                <li>대부분의 이상치를 제거 후 재계산해서 제공</li>
-                <li>원본 API에서 제공하지 않는 데이터 추가</li>
-              </ul>
-            </a>
-            <a
-              className="additional-project-wrap"
-              href="https://github.com/HyeokjaeLee/covid19-dashboard"
-              target="_blank"
-            >
-              <div className="additional-project">
-                사용 예시 프로젝트
-                <HTML5 />
-                <RightArrow />
-              </div>
-            </a>
-          </article>
-          <article className="project">
-            <a
-              className="project-info"
-              href="https://github.com/HyeokjaeLee/gititle"
-              target="_blank"
-            >
-              <div className="project-title">
-                <h3>Gititle</h3>
-                <div>
-                  <VueJS />
-                  <Sass />
-                  <Javascript />
-                </div>
-              </div>
-              <p>직관적이고 정형화된 Git Commit message 작성을 위한 프로젝트</p>
-              <ul>
-                <li>
-                  저는 Commit message 작성 시 emoji와 여러가지 규칙을 정해 사용하는데, 이를 지키지
-                  못하는 경우가 많아 만들게 되었습니다.
-                </li>
-                <li>정형화된 Commit message 형식의 구성요소에 대한 목록과 예시를 제공</li>
-                <li>이전에 작성한 커밋 메시지 저장</li>
-                <li>접근성 향상을 위한 PWA 지원</li>
-                <li>현재 실사용 중</li>
-              </ul>
-            </a>
-            <Link
-              to="/gititle-project"
-              className="additional-project-wrap"
-              onClick={() => {
-                setPortfolio("");
-              }}
-            >
-              <div className="additional-project">
-                관련 블로그 포스팅 1
-                <RightArrow />
-              </div>
-            </Link>
-            <Link
-              to="/good-commit-message"
-              className="additional-project-wrap"
-              onClick={() => {
-                setPortfolio("");
-              }}
-            >
-              <div className="additional-project">
-                관련 블로그 포스팅 2
-                <RightArrow />
-              </div>
-            </Link>
-          </article>
-          <article className="project">
-            <a
-              className="project-info"
-              href="https://github.com/HyeokjaeLee/knu-lms-scheduler"
-              target="_blank"
-            >
-              <div className="project-title">
-                <h3>KNU LMS Scheduler</h3>
-                <div>
-                  <Electron />
-                  <React_svg />
-                  <Javascript />
-                </div>
-              </div>
-              <p>공주대학교 비대면 강의 시스템 편의성 개선 프로그램</p>
-              <ul>
-                <li>
-                  COVID-19로 인해 사용하는 비대면 강의 시스템에 불편함을 느껴 제작하게 되었습니다.
-                </li>
-                <li>제공되는 API가 없어 클라이언트 실시간 크롤링 사용</li>
-                <li>배포 후 학교 커뮤니티에서 좋은 반응을 얻음</li>
-                <li>에브리타임 21년 하반기 Best 게시판에 등록됨</li>
-                <li>지속적으로 피드백을 받으며 업데이트</li>
-                <li>현재 실사용 중</li>
-              </ul>
-            </a>
-            <Link
-              to="/knu-lms-scheduler"
-              className="additional-project-wrap"
-              onClick={() => {
-                setPortfolio("");
-              }}
-            >
-              <div className="additional-project">
-                관련 블로그 포스팅
-                <RightArrow />
-              </div>
-            </Link>
-          </article>
-          <article className="project">
-            <a
-              className="project-info"
-              href="https://github.com/HyeokjaeLee/hyeokjaelee.github.io"
-              target="_blank"
-            >
-              <div className="project-title">
-                <h3>Gatsby Blog</h3>
-                <div>
-                  <Gatsby />
-                  <GraphQL />
-                  <Typescript />
-                </div>
-              </div>
-              <p>Gatsby를 이용한 개인 블로그</p>
-              <ul>
-                <li>기존 블로그의 문제점을 느끼고 저만의 블로그를 갖고 싶어 만들게 되었습니다.</li>
-                <li>네이티브 앱과 같은 UX를 위한 웹 디자인을 고민</li>
-                <li>Gatsby 템플릿 없이 제작</li>
-              </ul>
-            </a>
-            <Link
-              to="/blog-remake-review1"
-              className="additional-project-wrap"
-              onClick={() => {
-                setPortfolio("");
-              }}
-            >
-              <div className="additional-project">
-                관련 블로그 포스팅
-                <RightArrow />
-              </div>
-            </Link>
-          </article>
         </section>
-      </section>
-    </>
+        <section>
+          <h2>👨🏻‍💻 Work Experience</h2>
+          <h3>Coupang Eats</h3>
+          <p className="description">2019년 5월부터 서비스 중인 30분 로켓 음식 배달 서비스</p>
+          <div className="content-wrap">
+            <div style={{ width: "12em" }}>
+              <p>EDP Operations</p>
+              <p>2019.08 ~ 2020.02</p>
+            </div>
+            <div>
+              주로 데이터 클렌징과 시각화 업무를 담당했습니다.
+              <br />
+              비록 처음에 개발자로 입사한 것은 아니었지만 팀 리더분의 배려와 서비스 초기에 합류할 수
+              있었던 덕분에 관련 업무를 할 수 있었습니다.
+            </div>
+          </div>
+        </section>
+      </article>
+    </section>
   );
 };
 

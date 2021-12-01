@@ -21,6 +21,48 @@
 }
 
 @mixin HyeokjaeLee-page($color: $lightColor) {
+  .portfolio {
+    font-weight: 200;
+    padding: 2em;
+    .profile {
+      width: 9em;
+      border-radius: $borderRadius;
+    }
+    h2 {
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-weight: normal;
+    }
+    h3 {
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+      font-weight: normal;
+    }
+    .content-wrap {
+      display: flex;
+      gap: 2em;
+      ul {
+        list-style: none;
+      }
+    }
+    .description {
+      margin-bottom: 1em;
+    }
+  }
+
+  .contact-channel-list {
+    > li {
+      margin-bottom: 0.7em;
+      svg {
+        height: 1.5em;
+        margin-right: 0.5em;
+      }
+      a {
+        margin-left: 0.5em;
+      }
+    }
+  }
+
   .projects-wrap {
     display: flex;
     gap: 1em;

@@ -22,6 +22,8 @@ import Chrome from "img/chrome.svg";
 import KNU from "img/knu.svg";
 import Coupang from "img/coupang.svg";
 import RightArrow from "img/right-arrow.svg";
+import { useContext } from "react";
+import { PortfolioContext } from "contexts/theme";
 
 const React_svg = () => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +32,7 @@ const React_svg = () => (
   </svg>
 );
 const About = () => {
-  const [portfolio, setPortfolio] = useState("hide");
+  const { portfolio, setPortfolio } = useContext(PortfolioContext);
   useEffect(() => {
     setPortfolio("hide");
   }, []);
@@ -199,7 +201,7 @@ const About = () => {
           <h3 className="about-title">
             <Coupang />
           </h3>
-          <p>Eats EDP Operations (2019.08 ~ )</p>
+          <p>Eats EDP Operations (2019.08 ~ 2020.02)</p>
           <p className="work-experience-txt">
             주로 데이터 클렌징과 시각화 업무를 담당했습니다.
             <br />

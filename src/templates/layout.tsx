@@ -12,6 +12,7 @@ import favicon from "assets/img/favicon.ico";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
+  const _Header = location.pathname !== "/HyeokjaeLee/" ? <Header /> : <></>;
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
@@ -31,7 +32,7 @@ const TemplateWrapper = ({ children, location }: any) => {
           <link rel="icon" href={favicon} />
         </Helmet>
         <ThemeSwitch />
-        <Header />
+        {_Header}
         <Main location={location}>{children}</Main>
         <PortfolioLink />
         <Footer />
