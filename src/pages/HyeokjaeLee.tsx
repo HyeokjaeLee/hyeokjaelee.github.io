@@ -19,9 +19,6 @@ import Express from "img/express.svg";
 import GraphQL from "img/graphql.svg";
 import Naver from "img/naver.svg";
 import Chrome from "img/chrome.svg";
-import KNU from "img/knu.svg";
-import Coupang from "img/coupang.svg";
-import RightArrow from "img/right-arrow.svg";
 import { useContext } from "react";
 import { PortfolioContext } from "contexts/theme";
 
@@ -112,8 +109,8 @@ const About = () => {
                 <li>업무에 필요한 자동화 스크립트 & 매크로 개발</li>
                 <li>배달파트너 센터 챗봇 개발</li>
                 <li>
-                  식사시간과 서비스 피크타임이 겹처 식사 중 발생하는 이슈 트래킹을 위한 노트북
-                  소지의 불편함 해소를 위해 봇 개발
+                  식사시간과 서비스 피크타임이 겹쳐 식사 중 발생하는 이슈 트래킹을 위해 노트북을
+                  소지해야 하는 불편함 해소를 위한 봇 개발
                 </li>
               </ul>
             </div>
@@ -190,15 +187,17 @@ const About = () => {
                 <Sass />
                 <Javascript />
               </section>
-              <span className="team">팀 구성 - 개인</span>
+              <p className="project-info">팀 구성 - 개인</p>
             </div>
             <div>
               <div className="description">
                 직관적이고 정형화된 Git Commit message 작성 도우미
                 <p className="project-link">
                   <Github />
-                  <span>Github -</span>
-                  <a>https://github.com/HyeokjaeLee/gititle</a>
+                  <span>Github/gititle -</span>
+                  <a href="https://github.com/HyeokjaeLee/gititle">
+                    https://github.com/HyeokjaeLee/gititle
+                  </a>
                 </p>
                 <p className="project-link">
                   <Chrome />
@@ -225,8 +224,8 @@ const About = () => {
                     (https://hyeokjaelee.github.io/good-commit-message)
                   </Link>
                 </li>
-                <li>커밋에 사용할 키워드 데이터 정형화</li>
-                <li>PWA를 지원하는 프론트엔드 개발</li>
+                <li>커밋에 사용할 키워드 데이터 구조 정의</li>
+                <li>PWA를 지원하는 프론트엔드, Vue.js 디자인/개발</li>
                 <li>편의 기능 개발</li>
               </ul>
             </div>
@@ -240,44 +239,194 @@ const About = () => {
                 <React_svg />
                 <Javascript />
               </section>
-              <span className="team">팀 구성 - 개인</span>
+              <p className="project-info">팀 구성 - 개인</p>
             </div>
             <div>
               <div className="description">
                 공주대학교 비대면 강의 시스템 편의성 개선 프로그램
                 <p className="project-link">
                   <Github />
-                  <span>Github -</span>
-                  <a>https://github.com/HyeokjaeLee/gititle</a>
+                  <span>Github/knu-lms-scheduler -</span>
+                  <a href="https://github.com/HyeokjaeLee/knu-lms-scheduler">
+                    https://github.com/HyeokjaeLee/knu-lms-scheduler
+                  </a>
                 </p>
                 <p className="project-link">
                   <Chrome />
                   <span>Blog Post -</span>
                   <Link
-                    to="/gititle-project"
+                    to="/knu-lms-scheduler"
                     onClick={() => {
                       setPortfolio("");
                     }}
                   >
-                    https://hyeokjaelee.github.io/gititle-project
+                    https://hyeokjaelee.github.io/knu-lms-scheduler
                   </Link>
                 </p>
               </div>
               <ul>
-                <li>
-                  커밋 규칙 정리
+                <li>Electron 백엔드, 비대면 강의 시스템 로그인 크롤러 개발</li>
+                <li>Electron 프론트엔드, React 디자인/개발</li>
+                <li>프로그램 홍보, 배포, 피드백 반영 업데이트</li>
+                <li>에브리타임 21년 하반기 Best 게시물 선정</li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div className="content-wrap">
+            <div className="content-title">
+              <h3>WEBTOON HUB</h3>
+              <section className="stack-wrap">
+                <NestJS />
+                <React_svg />
+                <Sass />
+                <Typescript />
+              </section>
+              <p className="project-info">팀 구성 - 개인</p>
+              <p className="project-info margin-top">저작권 등록</p>
+              <p className="project-info">(C-2021-020527)</p>
+            </div>
+            <div>
+              <div className="description">
+                여러 플랫폼의 웹툰을 한번에 볼 수 있는 웹 애플리케이션
+                <p className="project-link">
+                  <Github />
+                  <span>Github/korea-webtoon-api -</span>
+                  <a href="https://github.com/HyeokjaeLee/korea-webtoon-api">
+                    https://github.com/HyeokjaeLee/korea-webtoon-api
+                  </a>
+                </p>
+                <p className="project-link">
+                  <Github />
+                  <span>Github/webtoon-hub -</span>
+                  <a href="https://github.com/HyeokjaeLee/webtoon-hub">
+                    https://github.com/HyeokjaeLee/webtoon-hub
+                  </a>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post -</span>
                   <Link
-                    to="/good-commit-message"
+                    to="/korea-webtoon-api-update"
                     onClick={() => {
                       setPortfolio("");
                     }}
                   >
-                    (https://hyeokjaelee.github.io/good-commit-message)
+                    https://hyeokjaelee.github.io/korea-webtoon-api-update
                   </Link>
+                </p>
+              </div>
+              <ul>
+                <li>NestJS 서버 구축</li>
+                <li>각 플랫폼별 크롤러 개발</li>
+                <li>플랫폼별 통합 웹툰 데이터 구조 정의</li>
+                <li>Toyproject용 API(RESTful) 개발/공개</li>
+                <li>프론트엔드 React 디자인/개발</li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div className="content-wrap">
+            <div className="content-title">
+              <h3>COVID-19 Dashboard</h3>
+              <section className="stack-wrap">
+                <Express />
+                <GraphQL />
+                <Typescript />
+                <HTML5 />
+                <Sass />
+                <Javascript />
+              </section>
+              <p className="project-info">팀 구성 - 개인</p>
+            </div>
+            <div>
+              <div className="description">
+                여러 플랫폼의 웹툰을 한번에 볼 수 있는 웹 애플리케이션
+                <p className="project-link">
+                  <Github />
+                  <span>Github/korea-covid19-api -</span>
+                  <a href="https://github.com/HyeokjaeLee/korea-covid19-api">
+                    https://github.com/HyeokjaeLee/korea-covid19-api
+                  </a>
+                </p>
+                <p className="project-link">
+                  <Github />
+                  <span>Github/covid19-dashboard -</span>
+                  <a href="https://github.com/HyeokjaeLee/covid19-dashboard">
+                    https://github.com/HyeokjaeLee/covid19-dashboard
+                  </a>
+                </p>
+              </div>
+              <ul>
+                <li>Express 서버 구축</li>
+                <li>COVID-19 데이터 정형화 & 계산을 통한 확장 값 추가</li>
+                <li>공공데이터 포털의 COVID-19 데이터 이상치 제거</li>
+                <li>Toyproject용 API(GraphQL) 개발/공개</li>
+                <li>프론트엔드 HTML 디자인/개발</li>
+              </ul>
+            </div>
+            <hr />
+          </div>
+          <hr />
+          <div className="content-wrap">
+            <div className="content-title">
+              <h3>Nagle`s Blog</h3>
+              <section className="stack-wrap">
+                <Gatsby />
+                <GraphQL />
+                <Sass />
+                <Typescript />
+              </section>
+              <p className="project-info">팀 구성 - 개인</p>
+            </div>
+            <div>
+              <div className="description">
+                개인 블로그
+                <p className="project-link">
+                  <Github />
+                  <span>Github/blog -</span>
+                  <a href="https://github.com/HyeokjaeLee/hyeokjaelee.github.io">
+                    https://github.com/HyeokjaeLee/hyeokjaelee.github.io
+                  </a>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post -</span>
+                  <Link
+                    to="/blog-remake-review1"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    https://hyeokjaelee.github.io/korea-webtoon-api-update
+                  </Link>
+                </p>
+              </div>
+              <ul>
+                <li>프론트엔드 Gatsby(React) 디자인/개발</li>
+                <li>템플릿 공개</li>
+              </ul>
+            </div>
+            <hr />
+          </div>
+        </section>
+        <section>
+          <h2>🎓 Education</h2>
+          <h3>공주대학교</h3>
+          <div className="content-wrap">
+            <div className="content-title">
+              <p>컴퓨터 공학과</p>
+              <p>2016.03 ~ 졸업예정</p>
+            </div>
+            <div>
+              <ul>
+                <li>
+                  <a href="https://namu.wiki/w/%EA%B3%B5%EC%A3%BC%EB%8C%80%ED%95%99%EA%B5%90/%ED%95%99%EB%B6%80/%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99?rev=316#s-2.3.4">
+                    PRIMITVE
+                  </a>
+                  /개발 & 창업 동아리 활동 (2016 ~ )
                 </li>
-                <li>커밋에 사용할 키워드 데이터 정형화</li>
-                <li>PWA를 지원하는 프론트엔드 개발</li>
-                <li>편의 기능 개발</li>
+                <li>정보처리기사 취득 (2021.6)</li>
               </ul>
             </div>
           </div>
