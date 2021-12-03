@@ -1,5 +1,4 @@
 ---
-emoji: "📢"
 title: "Live Sass Compiler 사용하기"
 description: "편리한 Sass 사용을 위한 익스텐션"
 date: "2021-09-01"

@@ -1,5 +1,4 @@
 ---
-emoji: "📢"
 title: "크롤링을 통한 데이터 수집하기"
 description: "Node.js 크롤링을 통한 데이터 수집"
 date: "2021-08-31"

@@ -1,5 +1,4 @@
 ---
-emoji: "🚀"
 title: "Korea Webtoon API 업데이트"
 description: "Daum 웹툰의 대규모 변화로 인한 API 업데이트"
 date: "2021-11-17"

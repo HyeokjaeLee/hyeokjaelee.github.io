@@ -8,7 +8,6 @@ interface Node {
   excerpt: string;
   fields: { slug: string };
   frontmatter: {
-    emoji: string;
     title: string;
     date: string;
     description: string;
@@ -134,7 +133,7 @@ const Index = ({ data }: Props) => {
       </div>
     );
     const postList = viewingNodes.map((node, postListIndex) => {
-      const { emoji, title, date, description, tag } = node.frontmatter;
+      const { title, date, description, tag } = node.frontmatter;
       const IndividualsTagList = tag.map((_tag, individualsTagIndex) => (
         <li key={`individualsTag${individualsTagIndex}`} className={check_tag(_tag)}>
           {_tag}
@@ -145,9 +144,7 @@ const Index = ({ data }: Props) => {
           <Link to={node.fields.slug}>
             <div>
               <i>Posted on {date}</i>
-              <h2>
-                {emoji} {title}
-              </h2>
+              <h2>{title}</h2>
               <p>{description}</p>
               <ul className="tags each-post on-index">{IndividualsTagList}</ul>
             </div>
@@ -185,7 +182,6 @@ export const data = graphql`
           slug
         }
         frontmatter {
-          emoji
           date
           title
           description

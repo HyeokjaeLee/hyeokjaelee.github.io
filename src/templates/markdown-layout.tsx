@@ -20,7 +20,6 @@ interface Props {
     markdownRemark: {
       html: string;
       frontmatter: {
-        emoji: string;
         date: string;
         title: string;
         description: string;
@@ -88,9 +87,7 @@ const BlogSpots = ({ data }: Props) => {
         <article className="post">
           <header>
             <p className="posted-on">Posted on {postInfo.date}</p>
-            <h1>
-              {postInfo.emoji} {postInfo.title}
-            </h1>
+            <h1>{postInfo.title}</h1>
             <h4 className="description">{postInfo.description}</h4>
           </header>
           <section dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
@@ -115,7 +112,6 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        emoji
         title
         date
         description

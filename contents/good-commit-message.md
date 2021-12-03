@@ -1,5 +1,4 @@
 ---
-emoji: "📝"
 title: "Git Commit Message Convention"
 description: "Commit Message 작성을 위한 나와의 약속"
 date: "2021-07-03"
