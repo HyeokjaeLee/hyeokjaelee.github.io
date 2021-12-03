@@ -1,10 +1,9 @@
 @import "../fonts/font.css";
 @import "./libs";
 @import "./components";
-@import "./pages/_index.scss";
-@import "./pages/_markdown.scss";
+@import "./pages/index.scss";
+@import "./pages/markdown.scss";
 @import "./pages/about.scss";
-@import "./pages/HyeokjaeLee";
 //다크모드 지원
 @mixin theme($color: $lightColor) {
   -webkit-tap-highlight-color: rgba(invert($color), 0.05);
@@ -19,7 +18,6 @@
   @include index($color);
   @include markdown-page($color);
   @include about-page($color);
-  @include HyeokjaeLee-page($color);
   svg {
     fill: textColor($color);
   }

@@ -1,30 +1,8 @@
-.hello {
-  width: 100%;
-  text-align: center;
-}
-
-.about-title {
-  display: flex;
-  align-items: center;
-  > svg {
-    height: 1.5em;
-    margin-right: 0.5em;
-  }
-  margin-bottom: 0.2em;
-}
-
-.work-experience-txt {
-  margin: {
-    top: 0.8em;
-    bottom: 1.5em;
-  }
-}
-
-@mixin HyeokjaeLee-page($color: $lightColor) {
-  .portfolio {
+@mixin about-page($color: $lightColor) {
+  .about {
     font-weight: 200;
-    padding: 1em 2em;
-    padding-bottom: 5em;
+    padding: 0 1em;
+    padding-bottom: 4em;
     .profile {
       width: 9em;
       border-radius: $borderRadius;
@@ -41,6 +19,7 @@
     }
     .content-wrap {
       display: flex;
+      flex-wrap: wrap;
       gap: 2em;
       > .content-title {
         width: 10em;
@@ -53,16 +32,20 @@
       margin-bottom: 0.8em;
     }
 
+    .content-list {
+      flex: 1;
+      min-width: 10em;
+    }
     .contact-channel-list {
+      list-style: none;
       > li {
+        display: flex;
+        align-items: center;
         margin-bottom: 0.7em;
         svg {
           height: 1.5em;
           min-width: 1.5em;
           margin-right: 0.5em;
-        }
-        a {
-          margin-left: 0.5em;
         }
       }
     }
@@ -88,18 +71,46 @@
     .project-link {
       display: flex;
       align-items: center;
-      gap: 0.5em;
 
       > svg {
         height: 1em;
         min-width: 1em;
         padding-top: 0.2em;
+        margin-right: 0.5em;
       }
     }
     a {
+      margin: 0 0.5em;
       word-break: break-all;
-      &:hover {
-        text-decoration: underline;
+      background-color: subColor($color);
+      font-size: 0.7em;
+      padding: 0.1em 0.5em;
+      border-radius: $borderRadius;
+      transition: color 0.2s, background-color 0.2s;
+      @include hover {
+        background-color: textColor($color);
+        color: $color;
+      }
+    }
+  }
+  .languages-tools-list {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 1em;
+    > li {
+      font-size: 0.8em;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      > svg {
+        margin-bottom: 0.4em;
+        width: 3em;
       }
     }
   }

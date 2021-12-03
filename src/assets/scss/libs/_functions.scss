@@ -1,8 +1,8 @@
 @function subColor($color) {
   @if ($color==$darkColor) {
-    @return lighten($color, 15%);
+    @return lighten($color, 5%);
   } @else {
-    @return darken($color, 15%);
+    @return darken($color, 5%);
   }
 }
 
