@@ -105,11 +105,13 @@
         margin: 1em 0;
       }
       code {
+        font-family: "notoSans";
+        font-weight: 100;
         word-break: break-all;
-        font-size: 0.9em;
+        font-size: 0.8em;
         background-color: subColor($color);
         padding: 0.2em 0.4em;
-        margin: 0 0.1em;
+        margin: 0 0.2em;
         border-radius: $borderRadius;
       }
       table {

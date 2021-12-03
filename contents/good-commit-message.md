@@ -13,7 +13,7 @@ tag: [Git]
 
 <br>코드를 작성하다 보면 간혹 이전 코드를 참고 또는 회귀해야 할 경우가 있습니다.
 
-커밋 수가 적다면 상관없지만 커밋 수가 많아지면 많아질수록 수많은 커밋 기록 중에 원하는 시점을 찾는 것이 어려울 수 있습니다.
+커밋 수가 적다면 상관없지만 커밋 수가 많아질수록 수많은 커밋 기록 중에 원하는 시점을 찾는 것이 어려울 수 있습니다.
 
 <br>또한 다른 사람이 내 커밋 기록을 참고해야 하는 경우가 있을 수도 있습니다.
 
@@ -109,7 +109,7 @@ BREAKING CHANGE: <breaking change summary>
 <linked issue>
 ```
 
-### Breaking Change
+### 💥 Breaking Change
 
 Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미합니다.
 
@@ -119,7 +119,7 @@ Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고
 
 <br>Footer에는 breaking change와 관련된 정보를 포함할 수 있습니다.
 
-### Linked issue
+### 🧷 Linked issue
 
 저는 이슈 연결을 할 때 다음 두 가지 키워드를 사용합니다.
 
