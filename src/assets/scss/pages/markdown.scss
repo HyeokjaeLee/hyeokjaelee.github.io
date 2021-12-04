@@ -31,7 +31,7 @@
     }
     //본문
     > section {
-      line-height: 1.8em;
+      line-height: 1.7em;
       .img-txt-wrap {
         margin: 0.5em 0;
         display: flex;
@@ -74,32 +74,48 @@
       h6 {
         margin: {
           top: 1em;
-          bottom: 0.5em;
+          bottom: 0.3em;
         }
         display: flex;
         align-items: center;
+      }
+      blockquote {
+        border-radius: $borderRadius;
+        padding: 0 0.2em;
+        background-color: subColor($color);
       }
       h2 {
         border-radius: $borderRadius;
         border-left: 0.3em solid textColor($color);
         padding: 0 0.3em;
       }
+      strong {
+        font-weight: normal;
+      }
+
       a {
         font-weight: bolder;
-        border-bottom: 2px solid subColor($color);
+        border-bottom: 1px solid textColor($color);
         margin: 0;
-        padding: 0 0.3em;
-        transition: background-color 0.3s;
+        padding: 0 0.1em;
+        transition: background-color 0.3s, color 0.3s;
         @include hover {
-          background-color: subColor($color);
+          color: $color;
+          background-color: textColor($color);
         }
         border-top-left-radius: $borderRadius;
         border-top-right-radius: $borderRadius;
       }
+
       ul,
       li {
-        margin-top: 0.5em;
         margin-left: 0.9em;
+      }
+      ul {
+        margin-bottom: 1em;
+      }
+      p {
+        margin-bottom: 0.5em;
       }
       deckgo-highlight-code {
         margin: 1em 0;

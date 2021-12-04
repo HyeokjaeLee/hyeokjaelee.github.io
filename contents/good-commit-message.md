@@ -1,6 +1,6 @@
 ---
 title: "Git Commit Message Convention"
-description: "Commit Message 작성을 위한 나와의 약속"
+description: "Git Commit Message 작성을 위한 나와의 약속"
 date: "2021-07-03"
 tag: [Git]
 ---
@@ -9,19 +9,17 @@ tag: [Git]
 
 <img src="https://user-images.githubusercontent.com/71566740/139002400-e36dc3e7-a88f-4f4b-9a1a-2e2b70086ebe.png" class="img large"/>
 
-커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 합니다.
+커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 한다.
 
-<br>코드를 작성하다 보면 간혹 이전 코드를 참고 또는 회귀해야 할 경우가 있습니다.
+코드를 작성하다 보면 간혹 이전 코드를 참고 또는 회귀해야 할 경우가 있는데 커밋 수가 적다면 상관없지만 커밋 수가 많아질수록 수많은 커밋 로그 중에 원하는 시점을 찾는 것이 어렵다.
 
-커밋 수가 적다면 상관없지만 커밋 수가 많아질수록 수많은 커밋 기록 중에 원하는 시점을 찾는 것이 어려울 수 있습니다.
+또한 내 커밋이면 어느정도 지저분한 커밋 로그 속에서 원하는 정보를 찾을 수 있어도 다른 사람이 내 커밋 로그를 참고해야 하는 경우에는 어려움이 배가된다.
 
-<br>또한 다른 사람이 내 커밋 기록을 참고해야 하는 경우가 있을 수도 있습니다.
+이러한 경우에 커밋 메시지가 제대로 작성되어 있다면 보다 원활하게 원하는 정보를 찾을 수 있다.
 
-이러한 경우에 커밋 메시지가 제대로 작성되어 있다면 보다 원활하게 원하는 정보를 찾을 수 있습니다.
+커밋 메시지 작성법은 큰 틀은 있지만 개발자들마다 스타일이 다르고 정확하게 이렇게 작성해야 한다는 규칙은 없다.
 
-<br>커밋 메시지 작성법은 큰 틀은 있지만 개발자분들마다 스타일이 다르고 정확하게 이렇게 작성해야 한다는 규칙은 없습니다.
-
-다음 내용은 Angural Commit Message Format을 기반으로 제 나름대로 보기 편하다고 느낀 구조로 작성하는 것입니다.
+이 포스트는 Angural Commit Message Format을 기반으로 내 나름대로 보기 편하다고 느낀 구조를 정리한 내용이다.
 
 ## Commit Message
 
@@ -33,9 +31,9 @@ tag: [Git]
 <footer>
 ```
 
-- 해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일합니다.
-- header, body, footer는 빈 행으로 구분합니다.
-- header를 제외하면 모두 생략이 가능합니다.
+- 해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일
+- header, body, footer는 빈 행으로 구분
+- header를 제외하면 모두 생략 가능
 
 ## Header
 
@@ -45,11 +43,13 @@ tag: [Git]
 
 ### 😀 Emoji
 
-제가 Commit Message에 활용하는 Emoji들의 정보는 [Gitmoji](https://gitmoji.dev/)에서 확인 가능합니다.
+개발을 하다 보면 Angural Commit Message Format 만으로는 구분이 명확하지 않을 때가 많았고 이 부분을 나는 Type 앞에 Emoji를 추가함으로써 보완했다.
+
+내가 Commit Message에 활용하는 Emoji들의 정보는 [Gitmoji](https://gitmoji.dev/)에서 확인 가능하다.
 
 ### ✅ Type
 
-#### 반드시 다음 중 하나여야 합니다.
+#### 반드시 다음 중 하나여야 한다.
 
 - **build**: 빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항이 있을 때
 - **ci**: CI 구성 파일 및 스크립트의 변경 사항이 있을 때
@@ -69,15 +69,13 @@ tag: [Git]
 
 ### 🎯 Scope (생략 가능)
 
-추가적인 문맥 정보를 제공하기 위한 목적으로 괄호 안에 작성합니다.
+추가적인 문맥 정보를 제공하기 위한 목적으로 괄호 안에 작성한다.
 
-[Angular.js 공식 문서](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope)에서는 영향을 받는 npm 모듈명을 작성하라고 되어있습니다.
+[Angular.js 공식 문서](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope)에서는 영향을 받는 npm 모듈명을 작성하라고 되어있는데 만약 npm 모듈을 사용하지 않는다면 어디를 수정했는지 정도로 보면 될 것 같다.
 
-만약 npm 모듈을 사용하지 않는다면 **어디를 수정했는지** 정도로 보면 될 것 같습니다.
+함수를 수정했으면 해당 함수의 이름, 메소드를 추가했으면 해당 클래스 이름 등 수정 대상을 한눈에 특정할 수 있는 내용이 들어가면 된다.
 
-함수를 수정했으면 해당 함수의 이름, 메소드를 추가했으면 해당 클래스 이름 등 수정 대상을 한눈에 특정할 수 있는 내용이 들어가면 될 것 같습니다.
-
-추가적으로 커밋 메시지 가이드가 잘 정리된 [해당 문서](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)에서는 이슈 ID를 적지 말라고 하는군요.
+추가적으로 [어떤 개발자분의 문서](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)에서는 이슈 ID를 적지 말라고 한다.
 
 ### 📃 Short summary
 
@@ -111,24 +109,23 @@ BREAKING CHANGE: <breaking change summary>
 
 ### 💥 Breaking Change
 
-Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미합니다.
+Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미한다.
+(간략하게 대규모 변경사항 정도로 생각하시면 좋을듯)
 
-간략하게 대규모 변경사항(?) 정도로 생각하시면 좋을 것 같습니다.
+그 외에 API를 만들 때 해당 API를 사용하는 다른 앱들의 코드를 수정해야 하는 경우에도 API 커밋 메시지에 Breaking Change라고 표기한다.
 
-<br>저는 그 외에 API를 만들 때 해당 API를 사용하는 다른 앱들의 코드를 수정해야 하는 경우에도 API 소스 코드 커밋 메시지에 Breaking Change라고 표기합니다.
-
-<br>Footer에는 breaking change와 관련된 정보를 포함할 수 있습니다.
+Footer에는 breaking change와 관련된 정보를 포함할 수 있다.
 
 ### 🧷 Linked issue
 
-저는 이슈 연결을 할 때 다음 두 가지 키워드를 사용합니다.
+나는 이슈 연결을 할 때 주로 다음 두 가지 키워드를 사용한다.
 
 - **resolve**: 이슈를 해결한 경우
 - **related to**: 연관된 이슈가 있는 경우
 
-<br>다음은 pull request의 description이나 커밋 메시지에서 Issue 연결을 제공하는 키워드 입니다.
+다음은 pull request의 description이나 커밋 메시지에서 Issue 연결을 제공하는 키워드들이다.
 
-(pull request는 기본 branch에 있어야 합니다.)
+(pull request는 기본 branch에 있어야 함)
 
 - close
 - closes
@@ -140,9 +137,9 @@ Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고
 - resolves
 - resolved
 
-<br>이슈가 같은 repository에 있는지 여부에 따라 닫는 구문이 달라집니다.
+이슈가 같은 repository에 있는지 여부에 따라 닫는 구문이 달라진다.
 
-해당 내용은 [Github 공식 문서](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)에 원문이 있으니 확인해 보시는걸 추천드립니다.
+해당 내용은 [Github 공식 문서](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)에 원문이 있으니 확인해 보는걸 추천
 
 | 연결된 이슈                 | 구문                                  | 예시                                                               |
 | --------------------------- | ------------------------------------- | ------------------------------------------------------------------ |
@@ -152,11 +149,9 @@ Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고
 
 ## 자주 쓰이는 영어 단어 목록
 
-다음은 커밋에 자주 사용하는 영어 단어 목록입니다.
+다음은 커밋에 자주 사용하는 영어 단어 목록이다.
 
-해당 내용도 한국 개발자 분이 [블로그](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)에 잘 정리해 주신 글이 있습니다.
-
-해당 글을 확인해 보시는걸 추천 드립니다.
+해당 내용도 [좋은 git commit 메시지를 위한 영어 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)에 잘 정리해 주신 글이 있다.
 
 - **Fix**: 버그, 이슈 등 잘못된 무언가를 고치는 경우
 - **Correct**: 문법 오류, 타입, 이름, 오타 등을 수정하는 경우
@@ -191,14 +186,10 @@ Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고
 
 ## 마지막으로
 
-긴글 읽어 주셔서 감사합니다.
+해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정이며 지금까지 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중이다.
 
-해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정입니다.
+관련 내용은 다음 링크들에서 확인 가능하다.
 
-지금까지 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중입니다.
-
-관련 내용은 다음 링크들에서 확인 가능합니다.
-
-- [Blog post](/gititle-project/)
+- [Blog post](/gititle-project)
 - [Github repository](https://github.com/HyeokjaeLee/gititle)
-- [Gititle](https://hyeokjaelee.github.io/gititle/)
+- [Gititle](/gititle)
