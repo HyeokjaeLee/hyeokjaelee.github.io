@@ -5,9 +5,9 @@ date: "2021-10-29"
 tag: [Backend, Typescript]
 ---
 
-## NestJS를 사용하는 이유
-
 <img src="https://user-images.githubusercontent.com/71566740/139354021-96e05704-52c7-466f-857a-4046a2a5f916.png" class="img large"/>
+
+## NestJS를 사용하는 이유
 
 NestJS는 Express와 함께 Node.js의 유명한 웹 애플리케이션 프레임워크이다.
 

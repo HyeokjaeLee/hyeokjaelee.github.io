@@ -5,8 +5,6 @@ date: "2021-07-03"
 tag: [Git]
 ---
 
-## 좋은 Commit Message의 필요성
-
 <img src="https://user-images.githubusercontent.com/71566740/139002400-e36dc3e7-a88f-4f4b-9a1a-2e2b70086ebe.png" class="img large"/>
 
 커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 한다.
@@ -35,21 +33,21 @@ tag: [Git]
 - header, body, footer는 빈 행으로 구분
 - header를 제외하면 모두 생략 가능
 
-## Header
+### 🗿 Header
 
 ```
 <emoji> <type>(<scope>): <short summary>
 ```
 
-### 😀 Emoji
+#### Emoji
 
 개발을 하다 보면 Angural Commit Message Format 만으로는 구분이 명확하지 않을 때가 많았고 이 부분을 나는 Type 앞에 Emoji를 추가함으로써 보완했다.
 
 내가 Commit Message에 활용하는 Emoji들의 정보는 [Gitmoji](https://gitmoji.dev/)에서 확인 가능하다.
 
-### ✅ Type
+#### Type
 
-#### 반드시 다음 중 하나여야 한다.
+반드시 다음 중 하나여야 한다.
 
 - **build**: 빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항이 있을 때
 - **ci**: CI 구성 파일 및 스크립트의 변경 사항이 있을 때
@@ -67,7 +65,7 @@ tag: [Git]
 
     `This reverts commit <SHA>`
 
-### 🎯 Scope (생략 가능)
+#### Scope (생략 가능)
 
 추가적인 문맥 정보를 제공하기 위한 목적으로 괄호 안에 작성한다.
 
@@ -77,7 +75,7 @@ tag: [Git]
 
 추가적으로 [어떤 개발자분의 문서](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)에서는 이슈 ID를 적지 말라고 한다.
 
-### 📃 Short summary
+#### Short summary
 
 - 첫 글자를 대문자로 작성하지 않는다.
 - 50글자 내로 제한한다.
@@ -87,7 +85,7 @@ tag: [Git]
 
   (마침표, 느낌표, 물음표 등)
 
-## Body
+### 📃 Body
 
 - 각 내용의 시작은 `*`로 시작하고 공백 한 칸 띄우고 작성한다.
 - 각 내용은 72글자 내로 제한한다.
@@ -96,7 +94,7 @@ tag: [Git]
 - 어떻게 보다는 무엇과 왜를 설명한다.
 - 변경의 영향을 설명하기 위해 이전 동작과 새 동작을 비교할 수 있다.
 
-## Footer
+### 👣 Footer
 
 ```
 BREAKING CHANGE: <breaking change summary>
@@ -107,7 +105,7 @@ BREAKING CHANGE: <breaking change summary>
 <linked issue>
 ```
 
-### 💥 Breaking Change
+#### Breaking Change
 
 Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미한다.
 (간략하게 대규모 변경사항 정도로 생각하시면 좋을듯)
@@ -116,7 +114,7 @@ Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고
 
 Footer에는 breaking change와 관련된 정보를 포함할 수 있다.
 
-### 🧷 Linked issue
+#### Linked issue
 
 나는 이슈 연결을 할 때 주로 다음 두 가지 키워드를 사용한다.
 

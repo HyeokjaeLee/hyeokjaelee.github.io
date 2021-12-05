@@ -5,11 +5,11 @@ date: "2021-09-14"
 tag: [Project]
 ---
 
-## Gititle 프로젝트
-
 <img src="https://user-images.githubusercontent.com/71566740/135963287-e5c18f62-da16-4dda-98cb-1dd4a7c2b720.png" class="img large"/>
 
 **해당 프로젝트의 결과물은 [Gititle](https://hyeokjaelee.github.io/gititle/)에서 확인가능**
+
+## Gititle 프로젝트
 
 ### 👉 프로젝트 목적
 

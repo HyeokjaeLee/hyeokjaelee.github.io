@@ -2,22 +2,20 @@
 title: "Gatsby 블로그 이전"
 description: "Next.js에서 Gatsby로 블로그를 이전하고 느낀점"
 date: "2021-12-01"
-tag: [Frontend]
+tag: [Project]
 ---
-
-## Gatsby 블로그로 이전하면서
 
 <img src="https://user-images.githubusercontent.com/71566740/138983411-93742554-e2ab-4e18-9588-f2dc9aaf2883.png" class="img large"/>
 
 사실 블로그가 사용가능할 정도로 완성된건 시간이 좀 지났지만 최근에 다른 토이 프로젝트들을 수정해야 하는 일들이 많아 이제야 글을 작성한다.
 
-### 👨🏻‍💻 느낀점
+## Gatsby 블로그로 이전하면서
 
 일단 프론트 개발 환경이 리액트와 거의 같았고 GraphQL로 데이터를 전달하는 부분도 이미 경험해봤기 때문에 편하게 시작했다.
 
 그리고 여러가지 Gatsby 라이브러리들 덕분에 Next.js에서는 하나하나 구현해야 했던 기능들을 편하게 좋은 퀄리티로 받아 쓸 수 있는점이 좋았다.
 
-#### 특히 편리했던 것들
+### 👨🏻‍💻 특히 편리했던 것들
 
 - **[utterances](https://utteranc.es/)를 이용한 댓글 기능**
 
