@@ -339,7 +339,7 @@ const About = () => {
             </div>
             <div>
               <div className="description">
-                여러 플랫폼의 웹툰을 한번에 볼 수 있는 웹 애플리케이션
+                한국의 COVID-19 현황을 확인할 수 있는 웹 애플리케이션
                 <p className="project-link">
                   <Github />
                   <span>Github/korea-covid19-api</span>
@@ -353,6 +353,18 @@ const About = () => {
                   <a href="https://github.com/HyeokjaeLee/covid19-dashboard">
                     https://github.com/HyeokjaeLee/covid19-dashboard
                   </a>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post</span>
+                  <Link
+                    to="/covid-19-api-update"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    https://hyeokjaelee.github.io/covid-19-api-update
+                  </Link>
                 </p>
               </div>
               <ul className="content-list">
@@ -396,7 +408,19 @@ const About = () => {
                       setPortfolio("");
                     }}
                   >
-                    https://hyeokjaelee.github.io/korea-webtoon-api-update
+                    https://hyeokjaelee.github.io/blog-remake-review1
+                  </Link>
+                </p>
+                <p className="project-link">
+                  <Chrome />
+                  <span>Blog Post</span>
+                  <Link
+                    to="/blog-remake-review2"
+                    onClick={() => {
+                      setPortfolio("");
+                    }}
+                  >
+                    https://hyeokjaelee.github.io/blog-remake-review2
                   </Link>
                 </p>
               </div>
