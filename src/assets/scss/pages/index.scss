@@ -1,6 +1,9 @@
 @mixin index($color: $lightColor) {
   .posts {
     list-style: none;
+    h2 {
+      font-weight: 600;
+    }
     a {
       margin-bottom: 0.5em;
       border-radius: $borderRadius;
@@ -25,6 +28,7 @@
         background-color: $color;
         border-bottom: 1.5px solid subColor($color);
         > p {
+          font-weight: normal;
           padding-left: 0.2em;
         }
         > i {

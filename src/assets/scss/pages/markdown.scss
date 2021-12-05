@@ -3,6 +3,9 @@
     @include if-not-small-device {
       padding: 0 1em;
     }
+    h1 {
+      font-weight: bold;
+    }
     * {
       box-sizing: border-box;
     }
