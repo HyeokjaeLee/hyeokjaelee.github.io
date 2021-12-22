@@ -19,6 +19,7 @@ import Express from "img/express.svg";
 import GraphQL from "img/graphql.svg";
 import Naver from "img/naver.svg";
 import Chrome from "img/chrome.svg";
+import Puppeteer from "img/puppeteer.svg";
 import { useContext } from "react";
 import { PortfolioContext } from "contexts/theme";
 
@@ -102,7 +103,10 @@ const About = () => {
               <p>2019.08 ~ 2020.02</p>
             </div>
             <ul className="content-list">
-              <li>배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발</li>
+              <li>
+                배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발 - 인력 75%
+                절감
+              </li>
               <li>지역별 배달 엣지 케이스 딥다이브 과정에 필요한 데이터 클렌징/시각화</li>
               <li>고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스 개발</li>
               <li>업무에 필요한 자동화 스크립트 & 매크로 개발</li>
@@ -170,6 +174,10 @@ const About = () => {
               Electron
             </li>
             <li>
+              <Puppeteer />
+              Puppeteer
+            </li>
+            <li>
               <Git />
               Git
             </li>
@@ -234,6 +242,7 @@ const About = () => {
               <h3>KNU LMS Scheduler</h3>
               <section className="stack-wrap">
                 <Electron />
+                <Puppeteer />
                 <React_svg />
                 <Javascript />
               </section>
@@ -449,9 +458,9 @@ const About = () => {
                   >
                     PRIMITVE
                   </a>
-                  개발 & 창업 동아리 활동 (2016 ~ 2021)
+                  개발 & 창업 동아리 활동
                 </li>
-                <li>정보처리기사 취득 (2021.6)</li>
+                <li>정보처리기사 취득</li>
               </ul>
             </div>
           </div>
