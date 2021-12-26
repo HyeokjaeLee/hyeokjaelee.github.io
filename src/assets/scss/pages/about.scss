@@ -1,5 +1,13 @@
 @mixin about-page($color: $lightColor) {
   .about {
+    .mini-txt {
+      font-size: 0.8em;
+      background-color: subTextColor($color);
+      color: $color;
+      padding: 0.1em 0.5em;
+      border-radius: $borderRadius;
+      font-weight: 400;
+    }
     font-weight: 200;
     padding: 0 1em;
     padding-bottom: 4em;

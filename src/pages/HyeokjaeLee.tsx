@@ -20,6 +20,7 @@ import GraphQL from "img/graphql.svg";
 import Naver from "img/naver.svg";
 import Chrome from "img/chrome.svg";
 import Puppeteer from "img/puppeteer.svg";
+import MongoDB from "img/mongodb.svg";
 import { useContext } from "react";
 import { PortfolioContext } from "contexts/theme";
 
@@ -101,15 +102,19 @@ const About = () => {
             <div className="content-title">
               <p>EDP Operations</p>
               <p>2019.08 ~ 2020.02</p>
+              <span className="mini-txt">6개월</span>
             </div>
             <ul className="content-list">
               <li>
-                배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발 - 인력 75%
-                절감
+                배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발&nbsp;
+                <span className="mini-txt">담당 인원 75% 절감</span>
               </li>
               <li>지역별 배달 엣지 케이스 딥다이브 과정에 필요한 데이터 클렌징/시각화</li>
               <li>고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스 개발</li>
-              <li>업무에 필요한 자동화 스크립트 & 매크로 개발</li>
+              <li>
+                업무에 필요한 자동화 스크립트 & 매크로 개발 &nbsp;
+                <span className="mini-txt">업무당 담당 인원 한 명 수준으로 절감</span>
+              </li>
               <li>배달파트너 센터 챗봇 개발</li>
               <li>
                 식사시간과 서비스 피크타임이 겹쳐 식사 중 발생하는 이슈 트래킹을 위해 노트북을
@@ -168,6 +173,10 @@ const About = () => {
             <li>
               <GraphQL />
               GraphQL
+            </li>
+            <li>
+              <MongoDB />
+              MongoDB
             </li>
             <li>
               <Electron />
@@ -285,6 +294,7 @@ const About = () => {
               <h3>WEBTOON HUB</h3>
               <section className="stack-wrap">
                 <NestJS />
+                <MongoDB />
                 <React_svg />
                 <Sass />
                 <Typescript />
@@ -325,6 +335,7 @@ const About = () => {
               </div>
               <ul className="content-list">
                 <li>NestJS 서버 구축</li>
+                <li>MongoDB 구축</li>
                 <li>각 플랫폼별 크롤러 개발</li>
                 <li>플랫폼별 통합 웹툰 데이터 구조 정의</li>
                 <li>Toyproject용 API(RESTful) 개발/공개</li>

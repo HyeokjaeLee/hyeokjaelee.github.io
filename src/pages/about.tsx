@@ -17,6 +17,8 @@ import Electron from "img/electron.svg";
 import Git from "img/git.svg";
 import Express from "img/express.svg";
 import GraphQL from "img/graphql.svg";
+import MongoDB from "img/mongodb.svg";
+import Puppeteer from "img/puppeteer.svg";
 import { Nav } from "../components/nav";
 
 const React_svg = () => (
@@ -121,8 +123,16 @@ const About = () => {
                 GraphQL
               </li>
               <li>
+                <MongoDB />
+                MongoDB
+              </li>
+              <li>
                 <Electron />
                 Electron
+              </li>
+              <li>
+                <Puppeteer />
+                Puppeteer
               </li>
               <li>
                 <Git />
