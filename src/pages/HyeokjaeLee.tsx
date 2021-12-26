@@ -47,7 +47,7 @@ const About = () => {
             <div>
               <h3>"개발자를 꿈꾸는 코더, 이혁재입니다."</h3>
               <ul>
-                <li>풀스택 개발자를 꿈꾸고 있습니다.</li>
+                <li>Full Stack 개발자를 지향하고 있습니다.</li>
                 <li>Know-What, Know-Where을 중요하게 생각합니다.</li>
                 <li>일상에서 항상 더 편리한 방법을 고민하고 찾아냅니다.</li>
                 <li>여러 언어들에 발만 담궈보던중 2020년에 Javascript를 만나 푹 빠져있습니다.</li>
@@ -281,8 +281,8 @@ const About = () => {
                 </p>
               </div>
               <ul className="content-list">
-                <li>Electron 백엔드, 비대면 강의 시스템 로그인 크롤러 개발</li>
-                <li>Electron 프론트엔드, React 디자인/개발</li>
+                <li>비대면 강의 시스템 로그인 크롤러 개발</li>
+                <li>프론트엔드 React 디자인/개발</li>
                 <li>프로그램 홍보, 배포, 피드백 반영 업데이트</li>
                 <li>에브리타임 21년 하반기 Best 게시물 선정</li>
               </ul>
