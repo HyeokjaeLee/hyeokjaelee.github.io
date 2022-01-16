@@ -86,8 +86,8 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  padding: 0 1em;
-  background: url(../img/overlay.png), linear-gradient(90deg, lighten($darkColor, 10%), $darkColor);
+  padding: 0em;
+
   word-break: keep-all;
 
   @include theme;

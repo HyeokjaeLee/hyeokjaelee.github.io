@@ -1,0 +1,26 @@
+@import "libs";
+
+.header {
+  background-color: black;
+  height: 3.5em;
+  display: flex;
+}
+
+@mixin theme($color: $LIGHT_COLOR) {
+  body {
+    .header {
+      background-color: $color;
+      height: 3.5em;
+      display: flex;
+    }
+  }
+}
+
+@include theme;
+body {
+  &.dark {
+    .background {
+      background-color: black;
+    }
+  }
+}
