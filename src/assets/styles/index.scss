@@ -89,7 +89,7 @@ body {
   padding: 0em;
 
   word-break: keep-all;
-
+  background: url(../img/overlay.png), linear-gradient(90deg, lighten($darkColor, 10%), $darkColor);
   @include theme;
   &.dark {
     @include theme($darkColor);

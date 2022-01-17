@@ -1,26 +1,20 @@
 @import "libs";
 
-.header {
-  background-color: black;
+@mixin header($color: $LIGHT_COLOR) {
+  background-color: $color;
   height: 3.5em;
   display: flex;
-}
-
-@mixin theme($color: $LIGHT_COLOR) {
-  body {
-    .header {
-      background-color: $color;
-      height: 3.5em;
-      display: flex;
-    }
+  position: sticky;
+  top: 0;
+  > .logo {
+    padding: 0.5em 1em;
   }
 }
 
-@include theme;
-body {
-  &.dark {
-    .background {
-      background-color: black;
-    }
-  }
+.header {
+  @include header($LIGHT_COLOR);
+}
+
+.header-dark {
+  @include header($DARK_COLOR);
 }
