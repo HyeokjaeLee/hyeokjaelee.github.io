@@ -157,7 +157,6 @@ const Index = ({ data }: Props) => {
 
   return (
     <>
-      <Nav />
       <section className="content first">
         <TagFilter />
         <Posts />

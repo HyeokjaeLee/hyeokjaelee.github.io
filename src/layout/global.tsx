@@ -1,4 +1,5 @@
 import "styles/index.scss";
+import "styles/global.scss";
 import { useState } from "react";
 import React from "react";
 import { Helmet } from "react-helmet";
@@ -8,6 +9,7 @@ import { Header } from "components/header";
 import { Footer } from "components/footer";
 import { PortfolioLink } from "components/portfolio-link";
 import { ThemeContext, PortfolioContext } from "contexts/theme";
+import MenuIcon from "img/menu.svg";
 import * as style from "styles/header.module.scss";
 import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
@@ -33,8 +35,13 @@ const TemplateWrapper = ({ children, location }: any) => {
         >
           <link rel="icon" href={favicon} />
         </Helmet>
-        <header>ss</header>
-        <ThemeSwitch />
+        <header id="header">
+          <div className="flex1" />
+          <ThemeSwitch />
+          <button id="nav-menu-button">
+            <MenuIcon className="menu-icon" />
+          </button>
+        </header>
         <Main location={location}>{children}</Main>
         <PortfolioLink />
         <Footer />

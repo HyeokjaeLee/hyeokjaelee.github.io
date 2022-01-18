@@ -1,0 +1,62 @@
+@import "../fonts/font.css";
+@import "./libs";
+
+@mixin body($color) {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  word-break: keep-all;
+  background: url(../img/overlay.png), linear-gradient(90deg, darken($color, 5%), $color);
+  .flex1 {
+    flex: 1;
+  }
+  header {
+    position: sticky;
+    top: 0em;
+    display: flex;
+    gap: 1em;
+    //background-color: rgba($color, 0.5);
+    padding: 0.8em;
+    z-index: 5;
+    //backdrop-filter: blur(10px);
+  }
+  .site-title {
+    height: 1.6em;
+    padding: 0.2em;
+    border-radius: $BORDER_RADIUS;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > h1 {
+      padding: {
+        top: 0.2em;
+        bottom: 0.3em;
+        left: 0.4em;
+        right: 0.4em;
+      }
+      border-radius: 10px;
+      border: 2px solid textColor($color);
+      color: textColor($color);
+      font-weight: 100;
+      font-size: 1.2em;
+    }
+  }
+  #nav-menu-button {
+    border-radius: 100%;
+    border: none;
+    background-color: $CLEAR_COLOR;
+    display: flex;
+    width: 2em;
+    height: 2em;
+    > svg {
+      fill: textColor($color);
+    }
+  }
+}
+
+body {
+  @include body($lightColor);
+  &.dark {
+    @include body($darkColor);
+  }
+}
