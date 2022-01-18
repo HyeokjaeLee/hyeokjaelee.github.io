@@ -8,6 +8,8 @@ import { Header } from "components/header";
 import { Footer } from "components/footer";
 import { PortfolioLink } from "components/portfolio-link";
 import { ThemeContext, PortfolioContext } from "contexts/theme";
+import * as style from "styles/header.module.scss";
+import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
@@ -31,8 +33,8 @@ const TemplateWrapper = ({ children, location }: any) => {
         >
           <link rel="icon" href={favicon} />
         </Helmet>
+        <header>ss</header>
         <ThemeSwitch />
-        {_Header}
         <Main location={location}>{children}</Main>
         <PortfolioLink />
         <Footer />
