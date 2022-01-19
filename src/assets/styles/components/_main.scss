@@ -1,5 +1,5 @@
 @mixin main($color: $lightColor) {
-  #main {
+  #main2 {
     transition: margin 0.3s;
     color: textColor($color);
     margin: 0 auto;
@@ -22,17 +22,13 @@
     }
   }
   #contentWrap {
-    border-radius: 0 0 $borderRadius $borderRadius;
+    border-radius: $BORDER_RADIUS;
     > .content {
-      box-shadow: $boxShadow;
-      border-radius: $borderRadius;
+      box-shadow: $BOX_SHADOW;
+      border-radius: $BORDER_RADIUS;
       padding: 1.8em;
       background-color: $color;
       margin-bottom: 2em;
-      &.first {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
       &.otherColor {
         background-color: $color;
       }

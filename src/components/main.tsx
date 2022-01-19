@@ -14,7 +14,7 @@ export const Main = (props: any) => {
         }}
       >
         {(status) => (
-          <main id="main">
+          <main id="main2">
             <div id="contentWrap" className={"slide " + status}>
               {children}
             </div>

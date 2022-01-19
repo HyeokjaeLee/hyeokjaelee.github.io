@@ -1,24 +1,43 @@
 @import "../fonts/font.css";
 @import "./libs";
 
+html {
+  background: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @mixin body($color) {
-  min-height: 100vh;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 3em 1em;
   word-break: keep-all;
-  background: url(../img/overlay.png), linear-gradient(90deg, darken($color, 5%), $color);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  overflow: scroll;
+  background: url(../img/overlay.png),
+    linear-gradient(90deg, darken(rgba($color, 85%), 5%), rgba($color, 85%));
+  backdrop-filter: blur(10px);
   .flex1 {
     flex: 1;
   }
-  header {
+
+  #header {
+    max-width: 60em;
+    margin: {
+      top: 0;
+      right: auto;
+      bottom: 3em;
+      left: auto;
+    }
+    padding: 0 1em;
     position: sticky;
-    top: 0em;
+    top: -2em;
     display: flex;
     gap: 1em;
-    //background-color: rgba($color, 0.5);
-    padding: 0.8em;
     z-index: 5;
-    //backdrop-filter: blur(10px);
+    box-sizing: border-box;
   }
   .site-title {
     height: 1.6em;
@@ -48,8 +67,8 @@
     display: flex;
     width: 2em;
     height: 2em;
-    > svg {
-      fill: textColor($color);
+    svg {
+      fill: subTextColor($color);
     }
   }
 }

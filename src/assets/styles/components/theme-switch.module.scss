@@ -1,7 +1,8 @@
 @import "../libs";
 
 @mixin theme-switch($color: $lightColor) {
-  background-color: textColor($color);
+  background-color: subTextColor($color);
+  box-shadow: $BOX_SHADOW2;
   > .ball {
     background-color: $color;
   }

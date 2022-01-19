@@ -17,9 +17,7 @@
   @include index($color);
   @include markdown-page($color);
   @include about-page($color);
-  svg {
-    fill: textColor($color);
-  }
+
   a {
     cursor: pointer;
     text-decoration: none;
