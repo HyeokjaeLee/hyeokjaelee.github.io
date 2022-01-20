@@ -10,7 +10,6 @@ html {
 @mixin body($color) {
   box-sizing: border-box;
   margin: 0;
-  padding: 3em 1em;
   word-break: keep-all;
   width: 100vw;
   height: 100vh;
@@ -19,25 +18,22 @@ html {
   background: url(../img/overlay.png),
     linear-gradient(90deg, darken(rgba($color, 85%), 5%), rgba($color, 85%));
   backdrop-filter: blur(10px);
-  .flex1 {
-    flex: 1;
-  }
 
   #header {
-    max-width: 60em;
-    margin: {
-      top: 0;
-      right: auto;
-      bottom: 3em;
-      left: auto;
-    }
-    padding: 0 1em;
+    margin: 0 auto;
+    background: linear-gradient(
+      darken($color, 5%) 1em,
+      rgba(darken($color, 5%), 80%) 3em,
+      $CLEAR_COLOR
+    );
+    padding: 1em 1em 5em;
     position: sticky;
-    top: -2em;
+    top: 0;
     display: flex;
     gap: 1em;
     z-index: 5;
     box-sizing: border-box;
+    justify-content: end;
   }
   .site-title {
     height: 1.6em;
@@ -60,15 +56,69 @@ html {
       font-size: 1.2em;
     }
   }
-  #nav-menu-button {
-    border-radius: 100%;
+  #menu {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba($color, 80%);
+    height: 100vh;
+    width: 100%;
+    padding: 1em;
+    max-width: 30em;
+    box-shadow: $BOX_SHADOW;
+    border-top-left-radius: $BORDER_RADIUS;
+    border-bottom-left-radius: $BORDER_RADIUS;
+    backdrop-filter: blur(10px);
+    display: none;
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  #menu-button {
     border: none;
+    height: 1.2em;
+    width: 1.5em;
+    position: relative;
+    z-index: 3;
     background-color: $CLEAR_COLOR;
-    display: flex;
-    width: 2em;
-    height: 2em;
-    svg {
-      fill: subTextColor($color);
+    &.show {
+      .line {
+        &._1 {
+          top: 50%;
+          transform: rotate(45deg);
+        }
+        &._2 {
+          display: none;
+        }
+        &._3 {
+          top: 50%;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .line {
+      padding: 0;
+      width: 100%;
+      height: 30%;
+      border-radius: 2px;
+      background-color: subTextColor($color);
+      position: absolute;
+      transition: all 0.1s linear;
+      &._1 {
+        top: 0;
+        //transform: rotate(45deg);
+      }
+      &._2 {
+        top: 35%;
+      }
+      &._3 {
+        top: 70%;
+        //transform: rotate(-45deg);
+      }
     }
   }
 }
@@ -79,3 +129,16 @@ body {
     @include body($darkColor);
   }
 }
+
+/*
+      &._1 {
+        top: 0;
+        //transform: rotate(45deg);
+      }
+      &._2 {
+        top: 35%;
+      }
+      &._3 {
+        top: 70%;
+        //transform: rotate(-45deg);
+      }*/

@@ -16,31 +16,39 @@ import favicon from "assets/img/favicon.ico";
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
+  const [menuShow, setMenuShow] = useState(false);
+  const setMenuClass = (menuShow: boolean) => (menuShow ? "show" : "hide");
   const _Header = location.pathname.includes("HyeokjaeLee") ? <></> : <Header />;
+  const helmet_meta_otions = [
+    { name: `description`, content: `programming & tech blog` },
+    { name: `generator`, content: `gatsby` },
+    { name: `author`, content: `HyeokjaeLee` },
+    {
+      name: `google-site-verification`,
+      content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
+    },
+  ];
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
-        <Helmet
-          title="Nagle`s Blog"
-          meta={[
-            { name: `description`, content: `programming & tech blog` },
-            { name: `generator`, content: `gatsby` },
-            { name: `author`, content: `HyeokjaeLee` },
-            {
-              name: `google-site-verification`,
-              content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
-            },
-          ]}
-          bodyAttributes={{ class: theme }}
-        >
+        <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
           <link rel="icon" href={favicon} />
         </Helmet>
         <header id="header">
-          <div className="flex1" />
-          <ThemeSwitch />
-          <button id="nav-menu-button">
-            <MenuIcon className="menu-icon" />
+          <button
+            id="menu-button"
+            className={setMenuClass(menuShow)}
+            onClick={() => {
+              setMenuShow(!menuShow);
+            }}
+          >
+            <div className="line _1" />
+            <div className="line _2" />
+            <div className="line _3" />
           </button>
+          <nav id="menu" className={setMenuClass(menuShow)}>
+            sssss
+          </nav>
         </header>
         <Main location={location}>{children}</Main>
         <PortfolioLink />
@@ -51,3 +59,10 @@ const TemplateWrapper = ({ children, location }: any) => {
 };
 
 export default TemplateWrapper;
+/**
+ *           <div className="flex1" />
+          <ThemeSwitch />
+          <button id="nav-menu-button">
+            <MenuIcon className="menu-icon" />
+          </button>
+ */
