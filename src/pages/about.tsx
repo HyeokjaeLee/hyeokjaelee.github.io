@@ -19,7 +19,7 @@ import Express from "img/express.svg";
 import GraphQL from "img/graphql.svg";
 import MongoDB from "img/mongodb.svg";
 import Puppeteer from "img/puppeteer.svg";
-import { Nav } from "../components/nav";
+import { Nav } from "../components/nav2";
 
 const React_svg = () => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

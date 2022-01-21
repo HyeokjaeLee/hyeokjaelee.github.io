@@ -13,6 +13,8 @@ import MenuIcon from "img/menu.svg";
 import * as style from "styles/header.module.scss";
 import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
+import { Navbar } from "components/navbar";
+
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
@@ -35,24 +37,10 @@ const TemplateWrapper = ({ children, location }: any) => {
           <link rel="icon" href={favicon} />
         </Helmet>
         <header id="header">
-          <button
-            id="menu-button"
-            className={setMenuClass(menuShow)}
-            onClick={() => {
-              setMenuShow(!menuShow);
-            }}
-          >
-            <div className="line _1" />
-            <div className="line _2" />
-            <div className="line _3" />
-          </button>
-          <nav id="menu" className={setMenuClass(menuShow)}>
-            sssss
-          </nav>
+          <Navbar />
         </header>
         <Main location={location}>{children}</Main>
         <PortfolioLink />
-        <Footer />
       </PortfolioContext.Provider>
     </ThemeContext.Provider>
   );

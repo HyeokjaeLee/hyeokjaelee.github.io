@@ -1,3 +1,47 @@
+@mixin fade-in($duration: 1s, $delay: 0s) {
+  -webkit-animation: fade-in $duration cubic-bezier(0.39, 0.575, 0.565, 1) $delay both;
+  animation: fade-in $duration cubic-bezier(0.39, 0.575, 0.565, 1) $delay both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fade-out($duration: 1s, $delay: 0s) {
+  -webkit-animation: fade-out $duration ease-out $delay both;
+  animation: fade-out $duration ease-out $delay both;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 //위에서 떨어저서 튕기는 효과
 @mixin bounce-in-top($duration: 1s, $delay: 0s) {
   -webkit-animation: bounce-in-top $duration $delay both;
@@ -202,73 +246,62 @@
   }
 }
 
-//슬라이드 아웃 효과 (top)
-@mixin slide-out-top($duration: 1s, $delay: 0s) {
-  -webkit-animation: slide-out-top $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
-  animation: slide-out-top $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+@mixin slide-in-right($duration: 1s, $delay: 0s) {
+  -webkit-animation: slide-in-right $duration cubic-bezier(0.25, 0.46, 0.45, 0.94) $delay both;
+  animation: slide-in-right $duration cubic-bezier(0.25, 0.46, 0.45, 0.94) $delay both;
 }
 
-@-webkit-keyframes slide-out-top {
+@-webkit-keyframes slide-in-right {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@mixin slide-out-right($duration: 1s, $delay: 0s) {
+  -webkit-animation: slide-out-right $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+  animation: slide-out-right $duration cubic-bezier(0.55, 0.085, 0.68, 0.53) $delay both;
+}
+
+@-webkit-keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
     opacity: 0;
   }
 }
-@keyframes slide-out-top {
+@keyframes slide-out-right {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-}
-
-@mixin slit-out-horizontal($duration: 1s, $delay: 0s) {
-  -webkit-animation: slit-out-horizontal $duration ease-in $delay both;
-  animation: slit-out-horizontal $duration ease-in $delay both;
-}
-
-@-webkit-keyframes slit-out-horizontal {
-  0% {
-    -webkit-transform: translateZ(0) rotateX(0);
-    transform: translateZ(0) rotateX(0);
-    opacity: 1;
-  }
-  54% {
-    -webkit-transform: translateZ(-160px) rotateX(87deg);
-    transform: translateZ(-160px) rotateX(87deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateZ(-800px) rotateX(90deg);
-    transform: translateZ(-800px) rotateX(90deg);
-    opacity: 0;
-  }
-}
-@keyframes slit-out-horizontal {
-  0% {
-    -webkit-transform: translateZ(0) rotateX(0);
-    transform: translateZ(0) rotateX(0);
-    opacity: 1;
-  }
-  54% {
-    -webkit-transform: translateZ(-160px) rotateX(87deg);
-    transform: translateZ(-160px) rotateX(87deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateZ(-800px) rotateX(90deg);
-    transform: translateZ(-800px) rotateX(90deg);
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
     opacity: 0;
   }
 }

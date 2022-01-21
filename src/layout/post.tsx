@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Nav } from "components/nav";
+import { Nav } from "components/nav2";
 import postProfile from "img/post-profile.jpg";
 import LeftArrow from "img/left-arrow.svg";
 import RightArrow from "img/right-arrow.svg";

@@ -1,0 +1,73 @@
+@import "../libs";
+@mixin navbar($color: $LIGHT_COLOR) {
+  > .menu-button {
+    border: none;
+    height: 1.2em;
+    width: 1.5em;
+    position: relative;
+    z-index: 3;
+    > .line {
+      padding: 0;
+      width: 100%;
+      height: 30%;
+      border-radius: 2px;
+      background-color: subTextColor($color);
+      position: absolute;
+      transition: all 0.1s linear;
+    }
+  }
+  > .menu {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color;
+    height: 100vh;
+    width: 100%;
+    padding: 1em;
+    max-width: 30em;
+    box-shadow: $BOX_SHADOW2;
+    border-top-left-radius: $BORDER_RADIUS;
+    border-bottom-left-radius: $BORDER_RADIUS;
+    backdrop-filter: blur(10px);
+  }
+  &.show > {
+    .menu {
+      @include slide-in-right(0.6s);
+    }
+    .menu-button > .line {
+      &.top {
+        top: 50%;
+        transform: rotate(45deg);
+      }
+      &.middle {
+        @include fade-out(0.2s);
+      }
+      &.bottom {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &.hide > {
+    .menu {
+      @include slide-out-right(0.6s);
+    }
+    .menu-button > .line {
+      &.top {
+        top: 0;
+      }
+      &.middle {
+        @include fade-in(0.2s);
+        top: 35%;
+      }
+      &.bottom {
+        top: 70%;
+      }
+    }
+  }
+}
+
+.navbar {
+  @include navbar($LIGHT_COLOR);
+}
