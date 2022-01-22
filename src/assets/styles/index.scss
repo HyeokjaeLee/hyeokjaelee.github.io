@@ -64,32 +64,9 @@ h6 {
   font-weight: normal;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  max-width: 100vw;
-  font-size: 18px;
-  @include if-small-device {
-    font-size: 15px;
-  }
-  font-family: "NotoSans";
-  overflow-x: hidden;
-  font-weight: 100;
-}
-
 body {
   @include theme;
   &.dark {
     @include theme($darkColor);
   }
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-::-webkit-scrollbar-thumb {
-  display: none;
 }
