@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import * as style from "styles/pages/index.module.scss";
 import { graphql, Link } from "gatsby";
-import { Nav } from "components/nav";
 import LeftArrow from "img/left-arrow.svg";
 import RightArrow from "img/right-arrow.svg";
-
+import { ThemeContext } from "contexts/theme";
 interface Node {
   excerpt: string;
   fields: { slug: string };
   frontmatter: {
     title: string;
+    titleImage: string;
     date: string;
     description: string;
     tag: string[];
@@ -19,6 +20,9 @@ interface Group {
   totalCount: number;
 }
 interface Props {
+  location: {
+    search: string;
+  };
   data: {
     allMarkdownRemark: {
       group: Group[];
@@ -28,16 +32,14 @@ interface Props {
 }
 
 const Index = ({ data }: Props) => {
-  /**페이지 당 보여줄 포스트 갯수*/
-  const postsPerPage = 7;
+  const postsPerPage = 12;
   const { group, nodes } = data.allMarkdownRemark;
   const [targetTagList, setTargetTagList] = useState<string[]>([]);
   const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
   const [currentPage, setCurrentPage] = useState(1);
-  /**필터링할 태그 선택*/
-  const check_tag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
+  const { theme } = useContext(ThemeContext);
   const TagFilter = () => (
-    <div className="tags all-posts">
+    <div className={style.tags}>
       {group.map((item, entireTagListIndex) => {
         const filter_posts_by_tag = () => {
           setCurrentPage(1);
@@ -64,7 +66,7 @@ const Index = ({ data }: Props) => {
           <a
             key={`entireTag${entireTagListIndex}`}
             onClick={filter_posts_by_tag}
-            className={"tag " + check_tag(item.tag)}
+            className={style.tag}
           >
             {item.tag}
           </a>
@@ -72,54 +74,7 @@ const Index = ({ data }: Props) => {
       })}
     </div>
   );
-  const PageNavi = () => {
-    const totalPostCount = filteredNodes.length;
-    const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
-    const pageIndexList: JSX.Element[] = [];
-    const nearPageCount = totalPageCount < 5 ? totalPageCount : 5;
-    let startPageIndex = currentPage,
-      endPageIndex = currentPage;
-    for (
-      let viewingPage = 0;
-      viewingPage < nearPageCount;
-      viewingPage = endPageIndex - startPageIndex + 1
-    ) {
-      startPageIndex = startPageIndex <= 1 ? 1 : startPageIndex - 1;
-      endPageIndex = endPageIndex >= totalPageCount ? totalPageCount : endPageIndex + 1;
-    }
-    for (let pageIndex = startPageIndex; pageIndex <= endPageIndex; pageIndex++) {
-      const className = pageIndex === currentPage ? "currentPage" : "";
-      pageIndexList.push(
-        <a
-          onClick={() => {
-            setCurrentPage(pageIndex);
-          }}
-          className={className}
-        >
-          {pageIndex}
-        </a>
-      );
-    }
-    const leftArrowHide = startPageIndex === 1 ? "hide" : "";
-    const rightArrowHide = endPageIndex >= totalPageCount ? "hide" : "";
-    const PageNaviArrow = (props: { Arrow: any; toMove: number; hide: "hide" | "" }) => (
-      <a
-        onClick={() => {
-          setCurrentPage(props.toMove);
-        }}
-        className={"arrow " + props.hide}
-      >
-        <props.Arrow className="arrow-svg" />
-      </a>
-    );
-    return (
-      <div className="pageNav">
-        <PageNaviArrow Arrow={LeftArrow} toMove={startPageIndex - 1} hide={leftArrowHide} />
-        {pageIndexList}
-        <PageNaviArrow Arrow={RightArrow} toMove={endPageIndex + 1} hide={rightArrowHide} />
-      </div>
-    );
-  };
+
   const Posts = () => {
     const viewingNodes = filteredNodes.slice(
       (currentPage - 1) * postsPerPage,
@@ -133,36 +88,36 @@ const Index = ({ data }: Props) => {
       </div>
     );
     const postList = viewingNodes.map((node, postListIndex) => {
-      const { title, date, description, tag } = node.frontmatter;
+      const { title, titleImage, date, description, tag } = node.frontmatter;
       const IndividualsTagList = tag.map((_tag, individualsTagIndex) => (
-        <li key={`individualsTag${individualsTagIndex}`} className={check_tag(_tag)}>
+        <li key={`individualsTag${individualsTagIndex}`} className={style.tag}>
           {_tag}
         </li>
       ));
       return (
-        <li key={`postList${postListIndex}`}>
-          <Link to={node.fields.slug}>
-            <div>
+        <li key={`postList${postListIndex}`} className={style.postWrap}>
+          <Link to={node.fields.slug} className={style.post}>
+            <section className={style.imageWrap}>
+              <img src={titleImage} />
+            </section>
+            <section className={style.infoWrap}>
               <i>Posted on {date}</i>
               <h2>{title}</h2>
               <p>{description}</p>
-              <ul className="tags each-post on-index">{IndividualsTagList}</ul>
-            </div>
+              <ul className={style.tags}>{IndividualsTagList}</ul>
+            </section>
           </Link>
         </li>
       );
     });
-    return <ul className="posts">{postList.length === 0 ? emptyPost : postList}</ul>;
+    return <ul className={style.posts}>{postList.length === 0 ? emptyPost : postList}</ul>;
   };
-
+  const indexClass = theme === "dark" ? style.indexDark : style.index;
   return (
-    <>
-      <section className="content first">
-        <TagFilter />
-        <Posts />
-        <PageNavi />
-      </section>
-    </>
+    <section className={indexClass}>
+      <TagFilter />
+      <Posts />
+    </section>
   );
 };
 
@@ -183,6 +138,7 @@ export const data = graphql`
         frontmatter {
           date
           title
+          titleImage
           description
           tag
         }

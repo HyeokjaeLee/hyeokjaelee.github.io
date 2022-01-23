@@ -1,5 +1,6 @@
 ---
 title: "NestJS 웹서버 구축하기"
+titleImage: "https://user-images.githubusercontent.com/71566740/139354021-96e05704-52c7-466f-857a-4046a2a5f916.png"
 description: "Typescript를 이용한 NestJS 코드 작성"
 date: "2021-10-29"
 tag: [Backend, Typescript]

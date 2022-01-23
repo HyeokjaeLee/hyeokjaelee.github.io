@@ -11,12 +11,11 @@ import { ThemeContext, PortfolioContext } from "contexts/theme";
 import MenuIcon from "img/menu.svg";
 import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
-
+import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
+const timeout = 700;
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
   const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
-  const [menuShow, setMenuShow] = useState(false);
-  const setMenuClass = (menuShow: boolean) => (menuShow ? "show" : "hide");
   const helmet_meta_otions = [
     { name: `description`, content: `programming & tech blog` },
     { name: `generator`, content: `gatsby` },
@@ -34,32 +33,21 @@ const TemplateWrapper = ({ children, location }: any) => {
           <link rel="icon" href={favicon} />
         </Helmet>
         <Header />
-        <div className="test2"></div>
-        <div className="test"></div>
+        <TransitionGroup className="main-wrap">
+          <ReactTransition
+            key={location.pathname}
+            timeout={{
+              enter: timeout,
+              exit: timeout,
+            }}
+          >
+            {(status) => <main className={status}>{children}</main>}
+          </ReactTransition>
+        </TransitionGroup>
+        <Footer />
       </PortfolioContext.Provider>
     </ThemeContext.Provider>
   );
 };
 
 export default TemplateWrapper;
-/**
- *           <div className="flex1" />
-          <ThemeSwitch />
-          <button id="nav-menu-button">
-            <MenuIcon className="menu-icon" />
-          </button>
-
-
-              <ThemeContext.Provider value={{ theme, setTheme }}>
-      <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
-        <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
-          <link rel="icon" href={favicon} />
-        </Helmet>
-        <header id="header">
-          <Navbar />
-        </header>
-        <Main location={location}>{children}</Main>
-        <PortfolioLink />
-      </PortfolioContext.Provider>
-    </ThemeContext.Provider>
- */

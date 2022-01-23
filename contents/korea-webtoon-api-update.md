@@ -1,5 +1,6 @@
 ---
 title: "Webtoon API 업데이트"
+titleImage: "https://user-images.githubusercontent.com/71566740/144698893-3177ecc1-ce90-49ae-8e98-4986f66bce7a.png"
 description: "Daum 웹툰의 개편으로 인한 API 업데이트"
 date: "2021-11-17"
 tag: [Project]

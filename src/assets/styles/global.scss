@@ -16,24 +16,19 @@ html {
   font-family: "NotoSans";
   font-weight: 100;
   * {
+    word-break: keep-all;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 }
-.test2 {
-  background-color: red;
-  margin: 10em;
-  height: 200vh;
-}
-.test {
-  background-color: pink;
-  margin: 10em;
-  height: 200vh;
-}
 
 .flex-1 {
   flex: 1;
+}
+
+.display-none {
+  visibility: hidden;
 }
 
 .box-shadow {
@@ -41,24 +36,43 @@ html {
 }
 
 @mixin body($color: $LIGHT_COLOR) {
+  background: url(../img/overlay.png), $color;
+  color: textColor($color);
   a {
     cursor: pointer;
     text-decoration: none;
-    &:link {
-      color: textColor($color);
-    }
-    &:visited {
-      color: subTextColor($color);
-    }
-    @include hover {
-      color: subTextColor($color);
-    }
+    color: textColor($color);
+  }
+  svg {
+    fill: textColor($color);
+  }
+}
+
+.main-wrap {
+  z-index: 1;
+}
+
+main {
+  margin-top: 3.5em;
+  &.entered {
+    @include fade-in(0.5s);
+  }
+  &.entering {
+    position: absolute;
+    opacity: 0;
+  }
+  &.exiting {
+    @include fade-out(0.5s, 0.2s);
   }
 }
 
 body {
   @include body;
+  &.dark {
+    @include body($DARK_COLOR);
+  }
 }
+
 ::-webkit-scrollbar {
   display: none;
 }

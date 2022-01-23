@@ -1,5 +1,6 @@
 ---
 title: "Gatsby 블로그 이전"
+titleImage: "https://user-images.githubusercontent.com/71566740/138983411-93742554-e2ab-4e18-9588-f2dc9aaf2883.png"
 description: "Next.js에서 Gatsby로 블로그를 이전하고 느낀점"
 date: "2021-12-01"
 tag: [Project]

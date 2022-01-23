@@ -1,5 +1,6 @@
 ---
 title: "Copilot 사용 후기"
+titleImage: "https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png"
 description: "Github의 코딩 AI, Copilot 한 달 사용 리뷰"
 date: "2021-08-26"
 tag: [etc., Review]

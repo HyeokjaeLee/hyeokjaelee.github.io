@@ -33,7 +33,7 @@
   }
   &.show > {
     .menu {
-      @include slide-in-right(0.6s);
+      @include slide-in-right(0.2s);
     }
     .menu-button > .line {
       &.top {

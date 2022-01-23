@@ -1,5 +1,6 @@
 ---
 title: "Covid-19 API 업데이트"
+titleImage: "https://user-images.githubusercontent.com/71566740/144737959-6f46ade7-6020-490e-94c9-a6462e6c1c1e.png"
 description: "단계적 일상회복에 따른 Covid-19 API 업데이트"
 date: "2021-11-30"
 tag: [Project]
