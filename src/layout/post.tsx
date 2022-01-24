@@ -23,7 +23,7 @@ interface Props {
         date: string;
         title: string;
         description: string;
-        tag: string[];
+        tags: string[];
       };
       fields: {
         slug: string;
@@ -45,7 +45,7 @@ const BlogSpots = ({ data }: Props) => {
   const nextPostNode = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
   const postTags = (
     <ul className="tags each-post in-nav">
-      {postInfo.tag.map((_tag, index) => (
+      {postInfo.tags.map((_tag, index) => (
         <li key={index}>{_tag}</li>
       ))}
     </ul>
@@ -79,7 +79,7 @@ const BlogSpots = ({ data }: Props) => {
         title={postInfo.title}
         meta={[
           { name: "description", content: postInfo.description },
-          { name: "keywords", content: postInfo.tag.join(",") },
+          { name: "keywords", content: postInfo.tags.join(",") },
         ]}
       />
       <Nav navItem={postTags} />
@@ -115,7 +115,7 @@ export const query = graphql`
         title
         date
         description
-        tag
+        tags
       }
       fields {
         slug

@@ -3,7 +3,7 @@ title: "Typescript + Express 웹서버 구축하기"
 titleImage: "https://user-images.githubusercontent.com/71566740/133249381-ac45b5e7-96c0-441e-8f11-9032d711972e.png"
 description: "Typescript를 이용한 Express 코드 작성"
 date: "2021-08-12"
-tag: [Backend, Typescript]
+tags: [Backend, Typescript]
 ---
 
 <img src="https://user-images.githubusercontent.com/71566740/133249381-ac45b5e7-96c0-441e-8f11-9032d711972e.png" class="img large">

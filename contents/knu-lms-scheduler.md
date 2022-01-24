@@ -3,7 +3,7 @@ title: "KNU LMS Scheduler 프로젝트"
 titleImage: "https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png"
 description: "공주대학교 비대면 강의 시스템 편의성 개선 프로젝트"
 date: "2021-10-14"
-tag: [Project]
+tags: [Project]
 ---
 
 <img src="https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png" class="img large"/>
