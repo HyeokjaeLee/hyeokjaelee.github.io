@@ -58,18 +58,63 @@ const Index = ({ data, location }: Props) => {
     : nodes.filter((node) => node.frontmatter.tags.includes(queryData.tag));
   const totalPagesCount = Math.ceil(filteredByTagNodes.length / POSTS_PER_PAGE);
   (queryData.page < 1 || totalPagesCount < queryData.page) && (queryData.page = 1);
-  const pagesOnNav = [queryData.page];
-  for (let i = 1; i <= 2; i++) {
-    let firstPage = pagesOnNav[0];
-    let lastPage = pagesOnNav[pagesOnNav.length - 1];
-    if (0 < firstPage - 1) pagesOnNav.unshift(pagesOnNav[0] - 1);
-    else if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
-    firstPage = pagesOnNav[0];
-    lastPage = pagesOnNav[pagesOnNav.length - 1];
-    if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
-    else if (0 < firstPage - 1) pagesOnNav.unshift(firstPage - 1);
-  }
-  console.log(queryData.page);
+
+  const Pagination = () => {
+    /**표시할 페이지 네비게이션 숫자*/
+    const pagesOnNav = [queryData.page];
+    //앞뒤로 2개씩 추가
+    for (let i = 1; i <= 2; i++) {
+      let firstPage = pagesOnNav[0];
+      let lastPage = pagesOnNav[pagesOnNav.length - 1];
+      if (0 < firstPage - 1) pagesOnNav.unshift(pagesOnNav[0] - 1);
+      else if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
+      firstPage = pagesOnNav[0];
+      lastPage = pagesOnNav[pagesOnNav.length - 1];
+      if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
+      else if (0 < firstPage - 1) pagesOnNav.unshift(firstPage - 1);
+    }
+    const paginationItems = pagesOnNav.map((page) => (
+      <li key={`page${page}`}>
+        <Link
+          className={style.page}
+          to={!queryData.tag ? `/?page=${page}` : `/?tag=${queryData.tag}&page=${page}`}
+        >
+          {page}
+        </Link>
+      </li>
+    ));
+    const firstPage = pagesOnNav[0];
+    const lastPage = pagesOnNav[pagesOnNav.length - 1];
+    lastPage + 1 <= totalPagesCount &&
+      paginationItems.push(
+        <li>
+          <Link
+            to={
+              !queryData.tag
+                ? `/?page=${lastPage + 1}`
+                : `/?tag=${queryData.tag}&page=${lastPage + 1}`
+            }
+          >
+            <RightArrow />
+          </Link>
+        </li>
+      );
+    firstPage - 1 >= 1 &&
+      paginationItems.unshift(
+        <li>
+          <Link
+            to={
+              !queryData.tag
+                ? `/?page=${firstPage - 1}`
+                : `/?tag=${queryData.tag}&page=${firstPage - 1}`
+            }
+          >
+            <LeftArrow />
+          </Link>
+        </li>
+      );
+    return <ul className={style.pagination}>{paginationItems}</ul>;
+  };
 
   const aPageNodes = filteredByTagNodes.slice(
     (queryData.page - 1) * POSTS_PER_PAGE,
@@ -115,18 +160,7 @@ const Index = ({ data, location }: Props) => {
           );
         })}
       </ul>
-      <ul className={style.pagination}>
-        {pagesOnNav.map((page) => (
-          <li key={`page${page}`}>
-            <Link
-              to={!queryData.tag ? `/?page=${page}` : `/?tag=${queryData.tag}&page=${page}`}
-              className={style.page}
-            >
-              {page}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Pagination />
     </section>
   );
 };

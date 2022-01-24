@@ -102,6 +102,38 @@
     gap: 0.3em;
     flex-wrap: wrap;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    gap: 1em;
+    margin: 2em 0;
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 0.1em 0;
+    }
+    .page {
+      border-bottom: 2px solid $CLEAR_COLOR;
+      transition: border-color 0.5s;
+      @include hover {
+        border-bottom: 2px solid subTextColor($color);
+      }
+    }
+    svg {
+      width: 1em;
+      height: 1em;
+      fill: textColor($color);
+      transition: fill 0.5s;
+      @include hover {
+        fill: subTextColor($color);
+      }
+    }
+  }
 }
 
 .index {
