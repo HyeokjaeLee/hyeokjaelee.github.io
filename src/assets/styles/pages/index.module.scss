@@ -93,6 +93,11 @@
     font-weight: normal;
     border: 1px solid textColor($color);
     border-radius: 1em;
+    transition: background-color 0.3s, color 0.3s;
+    @include hover {
+      background-color: textColor($color);
+      color: $color;
+    }
     &.active {
       background-color: textColor($color);
       color: $color;
