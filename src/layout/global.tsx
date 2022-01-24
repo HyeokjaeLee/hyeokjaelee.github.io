@@ -25,14 +25,13 @@ const TemplateWrapper = ({ children, location }: any) => {
       content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
     },
   ];
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
         <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
           <link rel="icon" href={favicon} />
         </Helmet>
-        <Header />
+        <Header location={location} />
         <TransitionGroup className="main-wrap">
           <ReactTransition
             key={location.pathname}

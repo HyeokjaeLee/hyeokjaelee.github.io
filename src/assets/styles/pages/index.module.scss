@@ -1,5 +1,8 @@
 @import "../libs/";
 @mixin index($color: $LIGHT_COLOR) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ul {
     list-style: none;
   }
@@ -71,24 +74,33 @@
     margin: 3.5em auto;
     padding: 0.5em;
     max-width: 60em;
+    width: 100%;
   }
 
   .post-wrap {
     padding: 1em;
     width: 33.3%;
+    @media (max-width: 1080px) {
+      width: 50%;
+    }
+    @media (max-width: 660px) {
+      width: 100%;
+    }
   }
   .tag {
-    font-size: 0.7em;
+    font-size: 0.5em;
     padding: 0.2em 0.5em;
     font-weight: normal;
-    background: textColor($color);
+    border: 1px solid textColor($color);
+    background-color: textColor($color);
     color: $color;
-    border-radius: 0.8em;
+    border-radius: 1em;
   }
   .tags {
     margin-top: 0.5em;
     display: flex;
-    gap: 0.2em;
+    gap: 0.3em;
+    flex-wrap: wrap;
   }
 }
 

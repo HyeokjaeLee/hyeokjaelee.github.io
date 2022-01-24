@@ -4,7 +4,7 @@ import * as style from "styles/components/header.module.scss";
 import { Link } from "gatsby";
 import Sun from "img/sun.svg";
 import Moon from "img/moon.svg";
-export const Header = () => {
+export const Header = ({ location }: any) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const headerClassList = [!theme ? style.header : style.headerDark];
   const ThemeSwitchIcon = !theme ? Sun : Moon;
@@ -12,6 +12,7 @@ export const Header = () => {
   const [totalScroll, setTotalScroll] = useState(0);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const isScrollTop = scrollLocation < 1;
+
   !isScrollTop && headerClassList.push(style.scrolling);
   if (isMenuOpened) {
     headerClassList.push(style.menuOpened);
@@ -20,19 +21,19 @@ export const Header = () => {
     document.body.style.overflow = "visible";
   }
   useEffect(() => {
+    const element = document.documentElement;
     window.addEventListener("scroll", () => {
-      const element = document.documentElement;
-      const _scrollLocation = element.scrollTop;
-      const totalScroll = element.scrollHeight - element.clientHeight;
-      setScrollLocation(_scrollLocation);
-      setTotalScroll(totalScroll);
+      setTotalScroll(element.scrollHeight - element.clientHeight);
+      setScrollLocation(document.documentElement.scrollTop);
     });
   }, []);
   return (
     <header className={headerClassList.join(" ")}>
-      <h1 className={style.title}>
-        <span>nagle's</span> blog
-      </h1>
+      <Link to="/">
+        <h1 className={style.title}>
+          <span>nagle's</span> blog
+        </h1>
+      </Link>
       <div className={style.scrollLocationWrap}>
         <progress value={scrollLocation} max={totalScroll}></progress>
       </div>
