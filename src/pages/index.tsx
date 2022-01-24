@@ -32,7 +32,7 @@ interface Props {
 }
 
 const Index = ({ data, location }: Props) => {
-  const POSTS_PER_PAGE = 2;
+  const POSTS_PER_PAGE = 12;
   const { group, nodes } = data.allMarkdownRemark;
   const { theme } = useContext(ThemeContext);
   let queryString = location.search;
@@ -73,16 +73,20 @@ const Index = ({ data, location }: Props) => {
       if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
       else if (0 < firstPage - 1) pagesOnNav.unshift(firstPage - 1);
     }
-    const paginationItems = pagesOnNav.map((page) => (
-      <li key={`page${page}`}>
-        <Link
-          className={style.page}
-          to={!queryData.tag ? `/?page=${page}` : `/?tag=${queryData.tag}&page=${page}`}
-        >
-          {page}
-        </Link>
-      </li>
-    ));
+    const paginationItems = pagesOnNav.map((page) => {
+      let pageClass = style.page;
+      if (page === queryData.page) pageClass += ` ${style.active}`;
+      return (
+        <li key={`page${page}`}>
+          <Link
+            className={pageClass}
+            to={!queryData.tag ? `/?page=${page}` : `/?tag=${queryData.tag}&page=${page}`}
+          >
+            {page}
+          </Link>
+        </li>
+      );
+    });
     const firstPage = pagesOnNav[0];
     const lastPage = pagesOnNav[pagesOnNav.length - 1];
     lastPage + 1 <= totalPagesCount &&
@@ -127,7 +131,7 @@ const Index = ({ data, location }: Props) => {
           <li>
             <Link
               to={queryData.tag === item.tags ? "/" : `/?tag=${item.tags}`}
-              className={style.tag}
+              className={style.tag + (queryData.tag === item.tags ? ` ${style.active}` : "")}
             >
               {item.tags}
             </Link>
@@ -149,7 +153,10 @@ const Index = ({ data, location }: Props) => {
                   <p>{description}</p>
                   <ul className={style.tags}>
                     {tags.map((_tag, individualsTagIndex) => (
-                      <li key={`individualsTag${individualsTagIndex}`} className={style.tag}>
+                      <li
+                        key={`individualsTag${individualsTagIndex}`}
+                        className={style.tag + (queryData.tag === _tag ? ` ${style.active}` : "")}
+                      >
                         {_tag}
                       </li>
                     ))}

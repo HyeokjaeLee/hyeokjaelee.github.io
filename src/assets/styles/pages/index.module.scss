@@ -92,9 +92,11 @@
     padding: 0.2em 0.5em;
     font-weight: normal;
     border: 1px solid textColor($color);
-    background-color: textColor($color);
-    color: $color;
     border-radius: 1em;
+    &.active {
+      background-color: textColor($color);
+      color: $color;
+    }
   }
   .tags {
     margin-top: 0.5em;
@@ -120,6 +122,9 @@
     .page {
       border-bottom: 2px solid $CLEAR_COLOR;
       transition: border-color 0.5s;
+      &.active {
+        border-bottom: 2px solid subTextColor($color);
+      }
       @include hover {
         border-bottom: 2px solid subTextColor($color);
       }
