@@ -6,8 +6,6 @@ date: "2021-08-02"
 tags: [Project]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/138984519-ab414f4d-216b-4e9d-b83c-f40edf0d5f78.jpeg" class="img large"/>
-
 나는 Next.JS로 제작한 기존 블로그를 운영 중이었다.
 
 계속 불편함을 느끼고 새로 만들자는 생각을 했지만 계속 미뤄지다가 얼마전 부터 Gatsby로 새로운 블로그를 만들기 시작했다.

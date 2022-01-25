@@ -128,6 +128,7 @@
       border-bottom: 2px solid $CLEAR_COLOR;
       transition: border-color 0.5s;
       &.active {
+        font-weight: bolder;
         border-bottom: 2px solid subTextColor($color);
       }
       @include hover {

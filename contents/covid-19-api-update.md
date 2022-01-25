@@ -6,8 +6,6 @@ date: "2021-11-30"
 tags: [Project]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/144737959-6f46ade7-6020-490e-94c9-a6462e6c1c1e.png" class="img large"/>
-
 이전에 진행했던 프로젝트들이 요즘 한번에 삐걱거리기 시작했다.
 
 얼마전에는 Webtoon API를 전체적으로 수정해야 했는데 이번에는 Covid-19 API가 문제다.

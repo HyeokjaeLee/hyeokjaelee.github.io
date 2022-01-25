@@ -1,11 +1,12 @@
 import { graphql, Link } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Nav } from "components/nav2";
+import * as style from "styles/pages/post.module.scss";
 import postProfile from "img/post-profile.jpg";
 import LeftArrow from "img/left-arrow.svg";
 import RightArrow from "img/right-arrow.svg";
 import { Comment } from "components/comment";
+import { ThemeContext } from "contexts/theme";
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 deckDeckGoHighlightElement(); //code 하이라이트
 interface Data {
@@ -22,6 +23,7 @@ interface Props {
       frontmatter: {
         date: string;
         title: string;
+        titleImage: string;
         description: string;
         tags: string[];
       };
@@ -41,10 +43,11 @@ const BlogSpots = ({ data }: Props) => {
   const postInfo = markdownRemark.frontmatter;
   const postsDataList = allMarkdownRemark.nodes;
   const postIndex = postsDataList.findIndex((postData) => postData.id === markdownRemark.id);
+  const { theme } = useContext(ThemeContext);
   const prevPostNode = postIndex > 0 ? postsDataList[postIndex - 1] : null;
   const nextPostNode = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
   const postTags = (
-    <ul className="tags each-post in-nav">
+    <ul className={style.tags}>
       {postInfo.tags.map((_tag, index) => (
         <li key={index}>{_tag}</li>
       ))}
@@ -72,7 +75,6 @@ const BlogSpots = ({ data }: Props) => {
     }
     return <></>;
   };
-
   return (
     <>
       <Helmet
@@ -82,37 +84,49 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tags.join(",") },
         ]}
       />
-      <Nav navItem={postTags} />
-      <div className="content first">
-        <article className="post">
-          <header>
-            <p className="posted-on">Posted on {postInfo.date}</p>
-            <h1>{postInfo.title}</h1>
-            <h4 className="description">{postInfo.description}</h4>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-          <footer>
-            <img className="profile pic" src={postProfile} />
+      <article className={theme === "dark" ? style.postDark : style.post}>
+        <header className={style.postHeader}>
+          <section>
+            <p className={style.postedOn}>Posted on {postInfo.date}</p>
+            <h1 className={style.postTitle}>{postInfo.title}</h1>
+          </section>
+          {postTags}
+        </header>
+        <section className={style.titleImageWrap}>
+          <img src={postInfo.titleImage} alt="post profile" className={style.titleImage} />
+          <div className={style.descriptionWrap}>
+            <h2 className={style.description}>{postInfo.description}</h2>
+          </div>
+        </section>
+        <section
+          dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+          className={style.postBody}
+        />
+        <footer className={style.postFooter}>
+          <section className={style.writerInfo}>
+            <img className={style.logo} src={postProfile} />
             <div className="profile text">
               <h1>Hyeok-jae Lee</h1>
               <p>개발자를 꿈꾸는 코더</p>
             </div>
-          </footer>
-        </article>
-      </div>
-      <Comment />
-      <NearPost postNode={prevPostNode} direction="left" />
-      <NearPost postNode={nextPostNode} direction="right" />
+          </section>
+          <Comment />
+        </footer>
+      </article>
     </>
   );
 };
-
+/**
+ *       <NearPost postNode={prevPostNode} direction="left" />
+      <NearPost postNode={nextPostNode} direction="right" />
+ */
 export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
+        titleImage
         date
         description
         tags

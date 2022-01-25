@@ -6,8 +6,6 @@ date: "2021-09-01"
 tags: [Frontend]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png" class="img large"/>
-
 나는 프론트엔드 작업을 할때 CSS보다 Sass(SCSS)를 선호한다.
 
 그중에서도 CSS와 호환성을 갖춘 SCSS를 선호하며 어느 정도 스타일링할 코드가 많아지면 CSS를 사용하다가도 SCSS로 코드를 옮겨서 작업한다.

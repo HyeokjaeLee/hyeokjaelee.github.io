@@ -54,6 +54,7 @@ html {
 
 main {
   margin-top: 3.5em;
+  min-height: 100vh;
   &.entered {
     @include fade-in(0.5s);
   }

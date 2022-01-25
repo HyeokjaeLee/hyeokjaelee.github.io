@@ -6,8 +6,6 @@ date: "2021-08-12"
 tags: [Backend, Typescript]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/133249381-ac45b5e7-96c0-441e-8f11-9032d711972e.png" class="img large">
-
 나는 Node.js환경에서 Javascript보다는 Typescript를 선호한다.
 
 여러 가지 이유가 있겠지만 Javascript는 보통 실행되는 프로그램을 보면서 오류를 잡거나 따로 디버깅을 하는데 Typescript는 정적 타입을 지원해서 컴파일 단계에서 오류를 찾기 쉬운 점이 가장 큰 것 같다.

@@ -6,8 +6,6 @@ date: "2021-08-31"
 tags: [Javascript, Data]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png" class="img large"/>
-
 나는 보통 API를 만들거나 Tensorflow 학습에 사용하는 데이터를 수집하는데 크롤링을 이용한다.
 
 크롤링에 활용 가능한 도구는 언어별로 Jsoup(Java), BeautifulSoup(Python) 등 여러 종류가 있지만 이번 포스트에서는 내가 자주 사용하는 Javascript, Node.js 도구들을 이용해 [OpenInsider](http://openinsider.com/insider-purchases-25k)(해외 내부자 거래 정보 사이트)를 크롤링하는 과정을 간단하게 설명해보려한다.

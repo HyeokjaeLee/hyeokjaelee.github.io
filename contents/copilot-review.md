@@ -6,8 +6,6 @@ date: "2021-08-26"
 tags: [etc., Review]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png" class="img large"/>
-
 Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다.
 
 ## Copilot

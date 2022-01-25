@@ -6,8 +6,6 @@ date: "2021-10-14"
 tags: [Project]
 ---
 
-<img src="https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png" class="img large"/>
-
 Covid-19 시국 때문에 사용하는 우리 대학교의 비대면 강의 시스템에 불편함을 느껴 만들었던 프로그램이 있다.
 
 최근에 이 프로그램을 업데이트하면서 배포하게 되었는데 이 과정에서 겪은 경험들을 공유해 보려 한다.
