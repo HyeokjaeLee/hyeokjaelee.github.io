@@ -45,8 +45,6 @@ Next.JS를 Typescript로 작성해서 Github page로 배포하는 블로그가 �
 그리고 나중에 알게 된 거지만 SPA, SSR의 장점 때문에 Next.js를 사용하려는데 정적 웹호스팅에서는 해당 장점들 일부를 포기해야 했다.
 (사람들이 안쓰는데는 이유가 있더라)
 
-<img src="https://user-images.githubusercontent.com/71566740/138983411-93742554-e2ab-4e18-9588-f2dc9aaf2883.png" class="img large"/>
-
 ## 새로운 블로그
 
 ### ✅ 새로운 블로그 고려사항
