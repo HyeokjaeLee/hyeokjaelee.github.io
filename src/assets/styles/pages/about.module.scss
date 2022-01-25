@@ -1,0 +1,121 @@
+@import "../libs";
+@mixin about($color: $LIGHT_COLOR) {
+  max-width: 60em;
+  margin: 3em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1em;
+  a {
+    background-color: subColor($color);
+    font-size: 0.8em;
+    padding: 0.1em 0.5em;
+    border-radius: $BORDER_RADIUS;
+    transition: background-color 0.2s, color 0.2s;
+    @include hover {
+      background-color: subTextColor($color);
+      color: $color;
+    }
+  }
+  h2,
+  h3 {
+    font-weight: normal;
+  }
+  h2 {
+    margin-top: 1em;
+  }
+  ul,
+  li {
+    margin-left: 0.8em;
+  }
+  .about-me-content {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+  .profile {
+    width: 10em;
+    height: 10em;
+    border-radius: $BORDER_RADIUS;
+    box-shadow: $BOX_SHADOW;
+  }
+  .contact-channel-list {
+    li {
+      margin-left: 0;
+      padding: 0.5em 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    svg {
+      width: 1.8em;
+    }
+  }
+  .work-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+  .section-description {
+    display: flex;
+    gap: 0.3em;
+  }
+  .mini-txt {
+    font-weight: bold;
+    font-size: 0.8em;
+    background-color: subTextColor($color);
+    color: $color;
+    padding: 0.1em 0.5em;
+    border-radius: $BORDER_RADIUS;
+  }
+  .section-title {
+    width: 15em;
+  }
+
+  .tool-list {
+    background-color: subColor($color);
+    margin: 1em;
+    padding: 1.5em;
+    border-radius: 10px;
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.8em;
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.1em;
+      flex-direction: column;
+    }
+    svg {
+      width: 3em;
+    }
+  }
+  .stack-wrap {
+    display: flex;
+    gap: 0.5em;
+    svg {
+      width: 1em;
+    }
+  }
+  .section-content-wrap {
+    margin: 0.5em 1.7em;
+  }
+  .project-link-wrap {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    svg {
+      width: 1em;
+    }
+  }
+}
+.about {
+  @include about;
+}
+.aboutDark {
+  @include about($color: $DARK_COLOR);
+}
