@@ -44,8 +44,6 @@ const BlogSpots = ({ data }: Props) => {
   const postsDataList = allMarkdownRemark.nodes;
   const postIndex = postsDataList.findIndex((postData) => postData.id === markdownRemark.id);
   const { theme } = useContext(ThemeContext);
-  const prevPostNode = postIndex > 0 ? postsDataList[postIndex - 1] : null;
-  const nextPostNode = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
   const postTags = (
     <ul className={style.tags}>
       {postInfo.tags.map((_tag, index) => (
@@ -53,30 +51,34 @@ const BlogSpots = ({ data }: Props) => {
       ))}
     </ul>
   );
-  const NearPost = (props: { postNode: Data | null; direction: "left" | "right" }) => {
-    const { postNode, direction } = props;
-    if (!!postNode) {
-      const NearPostInfoElement = [
-        <div>
-          <h2>{postNode.frontmatter.title}</h2>
+  const NextPostNav = () => {
+    const postNode = postIndex < postsDataList.length - 1 ? postsDataList[postIndex + 1] : null;
+    if (!postNode) return <></>;
+    return (
+      <Link to={postNode.fields.slug} className={`${style.nearPostLink} ${style.next}`}>
+        <div className={style.nearPostInfo}>
+          <h3>{postNode.frontmatter.title}</h3>
           <p>{postNode.frontmatter.description}</p>
-        </div>,
-      ];
-      direction === "left"
-        ? NearPostInfoElement.unshift(<LeftArrow className="arrow" />)
-        : NearPostInfoElement.push(<RightArrow className="arrow" />);
-      return (
-        <div id="otherContents" className="content">
-          <Link className={direction} to={postNode.fields.slug}>
-            {NearPostInfoElement}
-          </Link>
         </div>
-      );
-    }
-    return <></>;
+        <RightArrow />
+      </Link>
+    );
+  };
+  const PrevPostNav = () => {
+    const postNode = postIndex > 0 ? postsDataList[postIndex - 1] : null;
+    if (!postNode) return <></>;
+    return (
+      <Link to={postNode.fields.slug} className={`${style.nearPostLink} ${style.prev}`}>
+        <LeftArrow />
+        <div className={style.nearPostInfo}>
+          <h3>{postNode.frontmatter.title}</h3>
+          <p>{postNode.frontmatter.description}</p>
+        </div>
+      </Link>
+    );
   };
   return (
-    <>
+    <div className={theme === "dark" ? style.postDark : style.post}>
       <Helmet
         title={postInfo.title}
         meta={[
@@ -84,7 +86,7 @@ const BlogSpots = ({ data }: Props) => {
           { name: "keywords", content: postInfo.tags.join(",") },
         ]}
       />
-      <article className={theme === "dark" ? style.postDark : style.post}>
+      <article className={style.postContent}>
         <header className={style.postHeader}>
           <section>
             <p className={style.postedOn}>Posted on {postInfo.date}</p>
@@ -110,10 +112,16 @@ const BlogSpots = ({ data }: Props) => {
               <p>개발자를 꿈꾸는 코더</p>
             </div>
           </section>
-          <Comment />
         </footer>
       </article>
-    </>
+      <div className={style.commentWrap}>
+        <Comment />
+      </div>
+      <nav className={style.nearPostNav}>
+        <PrevPostNav />
+        <NextPostNav />
+      </nav>
+    </div>
   );
 };
 /**
