@@ -22,6 +22,7 @@ import Chrome from "img/chrome.svg";
 import Puppeteer from "img/puppeteer.svg";
 import MongoDB from "img/mongodb.svg";
 import SQLite from "img/sqlite.svg";
+import Jest from "img/jest.svg";
 import { useContext } from "react";
 import { PortfolioContext, ThemeContext } from "contexts/theme";
 import * as style from "styles/pages/about.module.scss";
@@ -259,6 +260,10 @@ const About = ({ location }: any) => {
           <li>
             <Puppeteer />
             Puppeteer
+          </li>
+          <li>
+            <Jest />
+            Jest
           </li>
           <li>
             <Git />
