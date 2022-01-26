@@ -67,9 +67,10 @@
     }
     .post-body {
       code {
-        padding: 0 0.3em;
+        padding: 0.15em 0.3em;
         border-radius: 5px;
-        font-size: 1em;
+        margin: 0 0.2em;
+        font-size: 0.8em;
         color: $color;
         background-color: subTextColor($color);
       }
