@@ -8,18 +8,20 @@ export const Header = ({ location }: any) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const headerClassList = [!theme ? style.header : style.headerDark];
   const ThemeSwitchIcon = !theme ? Sun : Moon;
-  const [scrollLocation, setScrollLocation] = useState(window.scrollY);
+  const [scrollLocation, setScrollLocation] = useState(0);
   const [totalScroll, setTotalScroll] = useState(0);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const isScrollTop = scrollLocation < 1;
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
   !isScrollTop && headerClassList.push(style.scrolling);
-  if (isMenuOpened) {
-    headerClassList.push(style.menuOpened);
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "visible";
+  if (typeof window !== "undefined") {
+    if (isMenuOpened) {
+      headerClassList.push(style.menuOpened);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
   }
   useEffect(() => {
     const element = document.documentElement;
