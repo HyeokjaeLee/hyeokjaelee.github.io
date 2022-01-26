@@ -1,0 +1,16 @@
+//사용할 색상 선언
+$lightColor: white;
+$darkColor: #38383d;
+$mediumColor: mix($lightColor, $darkColor, 50%);
+//공통 그림자
+$boxShadow: 0 2px 4px rgba(46, 41, 51, 0.5);
+$boxShadow2: 0 0px 10px rgba(0, 0, 0, 0.1);
+$borderRadius: 30px;
+$mobileWidth: 767px;
+
+$LIGHT_COLOR: white;
+$DARK_COLOR: #38383d;
+$BORDER_RADIUS: 3px;
+$CLEAR_COLOR: rgba(3, 3, 3, 0);
+$BOX_SHADOW: 0 1px 2px rgba(46, 41, 51, 0.5);
+$BOX_SHADOW2: 0 2px 4px rgba(46, 41, 51, 0.5);

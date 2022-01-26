@@ -1,0 +1,110 @@
+@import "../fonts/font.css";
+@import "./libs";
+
+body {
+  width: 100%;
+}
+button {
+  cursor: pointer;
+}
+
+#portfolio-link {
+  position: fixed;
+  margin: 1em;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 10px;
+  background-color: gray;
+  border-radius: $BORDER_RADIUS;
+  box-shadow: $BOX_SHADOW;
+  transition: background-color 0.3s;
+  @include hover {
+    background-color: lighten(gray, 10%);
+  }
+  > a {
+    display: block;
+    color: white;
+  }
+}
+
+html {
+  font-size: 18px;
+  @include if-small-device {
+    font-size: 15px;
+  }
+  font-family: "NotoSans";
+  font-weight: 100;
+  * {
+    word-break: keep-all;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.display-none {
+  visibility: hidden;
+}
+
+.box-shadow {
+  box-shadow: $BOX_SHADOW;
+}
+
+@mixin body($color: $LIGHT_COLOR) {
+  background: url(../img/overlay.png), $color;
+  color: textColor($color);
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: textColor($color);
+    word-break: break-all;
+  }
+  svg {
+    fill: textColor($color);
+  }
+}
+
+.main-wrap {
+  margin-top: 3.5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  max-width: 60em;
+  width: 100%;
+  padding: 5em 1em;
+  overflow: hidden;
+  &.entered {
+    @include fade-in(0.5s);
+  }
+  &.entering {
+    position: absolute;
+    opacity: 0;
+  }
+  &.exiting {
+    @include fade-out(0.5s, 0.2s);
+  }
+}
+
+body {
+  @include body;
+  &.dark {
+    @include body($DARK_COLOR);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}

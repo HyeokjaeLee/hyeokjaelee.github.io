@@ -1,11 +1,10 @@
 ---
 title: "Live Sass Compiler 사용하기"
+titleImage: "https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png"
 description: "편리한 Sass 사용을 위한 익스텐션"
 date: "2021-09-01"
-tag: [Frontend]
+tags: [Frontend]
 ---
-
-<img src="https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png" class="img large"/>
 
 나는 프론트엔드 작업을 할때 CSS보다 Sass(SCSS)를 선호한다.
 

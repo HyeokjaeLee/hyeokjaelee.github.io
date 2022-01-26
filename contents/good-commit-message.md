@@ -1,11 +1,10 @@
 ---
 title: "Git Commit Message Convention"
+titleImage: "https://user-images.githubusercontent.com/71566740/139002400-e36dc3e7-a88f-4f4b-9a1a-2e2b70086ebe.png"
 description: "Git Commit Message 작성을 위한 나와의 약속"
 date: "2021-07-03"
-tag: [Git]
+tags: [Git]
 ---
-
-<img src="https://user-images.githubusercontent.com/71566740/139002400-e36dc3e7-a88f-4f4b-9a1a-2e2b70086ebe.png" class="img large"/>
 
 커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 한다.
 

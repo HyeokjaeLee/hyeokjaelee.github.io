@@ -1,4 +1,5 @@
 import React from "react";
+import * as style from "styles/components/main.module.scss";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
 const timeout = 700;
 
@@ -13,14 +14,13 @@ export const Main = (props: any) => {
           exit: timeout,
         }}
       >
-        {(status) => (
-          <main id="main">
-            <div id="contentWrap" className={"slide " + status}>
-              {children}
-            </div>
-          </main>
-        )}
+        {(status) => <main className={`${style.main} ${style[status]}`}>{children}</main>}
       </ReactTransition>
     </TransitionGroup>
   );
 };
+/**
+ *             <div id="contentWrap" className={"slide " + status}>
+              {children}
+            </div>
+ */

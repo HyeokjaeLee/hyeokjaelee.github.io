@@ -1,0 +1,225 @@
+@import "../libs";
+
+@mixin header($color: $LIGHT_COLOR) {
+  position: fixed;
+  height: 3.5em;
+  top: 0;
+  padding: 0.5em 1em;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  z-index: 999;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  background: url(../../img/overlay.png), linear-gradient($color, rgba($color, 0.8));
+  > .scroll-location-wrap {
+    @include fade-out(0.2s);
+    flex: 1;
+    margin: 0 1em;
+    display: flex;
+    justify-content: center;
+    > {
+      progress {
+        width: 100%;
+        max-width: 30em;
+        -webkit-appearance: none;
+        border-radius: 30em;
+        height: 3px;
+        overflow: hidden;
+      }
+      ::-webkit-progress-bar {
+        background-color: subColor($color);
+      }
+
+      ::-webkit-progress-value {
+        background-color: subTextColor($color);
+      }
+    }
+  }
+  &.scrolling {
+    > .scroll-location-wrap {
+      @include fade-in(0.2s);
+    }
+    box-shadow: $BOX_SHADOW;
+  }
+  &.menuOpened {
+    box-shadow: none;
+    transition: background-color 0s;
+    .layer {
+      visibility: visible;
+      @include fade-in(0.2s);
+    }
+    .menu {
+      @include slide-in-right(0.5s, 0.2s);
+    }
+    .menu-button {
+      @include hover {
+        > .line {
+          &.top {
+            top: 0%;
+          }
+          &.bottom {
+            top: 80%;
+          }
+        }
+      }
+      > .line {
+        background-color: $color;
+        &.top {
+          top: 50%;
+          transform: rotate(45deg);
+        }
+        &.middle {
+          @include fade-out(0.4s);
+        }
+        &.bottom {
+          top: 50%;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+  .layer {
+    z-index: 1;
+    @include fade-out(0.2s, 0.5s);
+    visibility: hidden;
+    transition: visibility 0.7s;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba($DARK_COLOR, 50%);
+    position: absolute;
+  }
+  .menu {
+    z-index: 2;
+    float: right;
+    box-shadow: $BOX_SHADOW2;
+    padding: 3.5em 2em;
+    height: 100vh;
+    width: 100%;
+    max-width: 20em;
+    background-color: textColor($color);
+    backdrop-filter: blur(0);
+    color: $color;
+    @include slide-out-right(0.5s);
+  }
+  .title {
+    float: left;
+    font-size: 1.3em;
+    > span {
+      font-weight: normal;
+    }
+  }
+  .links {
+    list-style: none;
+    font-size: 1.2em;
+    font-weight: bolder;
+    > li {
+      margin: 0.2em 0;
+      background-color: subTextColor($color);
+      border-bottom: 1px solid subTextColor($color);
+      border-radius: $BORDER_RADIUS;
+    }
+    a {
+      display: block;
+      padding: 1em 0.5em;
+      background-color: textColor($color);
+      cursor: pointer;
+      transition: margin-left 0.4s;
+      &:link {
+        color: $color;
+      }
+      &:visited {
+        color: subColor($color);
+      }
+      @include hover {
+        margin-left: 1em;
+      }
+    }
+  }
+  .menu-button {
+    z-index: 3;
+    border: none;
+    height: 1.2em;
+    width: 1.5em;
+    position: relative;
+    background-color: $CLEAR_COLOR;
+    @include hover {
+      > .line {
+        &.top {
+          top: -20%;
+        }
+        &.bottom {
+          top: 100%;
+        }
+      }
+    }
+    > .line {
+      padding: 0;
+      width: 100%;
+      height: 20%;
+      border-radius: 2px;
+      background-color: textColor($color);
+      position: absolute;
+      transition: all 0.2s;
+      &.top {
+        top: 0;
+      }
+      &.middle {
+        @include fade-in(0.2s);
+        top: 40%;
+      }
+      &.bottom {
+        top: 80%;
+      }
+    }
+  }
+  .mode-switch {
+    margin: 1em;
+    border: none;
+    background-color: subTextColor($color);
+    border-radius: 5em;
+    box-shadow: $BOX_SHADOW inset;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: all 0.2s;
+    > .ball {
+      transition: all 0.2s;
+      box-shadow: $BOX_SHADOW;
+      border-radius: 5em;
+      margin: 0.5em;
+      margin-right: 2.5em;
+      width: 2em;
+      height: 2em;
+      background-color: $color;
+      padding: 0.3em;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .design-by {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1em;
+    font-weight: 100;
+    font-size: 0.5em;
+  }
+}
+
+.header {
+  @include header;
+}
+
+.header-dark {
+  @include header($DARK_COLOR);
+  .mode-switch > .ball {
+    margin-right: 0.5em;
+    margin-left: 2.5em;
+  }
+}

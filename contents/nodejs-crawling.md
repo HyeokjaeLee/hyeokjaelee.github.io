@@ -1,11 +1,10 @@
 ---
 title: "크롤링을 통한 데이터 수집하기"
+titleImage: "https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png"
 description: "Node.js 크롤링을 통한 데이터 수집"
 date: "2021-08-31"
-tag: [Javascript, Data]
+tags: [Javascript, Data]
 ---
-
-<img src="https://user-images.githubusercontent.com/71566740/139003885-ded14d60-8ae6-4308-ba25-7bf6375d7e1a.png" class="img large"/>
 
 나는 보통 API를 만들거나 Tensorflow 학습에 사용하는 데이터를 수집하는데 크롤링을 이용한다.
 

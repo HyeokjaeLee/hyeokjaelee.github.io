@@ -1,0 +1,19 @@
+@import "../libs";
+
+.main {
+  z-index: 2;
+  margin: 3.5em auto;
+  padding: 0.5em;
+  background: red;
+  max-width: 60em;
+  &.entered {
+    @include fade-in(0.8s);
+  }
+  &.entering {
+    position: absolute;
+    opacity: 0;
+  }
+  &.exiting {
+    @include fade-out(0.8s);
+  }
+}

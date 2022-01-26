@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import * as style from "styles/pages/index.module.scss";
 import { graphql, Link } from "gatsby";
-import { Nav } from "components/nav";
 import LeftArrow from "img/left-arrow.svg";
 import RightArrow from "img/right-arrow.svg";
-
+import { ThemeContext } from "contexts/theme";
 interface Node {
   excerpt: string;
   fields: { slug: string };
   frontmatter: {
     title: string;
+    titleImage: string;
     date: string;
     description: string;
-    tag: string[];
+    tags: string[];
   };
 }
 interface Group {
-  tag: string;
+  tags: string;
   totalCount: number;
 }
 interface Props {
+  location: {
+    search: string;
+  };
   data: {
     allMarkdownRemark: {
       group: Group[];
@@ -27,143 +31,144 @@ interface Props {
   };
 }
 
-const Index = ({ data }: Props) => {
-  /**페이지 당 보여줄 포스트 갯수*/
-  const postsPerPage = 7;
+const Index = ({ data, location }: Props) => {
+  const POSTS_PER_PAGE = 12;
   const { group, nodes } = data.allMarkdownRemark;
-  const [targetTagList, setTargetTagList] = useState<string[]>([]);
-  const [filteredNodes, setFilteredNodes] = useState<Node[]>(nodes);
-  const [currentPage, setCurrentPage] = useState(1);
-  /**필터링할 태그 선택*/
-  const check_tag = (tag: string) => (targetTagList.indexOf(tag) !== -1 ? "checked" : "");
-  const TagFilter = () => (
-    <div className="tags all-posts">
-      {group.map((item, entireTagListIndex) => {
-        const filter_posts_by_tag = () => {
-          setCurrentPage(1);
-          setFilteredNodes(nodes);
-          const tagIndex = targetTagList.indexOf(item.tag);
-          if (tagIndex === -1) {
-            targetTagList.push(item.tag);
-          } else {
-            targetTagList.splice(tagIndex, 1);
-          }
-          setTargetTagList(targetTagList);
-          if (targetTagList.length > 0) {
-            setFilteredNodes(
-              //선택된 태그의 갯수와 Post의 태그가 선택된 태그에 포함되는 갯수가 같아야 함
-              nodes.filter(
-                (node) =>
-                  node.frontmatter.tag.filter((_tag) => targetTagList.includes(_tag)).length ===
-                  targetTagList.length
-              )
-            );
-          }
-        };
-        return (
-          <a
-            key={`entireTag${entireTagListIndex}`}
-            onClick={filter_posts_by_tag}
-            className={"tag " + check_tag(item.tag)}
-          >
-            {item.tag}
-          </a>
-        );
-      })}
-    </div>
-  );
-  const PageNavi = () => {
-    const totalPostCount = filteredNodes.length;
-    const totalPageCount = Math.ceil(totalPostCount / postsPerPage);
-    const pageIndexList: JSX.Element[] = [];
-    const nearPageCount = totalPageCount < 5 ? totalPageCount : 5;
-    let startPageIndex = currentPage,
-      endPageIndex = currentPage;
-    for (
-      let viewingPage = 0;
-      viewingPage < nearPageCount;
-      viewingPage = endPageIndex - startPageIndex + 1
-    ) {
-      startPageIndex = startPageIndex <= 1 ? 1 : startPageIndex - 1;
-      endPageIndex = endPageIndex >= totalPageCount ? totalPageCount : endPageIndex + 1;
-    }
-    for (let pageIndex = startPageIndex; pageIndex <= endPageIndex; pageIndex++) {
-      const className = pageIndex === currentPage ? "currentPage" : "";
-      pageIndexList.push(
-        <a
-          onClick={() => {
-            setCurrentPage(pageIndex);
-          }}
-          className={className}
-        >
-          {pageIndex}
-        </a>
-      );
-    }
-    const leftArrowHide = startPageIndex === 1 ? "hide" : "";
-    const rightArrowHide = endPageIndex >= totalPageCount ? "hide" : "";
-    const PageNaviArrow = (props: { Arrow: any; toMove: number; hide: "hide" | "" }) => (
-      <a
-        onClick={() => {
-          setCurrentPage(props.toMove);
-        }}
-        className={"arrow " + props.hide}
-      >
-        <props.Arrow className="arrow-svg" />
-      </a>
-    );
-    return (
-      <div className="pageNav">
-        <PageNaviArrow Arrow={LeftArrow} toMove={startPageIndex - 1} hide={leftArrowHide} />
-        {pageIndexList}
-        <PageNaviArrow Arrow={RightArrow} toMove={endPageIndex + 1} hide={rightArrowHide} />
-      </div>
-    );
+  const { theme } = useContext(ThemeContext);
+  let queryString = location.search;
+  queryString = queryString.slice(queryString.indexOf("?") + 1);
+  let queryData = {
+    page: 1,
+    tag: "",
   };
-  const Posts = () => {
-    const viewingNodes = filteredNodes.slice(
-      (currentPage - 1) * postsPerPage,
-      currentPage * postsPerPage
-    );
-    const emptyPost = (
-      <div className="emptyPost">
-        <div className="icon">🚧</div>
-        <h1>OOPSE!</h1>
-        <p>조건을 만족하는 Post가 없습니다.</p>
-      </div>
-    );
-    const postList = viewingNodes.map((node, postListIndex) => {
-      const { title, date, description, tag } = node.frontmatter;
-      const IndividualsTagList = tag.map((_tag, individualsTagIndex) => (
-        <li key={`individualsTag${individualsTagIndex}`} className={check_tag(_tag)}>
-          {_tag}
-        </li>
-      ));
+  // queryString 분류
+  queryString.split("&").forEach((query) => {
+    const [key, value] = query.split("=");
+    switch (key) {
+      case "page":
+        queryData.page = Number(value);
+        break;
+      case "tag":
+        queryData.tag = value;
+        break;
+    }
+  });
+  const filteredByTagNodes = !queryData.tag
+    ? nodes
+    : nodes.filter((node) => node.frontmatter.tags.includes(queryData.tag));
+  const totalPagesCount = Math.ceil(filteredByTagNodes.length / POSTS_PER_PAGE);
+  (queryData.page < 1 || totalPagesCount < queryData.page) && (queryData.page = 1);
+
+  const Pagination = () => {
+    /**표시할 페이지 네비게이션 숫자*/
+    const pagesOnNav = [queryData.page];
+    //앞뒤로 2개씩 추가
+    for (let i = 1; i <= 2; i++) {
+      let firstPage = pagesOnNav[0];
+      let lastPage = pagesOnNav[pagesOnNav.length - 1];
+      if (0 < firstPage - 1) pagesOnNav.unshift(pagesOnNav[0] - 1);
+      else if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
+      firstPage = pagesOnNav[0];
+      lastPage = pagesOnNav[pagesOnNav.length - 1];
+      if (lastPage + 1 <= totalPagesCount) pagesOnNav.push(lastPage + 1);
+      else if (0 < firstPage - 1) pagesOnNav.unshift(firstPage - 1);
+    }
+    const paginationItems = pagesOnNav.map((page) => {
+      let pageClass = style.page;
+      if (page === queryData.page) pageClass += ` ${style.active}`;
       return (
-        <li key={`postList${postListIndex}`}>
-          <Link to={node.fields.slug}>
-            <div>
-              <i>Posted on {date}</i>
-              <h2>{title}</h2>
-              <p>{description}</p>
-              <ul className="tags each-post on-index">{IndividualsTagList}</ul>
-            </div>
+        <li key={`page${page}`}>
+          <Link
+            className={pageClass}
+            to={!queryData.tag ? `/?page=${page}` : `/?tag=${queryData.tag}&page=${page}`}
+          >
+            {page}
           </Link>
         </li>
       );
     });
-    return <ul className="posts">{postList.length === 0 ? emptyPost : postList}</ul>;
+    const firstPage = pagesOnNav[0];
+    const lastPage = pagesOnNav[pagesOnNav.length - 1];
+    lastPage + 1 <= totalPagesCount &&
+      paginationItems.push(
+        <li>
+          <Link
+            to={
+              !queryData.tag
+                ? `/?page=${lastPage + 1}`
+                : `/?tag=${queryData.tag}&page=${lastPage + 1}`
+            }
+          >
+            <RightArrow />
+          </Link>
+        </li>
+      );
+    firstPage - 1 >= 1 &&
+      paginationItems.unshift(
+        <li>
+          <Link
+            to={
+              !queryData.tag
+                ? `/?page=${firstPage - 1}`
+                : `/?tag=${queryData.tag}&page=${firstPage - 1}`
+            }
+          >
+            <LeftArrow />
+          </Link>
+        </li>
+      );
+    return <ul className={style.pagination}>{paginationItems}</ul>;
   };
 
+  const aPageNodes = filteredByTagNodes.slice(
+    (queryData.page - 1) * POSTS_PER_PAGE,
+    queryData.page * POSTS_PER_PAGE
+  );
   return (
-    <>
-      <Nav />
-      <section className="content first">
-        <TagFilter />
-        <Posts />
-        <PageNavi />
-      </section>
-    </>
+    <section className={theme === "dark" ? style.indexDark : style.index}>
+      <ul className={style.tags}>
+        {group.map((item) => (
+          <li>
+            <Link
+              to={queryData.tag === item.tags ? "/" : `/?tag=${item.tags}`}
+              className={style.tag + (queryData.tag === item.tags ? ` ${style.active}` : "")}
+            >
+              {item.tags}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ul className={style.posts}>
+        {aPageNodes.map((node, postListIndex) => {
+          const { title, titleImage, date, description, tags } = node.frontmatter;
+          return (
+            <li key={`postList${postListIndex}`} className={style.postWrap}>
+              <Link to={node.fields.slug} className={style.post}>
+                <section className={style.imageWrap}>
+                  <img src={titleImage} />
+                </section>
+                <section className={style.infoWrap}>
+                  <i>Posted on {date}</i>
+                  <h2>{title}</h2>
+                  <p>{description}</p>
+                  <ul className={style.tags}>
+                    {tags.map((_tag, individualsTagIndex) => (
+                      <li
+                        key={`individualsTag${individualsTagIndex}`}
+                        className={style.tag + (queryData.tag === _tag ? ` ${style.active}` : "")}
+                      >
+                        {_tag}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <Pagination />
+    </section>
   );
 };
 
@@ -172,8 +177,8 @@ export default Index;
 export const data = graphql`
   query {
     allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-      group(field: frontmatter___tag) {
-        tag: fieldValue
+      group(field: frontmatter___tags) {
+        tags: fieldValue
         totalCount
       }
       nodes {
@@ -184,8 +189,9 @@ export const data = graphql`
         frontmatter {
           date
           title
+          titleImage
           description
-          tag
+          tags
         }
       }
     }

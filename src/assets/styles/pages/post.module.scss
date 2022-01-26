@@ -1,0 +1,231 @@
+@import "../libs";
+@mixin post($color: $LIGHT_COLOR) {
+  .post-content,
+  .near-post-nav,
+  .comment-wrap {
+    background-color: subColor($color);
+    position: relative;
+    box-shadow: $BOX_SHADOW;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1em 0;
+  }
+
+  .post-content {
+    .tags {
+      list-style: none;
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap;
+      > li {
+        font-size: 0.7em;
+        padding: 0.2em 1em;
+        font-weight: 500;
+        background-color: $color;
+        border-radius: 5em;
+        color: textColor($color);
+      }
+    }
+    .title-image {
+      width: 100%;
+    }
+    .post-header {
+      top: 0;
+      width: 100%;
+      background-color: subTextColor($color);
+      color: $color;
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .post-info {
+      display: flex;
+      flex-direction: column;
+      top: 0;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .post-info-top {
+      width: 100%;
+      background: rgba(textColor($color), 50%);
+      backdrop-filter: blur(10px);
+    }
+    .post-info-middle {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      max-width: 50%;
+    }
+    .post-title {
+      font-size: 1.2em;
+    }
+    .posted-on {
+      font-size: 0.8em;
+    }
+    .post-body {
+      code {
+        padding: 0.15em 0.3em;
+        border-radius: 5px;
+        margin: 0 0.2em;
+        font-size: 0.8em;
+        color: $color;
+        background-color: subTextColor($color);
+      }
+      a {
+        background-color: $color;
+        font-size: 0.7em;
+        padding: 0.1em 0.3em;
+        margin: 0 0.2em;
+        border-radius: $BORDER_RADIUS;
+        border: 1px solid subTextColor($color);
+        transition: color 0.3s, background-color 0.3s;
+        &:hover {
+          color: $color;
+          background-color: subTextColor($color);
+        }
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: $BORDER_RADIUS;
+        border: 1px solid Color($color);
+      }
+      padding: 2em;
+      ul,
+      li {
+        margin-left: 0.8em;
+      }
+      > p {
+        margin: 0.6em 0;
+      }
+      deckgo-highlight-code {
+        margin: 1em;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        display: flex;
+        align-items: center;
+        > svg {
+          height: 1.5em;
+          margin-right: 0.5em;
+        }
+        margin-top: 1em;
+        margin-bottom: 0.2em;
+      }
+      h2 {
+        border-bottom: 3px solid subTextColor($color);
+      }
+    }
+    .title-image-wrap {
+      position: relative;
+    }
+    .description-wrap {
+      padding: 1em;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .description {
+      display: inline-block;
+      font-size: 1.1em;
+      border: 1px rgba(textColor($color), 50%) solid;
+      background-color: rgba($color, 50%);
+      color: textColor($color);
+      backdrop-filter: blur(10px);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      font-weight: normal;
+    }
+    .post-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3em 1em;
+      gap: 3em;
+    }
+    .writer-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      width: 6em;
+      border-radius: 10em;
+      box-shadow: $BOX_SHADOW inset;
+    }
+  }
+  .near-post-nav {
+    display: flex;
+    gap: 3px;
+  }
+  .near-post-info {
+    text-align: center;
+    flex: 1;
+    height: 100%;
+  }
+  .near-post-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s;
+
+    svg {
+      transition: margin 0.3s, fill 0.3s;
+      margin: 0 1em;
+      width: 1.5em;
+      height: 1.5em;
+    }
+    &.prev,
+    &.next {
+      @include hover {
+        background-color: subTextColor($color);
+        color: $color;
+        svg {
+          fill: $color;
+        }
+      }
+    }
+    &.prev {
+      @include hover {
+        svg {
+          margin: {
+            left: 0em;
+            right: 2em;
+          }
+        }
+      }
+    }
+    &.next {
+      @include hover {
+        svg {
+          margin: {
+            left: 1.5em;
+            right: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.post {
+  @include post;
+}
+
+.post-dark {
+  @include post($DARK_COLOR);
+}

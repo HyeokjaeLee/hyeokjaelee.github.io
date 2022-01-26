@@ -1,0 +1,146 @@
+@import "../libs";
+@mixin about($color: $LIGHT_COLOR) {
+  display: flex;
+  flex-direction: column;
+  > section {
+    margin: 0 0.5em;
+  }
+  a {
+    background-color: subColor($color);
+    font-size: 0.8em;
+    padding: 0.05em 0.3em;
+    margin: 0 0.3em;
+
+    border-radius: $BORDER_RADIUS;
+    transition: background-color 0.2s, color 0.2s;
+    @include hover {
+      background-color: subTextColor($color);
+      color: $color;
+    }
+  }
+  h2,
+  h3 {
+    font-weight: normal;
+  }
+  h2 {
+    margin-top: 1em;
+  }
+  ul,
+  li {
+    margin-left: 0.8em;
+  }
+  .about-me-content {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+  .profile {
+    width: 10em;
+    height: 10em;
+    border-radius: $BORDER_RADIUS;
+    box-shadow: $BOX_SHADOW;
+  }
+  .contact-channel-list {
+    li {
+      margin-left: 0;
+      padding: 0.5em 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    svg {
+      width: 1.8em;
+    }
+  }
+  .section-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+  .section-description {
+    display: flex;
+    gap: 0.5em;
+  }
+  .mini-txt {
+    font-weight: bold;
+    font-size: 0.8em;
+    background-color: subTextColor($color);
+    color: $color;
+    padding: 0.1em 0.5em;
+    border-radius: $BORDER_RADIUS;
+    white-space: nowrap;
+  }
+  .section-title {
+    width: 15em;
+  }
+
+  .tool-list {
+    background-color: subColor($color);
+    padding: 1.5em;
+    border-radius: 10px;
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.8em;
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.1em;
+      flex-direction: column;
+    }
+    svg {
+      width: 3em;
+    }
+  }
+  .stack-wrap {
+    margin: 0.2em 0;
+    display: flex;
+    gap: 0.5em;
+    svg {
+      width: 1em;
+    }
+  }
+  .section-margin {
+    margin: {
+      top: 1em;
+      bottom: 2em;
+      left: 1.7em;
+      right: 1.7em;
+    }
+  }
+  .project-link-list {
+    margin-bottom: 0.5em;
+    > li {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 1em;
+      align-items: center;
+      svg {
+        margin-right: 0.5em;
+        width: 1em;
+      }
+    }
+  }
+  .title-under-info-list {
+    list-style: none;
+    margin: 0;
+    > li {
+      padding: 0.1em 0.3em;
+      border-radius: $BORDER_RADIUS;
+      display: inline-block;
+      background-color: subColor($color);
+      margin: 0;
+      font-size: 0.8em;
+      white-space: nowrap;
+    }
+  }
+}
+.about {
+  @include about;
+}
+.aboutDark {
+  @include about($color: $DARK_COLOR);
+}

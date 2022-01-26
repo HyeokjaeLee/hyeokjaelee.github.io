@@ -45,7 +45,7 @@
     "paths": {
       "assets/*": ["./assets/*"],
       "components/*": ["./components/*"],
-      "styles/*": ["./assets/scss/*"],
+      "styles/*": ["./assets/styles/*"],
       "img/*": ["./assets/img/*"],
       "contexts/*": ["./contexts/*"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,

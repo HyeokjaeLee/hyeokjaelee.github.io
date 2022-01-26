@@ -17,6 +17,9 @@
   },
   "devDependencies": {
     "@deckdeckgo/highlight-code": "^3.3.1",
+    "@types/react-helmet": "^6.1.2",
+    "@types/react-transition-group": "^4.4.2",
+    "axios": ">=0.21.2",
     "gatsby": "next",
     "gatsby-plugin-layout": "next",
     "gatsby-plugin-react-helmet": "next",
@@ -28,23 +31,22 @@
     "gatsby-remark-highlight-code": "^3.0.1",
     "gatsby-source-filesystem": "^3.13.0",
     "gatsby-transformer-remark": "^4.10.0",
+    "gh-pages": "^3.2.3",
+    "immer": ">=9.0.6",
+    "object-path": ">=0.11.8",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.2",
     "sanitize-html": ">=2.4.0",
     "sass": "^1.39.0",
-    "@types/react-helmet": "^6.1.2",
-    "@types/react-transition-group": "^4.4.2",
-    "gh-pages": "^3.2.3",
+    "set-value": ">=4.0.1",
     "trim": ">=1.0.1",
-    "ws": ">=8.2.1",
-    "immer": ">=9.0.6",
-    "axios": ">=0.21.2",
-    "object-path": ">=0.11.8",
-    "set-value": ">=4.0.1"
+    "ws": ">=8.2.1"
   },
   "dependencies": {
-    "gatsby-plugin-robots-txt": "^1.6.10"
+    "gatsby-plugin-robots-txt": "^1.6.10",
+    "lodash": "^4.17.21"
   }
 }

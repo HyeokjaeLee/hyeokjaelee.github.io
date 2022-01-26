@@ -1,11 +1,10 @@
 ---
 title: "Covid-19 API 업데이트"
+titleImage: "https://user-images.githubusercontent.com/71566740/144737959-6f46ade7-6020-490e-94c9-a6462e6c1c1e.png"
 description: "단계적 일상회복에 따른 Covid-19 API 업데이트"
 date: "2021-11-30"
-tag: [Project]
+tags: [Project]
 ---
-
-<img src="https://user-images.githubusercontent.com/71566740/144737959-6f46ade7-6020-490e-94c9-a6462e6c1c1e.png" class="img large"/>
 
 이전에 진행했던 프로젝트들이 요즘 한번에 삐걱거리기 시작했다.
 
