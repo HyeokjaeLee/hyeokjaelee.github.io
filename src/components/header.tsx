@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, Dispatch } from "react";
+import { throttle } from "lodash";
 import { ThemeContext } from "contexts/theme";
 import * as style from "styles/components/header.module.scss";
 import { Link } from "gatsby";
@@ -25,11 +26,17 @@ export const Header = ({ location }: any) => {
   }
   useEffect(() => {
     const element = document.documentElement;
-    window.addEventListener("scroll", () => {
-      setTotalScroll(element.scrollHeight - element.clientHeight);
-      setScrollLocation(document.documentElement.scrollTop);
-    });
+    window.addEventListener(
+      "scroll",
+      throttle(() => {
+        setTotalScroll(element.scrollHeight - element.clientHeight);
+        setScrollLocation(document.documentElement.scrollTop);
+      }, 50)
+    );
   }, []);
+  /**
+   *
+   */
   return (
     <header className={headerClassList.join(" ")}>
       <Link to="/">

@@ -1,6 +1,5 @@
 @import "../libs";
 @mixin post($color: $LIGHT_COLOR) {
-  margin: 9em 0;
   .post-content,
   .near-post-nav,
   .comment-wrap {

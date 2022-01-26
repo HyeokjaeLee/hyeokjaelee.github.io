@@ -47,7 +47,7 @@ interface ProjectOptions {
 
 const About = ({ location }: any) => {
   const { search }: { search: string } = location;
-  const { portfolioOptions, setPortfolioOptions } = useContext(PortfolioContext);
+  const { setPortfolioOptions } = useContext(PortfolioContext);
   const { theme } = useContext(ThemeContext);
   const setPortfolioOptions2true = () => {
     setPortfolioOptions({
