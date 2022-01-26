@@ -12,7 +12,8 @@ export const Header = ({ location }: any) => {
   const [totalScroll, setTotalScroll] = useState(0);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const isScrollTop = scrollLocation < 1;
-
+  const { search } = location;
+  const isPortfolio = search.includes("portfolio");
   !isScrollTop && headerClassList.push(style.scrolling);
   if (isMenuOpened) {
     headerClassList.push(style.menuOpened);
@@ -31,7 +32,8 @@ export const Header = ({ location }: any) => {
     <header className={headerClassList.join(" ")}>
       <Link to="/">
         <h1 className={style.title}>
-          <span>nagle's</span> blog
+          <span>{isPortfolio ? "hyeokjae's" : "nagle's"}</span>
+          {isPortfolio ? " portfolio" : "blog"}
         </h1>
       </Link>
       <div className={style.scrollLocationWrap}>

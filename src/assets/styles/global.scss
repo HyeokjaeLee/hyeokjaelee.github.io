@@ -8,6 +8,26 @@ button {
   cursor: pointer;
 }
 
+#portfolio-link {
+  position: fixed;
+  margin: 1em;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 10px;
+  background-color: gray;
+  border-radius: $BORDER_RADIUS;
+  box-shadow: $BOX_SHADOW;
+  transition: background-color 0.3s;
+  @include hover {
+    background-color: lighten(gray, 10%);
+  }
+  > a {
+    display: block;
+    color: white;
+  }
+}
+
 html {
   font-size: 18px;
   @include if-small-device {
@@ -49,12 +69,19 @@ html {
 }
 
 .main-wrap {
-  z-index: 1;
+  margin-top: 3.5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-  margin-top: 3.5em;
-  min-height: 100vh;
+  max-width: 60em;
+  width: 100%;
+  padding: 5em 1em;
+  overflow: hidden;
   &.entered {
     @include fade-in(0.5s);
   }

@@ -6,11 +6,10 @@
   .comment-wrap {
     background-color: subColor($color);
     position: relative;
-    max-width: 60em;
     box-shadow: $BOX_SHADOW;
     border-radius: 10px;
     overflow: hidden;
-    margin: 1em auto;
+    margin: 1em 0;
   }
 
   .post-content {

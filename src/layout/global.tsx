@@ -1,12 +1,12 @@
 import "styles/global.scss";
 import { useEffect, useState } from "react";
 import React from "react";
+import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Main } from "components/main";
 import { ThemeSwitch } from "components/theme-switch";
 import { Header } from "components/header";
 import { Footer } from "components/footer";
-import { PortfolioLink } from "components/portfolio-link";
 import { ThemeContext, PortfolioContext } from "contexts/theme";
 import MenuIcon from "img/menu.svg";
 import logo from "img/logo.png";
@@ -15,7 +15,9 @@ import { TransitionGroup, Transition as ReactTransition } from "react-transition
 const timeout = 700;
 const TemplateWrapper = ({ children, location }: any) => {
   const [theme, setTheme] = useState("");
-  const [portfolio, setPortfolio]: [Display, SetDisplay] = useState("hide");
+  const [portfolioOptions, setPortfolioOptions]: [PortfolioOptions, SetPortfolioOptions] = useState(
+    { isPortfolio: false, portfolioButtonShow: false }
+  );
   const helmet_meta_otions = [
     { name: `description`, content: `programming & tech blog` },
     { name: `generator`, content: `gatsby` },
@@ -25,9 +27,10 @@ const TemplateWrapper = ({ children, location }: any) => {
       content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
     },
   ];
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
+      <PortfolioContext.Provider value={{ portfolioOptions, setPortfolioOptions }}>
         <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
           <link rel="icon" href={favicon} />
         </Helmet>
@@ -44,6 +47,13 @@ const TemplateWrapper = ({ children, location }: any) => {
           </ReactTransition>
         </TransitionGroup>
         <Footer />
+        {portfolioOptions.portfolioButtonShow ? (
+          <div id="portfolio-link">
+            <Link to="/about?portfolio">Portfolio로 돌아가기</Link>
+          </div>
+        ) : (
+          <></>
+        )}
       </PortfolioContext.Provider>
     </ThemeContext.Provider>
   );
