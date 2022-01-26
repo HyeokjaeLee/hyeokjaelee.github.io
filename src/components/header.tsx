@@ -42,7 +42,7 @@ export const Header = ({ location }: any) => {
       <Link to="/">
         <h1 className={style.title}>
           <span>{isPortfolio ? "hyeokjae's" : "nagle's"}</span>
-          {isPortfolio ? " portfolio" : "blog"}
+          {isPortfolio ? " portfolio" : " blog"}
         </h1>
       </Link>
       <div className={style.scrollLocationWrap}>
