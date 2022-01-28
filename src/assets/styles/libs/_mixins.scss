@@ -19,13 +19,13 @@
 }
 
 @mixin if-small-device {
-  @media (max-width: $mobileWidth) {
+  @media (max-width: $MOBILE_WIDTH) {
     @content;
   }
 }
 
 @mixin if-not-small-device {
-  @media (min-width: $mobileWidth) {
+  @media (min-width: $MOBILE_WIDTH) {
     @content;
   }
 }

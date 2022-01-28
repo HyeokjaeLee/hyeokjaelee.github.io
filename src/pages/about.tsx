@@ -65,7 +65,7 @@ const About = ({ location }: any) => {
     const { title, stackList, titleUnderInfoList, description, linkInfoList, additionalList } =
       props;
     return (
-      <div className={`${style.sectionDescription} ${style.sectionMargin}`}>
+      <section className={`${style.devidedSection} ${style.sectionMargin}`}>
         <div className={style.sectionTitle}>
           <h3>{title}</h3>
           <section className={style.stackWrap}>
@@ -79,7 +79,7 @@ const About = ({ location }: any) => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className={style.sectionDescription}>
           <h4>{description}</h4>
           <ul className={style.projectLinkList}>
             {linkInfoList.map((linkInfo) => (
@@ -101,7 +101,7 @@ const About = ({ location }: any) => {
             ))}
           </ul>
         </div>
-      </div>
+      </section>
     );
   };
 
@@ -167,13 +167,13 @@ const About = ({ location }: any) => {
           <div className={`${style.sectionFlex} ${style.sectionMargin}`}>
             <h3>Coupang Eats</h3>
             <p>2019년 5월부터 서비스 중인 30분 로켓 음식 배달 서비스</p>
-            <div className={style.sectionDescription}>
+            <div className={style.devidedSection}>
               <div className={style.sectionTitle}>
                 <p>EDP Operations</p>
                 <p>2019.08 ~ 2020.02</p>
                 <span className={style.miniTxt}>6개월</span>
               </div>
-              <ul className="content-list">
+              <ul className={style.sectionDescription}>
                 <li>
                   배달파트너 배정취소 기능의 개발 지표가 되는 데이터 수집 솔루션 제시/개발&nbsp;
                   <span className={style.miniTxt}>담당 인원 75% 절감</span>
@@ -414,12 +414,12 @@ const About = ({ location }: any) => {
           <h2>🎓 Education</h2>
           <div className={`${style.sectionFlex} ${style.sectionMargin}`}>
             <h3>공주대학교</h3>
-            <div className={style.sectionDescription}>
+            <div className={style.devidedSection}>
               <div className={style.sectionTitle}>
                 <p>컴퓨터 공학과</p>
                 <p>2016.03 ~ 졸업예정</p>
               </div>
-              <ul className="content-list">
+              <ul className={style.setionDescription}>
                 <li>
                   <a
                     style={{ marginLeft: "0" }}

@@ -46,11 +46,15 @@
       padding: 0.5em 0;
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 0.5em;
     }
     svg {
       width: 1.8em;
+      height: 1.8em;
+      min-height: 1.8em;
+      min-width: 1.8em;
     }
   }
   .section-flex {
@@ -58,9 +62,15 @@
     flex-direction: column;
     gap: 0.3em;
   }
-  .section-description {
+  .devidedSection {
     display: flex;
     gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .sectionDescription {
+    flex: 1;
+    min-width: 20em;
   }
   .mini-txt {
     font-weight: bold;
@@ -112,11 +122,16 @@
     }
   }
   .project-link-list {
-    margin-bottom: 0.5em;
+    margin: 0.8em 0;
     > li {
+      margin: 0.2em 0;
+      font-weight: normal;
+      > a {
+        font-weight: 100;
+      }
       display: flex;
       flex-wrap: wrap;
-      font-size: 1em;
+      font-size: 0.9em;
       align-items: center;
       svg {
         margin-right: 0.5em;

@@ -31,7 +31,7 @@ export const Header = ({ location }: any) => {
       throttle(() => {
         setTotalScroll(element.scrollHeight - element.clientHeight);
         setScrollLocation(document.documentElement.scrollTop);
-      }, 50)
+      }, 10)
     );
   }, []);
   /**
