@@ -6,11 +6,10 @@
     margin: 0 0.5em;
   }
   a {
-    background-color: subColor($color);
     font-size: 0.8em;
-    padding: 0.05em 0.3em;
-    margin: 0 0.3em;
-
+    padding: 0.1em 0.4em;
+    margin: 0 0.4em;
+    border: 1px solid subTextColor($color);
     border-radius: $BORDER_RADIUS;
     transition: background-color 0.2s, color 0.2s;
     @include hover {
@@ -68,9 +67,13 @@
     flex-wrap: wrap;
   }
 
-  .sectionDescription {
+  .section-description {
+    font-size: 0.85em;
     flex: 1;
     min-width: 20em;
+    background-color: subColor($color);
+    border-radius: $BORDER_RADIUS;
+    padding: 0.5em;
   }
   .mini-txt {
     font-weight: bold;
@@ -80,6 +83,7 @@
     padding: 0.1em 0.5em;
     border-radius: $BORDER_RADIUS;
     white-space: nowrap;
+    margin: 0 0.5em;
   }
   .section-title {
     width: 15em;
@@ -140,14 +144,15 @@
     }
   }
   .title-under-info-list {
-    list-style: none;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    margin: 0.5em 0;
+    padding: 0.3em;
     > li {
-      padding: 0.1em 0.3em;
-      border-radius: $BORDER_RADIUS;
-      display: inline-block;
-      background-color: subColor($color);
+      list-style: square;
       margin: 0;
+      margin-right: auto;
       font-size: 0.8em;
       white-space: nowrap;
     }
