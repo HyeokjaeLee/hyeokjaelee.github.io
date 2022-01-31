@@ -109,8 +109,18 @@
       width: 3em;
     }
   }
+  .stack {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+    flex-direction: column;
+    > svg {
+      width: 3em;
+    }
+  }
   .stack-wrap {
-    margin: 0.2em 0;
+    margin: 0.5em 0;
     display: flex;
     gap: 0.5em;
     svg {

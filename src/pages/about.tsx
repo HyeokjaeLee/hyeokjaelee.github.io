@@ -36,19 +36,58 @@ interface ProjectInfo {
   additionalInfoList: string[];
 }
 
+function Stack({ logo, title }: { logo: any; title: string }) {
+  const Logo = logo;
+  return (
+    <li className={style.stack}>
+      <Logo />
+      {title}
+    </li>
+  );
+}
+
 function Project({
   title,
   stackList,
+  sideInfoList,
   description,
-  linkMap,
-  additionalInfoList,
+  linkList,
+  infoList,
 }: {
   title: string;
-  stackList: string[];
+  stackList: any[];
+  sideInfoList: string[];
   description: string;
-  linkMap: Map<string, string>;
-  additionalInfoList: string[];
-}) {}
+  linkList: { title: string; url: string }[];
+  infoList: string[];
+}) {
+  const StackElements = stackList.map((Stack) => <Stack />);
+  const SideInfoElements = sideInfoList.map((info) => <li>{info}</li>);
+  const LinkElements = linkList.map(({ title, url }) => (
+    <li>
+      <span>{title}</span>
+      <a href={url} target="_blank">
+        {url}
+      </a>
+    </li>
+  ));
+  const InfoElements = infoList.map((info) => <li>{info}</li>);
+  return (
+    <section className={`${style.devidedSection} ${style.sectionMargin}`}>
+      <div className={style.sectionTitle}>
+        <h3>{title}</h3>
+        <div className={style.stackWrap}>{StackElements}</div>
+        <ul className={style.titleUnderInfoList}>{SideInfoElements}</ul>
+      </div>
+      <div className={style.sectionDescription}>
+        <h4>{description}</h4>
+        <ul className={style.projectLinkList}>{LinkElements}</ul>
+        <ul>{InfoElements}</ul>
+      </div>
+    </section>
+  );
+}
+
 export default function About({ location }: any) {
   const { search }: { search: string } = location;
   const { setPortfolioOptions } = useContext(PortfolioContext);
@@ -58,9 +97,11 @@ export default function About({ location }: any) {
   useEffect(() => {
     isPortfolio && setPortfolioOptions({ isPortfolio: true, portfolioButtonShow: false });
   }, []);
-
   let ProjectListElement = EMPTY_ELEMENT;
   let WorkExperienceElement = EMPTY_ELEMENT;
+  const OnlyPortfolioElement = isPortfolio
+    ? ({ children }: { children: JSX.Element }) => children
+    : () => <></>;
   if (isPortfolio) {
     ProjectListElement = () => {
       const ProjectElements: JSX.Element[] = [];
@@ -164,11 +205,10 @@ export default function About({ location }: any) {
         title,
         { stackList, titleUnderInfoList, description, linkInfoMap, additionalInfoList },
       ] of projectInfoMap) {
-        let TitleUnderInfoElements: JSX.Element[] = [];
-        for (const titleUnderInfo of titleUnderInfoList)
-          TitleUnderInfoElements.push(<li>{titleUnderInfo}</li>);
-        let StackElements: JSX.Element[] = [];
-        for (const Stack of stackList) StackElements.push(<Stack />);
+        const TitleUnderInfoElements = titleUnderInfoList.map((titleUnderInfo) => (
+          <li>{titleUnderInfo}</li>
+        ));
+        const StackElements = stackList.map((Stack) => <Stack />);
         let LinkInfoElements: JSX.Element[] = [];
         for (const [name, url] of linkInfoMap)
           LinkInfoElements.push(
@@ -204,6 +244,7 @@ export default function About({ location }: any) {
         </section>
       );
     };
+
     WorkExperienceElement = () => (
       <section>
         <h2>👨🏻‍💻 Work Experience</h2>
@@ -338,7 +379,7 @@ export default function About({ location }: any) {
         </ul>
       </section>
       <ProjectListElement />
-      {showOnlyPortfolio(
+      <OnlyPortfolioElement>
         <section>
           <h2>🎓 Education</h2>
           <div className={`${style.sectionFlex} ${style.sectionMargin}`}>
@@ -363,7 +404,7 @@ export default function About({ location }: any) {
             </div>
           </div>
         </section>
-      )}
+      </OnlyPortfolioElement>
     </article>
   );
 }
