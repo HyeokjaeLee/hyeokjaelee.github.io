@@ -80,6 +80,7 @@
   .post-wrap {
     padding: 1em;
     width: 33.3%;
+    transition: width 0.1s;
     @media (max-width: 1080px) {
       width: 50%;
     }

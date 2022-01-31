@@ -1,5 +1,5 @@
 @function subColor($color) {
-  @if ($color==$darkColor) {
+  @if ($color==$DARK_COLOR) {
     @return lighten($color, 5%);
   } @else {
     @return darken($color, 5%);
@@ -7,7 +7,7 @@
 }
 
 @function textColor($color) {
-  @if ($color==$darkColor) {
+  @if ($color==$DARK_COLOR) {
     @return lighten(invert($color), 5%);
   } @else {
     @return lighten(invert($color), 20%);
@@ -15,7 +15,7 @@
 }
 
 @function subTextColor($color) {
-  @if ($color==$darkColor) {
+  @if ($color==$DARK_COLOR) {
     @return darken(textColor($color), 15%);
   } @else {
     @return lighten(textColor($color), 20%);

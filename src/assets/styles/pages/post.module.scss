@@ -65,6 +65,11 @@
       font-size: 0.8em;
     }
     .post-body {
+      transition: padding 0.1s;
+      padding: 2em;
+      @media (max-width: 660px) {
+        padding: 1em;
+      }
       code {
         padding: 0.15em 0.3em;
         border-radius: 5px;
@@ -93,7 +98,7 @@
         border-radius: $BORDER_RADIUS;
         border: 1px solid Color($color);
       }
-      padding: 2em;
+
       ul,
       li {
         margin-left: 0.8em;
