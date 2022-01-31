@@ -30,8 +30,8 @@ button {
 
 html {
   font-size: 18px;
-  @include if-small-device {
-    font-size: 15px;
+  @media (max-width: 660px) {
+    font-size: 14px;
   }
   font-family: "NotoSans";
   font-weight: 100;
@@ -82,6 +82,10 @@ main {
   max-width: 60em;
   width: 100%;
   padding: 5em 1em;
+  transition: padding 0.1s;
+  @media (max-width: 660px) {
+    padding: 4em 0.1em;
+  }
   overflow: hidden;
   &.entered {
     @include fade-in(0.5s);
