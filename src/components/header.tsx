@@ -5,40 +5,38 @@ import * as style from "styles/components/header.module.scss";
 import { Link } from "gatsby";
 import Sun from "img/sun.svg";
 import Moon from "img/moon.svg";
+
 export const Header = ({ location }: any) => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const headerClassList = [!theme ? style.header : style.headerDark];
+  let headerClass = !theme ? style.header : style.headerDark;
   const ThemeSwitchIcon = !theme ? Sun : Moon;
   const [scrollLocation, setScrollLocation] = useState(0);
-  const [totalScroll, setTotalScroll] = useState(0);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-  const isScrollTop = scrollLocation < 1;
+  0 < scrollLocation && (headerClass += ` ${style.scrolling}`);
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
-  !isScrollTop && headerClassList.push(style.scrolling);
+
+  let element: HTMLElement;
+  let totalScroll = 0;
   if (typeof window !== "undefined") {
+    element = document.documentElement;
+    totalScroll = element.scrollHeight - element.clientHeight;
     if (isMenuOpened) {
-      headerClassList.push(style.menuOpened);
+      headerClass += ` ${style.menuOpened}`;
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     }
   }
+  console.log("test");
   useEffect(() => {
-    const element = document.documentElement;
-    window.addEventListener(
-      "scroll",
-      throttle(() => {
-        setTotalScroll(element.scrollHeight - element.clientHeight);
-        setScrollLocation(document.documentElement.scrollTop);
-      }, 10)
-    );
+    const scrollHandler = throttle(() => {
+      setScrollLocation(element.scrollTop);
+    }, 10);
+    window.addEventListener("scroll", scrollHandler);
   }, []);
-  /**
-   *
-   */
   return (
-    <header className={headerClassList.join(" ")}>
+    <header className={headerClass}>
       <Link to="/">
         <h1 className={style.title}>
           <span>{isPortfolio ? "hyeokjae's" : "nagle's"}</span>
