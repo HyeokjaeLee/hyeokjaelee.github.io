@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import { Main } from "components/main";
 import { Header } from "components/header";
 import { Footer } from "components/footer";
-import { ThemeContext, PortfolioContext } from "contexts/theme";
+import { ThemeContext } from "contexts/theme";
 import MenuIcon from "img/menu.svg";
 import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
@@ -29,31 +29,29 @@ const TemplateWrapper = ({ children, location }: any) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <PortfolioContext.Provider value={{ portfolioOptions, setPortfolioOptions }}>
-        <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
-          <link rel="icon" href={favicon} />
-        </Helmet>
-        <Header location={location} />
-        <TransitionGroup className="main-wrap">
-          <ReactTransition
-            key={location.pathname}
-            timeout={{
-              enter: timeout,
-              exit: timeout,
-            }}
-          >
-            {(status) => <main className={status}>{children}</main>}
-          </ReactTransition>
-        </TransitionGroup>
-        <Footer />
-        {portfolioOptions.portfolioButtonShow ? (
-          <div id="portfolio-link">
-            <Link to="/about?portfolio">Portfolio로 돌아가기</Link>
-          </div>
-        ) : (
-          <></>
-        )}
-      </PortfolioContext.Provider>
+      <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
+        <link rel="icon" href={favicon} />
+      </Helmet>
+      <Header location={location} />
+      <TransitionGroup className="main-wrap">
+        <ReactTransition
+          key={location.pathname}
+          timeout={{
+            enter: timeout,
+            exit: timeout,
+          }}
+        >
+          {(status) => <main className={status}>{children}</main>}
+        </ReactTransition>
+      </TransitionGroup>
+      <Footer />
+      {portfolioOptions.portfolioButtonShow ? (
+        <div id="portfolio-link">
+          <Link to="/about?portfolio">Portfolio로 돌아가기</Link>
+        </div>
+      ) : (
+        <></>
+      )}
     </ThemeContext.Provider>
   );
 };

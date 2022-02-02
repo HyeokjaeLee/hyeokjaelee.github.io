@@ -24,8 +24,9 @@ import SQLite from "img/sqlite.svg";
 import Jest from "img/jest.svg";
 import React_svg from "img/reactIcon.svg";
 import { useContext } from "react";
-import { PortfolioContext, ThemeContext } from "contexts/theme";
+import { ThemeContext } from "contexts/theme";
 import * as style from "styles/pages/about.module.scss";
+import { Helmet } from "react-helmet";
 
 interface StackProps {
   logo: any;
@@ -106,19 +107,15 @@ function ContactLink({ logo, title, url, txt }: ContactLinkProps) {
 
 export default function About({ location }: any) {
   const { search }: { search: string } = location;
-  const { setPortfolioOptions } = useContext(PortfolioContext);
   const { theme } = useContext(ThemeContext);
   const isPortfolio = search.includes("portfolio");
-  useEffect(() => {
-    isPortfolio && setPortfolioOptions({ isPortfolio: true, portfolioButtonShow: false });
-  }, []);
-
   const OnlyPortfolioSection = isPortfolio
     ? ({ children }: { children: JSX.Element | JSX.Element[] }) => <section>{children}</section>
     : () => <></>;
 
   return (
     <article className={theme === "dark" ? style.aboutDark : style.about}>
+      <Helmet title={isPortfolio ? "Hyeokjae's Portfolio" : "About"} />
       <section>
         <h2>💡 About Me</h2>
         <div className={`${style.aboutMeContent} ${style.sectionMargin}`}>

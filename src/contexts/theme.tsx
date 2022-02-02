@@ -8,13 +8,4 @@ const defaultTheme: {
   setTheme: () => {},
 };
 
-const portfolioOptions: {
-  portfolioOptions: PortfolioOptions;
-  setPortfolioOptions: SetPortfolioOptions;
-} = {
-  portfolioOptions: { isPortfolio: false, portfolioButtonShow: false },
-  setPortfolioOptions: () => {},
-};
-
 export const ThemeContext = createContext(defaultTheme);
-export const PortfolioContext = createContext(portfolioOptions);

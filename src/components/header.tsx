@@ -15,26 +15,43 @@ export const Header = ({ location }: any) => {
   0 < scrollLocation && (headerClass += ` ${style.scrolling}`);
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
-
-  let element: HTMLElement;
-  let totalScroll = 0;
+  const [totalScroll, setTotalScroll] = useState(0);
+  //SSR document 접근 방지
   if (typeof window !== "undefined") {
-    element = document.documentElement;
-    totalScroll = element.scrollHeight - element.clientHeight;
+    const element = document.documentElement;
     if (isMenuOpened) {
       headerClass += ` ${style.menuOpened}`;
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     }
+    useEffect(() => {
+      const scrollHandler = throttle(() => {
+        const scrollTop = element.scrollTop;
+        if (
+          Math.abs(scrollTop - scrollLocation) > 100 ||
+          scrollTop === 0 ||
+          totalScroll <= scrollTop
+        )
+          setScrollLocation(scrollTop);
+      }, 10);
+      window.addEventListener("scroll", scrollHandler);
+    }, []);
+
+    //렌더링 대기
+    useEffect(() => {
+      let prevTotalScroll = 0;
+      const getFinalTotalScroll = setInterval(() => {
+        const _totalScroll = element.scrollHeight - element.clientHeight;
+        if (_totalScroll !== prevTotalScroll) prevTotalScroll = _totalScroll;
+        else {
+          setTotalScroll(_totalScroll);
+          clearInterval(getFinalTotalScroll);
+        }
+      }, 500);
+    }, [location.href]);
   }
-  console.log("test");
-  useEffect(() => {
-    const scrollHandler = throttle(() => {
-      setScrollLocation(element.scrollTop);
-    }, 10);
-    window.addEventListener("scroll", scrollHandler);
-  }, []);
+
   return (
     <header className={headerClass}>
       <Link to="/">
