@@ -8,26 +8,6 @@ button {
   cursor: pointer;
 }
 
-#portfolio-link {
-  position: fixed;
-  margin: 1em;
-  bottom: 0;
-  right: 0;
-  z-index: 9999;
-  padding: 10px;
-  background-color: gray;
-  border-radius: $BORDER_RADIUS;
-  box-shadow: $BOX_SHADOW;
-  transition: background-color 0.3s;
-  @include hover {
-    background-color: lighten(gray, 10%);
-  }
-  > a {
-    display: block;
-    color: white;
-  }
-}
-
 html {
   font-size: 18px;
   @media (max-width: 660px) {

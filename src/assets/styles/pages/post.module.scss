@@ -79,16 +79,19 @@
         background-color: subTextColor($color);
       }
       a {
-        background-color: $color;
-        font-size: 0.7em;
-        padding: 0.1em 0.3em;
-        margin: 0 0.2em;
-        border-radius: $BORDER_RADIUS;
-        border: 1px solid subTextColor($color);
-        transition: color 0.3s, background-color 0.3s;
+        text-decoration: underline;
+        transition: color 0.2s;
+        &:link {
+          color: subTextColor($color);
+        }
+        &:visited {
+          color: lighten(subTextColor($color), 5%);
+        }
         &:hover {
-          color: $color;
-          background-color: subTextColor($color);
+          color: lighten(subTextColor($color), 10%);
+        }
+        &:active {
+          color: lighten(subTextColor($color), 15%);
         }
       }
       img {
@@ -98,13 +101,47 @@
         border-radius: $BORDER_RADIUS;
         border: 1px solid Color($color);
       }
-
-      ul,
       li {
-        margin-left: 0.8em;
+        font-size: 0.95em;
+        margin: {
+          left: 1em;
+        }
+        > ul {
+          margin: {
+            top: 0.1em;
+            bottom: 0.5em;
+          }
+        }
+      }
+
+      table {
+        font-size: 0.9em;
+        width: 100%;
+        padding: 0.5em;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 0.2em 0.5em;
+      }
+      td {
+        border-left: 2px solid subTextColor($color);
+        &:first-child {
+          border-left: none;
+        }
+        border-top: 1px solid subTextColor($color);
+      }
+      th {
+        border-left: 2px solid $color;
+        &:first-child {
+          border-left: none;
+        }
+        background-color: subTextColor($color);
+        color: $color;
       }
       > p {
-        margin: 0.6em 0;
+        margin: 0.5em 0;
+        line-height: 1.8em;
       }
       deckgo-highlight-code {
         margin: 1em;

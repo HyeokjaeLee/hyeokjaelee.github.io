@@ -1,14 +1,10 @@
 import "styles/global.scss";
 import { useEffect, useState } from "react";
 import React from "react";
-import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import { Main } from "components/main";
 import { Header } from "components/header";
 import { Footer } from "components/footer";
 import { ThemeContext } from "contexts/theme";
-import MenuIcon from "img/menu.svg";
-import logo from "img/logo.png";
 import favicon from "assets/img/favicon.ico";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
 const timeout = 700;
@@ -45,13 +41,6 @@ const TemplateWrapper = ({ children, location }: any) => {
         </ReactTransition>
       </TransitionGroup>
       <Footer />
-      {portfolioOptions.portfolioButtonShow ? (
-        <div id="portfolio-link">
-          <Link to="/about?portfolio">Portfolio로 돌아가기</Link>
-        </div>
-      ) : (
-        <></>
-      )}
     </ThemeContext.Provider>
   );
 };
