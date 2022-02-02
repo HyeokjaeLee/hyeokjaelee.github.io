@@ -95,9 +95,11 @@
     border: 1px solid textColor($color);
     border-radius: 1em;
     transition: background-color 0.3s, color 0.3s;
-    @include hover {
-      background-color: textColor($color);
-      color: $color;
+    &.total {
+      @include hover {
+        background-color: textColor($color);
+        color: $color;
+      }
     }
     &.active {
       background-color: textColor($color);
@@ -107,8 +109,18 @@
   .tags {
     margin-top: 0.5em;
     display: flex;
-    gap: 0.3em;
+    gap: 0.5em;
     flex-wrap: wrap;
+    &.total {
+      font-size: 1.2em;
+      padding: 0 1em;
+      @media (max-width: 660px) {
+        font-size: 2em;
+        gap: 0.3em;
+      }
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .pagination {

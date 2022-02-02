@@ -16,6 +16,7 @@ export const Header = ({ location }: any) => {
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
   const [totalScroll, setTotalScroll] = useState(0);
+
   //SSR document 접근 방지
   if (typeof window !== "undefined") {
     const element = document.documentElement;
@@ -28,10 +29,11 @@ export const Header = ({ location }: any) => {
     useEffect(() => {
       const scrollHandler = throttle(() => {
         const scrollTop = element.scrollTop;
+        const MOVE_RAGE = 100;
         if (
-          Math.abs(scrollTop - scrollLocation) > 100 ||
+          Math.abs(scrollTop - scrollLocation) > MOVE_RAGE ||
           scrollTop === 0 ||
-          totalScroll <= scrollTop
+          totalScroll - MOVE_RAGE <= scrollTop
         )
           setScrollLocation(scrollTop);
       }, 10);
@@ -41,14 +43,15 @@ export const Header = ({ location }: any) => {
     //렌더링 대기
     useEffect(() => {
       let prevTotalScroll = 0;
-      const getFinalTotalScroll = setInterval(() => {
+      const scrollHandler = throttle(() => {
         const _totalScroll = element.scrollHeight - element.clientHeight;
         if (_totalScroll !== prevTotalScroll) prevTotalScroll = _totalScroll;
         else {
           setTotalScroll(_totalScroll);
-          clearInterval(getFinalTotalScroll);
+          window.removeEventListener("scroll", scrollHandler);
         }
-      }, 500);
+      }, 10);
+      window.addEventListener("scroll", scrollHandler);
     }, [location.href]);
   }
 

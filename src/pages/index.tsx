@@ -126,12 +126,14 @@ const Index = ({ data, location }: Props) => {
   );
   return (
     <section className={theme === "dark" ? style.indexDark : style.index}>
-      <ul className={style.tags}>
+      <ul className={`${style.tags} ${style.total}`}>
         {group.map((item) => (
           <li>
             <Link
               to={queryData.tag === item.tags ? "/" : `/?tag=${item.tags}`}
-              className={style.tag + (queryData.tag === item.tags ? ` ${style.active}` : "")}
+              className={`${style.tag} ${style.total} ${
+                queryData.tag === item.tags ? style.active : ""
+              }`}
             >
               {item.tags}
             </Link>
