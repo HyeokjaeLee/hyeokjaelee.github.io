@@ -9,10 +9,7 @@ import favicon from "assets/img/favicon.ico";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
 const timeout = 700;
 const TemplateWrapper = ({ children, location }: any) => {
-  const [theme, setTheme] = useState("");
-  const [portfolioOptions, setPortfolioOptions]: [PortfolioOptions, SetPortfolioOptions] = useState(
-    { isPortfolio: false, portfolioButtonShow: false }
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "");
   const helmet_meta_otions = [
     { name: `description`, content: `programming & tech blog` },
     { name: `generator`, content: `gatsby` },
@@ -22,7 +19,6 @@ const TemplateWrapper = ({ children, location }: any) => {
       content: "6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw",
     },
   ];
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>

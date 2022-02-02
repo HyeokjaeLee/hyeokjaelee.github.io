@@ -85,7 +85,14 @@ export const Header = ({ location }: any) => {
               </Link>
             </li>
           </ul>
-          <button className={style.modeSwitch} onClick={() => setTheme(theme === "" ? "dark" : "")}>
+          <button
+            className={style.modeSwitch}
+            onClick={() => {
+              const _theme = theme === "" ? "dark" : "";
+              localStorage.setItem("theme", _theme);
+              setTheme(_theme);
+            }}
+          >
             <div className={style.ball}>
               <ThemeSwitchIcon />
             </div>
