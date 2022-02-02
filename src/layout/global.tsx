@@ -9,7 +9,8 @@ import favicon from "assets/img/favicon.ico";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
 const timeout = 700;
 const TemplateWrapper = ({ children, location }: any) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "");
+  const [theme, setTheme] = useState("");
+  useEffect(() => setTheme(localStorage.getItem("theme") || ""), []);
   const helmet_meta_otions = [
     { name: `description`, content: `programming & tech blog` },
     { name: `generator`, content: `gatsby` },

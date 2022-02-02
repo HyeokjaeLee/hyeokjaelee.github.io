@@ -11,50 +11,46 @@ export const Header = ({ location }: any) => {
   let headerClass = !theme ? style.header : style.headerDark;
   const ThemeSwitchIcon = !theme ? Sun : Moon;
   const [scrollLocation, setScrollLocation] = useState(0);
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
   0 < scrollLocation && (headerClass += ` ${style.scrolling}`);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  isMenuOpened && (headerClass += ` ${style.menuOpened}`);
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
   const [totalScroll, setTotalScroll] = useState(0);
 
-  //SSR document 접근 방지
-  if (typeof window !== "undefined") {
-    const element = document.documentElement;
-    if (isMenuOpened) {
-      headerClass += ` ${style.menuOpened}`;
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-    useEffect(() => {
-      const scrollHandler = throttle(() => {
-        const scrollTop = element.scrollTop;
-        const MOVE_RAGE = 100;
-        if (
-          Math.abs(scrollTop - scrollLocation) > MOVE_RAGE ||
-          scrollTop === 0 ||
-          totalScroll - MOVE_RAGE <= scrollTop
-        )
-          setScrollLocation(scrollTop);
-      }, 10);
-      window.addEventListener("scroll", scrollHandler);
-    }, []);
+  useEffect(() => {
+    const bodyStyle = document.body.style;
+    if (isMenuOpened) bodyStyle.overflow = "hidden";
+    else bodyStyle.overflow = "visible";
+  }, [isMenuOpened]);
 
-    //렌더링 대기
-    useEffect(() => {
+  useEffect(() => {
+    const element = document.documentElement;
+    const scrollLocationHandler = throttle(() => {
+      const scrollTop = element.scrollTop;
+      const MOVE_RAGE = 100;
+      if (
+        Math.abs(scrollTop - scrollLocation) > MOVE_RAGE ||
+        scrollTop === 0 ||
+        totalScroll - MOVE_RAGE <= scrollTop
+      )
+        setScrollLocation(scrollTop);
+    }, 10);
+    window.addEventListener("scroll", scrollLocationHandler);
+
+    {
       let prevTotalScroll = 0;
-      const scrollHandler = throttle(() => {
+      const totalScrollHandler = throttle(() => {
         const _totalScroll = element.scrollHeight - element.clientHeight;
         if (_totalScroll !== prevTotalScroll) prevTotalScroll = _totalScroll;
         else {
           setTotalScroll(_totalScroll);
-          window.removeEventListener("scroll", scrollHandler);
+          window.removeEventListener("scroll", totalScrollHandler);
         }
       }, 10);
-      window.addEventListener("scroll", scrollHandler);
-    }, [location.href]);
-  }
-
+      window.addEventListener("scroll", totalScrollHandler);
+    }
+  }, [location.href]);
   return (
     <header className={headerClass}>
       <Link to="/">
