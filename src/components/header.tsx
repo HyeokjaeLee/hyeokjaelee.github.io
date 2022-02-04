@@ -10,47 +10,25 @@ export const Header = ({ location }: any) => {
   const { theme, setTheme } = useContext(ThemeContext);
   let headerClass = !theme ? style.header : style.headerDark;
   const ThemeSwitchIcon = !theme ? Sun : Moon;
-  const [scrollLocation, setScrollLocation] = useState(0);
-  0 < scrollLocation && (headerClass += ` ${style.scrolling}`);
+  const [scrollInfo, setScrollInfo] = useState({ now: 0, total: 0 });
+  0 < scrollInfo.now && (headerClass += ` ${style.scrolling}`);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   isMenuOpened && (headerClass += ` ${style.menuOpened}`);
   const { search } = location;
   const isPortfolio = search.includes("portfolio");
-  const [totalScroll, setTotalScroll] = useState(0);
-
   useEffect(() => {
     const bodyStyle = document.body.style;
     if (isMenuOpened) bodyStyle.overflow = "hidden";
     else bodyStyle.overflow = "visible";
   }, [isMenuOpened]);
-
   useEffect(() => {
-    const element = document.documentElement;
-    const scrollLocationHandler = throttle(() => {
-      const scrollTop = element.scrollTop;
-      const MOVE_RAGE = 100;
-      if (
-        Math.abs(scrollTop - scrollLocation) > MOVE_RAGE ||
-        scrollTop === 0 ||
-        totalScroll - MOVE_RAGE <= scrollTop
-      )
-        setScrollLocation(scrollTop);
-    }, 10);
-    window.addEventListener("scroll", scrollLocationHandler);
-
-    {
-      let prevTotalScroll = 0;
-      const totalScrollHandler = throttle(() => {
-        const _totalScroll = element.scrollHeight - element.clientHeight;
-        if (_totalScroll !== prevTotalScroll) prevTotalScroll = _totalScroll;
-        else {
-          setTotalScroll(_totalScroll);
-          window.removeEventListener("scroll", totalScrollHandler);
-        }
-      }, 10);
-      window.addEventListener("scroll", totalScrollHandler);
-    }
-  }, [location.href]);
+    window.addEventListener("scroll", () => {
+      const scrollNow = document.documentElement.scrollTop;
+      const scrollTotal = document.body.scrollHeight - window.innerHeight;
+      if (scrollInfo.now !== scrollNow || scrollInfo.total !== scrollTotal)
+        setScrollInfo({ now: scrollNow, total: scrollTotal });
+    });
+  }, []);
   return (
     <header className={headerClass}>
       <Link to="/">
@@ -60,7 +38,7 @@ export const Header = ({ location }: any) => {
         </h1>
       </Link>
       <div className={style.scrollLocationWrap}>
-        <progress value={scrollLocation} max={totalScroll}></progress>
+        <progress value={scrollInfo.now} max={scrollInfo.total}></progress>
       </div>
       <button className={style.menuButton} onClick={() => setIsMenuOpened(!isMenuOpened)}>
         <div className={`${style.line} ${style.top}`} />
