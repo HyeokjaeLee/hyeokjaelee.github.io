@@ -64,7 +64,7 @@ main {
   padding: 5em 1em;
   transition: padding 0.1s;
   @media (max-width: 660px) {
-    padding: 4em 0.1em;
+    padding: 4em 0.5em;
   }
   overflow: hidden;
   &.entered {
