@@ -124,10 +124,7 @@ const BlogSpots = ({ data }: Props) => {
     </div>
   );
 };
-/**
- *       <NearPost postNode={prevPostNode} direction="left" />
-      <NearPost postNode={nextPostNode} direction="right" />
- */
+
 export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {

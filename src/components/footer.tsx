@@ -7,7 +7,7 @@ import Instagram from "img/instagram.svg";
 export const Footer = () => (
   <footer className={style.footer}>
     <h3>Contact & Channel</h3>
-    <ul className="icon-list">
+    <ul>
       <li>
         <a href="mailto:leehyeokjae97@gmail.com">
           <Gmail />

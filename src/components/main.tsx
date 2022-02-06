@@ -19,8 +19,3 @@ export const Main = (props: any) => {
     </TransitionGroup>
   );
 };
-/**
- *             <div id="contentWrap" className={"slide " + status}>
-              {children}
-            </div>
- */
