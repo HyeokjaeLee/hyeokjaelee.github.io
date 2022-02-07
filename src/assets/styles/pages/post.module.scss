@@ -210,6 +210,7 @@
   }
   .near-post-nav {
     display: flex;
+    flex-direction: column;
     gap: 3px;
   }
   .near-post-info {
@@ -242,6 +243,9 @@
       }
     }
     &.prev {
+      > .near-post-info {
+        margin-right: 3.5em;
+      }
       @include hover {
         svg {
           margin: {
@@ -252,6 +256,9 @@
       }
     }
     &.next {
+      > .near-post-info {
+        margin-left: 3.5em;
+      }
       @include hover {
         svg {
           margin: {
