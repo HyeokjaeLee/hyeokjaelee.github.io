@@ -22,7 +22,11 @@ const TemplateWrapper = ({ children, location }: any) => {
   ];
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Helmet title="Nagle`s Blog" meta={helmet_meta_otions} bodyAttributes={{ class: theme }}>
+      <Helmet
+        title="Nagle`s Blog"
+        meta={helmet_meta_otions}
+        bodyAttributes={{ class: !theme ? "body" : "body-dark" }}
+      >
         <link rel="icon" href={favicon} />
       </Helmet>
       <Header location={location} />

@@ -79,11 +79,11 @@ main {
   }
 }
 
-body {
+.body {
   @include body;
-  &.dark {
-    @include body($DARK_COLOR);
-  }
+}
+.body-dark {
+  @include body($DARK_COLOR);
 }
 
 ::-webkit-scrollbar {

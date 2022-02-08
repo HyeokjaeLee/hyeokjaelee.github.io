@@ -150,6 +150,6 @@
 .about {
   @include about;
 }
-.aboutDark {
+.about-dark {
   @include about($color: $DARK_COLOR);
 }
