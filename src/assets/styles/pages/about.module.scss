@@ -5,18 +5,7 @@
   > section {
     margin: 0 0.5em;
   }
-  a {
-    font-size: 0.8em;
-    padding: 0.1em 0.4em;
-    margin: 0 0.4em;
-    border: 1px solid subTextColor($color);
-    border-radius: $BORDER_RADIUS;
-    transition: background-color 0.2s, color 0.2s;
-    @include hover {
-      background-color: subTextColor($color);
-      color: $color;
-    }
-  }
+  @include default-link-style($color);
   h2,
   h3 {
     font-weight: normal;
@@ -61,7 +50,7 @@
     flex-direction: column;
     gap: 0.3em;
   }
-  .devidedSection {
+  .devided-section {
     display: flex;
     gap: 0.5em;
     flex-wrap: wrap;
@@ -74,6 +63,9 @@
     background-color: subColor($color);
     border-radius: $BORDER_RADIUS;
     padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
   }
   .mini-txt {
     font-weight: bold;
@@ -136,22 +128,9 @@
     }
   }
   .project-link-list {
-    margin: 0.8em 0;
-    > li {
-      margin: 0.2em 0;
-      font-weight: normal;
-      > a {
-        font-weight: 100;
-      }
-      display: flex;
-      flex-wrap: wrap;
-      font-size: 0.9em;
-      align-items: center;
-      svg {
-        margin-right: 0.5em;
-        width: 1em;
-      }
-    }
+    font-size: 0.8em;
+    list-style: "\1F4CC";
+    margin-bottom: 0.5em;
   }
   .title-under-info-list {
     display: flex;

@@ -63,9 +63,8 @@ function Project({
   const SideInfoElements = sideInfoList.map((info) => <li>{info}</li>);
   const LinkElements = linkList.map(({ title, url }) => (
     <li>
-      <span>{title}</span>
       <a href={url} target="_blank">
-        {url}
+        {title}
       </a>
     </li>
   ));
@@ -76,10 +75,10 @@ function Project({
         <h3>{title}</h3>
         <div className={style.stackWrap}>{StackElements}</div>
         <ul className={style.titleUnderInfoList}>{SideInfoElements}</ul>
+        <ul className={style.projectLinkList}>{LinkElements}</ul>
       </div>
       <div className={style.sectionDescription}>
         <h4>{description}</h4>
-        <ul className={style.projectLinkList}>{LinkElements}</ul>
         <ul>{InfoElements}</ul>
       </div>
     </section>
@@ -217,14 +216,21 @@ export default function About({ location }: any) {
           sideInfoList={["팀구성 - 개인"]}
           description="직관적이고 정형화된 Git Commit message 작성 도우미"
           linkList={[
-            { title: "Github Repository", url: "https://github.com/HyeokjaeLee/gititle" },
-            { title: "프로젝트 후기", url: "https://hyeokjaelee.github.io/gititle-project" },
-            { title: "커밋 컨벤션 정리", url: "https://hyeokjaelee.github.io/good-commit-message" },
+            { title: "Repository (Github)", url: "https://github.com/HyeokjaeLee/gititle" },
+            {
+              title: "프로젝트 후기 (Blog)",
+              url: "https://hyeokjaelee.github.io/gititle-project",
+            },
+            {
+              title: "커밋 컨벤션 정리 (Blog)",
+              url: "https://hyeokjaelee.github.io/good-commit-message",
+            },
           ]}
           infoList={[
             "커밋에 사용할 키워드, 데이터 구조 정의",
-            "PWA를 지원하는 프론트엔드 디자인/개발 (Vue.js)",
             "편의 기능 개발",
+            "프론트엔드 디자인/개발 (Vue.js)",
+            "Github Pages 배포",
           ]}
         />
         <Project
@@ -233,14 +239,21 @@ export default function About({ location }: any) {
           sideInfoList={["팀구성 - 개인"]}
           description="공주대학교 비대면 강의 시스템 편의성 개선 프로그램"
           linkList={[
-            { title: "Github Repository", url: "https://github.com/HyeokjaeLee/knu-lms-scheduler" },
-            { title: "프로젝트 후기", url: "https://hyeokjaelee.github.io/knu-lms-scheduler" },
+            {
+              title: "Repository (Github)",
+              url: "https://github.com/HyeokjaeLee/knu-lms-scheduler",
+            },
+            {
+              title: "프로젝트 후기 (Blog)",
+              url: "https://hyeokjaelee.github.io/knu-lms-scheduler",
+            },
           ]}
           infoList={[
-            "비대면 강의 시스템 로그인 크롤러 개발",
+            "원본 비대면 강의 시스템 로그인 정보 크롤러 개발",
             "프론트엔드 디자인/개발 (React)",
-            "프로그램 홍보, 배포, 피드백 반영 업데이트",
+            "프로그램 홍보 및 배포",
             "에브리타임 21년 하반기 Best 게시물 선정",
+            "사용자 피드백 반영 업데이트",
           ]}
         />
         <Project
@@ -249,13 +262,16 @@ export default function About({ location }: any) {
           sideInfoList={["팀구성 - 개인", "저작권 등록 (C-2021-020527)"]}
           description="여러 플랫폼의 웹툰을 한번에 볼 수 있는 웹 애플리케이션"
           linkList={[
-            { title: "Github Repository", url: "https://github.com/HyeokjaeLee/korea-webtoon-api" },
             {
-              title: "Frontend Github Repository",
+              title: "API Repository (Github)",
+              url: "https://github.com/HyeokjaeLee/korea-webtoon-api",
+            },
+            {
+              title: "FE Repository (Github)",
               url: "https://github.com/HyeokjaeLee/webtoon-hub",
             },
             {
-              title: "API 업데이트 후기",
+              title: "API 업데이트 후기 (Blog)",
               url: "https://hyeokjaelee.github.io/korea-webtoon-api-update",
             },
           ]}
@@ -273,13 +289,16 @@ export default function About({ location }: any) {
           sideInfoList={["팀구성 - 개인"]}
           description="한국의 COVID-19 현황을 확인할 수 있는 웹 애플리케이션"
           linkList={[
-            { title: "Github Repository", url: "https://github.com/HyeokjaeLee/korea-covid19-api" },
             {
-              title: "Frontend Github Repository",
+              title: "API Repository (Github)",
+              url: "https://github.com/HyeokjaeLee/korea-covid19-api",
+            },
+            {
+              title: "FE Repository (Github)",
               url: "https://github.com/HyeokjaeLee/covid19-dashboard",
             },
             {
-              title: "API 업데이트 후기",
+              title: "API 업데이트 후기 (Blog)",
               url: "https://hyeokjaelee.github.io/covid-19-api-update",
             },
           ]}
@@ -288,7 +307,7 @@ export default function About({ location }: any) {
             "COVID-19 데이터 정형화 & 계산을 통한 확장 값 추가",
             "공공데이터 포털의 COVID-19 데이터 이상치 제거",
             "Toyproject용 API 개발/공개 (GraphQL)",
-            "프론트엔드 디자인/개발(Vanilla Javascript)",
+            "프론트엔드 디자인/개발 (Vanilla Javascript)",
           ]}
         />
         <Project
@@ -298,23 +317,19 @@ export default function About({ location }: any) {
           description="포트폴리오 & 개인 블로그"
           linkList={[
             {
-              title: "Github Repository",
+              title: "Repository (Github)",
               url: "https://github.com/HyeokjaeLee/hyeokjaelee.github.io",
             },
             {
-              title: "Gatsby 블로그 이전 중간리뷰",
+              title: "Gatsby 블로그 이전 중간 리뷰 (Blog)",
               url: "https://hyeokjaelee.github.io/blog-remake-review1",
             },
             {
-              title: "Gatsby 블로그 이전 리뷰",
+              title: "Gatsby 블로그 이전 리뷰 (Blog)",
               url: "https://hyeokjaelee.github.io/blog-remake-review2",
             },
           ]}
-          infoList={[
-            "프론트엔드 Gatsby 디자인/개발 (React)",
-            "블로그 기능 구현",
-            "포트폴리오 기능 구현",
-          ]}
+          infoList={["프론트엔드 디자인/개발 (Gatsby)", "블로그 기능 구현", "포트폴리오 기능 구현"]}
         />
       </OnlyPortfolioSection>
       <OnlyPortfolioSection>
@@ -334,7 +349,7 @@ export default function About({ location }: any) {
                 >
                   PRIMITVE
                 </a>
-                개발 & 창업 동아리 활동
+                &nbsp;개발 & 창업 동아리 활동
               </li>
               <li>정보처리기사 취득</li>
             </ul>

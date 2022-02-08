@@ -78,22 +78,7 @@
         color: $color;
         background-color: subTextColor($color);
       }
-      a {
-        text-decoration: underline;
-        transition: color 0.2s;
-        &:link {
-          color: subTextColor($color);
-        }
-        &:visited {
-          color: lighten(subTextColor($color), 5%);
-        }
-        &:hover {
-          color: lighten(subTextColor($color), 10%);
-        }
-        &:active {
-          color: lighten(subTextColor($color), 15%);
-        }
-      }
+      @include default-link-style($color);
       img {
         display: block;
         max-width: 100%;
