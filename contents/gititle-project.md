@@ -47,13 +47,7 @@ React 코드를 작성하다 보면 HTML보다는 JS에 힘이 실어진 느낌�
 
 예를 들면 같은 태그를 반복해서 사용하는 경우 React는 Js에서 map, forEach, for문 등등 여러 가지 방법으로 태그를 핸들링할 수 있다면 Vue는 HTML 태그에서 v-for을 이용해 반복한다.
 
-<br/>
-<div class="img-txt-wrap">
-  <div class="img-wrap">
-    <img width="500" src="https://user-images.githubusercontent.com/71566740/133247169-745841aa-f06c-47dd-be7e-9ad19e31767c.jpg"/>
-  </div>
-</div>
-<br/>
+![ReactView](https://user-images.githubusercontent.com/71566740/133247169-745841aa-f06c-47dd-be7e-9ad19e31767c.jpg)
 
 확실히 전체 코드 구성을 보면 React의 JSX보다 훨씬 기본 HTML에 친화적인 문법으로 코드를 작성할 수 있었다.
 
