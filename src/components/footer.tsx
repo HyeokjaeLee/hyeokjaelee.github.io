@@ -36,6 +36,8 @@ export const Footer = () => (
       </li>
     </ul>
     <p className="copyright">
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhyeokjaelee.github.io&count_bg=%23000000&title_bg=%23000000&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false" />
+      <br />
       © HyeokjaeLee. All rights reserved.
       <br />
       Powered by GitHub Pages.
