@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React from "react";
 import Gmail from "img/gmail.svg";
 import Github from "img/github.svg";
 import postProfile from "img/about-profile.jpg";
