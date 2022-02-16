@@ -57,7 +57,7 @@ const BlogSpots = ({ data }: Props) => {
     return (
       <Link to={postNode.fields.slug} className={`${style.nearPostLink} ${style.next}`}>
         <div className={style.nearPostInfo}>
-          <h3>{postNode.frontmatter.title}</h3>
+          <h4>{postNode.frontmatter.title}</h4>
           <p>{postNode.frontmatter.description}</p>
         </div>
         <RightArrow />
@@ -71,7 +71,7 @@ const BlogSpots = ({ data }: Props) => {
       <Link to={postNode.fields.slug} className={`${style.nearPostLink} ${style.prev}`}>
         <LeftArrow />
         <div className={style.nearPostInfo}>
-          <h3>{postNode.frontmatter.title}</h3>
+          <h4>{postNode.frontmatter.title}</h4>
           <p>{postNode.frontmatter.description}</p>
         </div>
       </Link>
