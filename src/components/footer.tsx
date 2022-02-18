@@ -17,20 +17,20 @@ export const Footer = () => (
       </li>
       <li>
         <a href="https://github.com/HyeokjaeLee">
-          <Github className={style.icon} />
+          <Github/>
 
           <p>Github</p>
         </a>
       </li>
       <li>
         <a href="https://www.facebook.com/leehyeokjae97">
-          <Facebook className={style.icon} />
+          <Facebook/>
           <p>Facebook</p>
         </a>
       </li>
       <li>
         <a href="https://www.instagram.com/2z_4_me/">
-          <Instagram className={style.icon} />
+          <Instagram/>
           <p>Instagram</p>
         </a>
       </li>
