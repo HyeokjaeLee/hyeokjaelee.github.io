@@ -341,7 +341,7 @@ export default function About({ location }: any) {
               <p>컴퓨터 공학과</p>
               <p>2016.03 ~ 졸업예정</p>
             </div>
-            <ul className={style.setionDescription}>
+            <ul>
               <li>
                 <a
                   style={{ marginLeft: "0" }}
