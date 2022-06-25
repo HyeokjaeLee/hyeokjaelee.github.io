@@ -40,7 +40,7 @@ CSS-in-JS 방식 자체는 요즘 트렌드이기도 하고 WEWIN의 제품이 �
 #### 단점
 
 - CSS-in-CSS 방식에 비해 성능이 떨어짐<br/>
-  레퍼런스: [Tomas Pustelnik / Real-world CSS vs. CSS-in-JS performance comparison](https://pustelto.com/blog/css-vs-css-in-js-perf/)<br/> (요약하자면 앱의 속도 개선을 위해서는 JS 절대량을 줄여라)
+  [Tomas Pustelnik / Real-world CSS vs. CSS-in-JS performance comparison](https://pustelto.com/blog/css-vs-css-in-js-perf/)<br/> (요약하자면 앱의 속도 개선을 위해서는 JS 절대량을 줄여라)
 
 - 스크립트 파일의 크기가 커지면 가독성을 해침 (특히 포메터를 사용할 경우)
 
@@ -78,62 +78,41 @@ CSS-in-JS 방식 자체는 요즘 트렌드이기도 하고 WEWIN의 제품이 �
 #### 관련 스택
 
 - CSS-Modules
-- Sass
+- SASS(SCSS)
 
-## 스타일링 방법에 대한 생각
+## 최종 선택
 
-### CSS-in-JS
+결론적으로 나는 SCSS 형식을 사용해 CSS-Modules 방식으로 리팩토링을 진행하기로 했다.
 
-- **장점**
-  - 필요한 컴포넌트 페이지의 스타일 요소만 로딩
-  - 파일 관리가 편함 / 컴포넌트간 완전한 분리가 보장 / 모듈성
-  - JS 환경을 최대한 활용
-  - 자바스크립트와 CSS 사이의 상수와 함수를 공유 (이부분이 가장 포기하기 힘든 부분)
-  - 트렌디함 / 요즘 많은 개발자들이 선호하는 방식
-    - 대표적으로 WWP FE 코드에서 확인 가능한 styled-components와 emotion을 많이 사용
-- **단점**
-  - CSS-in-CSS 방식에 비해 성능이 떨어짐 (링크 요약: 앱의 속도 개선을 위해서는 JS 절대량을 줄여라)
-    [Real-world CSS vs. CSS-in-JS performance comparison](https://pustelto.com/blog/css-vs-css-in-js-perf/)
-  - 스크립트 파일의 크기가 커지면 가독성을 해침 (특히 포메터를 사용할 경우)
-- **의견**
-  - 단점보다 장점이 많음, 충분히 고려 대상
-  - 팀원간의 컨벤션 확립후 적절하게 사용하는것이 바람직하다 생각
+여러가지 이유가 있겠지만 내가 가장 끌렸던 부분은 성능적인 부분이다.<br/> (참고로 나는 JS 내장함수들도 브라우저별 성능을 비교해보고 쓸정도로 최적화에 관심이 많다.)
 
-### Inline Style
+사실 WEWIN 제품들 그렇게 성능이 크게 필요한 제품도 아니고 SSR 방식으로 배포한다고 가정하면 더더욱 성능에서는 차이가 없다.
 
-- **장점**: 적용범위가 적고 우선도도 높아 편리함
-- **단점**: 앱 렌더링 시 객체의 주소값은 항상 다르기 때문에 가상 DOM 변화라고 인식 > 불필요한 리렌더링 발생
-- **의견**: 최대한 지양하자는 생각
+하지만 현재 우리는 교육 기업들이 학생관리에 사용할 B2B 어드민과 실제 학생들이 보게될 B2C 페이지, 코드스테이츠 내부 크루들이 사용할 백오피스 어드민 이렇게 총 3가지를 개발하고 있다.
 
-### Global stylesheet
+이중 SSR이 필요한 제품은 B2C 페이지 밖에 없기 때문에 SSR을 상정하고 개발을 진행하기엔 무리가 있다.
 
-- **장점**: 추가적인 의존성 없이 사용가능
-  - 추가적인 의존성 없이 사용가능
-  - 재사용성 자체는 가장 좋다고 생각
-- **단점**: 디테일한 컨벤션 없이는 규모가 커질수록 협업이 힘들수 있음(클래스명 중복등)
-- **의견**: 계속 확장해 나가야할 상황에서 고려해보기에는 부적합하다 생각
+현재는 미세한 차이긴 하지만 나중에는 어떤기능을 지원하게 될지 모르는 상황에서 이런 성능적 이점을 챙기지 않을 이유가 없었다.<br/>(기존 코드가 대부분 CSS-in-JS 방식으로 작성되었기 떄문에 할일이 더 많아지긴 했지만)
 
-### CSS-Modules
+그리고 내 기준으로 CSS-in-CSS 방식이 가독성이 좀더 좋다고 느꼈다.
 
-- 장점
-  - CSS-in-CSS의 장점을 가짐
-  - 컴포넌트간 분리가 어느정도 보장됨
-  - Stylesheet 파일 분리로 인해 준수한 가독성
-- 단점
-  - 파일 구조에 대한 고민이 다른 방법에 비해 많이 필요할듯
-  - 개인적으로 조금 낯선 개발 방식
-    - ex) stylesheet, script 파일 안에서 같은 selector라도 stylesheet는 하이픈표기법, script는 카멜표기법 사용
-- 의견: 전체적으로 가장 적합하다는 생각
+### SASS를 사용한 이유
 
----
+기본 CSS 대신 SASS를 사용한 이유는 여러기지 편의성 함수들과 스타일시트간 import의 성능 차이 떄문이다<br/>(기본적으로 CSS의 @import는 병렬적으로 처리되지 않는다.)
 
-## 의견 정리
+관련된 내용들은 다음 포스트에 잘 정리되어있다.<br/>
+[yceffort / CSS 성능 향상 시키기](https://yceffort.kr/2021/03/improve-css-performance)
 
-- 가독성과 성능 등에 대한 개인적인 의견으로는 CSS-Modules 방식으로 SCSS를 이용해 작성하는것이 좋다는 생각
-  - 토이프로젝트에서도 결국 같은 결론 내린후 리펙토링 진행
-- SSR을 고려한다면 CSS-in-JS의 성능적인 문제는 해결 가능
-  - 하지만 Next.js는 9.3 ver 이후에 CSS-Modules 방식을 권장
-    [Next.js 9.3](https://nextjs.org/blog/next-9-3#built-in-sass-css-module-support-for-component-level-styles)
-- Next.js 도입을 고려하는 상황에서 CSS-Modules을 사용하는 방향으로 컨벤션을 확립한다면 추후 발생 가능한 혼란을 최소화 할수 있다고 생각
-- 현재 사용하고 있는 Chakra UI와 같이 사용했을때 나타날 수 있는 문제점 생각해봐야함
-- CSS-Modules 방식을 선택 후 개발 패턴을 적용했을때 효율적인 파일구조가 어떤것일지 고민해봐야함
+최근에 SASS에서 지원하는 여러가지 기능들이 CSS에서도 지원되기 시작했지만 아직 실험적인 기능들이 많고 브라우저별 호환성도 천차만별이라 SASS를 선택했다.
+
+### CSS-Modules을 사용한 이유
+
+CSS-Modules을 사용한 이유는 CSS-in-JS 처럼 컴포넌트간 분리를 원했으며 클래스명 작명 컨벤션을 만드는것 보다 컴포넌트 단위로 스타일시트가 종속되는게 구조 파악에 용이하고 생각했기 떄문이다.
+
+조금 덧붙이자면 Next.js는 [9.3 ver](https://nextjs.org/blog/next-9-3#built-in-sass-css-module-support-for-component-level-styles) 이후 CSS-Modules 방식을 권장했다.
+
+B2C 페이지에 Next.js 도입을 고려하는 상황에서 CSS-Modules을 사용하는 방향으로 컨벤션을 확립한다면 추후 발생 가능한 혼란을 최소화 할수 있다고 생각했다.
+
+<br/>내 개인적인 선호가 영향을 주지 않았다면 거짓말이겠지만 적어도 레퍼런스와 고민없이 선택한것이 아니라고 말하고싶다.
+
+추가적으로 이러한 방밥을 적용하고 이후 개발 패턴을 적용했을때 효율적인 파일구조가 어떤것일지 고민해봐야할것 같다.
