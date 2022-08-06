@@ -1,0 +1,94 @@
+@import "../fonts/font.css";
+@import "./libs";
+
+body {
+  width: 100%;
+}
+button {
+  cursor: pointer;
+}
+
+html {
+  font-size: 16px;
+  @media (max-width: 660px) {
+    font-size: 14px;
+  }
+  font-family: "NotoSans";
+  font-weight: 400;
+  * {
+    word-break: keep-all;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.display-none {
+  visibility: hidden;
+}
+
+.box-shadow {
+  box-shadow: $BOX_SHADOW;
+}
+
+@mixin body($color: $LIGHT_COLOR) {
+  background: url(../img/overlay.png), $color;
+  color: textColor($color);
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: textColor($color);
+    word-break: break-all;
+  }
+  svg {
+    fill: textColor($color);
+  }
+}
+
+.main-wrap {
+  margin-top: 3.5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  max-width: 60em;
+  width: 100%;
+  padding: 5em 1em;
+  transition: padding 0.1s;
+  @media (max-width: 660px) {
+    padding: 4em 0.5em;
+  }
+  overflow: hidden;
+  &.entered {
+    @include fade-in(0.5s);
+  }
+  &.entering {
+    position: absolute;
+    opacity: 0;
+  }
+  &.exiting {
+    @include fade-out(0.5s, 0.2s);
+  }
+}
+
+.body {
+  @include body;
+}
+.body-dark {
+  @include body($DARK_COLOR);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}

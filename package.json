@@ -1,0 +1,52 @@
+{
+  "name": "hyeokjaelee.github.io",
+  "description": "Blog",
+  "author": "HyeokjaeLee",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "start": "npm run develop",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
+  },
+  "devDependencies": {
+    "@deckdeckgo/highlight-code": "^4.3.0",
+    "@types/react-helmet": "^6.1.5",
+    "@types/react-transition-group": "^4.4.5",
+    "axios": ">=0.27.2",
+    "gatsby": "next",
+    "gatsby-plugin-layout": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-react-svg": "^3.1.0",
+    "gatsby-plugin-sass": "^5.17.0",
+    "gatsby-plugin-sitemap": "^5.17.0",
+    "gatsby-plugin-typescript": "^4.17.0",
+    "gatsby-remark-emoji": "0.0.3",
+    "gatsby-remark-highlight-code": "^3.2.0",
+    "gatsby-source-filesystem": "^4.17.0",
+    "gatsby-transformer-remark": "^5.17.0",
+    "gh-pages": "^4.0.0",
+    "immer": ">=9.0.15",
+    "object-path": ">=0.11.8",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-transition-group": "^4.4.2",
+    "sanitize-html": ">=2.7.0",
+    "sass": "^1.53.0",
+    "set-value": ">=4.1.0",
+    "trim": ">=1.0.1",
+    "ws": ">=8.8.0"
+  },
+  "dependencies": {
+    "gatsby-plugin-robots-txt": "^1.7.1",
+    "lodash": "^4.17.21"
+  }
+}
