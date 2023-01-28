@@ -2943,7 +2943,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^18.0.27":
   version: 18.0.27
   resolution: "@types/react@npm:18.0.27"
   dependencies:
@@ -7304,11 +7304,13 @@ __metadata:
   dependencies:
     "@fontsource/merriweather": ^4.5.14
     "@fontsource/montserrat": ^4.5.14
+    "@types/react": ^18.0.27
     gatsby: ^5.5.0
     gatsby-plugin-feed: ^5.5.0
     gatsby-plugin-image: ^3.5.0
     gatsby-plugin-manifest: ^5.5.0
     gatsby-plugin-sharp: ^5.5.0
+    gatsby-plugin-typescript: ^5.5.0
     gatsby-remark-images: ^7.5.0
     gatsby-remark-prismjs: ^7.5.0
     gatsby-remark-responsive-iframe: ^6.5.0
@@ -7319,6 +7321,7 @@ __metadata:
     prismjs: ^1.29.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    typescript: ^4.9.4
   languageName: unknown
   linkType: soft
 
@@ -13719,6 +13722,26 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^4.9.4":
+  version: 4.9.4
+  resolution: "typescript@npm:4.9.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+  version: 4.9.4
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
   languageName: node
   linkType: hard
 
