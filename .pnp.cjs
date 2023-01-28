@@ -28,8 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@fontsource/merriweather", "npm:4.5.14"],\
-            ["@fontsource/montserrat", "npm:4.5.14"],\
+            ["@fontsource/noto-sans-kr", "npm:4.5.12"],\
             ["@types/react", "npm:18.0.27"],\
             ["gatsby", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-feed", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
@@ -2606,20 +2605,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@fontsource/merriweather", [\
-        ["npm:4.5.14", {\
-          "packageLocation": "./.yarn/cache/@fontsource-merriweather-npm-4.5.14-f76ee662c1-c91aca76c8.zip/node_modules/@fontsource/merriweather/",\
+      ["@fontsource/noto-sans-kr", [\
+        ["npm:4.5.12", {\
+          "packageLocation": "./.yarn/cache/@fontsource-noto-sans-kr-npm-4.5.12-58cd1a07fc-45839892a6.zip/node_modules/@fontsource/noto-sans-kr/",\
           "packageDependencies": [\
-            ["@fontsource/merriweather", "npm:4.5.14"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fontsource/montserrat", [\
-        ["npm:4.5.14", {\
-          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-4.5.14-424dfc1503-c5ee54bdc7.zip/node_modules/@fontsource/montserrat/",\
-          "packageDependencies": [\
-            ["@fontsource/montserrat", "npm:4.5.14"]\
+            ["@fontsource/noto-sans-kr", "npm:4.5.12"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10425,8 +10415,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["gatsby-starter-blog", "workspace:."],\
-            ["@fontsource/merriweather", "npm:4.5.14"],\
-            ["@fontsource/montserrat", "npm:4.5.14"],\
+            ["@fontsource/noto-sans-kr", "npm:4.5.12"],\
             ["@types/react", "npm:18.0.27"],\
             ["gatsby", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-feed", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\

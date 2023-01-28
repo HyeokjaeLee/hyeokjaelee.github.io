@@ -1485,17 +1485,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/merriweather@npm:^4.5.14":
-  version: 4.5.14
-  resolution: "@fontsource/merriweather@npm:4.5.14"
-  checksum: c91aca76c8a5e1fb1e7c0d31b064d7b1f8f0eb9c80d0d17a6f7dcd466074dddf62956009377e2429843ca282b404f98df68c5afe2d941d08d1d9a33cb4a3b3c5
-  languageName: node
-  linkType: hard
-
-"@fontsource/montserrat@npm:^4.5.14":
-  version: 4.5.14
-  resolution: "@fontsource/montserrat@npm:4.5.14"
-  checksum: c5ee54bdc7abb378240d613a0dd59ce4879bdfbe6c5168b324245dd3e031a410e321289bf9be614265e16d7319f16d39090b8f00f54e631c6d35e9cb2f8d652a
+"@fontsource/noto-sans-kr@npm:^4.5.12":
+  version: 4.5.12
+  resolution: "@fontsource/noto-sans-kr@npm:4.5.12"
+  checksum: 45839892a66c5a5c0d797c286e88ac4dd8833e4d1bb1a8f22b988cdf10bd1369ea96eb2e1ebfbec8fc290ed3b06304147ccbfc092e82fb7b61c4695e03d05aba
   languageName: node
   linkType: hard
 
@@ -7379,8 +7372,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-starter-blog@workspace:."
   dependencies:
-    "@fontsource/merriweather": ^4.5.14
-    "@fontsource/montserrat": ^4.5.14
+    "@fontsource/noto-sans-kr": ^4.5.12
     "@types/react": ^18.0.27
     gatsby: ^5.5.0
     gatsby-plugin-feed: ^5.5.0

@@ -2,14 +2,13 @@
   "name": "gatsby-starter-blog",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@fontsource/merriweather": "^4.5.14",
-    "@fontsource/montserrat": "^4.5.14",
+    "@fontsource/noto-sans-kr": "^4.5.12",
     "@types/react": "^18.0.27",
     "gatsby": "^5.5.0",
     "gatsby-plugin-feed": "^5.5.0",
