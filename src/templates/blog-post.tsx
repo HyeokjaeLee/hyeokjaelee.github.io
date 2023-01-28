@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import { Seo, DefaultLayout, Bio } from "../components";
+import { Seo, Layout, Bio } from "../components";
 import { PageProps } from "gatsby";
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -10,7 +10,7 @@ const BlogPostTemplate = ({
   const siteTitle = site.siteMetadata?.title || `Title`;
 
   return (
-    <DefaultLayout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <article
         className="blog-post"
         itemScope
@@ -55,7 +55,7 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-    </DefaultLayout>
+    </Layout>
   );
 };
 

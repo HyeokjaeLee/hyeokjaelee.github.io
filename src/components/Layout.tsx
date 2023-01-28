@@ -2,17 +2,13 @@ import { Link } from "gatsby";
 import React from "react";
 import type { PageProps } from "gatsby";
 
-interface DefaultLayoutProps {
+interface LayoutProps {
   title: string;
   location: PageProps["location"];
   children: React.ReactNode;
 }
 
-export const DefaultLayout = ({
-  location,
-  title,
-  children,
-}: DefaultLayoutProps) => {
+export const Layout = ({ location, title, children }: LayoutProps) => {
   const rootPath = "/";
   const isRootPath = location.pathname === rootPath;
   let header;
