@@ -3,7 +3,7 @@
     "target": "ES6",
     "module": "commonjs",
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -12,8 +12,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.tsx"]
 }
