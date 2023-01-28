@@ -14,7 +14,7 @@ interface SeoProps {
   children?: React.ReactNode;
 }
 
-const Seo = ({ description, title, children }: SeoProps) => {
+export const Seo = ({ description, title, children }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -52,5 +52,3 @@ const Seo = ({ description, title, children }: SeoProps) => {
     </>
   );
 };
-
-export default Seo;
