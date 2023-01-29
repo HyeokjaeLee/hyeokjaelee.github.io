@@ -8,7 +8,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { GitHub, Linkedin, Mail } from "react-feather";
-import { useColorStore } from "../stores";
+import { useDarkModeStore } from "../stores";
 
 export const Bio = () => {
   const data: {
@@ -43,15 +43,38 @@ export const Bio = () => {
     }
   `);
 
-  const borderColor = useColorStore(state => state.borderColor);
+  const [fontColor, borderColor] = useDarkModeStore(state => [
+    state.fontColor,
+    state.borderColor,
+  ]);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author;
   const social = data.site.siteMetadata?.social;
 
+  const linkInfo = [
+    {
+      name: "GitHub",
+      href: `https://github.com/${social.github}`,
+      logo: GitHub,
+      target: "_blank",
+    },
+    {
+      name: "LinkedIn",
+      href: `https://www.linkedin.com/in/${social.linkedin}`,
+      logo: Linkedin,
+      target: "_blank",
+    },
+    {
+      name: "Email",
+      href: `mailto:${social.email}`,
+      logo: Mail,
+    },
+  ];
+
   return (
     <div
-      className={`flex gap-10 flex-wrap pb-10 mb-10 border-b-[1px] border-${borderColor}`}
+      className={`flex gap-10 flex-wrap pb-10 mb-10 border-b-[1px] ${borderColor}`}
     >
       <div>
         <StaticImage
@@ -69,18 +92,19 @@ export const Bio = () => {
         <h2 className="text-2xl font-bold">취미로 코딩하는 개발자</h2>
         <p>{author?.summary || null}</p>
         <div className="flex gap-3 pt-3">
-          <a href={`https://github.com/${social.github}`} target="_blank">
-            <GitHub />
-          </a>
-          <a
-            href={`https://www.linkedin.com/in/${social.linkedin}`}
-            target="_blank"
-          >
-            <Linkedin />
-          </a>
-          <a href={`mailto:${social.email}`}>
-            <Mail />
-          </a>
+          {linkInfo.map(({ logo: Logo, name, ...linkProps }) => (
+            <a
+              {...linkProps}
+              className="relative group flex justify-center items-center rounded-[100%] w-[2.5rem] h-[2.5rem] hover:transition-all duration-100 ease-in-out hover:bg-zinc-600  hover:text-zinc-200 active:bg-yellow-300"
+            >
+              <Logo size="1.4em" />
+              <span
+                className={`hidden absolute group-hover:block top-[2.7rem] text-xs ${fontColor}`}
+              >
+                {name}
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </div>

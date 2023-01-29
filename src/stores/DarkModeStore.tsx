@@ -7,23 +7,23 @@ interface ChangingColors {
 }
 
 const whiteModeColors: ChangingColors = {
-  borderColor: "zinc-200",
-  backgroundColor: "slate-50",
-  fontColor: "zinc-900",
+  borderColor: "border-zinc-300",
+  backgroundColor: "bg-zinc-100",
+  fontColor: "text-zinc-800",
 };
 
 const darkModeColors: ChangingColors = {
-  borderColor: "zinc-800",
-  backgroundColor: "zinc-900",
-  fontColor: "slate-50",
+  borderColor: "border-zinc-600",
+  backgroundColor: "bg-zinc-800",
+  fontColor: "text-zinc-300",
 };
 
-interface ColorStore extends ChangingColors {
+interface DarkModeStore extends ChangingColors {
   darkMode: boolean;
   setDarkMode: (darkMode: boolean) => void;
 }
 
-export const useColorStore = create<ColorStore>(set => ({
+export const useDarkModeStore = create<DarkModeStore>(set => ({
   ...whiteModeColors,
   darkMode: false,
   setDarkMode: (darkMode: boolean) => {

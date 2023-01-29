@@ -11,7 +11,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location}>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
