@@ -5,7 +5,11 @@ module.exports = {
     "./src/components/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        dohyeon: ["배달의민족 도현", "배달의민족도현", "bm-dohyeon"],
+      },
+    },
   },
   plugins: [],
 };

@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import type { PageProps } from "gatsby";
 import { Logo } from "./Logo";
+import { useColorStore } from "../stores";
 interface LayoutProps {
   title: string;
   location: PageProps["location"];
@@ -27,12 +28,23 @@ export const Layout = ({ location, title, children }: LayoutProps) => {
     );
   }
 
+  const [borderColor, backgroundColor, fontColor, darkMode, setDarkMode] =
+    useColorStore(state => [
+      state.borderColor,
+      state.backgroundColor,
+      state.fontColor,
+      state.darkMode,
+      state.setDarkMode,
+    ]);
+  console.log(darkMode);
   return (
     <div
       data-is-root-path={isRootPath}
-      className="flex flex-col min-h-[100vh] items-center"
+      className={`flex flex-col min-h-[100vh] items-center bg-${backgroundColor} text-${fontColor}`}
     >
-      <header className="w-full flex flex-col items-center border-b-[1px] border-x-cyan-100">
+      <header
+        className={`w-full flex flex-col items-center border-b-[1px] border-${borderColor}`}
+      >
         <nav className={`${DEFAULT_WIDTH} flex items-center justify-between`}>
           <Link to="/">
             <Logo height="4rem" width="4rem" />
@@ -45,14 +57,20 @@ export const Layout = ({ location, title, children }: LayoutProps) => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <button
+                onClick={() => {
+                  setDarkMode(!darkMode);
+                }}
+              >
+                {darkMode ? "🌞" : "🌙"}
+              </button>
             </li>
           </ul>
         </nav>
       </header>
       <main className={`${DEFAULT_WIDTH} py-10 flex-1`}>{children}</main>
       <footer
-        className={`${DEFAULT_WIDTH} py-10 border-t-[1px] border-x-cyan-100`}
+        className={`${DEFAULT_WIDTH} py-10 border-t-[1px] border-${borderColor}`}
       >
         <p className="font-bold">Designed by Leehyeokjae</p>
         <p className="text-sm">

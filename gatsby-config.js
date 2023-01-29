@@ -17,16 +17,15 @@ module.exports = {
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
       github: "HyeokjaeLee",
       linkedin: "hyeokjae-lee-844042225",
+      email: "leehyeokjae97@gamil.com",
     },
   },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-typescript`,
     "gatsby-plugin-postcss",
-    "gatsby-plugin-react-svg",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

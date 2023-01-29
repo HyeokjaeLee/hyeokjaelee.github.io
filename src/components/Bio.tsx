@@ -7,6 +7,8 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { GitHub, Linkedin, Mail } from "react-feather";
+import { useColorStore } from "../stores";
 
 export const Bio = () => {
   const data: {
@@ -19,6 +21,7 @@ export const Bio = () => {
         social: {
           github: string;
           linkedin: string;
+          email: string;
         };
       };
     };
@@ -33,18 +36,23 @@ export const Bio = () => {
           social {
             github
             linkedin
+            email
           }
         }
       }
     }
   `);
 
+  const borderColor = useColorStore(state => state.borderColor);
+
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author;
   const social = data.site.siteMetadata?.social;
 
   return (
-    <div className="flex gap-10 flex-wrap">
+    <div
+      className={`flex gap-10 flex-wrap pb-10 mb-10 border-b-[1px] border-${borderColor}`}
+    >
       <div>
         <StaticImage
           className="rounded-full"
@@ -58,8 +66,22 @@ export const Bio = () => {
         />
       </div>
       <div>
-        <h2 className="text-2xl">취미로 코딩하는 개발자</h2>
-        {author?.name && <p>{author?.summary || null}</p>}
+        <h2 className="text-2xl font-bold">취미로 코딩하는 개발자</h2>
+        <p>{author?.summary || null}</p>
+        <div className="flex gap-3 pt-3">
+          <a href={`https://github.com/${social.github}`} target="_blank">
+            <GitHub />
+          </a>
+          <a
+            href={`https://www.linkedin.com/in/${social.linkedin}`}
+            target="_blank"
+          >
+            <Linkedin />
+          </a>
+          <a href={`mailto:${social.email}`}>
+            <Mail />
+          </a>
+        </div>
       </div>
     </div>
   );
