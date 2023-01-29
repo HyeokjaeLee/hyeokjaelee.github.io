@@ -11,19 +11,22 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Hyoekjae Lee`,
+      summary: "Front-end Engineer",
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       twitter: `kylemathews`,
+      github: "HyeokjaeLee",
+      linkedin: "hyeokjae-lee-844042225",
     },
   },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-typescript`,
     "gatsby-plugin-postcss",
+    "gatsby-plugin-react-svg",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

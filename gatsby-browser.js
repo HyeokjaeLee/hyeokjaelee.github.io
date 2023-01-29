@@ -1,5 +1,5 @@
 // custom typefaces
-import "@fontsource/noto-sans-kr";
+import "@kfonts/nanum-square-round-otf";
 
 // global styles
 import "./src/style/global.css";

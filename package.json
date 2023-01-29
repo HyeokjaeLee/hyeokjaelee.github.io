@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "@fontsource/noto-sans-kr": "^4.5.12",
+    "@kfonts/bm-dohyeon": "^0.1.3",
+    "@kfonts/nanum-gothic": "^0.1.3",
+    "@kfonts/nanum-square-round-otf": "^0.1.3",
     "@types/react": "^18.0.27",
     "gatsby": "^5.5.0",
     "gatsby-plugin-feed": "^5.5.0",
     "gatsby-plugin-image": "^3.5.0",
     "gatsby-plugin-manifest": "^5.5.0",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.5.0",
     "gatsby-plugin-typescript": "^5.5.0",
     "gatsby-remark-images": "^7.5.0",
@@ -24,7 +28,8 @@
     "gatsby-transformer-sharp": "^5.5.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "svg-react-loader": "^0.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
