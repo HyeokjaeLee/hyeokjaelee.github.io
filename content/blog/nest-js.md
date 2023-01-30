@@ -223,7 +223,12 @@ export class TestMiddleware2 implements NestMiddleware {
 `AppModule`에는 다음과 같은 코드를 추가해준다.
 
 ```typescript
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from "@nestjs/common";
 import { AppController, TestController } from "./app.controller";
 import { AppService } from "./app.service";
 import { TestMiddleware, TestMiddleware2 } from "./middleware/TestMiddleware";

@@ -94,6 +94,7 @@ export const Bio = () => {
         <div className="flex gap-3 pt-3">
           {linkInfo.map(({ logo: Logo, name, ...linkProps }) => (
             <a
+              key={name}
               {...linkProps}
               className="relative group flex justify-center items-center rounded-[100%] w-[2.5rem] h-[2.5rem] hover:transition-all duration-100 ease-in-out hover:bg-zinc-600  hover:text-zinc-200 active:bg-yellow-300"
             >
