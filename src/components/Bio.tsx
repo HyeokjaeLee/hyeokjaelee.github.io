@@ -10,7 +10,11 @@ import { StaticImage } from "gatsby-plugin-image";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import { useDarkModeStore } from "../stores";
 
-export const Bio = () => {
+interface BioProps {
+  border?: boolean;
+}
+
+export const Bio = ({ border = true }: BioProps) => {
   const data: {
     site: {
       siteMetadata: {
@@ -74,7 +78,9 @@ export const Bio = () => {
 
   return (
     <div
-      className={`flex gap-10 flex-wrap pb-10 mb-10 border-b-[1px] ${borderColor}`}
+      className={`flex gap-10 flex-wrap pb-10 mb-10 ${
+        border ? borderColor + " border-b" : ""
+      }`}
     >
       <div>
         <StaticImage

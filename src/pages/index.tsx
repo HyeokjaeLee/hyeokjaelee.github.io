@@ -116,7 +116,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
         </ol>
         <div
           ref={loadingRef}
-          className={`min-h-[1000px] flex-1 ${isAllPostShow ? "hidden" : ""}`}
+          className={`min-h-[86px] flex-1 ${isAllPostShow ? "hidden" : ""}`}
         />
       </div>
     </Layout>

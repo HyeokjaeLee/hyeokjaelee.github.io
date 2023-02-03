@@ -32,12 +32,12 @@ export const Layout = ({ location, children, footerHidden }: LayoutProps) => {
   return (
     <div
       data-is-root-path={isRootPath}
-      className={`flex flex-col min-h-[100vh] items-center ${backgroundColor} ${fontColor}`}
+      className={`flex flex-col min-h-[100vh] items-center ${backgroundColor} duration-300 ${fontColor}`}
     >
       <header
         className={`w-full flex flex-col items-center ${
           position ? "shadow-xl rounded-b-3xl" : "border-b-[1px]"
-        } ${borderColor} sticky top-0 ${backgroundColor} z-10 transition-all duration-300 ease-linear`}
+        } ${borderColor} sticky top-0 ${backgroundColor} z-10 duration-300`}
       >
         <nav className={`${DEFAULT_WIDTH} flex items-center justify-between`}>
           <Link to="/">
@@ -52,7 +52,7 @@ export const Layout = ({ location, children, footerHidden }: LayoutProps) => {
             </li>
             <li>
               <button
-                className={`flex justify-center items-center rounded-[100%] p-2 hover:transition-all duration-300 ease-in-out ${
+                className={`flex justify-center items-center rounded-[100%] p-2 duration-300 ${
                   darkMode ? "hover:bg-zinc-600" : "hover:bg-zinc-300"
                 } active:bg-yellow-500`}
                 onClick={() => {
