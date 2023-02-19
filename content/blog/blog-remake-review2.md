@@ -4,6 +4,7 @@ titleImage: "https://user-images.githubusercontent.com/71566740/138983411-937425
 description: "Next.js에서 Gatsby로 블로그를 이전하고 느낀점"
 date: "2021-12-01"
 tags: [Project]
+emoji: "🚧"
 ---
 
 사실 블로그가 사용가능할 정도로 완성된건 시간이 좀 지났지만 최근에 다른 토이 프로젝트들을 수정해야 하는 일들이 많아 이제야 글을 작성한다.

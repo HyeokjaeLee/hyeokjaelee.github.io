@@ -4,6 +4,7 @@ titleImage: "https://user-images.githubusercontent.com/71566740/139354021-96e057
 description: "Typescript를 이용한 NestJS 코드 작성"
 date: "2021-10-29"
 tags: [Backend, Typescript]
+emoji: "🚧"
 ---
 
 > 내용1

@@ -4,6 +4,7 @@ titleImage: "https://user-images.githubusercontent.com/71566740/138984519-ab414f
 description: "Next.js에서 Gatsby로 블로그를 이전하면서 느낀점"
 date: "2021-08-02"
 tags: [Project]
+emoji: "🚧"
 ---
 
 나는 Next.JS로 제작한 기존 블로그를 운영 중이었다.

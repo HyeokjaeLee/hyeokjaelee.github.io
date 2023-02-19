@@ -6,7 +6,7 @@ import { Layout, Bio, Seo } from "../components";
 import { PageProps } from "gatsby";
 
 import { useDarkModeStore } from "../stores";
-import { useEffect, useMemo, useRef, useState, useLayoutEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -80,10 +80,10 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
                     darkMode
                       ? "hover:bg-zinc-100 hover:text-zinc-800"
                       : "hover:bg-zinc-800 hover:text-zinc-300"
-                  } hover:shadow-lg transition-all duration-200 ease-in-out rounded-xl hover:ml-7 block`}
+                  } hover:shadow-lg transition-all duration-200 ease-in-out hover:ml-7 block rounded-container`}
                 >
                   <article
-                    className="flex justify-between"
+                    className="flex justify-between flex-wrap"
                     itemScope
                     itemType="http://schema.org/Article"
                   >
@@ -116,7 +116,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
         </ol>
         <div
           ref={loadingRef}
-          className={`min-h-[86px] flex-1 ${isAllPostShow ? "hidden" : ""}`}
+          className={`min-h-[300px] flex-1 ${isAllPostShow ? "hidden" : ""}`}
         />
       </div>
     </Layout>

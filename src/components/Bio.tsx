@@ -78,13 +78,13 @@ export const Bio = ({ border = true }: BioProps) => {
 
   return (
     <div
-      className={`flex gap-10 flex-wrap pb-10 mb-10 ${
+      className={`flex items-center gap-5 flex-wrap pb-10 mb-10 ${
         border ? borderColor + " border-b" : ""
       }`}
     >
       <div>
         <StaticImage
-          className="rounded-full"
+          className="rounded-container"
           layout="fixed"
           formats={["auto", "webp", "avif"]}
           src="../images/profile-pic.png"
@@ -95,18 +95,17 @@ export const Bio = ({ border = true }: BioProps) => {
         />
       </div>
       <div>
-        <h2 className="text-2xl font-bold">취미로 코딩하는 개발자</h2>
-        <p>{author?.summary || null}</p>
-        <div className="flex gap-3 pt-3">
+        <h2 className="text-2xl font-bold">취미로 코딩하는 사람</h2>
+        <div className="flex pt-1">
           {linkInfo.map(({ logo: Logo, name, ...linkProps }) => (
             <a
               key={name}
               {...linkProps}
-              className="relative group flex justify-center items-center rounded-[100%] w-[2.5rem] h-[2.5rem] hover:transition-all duration-100 ease-in-out hover:bg-zinc-600  hover:text-zinc-200 active:bg-yellow-300"
+              className="relative group flex justify-center items-center rounded-[100%] w-[2.2em] h-[2.2em] hover:transition-all duration-100 ease-in-out hover:bg-zinc-600  hover:text-zinc-200"
             >
-              <Logo size="1.4em" />
+              <Logo size="1.2em" />
               <span
-                className={`hidden absolute group-hover:block top-[2.7rem] text-xs ${fontColor}`}
+                className={`hidden absolute group-hover:block top-10 text-xs ${fontColor}`}
               >
                 {name}
               </span>

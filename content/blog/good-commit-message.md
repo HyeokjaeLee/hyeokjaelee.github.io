@@ -4,6 +4,7 @@ titleImage: "https://user-images.githubusercontent.com/71566740/139002400-e36dc3
 description: "Git Commit Message 작성을 위한 나와의 약속"
 date: "2021-07-03"
 tags: [Git]
+emoji: "🚧"
 ---
 
 커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 한다.
