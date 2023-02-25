@@ -5,6 +5,8 @@ interface ChangingColors {
   backgroundColor: string;
   subBackgroundColor: string;
   fontColor: string;
+  subFontColor: string;
+  thrirdFontColor: string;
 }
 
 const whiteModeColors: ChangingColors = {
@@ -12,6 +14,8 @@ const whiteModeColors: ChangingColors = {
   backgroundColor: "bg-light-mode-main",
   subBackgroundColor: "bg-light-mode-sub",
   fontColor: "text-light-mode-main",
+  subFontColor: "text-light-mode-sub",
+  thrirdFontColor: "text-light-mode-third",
 };
 
 const darkModeColors: ChangingColors = {
@@ -19,6 +23,8 @@ const darkModeColors: ChangingColors = {
   backgroundColor: "bg-dark-mode-main",
   subBackgroundColor: "bg-dark-mode-sub",
   fontColor: "text-dark-mode-main",
+  subFontColor: "text-dark-mode-sub",
+  thrirdFontColor: "text-dark-mode-third",
 };
 
 interface DarkModeStore extends ChangingColors {

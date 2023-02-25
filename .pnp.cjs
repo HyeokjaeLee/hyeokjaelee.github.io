@@ -28,13 +28,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@kfonts/bm-dohyeon", "npm:0.1.3"],\
             ["@kfonts/nanum-square-round-otf", "npm:0.1.3"],\
+            ["@tailwindcss/line-clamp", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:0.4.2"],\
             ["@types/react", "npm:18.0.27"],\
             ["autoprefixer", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:10.4.13"],\
             ["gatsby", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-feed", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-image", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:3.5.0"],\
+            ["gatsby-plugin-layout", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:4.7.0"],\
             ["gatsby-plugin-manifest", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-postcss", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:6.5.0"],\
             ["gatsby-plugin-sharp", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
@@ -2538,6 +2539,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["regenerator-runtime", "npm:0.13.11"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:7.21.0", {\
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.21.0-c4ef698c89-7b33e25bfa.zip/node_modules/@babel/runtime/",\
+          "packageDependencies": [\
+            ["@babel/runtime", "npm:7.21.0"],\
+            ["regenerator-runtime", "npm:0.13.11"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@babel/template", [\
@@ -3262,15 +3271,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/trace-mapping", "npm:0.3.17"],\
             ["@jridgewell/resolve-uri", "npm:3.1.0"],\
             ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@kfonts/bm-dohyeon", [\
-        ["npm:0.1.3", {\
-          "packageLocation": "./.yarn/cache/@kfonts-bm-dohyeon-npm-0.1.3-b33cec5522-fc1c0ae26c.zip/node_modules/@kfonts/bm-dohyeon/",\
-          "packageDependencies": [\
-            ["@kfonts/bm-dohyeon", "npm:0.1.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4237,6 +4237,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@szmarczak/http-timer", "npm:5.0.1"],\
             ["defer-to-connect", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tailwindcss/line-clamp", [\
+        ["npm:0.4.2", {\
+          "packageLocation": "./.yarn/cache/@tailwindcss-line-clamp-npm-0.4.2-7e8725ef00-26b8135df2.zip/node_modules/@tailwindcss/line-clamp/",\
+          "packageDependencies": [\
+            ["@tailwindcss/line-clamp", "npm:0.4.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:0.4.2", {\
+          "packageLocation": "./.yarn/__virtual__/@tailwindcss-line-clamp-virtual-c64ce5298b/0/cache/@tailwindcss-line-clamp-npm-0.4.2-7e8725ef00-26b8135df2.zip/node_modules/@tailwindcss/line-clamp/",\
+          "packageDependencies": [\
+            ["@tailwindcss/line-clamp", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:0.4.2"],\
+            ["@types/tailwindcss", null],\
+            ["tailwindcss", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:3.2.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/tailwindcss",\
+            "tailwindcss"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10023,6 +10045,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["gatsby-plugin-layout", [\
+        ["npm:4.7.0", {\
+          "packageLocation": "./.yarn/cache/gatsby-plugin-layout-npm-4.7.0-3d0b72b702-3519fe824b.zip/node_modules/gatsby-plugin-layout/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-layout", "npm:4.7.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:4.7.0", {\
+          "packageLocation": "./.yarn/__virtual__/gatsby-plugin-layout-virtual-346932d837/0/cache/gatsby-plugin-layout-npm-4.7.0-3d0b72b702-3519fe824b.zip/node_modules/gatsby-plugin-layout/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-layout", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:4.7.0"],\
+            ["@babel/runtime", "npm:7.21.0"],\
+            ["@types/gatsby", null],\
+            ["gatsby", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/gatsby",\
+            "gatsby"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["gatsby-plugin-manifest", [\
         ["npm:5.5.0", {\
           "packageLocation": "./.yarn/cache/gatsby-plugin-manifest-npm-5.5.0-d88366678a-ca001fcfcb.zip/node_modules/gatsby-plugin-manifest/",\
@@ -10437,13 +10482,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["gatsby-starter-blog", "workspace:."],\
-            ["@kfonts/bm-dohyeon", "npm:0.1.3"],\
             ["@kfonts/nanum-square-round-otf", "npm:0.1.3"],\
+            ["@tailwindcss/line-clamp", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:0.4.2"],\
             ["@types/react", "npm:18.0.27"],\
             ["autoprefixer", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:10.4.13"],\
             ["gatsby", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-feed", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-image", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:3.5.0"],\
+            ["gatsby-plugin-layout", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:4.7.0"],\
             ["gatsby-plugin-manifest", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\
             ["gatsby-plugin-postcss", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:6.5.0"],\
             ["gatsby-plugin-sharp", "virtual:e3e6c79b4e4b15bb646c1869dd45f892ed00dfa42c1ea5c0e349b850e62661e67bcc3b04e80311c5adb511b4f343fdef295a6361c1cc3f27eccbe809a90411bc#npm:5.5.0"],\

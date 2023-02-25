@@ -6,15 +6,13 @@ module.exports = {
     "./src/components/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      pc: "1200px",
+      tablet: "850px",
+    },
     extend: {
-      fontFamily: {
-        dohyeon: ["배달의민족 도현", "배달의민족도현", "bm-dohyeon"],
-      },
       borderRadius: {
         container: "6px",
-      },
-      borderWidth: {
-        1: "1px",
       },
       borderColor: {
         "light-mode": "#e1e4e8",
@@ -23,8 +21,10 @@ module.exports = {
       textColor: {
         "light-mode-main": "#24292e",
         "light-mode-sub": "#586069",
+        "light-mode-third": "#898e93",
         "dark-mode-main": "#d7d7db",
         "dark-mode-sub": "#ededf0",
+        "dark-mode-third": "#82949e",
         link: "#0366d6",
         nav: "#f0f6fc",
       },
@@ -38,5 +38,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

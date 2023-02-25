@@ -61,34 +61,42 @@ export const Searchbox = () => {
     [searchTextArray, nodes, standardizeString]
   );
 
-  const [focused, setFocused] = useState<boolean>();
+  const [opened, setOpened] = useState<boolean | "closing">(false);
 
-  const [hoveredPostIndex, setHoveredPostIndex] = useState<number>();
+  const close = useCallback(() => {
+    setOpened("closing");
+    setTimeout(() => setOpened(false), 300);
+  }, []);
+
+  const isOpened = opened === true;
+
+  const [hoveredPostIndex, setHoveredPostIndex] = useState(-1);
 
   useEffect(() => {
-    if (focused) {
-      const keyboardEvent = ({ key }: KeyboardEvent) => {
-        switch (key) {
+    if (isOpened) {
+      const keyboardEvent = (event: KeyboardEvent) => {
+        switch (event.key) {
           case "ArrowDown":
+            event.preventDefault();
             return setHoveredPostIndex(prev => {
-              if (prev === undefined) return 0;
-              if (prev === filteredPosts.length - 1) return prev;
-              return prev + 1;
+              if (prev < 0) return 0;
+              if (prev < filteredPosts.length - 1) return prev + 1;
+              return prev;
             });
 
           case "ArrowUp":
+            event.preventDefault();
             return setHoveredPostIndex(prev => {
-              if (prev === undefined) return 0;
-              if (prev === 0) return prev;
-              return prev - 1;
+              if (prev > 0) return prev - 1;
+              return prev;
             });
 
           case "Enter":
+            event.preventDefault();
+            close();
             return setHoveredPostIndex(prev => {
-              if (prev === undefined) return;
               navigate(filteredPosts[prev].fields.slug);
-              setFocused(false);
-              return undefined;
+              return -1;
             });
 
           default:
@@ -99,37 +107,41 @@ export const Searchbox = () => {
       return () => document.removeEventListener("keydown", keyboardEvent);
     }
     return;
-  }, [focused]);
+  }, [isOpened]);
 
   return (
-    <div className="static w-full max-w-sm [&:has(:focus)]:max-w-lg [&:has(:focus)>div>svg]:hidden transition-[max-width] duration-300 ease-in-out">
-      <div className="border-1 rounded-container bg-[#0d1117] [&:has(:focus)]:rounded-b-none border-[#30363d] gap-1 px-2 flex items-center w-full h-10 text-nav relative z-10">
+    <div
+      className={`static w-full [&:has(:focus)>div>svg]:hidden transition-[max-width] duration-300 ease-in-out ${
+        opened ? "max-w-lg" : "max-w-sm"
+      }`}
+    >
+      <div className="border rounded-container bg-[#0d1117] [&:has(:focus)]:rounded-b-none border-[#30363d] gap-1 px-2 flex items-center w-full h-10 text-nav relative z-10">
         <input
-          placeholder="Search"
+          placeholder="search"
           className="focus:outline-none flex-1 bg-transparent font-medium"
           value={search}
           onChange={({ target: { value } }) => {
             setSearch(value);
             setHoveredPostIndex(undefined);
           }}
-          onClick={() => setFocused(true)}
+          onClick={() => setOpened(true)}
           onBlur={() => {
             setHoveredPostIndex(undefined);
-            setTimeout(() => setFocused(false), 300);
+            close();
           }}
         />
         <Book width="1.1em" hanging="1.1em" />
       </div>
       <div
         className={`relative ${
-          focused
-            ? "fade-in-top"
-            : focused === undefined
-            ? "hidden"
-            : "fade-out-top"
+          opened
+            ? opened === "closing"
+              ? "fade-out-top"
+              : "fade-in-top"
+            : "hidden"
         }`}
       >
-        <ul className="absolute top-[-1px] left-0 bg-[#0d1117] w-full rounded-b-container border-[#30363d] border-1">
+        <ul className="absolute top-[-1px] left-0 bg-[#0d1117] w-full rounded-b-container border-[#30363d] border">
           {filteredPosts.map((item, index) => (
             <li
               className="border-b-1 border-[#30363d] last:border-none"
@@ -146,7 +158,7 @@ export const Searchbox = () => {
                 <p className="pt-1 whitespace-nowrap overflow-hidden text-ellipsis">
                   {item.frontmatter.title}
                 </p>
-                <div className="ml-auto hidden text-xs h-[1.5em] bg-[#0d1117] items-center justify-center gap- px-1 rounded-container fade-in">
+                <div className="ml-auto hidden text-xs h-[1.5em] bg-[#0d1117] items-center justify-center gap- px-1 rounded-container fade-in whitespace-nowrap">
                   Jump to <ArrowRight width="1em" hanging="1em" />
                 </div>
               </Link>

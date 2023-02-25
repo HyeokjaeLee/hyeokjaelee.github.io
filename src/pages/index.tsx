@@ -1,17 +1,24 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import { Layout, Bio, Seo } from "../components";
+import { Bio, LimitedWidthContainer, Seo, TagFilter } from "../components";
 
 import { PageProps } from "gatsby";
 
-import { useDarkModeStore } from "../stores";
+import { useDarkModeStore, usePageInfoStore } from "../stores";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Tag, CheckCircle } from "react-feather";
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
+  const [query] = usePageInfoStore(state => [state.query]);
+  const selectedTag = query.get("tag");
   const siteTitle = data.site.siteMetadata?.title || `Title`;
 
   const posts = data.allMarkdownRemark.nodes;
+  const filteredPosts = useMemo(() => {
+    if (!selectedTag) return posts;
+    return posts.filter(post => post.frontmatter.tags.includes(selectedTag));
+  }, [selectedTag, posts]);
   const postCount = posts.length;
   const [visablePostCount, setVisablePostCount] = useState(1);
   const isAllPostShow = visablePostCount === postCount;
@@ -19,107 +26,121 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
 
   if (postCount === 0) {
     return (
-      <Layout location={location}>
+      <main>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
           gatsby-config.js).
         </p>
-      </Layout>
+      </main>
     );
   }
 
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  const loadingRef = useRef<Element>(null);
-
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) => {
-        setIntersecting(entry.isIntersecting);
-      }),
-    [loadingRef]
-  );
-
-  useEffect(() => {
-    observer.observe(loadingRef.current as Element);
-    return () => observer.disconnect();
-  }, []);
-
-  const [darkMode] = useDarkModeStore(state => [state.darkMode]);
-
-  useEffect(() => {
-    if (isIntersecting) {
-      let postForShow = visablePostCount + 1;
-      const newInterval = setInterval(() => {
-        setVisablePostCount(postForShow);
-        postForShow++;
-      }, 100);
-      return () => {
-        console.log("clearing interval");
-        clearInterval(newInterval);
-      };
-    }
-    return () => {};
-  }, [isIntersecting]);
+  const [darkMode, borderColor, thrirdFontColor] = useDarkModeStore(state => [
+    state.darkMode,
+    state.borderColor,
+    state.thrirdFontColor,
+  ]);
 
   return (
-    <Layout location={location} footerHidden={!isAllPostShow}>
-      <Bio />
-      <div className="flex flex-col">
-        <ol>
-          {visablePost.map(({ frontmatter, fields, excerpt }) => {
+    <>
+      <LimitedWidthContainer>
+        <Bio />
+      </LimitedWidthContainer>
+      <TagFilter
+        className="mb-6"
+        tags={[
+          {
+            tag: "frontend",
+            emoji: "🎨",
+          },
+          {
+            tag: "backend",
+            emoji: "⚙️",
+          },
+          {
+            tag: "data",
+            emoji: "📊",
+          },
+        ]}
+      />
+      <LimitedWidthContainer>
+        <ol className="flex flex-wrap">
+          {filteredPosts.map(({ frontmatter, fields, excerpt }) => {
             const title = frontmatter.title || fields.slug;
+            const date = new Date(frontmatter.date);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
             return (
-              <li key={fields.slug} className="fade-in-bottom">
-                <Link
-                  to={fields.slug}
-                  itemProp="url"
-                  className={`my-3 p-5 border-transparent border-b-2 ${
-                    darkMode
-                      ? "hover:bg-zinc-100 hover:text-zinc-800"
-                      : "hover:bg-zinc-800 hover:text-zinc-300"
-                  } hover:shadow-lg transition-all duration-200 ease-in-out hover:ml-7 block rounded-container`}
+              <li
+                key={fields.slug}
+                className="w-full pc:w-[33.333%] tablet:w-[50%] p-2"
+              >
+                <article
+                  className={`flex flex-col border box-border ${borderColor} rounded-container h-[240px] pt-6 pb-4 ${thrirdFontColor}`}
+                  itemScope
+                  itemType="http://schema.org/Article"
                 >
-                  <article
-                    className="flex justify-between flex-wrap"
-                    itemScope
-                    itemType="http://schema.org/Article"
+                  <section className="flex flex-col flex-1 px-6">
+                    <header className="mt-1 mb-5 flex gap-2">
+                      <h2
+                        className="flex-1 text-xl font-bold"
+                        itemProp="headline"
+                      >
+                        <Link
+                          to={fields.slug}
+                          itemProp="url"
+                          className="link line-clamp-2"
+                        >
+                          {title}
+                        </Link>
+                      </h2>
+                      <div>
+                        <small
+                          className={`${borderColor} border py-1 px-2 rounded-full font-black`}
+                        >
+                          {year}.{month}.{day}
+                        </small>
+                      </div>
+                    </header>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          `${frontmatter.emoji} ${frontmatter.description}` ||
+                          excerpt,
+                      }}
+                      itemProp="description"
+                      className={`line-clamp-3`}
+                    />
+                  </section>
+                  <section
+                    className={`px-6 flex gap-2 items-center pt-4 border-t ${borderColor}`}
                   >
-                    <section>
-                      <header>
-                        <h2 className="text-2xl" itemProp="headline">
-                          <span>{title}</span>
-                        </h2>
-                      </header>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: frontmatter.description || excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                    </section>
-                    <div className="text-end">
-                      <small>{frontmatter.date}</small>
-                      <ul className="text-xs flex gap-2 flex-wrap justify-end">
-                        {frontmatter.tags.map(tag => (
-                          <li key={`${title}-${tag}`}>#{tag}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
-                </Link>
+                    <Tag size="1.3em" />
+                    <ul className="text-sm flex flex-wrap justify-end">
+                      {frontmatter.tags.map((tag, index) => (
+                        <li
+                          key={`${title}-${tag}`}
+                          className={`${
+                            selectedTag === tag ? "font-black underline" : ""
+                          }`}
+                        >
+                          {index ? ", " : ""}
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                </article>
               </li>
             );
           })}
         </ol>
-        <div
-          ref={loadingRef}
-          className={`min-h-[300px] flex-1 ${isAllPostShow ? "hidden" : ""}`}
-        />
-      </div>
-    </Layout>
+      </LimitedWidthContainer>
+    </>
   );
 };
 
@@ -149,6 +170,7 @@ interface DataProps {
         title: string;
         description: string;
         tags: string[];
+        emoji: string;
       };
     }[];
   };
@@ -172,6 +194,7 @@ export const pageQuery = graphql`
           title
           description
           tags
+          emoji
         }
       }
     }

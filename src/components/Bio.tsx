@@ -9,6 +9,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import { useDarkModeStore } from "../stores";
+import { Logo } from "./Logo";
 
 interface BioProps {
   border?: boolean;
@@ -47,10 +48,13 @@ export const Bio = ({ border = true }: BioProps) => {
     }
   `);
 
-  const [fontColor, borderColor] = useDarkModeStore(state => [
-    state.fontColor,
-    state.borderColor,
-  ]);
+  const [darkMode, fontColor, borderColor, subBackgroundColor] =
+    useDarkModeStore(state => [
+      state.darkMode,
+      state.fontColor,
+      state.borderColor,
+      state.subBackgroundColor,
+    ]);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author;
@@ -77,25 +81,16 @@ export const Bio = ({ border = true }: BioProps) => {
   ];
 
   return (
-    <div
-      className={`flex items-center gap-5 flex-wrap pb-10 mb-10 ${
-        border ? borderColor + " border-b" : ""
-      }`}
-    >
-      <div>
-        <StaticImage
-          className="rounded-container"
-          layout="fixed"
-          formats={["auto", "webp", "avif"]}
-          src="../images/profile-pic.png"
-          width={100}
-          height={100}
-          quality={95}
-          alt="Profile picture"
-        />
+    <div className={`flex items-center gap-7 flex-wrap pb-10 mb-10`}>
+      <div
+        className={`${
+          darkMode ? "bg-white" : "bg-black"
+        } rounded-container p-5 w-[100px] h-[100px]`}
+      >
+        <Logo color={darkMode ? "black" : "white"} width="100%" height="100%" />
       </div>
       <div>
-        <h2 className="text-2xl font-bold">취미로 코딩하는 사람</h2>
+        <h2 className="text-3xl font-bold">취미로 코딩하는 사람</h2>
         <div className="flex pt-1">
           {linkInfo.map(({ logo: Logo, name, ...linkProps }) => (
             <a

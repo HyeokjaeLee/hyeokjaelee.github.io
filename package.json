@@ -8,12 +8,12 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@kfonts/bm-dohyeon": "^0.1.3",
     "@kfonts/nanum-square-round-otf": "^0.1.3",
     "@types/react": "^18.0.27",
     "gatsby": "^5.5.0",
     "gatsby-plugin-feed": "^5.5.0",
     "gatsby-plugin-image": "^3.5.0",
+    "gatsby-plugin-layout": "^4.7.0",
     "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-plugin-sharp": "^5.5.0",
     "gatsby-plugin-typescript": "^5.5.0",
@@ -30,6 +30,7 @@
     "zustand": "^4.3.2"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "autoprefixer": "^10.4.13",
     "gatsby-plugin-postcss": "^6.5.0",
     "postcss": "^8.4.21",

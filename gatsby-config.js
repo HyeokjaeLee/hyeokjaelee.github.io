@@ -26,6 +26,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-typescript`,
     "gatsby-plugin-postcss",
+    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
