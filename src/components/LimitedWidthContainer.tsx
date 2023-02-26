@@ -7,5 +7,9 @@ interface LimitedWidthContainerProps {
 export const LimitedWidthContainer = ({
   children,
 }: LimitedWidthContainerProps) => {
-  return <div className="w-full max-w-[1280px] px-10 mx-auto">{children}</div>;
+  return (
+    <div className="w-full max-w-[1280px] tablet:px-10 px-5 mx-auto">
+      {children}
+    </div>
+  );
 };
