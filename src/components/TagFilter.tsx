@@ -31,7 +31,7 @@ export const TagFilter = ({ tags, className }: TagFilterProps) => {
         <ul className="flex gap-3">
           <li className={`${selectedTag ? "" : selectedUnderline} py-3`}>
             <Link to="/" className={tagLinkClassName}>
-              <span className="text-3xl">📚</span> all
+              <span className="text-3xl">🗂️</span> all
             </Link>
           </li>
           {tags.map(({ tag, emoji }) => (

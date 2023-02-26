@@ -20,8 +20,8 @@ input {
 }
 
 .blog-post-content .gatsby-highlight > pre {
-  border-radius: 0.5rem;
   border: 1px solid rgb(161 161 170);
+  border-radius: 3px;
 }
 
 .blog-post-content h1 {
@@ -66,7 +66,7 @@ input {
 .blog-post-content blockquote {
   margin: 1.8rem 0;
   background: rgb(161 161 170 / 15%);
-  border-left: 4px solid green;
+  border-left: 4px solid #fc725c;
   padding: 1rem 1rem 1rem 2rem;
   border-radius: 3px;
 }
@@ -76,4 +76,23 @@ input {
   width: 100%;
   max-width: 50rem;
   border-radius: 0.5rem;
+}
+
+.blog-post-content table {
+  width: 100%;
+  margin: 1.8rem 0;
+}
+
+.blog-post-content th,
+.blog-post-content td {
+  color: inherit;
+  padding: 8px;
+}
+
+.blog-post-content th {
+  border-bottom: 2px solid rgb(161 161 170);
+}
+
+.blog-post-content td {
+  border-bottom: 1px solid rgb(161 161 170);
 }

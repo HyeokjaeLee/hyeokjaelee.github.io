@@ -41,20 +41,19 @@ export default function ({
   const [loading, setLoading] = useState(false);
 
   useLayoutEffect(() => {
-    setLoading(true);
-    setPath(path);
-    const { scrollY } = window;
     setTimeout(() =>
       window.scrollTo({
         top: scrollY,
       })
     );
+    setLoading(true);
+    setPath(path);
+    const { scrollY } = window;
 
     const loadingTimer = setTimeout(() => {
       setTimeout(() =>
         window.scrollTo({
           top: 0,
-          behavior: "smooth",
         })
       );
       setContents(children);
@@ -77,13 +76,26 @@ export default function ({
     );
   }, [search]);
 
+  const linkList = [
+    {
+      children: "posts",
+      to: "/",
+    },
+    {
+      children: "about",
+      to: "/about",
+    },
+  ];
+
   return (
     <div
       data-is-root-path={isRootPath}
       className={`flex flex-col min-h-[100vh] items-center ${backgroundColor} ${fontColor}`}
     >
       <header
-        className={`w-full h-[60px] bg-nav px-7 flex items-center text-nav font-bold z-10`}
+        className={`w-full h-[60px] bg-nav px-7 flex items-center text-nav font-bold z-10 ${
+          loading ? "fade-out-top" : "fade-in-top"
+        } ${isRootPath || loading ? "" : "sticky top-0"}`}
       >
         <Link to="/" className="w-fit">
           <Logo height="30px" width="30px" />
@@ -91,10 +103,12 @@ export default function ({
         <nav className={`flex items-center justify-between flex-1 pl-4`}>
           <div className="flex gap-5 items-center flex-1">
             <Searchbox />
-            <ul className="flex gap-3 items-center justify-center">
-              <li>
-                <Link to="/about">about</Link>
-              </li>
+            <ul className="flex gap-5 items-center justify-center">
+              {linkList.map(props => (
+                <li>
+                  <Link {...props} className="hover:text-dark-mode-third" />
+                </li>
+              ))}
             </ul>
           </div>
           <div>

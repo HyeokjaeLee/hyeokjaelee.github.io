@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Book, PenTool, ArrowRight } from "react-feather";
+import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
+import { Book, ArrowRight } from "react-feather";
 import { Link, graphql, useStaticQuery, navigate } from "gatsby";
 
 interface SearchData {
@@ -61,19 +61,20 @@ export const Searchbox = () => {
     [searchTextArray, nodes, standardizeString]
   );
 
-  const [opened, setOpened] = useState<boolean | "closing">(false);
-
   const close = useCallback(() => {
     setOpened("closing");
     setTimeout(() => setOpened(false), 300);
   }, []);
 
+  const [opened, setOpened] = useState<boolean | "closing">(false);
+
   const isOpened = opened === true;
 
   const [hoveredPostIndex, setHoveredPostIndex] = useState(-1);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpened) {
+      setHoveredPostIndex(-1);
       const keyboardEvent = (event: KeyboardEvent) => {
         switch (event.key) {
           case "ArrowDown":
@@ -93,7 +94,6 @@ export const Searchbox = () => {
 
           case "Enter":
             event.preventDefault();
-            close();
             return setHoveredPostIndex(prev => {
               navigate(filteredPosts[prev].fields.slug);
               return -1;
@@ -111,7 +111,7 @@ export const Searchbox = () => {
 
   return (
     <div
-      className={`static w-full [&:has(:focus)>div>svg]:hidden transition-[max-width] duration-300 ease-in-out ${
+      className={`static w-full transition-[max-width] duration-300 ease-in-out ${
         opened ? "max-w-lg" : "max-w-sm"
       }`}
     >
@@ -122,15 +122,16 @@ export const Searchbox = () => {
           value={search}
           onChange={({ target: { value } }) => {
             setSearch(value);
-            setHoveredPostIndex(undefined);
+            setHoveredPostIndex(-1);
           }}
           onClick={() => setOpened(true)}
-          onBlur={() => {
-            setHoveredPostIndex(undefined);
-            close();
-          }}
+          onBlur={() => setTimeout(close, 100)}
         />
-        <Book width="1.1em" hanging="1.1em" />
+        <Book
+          width="1.1em"
+          hanging="1.1em"
+          className={`${opened ? "scale-out-center" : "scale-in-center"}`}
+        />
       </div>
       <div
         className={`relative ${
@@ -142,28 +143,32 @@ export const Searchbox = () => {
         }`}
       >
         <ul className="absolute top-[-1px] left-0 bg-[#0d1117] w-full rounded-b-container border-[#30363d] border">
-          {filteredPosts.map((item, index) => (
-            <li
-              className="border-b-1 border-[#30363d] last:border-none"
-              key={index}
-            >
-              <Link
-                className={`px-5 py-2 transition-colors duration-200 flex items-center gap-4 [&:hover>div]:flex ${
-                  hoveredPostIndex === index ? "bg-link" : ""
-                }`}
-                to={item.fields.slug}
-                onMouseEnter={() => setHoveredPostIndex(index)}
+          {filteredPosts.map((item, index) => {
+            const { frontmatter, fields } = item;
+            return (
+              <li
+                className="border-b-1 border-[#30363d] last:border-none"
+                key={index}
               >
-                <div className="pt-1 text-sm">{item.frontmatter.emoji}</div>
-                <p className="pt-1 whitespace-nowrap overflow-hidden text-ellipsis">
-                  {item.frontmatter.title}
-                </p>
-                <div className="ml-auto hidden text-xs h-[1.5em] bg-[#0d1117] items-center justify-center gap- px-1 rounded-container fade-in whitespace-nowrap">
-                  Jump to <ArrowRight width="1em" hanging="1em" />
-                </div>
-              </Link>
-            </li>
-          ))}
+                <Link
+                  className={`px-5 py-2 transition-colors duration-200 flex items-center gap-4 [&:hover>div]:flex ${
+                    hoveredPostIndex === index ? "bg-link" : ""
+                  }`}
+                  to={fields.slug}
+                  onMouseEnter={() => setHoveredPostIndex(index)}
+                  onClick={close}
+                >
+                  <div className="pt-1 text-sm">{frontmatter.emoji}</div>
+                  <p className="pt-1 whitespace-nowrap overflow-hidden text-ellipsis">
+                    {frontmatter.title}
+                  </p>
+                  <div className="ml-auto hidden text-xs h-[1.5em] bg-[#0d1117] items-center justify-center gap- px-1 rounded-container fade-in whitespace-nowrap">
+                    Jump to <ArrowRight width="1em" hanging="1em" />
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

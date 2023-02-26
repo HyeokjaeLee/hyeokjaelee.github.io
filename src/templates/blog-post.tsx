@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import { Seo, Bio } from "../components";
+import { Seo, Bio, LimitedWidthContainer } from "../components";
 import { PageProps } from "gatsby";
 import { useDarkModeStore } from "../stores";
 import { ArrowLeftCircle, ArrowRightCircle } from "react-feather";
@@ -15,7 +15,7 @@ const BlogPostTemplate = ({
   const borderColor = useDarkModeStore(state => state.borderColor);
 
   return (
-    <main>
+    <LimitedWidthContainer>
       <article
         className="blog-post"
         itemScope
@@ -78,7 +78,7 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-    </main>
+    </LimitedWidthContainer>
   );
 };
 

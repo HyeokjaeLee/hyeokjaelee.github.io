@@ -6,13 +6,12 @@ import { Bio, LimitedWidthContainer, Seo, TagFilter } from "../components";
 import { PageProps } from "gatsby";
 
 import { useDarkModeStore, usePageInfoStore } from "../stores";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Tag, CheckCircle } from "react-feather";
+import { useMemo } from "react";
+import { Tag } from "react-feather";
 
-const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
+const BlogIndex = ({ data }: PageProps<DataProps>) => {
   const [query] = usePageInfoStore(state => [state.query]);
   const selectedTag = query.get("tag");
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
 
   const posts = data.allMarkdownRemark.nodes;
   const filteredPosts = useMemo(() => {
@@ -20,9 +19,6 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
     return posts.filter(post => post.frontmatter.tags.includes(selectedTag));
   }, [selectedTag, posts]);
   const postCount = posts.length;
-  const [visablePostCount, setVisablePostCount] = useState(1);
-  const isAllPostShow = visablePostCount === postCount;
-  const visablePost = posts.slice(0, visablePostCount);
 
   if (postCount === 0) {
     return (
@@ -37,8 +33,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
     );
   }
 
-  const [darkMode, borderColor, thrirdFontColor] = useDarkModeStore(state => [
-    state.darkMode,
+  const [borderColor, thrirdFontColor] = useDarkModeStore(state => [
     state.borderColor,
     state.thrirdFontColor,
   ]);
@@ -62,6 +57,10 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
           {
             tag: "data",
             emoji: "📊",
+          },
+          {
+            tag: ".etc",
+            emoji: "📚",
           },
         ]}
       />
