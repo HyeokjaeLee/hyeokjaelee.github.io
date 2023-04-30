@@ -90,7 +90,7 @@ export const Bio = ({ border = true }: BioProps) => {
         <Logo color={darkMode ? "black" : "white"} width="100%" height="100%" />
       </div>
       <div>
-        <h2 className="text-3xl font-bold">취미로 코딩하는 사람</h2>
+        <h2 className="text-3xl font-bold">덕업일치 개발자</h2>
         <div className="flex pt-1">
           {linkInfo.map(({ logo: Logo, name, ...linkProps }) => (
             <a

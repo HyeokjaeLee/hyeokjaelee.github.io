@@ -12,12 +12,9 @@ interface LayoutProps {
   path: string;
 }
 
-export default function ({
-  location,
-  children,
-  footerHidden,
-  path,
-}: LayoutProps) {
+export default function (props: LayoutProps) {
+  const { location, children, footerHidden, path } = props;
+  console.log(props);
   const [darkMode, setDarkMode, backgroundColor, fontColor, borderColor] =
     useDarkModeStore(state => [
       state.darkMode,
@@ -30,7 +27,6 @@ export default function ({
   const DEFAULT_WIDTH = "w-full max-w-[1280px] px-10";
   const rootPath = "/";
   const isRootPath = location.pathname === rootPath;
-  const [contents, setContents] = useState(children);
   const [setPath, setQuery] = usePageInfoStore(state => [
     state.setPath,
     state.setQuery,
@@ -39,42 +35,6 @@ export default function ({
   const { search } = location;
 
   const [loading, setLoading] = useState(false);
-
-  useLayoutEffect(() => {
-    setTimeout(() =>
-      window.scrollTo({
-        top: scrollY,
-      })
-    );
-    setLoading(true);
-    setPath(path);
-    const { scrollY } = window;
-
-    const loadingTimer = setTimeout(() => {
-      setTimeout(() =>
-        window.scrollTo({
-          top: 0,
-        })
-      );
-      setContents(children);
-      setLoading(false);
-    }, 300);
-
-    return () => {
-      clearTimeout(loadingTimer);
-      setLoading(false);
-    };
-  }, [path]);
-
-  useLayoutEffect(() => {
-    setQuery(search);
-    const { scrollY } = window;
-    setTimeout(() =>
-      window.scrollTo({
-        top: scrollY,
-      })
-    );
-  }, [search]);
 
   const linkList = [
     {
@@ -90,12 +50,12 @@ export default function ({
   return (
     <div
       data-is-root-path={isRootPath}
-      className={`flex flex-col min-h-[100vh] items-center ${backgroundColor} ${fontColor}`}
+      className={`flex flex-col min-h-[100vh] items-center ${backgroundColor} ${fontColor} animate-fade-in`}
     >
       <header
-        className={`w-full h-[60px] bg-nav px-7 flex items-center text-nav font-bold z-10 ${
-          loading ? "fade-out-top" : "fade-in-top"
-        } ${isRootPath || loading ? "" : "sticky top-0"}`}
+        className={
+          "w-full h-[60px] bg-nav px-7 flex items-center text-nav font-bold z-10"
+        }
       >
         <Link to="/" className="w-fit">
           <Logo height="30px" width="30px" />
@@ -106,7 +66,7 @@ export default function ({
             <ul className="flex gap-5 items-center justify-center">
               {linkList.map(props => (
                 <li>
-                  <Link {...props} className="hover:text-dark-mode-third" />
+                  <Link {...props} className="hover:text-dark-3" />
                 </li>
               ))}
             </ul>
@@ -130,7 +90,7 @@ export default function ({
           loading ? "fade-out-bottom" : "fade-in-bottom"
         }`}
       >
-        {contents}
+        {children}
       </main>
       <footer
         className={`${DEFAULT_WIDTH} py-10 border-t-[1px] ${borderColor} ${

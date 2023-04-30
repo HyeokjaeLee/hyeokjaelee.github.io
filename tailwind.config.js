@@ -19,22 +19,37 @@ module.exports = {
         "dark-mode": "#38383d",
       },
       textColor: {
-        "light-mode-main": "#24292e",
-        "light-mode-sub": "#586069",
-        "light-mode-third": "#898e93",
-        "dark-mode-main": "#d7d7db",
-        "dark-mode-sub": "#ededf0",
-        "dark-mode-third": "#82949e",
+        "light-1": "#24292e",
+        "light-2": "#586069",
+        "light-3": "#898e93",
+        "dark-1": "#d7d7db",
+        "dark-2": "#ededf0",
+        "dark-3": "#82949e",
         link: "#0366d6",
         nav: "#f0f6fc",
       },
       backgroundColor: {
-        "light-mode-main": "#fff",
-        "light-mode-sub": "#f6f8fa",
-        "dark-mode-main": "#232326",
-        "dark-mode-sub": "#2a2a2e",
+        "light-1": "#fff",
+        "light-2": "#f6f8fa",
+        "dark-1": "#232326",
+        "dark-2": "#2a2a2e",
         link: "#0366d6",
         nav: "#15191F",
+      },
+
+      animation: {
+        "fade-in": "fade-in 0.3s ease-in-out",
+      },
+
+      keyframes: {
+        "fade-in": {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
     },
   },

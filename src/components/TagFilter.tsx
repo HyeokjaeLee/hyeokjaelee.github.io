@@ -19,7 +19,7 @@ export const TagFilter = ({ tags, className }: TagFilterProps) => {
   const [query] = usePageInfoStore(state => [state.query]);
   const selectedTag = query.get("tag");
   const tagLinkClassName = `block px-3 py-1 font-black text-lg flex items-center gap-3 rounded-container ${
-    darkMode ? "hover:bg-dark-mode-sub" : "hover:bg-light-mode-sub"
+    darkMode ? "hover:bg-dark-2" : "hover:bg-light-2"
   }`;
   const selectedUnderline = "border-b-[3px] border-[#FC725C]";
 

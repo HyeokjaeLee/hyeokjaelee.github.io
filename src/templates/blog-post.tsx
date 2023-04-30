@@ -1,44 +1,63 @@
 import * as React from "react";
+import { useMemo } from "react";
 import { Link, graphql } from "gatsby";
 
 import { Seo, Bio, LimitedWidthContainer } from "../components";
 import { PageProps } from "gatsby";
 import { useDarkModeStore } from "../stores";
-import { ArrowLeftCircle, ArrowRightCircle, Tag, Clock } from "react-feather";
+import {
+  ArrowLeftCircle,
+  ArrowRightCircle,
+  Tag,
+  Clock,
+  BookOpen,
+  Book,
+} from "react-feather";
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }: PageProps<DataProps>) => {
-  const siteTitle = site.siteMetadata.title || `Title`;
+  const [borderColor, subBackgroundColor, subFontColor, thrirdFontColor] =
+    useDarkModeStore(state => [
+      state.borderColor,
+      state.subBackgroundColor,
+      state.subFontColor,
+      state.thrirdFontColor,
+    ]);
 
-  const [borderColor, subBackgroundColor, subFontColor] = useDarkModeStore(
-    state => [state.borderColor, state.subBackgroundColor, state.subFontColor]
-  );
+  const formattedDate = useMemo(() => {
+    const date = new Date(post.frontmatter.date);
+    const dayDiff = Math.floor(
+      (new Date().getTime() - date.getTime()) / (1000 * 60 * 60 * 24)
+    );
+    if (dayDiff > 7) {
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      return `${year}년 ${month}월 ${day}일`;
+    }
+    if (dayDiff) return `${dayDiff}일 전`;
+    return "오늘";
+  }, []);
 
   return (
     <LimitedWidthContainer>
-      <h1 itemProp="headline" className="text-5xl font-black leading-normal">
-        {post.frontmatter.title}
-      </h1>
       <article
-        className={`blog-post mt-10 rounded-container border ${borderColor}`}
+        className={`blog-post mt-20 max-w-4xl mx-auto`}
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header
-          className={`${subBackgroundColor} border-b ${borderColor} ${subFontColor} flex items-center px-5 py-3 justify-between`}
-        >
-          <dl className="flex items-center">
-            <dt className="text-2xl">{post.frontmatter.emoji}</dt>
-            <dd className="font-black ml-1">{post.frontmatter.title}</dd>
-          </dl>
+        <header>
+          <h1 className="font-black text-6xl my-14">
+            {post.frontmatter.title}
+          </h1>
           <dl className="flex items-center">
             <dt className="ml-3">
               <Tag size="1.2em" />
             </dt>
             <dd>
-              <ul className="flex ml-1">
+              <ul className="flex ml-2">
                 {post.frontmatter.tags.map((tag, index) => {
                   return (
                     <li key={`${post.frontmatter.title}-${tag}`}>
@@ -52,7 +71,7 @@ const BlogPostTemplate = ({
             <dt className="ml-5">
               <Clock size="1.2em" />
             </dt>
-            <dd className="ml-2">{post.frontmatter.date}</dd>
+            <dd className="ml-2">{formattedDate}</dd>
           </dl>
         </header>
         <section
