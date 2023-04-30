@@ -4,12 +4,14 @@
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+
+import React from "react";
 import { GitHub, Linkedin, Mail } from "react-feather";
-import { useDarkModeStore } from "../stores";
+
 import { Logo } from "./Logo";
+import { useDarkModeStore } from "../stores";
 
 interface BioProps {
   border?: boolean;
@@ -49,7 +51,7 @@ export const Bio = ({ border = true }: BioProps) => {
   `);
 
   const [darkMode, fontColor, borderColor, subBackgroundColor] =
-    useDarkModeStore(state => [
+    useDarkModeStore((state) => [
       state.darkMode,
       state.fontColor,
       state.borderColor,

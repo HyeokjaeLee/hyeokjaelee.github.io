@@ -1,4 +1,1 @@
-{
-  "arrowParens": "avoid",
-  "semi": true
-}
+"eslint-config-hyeokjae"

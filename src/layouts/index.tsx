@@ -1,9 +1,12 @@
-import React, { useLayoutEffect, useState } from "react";
 import { Link } from "gatsby";
-import type { PageProps } from "gatsby";
-import { Logo, Searchbox } from "../components";
+
+import React, { useLayoutEffect, useState } from "react";
 import { Sun, Moon } from "react-feather";
+
+import { Logo, Searchbox } from "../components";
 import { useDarkModeStore, usePageInfoStore } from "../stores";
+
+import type { PageProps } from "gatsby";
 
 interface LayoutProps {
   location: PageProps["location"];
@@ -16,7 +19,7 @@ export default function (props: LayoutProps) {
   const { location, children, footerHidden, path } = props;
   console.log(props);
   const [darkMode, setDarkMode, backgroundColor, fontColor, borderColor] =
-    useDarkModeStore(state => [
+    useDarkModeStore((state) => [
       state.darkMode,
       state.setDarkMode,
       state.backgroundColor,
@@ -27,7 +30,7 @@ export default function (props: LayoutProps) {
   const DEFAULT_WIDTH = "w-full max-w-[1280px] px-10";
   const rootPath = "/";
   const isRootPath = location.pathname === rootPath;
-  const [setPath, setQuery] = usePageInfoStore(state => [
+  const [setPath, setQuery] = usePageInfoStore((state) => [
     state.setPath,
     state.setQuery,
   ]);
@@ -64,7 +67,7 @@ export default function (props: LayoutProps) {
           <div className="flex gap-5 items-center flex-1">
             <Searchbox />
             <ul className="flex gap-5 items-center justify-center">
-              {linkList.map(props => (
+              {linkList.map((props) => (
                 <li>
                   <Link {...props} className="hover:text-dark-3" />
                 </li>

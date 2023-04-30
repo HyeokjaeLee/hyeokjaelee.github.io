@@ -1,22 +1,20 @@
+import { Link, graphql, PageProps } from "gatsby";
+
 import * as React from "react";
-import { Link, graphql } from "gatsby";
-
-import { Bio, LimitedWidthContainer, Seo, TagFilter } from "../components";
-
-import { PageProps } from "gatsby";
-
-import { useDarkModeStore, usePageInfoStore } from "../stores";
 import { useMemo } from "react";
 import { Tag } from "react-feather";
 
+import { Bio, LimitedWidthContainer, Seo, TagFilter } from "../components";
+import { useDarkModeStore, usePageInfoStore } from "../stores";
+
 const BlogIndex = ({ data }: PageProps<DataProps>) => {
-  const [query] = usePageInfoStore(state => [state.query]);
+  const [query] = usePageInfoStore((state) => [state.query]);
   const selectedTag = query.get("tag");
 
   const posts = data.allMarkdownRemark.nodes;
   const filteredPosts = useMemo(() => {
     if (!selectedTag) return posts;
-    return posts.filter(post => post.frontmatter.tags.includes(selectedTag));
+    return posts.filter((post) => post.frontmatter.tags.includes(selectedTag));
   }, [selectedTag, posts]);
   const postCount = posts.length;
 
@@ -33,7 +31,7 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
     );
   }
 
-  const [borderColor, thrirdFontColor] = useDarkModeStore(state => [
+  const [borderColor, thrirdFontColor] = useDarkModeStore((state) => [
     state.borderColor,
     state.thrirdFontColor,
   ]);

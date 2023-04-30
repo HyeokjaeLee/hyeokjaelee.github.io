@@ -32,7 +32,7 @@ interface DarkModeStore extends ChangingColors {
   setDarkMode: (darkMode: boolean) => void;
 }
 
-export const useDarkModeStore = create<DarkModeStore>(set => ({
+export const useDarkModeStore = create<DarkModeStore>((set) => ({
   ...whiteModeColors,
   darkMode: false,
   setDarkMode: (darkMode: boolean) => {

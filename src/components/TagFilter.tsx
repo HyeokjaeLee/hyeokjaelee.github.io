@@ -1,6 +1,8 @@
-import React from "react";
-import { LimitedWidthContainer } from "./LimitedWidthContainer";
 import { Link } from "gatsby";
+
+import React from "react";
+
+import { LimitedWidthContainer } from "./LimitedWidthContainer";
 import { useDarkModeStore, usePageInfoStore } from "../stores";
 
 interface TagFilterProps {
@@ -10,13 +12,13 @@ interface TagFilterProps {
 
 export const TagFilter = ({ tags, className }: TagFilterProps) => {
   const [darkMode, borderColor, backgroundColor, subFontColor] =
-    useDarkModeStore(state => [
+    useDarkModeStore((state) => [
       state.darkMode,
       state.borderColor,
       state.backgroundColor,
       state.subFontColor,
     ]);
-  const [query] = usePageInfoStore(state => [state.query]);
+  const [query] = usePageInfoStore((state) => [state.query]);
   const selectedTag = query.get("tag");
   const tagLinkClassName = `block px-3 py-1 font-black text-lg flex items-center gap-3 rounded-container ${
     darkMode ? "hover:bg-dark-2" : "hover:bg-light-2"

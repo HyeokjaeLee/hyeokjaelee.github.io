@@ -8,7 +8,7 @@ interface LayoutStore {
   setFooter: (footer: boolean) => void;
 }
 
-export const useLayoutStore = create<LayoutStore>(set => ({
+export const useLayoutStore = create<LayoutStore>((set) => ({
   darkMode: false,
   setDarkMode: (darkMode: boolean) => set({ darkMode }),
 

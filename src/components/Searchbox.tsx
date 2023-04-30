@@ -1,6 +1,7 @@
+import { Link, graphql, useStaticQuery, navigate } from "gatsby";
+
 import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { Book, ArrowRight } from "react-feather";
-import { Link, graphql, useStaticQuery, navigate } from "gatsby";
 
 interface SearchData {
   allMarkdownRemark: {
@@ -44,7 +45,7 @@ export const Searchbox = () => {
   );
 
   const searchTextArray = useMemo(
-    () => search.split(" ").map(value => standardizeString(value)),
+    () => search.split(" ").map((value) => standardizeString(value)),
     [search, standardizeString]
   );
 
@@ -53,7 +54,7 @@ export const Searchbox = () => {
       nodes
         .filter(({ frontmatter: { title } }) => {
           const standardizedTitle = standardizeString(title);
-          return searchTextArray.every(value =>
+          return searchTextArray.every((value) =>
             standardizedTitle.includes(value)
           );
         })
@@ -79,7 +80,7 @@ export const Searchbox = () => {
         switch (event.key) {
           case "ArrowDown":
             event.preventDefault();
-            return setHoveredPostIndex(prev => {
+            return setHoveredPostIndex((prev) => {
               if (prev < 0) return 0;
               if (prev < filteredPosts.length - 1) return prev + 1;
               return prev;
@@ -87,26 +88,24 @@ export const Searchbox = () => {
 
           case "ArrowUp":
             event.preventDefault();
-            return setHoveredPostIndex(prev => {
+            return setHoveredPostIndex((prev) => {
               if (prev > 0) return prev - 1;
               return prev;
             });
 
           case "Enter":
             event.preventDefault();
-            return setHoveredPostIndex(prev => {
+            return setHoveredPostIndex((prev) => {
               navigate(filteredPosts[prev].fields.slug);
               return -1;
             });
 
           default:
-            return;
         }
       };
       document.addEventListener("keydown", keyboardEvent);
       return () => document.removeEventListener("keydown", keyboardEvent);
     }
-    return;
   }, [isOpened]);
 
   return (

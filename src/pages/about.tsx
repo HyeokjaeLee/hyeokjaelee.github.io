@@ -1,5 +1,6 @@
-import { LimitedWidthContainer } from "../components";
 import React from "react";
+
+import { LimitedWidthContainer } from "../components";
 
 export default function About() {
   return (

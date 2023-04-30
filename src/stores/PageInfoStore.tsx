@@ -7,7 +7,7 @@ interface PageInfoStore {
   setQuery: (search: string) => void;
 }
 
-export const usePageInfoStore = create<PageInfoStore>(set => ({
+export const usePageInfoStore = create<PageInfoStore>((set) => ({
   path: "/",
   query: new Map<string, string>(),
   setPath: (path: string) => set({ path }),
@@ -16,7 +16,7 @@ export const usePageInfoStore = create<PageInfoStore>(set => ({
     const [, queryStr] = search.split("?");
     if (queryStr) {
       const queryList = queryStr.split("&");
-      queryList.forEach(q => {
+      queryList.forEach((q) => {
         const [key, value] = q.split("=");
         query.set(key, value);
       });

@@ -1,10 +1,7 @@
+import { Link, graphql, PageProps } from "gatsby";
+
 import * as React from "react";
 import { useMemo } from "react";
-import { Link, graphql } from "gatsby";
-
-import { Seo, Bio, LimitedWidthContainer } from "../components";
-import { PageProps } from "gatsby";
-import { useDarkModeStore } from "../stores";
 import {
   ArrowLeftCircle,
   ArrowRightCircle,
@@ -14,12 +11,15 @@ import {
   Book,
 } from "react-feather";
 
+import { Seo, Bio, LimitedWidthContainer } from "../components";
+import { useDarkModeStore } from "../stores";
+
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }: PageProps<DataProps>) => {
   const [borderColor, subBackgroundColor, subFontColor, thrirdFontColor] =
-    useDarkModeStore(state => [
+    useDarkModeStore((state) => [
       state.borderColor,
       state.subBackgroundColor,
       state.subFontColor,
@@ -58,14 +58,12 @@ const BlogPostTemplate = ({
             </dt>
             <dd>
               <ul className="flex ml-2">
-                {post.frontmatter.tags.map((tag, index) => {
-                  return (
-                    <li key={`${post.frontmatter.title}-${tag}`}>
-                      {index ? ", " : ""}
-                      {tag}
-                    </li>
-                  );
-                })}
+                {post.frontmatter.tags.map((tag, index) => (
+                  <li key={`${post.frontmatter.title}-${tag}`}>
+                    {index ? ", " : ""}
+                    {tag}
+                  </li>
+                ))}
               </ul>
             </dd>
             <dt className="ml-5">
@@ -115,14 +113,12 @@ const BlogPostTemplate = ({
 
 export const Head = ({
   data: { markdownRemark: post },
-}: PageProps<DataProps>) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
-  );
-};
+}: PageProps<DataProps>) => (
+  <Seo
+    title={post.frontmatter.title}
+    description={post.frontmatter.description || post.excerpt}
+  />
+);
 
 export default BlogPostTemplate;
 
