@@ -1,40 +1,36 @@
-import { Link, graphql, PageProps } from "gatsby";
+import { Link, graphql, PageProps } from 'gatsby';
 
-import * as React from "react";
-import { useMemo } from "react";
-import { Tag } from "react-feather";
+import * as React from 'react';
+import { useMemo } from 'react';
+import { Tag } from 'react-feather';
 
-import { Bio, LimitedWidthContainer, Seo, TagFilter } from "../components";
-import { useDarkModeStore, usePageInfoStore } from "../stores";
+import { Bio, LimitedWidthContainer, Seo, TagFilter } from '../components';
+import { useLayoutStore, usePageInfoStore } from '../stores';
 
-const BlogIndex = ({ data }: PageProps<DataProps>) => {
+const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   const [query] = usePageInfoStore((state) => [state.query]);
-  const selectedTag = query.get("tag");
+  const selectedTag = query.get('tag');
 
   const posts = data.allMarkdownRemark.nodes;
+
   const filteredPosts = useMemo(() => {
     if (!selectedTag) return posts;
-    return posts.filter((post) => post.frontmatter.tags.includes(selectedTag));
+    return posts.filter((post) =>
+      post?.frontmatter?.tags?.includes(selectedTag),
+    );
   }, [selectedTag, posts]);
   const postCount = posts.length;
+
+  const { borderColor1, textColor3 } = useLayoutStore((state) => state.colors);
 
   if (postCount === 0) {
     return (
       <main>
         <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>test</p>
       </main>
     );
   }
-
-  const [borderColor, thrirdFontColor] = useDarkModeStore((state) => [
-    state.borderColor,
-    state.thrirdFontColor,
-  ]);
 
   return (
     <>
@@ -45,20 +41,20 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
         className="mb-6"
         tags={[
           {
-            tag: "frontend",
-            emoji: "🎨",
+            tag: 'frontend',
+            emoji: '🎨',
           },
           {
-            tag: "backend",
-            emoji: "⚙️",
+            tag: 'backend',
+            emoji: '⚙️',
           },
           {
-            tag: "data",
-            emoji: "📊",
+            tag: 'data',
+            emoji: '📊',
           },
           {
-            tag: ".etc",
-            emoji: "📚",
+            tag: '.etc',
+            emoji: '📚',
           },
         ]}
       />
@@ -77,7 +73,7 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
                 className="w-full pc:w-[33.333%] tablet:w-[50%] p-2"
               >
                 <article
-                  className={`flex flex-col border box-border ${borderColor} rounded-container h-[240px] pt-6 pb-4 ${thrirdFontColor}`}
+                  className={`flex flex-col border box-border ${borderColor1} rounded-container h-[240px] pt-6 pb-4 ${textColor3}`}
                   itemScope
                   itemType="http://schema.org/Article"
                 >
@@ -97,24 +93,19 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
                       </h2>
                       <div>
                         <small
-                          className={`${borderColor} border py-1 px-2 rounded-full font-black`}
+                          className={`${borderColor1} border py-1 px-2 rounded-full font-black`}
                         >
                           {year}.{month}.{day}
                         </small>
                       </div>
                     </header>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          `${frontmatter.emoji} ${frontmatter.description}` ||
-                          excerpt,
-                      }}
-                      itemProp="description"
-                      className={`line-clamp-3`}
-                    />
+                    <p itemProp="description" className={`line-clamp-3`}>
+                      {`${frontmatter.emoji} ${frontmatter.description}` ||
+                        excerpt}
+                    </p>
                   </section>
                   <section
-                    className={`px-6 flex gap-2 items-center pt-4 border-t ${borderColor}`}
+                    className={`px-6 flex gap-2 items-center pt-4 border-t ${borderColor1}`}
                   >
                     <Tag size="1.3em" />
                     <ul className="text-sm flex flex-wrap justify-end">
@@ -122,10 +113,10 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
                         <li
                           key={`${title}-${tag}`}
                           className={`${
-                            selectedTag === tag ? "font-black underline" : ""
+                            selectedTag === tag ? 'font-black underline' : ''
                           }`}
                         >
-                          {index ? ", " : ""}
+                          {index ? ', ' : ''}
                           {tag}
                         </li>
                       ))}
@@ -141,7 +132,7 @@ const BlogIndex = ({ data }: PageProps<DataProps>) => {
   );
 };
 
-export default BlogIndex;
+export default IndexPage;
 
 /**
  * Head export to define metadata for the page
@@ -150,31 +141,8 @@ export default BlogIndex;
  */
 export const Head = () => <Seo title="All posts" />;
 
-interface DataProps {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-  allMarkdownRemark: {
-    nodes: {
-      excerpt: string;
-      fields: {
-        slug: string;
-      };
-      frontmatter: {
-        date: string;
-        title: string;
-        description: string;
-        tags: string[];
-        emoji: string;
-      };
-    }[];
-  };
-}
-
-export const pageQuery = graphql`
-  {
+export const IndexPageQuery = graphql`
+  query IndexPage {
     site {
       siteMetadata {
         title

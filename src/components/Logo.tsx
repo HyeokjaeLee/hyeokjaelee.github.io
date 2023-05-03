@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface LogoProps {
   width?: string;
@@ -7,9 +7,9 @@ interface LogoProps {
 }
 
 export const Logo = ({
-  width = "256",
-  height = "256",
-  color = "#f0f6fc",
+  width = '256',
+  height = '256',
+  color = '#f0f6fc',
 }: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

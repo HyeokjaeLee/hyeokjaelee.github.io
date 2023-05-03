@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby';
 
-import * as React from "react";
+import * as React from 'react';
 
 interface SeoProps {
   description?: string;
@@ -29,7 +29,7 @@ export const Seo = ({ description, title, children }: SeoProps) => {
           }
         }
       }
-    `
+    `,
   );
 
   const metaDescription = description || site.siteMetadata.description;

@@ -1,3 +1,6 @@
 {
-  "extends": ["hyeokjae-convention-library/stylelint"]
+  "extends": ["@hyeokjaelee/stylelint-config"],
+  "rules": {
+    "scss/at-rule-no-unknown": null
+  }
 }

@@ -1,35 +1,18 @@
-import { Link, graphql, PageProps } from "gatsby";
+import { Link, graphql, PageProps } from 'gatsby';
 
-import * as React from "react";
-import { useMemo } from "react";
-import {
-  ArrowLeftCircle,
-  ArrowRightCircle,
-  Tag,
-  Clock,
-  BookOpen,
-  Book,
-} from "react-feather";
+import * as React from 'react';
+import { useMemo } from 'react';
+import { ArrowLeftCircle, ArrowRightCircle, Tag, Clock } from 'react-feather';
 
-import { Seo, Bio, LimitedWidthContainer } from "../components";
-import { useDarkModeStore } from "../stores";
+import { Seo, Bio, LimitedWidthContainer } from '../components';
 
 const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post },
-  location,
+  data: { previous, next, markdownRemark: post },
 }: PageProps<DataProps>) => {
-  const [borderColor, subBackgroundColor, subFontColor, thrirdFontColor] =
-    useDarkModeStore((state) => [
-      state.borderColor,
-      state.subBackgroundColor,
-      state.subFontColor,
-      state.thrirdFontColor,
-    ]);
-
   const formattedDate = useMemo(() => {
     const date = new Date(post.frontmatter.date);
     const dayDiff = Math.floor(
-      (new Date().getTime() - date.getTime()) / (1000 * 60 * 60 * 24)
+      (new Date().getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
     );
     if (dayDiff > 7) {
       const year = date.getFullYear();
@@ -38,7 +21,7 @@ const BlogPostTemplate = ({
       return `${year}년 ${month}월 ${day}일`;
     }
     if (dayDiff) return `${dayDiff}일 전`;
-    return "오늘";
+    return '오늘';
   }, []);
 
   return (
@@ -60,7 +43,7 @@ const BlogPostTemplate = ({
               <ul className="flex ml-2">
                 {post.frontmatter.tags.map((tag, index) => (
                   <li key={`${post.frontmatter.title}-${tag}`}>
-                    {index ? ", " : ""}
+                    {index ? ', ' : ''}
                     {tag}
                   </li>
                 ))}
@@ -73,10 +56,11 @@ const BlogPostTemplate = ({
           </dl>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
           className={`blog-post-content text-xl break-keep leading-9 px-8 py-10`}
-        />
+        >
+          {post.html}
+        </section>
         <footer className="my-12">
           <Bio border={false} />
         </footer>

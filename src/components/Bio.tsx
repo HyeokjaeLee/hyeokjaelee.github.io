@@ -4,14 +4,14 @@
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-import { useStaticQuery, graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { useStaticQuery, graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import React from "react";
-import { GitHub, Linkedin, Mail } from "react-feather";
+import React from 'react';
+import { GitHub, Linkedin, Mail } from 'react-feather';
 
-import { Logo } from "./Logo";
-import { useDarkModeStore } from "../stores";
+import { Logo } from './Logo';
+import { useLayoutStore } from '../stores';
 
 interface BioProps {
   border?: boolean;
@@ -50,13 +50,10 @@ export const Bio = ({ border = true }: BioProps) => {
     }
   `);
 
-  const [darkMode, fontColor, borderColor, subBackgroundColor] =
-    useDarkModeStore((state) => [
-      state.darkMode,
-      state.fontColor,
-      state.borderColor,
-      state.subBackgroundColor,
-    ]);
+  const [darkMode, { textColor1 }] = useLayoutStore((state) => [
+    state.darkMode,
+    state.colors,
+  ]);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author;
@@ -64,19 +61,19 @@ export const Bio = ({ border = true }: BioProps) => {
 
   const linkInfo = [
     {
-      name: "GitHub",
+      name: 'GitHub',
       href: `https://github.com/${social.github}`,
       logo: GitHub,
-      target: "_blank",
+      target: '_blank',
     },
     {
-      name: "LinkedIn",
+      name: 'LinkedIn',
       href: `https://www.linkedin.com/in/${social.linkedin}`,
       logo: Linkedin,
-      target: "_blank",
+      target: '_blank',
     },
     {
-      name: "Email",
+      name: 'Email',
       href: `mailto:${social.email}`,
       logo: Mail,
     },
@@ -86,10 +83,10 @@ export const Bio = ({ border = true }: BioProps) => {
     <div className={`flex items-center gap-7 flex-wrap pb-10 mb-10`}>
       <div
         className={`${
-          darkMode ? "bg-white" : "bg-black"
+          darkMode ? 'bg-white' : 'bg-black'
         } rounded-container p-5 w-[100px] h-[100px]`}
       >
-        <Logo color={darkMode ? "black" : "white"} width="100%" height="100%" />
+        <Logo color={darkMode ? 'black' : 'white'} width="100%" height="100%" />
       </div>
       <div>
         <h2 className="text-3xl font-bold">덕업일치 개발자</h2>
@@ -102,7 +99,7 @@ export const Bio = ({ border = true }: BioProps) => {
             >
               <Logo size="1.2em" />
               <span
-                className={`hidden absolute group-hover:block top-10 text-xs ${fontColor}`}
+                className={`hidden absolute group-hover:block top-10 text-xs ${textColor1}`}
               >
                 {name}
               </span>
