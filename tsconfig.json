@@ -12,7 +12,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@stores": ["./stores"],
+      "@components": ["./components"],
+      "@layouts": ["./layouts"]
+    }
   },
   "include": ["./src/**/*"]
 }

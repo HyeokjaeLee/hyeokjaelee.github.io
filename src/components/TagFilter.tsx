@@ -3,42 +3,47 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 import { LimitedWidthContainer } from './LimitedWidthContainer';
-import { useLayoutStore, usePageInfoStore } from '../stores';
 
-interface TagFilterProps {
-  tags: { emoji: string; tag: string }[];
-  className?: string;
+interface TagTabItem {
+  isSelected: boolean;
+  tag?: string;
+  emoji?: string;
 }
 
-export const TagFilter = ({ tags, className }: TagFilterProps) => {
-  const [darkMode, { borderColor1, backgroundColor1, textColor2 }] =
-    useLayoutStore((state) => [state.darkMode, state.colors]);
-  const [query] = usePageInfoStore((state) => [state.query]);
-  const selectedTag = query.get('tag');
-  const tagLinkClassName = `block px-3 py-1 font-black text-lg flex items-center gap-3 rounded-container ${
-    darkMode ? 'hover:bg-dark-2' : 'hover:bg-light-2'
-  }`;
-  const selectedUnderline = 'border-b-[3px] border-[#FC725C]';
+const TagTabItem = ({ isSelected, tag, emoji }: TagTabItem) => (
+  <li className={`${isSelected ? 'border-b-[3px] border-[#FC725C]' : ''} py-3`}>
+    <Link
+      to={tag ? `?tag=${tag}` : '/'}
+      className="px-3 py-2 font-bold text-lg flex items-center gap-3 rounded-container hover:bg-light-2 dark:hover:bg-dark-2"
+    >
+      <span className="text-xl">{emoji ?? '🗂️'}</span> {tag ?? 'all'}
+    </Link>
+  </li>
+);
+
+interface TagTabProps {
+  tags: { emoji: string; tag: string }[];
+  className?: string;
+  tagParam: string | null;
+}
+
+export const TagTab = ({ tags, className, tagParam }: TagTabProps) => {
+  const hasSelectedTag = tags.some(({ tag }) => tag === tagParam);
 
   return (
     <section
-      className={`border-b w-full ${borderColor1} sticky top-0 ${backgroundColor1} ${textColor2} ${className}`}
+      className={`border-b w-full border-light-1 dark:border-dark-1 sticky top-0 bg-light-1 dark:bg-dark-1 text-light-2 dark:text-dark-2 ${className}`}
     >
       <LimitedWidthContainer>
         <ul className="flex gap-3">
-          <li className={`${selectedTag ? '' : selectedUnderline} py-3`}>
-            <Link to="/" className={tagLinkClassName}>
-              <span className="text-3xl">🗂️</span> all
-            </Link>
-          </li>
+          <TagTabItem isSelected={!hasSelectedTag} />
           {tags.map(({ tag, emoji }) => (
-            <li
-              className={`${tag === selectedTag ? selectedUnderline : ''} py-3`}
-            >
-              <Link to={`?tag=${tag}`} className={tagLinkClassName}>
-                <span className="text-3xl">{emoji}</span> {tag}
-              </Link>
-            </li>
+            <TagTabItem
+              key={tag}
+              isSelected={tag === tagParam}
+              tag={tag}
+              emoji={emoji}
+            />
           ))}
         </ul>
       </LimitedWidthContainer>

@@ -1,63 +1,50 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
 import { useStaticQuery, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 
 import React from 'react';
 import { GitHub, Linkedin, Mail } from 'react-feather';
 
+import { useLayoutStore } from '@stores';
+
 import { Logo } from './Logo';
-import { useLayoutStore } from '../stores';
 
-interface BioProps {
-  border?: boolean;
-}
-
-export const Bio = ({ border = true }: BioProps) => {
-  const data: {
-    site: {
-      siteMetadata: {
-        author: {
-          name: string;
-          summary: string;
-        };
-        social: {
-          github: string;
-          linkedin: string;
-          email: string;
-        };
+interface Data {
+  site: {
+    siteMetadata: {
+      author: {
+        name: string;
+        summary: string;
+      };
+      social: {
+        github: string;
+        linkedin: string;
+        email: string;
       };
     };
-  } = useStaticQuery(graphql`
-    query BioQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            github
-            linkedin
-            email
-          }
+  };
+}
+
+const BioStaticQuery = graphql`
+  query BioQuery {
+    site {
+      siteMetadata {
+        author {
+          name
+          summary
+        }
+        social {
+          github
+          linkedin
+          email
         }
       }
     }
-  `);
+  }
+`;
 
-  const [darkMode, { textColor1 }] = useLayoutStore((state) => [
-    state.darkMode,
-    state.colors,
-  ]);
+export const Bio = () => {
+  const { siteMetadata } = useStaticQuery<Data>(BioStaticQuery).site;
 
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author;
-  const social = data.site.siteMetadata?.social;
+  const social = siteMetadata?.social;
 
   const linkInfo = [
     {
@@ -79,14 +66,12 @@ export const Bio = ({ border = true }: BioProps) => {
     },
   ];
 
+  const darkMode = useLayoutStore((state) => state.darkMode);
+
   return (
-    <div className={`flex items-center gap-7 flex-wrap pb-10 mb-10`}>
-      <div
-        className={`${
-          darkMode ? 'bg-white' : 'bg-black'
-        } rounded-container p-5 w-[100px] h-[100px]`}
-      >
-        <Logo color={darkMode ? 'black' : 'white'} width="100%" height="100%" />
+    <div className="flex items-center gap-7 flex-wrap pb-10 mb-10">
+      <div className="bg-dark-1 dark:bg-light-1 rounded-container p-5 w-[100px] h-[100px]">
+        <Logo width="100%" height="100%" fill={darkMode ? 'black' : 'white'} />
       </div>
       <div>
         <h2 className="text-3xl font-bold">덕업일치 개발자</h2>
@@ -98,9 +83,7 @@ export const Bio = ({ border = true }: BioProps) => {
               className="relative group flex justify-center items-center rounded-[100%] w-[2.2em] h-[2.2em] hover:transition-all duration-100 ease-in-out hover:bg-zinc-600  hover:text-zinc-200"
             >
               <Logo size="1.2em" />
-              <span
-                className={`hidden absolute group-hover:block top-10 text-xs ${textColor1}`}
-              >
+              <span className="hidden absolute group-hover:block top-10 text-xs text-light-1 dark:text-dark-1">
                 {name}
               </span>
             </a>

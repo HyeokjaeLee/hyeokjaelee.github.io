@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Book, ArrowRight } from 'react-feather';
 
-interface SearchData {
+interface Data {
   allMarkdownRemark: {
     nodes: {
       fields: {
@@ -17,25 +17,27 @@ interface SearchData {
   };
 }
 
-export const Searchbox = () => {
-  const SHOWN_POSTS = 5;
-  const { nodes } = useStaticQuery<SearchData>(
-    graphql`
-      query {
-        allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-          nodes {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              emoji
-            }
-          }
+const PostSearchboxStaticQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          emoji
         }
       }
-    `,
-  ).allMarkdownRemark;
+    }
+  }
+`;
+
+export const PostSearchbox = () => {
+  const SHOWN_POSTS = 5;
+
+  const posts = useStaticQuery<Data>(PostSearchboxStaticQuery).allMarkdownRemark
+    .nodes;
 
   const [search, setSearch] = React.useState('');
 
@@ -51,7 +53,7 @@ export const Searchbox = () => {
 
   const filteredPosts = useMemo(
     () =>
-      nodes
+      posts
         .filter(({ frontmatter: { title } }) => {
           const standardizedTitle = standardizeString(title);
           return searchTextArray.every((value) =>
@@ -59,7 +61,7 @@ export const Searchbox = () => {
           );
         })
         .splice(0, SHOWN_POSTS),
-    [searchTextArray, nodes, standardizeString],
+    [searchTextArray, posts, standardizeString],
   );
   const [opened, setOpened] = useState<boolean | 'closing'>(false);
 

@@ -1,4 +1,5 @@
 import { Link, graphql, PageProps } from 'gatsby';
+import parse from 'html-react-parser';
 
 import * as React from 'react';
 import { useMemo } from 'react';
@@ -27,12 +28,12 @@ const BlogPostTemplate = ({
   return (
     <LimitedWidthContainer>
       <article
-        className={`blog-post mt-20 max-w-4xl mx-auto`}
+        className="blog-post mt-20 max-w-4xl mx-auto"
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 className="font-black text-6xl my-14">
+          <h1 className="font-sans font-black text-6xl my-14">
             {post.frontmatter.title}
           </h1>
           <dl className="flex items-center">
@@ -59,10 +60,10 @@ const BlogPostTemplate = ({
           itemProp="articleBody"
           className={`blog-post-content text-xl break-keep leading-9 px-8 py-10`}
         >
-          {post.html}
+          {parse(post.html)}
         </section>
         <footer className="my-12">
-          <Bio border={false} />
+          <Bio />
         </footer>
       </article>
       <nav className="blog-post-nav">

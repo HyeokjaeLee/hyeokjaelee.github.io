@@ -1,10 +1,4 @@
 /**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
@@ -33,6 +27,17 @@ module.exports = {
     `gatsby-plugin-pnpm`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@stores': 'src/stores',
+          '@components': 'src/components',
+          '@layouts': 'src/layouts',
+        },
+        extensions: ['tsx', 'ts', 'js', 'jsx'],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

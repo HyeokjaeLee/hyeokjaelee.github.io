@@ -14,7 +14,10 @@ interface DataProps {
   };
 }
 
-const NotFoundPage = ({ data, location }: PageProps<DataProps>) => (
+const NotFoundPage = ({
+  data,
+  location,
+}: PageProps<Queries.NotFoundPageQuery>) => (
   <>
     <h1>404: Not Found</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
@@ -25,8 +28,8 @@ export const Head = () => <Seo title="404: Not Found" />;
 
 export default NotFoundPage;
 
-export const pageQuery = graphql`
-  query {
+export const NotFoundPageQuery = graphql`
+  query NotFoundPage {
     site {
       siteMetadata {
         title
