@@ -18,7 +18,7 @@ interface Data {
 }
 
 const PostSearchboxStaticQuery = graphql`
-  query {
+  query PostSearchboxStaticQuery {
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       nodes {
         fields {

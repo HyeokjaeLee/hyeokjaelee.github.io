@@ -16,12 +16,15 @@ module.exports = {
       email: 'leehyeokjae97@gamil.com',
     },
   },
-  graphqlTypegen: {
-    typesOutputPath: 'src/types/gatsby-types.d.ts',
-  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `src/types/graphql-types.d.ts`,
+      },
+    },
     'gatsby-plugin-postcss',
     `gatsby-plugin-layout`,
     `gatsby-plugin-pnpm`,
