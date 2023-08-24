@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LimitedWidthContainer } from '../components';
+import { LimitedWidthContainer } from '@components/atoms';
 
 const About = () => (
   <LimitedWidthContainer>

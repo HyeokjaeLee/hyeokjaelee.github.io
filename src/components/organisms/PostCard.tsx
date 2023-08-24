@@ -1,24 +1,25 @@
 import days from 'dayjs';
 import { Link } from 'gatsby';
 
-import * as React from 'react';
+import React from 'react';
 import { Tag } from 'react-feather';
 
-interface PostCardProps {
-  tagParam: string | null;
-  slug?: string | null;
-  excerpt: string | null;
-  frontmatter: Queries.IndexPageQuery['allMarkdownRemark']['nodes'][0]['frontmatter'];
+import type { PostCardData } from '@hooks';
+
+interface PostCardProps extends PostCardData {
+  selectedTag: string | null;
 }
 
 export const PostCard = ({
-  tagParam,
+  selectedTag,
   slug,
   excerpt,
-  frontmatter,
+  date,
+  description,
+  emoji,
+  tags,
+  title,
 }: PostCardProps) => {
-  const { title, emoji, description, date, tags } = frontmatter ?? {};
-
   const TEXT_COMMON_STYLE =
     'group-hover:text-light-1 dark:group-hover:text-dark-1 transition-colors duration-300';
 
@@ -65,7 +66,7 @@ export const PostCard = ({
                 <li
                   key={`${title}-${tag}`}
                   className={
-                    tagParam === tag ? 'font-black underline' : undefined
+                    selectedTag === tag ? 'font-black underline' : undefined
                   }
                 >
                   {index ? ', ' : ''}

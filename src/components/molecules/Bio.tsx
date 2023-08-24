@@ -3,9 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import { GitHub, Linkedin, Mail } from 'react-feather';
 
-import { useLayoutStore } from '@stores';
-
-import { Logo } from './Logo';
+import { Logo } from '@components/atoms';
+import { useDarkMode } from '@hyeokjaelee/pastime-ui';
 
 interface Data {
   site: {
@@ -66,12 +65,16 @@ export const Bio = () => {
     },
   ];
 
-  const darkMode = useLayoutStore((state) => state.darkMode);
+  const { isDarkMode } = useDarkMode();
 
   return (
     <div className="flex items-center gap-7 flex-wrap pb-10 mb-10">
       <div className="bg-dark-1 dark:bg-light-1 rounded-container p-5 w-[100px] h-[100px]">
-        <Logo width="100%" height="100%" fill={darkMode ? 'black' : 'white'} />
+        <Logo
+          width="100%"
+          height="100%"
+          fill={isDarkMode ? 'black' : 'white'}
+        />
       </div>
       <div>
         <h2 className="text-3xl font-bold">덕업일치 개발자</h2>

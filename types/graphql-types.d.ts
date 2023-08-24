@@ -2732,15 +2732,20 @@ export type MarkdownRemarkGroupConnectionGroupArgs = {
   field: MarkdownRemarkFieldSelector;
 };
 
+export type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SeoQueryQuery = { site?: { siteMetadata?: { title?: string | null, description?: string | null, social?: { twitter?: string | null } | null } | null } | null };
+
 export type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BioQueryQuery = { site?: { siteMetadata?: { author?: { name?: string | null, summary?: string | null } | null, social?: { github?: string | null, linkedin?: string | null, email?: string | null } | null } | null } | null };
 
-export type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostCardDataListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SeoQueryQuery = { site?: { siteMetadata?: { title?: string | null, description?: string | null, social?: { twitter?: string | null } | null } | null } | null };
+export type PostCardDataListQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null, emoji?: string | null } | null }> } };
 
 export type PostsToSearchQueryVariables = Exact<{ [key: string]: never; }>;
 

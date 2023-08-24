@@ -1,29 +1,14 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import * as React from 'react';
-import { useMemo } from 'react';
 
-import { Bio, LimitedWidthContainer, Seo, TagTab, PostCard } from '@components';
+import { LimitedWidthContainer, Seo } from '@components/atoms';
+import { Bio } from '@components/molecules';
+import { PostCardList, TagTab } from '@components/templates';
+import { useURLSearchParams } from '@hooks';
 
-import { usePageInfoStore } from '../stores';
-
-const IndexPage = ({
-  data: {
-    allMarkdownRemark: { nodes: posts },
-  },
-  location: { search },
-}: PageProps<Queries.IndexPageQuery>) => {
-  const [query] = usePageInfoStore((state) => [state.query]);
-  const selectedTag = query.get('tag');
-
-  const filteredPosts = useMemo(() => {
-    if (!selectedTag) return posts;
-    return posts.filter((post) =>
-      post?.frontmatter?.tags?.includes(selectedTag),
-    );
-  }, [selectedTag, posts]);
-
-  const tagParam = new URLSearchParams(search).get('tag');
+const IndexPage = () => {
+  const selectedTag = useURLSearchParams().get('tag');
 
   return (
     <>
@@ -31,7 +16,7 @@ const IndexPage = ({
         <Bio />
       </LimitedWidthContainer>
       <TagTab
-        tagParam={tagParam}
+        tagParam={selectedTag}
         className="mb-6"
         tags={[
           {
@@ -52,22 +37,7 @@ const IndexPage = ({
           },
         ]}
       />
-      <LimitedWidthContainer>
-        <ol className="flex flex-wrap">
-          {filteredPosts.map(({ frontmatter, fields, excerpt }) => {
-            const slug = fields?.slug;
-            return slug ? (
-              <PostCard
-                key={slug}
-                slug={slug}
-                frontmatter={frontmatter}
-                tagParam={tagParam}
-                excerpt={excerpt}
-              />
-            ) : null;
-          })}
-        </ol>
-      </LimitedWidthContainer>
+      <PostCardList />
     </>
   );
 };

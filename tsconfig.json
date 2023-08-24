@@ -16,8 +16,10 @@
     "paths": {
       "@stores": ["./stores"],
       "@components": ["./components"],
+      "@components/*": ["./components/*"],
       "@layouts": ["./layouts"],
-      "@types": ["../types"]
+      "@types": ["../types"],
+      "@hooks": ["./hooks"]
     }
   },
   "include": ["./src/**/*"]

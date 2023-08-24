@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
-import { shallow } from 'zustand/shallow';
 
-import React, { useLayoutEffect } from 'react';
-import { Sun, Moon } from 'react-feather';
+import React from 'react';
 
-import { Logo, PostSearchbox } from '@components';
-import { useLayoutStore } from '@stores';
+import { Logo } from '@components/atoms';
+
+import { DarkModeSwitch } from './_components/DarkModeSwitch';
+import { PostSearchbox } from './_components/PostSearchbox';
 
 import type { PageProps } from 'gatsby';
 
@@ -20,16 +20,6 @@ const Layout = ({ location: { pathname }, children }: PageProps) => {
       to: '/about',
     },
   ];
-
-  const [darkMode, setDarkMode] = useLayoutStore(
-    (state) => [state.darkMode, state.setDarkMode],
-    shallow,
-  );
-
-  useLayoutEffect(() => {
-    if (darkMode) document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
-  }, [darkMode]);
 
   return (
     <div
@@ -52,12 +42,7 @@ const Layout = ({ location: { pathname }, children }: PageProps) => {
             </ul>
           </div>
           <div>
-            <button
-              className={`flex justify-center items-center rounded-[100%] p-2 duration-300 hover:bg-zinc-600 dark:hover:bg-yellow-500`}
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? <Moon size="1.2rem" /> : <Sun size="1.2rem" />}
-            </button>
+            <DarkModeSwitch />
           </div>
         </nav>
       </header>

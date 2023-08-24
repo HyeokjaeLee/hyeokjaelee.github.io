@@ -5,7 +5,8 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { ArrowLeftCircle, ArrowRightCircle, Tag, Clock } from 'react-feather';
 
-import { Seo, Bio, LimitedWidthContainer } from '../components';
+import { Seo, LimitedWidthContainer } from '@components/atoms';
+import { Bio } from '@components/molecules';
 
 const BlogPostTemplate = ({
   data: { previous, next, markdownRemark: post },

@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 
 import * as React from 'react';
 
-import { Seo } from '../components';
+import { Seo } from '@components/atoms';
 
 import type { PageProps } from 'gatsby';
 

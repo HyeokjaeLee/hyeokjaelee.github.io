@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 
 import React from 'react';
 
-import { LimitedWidthContainer } from './LimitedWidthContainer';
+import { LimitedWidthContainer } from '@components/atoms';
 
 interface TagTabItem {
   isSelected: boolean;

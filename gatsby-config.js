@@ -37,6 +37,7 @@ module.exports = {
           '@stores': 'src/stores',
           '@components': 'src/components',
           '@layouts': 'src/layouts',
+          '@hooks': 'src/hooks',
         },
         extensions: ['tsx', 'ts', 'js', 'jsx'],
       },
