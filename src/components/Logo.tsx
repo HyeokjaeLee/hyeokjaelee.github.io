@@ -4,18 +4,21 @@ interface LogoProps {
   width?: string;
   height?: string;
   fill?: string;
+  className?: string;
 }
 
 export const Logo = ({
   width = '256',
   height = '256',
   fill = '#f0f6fc',
+  className,
 }: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
     height={height}
     viewBox="0 0 100 100"
+    className={className}
   >
     <path
       fill={fill}

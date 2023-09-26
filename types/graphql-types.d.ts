@@ -2728,6 +2728,11 @@ export type MarkdownRemarkGroupConnectionGroupArgs = {
   field: MarkdownRemarkFieldSelector;
 };
 
+export type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SiteMetaDataQuery = { site?: { siteMetadata?: { title?: string | null, description?: string | null } | null } | null };
+
 export type PostLayoutQueryVariables = Exact<{
   id: Scalars['String'];
   previousPostId?: InputMaybe<Scalars['String']>;

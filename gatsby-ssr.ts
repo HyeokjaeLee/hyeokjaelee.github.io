@@ -1,5 +1,6 @@
-import type { GatsbySSR } from 'gatsby';
+import { HTML_PROPS } from './src/components/Meta';
 
+import type { GatsbySSR } from 'gatsby';
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
@@ -9,5 +10,5 @@ import type { GatsbySSR } from 'gatsby';
 export const onRenderBody: GatsbySSR['onRenderBody'] = ({
   setHtmlAttributes,
 }) => {
-  setHtmlAttributes({ lang: `en` });
+  setHtmlAttributes(HTML_PROPS);
 };
