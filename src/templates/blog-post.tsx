@@ -1,12 +1,9 @@
-import { Link, graphql, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import parse from 'html-react-parser';
 
 import * as React from 'react';
 import { useMemo } from 'react';
-import { ArrowLeftCircle, ArrowRightCircle, Tag, Clock } from 'react-feather';
-
-import { Seo, LimitedWidthContainer } from '@components/atoms';
-import { Bio } from '@components/molecules';
+import { Tag, Clock } from 'react-feather';
 
 const BlogPostTemplate = ({
   data: { previous, next, markdownRemark: post },
@@ -27,7 +24,7 @@ const BlogPostTemplate = ({
   }, []);
 
   return (
-    <LimitedWidthContainer>
+    <>
       <article
         className="blog-post mt-20 max-w-4xl mx-auto"
         itemScope
@@ -67,33 +64,8 @@ const BlogPostTemplate = ({
           <Bio />
         </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul className="flex w-full justify-between">
-          <li>
-            {previous && (
-              <Link
-                to={previous.fields.slug}
-                rel="prev"
-                className="flex-1 flex gap-2 items-center font-black pl-10 hover:pl-0 duration-300"
-              >
-                <ArrowLeftCircle /> {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link
-                to={next.fields.slug}
-                rel="next"
-                className="flex-1 flex gap-2 items-center font-black  pr-10 hover:pr-0 duration-300"
-              >
-                {next.frontmatter.title} <ArrowRightCircle />
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </LimitedWidthContainer>
+      <nav className="blog-post-nav" />
+    </>
   );
 };
 
@@ -163,7 +135,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        emoji
         tags
       }
     }

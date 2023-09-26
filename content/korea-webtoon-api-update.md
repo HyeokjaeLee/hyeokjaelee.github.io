@@ -1,10 +1,9 @@
 ---
-title: "Webtoon API 업데이트"
-titleImage: "https://user-images.githubusercontent.com/71566740/144698893-3177ecc1-ce90-49ae-8e98-4986f66bce7a.png"
-description: "Daum 웹툰의 개편으로 인한 API 업데이트"
-date: "2021-11-17"
+title: 'Webtoon API 업데이트'
+titleImage: 'https://user-images.githubusercontent.com/71566740/144698893-3177ecc1-ce90-49ae-8e98-4986f66bce7a.png'
+description: 'Daum 웹툰의 개편으로 인한 API 업데이트'
+date: '2021-11-17'
 tags: [Project]
-emoji: "🚧"
 ---
 
 2020년 말쯤 웹툰 통합 정보 사이트를 만들어 보자는 생각으로 Webtoon Hub라는 토이 프로젝트를 진행하면서 필요했던 웹툰 정보들을 뿌려주는 서버를 만들었다.

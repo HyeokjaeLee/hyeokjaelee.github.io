@@ -1,10 +1,9 @@
 ---
-title: "NestJS 웹서버 구축하기"
-titleImage: "https://user-images.githubusercontent.com/71566740/139354021-96e05704-52c7-466f-857a-4046a2a5f916.png"
-description: "Typescript를 이용한 NestJS 코드 작성"
-date: "2021-10-29"
+title: 'NestJS 웹서버 구축하기'
+titleImage: 'https://user-images.githubusercontent.com/71566740/139354021-96e05704-52c7-466f-857a-4046a2a5f916.png'
+description: 'Typescript를 이용한 NestJS 코드 작성'
+date: '2021-10-29'
 tags: [backend]
-emoji: "🚧"
 ---
 
 > 내용1
@@ -118,18 +117,18 @@ $ npm run start
 GetTest()를 추가해주고 constructor에 실행 순서를 알 수 있는 콘솔 출력을 추가해준다.
 
 ```typescript
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
   constructor() {
-    console.log("서비스 생성");
+    console.log('서비스 생성');
   }
   getHello(): string {
-    return "Hello World!";
+    return 'Hello World!';
   }
   getTest(): string {
-    return "이것은 테스트입니다.";
+    return '이것은 테스트입니다.';
   }
 }
 ```
@@ -140,8 +139,8 @@ export class AppService {
 test 컨트롤러의 root path에는 위에서 만들었던 getTest()를 사용해 줄 거다.
 
 ```typescript
-import { Controller, Get, Query } from "@nestjs/common";
-import { AppService } from "./app.service";
+import { Controller, Get, Query } from '@nestjs/common';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
@@ -153,7 +152,7 @@ export class AppController {
   }
 }
 
-@Controller("test") //테스트를 위한 컨트롤러
+@Controller('test') //테스트를 위한 컨트롤러
 export class TestController {
   constructor(private readonly appService: AppService) {}
 
@@ -161,19 +160,19 @@ export class TestController {
   getHello(): string {
     return this.appService.getTest(); //app.service.ts에 추가했던 GetTest()
   }
-  @Get("query-test")
-  getTest(@Query("query") query: string): string {
+  @Get('query-test')
+  getTest(@Query('query') query: string): string {
     return `입력받은 쿼리는 ${query}입니다.`;
   }
-  @Get("middleware-test")
+  @Get('middleware-test')
   getTestMiddleware(): string {
-    console.log("middleware-test 컨트롤러");
-    return "middleware-test 컨트롤러";
+    console.log('middleware-test 컨트롤러');
+    return 'middleware-test 컨트롤러';
   }
-  @Get("middleware-test2")
+  @Get('middleware-test2')
   getTestMiddleware2(): string {
-    console.log("middleware-test2 컨트롤러");
-    return "middleware-test2 컨트롤러";
+    console.log('middleware-test2 컨트롤러');
+    return 'middleware-test2 컨트롤러';
   }
 }
 ```
@@ -192,11 +191,11 @@ Middleware도 한번 만들어 보자
 src/middleware 경로에 `TestMiddleware.ts`을 만들어준다.
 
 ```typescript
-import { Injectable, NestMiddleware } from "@nestjs/common";
+import { Injectable, NestMiddleware } from '@nestjs/common';
 @Injectable()
 export class TestMiddleware implements NestMiddleware {
   use(req: any, res: any, next: () => void): any {
-    console.log("테스트 미들웨어 1 실행");
+    console.log('테스트 미들웨어 1 실행');
     const query = req.query.name;
     res.send(`테스트 미들웨어 쿼리 name=${query}`);
     return; //Middleware 이후 코드 실행X
@@ -207,7 +206,7 @@ export class TestMiddleware implements NestMiddleware {
 export class TestMiddleware2 implements NestMiddleware {
   use(req: any, res: any, next: () => void): any {
     console.log(req.query);
-    console.log("테스트 미들웨어 2 실행");
+    console.log('테스트 미들웨어 2 실행');
     next(); //Middleware 이후 코드를 실행
   }
 }
@@ -233,10 +232,10 @@ import {
   Module,
   NestModule,
   RequestMethod,
-} from "@nestjs/common";
-import { AppController, TestController } from "./app.controller";
-import { AppService } from "./app.service";
-import { TestMiddleware, TestMiddleware2 } from "./middleware/TestMiddleware";
+} from '@nestjs/common';
+import { AppController, TestController } from './app.controller';
+import { AppService } from './app.service';
+import { TestMiddleware, TestMiddleware2 } from './middleware/TestMiddleware';
 
 @Module({
   imports: [],
@@ -247,8 +246,8 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(TestMiddleware)
-      .forRoutes({ path: "test/middleware-test/*", method: RequestMethod.GET }); //테스트 미들웨어1 추가
-    consumer.apply(TestMiddleware2).forRoutes("test/middleware-test2"); //테스트 미들웨어2 추가
+      .forRoutes({ path: 'test/middleware-test/*', method: RequestMethod.GET }); //테스트 미들웨어1 추가
+    consumer.apply(TestMiddleware2).forRoutes('test/middleware-test2'); //테스트 미들웨어2 추가
   }
 }
 ```
@@ -262,7 +261,7 @@ forRoutes에서 Routing path를 지정해줄수 있다.
   예를 들어 별표(\*)는 와일드카드로 사용되며 모든 문자조합과 일치한다.
 
   ```typescript
-  forRoutes({ path: "ab*cd", method: RequestMethod.ALL });
+  forRoutes({ path: 'ab*cd', method: RequestMethod.ALL });
   ```
 
   `ab*cd` 라우트 경로는 abcd, ab_cd, abecd 등과 일치한다.
@@ -274,7 +273,7 @@ forRoutes에서 Routing path를 지정해줄수 있다.
 - **forRoutes()에는 여러개의 path를 콤마(,)를 이용해 지정할 수 있다.**
 
   ```typescript
-  forRoutes("test/middleware-test", "test/middleware-test2");
+  forRoutes('test/middleware-test', 'test/middleware-test2');
   ```
 
 ## 실행

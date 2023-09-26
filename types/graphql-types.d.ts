@@ -693,7 +693,6 @@ export type Frontmatter = {
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  emoji?: Maybe<Scalars['String']>;
   titleImage?: Maybe<Scalars['String']>;
 };
 
@@ -1159,7 +1158,6 @@ export type FrontmatterFilterInput = {
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
   tags?: InputMaybe<StringQueryOperatorInput>;
-  emoji?: InputMaybe<StringQueryOperatorInput>;
   titleImage?: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -1393,7 +1391,6 @@ export type FrontmatterFieldSelector = {
   description?: InputMaybe<FieldSelectorEnum>;
   date?: InputMaybe<FieldSelectorEnum>;
   tags?: InputMaybe<FieldSelectorEnum>;
-  emoji?: InputMaybe<FieldSelectorEnum>;
   titleImage?: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -1646,7 +1643,6 @@ export type FrontmatterSortInput = {
   description?: InputMaybe<SortOrderEnum>;
   date?: InputMaybe<SortOrderEnum>;
   tags?: InputMaybe<SortOrderEnum>;
-  emoji?: InputMaybe<SortOrderEnum>;
   titleImage?: InputMaybe<SortOrderEnum>;
 };
 
@@ -2732,26 +2728,6 @@ export type MarkdownRemarkGroupConnectionGroupArgs = {
   field: MarkdownRemarkFieldSelector;
 };
 
-export type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SeoQueryQuery = { site?: { siteMetadata?: { title?: string | null, description?: string | null, social?: { twitter?: string | null } | null } | null } | null };
-
-export type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type BioQueryQuery = { site?: { siteMetadata?: { author?: { name?: string | null, summary?: string | null } | null, social?: { github?: string | null, linkedin?: string | null, email?: string | null } | null } | null } | null };
-
-export type PostCardDataListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostCardDataListQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null, emoji?: string | null } | null }> } };
-
-export type PostsToSearchQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostsToSearchQuery = { allMarkdownRemark: { nodes: Array<{ fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null, emoji?: string | null } | null }> } };
-
 export type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2760,7 +2736,7 @@ export type NotFoundPageQuery = { site?: { siteMetadata?: { title?: string | nul
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null, emoji?: string | null } | null }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null } | null }> } };
 
 export type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];
@@ -2769,7 +2745,7 @@ export type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostBySlugQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, markdownRemark?: { id: string, excerpt?: string | null, html?: string | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, emoji?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
+export type BlogPostBySlugQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, markdownRemark?: { id: string, excerpt?: string | null, html?: string | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 

@@ -1,10 +1,9 @@
 ---
-title: "대학생 개발자 취업 회고ssssasfasfasf afasfasfagasgasgasgas sagasgasgasgasgsf"
-titleImage: "https://user-images.githubusercontent.com/71566740/154115624-4c5d4203-7079-4522-afc3-aa7ebdc69a5c.jpg"
-description: "평범한 대학생 개발자의 2022년 상반기 취업과정"
-date: "2022-02-16"
+title: '대학생 개발자 취업 회고ssssasfasfasf afasfasfagasgasgasgas sagasgasgasgasgsf'
+titleImage: 'https://user-images.githubusercontent.com/71566740/154115624-4c5d4203-7079-4522-afc3-aa7ebdc69a5c.jpg'
+description: '평범한 대학생 개발자의 2022년 상반기 취업과정'
+date: '2022-02-16'
 tags: [etc.]
-emoji: "🚧"
 ---
 
 ## 시작하는 글
