@@ -2728,6 +2728,15 @@ export type MarkdownRemarkGroupConnectionGroupArgs = {
   field: MarkdownRemarkFieldSelector;
 };
 
+export type PostLayoutQueryVariables = Exact<{
+  id: Scalars['String'];
+  previousPostId?: InputMaybe<Scalars['String']>;
+  nextPostId?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type PostLayoutQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, markdownRemark?: { id: string, excerpt?: string | null, html?: string | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
+
 export type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2737,15 +2746,6 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null } | null }> } };
-
-export type BlogPostBySlugQueryVariables = Exact<{
-  id: Scalars['String'];
-  previousPostId?: InputMaybe<Scalars['String']>;
-  nextPostId?: InputMaybe<Scalars['String']>;
-}>;
-
-
-export type BlogPostBySlugQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, markdownRemark?: { id: string, excerpt?: string | null, html?: string | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 

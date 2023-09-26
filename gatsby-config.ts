@@ -1,7 +1,8 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+import path from 'path';
+
+import type { GatsbyConfig } from 'gatsby';
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: {
@@ -26,7 +27,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    `gatsby-plugin-layout`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: path.resolve(`./src/layouts/GlobalLayout.tsx`),
+      },
+    },
     `gatsby-plugin-pnpm`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -141,3 +147,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

@@ -2,11 +2,11 @@ import React from 'react';
 
 import type { PageProps } from 'gatsby';
 
-const Layout = ({ location: { pathname }, children }: PageProps) => (
+const GlobalLayout = ({ location: { pathname }, children }: PageProps) => (
   <>
     {children}
     {pathname}
   </>
 );
 
-export default Layout;
+export default GlobalLayout;

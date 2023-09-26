@@ -5,9 +5,11 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { Tag, Clock } from 'react-feather';
 
-const BlogPostTemplate = ({
+import type { PostLayoutQuery } from '../../types';
+
+const PostLayout = ({
   data: { previous, next, markdownRemark: post },
-}: PageProps<DataProps>) => {
+}: PageProps<PostLayoutQuery>) => {
   const formattedDate = useMemo(() => {
     const date = new Date(post.frontmatter.date);
     const dayDiff = Math.floor(
@@ -60,68 +62,17 @@ const BlogPostTemplate = ({
         >
           {parse(post.html)}
         </section>
-        <footer className="my-12">
-          <Bio />
-        </footer>
+        <footer className="my-12" />
       </article>
       <nav className="blog-post-nav" />
     </>
   );
 };
 
-export const Head = ({
-  data: { markdownRemark: post },
-}: PageProps<DataProps>) => (
-  <Seo
-    title={post.frontmatter.title}
-    description={post.frontmatter.description || post.excerpt}
-  />
-);
+export default PostLayout;
 
-export default BlogPostTemplate;
-
-interface DataProps {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-  markdownRemark: {
-    id: string;
-    excerpt: string;
-    html: string;
-    frontmatter: {
-      title: string;
-      date: string;
-      description: string;
-      emoji: string;
-      tags: string[];
-    };
-  };
-  previous: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
-  };
-  next: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
-  };
-}
-
-export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+export const postLayoutQuery = graphql`
+  query PostLayout($id: String!, $previousPostId: String, $nextPostId: String) {
     site {
       siteMetadata {
         title
@@ -156,3 +107,14 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+/**
+ * export const Head = ({
+  data: { markdownRemark: post },
+}: PageProps<DataProps>) => (
+  <Seo
+    title={post.frontmatter.title}
+    description={post.frontmatter.description || post.excerpt}
+  />
+);
+ */
