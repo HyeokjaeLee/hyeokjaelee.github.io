@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { Tag, Clock } from 'react-feather';
 
-import type { PostLayoutQuery } from '../../types';
+import type { PostLayoutQuery } from 'types';
 
 const PostLayout = ({
   data: { previous, next, markdownRemark: post },

@@ -8,18 +8,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@stores": ["./stores"],
-      "@components": ["./components"],
-      "@components/*": ["./components/*"],
-      "@layouts": ["./layouts"],
-      "@types": ["../types"],
-      "@hooks": ["./hooks"]
+      "@*": ["./src/*"],
+      "types": ["types"]
     }
   },
   "include": ["./src/**/*"]

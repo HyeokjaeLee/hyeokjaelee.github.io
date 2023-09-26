@@ -2,6 +2,16 @@ import path from 'path';
 
 import type { GatsbyConfig } from 'gatsby';
 
+const alias = ['stores', 'components', 'layouts', 'hooks'].reduce(
+  (alias, aliasName) => {
+    alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
+    return alias;
+  },
+  {
+    types: 'types',
+  },
+);
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
@@ -39,12 +49,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
-        alias: {
-          '@stores': 'src/stores',
-          '@components': 'src/components',
-          '@layouts': 'src/layouts',
-          '@hooks': 'src/hooks',
-        },
+        alias,
         extensions: ['tsx', 'ts', 'js', 'jsx'],
       },
     },
