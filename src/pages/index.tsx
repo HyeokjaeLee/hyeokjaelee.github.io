@@ -5,6 +5,7 @@ import React from 'react';
 import { Logo } from '@components/Logo';
 import { Meta } from '@components/Meta';
 import { PostCard } from '@components/PostCard';
+import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
 import { useGetPostDataList, PAGE_SIZE } from '@hooks/useGetPostDataList';
 import { Pagination, useDarkMode } from '@hyeokjaelee/pastime-ui';
@@ -18,27 +19,18 @@ const PostPage = (pageProps: PageProps<PostPageQuery>) => {
 
   return (
     <article className="flex flex-col items-center justify-between h-full max-w-6xl mx-auto">
-      <header className="py-4 flex items-center gap-2">
+      <header className="py-7">
         <Logo className="w-24 h-24" fill={isDarkMode ? 'white' : 'black'} />
       </header>
       <div className="flex flex-col items-center gap-1 w-full">
         <PostTagTab tagCountMap={tagCountMap} />
-        <ul className="flex flex-wrap w-full">
+        <ul className="flex flex-wrap w-full px-2">
           {postList.map((postData) => (
             <PostCard {...postData} key={postData.slug} />
           ))}
         </ul>
       </div>
-      <section className="mt-auto p-5">
-        <Pagination
-          pageSize={PAGE_SIZE}
-          page={page}
-          size="small"
-          className="text-sm font-normal"
-          totalItems={total}
-          onChange={(page) => navigate(`?page=${page}`)}
-        />
-      </section>
+      <PostListPagination total={total} page={page} />
     </article>
   );
 };

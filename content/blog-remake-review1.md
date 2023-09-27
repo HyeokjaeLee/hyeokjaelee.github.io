@@ -3,7 +3,7 @@ title: 'Gatsby 블로그 이전 중간 리뷰'
 titleImage: 'https://user-images.githubusercontent.com/71566740/138984519-ab414f4d-216b-4e9d-b83c-f40edf0d5f78.jpeg'
 description: 'Next.js에서 Gatsby로 블로그를 이전하면서 느낀점'
 date: '2021-08-02'
-tags: [Project]
+tags: [project]
 ---
 
 나는 Next.JS로 제작한 기존 블로그를 운영 중이었다.

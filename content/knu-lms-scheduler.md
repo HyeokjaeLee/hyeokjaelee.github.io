@@ -3,7 +3,7 @@ title: 'KNU LMS Scheduler 프로젝트'
 titleImage: 'https://user-images.githubusercontent.com/71566740/137295171-1051ee6b-cc36-43d1-9835-282d120611c4.png'
 description: '공주대학교 비대면 강의 시스템 편의성 개선 프로젝트'
 date: '2021-10-14'
-tags: [Project]
+tags: [project]
 ---
 
 Covid-19 시국 때문에 사용하는 우리 대학교의 비대면 강의 시스템에 불편함을 느껴 만들었던 프로그램이 있다.

@@ -692,8 +692,8 @@ export type Frontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   titleImage?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1157,8 +1157,8 @@ export type FrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
-  tags?: InputMaybe<StringQueryOperatorInput>;
   titleImage?: InputMaybe<StringQueryOperatorInput>;
+  tags?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FieldsFilterInput = {
@@ -1390,8 +1390,8 @@ export type FrontmatterFieldSelector = {
   title?: InputMaybe<FieldSelectorEnum>;
   description?: InputMaybe<FieldSelectorEnum>;
   date?: InputMaybe<FieldSelectorEnum>;
-  tags?: InputMaybe<FieldSelectorEnum>;
   titleImage?: InputMaybe<FieldSelectorEnum>;
+  tags?: InputMaybe<FieldSelectorEnum>;
 };
 
 export type FieldsFieldSelector = {
@@ -1642,8 +1642,8 @@ export type FrontmatterSortInput = {
   title?: InputMaybe<SortOrderEnum>;
   description?: InputMaybe<SortOrderEnum>;
   date?: InputMaybe<SortOrderEnum>;
-  tags?: InputMaybe<SortOrderEnum>;
   titleImage?: InputMaybe<SortOrderEnum>;
+  tags?: InputMaybe<SortOrderEnum>;
 };
 
 export type FieldsSortInput = {

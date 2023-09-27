@@ -8,6 +8,18 @@ import { useLocation } from '@reach/router';
 
 type PostTagTabProps = Pick<UseGetPostDataListReturn, 'tagCountMap'>;
 
+const POST_TAG_EMOJI_MAP = new Map([
+  ['all', '📚'],
+  ['frontend', '🎨'],
+  ['backend', '🔧'],
+  ['devops', '📦'],
+  ['etc.', '🎁'],
+  ['project', '📝'],
+  ['data', '📊'],
+  ['review', '📖'],
+  ['devOps', '📦'],
+]);
+
 export const PostTagTab = ({ tagCountMap }: PostTagTabProps) => {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
@@ -17,9 +29,11 @@ export const PostTagTab = ({ tagCountMap }: PostTagTabProps) => {
       <Tab size="small" className="font-normal">
         {['all', ...tagCountMap.keys()].map((tag) => (
           <Tab.Item
-            active={selectedTag === tag}
+            key={tag}
+            active={selectedTag === tag || (tag === 'all' && !selectedTag)}
             onClick={() => navigate(`?tag=${tag}`)}
           >
+            <span className="mr-1 text-xs">{POST_TAG_EMOJI_MAP.get(tag)}</span>{' '}
             {tag}
           </Tab.Item>
         ))}

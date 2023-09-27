@@ -3,7 +3,7 @@ title: 'Gititle 프로젝트'
 titleImage: 'https://user-images.githubusercontent.com/71566740/135963287-e5c18f62-da16-4dda-98cb-1dd4a7c2b720.png'
 description: '좋은 커밋 메시지를 작성하기 위한 프로젝트'
 date: '2021-09-14'
-tags: [Project]
+tags: [project]
 ---
 
 **해당 프로젝트의 결과물은 [Gititle](https://hyeokjaelee.github.io/gititle/)에서 확인가능**
