@@ -1,4 +1,4 @@
-import { graphql, navigate } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import React from 'react';
 
@@ -7,8 +7,8 @@ import { Meta } from '@components/Meta';
 import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
-import { useGetPostDataList, PAGE_SIZE } from '@hooks/useGetPostDataList';
-import { Pagination, useDarkMode } from '@hyeokjaelee/pastime-ui';
+import { useGetPostDataList } from '@hooks/useGetPostDataList';
+import { useDarkMode } from '@hyeokjaelee/pastime-ui';
 
 import type { PageProps } from 'gatsby';
 import type { PostPageQuery } from 'types';

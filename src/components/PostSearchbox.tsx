@@ -14,7 +14,7 @@ export const PostSearchbox = () => {
     <Searchbox
       fixedDarkMode="dark"
       size="small"
-      className={`w-full text-xs transition-all ${
+      className={`w-full text-xs transition-all z-20 ${
         isFocused ? 'max-w-xs' : 'max-w-[20em]'
       }`}
       options={[...postMap.keys()]}
