@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu } from 'react-feather';
 
 import { Button } from '@hyeokjaelee/pastime-ui';
+import { Link } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 
 import { Logo } from './Logo';
@@ -22,7 +23,9 @@ export const GlobalHeader = () => {
           fixedDarkMode="dark"
           onClick={() => setIsGlobalMenuOpen(true)}
         />
-        <Logo className="w-6 h-6" />
+        <Link to="/">
+          <Logo className="w-6 h-6" />
+        </Link>
         <PostSearchbox />
       </div>
     </header>

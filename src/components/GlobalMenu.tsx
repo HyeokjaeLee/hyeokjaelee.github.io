@@ -7,6 +7,8 @@ import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 
 import { GlobalMenuFooter } from './GlobalMenuFooter';
+import { GlobalMenuLastPostList } from './GlobalMenuLastPostList';
+import { GlobalMenuPageList } from './GlobalMenuPageList';
 import { Logo } from './Logo';
 
 export const GlobalMenu = () => {
@@ -35,6 +37,8 @@ export const GlobalMenu = () => {
           <Logo className="w-5 h-5" fill={isDarkMode ? 'black' : 'white'} />
         </div>
       </Drawer.Header>
+      <GlobalMenuPageList />
+      <GlobalMenuLastPostList />
       <GlobalMenuFooter />
     </Drawer>
   );

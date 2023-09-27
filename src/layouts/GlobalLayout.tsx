@@ -12,7 +12,9 @@ const GlobalLayout = ({ children }: PageProps) => {
   return (
     <>
       <GlobalHeader />
-      <main className="h-page">{children}</main>
+      <main className="h-page bg-zinc-200 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 overflow-auto">
+        {children}
+      </main>
       <GlobalMenu />
     </>
   );

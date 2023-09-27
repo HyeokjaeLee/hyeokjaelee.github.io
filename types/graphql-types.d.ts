@@ -692,8 +692,8 @@ export type Frontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   titleImage?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1157,8 +1157,8 @@ export type FrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
-  tags?: InputMaybe<StringQueryOperatorInput>;
   titleImage?: InputMaybe<StringQueryOperatorInput>;
+  tags?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FieldsFilterInput = {
@@ -1390,8 +1390,8 @@ export type FrontmatterFieldSelector = {
   title?: InputMaybe<FieldSelectorEnum>;
   description?: InputMaybe<FieldSelectorEnum>;
   date?: InputMaybe<FieldSelectorEnum>;
-  tags?: InputMaybe<FieldSelectorEnum>;
   titleImage?: InputMaybe<FieldSelectorEnum>;
+  tags?: InputMaybe<FieldSelectorEnum>;
 };
 
 export type FieldsFieldSelector = {
@@ -1642,8 +1642,8 @@ export type FrontmatterSortInput = {
   title?: InputMaybe<SortOrderEnum>;
   description?: InputMaybe<SortOrderEnum>;
   date?: InputMaybe<SortOrderEnum>;
-  tags?: InputMaybe<SortOrderEnum>;
   titleImage?: InputMaybe<SortOrderEnum>;
+  tags?: InputMaybe<SortOrderEnum>;
 };
 
 export type FieldsSortInput = {
@@ -2728,10 +2728,25 @@ export type MarkdownRemarkGroupConnectionGroupArgs = {
   field: MarkdownRemarkFieldSelector;
 };
 
+export type LastPostListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LastPostListQuery = { allMarkdownRemark: { nodes: Array<{ fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null, titleImage?: string | null } | null }> } };
+
+export type PostListToSearchQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PostListToSearchQuery = { allMarkdownRemark: { nodes: Array<{ fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null }> } };
+
 export type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteMetaDataQuery = { site?: { siteMetadata?: { title?: string | null, description?: string | null } | null } | null };
+
+export type SocialDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SocialDataQuery = { site?: { siteMetadata?: { social?: { github?: string | null, linkedin?: string | null, email?: string | null } | null } | null } | null };
 
 export type PostLayoutQueryVariables = Exact<{
   id: Scalars['String'];
