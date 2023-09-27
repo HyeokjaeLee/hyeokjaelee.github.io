@@ -3,7 +3,7 @@ title: '리액트 컴포넌트 스타일링 정리'
 titleImage: 'https://user-images.githubusercontent.com/71566740/175811027-ba817b46-f652-43fe-bd21-bb99bedada81.png'
 description: '리액트 기반 제품을 개발하면서 고민했던 컴포넌트 스타일링 방법에 대한 고민'
 date: '2022-03-12'
-tags: [Frontend]
+tags: [Frontend, Test]
 ---
 
 이번에는 코드스테이츠 WEWIN 제품 개발팀에 Front-end 개발자로 합류하면서 내가 기존 코드들을 보고 가장 처음 고민하고 개발 방향을 설정하면서 다른 개발자 분들께 이유와 의도를 전달하기 위해 작성한 글을 기반으로 기록을 남겨 보려 한다.

@@ -9,7 +9,7 @@ interface MetaProps {
 }
 
 enum DEFAULT_META {
-  TITLE = '덕업일치 개발자',
+  TITLE = 'hj.log',
   DESCRIPTION = '덕업일치 개발자의 블로그입니다.',
 }
 

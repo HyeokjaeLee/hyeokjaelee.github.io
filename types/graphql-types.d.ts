@@ -692,8 +692,8 @@ export type Frontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  titleImage?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  titleImage?: Maybe<Scalars['String']>;
 };
 
 
@@ -1157,8 +1157,8 @@ export type FrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
-  titleImage?: InputMaybe<StringQueryOperatorInput>;
   tags?: InputMaybe<StringQueryOperatorInput>;
+  titleImage?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FieldsFilterInput = {
@@ -1390,8 +1390,8 @@ export type FrontmatterFieldSelector = {
   title?: InputMaybe<FieldSelectorEnum>;
   description?: InputMaybe<FieldSelectorEnum>;
   date?: InputMaybe<FieldSelectorEnum>;
-  titleImage?: InputMaybe<FieldSelectorEnum>;
   tags?: InputMaybe<FieldSelectorEnum>;
+  titleImage?: InputMaybe<FieldSelectorEnum>;
 };
 
 export type FieldsFieldSelector = {
@@ -1642,8 +1642,8 @@ export type FrontmatterSortInput = {
   title?: InputMaybe<SortOrderEnum>;
   description?: InputMaybe<SortOrderEnum>;
   date?: InputMaybe<SortOrderEnum>;
-  titleImage?: InputMaybe<SortOrderEnum>;
   tags?: InputMaybe<SortOrderEnum>;
+  titleImage?: InputMaybe<SortOrderEnum>;
 };
 
 export type FieldsSortInput = {
@@ -2762,10 +2762,10 @@ export type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type NotFoundPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null };
 
-export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMarkdownRemark: { nodes: Array<{ excerpt?: string | null, fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, description?: string | null, tags?: Array<string | null> | null } | null }> } };
+export type PostPageQuery = { allMarkdownRemark: { nodes: Array<{ fields?: { slug?: string | null } | null, frontmatter?: { date?: any | null, title?: string | null, titleImage?: string | null, tags?: Array<string | null> | null, description?: string | null } | null }> } };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 
