@@ -32,6 +32,8 @@ const config: Config = {
           'Helvetica Neue',
           'sans-serif',
         ],
+        firacode: ['Fira Code', 'monospace'],
+        'nanum-square': ['나눔스퀘어', 'nanum-square'],
       },
 
       minHeight: {

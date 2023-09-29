@@ -18,13 +18,13 @@ const PostPage = (pageProps: PageProps<PostPageQuery>) => {
   const { isDarkMode } = useDarkMode();
 
   return (
-    <article className="flex flex-col items-center justify-between h-full max-w-6xl mx-auto">
+    <article className="flex flex-col items-center justify-between h-full">
       <header className="py-7">
         <Logo className="w-24 h-24" fill={isDarkMode ? 'white' : 'black'} />
       </header>
       <div className="flex flex-col items-center gap-1 w-full">
         <PostTagTab tagCountMap={tagCountMap} />
-        <ul className="flex flex-wrap w-full px-2">
+        <ul className="flex flex-wrap w-full px-2 max-w-6xl mx-auto">
           {postList.map((postData) => (
             <PostCard {...postData} key={postData.slug} />
           ))}

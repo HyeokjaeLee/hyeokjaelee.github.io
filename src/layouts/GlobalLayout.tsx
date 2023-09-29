@@ -15,7 +15,7 @@ const GlobalLayout = ({ children }: PageProps) => {
     <Toast.Provider>
       <GlobalHelloToast />
       <GlobalHeader />
-      <main className="h-page bg-zinc-200 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-50 overflow-auto">
+      <main className="h-page bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-50 overflow-auto">
         {children}
       </main>
       <GlobalMenu />

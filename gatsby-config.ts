@@ -1,5 +1,7 @@
 import path from 'path';
 
+import { POST_ARTICLE_STYLES } from './src/components/PostArticle';
+
 import type { GatsbyConfig } from 'gatsby';
 
 const alias = ['stores', 'components', 'layouts', 'hooks'].reduce(
@@ -19,6 +21,7 @@ const config: GatsbyConfig = {
       name: `Hyoekjae Lee`,
       summary: 'Front-end Engineer',
     },
+
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
@@ -78,12 +81,22 @@ const config: GatsbyConfig = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 500,
+              loading: 'lazy',
+              linkImagesToOriginal: true,
+              disableBgImageOnAlpha: true,
+              showCaptions: true,
             },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-classes',
+            options: {
+              classMap: POST_ARTICLE_STYLES,
             },
           },
         ],

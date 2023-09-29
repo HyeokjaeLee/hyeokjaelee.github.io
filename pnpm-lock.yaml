@@ -8,7 +8,7 @@ dependencies:
   '@hyeokjaelee/pastime-ui':
     specifier: ^1.4.43
     version: 1.4.43(react-dom@18.2.0)(react@18.2.0)
-  '@kfonts/nanum-square-round-otf':
+  '@kfonts/nanum-square':
     specifier: ^0.1.3
     version: 0.1.3
   '@reach/router':
@@ -47,6 +47,9 @@ dependencies:
   gatsby-plugin-typescript:
     specifier: ^5.12.0
     version: 5.12.0(gatsby@5.12.4)
+  gatsby-remark-classes:
+    specifier: ^1.0.2
+    version: 1.0.2
   gatsby-remark-images:
     specifier: ^7.12.0
     version: 7.12.0(gatsby-plugin-sharp@5.12.0)(gatsby@5.12.4)
@@ -2043,8 +2046,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@kfonts/nanum-square-round-otf@0.1.3:
-    resolution: {integrity: sha512-AM8uQ3+goL5yJtN3gYCyWnpBadPP3VAn/wVHXVVyOGs+T57iIUQFqPlHrJq1FfWswr280laNVkgn4g5thLi4nw==}
+  /@kfonts/nanum-square@0.1.3:
+    resolution: {integrity: sha512-MMBqgF3qBf/TaI4+88hyrl7rmlv0cOTUedOhUv0NEahaHbjRDJaIPi41a0tnfjRffEWmIUjyo6sxNE/GimsVeA==}
     dev: false
 
   /@lezer/common@1.1.0:
@@ -6646,6 +6649,12 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
+  /gatsby-remark-classes@1.0.2:
+    resolution: {integrity: sha512-axPrsd7zCu9hU39C5m6HpIRrGsUrvXlvQ8YmoJGmFQo+0KkA2z+hCHb/FpjWyC6N6P9KXZFNQqzBX4cugDcS6A==}
+    dependencies:
+      unist-util-select: 2.0.2
+    dev: false
+
   /gatsby-remark-images@7.12.0(gatsby-plugin-sharp@5.12.0)(gatsby@5.12.4):
     resolution: {integrity: sha512-+jTbqcAcR2dj676w9W38oQKeTZDFy0kYT/gJncbS0fEdlk9MlZFErpoXZ4gmqOxxbTxRDbrSCaNBMF/k89F0fg==}
     engines: {node: '>=18.0.0'}
@@ -8916,6 +8925,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-key: 3.1.1
+
+  /nth-check@1.0.2:
+    resolution: {integrity: sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg==}
+    dependencies:
+      boolbase: 1.0.0
+    dev: false
 
   /nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -11616,6 +11631,10 @@ packages:
     resolution: {integrity: sha512-cln2Mm1/CZzN5ttGK7vkoGw+RZ8VcUH6BtGbq98DDtRGquAAOXig1mrBQYelOwMXYS8rK+vZDyyojSjp7JX+Lg==}
     dev: false
 
+  /unist-util-is@3.0.0:
+    resolution: {integrity: sha512-sVZZX3+kspVNmLWBPAB6r+7D9ZgAFPNWm66f7YNb420RlQSbn+n8rG8dGZSkrER7ZIXGQYNm5pqC3v3HopH24A==}
+    dev: false
+
   /unist-util-is@4.1.0:
     resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
     dev: false
@@ -11634,6 +11653,16 @@ packages:
     resolution: {integrity: sha512-17kIOuolVuK16LMb9KyMJlqdfCtlfQY5FjY3Sdo9iC7F5wqdXhNjMq0PBvMpkVNNnAmHxXssUW+rZ9T2zbP0Rg==}
     dependencies:
       unist-util-visit: 2.0.3
+    dev: false
+
+  /unist-util-select@2.0.2:
+    resolution: {integrity: sha512-Yv5Z5ShMxv7Z9Dw175tKvOiRVXV4FrMHG778DSD9Z0jALgb3wAx9DoeInr3200QlYp71rYUXzzJdCb76xKdrCw==}
+    dependencies:
+      css-selector-parser: 1.4.1
+      not: 0.1.0
+      nth-check: 1.0.2
+      unist-util-is: 3.0.0
+      zwitch: 1.0.5
     dev: false
 
   /unist-util-select@3.0.4:
