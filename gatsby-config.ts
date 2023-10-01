@@ -33,6 +33,7 @@ const config: GatsbyConfig = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
@@ -74,9 +75,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-          },
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-images`,
             options: {

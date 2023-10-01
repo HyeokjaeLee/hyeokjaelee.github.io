@@ -7,5 +7,7 @@ interface PostArticleBodyProps {
 }
 
 export const PostArticleBody = ({ html }: PostArticleBodyProps) => (
-  <section itemProp="post-article-body">{parse(html)}</section>
+  <section itemProp="post-article-body" className="max-w-3xl">
+    {parse(html)}
+  </section>
 );

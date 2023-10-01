@@ -19,6 +19,11 @@ export const postLayoutQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      headings {
+        depth
+        value
+        id
+      }
       frontmatter {
         title
         date(formatString: "YY년 MM월 DD일")

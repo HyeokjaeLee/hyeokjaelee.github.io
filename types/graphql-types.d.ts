@@ -2755,7 +2755,7 @@ export type PostLayoutQueryVariables = Exact<{
 }>;
 
 
-export type PostLayoutQuery = { markdownRemark?: { id: string, html?: string | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
+export type PostLayoutQuery = { markdownRemark?: { id: string, html?: string | null, headings?: Array<{ depth?: number | null, value?: string | null, id?: string | null } | null> | null, frontmatter?: { title?: string | null, date?: any | null, description?: string | null, tags?: Array<string | null> | null } | null } | null, previous?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null, next?: { fields?: { slug?: string | null } | null, frontmatter?: { title?: string | null } | null } | null };
 
 export type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 

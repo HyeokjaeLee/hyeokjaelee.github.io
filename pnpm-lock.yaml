@@ -44,9 +44,15 @@ dependencies:
   gatsby-plugin-sharp:
     specifier: ^5.12.0
     version: 5.12.0(gatsby@5.12.4)(graphql@16.8.1)
+  gatsby-plugin-smoothscroll:
+    specifier: ^1.2.0
+    version: 1.2.0
   gatsby-plugin-typescript:
     specifier: ^5.12.0
     version: 5.12.0(gatsby@5.12.4)
+  gatsby-remark-autolink-headers:
+    specifier: ^6.12.0
+    version: 6.12.0(gatsby@5.12.4)(react-dom@18.2.0)(react@18.2.0)
   gatsby-remark-classes:
     specifier: ^1.0.2
     version: 1.0.2
@@ -1779,7 +1785,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 8.9.0(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.4.1
+      tslib: 2.6.2
     dev: false
 
   /@graphql-tools/merge@8.4.2(graphql@16.8.1):
@@ -6599,6 +6605,12 @@ packages:
       - supports-color
     dev: false
 
+  /gatsby-plugin-smoothscroll@1.2.0:
+    resolution: {integrity: sha512-wfIK06xwbNx91nHVg1YJwlLUJc0EmfWqV8KgvlNr6gFa9pqMx5Mprdp5jDRloAi3+9K0dVCybPO8FfaZ0i4HgA==}
+    dependencies:
+      smoothscroll-polyfill: 0.4.4
+    dev: false
+
   /gatsby-plugin-typescript@5.12.0(gatsby@5.12.4):
     resolution: {integrity: sha512-6oLxghN1y/XqDQKg8MwWgvJnkQu+5D+5NZqOlpDsGkJQz+k06S3WTK+diGnGJ9epmE0i7vCY5ZutGgrJ7icA+w==}
     engines: {node: '>=18.0.0'}
@@ -6648,6 +6660,24 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+
+  /gatsby-remark-autolink-headers@6.12.0(gatsby@5.12.4)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-c+zXq+frX7TCFoGPig4H4zn5RqsV2pduO/jF/NQLtnH2D5JnaDT0rPwiTzUi+9soyZpAenuV8Sprv6JFELPW+w==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
+      react: ^18.0.0 || ^0.0.0
+      react-dom: ^18.0.0 || ^0.0.0
+    dependencies:
+      '@babel/runtime': 7.23.1
+      gatsby: 5.12.4(babel-eslint@10.1.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      github-slugger: 1.5.0
+      lodash: 4.17.21
+      mdast-util-to-string: 2.0.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      unist-util-visit: 2.0.3
+    dev: false
 
   /gatsby-remark-classes@1.0.2:
     resolution: {integrity: sha512-axPrsd7zCu9hU39C5m6HpIRrGsUrvXlvQ8YmoJGmFQo+0KkA2z+hCHb/FpjWyC6N6P9KXZFNQqzBX4cugDcS6A==}
@@ -10669,6 +10699,10 @@ packages:
   /slugify@1.6.6:
     resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
     engines: {node: '>=8.0.0'}
+
+  /smoothscroll-polyfill@0.4.4:
+    resolution: {integrity: sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==}
+    dev: false
 
   /snake-case@3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}

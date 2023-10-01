@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { PostArticleBody } from './PostArticleBody';
+import { PostArticleHeader } from './PostArticleHeader';
+import { PostArticleNavigation } from './PostArticleNavigation';
 
 import type { PostLayoutQuery } from 'types';
 
@@ -26,15 +28,25 @@ export const POST_ARTICLE_STYLES = {
   code: 'bg-gray-100 p-4 rounded-sm',
 };
 
-export const PostArticle = ({ markdownRemark }: PostArticleProps) => {
-  const { frontmatter, html } = markdownRemark ?? {};
-  const { tags, title, date, description } = frontmatter ?? {};
+export type NotNullableMarkdownRemark = Exclude<
+  PostLayoutQuery['markdownRemark'],
+  undefined | null
+>;
 
-  if (!tags || !title || !date || !description || !html) return null;
+export const PostArticle = ({ markdownRemark }: PostArticleProps) => {
+  const { frontmatter, html, headings } = markdownRemark ?? {};
+  const { tags, title, date, description, titleImage } = frontmatter ?? {};
+  console.log(markdownRemark);
+  if (!description || !html) return null;
 
   return (
-    <article className="leading-[1.7] roun max-w-3xl mx-auto mt-8 md:mt-20 p-4 font-nanum-square break-keep">
-      <PostArticleBody html={html} />
+    <article className="leading-relaxed mt-8 md:mt-14 p-4 font-nanum-square break-keep">
+      <PostArticleHeader title={title} date={date} tags={tags} />
+      <div className="flex">
+        <div className="flex-1" />
+        <PostArticleBody html={html} />
+        <PostArticleNavigation headings={headings} title={title} />
+      </div>
     </article>
   );
 };
