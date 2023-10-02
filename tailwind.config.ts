@@ -44,10 +44,6 @@ const config: Config = {
         page: PAGE_HEIGHT,
       },
 
-      borderWidth: {
-        1: '1px',
-      },
-
       height: {
         nav: NAV_HEIGHT,
         page: PAGE_HEIGHT,

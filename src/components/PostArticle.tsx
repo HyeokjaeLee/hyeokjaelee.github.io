@@ -28,7 +28,7 @@ export const PostArticle = ({ markdownRemark }: PostArticleProps) => {
         <PostArticleBody html={html} />
         <PostArticleNavigation headings={headings} title={title} />
       </div>
-      <footer className="max-w-3xl mx-auto mt-40 pb-9 border-b-1 border-zinc-300 dark:border-zinc-700">
+      <footer className="max-w-3xl mx-auto mt-9 lg:mt-40 pb-9 border-b border-zinc-300 dark:border-zinc-700">
         <Bio />
       </footer>
     </article>

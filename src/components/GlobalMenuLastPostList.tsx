@@ -5,7 +5,7 @@ import { useGetLastPostList } from '@hooks/useGetLastPostList';
 import { GlobalMenuItem } from './GlobalMenuItem';
 
 export const LIST_SECTION_BORDER_STYLES =
-  'p-2 border-t-1 border-gray-300 dark:border-gray-700';
+  'p-2 border-t border-gray-300 dark:border-gray-700';
 
 export const GlobalMenuLastPostList = () => {
   const lastPostList = useGetLastPostList();

@@ -33,7 +33,7 @@ export const PostCard = ({
             <p className="text-sm line-clamp-3 box-border">{description}</p>
           </div>
         </section>
-        <section className="bg-white dark:bg-zinc-700 px-3 py-2 rounded-b-md border-t-1 border-zinc-100 dark:border-zinc-600 flex items-center justify-between">
+        <section className="bg-white dark:bg-zinc-700 px-3 py-2 rounded-b-md border-t border-zinc-100 dark:border-zinc-600 flex items-center justify-between">
           <div className="font-medium text-[0.6em] leading-3">{date}</div>
           <Tooltip>
             <Tooltip.Area>

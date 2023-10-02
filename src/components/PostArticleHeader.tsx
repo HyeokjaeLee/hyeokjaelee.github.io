@@ -17,7 +17,7 @@ export const PostArticleHeader = ({
   tags,
 }: PostArticleHeaderProps) =>
   title && date && tags ? (
-    <header className="mb-7 pb-7 border-b-1 border-zinc-300 dark:border-zinc-700 relative overflow-hidden">
+    <header className="mb-7 pb-7 border-b border-zinc-300 dark:border-zinc-700 relative overflow-hidden">
       <div className="max-w-3xl mx-auto font-pretendard z-[1]">
         <h1 className="font-extrabold text-4xl tracking-tight leading-normal mb-7">
           {title}
@@ -33,7 +33,7 @@ export const PostArticleHeader = ({
             <Tag className={ICON_SIZE} />
           </dt>
           <dd>
-            <ul className="mt-[0.15rem]">
+            <ul className="mt-[0.15rem] flex gap-1">
               {tags.map((tag) => (
                 <li
                   key={tag}

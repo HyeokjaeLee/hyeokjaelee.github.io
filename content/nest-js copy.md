@@ -3,7 +3,7 @@ title: 'NestJS 웹서버 구축하기test'
 titleImage: 'https://user-images.githubusercontent.com/71566740/139354021-96e05704-52c7-466f-857a-4046a2a5f916.png'
 description: 'Typescript를 이용한 NestJS 코드 작성'
 date: '2021-10-29'
-tags: [backend]
+tags: [backend, review, etc.]
 ---
 
 > 내용1
@@ -214,7 +214,6 @@ export class TestMiddleware2 implements NestMiddleware {
 ```
 
 - 첫번째 `TestMiddleware`는 쿼리를 받고 직접 해당 주소에 뿌려주는 코드이다.
-
   Express와 같이 `res.json`, `res.send`를 사용한다.
 
 - 두번째 `TestMiddleware2` 단순 실행 후 실행되었다는 콘솔만 출력해주는 코드이다.
