@@ -13,11 +13,6 @@ enum DEFAULT_META {
   DESCRIPTION = '덕업일치 개발자의 블로그입니다.',
 }
 
-export const HTML_PROPS = {
-  lang: 'ko',
-  className: 'sm:text-lg w-full h-full font-pretendard',
-};
-
 export const Meta = ({ title, description, children }: MetaProps) => {
   const siteMetaData = useGetSiteMetaData();
 

@@ -6,7 +6,11 @@ const PAGE_HEIGHT = `calc(100% - ${NAV_HEIGHT})`;
 
 const config: Config = {
   darkMode: 'class',
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './gatsby-config.ts',
+    './gatsby-ssr.ts',
+  ],
   theme: {
     extend: {
       screens: {

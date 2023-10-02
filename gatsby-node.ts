@@ -2,6 +2,8 @@ import path from 'path';
 
 import { createFilePath } from 'gatsby-source-filesystem';
 
+import { ALIAS } from './gatsby-config';
+
 import type { GatsbyNode } from 'gatsby';
 
 export const createPages = async ({ graphql, actions, reporter }) => {
@@ -101,8 +103,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     type Frontmatter {
       title: String
+      titleImage: String
       description: String
       date: Date @dateformat
+      tags: [String]
     }
 
     type Fields {
@@ -120,7 +124,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions.setWebpackConfig({
     output,
     resolve: {
-      alias: {},
+      alias: ALIAS,
     },
   });
 };
