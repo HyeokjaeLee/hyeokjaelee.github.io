@@ -24,35 +24,43 @@ export const Utterances = () => {
 
   useEffect(() => {
     setStatus(STATUS.LOADING);
-    const { current: UtterancesContainer } = ref;
+    const timer = setTimeout(() => {
+      const { current: UtterancesContainer } = ref;
 
-    if (!UtterancesContainer) {
-      setStatus(STATUS.FAIL);
-      return;
-    }
+      if (!UtterancesContainer) {
+        setStatus(STATUS.FAIL);
+        return;
+      }
 
-    const utterances = document.createElement('script');
-    const attributes = {
-      ...ATTRIBUTES,
-      theme: isDarkMode ? 'dark-blue' : 'github-light',
-    };
+      const utterances = document.createElement('script');
+      const attributes = {
+        ...ATTRIBUTES,
+        theme: isDarkMode ? 'dark-blue' : 'github-light',
+      };
 
-    Object.entries(attributes).forEach(([key, value]) => {
-      utterances.setAttribute(key, value);
-    });
+      Object.entries(attributes).forEach(([key, value]) => {
+        utterances.setAttribute(key, value);
+      });
 
-    UtterancesContainer.appendChild(utterances);
+      UtterancesContainer.appendChild(utterances);
 
-    setStatus(STATUS.SUCCESS);
+      setStatus(STATUS.SUCCESS);
+    }, 1000);
 
     return () => {
+      clearTimeout(timer);
       document.querySelectorAll('.utterances').forEach((node) => node.remove());
     };
   }, [isDarkMode]);
 
   return (
     <section className="max-w-3xl py-4 px-5 mx-auto flex">
-      <div ref={ref} className="min-h-[20em] w-full" />
+      <div
+        ref={ref}
+        className={`min-h-[269px] w-full ${
+          status === STATUS.SUCCESS ? 'block' : 'hidden'
+        }`}
+      />
       {
         {
           [STATUS.LOADING]: <Skeleton className="w-full h-64" />,

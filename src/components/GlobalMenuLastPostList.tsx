@@ -17,7 +17,7 @@ export const GlobalMenuLastPostList = () => {
       </h3>
       <ul>
         {lastPostList.map((post) => (
-          <GlobalMenuItem src={post.slug}>
+          <GlobalMenuItem src={post.slug} key={post.slug}>
             <img
               src={post.titleImage}
               alt={post.title}

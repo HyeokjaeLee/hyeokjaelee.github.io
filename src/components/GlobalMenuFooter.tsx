@@ -20,7 +20,7 @@ export const GlobalMenuFooter = () => {
       >
         <ul className="flex flex-col gap-1">
           {socialDataList.map(({ name, href, target, icon: Icon }) => (
-            <li>
+            <li key={name}>
               <a
                 className="flex text-xs items-center gap-2 font-light hover:underline cursor-pointer"
                 href={href}
