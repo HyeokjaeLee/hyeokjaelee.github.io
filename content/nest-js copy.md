@@ -138,7 +138,7 @@ export class AppService {
 테스트를 위한 컨트롤러를 추가해준다.
 test 컨트롤러의 root path에는 위에서 만들었던 getTest()를 사용해 줄 거다.
 
-```typescript
+```typescript {1,4-6}
 import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 

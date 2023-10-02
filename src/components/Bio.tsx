@@ -16,15 +16,15 @@ export const Bio = () => {
       </div>
       <div>
         <h2 className="font-semibold text-xl mb-1">덕업일치 개발자</h2>
-        <ul className="flex gap-2 flex-wrap">
+        <ul className="flex gap-2 flex-wrap items-center">
           {socialDataList.map(({ name, href, icon: Icon, target }) => (
-            <li>
+            <li key={name}>
               <a
                 className="flex gap-1 text-xs items-center hover:underline cursor-pointer"
                 href={href}
                 target={target}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3 h-3" />
                 <span>{name}</span>
               </a>
             </li>
