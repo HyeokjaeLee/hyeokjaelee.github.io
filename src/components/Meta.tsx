@@ -27,6 +27,10 @@ export const Meta = ({ title, description, children }: MetaProps) => {
   return (
     <>
       <title>{titleTemplate}</title>
+      <meta
+        name="google-site-verification"
+        content="6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw"
+      />
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={titleTemplate} />
       <meta property="og:description" content={metaDescription} />
