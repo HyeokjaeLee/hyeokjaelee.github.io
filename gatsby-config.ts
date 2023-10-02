@@ -16,7 +16,7 @@ const alias = ['stores', 'components', 'layouts', 'hooks'].reduce(
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `덕업일치 개발자`,
     author: {
       name: `Hyoekjae Lee`,
       summary: 'Front-end Engineer',

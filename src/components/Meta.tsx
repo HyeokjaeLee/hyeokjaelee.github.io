@@ -3,13 +3,13 @@ import React from 'react';
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 
 interface MetaProps {
-  title?: string;
-  description?: string;
+  title?: string | null;
+  description?: string | null;
   children?: React.ReactNode;
 }
 
 enum DEFAULT_META {
-  TITLE = 'hj.log',
+  TITLE = '덕업일치 개발자',
   DESCRIPTION = '덕업일치 개발자의 블로그입니다.',
 }
 
@@ -25,17 +25,19 @@ export const Meta = ({ title, description, children }: MetaProps) => {
   const metaDescription =
     description || siteMetaData?.description || DEFAULT_META.DESCRIPTION;
 
+  const titleTemplate = subTitle
+    ? `${DEFAULT_META.TITLE} | ${subTitle}`
+    : DEFAULT_META.TITLE;
+
   return (
     <>
-      <title>
-        {subTitle ? `${DEFAULT_META.TITLE} | ${subTitle}` : DEFAULT_META.TITLE}
-      </title>
+      <title>{titleTemplate}</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={titleTemplate} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={titleTemplate} />
       <meta name="twitter:description" content={metaDescription} />
       {children}
     </>

@@ -49,14 +49,3 @@ export const postLayoutQuery = graphql`
     }
   }
 `;
-
-/**
- * export const Head = ({
-  data: { markdownRemark: post },
-}: PageProps<DataProps>) => (
-  <Seo
-    title={post.frontmatter.title}
-    description={post.frontmatter.description || post.excerpt}
-  />
-);
- */
