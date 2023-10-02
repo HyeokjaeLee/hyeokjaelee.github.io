@@ -29,7 +29,6 @@ const POST_ARTICLE_STYLES = {
   tableCell: 'border px-4 py-2',
   tableRow: 'border px-4 py-2',
   image: 'max-w-full rounded-sm my-12 mx-auto',
-  code: 'bg-gray-100 p-4 rounded-sm',
 };
 
 const config: GatsbyConfig = {
@@ -93,9 +92,10 @@ const config: GatsbyConfig = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-autolink-headers`,
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-prismjs',
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 500,
               loading: 'lazy',
@@ -105,9 +105,9 @@ const config: GatsbyConfig = {
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
           {

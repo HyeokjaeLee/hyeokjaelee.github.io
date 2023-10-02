@@ -1,4 +1,15 @@
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import 'prismjs/themes/prism-tomorrow.css';
+
+.gatsby-highlight-code-line {
+  background-color: #383838;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid yellow;
+}
 
 .gatsby-highlight > pre[class*='language-'] {
   margin: 0;
