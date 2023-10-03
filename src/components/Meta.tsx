@@ -8,36 +8,28 @@ interface MetaProps {
   children?: React.ReactNode;
 }
 
-enum DEFAULT_META {
-  TITLE = '덕업일치 개발자',
-  DESCRIPTION = '덕업일치 개발자의 블로그입니다.',
-}
-
 export const Meta = ({ title, description, children }: MetaProps) => {
-  const siteMetaData = useGetSiteMetaData();
+  const { title: defaultTitle, description: defaultDescription } =
+    useGetSiteMetaData();
 
-  const subTitle = title || siteMetaData?.title;
-  const metaDescription =
-    description || siteMetaData?.description || DEFAULT_META.DESCRIPTION;
-
-  const titleTemplate = subTitle
-    ? `${DEFAULT_META.TITLE} | ${subTitle}`
-    : DEFAULT_META.TITLE;
+  const metaTitle = title ? `${defaultTitle} | ${title}` : defaultTitle;
+  const metaDescription = description ?? defaultDescription;
 
   return (
     <>
-      <title>{titleTemplate}</title>
+      <title>{metaTitle}</title>
       <meta
         name="google-site-verification"
         content="6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw"
       />
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={titleTemplate} />
+      <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={titleTemplate} />
+      <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="theme-color" content="#000000" />
       {children}
     </>
   );

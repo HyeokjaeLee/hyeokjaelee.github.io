@@ -12,6 +12,17 @@ export const ALIAS = ['stores', 'components', 'layouts', 'hooks'].reduce(
   },
 );
 
+enum META_DATA {
+  TITLE = '덕업일치 개발자',
+  DESCRIPTION = '덕업일치 개발자의 블로그입니다.',
+  SITE_URL = 'https://hyeokjaelee.github.io/',
+  AUTHOR_NAME = 'HyoekjaeLee',
+  AUTHOR_SUMMARY = 'Front-end Engineer',
+  GIT_HUB = 'HyeokjaeLee',
+  LINKED_IN = 'hyeokjae-lee-844042225',
+  EMAIL = 'leehyeokjae97@gamil.com',
+}
+
 const POST_ARTICLE_STYLES = {
   heading: 'font-bold mt-10 mb-4',
   'heading[depth=1]': 'text-4xl',
@@ -34,18 +45,18 @@ const POST_ARTICLE_STYLES = {
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `덕업일치 개발자`,
+    title: META_DATA.TITLE,
     author: {
-      name: `Hyoekjae Lee`,
-      summary: 'Front-end Engineer',
+      name: META_DATA.AUTHOR_NAME,
+      summary: META_DATA.AUTHOR_SUMMARY,
     },
 
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: META_DATA.DESCRIPTION,
+    siteUrl: META_DATA.SITE_URL,
     social: {
-      github: 'HyeokjaeLee',
-      linkedin: 'hyeokjae-lee-844042225',
-      email: 'leehyeokjae97@gamil.com',
+      github: META_DATA.GIT_HUB,
+      linkedin: META_DATA.LINKED_IN,
+      email: META_DATA.EMAIL,
     },
   },
   plugins: [
@@ -171,15 +182,13 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: META_DATA.TITLE,
+        short_name: META_DATA.TITLE,
         start_url: `/`,
-        background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#000000`,
         display: `minimal-ui`,
-        icon: `src/images/robot-turtle.png`, // This path is relative to the root of the site.
+        icon: `src/images/robot-turtle.png`,
       },
     },
   ],

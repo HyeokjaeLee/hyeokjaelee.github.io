@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
 import { useDarkMode } from '@hyeokjaelee/pastime-ui';
 
@@ -8,6 +9,7 @@ import { Logo } from './Logo';
 export const Bio = () => {
   const { isDarkMode } = useDarkMode();
   const socialDataList = useGetSocialDataList();
+  const { title } = useGetSiteMetaData();
 
   return (
     <section className="flex items-center gap-4">
@@ -15,7 +17,7 @@ export const Bio = () => {
         <Logo className="w-14 h-14" fill={isDarkMode ? 'black' : 'white'} />
       </div>
       <div>
-        <h2 className="font-semibold text-xl mb-1">덕업일치 개발자</h2>
+        <h2 className="font-semibold text-xl mb-1">{title}</h2>
         <ul className="flex gap-2 flex-wrap items-center">
           {socialDataList.map(({ name, href, icon: Icon, target }) => (
             <li key={name}>
