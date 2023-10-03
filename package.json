@@ -70,6 +70,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "stylelint": "stylelint './src/**/*.{css,scss,tsx}'",
-    "deploy2": "gatsby clean && gatsby build && gh-pages -d public -b gh-pages"
+    "deploy": "gatsby clean && gatsby build && gh-pages -d public -b gh-pages"
   }
 }
