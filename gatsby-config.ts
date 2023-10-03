@@ -60,25 +60,33 @@ const config: GatsbyConfig = {
     },
   },
   plugins: [
-    `gatsby-plugin-image`,
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-smoothscroll`,
+    'gatsby-plugin-image',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-smoothscroll',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-pnpm',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        excludes: ['/404'],
+        output: '/sitemap',
+      },
+    },
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `types/graphql-types.d.ts`,
       },
     },
-    'gatsby-plugin-postcss',
     {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: path.resolve(`./src/layouts/GlobalLayout.tsx`),
       },
     },
-    `gatsby-plugin-pnpm`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
