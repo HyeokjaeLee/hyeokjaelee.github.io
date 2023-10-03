@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     branches:
-      - release/0.0.6
+      - main
 
 env:
   NODE_VERSION: '18.13'
