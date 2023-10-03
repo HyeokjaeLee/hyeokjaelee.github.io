@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2022",
     "module": "commonjs",
     "allowJs": true,
     "jsx": "preserve",
@@ -8,11 +8,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@*": ["./src/*"],
+      "types": ["types"]
+    }
   },
-  "include": ["src/**/*.tsx"]
+  "include": ["./src/**/*"]
 }

@@ -1,0 +1,33 @@
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import 'prismjs/themes/prism-tomorrow.css';
+
+.gatsby-highlight-code-line {
+  background-color: #383838;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid yellow;
+}
+
+.gatsby-highlight > pre[class*='language-'] {
+  margin: 0;
+  padding: 0.75rem;
+  overflow: auto;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.125rem;
+  margin: 1rem 0;
+}
+
+code[class*='language-'] {
+  font-family: 'Fira Code', monospace;
+}
+
+:not(pre) > code[class*='language-'] {
+  font-size: 85%;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.125rem;
+  margin: 0 0.1rem;
+}

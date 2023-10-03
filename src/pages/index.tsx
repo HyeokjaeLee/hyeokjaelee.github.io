@@ -1,113 +1,54 @@
-import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from 'gatsby';
 
-import Bio from "../components/bio";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import { PageProps } from "gatsby";
+import React from 'react';
 
-const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+import { Bio } from '@components/Bio';
+import { Meta } from '@components/Meta';
+import { PostCard } from '@components/PostCard';
+import { PostListPagination } from '@components/PostListPagination';
+import { PostTagTab } from '@components/PostTagTab';
+import { useGetPostDataList } from '@hooks/useGetPostDataList';
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    );
-  }
+import type { PageProps } from 'gatsby';
+import type { PostPageQuery } from 'types';
+
+const PostPage = (pageProps: PageProps<PostPageQuery>) => {
+  const { postList, total, page, tagCountMap } = useGetPostDataList(pageProps);
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug;
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
-    </Layout>
+    <article className="flex flex-col items-center justify-between h-full">
+      <header className="py-7">
+        <Bio />
+      </header>
+      <div className="flex flex-col items-center gap-1 w-full">
+        <PostTagTab tagCountMap={tagCountMap} />
+        <ul className="flex flex-wrap w-full px-2 max-w-6xl mx-auto">
+          {postList.map((postData) => (
+            <PostCard {...postData} key={postData.slug} />
+          ))}
+        </ul>
+      </div>
+      <PostListPagination total={total} page={page} />
+    </article>
   );
 };
 
-export default BlogIndex;
+export default PostPage;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="All posts" />;
+export const Head = () => <Meta title="posts" />;
 
-interface DataProps {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-  allMarkdownRemark: {
-    nodes: {
-      excerpt: string;
-      fields: {
-        slug: string;
-      };
-      frontmatter: {
-        date: string;
-        title: string;
-        description: string;
-      };
-    }[];
-  };
-}
-
-export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+export const postPageQuery = graphql`
+  query PostPage {
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       nodes {
-        excerpt
         fields {
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YY년 MM월 DD일")
           title
+          titleImage
+          tags
           description
         }
       }

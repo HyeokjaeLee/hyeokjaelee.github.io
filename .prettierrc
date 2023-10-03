@@ -1,4 +1,1 @@
-{
-  "arrowParens": "avoid",
-  "semi": true
-}
+"@hyeokjaelee/prettier-config"
