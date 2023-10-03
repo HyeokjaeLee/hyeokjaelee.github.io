@@ -54,7 +54,7 @@ export const Utterances = () => {
   }, [isDarkMode]);
 
   return (
-    <section className="max-w-3xl py-4 px-5 mx-auto flex">
+    <section className="py-4 px-5 mx-auto flex">
       <div
         ref={ref}
         className={`min-h-[269px] w-full ${

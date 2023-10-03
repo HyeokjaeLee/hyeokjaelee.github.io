@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { Bio } from './Bio';
 import { PostArticleBody } from './PostArticleBody';
+import { PostArticleFooter } from './PostArticleFooter';
 import { PostArticleHeader } from './PostArticleHeader';
 import { PostArticleNavigation } from './PostArticleNavigation';
 
 import type { PostLayoutQuery } from 'types';
-
-type PostArticleProps = Pick<PostLayoutQuery, 'markdownRemark'>;
 
 export type NotNullableMarkdownRemark = Exclude<
   PostLayoutQuery['markdownRemark'],
   undefined | null
 >;
 
-export const PostArticle = ({ markdownRemark }: PostArticleProps) => {
+export const PostArticle = ({
+  markdownRemark,
+  ...otherPostProps
+}: PostLayoutQuery) => {
   const { frontmatter, html, headings } = markdownRemark ?? {};
   const { tags, title, date, description } = frontmatter ?? {};
 
@@ -28,9 +29,7 @@ export const PostArticle = ({ markdownRemark }: PostArticleProps) => {
         <PostArticleBody html={html} />
         <PostArticleNavigation headings={headings} title={title} />
       </div>
-      <footer className="max-w-3xl mx-auto mt-9 lg:mt-40 pb-9 border-b border-zinc-300 dark:border-zinc-700">
-        <Bio />
-      </footer>
+      <PostArticleFooter {...otherPostProps} />
     </article>
   );
 };

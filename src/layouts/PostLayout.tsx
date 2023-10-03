@@ -4,20 +4,12 @@ import * as React from 'react';
 
 import { Meta } from '@components/Meta';
 import { PostArticle } from '@components/PostArticle';
-import { PostLayoutFooter } from '@components/PostLayoutFooter';
 
 import type { PostLayoutQuery } from 'types';
 
 type PostLayoutProps = PageProps<PostLayoutQuery>;
 
-const PostLayout = ({
-  data: { previous, next, markdownRemark },
-}: PostLayoutProps) => (
-  <>
-    <PostArticle markdownRemark={markdownRemark} />
-    <PostLayoutFooter />
-  </>
-);
+const PostLayout = ({ data }: PostLayoutProps) => <PostArticle {...data} />;
 
 export const Head = ({ data: { markdownRemark } }: PostLayoutProps) => {
   const { title, description } = markdownRemark?.frontmatter ?? {};
@@ -49,6 +41,7 @@ export const postLayoutQuery = graphql`
       }
       frontmatter {
         title
+        titleImage
       }
     }
     next: markdownRemark(id: { eq: $nextPostId }) {
@@ -57,6 +50,7 @@ export const postLayoutQuery = graphql`
       }
       frontmatter {
         title
+        titleImage
       }
     }
   }
