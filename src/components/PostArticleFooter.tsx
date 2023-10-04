@@ -15,7 +15,7 @@ export const PostArticleFooter = ({
   <footer className="max-w-3xl mx-auto mt-9 lg:mt-40">
     <Bio />
     <hr className="border-zinc-300 dark:border-zinc-700 mt-9" />
-    <section className="flex gap-3 justify-between mt-5">
+    <section className="flex gap-3 justify-between mt-5 flex-col md:flex-row">
       <OtherPostLink {...previous} type="previous" />
       <OtherPostLink {...next} type="next" />
     </section>
