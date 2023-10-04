@@ -14,10 +14,9 @@ const POST_TAG_EMOJI_MAP = new Map([
   ['frontend', '🎨'],
   ['backend', '🔧'],
   ['devops', '📦'],
-  ['etc.', '🎁'],
+  ['etc', '🎁'],
   ['project', '📝'],
   ['data', '📊'],
-  ['review', '📖'],
   ['devOps', '📦'],
 ]);
 
