@@ -8,9 +8,7 @@ tags: [issues]
 
 ## 증상
 
-새로 개발한 react와 storybook기반 디자인 시스템 모듈을 실제 프로젝트에 적용한 이후
-
-node.js 환경 모든 프로젝트에서 새로운 dependencies를 설치하면 다음과 같은 오류가 발생함
+새로 개발한 react와 storybook기반 디자인 시스템 모듈을 실제 프로젝트에 적용한 이후 node.js 환경 모든 프로젝트에서 새로운 dependencies를 설치하면 다음과 같은 오류가 발생함
 
 > 실제 dependencies는 정상적으로 설치됨
 

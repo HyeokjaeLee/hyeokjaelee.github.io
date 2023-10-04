@@ -1,55 +1,60 @@
 ---
 title: 'Covid-19 API 업데이트'
-titleImage: 'https://user-images.githubusercontent.com/71566740/144737959-6f46ade7-6020-490e-94c9-a6462e6c1c1e.png'
+titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96'
 description: '단계적 일상회복에 따른 Covid-19 API 업데이트'
 date: '2021-11-30'
-tags: [project]
+tags: [project, backend]
 ---
 
-이전에 진행했던 프로젝트들이 요즘 한번에 삐걱거리기 시작했다.
+이전에 진행했던 프로젝트들이 요즘 한 번에 삐걱거리기 시작했다.
 
-얼마전에는 Webtoon API를 전체적으로 수정해야 했는데 이번에는 Covid-19 API가 문제다.
+얼마 전에는 Webtoon API를 전체적으로 수정해야 했는데 이번에는 Covid-19 API가 문제다.
 
-정부에서 단계적 일상회복을 시행함에 따라 공공데이터 포털의 Covid-19 API의 일부 항목이 제외된것이다.
+정부에서 단계적 일상 회복을 시행함에 따라 공공데이터 포털의 Covid-19 API의 일부 항목이 제외된 것이다.
 
 오늘은 이것에 대해 글을 써보려 한다.
 
-## Covid-19 API
+## COVID-19 API
 
-지금 만들어서 쓰고있는 API는 Covid-19의 여러 외부 정보들을 종합해서 새로운 데이터를 추가하고 이상치를 제거해 GraphQL로 제공하고있다.
+![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96)
 
-이 데이터를 이용해 Dashboard를 제공하는 토이 프로젝트도 하나 있다.
+> 외부 API를 사용할때 가장 받기 싫은 메일인듯..
 
-이번에 API를 수정하면 당연히 Dashboard도 변경사항이 생길것이고 나는 이것을 최소화 하고싶었다.
+이전에 Toyproject용으로 COVID-19의 여러 외부 정보들을 종합해 새로운 데이터를 추가하고 이상치를 제거해 GraphQL로 데이터를 제공하는 서버를 호스팅 해두었다.
 
-### 🚧 변경점과 대응
+Toyproject는 데이터를 이용해 정보를 제공하는 Dashboard였다.
 
-#### [보건복지부 코로나19 시·도발생 현황](https://www.data.go.kr/iim/api/selectAPIAcountView.do)의 격리중 환자 수(ISOL_ING_CNT) 항목 제외
+이번에 API를 수정하면 당연히 Dashboard도 변경사항이 생길 것이고 나는 이것을 최소화하고 싶었다.
 
-다행이 이 항목으로 계산하는 다른 값들이 없어 처음에는 해당 항목은 그냥 제거하려고 했다.
+### 변경점과 대응
 
-하지만 다른 항목들의 값들을 보면서 이 값은 다른 항목의 값들로 계산할 수 있을것 같았다.
+#### 보건복지부 코로나19 시·도별 생 현황의 격리 중 환자 수 항목 제외
 
-전체 확진자 수(DEF_CNT)에서 사망자 수(DEATH_CNT)와 격리 해제 수(ISOL_CLEAR_CNT)를 제외하면 격리중 환자수와 같을거라는 예상을 했고 여러 날짜의 값들을 계산해서 비교해보니 실제로 같았다.
+다행히 이 항목으로 계산하는 다른 값들이 없어 처음에는 해당 항목은 그냥 제거하려고 했다.
 
-그래서 이항목은 유지할 수 있었다.
+하지만 다른 항목들의 값들을 보면서 이 값은 다른 항목의 값들로 계산할 수 있을 것 같았다.
 
-#### 단계적 일상회복
+전체 확진자 수에서 사망자 수와 격리 해제 수를 제외하면 격리 중 환자수와 같을 거라는 예상을 했고 여러 날짜의 값들을 계산해서 비교해보
+
+#### 단계적 일상 회복
 
 정부에서 단계적 일상 회복을 시행하면서 당연히 거리두기 단계가 무의미 해졌고 실제로 정부에서 운영하던 사회적 거리두기 단계를 제공하는 사이트도 사라졌다.
 
 문제는 내가 만든 API에서 사용하는 거리두기 단계는 이 사이트를 매일 크롤링해온 값으로 제공되는데 사이트가 없어졌고 거리두기 단계 자체도 무의미 해졌으니 이 항목은 제외할 수밖에 없었다.
 
-### 📦 기존 데이터 저장
+#### 기존 데이터 저장
 
 혹시 몰라 이전 데이터들은 모두 JSON 형식으로 저장해두었다.
 
 이전 데이터를 사용하는 프로젝트가 있다면 Github에 저장된 JSON값을 받아와 보이는 뷰 정도만 유지해줄 생각이었다.
 
-## Dashboard 수정
+#### Dashboard 수정
 
 앞서 언급했던 것처럼 API를 수정한 뒤 실제로 제외된 항목은 사회적 거리두기 단계밖에 없으니 관련된 그래프들을 모두 제거해주었다.
 
 정부에서 정한 거리두기 단계 기준과 실제 감염 상황으로 거리두기 단계 변화를 예상하는 그래프는 지우기 아까웠지만 제공되는 데이터가 모두 사라진 마당에 남겨둘 수 없었다.
 
-Dashboard는 내가 순수 HTML, CSS, Javascript를 너무 안 쓰다 보니 잊어버릴 것 같아서 React나 Vue.js 같은 프레임워크(라이브러리) 없이 만들었었는데 코드를 너무 더럽게 작성해놔서 수정하는데 애먹었다.
+## Project Github Repo
+
+- [COVID-19-Dashboard](https://github.com/HyeokjaeLee/covid19-dashboard)
+- [Korea-COVID19-API](https://github.com/HyeokjaeLee/korea-covid19-api)
