@@ -58,7 +58,11 @@ export const OtherPostLink = ({
             }[type]
           }
         </small>
-        <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
+        <h3
+          className={`text-sm font-bold w-full text-zinc-800 dark:text-zinc-200 ${
+            type === 'previous' ? 'pr-2' : 'pl-2'
+          }`}
+        >
           {title}
         </h3>
       </div>

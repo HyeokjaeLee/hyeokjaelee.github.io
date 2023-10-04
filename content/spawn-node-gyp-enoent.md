@@ -1,6 +1,6 @@
 ---
 title: 'Spawn node-gyp ENOENT'
-titleImage: 'issues'
+titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a'
 description: 'Spawn node-gyp ENOENT 에러 해결'
 date: '2022-09-17'
 tags: [issues]
