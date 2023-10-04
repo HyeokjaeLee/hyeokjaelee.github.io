@@ -2,8 +2,10 @@ import React from 'react';
 import { Tag } from 'react-feather';
 
 import type { PostData } from '@hooks/useGetPostDataList';
-import { Skeleton, Tooltip } from '@hyeokjaelee/pastime-ui';
+import { Tooltip } from '@hyeokjaelee/pastime-ui';
 import { Link } from '@reach/router';
+
+import { PostCardImage } from './PostCardImage';
 
 type PostCardProps = PostData;
 
@@ -18,15 +20,7 @@ export const PostCard = ({
   <li key={slug} className="w-full md:w-1/2 lg:w-1/4">
     <Link to={slug} className="p-2 block hover:pt-0 hover:pb-4 transition-all">
       <article className="w-full transition-shadow rounded-md hover:shadow-lg dark:shadow-black">
-        <div className="relative w-full h-0 pb-[50%] rounded-t-md overflow-hidden">
-          <Skeleton className="absolute w-full h-full object-cover" />
-          <img
-            src={titleImage}
-            alt={title}
-            loading="lazy"
-            className="absolute w-full h-full object-cover"
-          />
-        </div>
+        <PostCardImage src={titleImage} alt={title} />
         <section className="bg-white dark:bg-zinc-700 p-3 flex flex-col">
           <h4 className="truncate">{title}</h4>
           <div className="h-[3.75em]">
