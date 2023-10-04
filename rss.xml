@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[덕업일치 개발자의 블로그입니다.]]></description><link>https://hyeokjaelee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 03 Oct 2023 10:09:49 GMT</lastBuildDate><item><title><![CDATA[리액트 컴포넌트 스타일링 정리]]></title><description><![CDATA[이번에는 코드스테이츠 WEWIN 제품 개발팀에 Front-end…]]></description><link>https://hyeokjaelee.github.io/components-styling/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/components-styling/</guid><pubDate>Sat, 12 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이번에는 코드스테이츠 WEWIN 제품 개발팀에 Front-end 개발자로 합류하면서 내가 기존 코드들을 보고 가장 처음 고민하고 개발 방향을 설정하면서 다른 개발자 분들께 이유와 의도를 전달하기 위해 작성한 글을 기반으로 기록을 남겨 보려 한다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[덕업일치 개발자의 블로그입니다.]]></description><link>https://hyeokjaelee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Oct 2023 04:34:11 GMT</lastBuildDate><item><title><![CDATA[Spawn node-gyp ENOENT]]></title><description><![CDATA[증상 새로 개발한 react와 storybook기반 디자인 시스템 모듈을 실제 프로젝트에 적용한 이후 node.js 환경 모든 프로젝트에서 새로운 dependencies를 설치하면 다음과 같은 오류가 발생함 실제 dependencies…]]></description><link>https://hyeokjaelee.github.io/spawn-node-gyp-enoent/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/spawn-node-gyp-enoent/</guid><pubDate>Sat, 17 Sep 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;증상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EC%A6%9D%EC%83%81&quot; aria-label=&quot;증상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;증상&lt;/h2&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;새로 개발한 react와 storybook기반 디자인 시스템 모듈을 실제 프로젝트에 적용한 이후&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;node.js 환경 모든 프로젝트에서 새로운 dependencies를 설치하면 다음과 같은 오류가 발생함&lt;/p&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;실제 dependencies는 정상적으로 설치됨&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Error running install script for optional dependency: &quot;/Users/hyeokjaelee/wwp-frontend-lib/node_modules/watchpack-chokidar2/node_modules/fsevents: Command failed.
+Exit code: 1
+Command: node install.js
+Arguments:
+Directory: /Users/hyeokjaelee/wwp-frontend-lib/node_modules/watchpack-chokidar2/node_modules/fsevents
+Output:
+node:events:504
+throw er; // Unhandled &apos;error&apos; event
+^
+
+Error: spawn node-gyp ENOENT
+at Process.ChildProcess.\_handle.onexit (node:internal/child_process:283:19)
+at onErrorNT (node:internal/child_process:478:16)
+at processTicksAndRejections (node:internal/process/task_queues:83:21)
+Emitted &apos;error&apos; event on ChildProcess instance at:
+at Process.ChildProcess.\_handle.onexit (node:internal/child_process:289:12)
+at onErrorNT (node:internal/child_process:478:16)
+at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+errno: -2,
+code: &apos;ENOENT&apos;,
+syscall: &apos;spawn node-gyp&apos;,
+path: &apos;node-gyp&apos;,
+spawnargs: [ &apos;rebuild&apos; ]
+}&quot;
+info This module is OPTIONAL, you can safely ignore this error
+✨ Done in 4.52s.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;해결&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0&quot; aria-label=&quot;해결 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해결&lt;/h2&gt;
+&lt;ul class=&quot;list-disc ml-5&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;fsevents 모듈 전역 설치 (macOS 개발 환경에서만 사용되는 디렉터리 변경사항 감시 모듈)&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;프로젝트 package.json에 optionalDependencies 항목 추가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+    &quot;optionalDependencies&quot;: {
+        &quot;fsevents&quot;: &quot;*&quot;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;위 두가지 방법을 시도해 봤지만 변화가 없음&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;현재 nvm을 통해 모든 프로젝트의 node.js의 버전을 관리하고 있는데 오류가 발생하는 모든 프로젝트가 같은 버전의 node 버전을 사용하고 있는 것을 확인하고 해당 버전을 nvm에서 삭제 후 재설치했더니 오류가 해결됨&lt;/p&gt;</content:encoded></item><item><title><![CDATA[리액트 컴포넌트 스타일링 정리]]></title><description><![CDATA[이번에는 코드스테이츠 WEWIN 제품 개발팀에 Front-end…]]></description><link>https://hyeokjaelee.github.io/components-styling/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/components-styling/</guid><pubDate>Sat, 12 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이번에는 코드스테이츠 WEWIN 제품 개발팀에 Front-end 개발자로 합류하면서 내가 기존 코드들을 보고 가장 처음 고민하고 개발 방향을 설정하면서 다른 개발자 분들께 이유와 의도를 전달하기 위해 작성한 글을 기반으로 기록을 남겨 보려 한다.&lt;/p&gt;
 &lt;h2 id=&quot;발단&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%B0%9C%EB%8B%A8&quot; aria-label=&quot;발단 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;발단&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;제품에 대한 온보딩을 진행하면서 기존에 작성된 코드들을 살펴보게 되었고 당장 큰 범위의 기능 개발이 없었기 때문에 시간적 여유가 있다고 생각해 제품 코드에 대한 이해도를 높일겸 리팩토링을 진행하려 했다.
 &lt;img src=&quot;https://user-images.githubusercontent.com/71566740/175810773-a339fb4c-b0d8-4c2d-8044-d031d0a75915.jpeg&quot; alt=&quot;refactoring&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
@@ -860,39 +903,37 @@ $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; init&lt;/code&gt
 &lt;h2 id=&quot;copilot&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#copilot&quot; aria-label=&quot;copilot permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Copilot&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Github에서 얼마 전 &lt;a href=&quot;https://copilot.github.com/&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Copilot Technical Preview&lt;/a&gt;를 공개했고 바로 다운로드해서 사용하지는 못하고 위 링크에서 신청한 후에 초대장을 받아야 사용 가능했다.&lt;/p&gt;
-&lt;div class=&quot;img-txt-wrap&quot;&gt;
-  &lt;div class=&quot;img-wrap&quot;&gt;
-    &lt;img width=&quot;400&quot; src=&quot;https://user-images.githubusercontent.com/71566740/130893661-970498c3-c250-4d03-9096-f443737461d3.png&quot;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/71566740/130893661-970498c3-c250-4d03-9096-f443737461d3.png&quot; alt=&quot;invite&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Github 활동량이 많을수록 빠르게 수락된다고 하던데 내 기준으로 7월 초쯤에 신청하고 일주일 정도 후에 초대장을 받은 것 같다.&lt;/p&gt;
 &lt;h2 id=&quot;한-달간-사용해본-느낌&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%95%9C-%EB%8B%AC%EA%B0%84-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B8-%EB%8A%90%EB%82%8C&quot; aria-label=&quot;한 달간 사용해본 느낌 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;한 달간 사용해본 느낌&lt;/h2&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;일단 이전에 봤던 GPT-3를 이용해서 글을 작성하는 것이 매우 인상적이었기 때문에 같은 기반인 Copilot 역시 기대했다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;일단 이전에 봤던 GPT-3를 이용해 작문하는 것을 매우 인상적으로 보았기 때문에 같은 기반인 Copilot 역시 기대가 컸다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;내가 주석이나 함수명을 잘 짓는 편은 아니라고 생각하는데 내 의도를 잘 파악해서 코드를 작성해주는 걸 보고 좀 놀랐고 가끔 내가 머릿속으로 생각해놨던 코드를 작성하다 보면 거의 완벽하게 완성해줄 때는 정말 감탄했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;하지만 아직 AI가 개발자를 대체할 거다 이런 이야기를 할 정도는 아닌 것 같다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot이 개발자의 대체라기보다는 개발자의 개발을 좀 더 편하게 해주는 도구 정도로 느꼈졌다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot이 개발자의 대체라기보다는 개발자의 개발을 좀 더 편하게 해주는 도구 정도로 느껴졌다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;주석과 이름만으로 완성되는 코드들도 어느 정도 있었지만 대부분의 경우에는 어느 정도 코드를 완성하면 뒷부분을 채워주는 정도 거나 큰 틀은 내 생각대로 작성되었지만 중간중간 의도를 벗어나거나 오류가 있는 코드들도 있어서 수정해가면서 코드를 작성해야 했다.&lt;/p&gt;
-&lt;h3 id=&quot;-장점&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot; 장점 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;👍 장점&lt;/h3&gt;
+&lt;h3 id=&quot;장점&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;장점 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;장점&lt;/h3&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;오류가 있는 코드가 작성되더라도 큰 틀은 의도에서 크게 벗어나는 경우가 적어 실제로 내가 작성해야 하는 코드량은 줄어듦&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;먼저 작성했던 코드에서 사용하던 변수, 함수 등의 자동완성이 VSC의 그것보다 편리함
-(VSCode의 자동완성은 어느 정도 코드를 작성하면 선언된 변수 또는 함수 중에 선택해야 하지만 Copilot은 문맥상 알맞은 것을 추천해 줌)&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;먼저 작성했던 코드에서 사용하던 변수, 함수 등의 자동완성이 VSC의 그것보다 편리함&lt;/p&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;VSCode의 자동완성은 어느 정도 코드를 작성하면 선언된 변수 또는 함수 중에 선택해야 하지만 Copilot은 문맥상 알맞은 것을 추천해 줌&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;시간 계산이나 단위 변환 등 대중적인 함수는 대부분 완벽하게 작성해줌&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;-단점&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#-%EB%8B%A8%EC%A0%90&quot; aria-label=&quot; 단점 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;👎 단점&lt;/h3&gt;
+&lt;h3 id=&quot;단점&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%A0%90&quot; aria-label=&quot;단점 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단점&lt;/h3&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;코드 작성 스타일이 내가 작성하고 있는 스타일과 안 맞을 때가 많음&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;AI가 예상한 코드가 표시될 때 내가 작성 중인 코드의 가독성을 해침&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;오류가 있는 코드로 작성하는 경우가 많음&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;중괄호를 잘못 닫는 경우가 많아서 가끔 생각 없이 코딩할 때 Copilot이 잘못 닫은 괄호를 찾아야 하는 경우도 있음&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;마지막으로&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%A7%80%EB%A7%89%EC%9C%BC%EB%A1%9C&quot; aria-label=&quot;마지막으로 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마지막으로&lt;/h2&gt;
+&lt;h2 id=&quot;내-생각&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%82%B4-%EC%83%9D%EA%B0%81&quot; aria-label=&quot;내 생각 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;내 생각&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;분명히 Copilot이 개발자의 생산성에 도움이 되는 도구임에는 분명하지만 생각보다 오류도 많고 너무 맹신하고 코드를 작성할 수는 없을 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;또한 Github에 있는 방대한 량의 코드를 학습한 AI가 작성해주는 코드가 저작권이 없는 코드라는 보장이 없으니 단순 Toy project가 아닌 수익성이 있는 프로그램을 작성할 때는 사용에 주의해야 할 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이전에 사용하던 VSC 익스텐션 중에 Tabnine AI가 비슷한 기능을 했었지만 확실히 Copilot의 학습 데이터 크기와 방식이 달라 정확도는 Copilot이 월등해 보인다.&lt;/p&gt;
@@ -965,125 +1006,104 @@ $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; init&lt;/code&gt
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;비록 템플릿을 사용하지 않았지만 Gatsby를 통해 자신만의 블로그를 만들어 보고 싶으신 분들은&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;a href=&quot;https://www.gatsbyjs.com/starters/&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Gatsby Starter Library&lt;/a&gt;에서 여러가지 템플릿을 확인 가능하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Git Commit Message Convention]]></title><description><![CDATA[…]]></description><link>https://hyeokjaelee.github.io/good-commit-message/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/good-commit-message/</guid><pubDate>Sat, 03 Jul 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;커밋 메시지를 작성할 때는 규칙을 정해놓고 일관성 있게 작성해야 한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;코드를 작성하다 보면 간혹 이전 코드를 참고 또는 회귀해야 할 경우가 있는데 커밋 수가 적다면 상관없지만 커밋 수가 많아질수록 수많은 커밋 로그 중에 원하는 시점을 찾는 것이 어렵다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;또한 내 커밋이면 어느정도 지저분한 커밋 로그 속에서 원하는 정보를 찾을 수 있어도 다른 사람이 내 커밋 로그를 참고해야 하는 경우에는 어려움이 배가된다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;또한 내 커밋이면 어느 정도 지저분한 커밋 로그 속에서 원하는 정보를 찾을 수 있어도 다른 사람이 내 커밋 로그를 참고해야 하는 경우에는 어려움이 배가된다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이러한 경우에 커밋 메시지가 제대로 작성되어 있다면 보다 원활하게 원하는 정보를 찾을 수 있다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;커밋 메시지 작성법은 큰 틀은 있지만 개발자들마다 스타일이 다르고 정확하게 이렇게 작성해야 한다는 규칙은 없다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이 포스트는 Angural Commit Message Format을 기반으로 내 나름대로 보기 편하다고 느낀 구조를 정리한 내용이다.&lt;/p&gt;
 &lt;h2 id=&quot;commit-message&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#commit-message&quot; aria-label=&quot;commit message permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Commit Message&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;header&gt;//필수
-
-&amp;lt;body&gt;
-
-&amp;lt;footer&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{emoji} {type}({scope}): {short summary} //header
+​
+{description} //body
+​
+BREAKING CHANGE: {breaking change summary} //footer
+​
+{breaking change description}
+​
+​
+{linked issue}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;해당 커밋 메시지의 전체 구조는 emoji를 제외하면 Angural Commit Message Format과 동일&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;header, body, footer는 빈 행으로 구분&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;header를 제외하면 모두 생략 가능&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;-header&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#-header&quot; aria-label=&quot; header permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🗿 Header&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;emoji&gt; &amp;lt;type&gt;(&amp;lt;scope&gt;): &amp;lt;short summary&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;header&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#header&quot; aria-label=&quot;header permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Header&lt;/h3&gt;
 &lt;h4 id=&quot;emoji&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#emoji&quot; aria-label=&quot;emoji permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Emoji&lt;/h4&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개발을 하다 보면 Angural Commit Message Format 만으로는 구분이 명확하지 않을 때가 많았고 이 부분을 나는 Type 앞에 Emoji를 추가함으로써 보완했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;내가 Commit Message에 활용하는 Emoji들의 정보는 &lt;a href=&quot;https://gitmoji.dev/&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Gitmoji&lt;/a&gt;에서 확인 가능하다.&lt;/p&gt;
 &lt;h4 id=&quot;type&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#type&quot; aria-label=&quot;type permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Type&lt;/h4&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;반드시 다음 중 하나여야 한다.&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;build&lt;/strong&gt;: 빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항이 있을 때&lt;/p&gt;
+&lt;li class=&quot;list-item&quot;&gt;build: 빌드 시스템 또는 외부 종속성에 영향을 미치는 경우
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;gulp, broccoli, npm, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;ci&lt;/strong&gt;: CI 구성 파일 및 스크립트의 변경 사항이 있을 때&lt;/p&gt;
+&lt;li class=&quot;list-item&quot;&gt;ci: CI 구성 파일 및 스크립트 수정
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Travis, Circle, BrowserStack, SauceLabs, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;docs&lt;/strong&gt;: 단순 문서 수정이 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;feat&lt;/strong&gt;: 새로운 기능 추가가 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;fix&lt;/strong&gt;: 버그 수정이 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;perf&lt;/strong&gt;: 성능 개선이 있는 변경이 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;refactor&lt;/strong&gt;: 버그 수정, 기능 추가, 성능 개선을 제외한 변경이 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;test&lt;/strong&gt;: 테스트 관련 변경이 있을 때&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong&gt;revert&lt;/strong&gt;: 이전 커밋으로 회귀할 때&lt;/p&gt;
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;type은 revert를 사용하되 short summary는 회귀 대상 커밋의 그것과 같아야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;명확한 회귀 이유를 body에 설명해 주어야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;회귀 대상의 커밋 SHA 정보를 다음과 같이 body에 표시해 주어야 함&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;This reverts commit &amp;lt;SHA&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li class=&quot;list-item&quot;&gt;docs: 단순 문서 수정&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;feat: 새로운 기능 추가&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;fix: 버그 수정&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;perf: 성능 개선이 있는 변경이 있는 코드 수정&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;refactor: 버그 수정, 기능 추가, 성능 개선을 제외한 코드 수정&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;test: 테스트 관련 변경&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;revert: 이전 커밋으로 회귀할 때&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;type은 revert를 사용하되 short summary는 회귀 대상 커밋의 그것과 같아야 함&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;명확한 회귀 이유를 body에 설명해 주어야 함&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;회귀 대상의 커밋 SHA 정보를 다음과 같이 body에 표시해 주어야 함
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;This reverts commit {SHA}&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;scope-생략-가능&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#scope-%EC%83%9D%EB%9E%B5-%EA%B0%80%EB%8A%A5&quot; aria-label=&quot;scope 생략 가능 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scope (생략 가능)&lt;/h4&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;추가적인 문맥 정보를 제공하기 위한 목적으로 괄호 안에 작성한다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;a href=&quot;https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Angular.js 공식 문서&lt;/a&gt;에서는 영향을 받는 npm 모듈명을 작성하라고 되어있는데 만약 npm 모듈을 사용하지 않는다면 어디를 수정했는지 정도로 보면 될 것 같다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;a href=&quot;https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Angular.js 공식 문서&lt;/a&gt;에서는 영향을 받는 모듈명을 작성하라고 되어있는데 만약 모듈을 사용하지 않는다면 어디를 수정했는지 정도로 보면 될 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;함수를 수정했으면 해당 함수의 이름, 메소드를 추가했으면 해당 클래스 이름 등 수정 대상을 한눈에 특정할 수 있는 내용이 들어가면 된다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;추가적으로 &lt;a href=&quot;https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;어떤 개발자분의 문서&lt;/a&gt;에서는 이슈 ID를 적지 말라고 한다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;추가적으로 &lt;a href=&quot;https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;이슈 ID를 적지 말라는 글&lt;/a&gt;도 있다.&lt;/p&gt;
 &lt;h4 id=&quot;short-summary&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#short-summary&quot; aria-label=&quot;short summary permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Short summary&lt;/h4&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;첫 글자를 대문자로 작성하지 않는다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;50글자 내로 제한한다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;과거형으로 작성하지 않는다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;명령문으로 작성한다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;끝에 특수문자를 사용하지 않는다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;(마침표, 느낌표, 물음표 등)&lt;/p&gt;
+&lt;li class=&quot;list-item&quot;&gt;첫 글자를 대문자로 작성하지 않는다.&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;50글자 내로 제한한다.&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;과거형으로 작성하지 않는다.&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;명령문으로 작성한다.&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;끝에 특수문자를 사용하지 않는다.
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;마침표, 느낌표, 물음표 등&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;-body&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#-body&quot; aria-label=&quot; body permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;📃 Body&lt;/h3&gt;
+&lt;h3 id=&quot;body&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#body&quot; aria-label=&quot;body permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Body&lt;/h3&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;각 내용의 시작은 &lt;code class=&quot;language-text&quot;&gt;*&lt;/code&gt;로 시작하고 공백 한 칸 띄우고 작성한다.&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;각 내용은 72글자 내로 제한한다.&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;Header의 short summary와 같이 현재 시제를 사용한다.
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;ex) fixes, fixed가 아닌 fix&lt;/li&gt;
-&lt;/ul&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;fixes, fixed ⇨ fix&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;어떻게 보다는 무엇과 왜를 설명한다.&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;변경의 영향을 설명하기 위해 이전 동작과 새 동작을 비교할 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;-footer&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#-footer&quot; aria-label=&quot; footer permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;👣 Footer&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;BREAKING CHANGE: &amp;lt;breaking change summary&gt;
-
-&amp;lt;breaking change description&gt;
-
-
-&amp;lt;linked issue&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Footer에는 breaking change와 관련된 정보를 포함하거나 이슈를 연결한다&lt;/p&gt;
 &lt;h4 id=&quot;breaking-change&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#breaking-change&quot; aria-label=&quot;breaking change permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Breaking Change&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Angural문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미한다.
-(간략하게 대규모 변경사항 정도로 생각하시면 좋을듯)&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Angural 문서에 따르면 Breaking change는 애플리케이션을 구성하고 있는 모듈 등을 업데이트, 추가, 제거해야 하는 변화를 의미한다.&lt;/p&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;간략하게 대규모 변경사항 정도로 생각하시면 좋을 듯&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;그 외에 API를 만들 때 해당 API를 사용하는 다른 앱들의 코드를 수정해야 하는 경우에도 API 커밋 메시지에 Breaking Change라고 표기한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Footer에는 breaking change와 관련된 정보를 포함할 수 있다.&lt;/p&gt;
 &lt;h4 id=&quot;linked-issue&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#linked-issue&quot; aria-label=&quot;linked issue permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Linked issue&lt;/h4&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Github issue를 연결한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;나는 이슈 연결을 할 때 주로 다음 두 가지 키워드를 사용한다.&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;resolve&lt;/strong&gt;: 이슈를 해결한 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;related to&lt;/strong&gt;: 연관된 이슈가 있는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;resolve: 이슈를 해결한 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;related to: 연관된 이슈가 있는 경우&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다음은 pull request의 description이나 커밋 메시지에서 Issue 연결을 제공하는 키워드들이다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;(pull request는 기본 branch에 있어야 함)&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;close&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;closes&lt;/li&gt;
@@ -1096,7 +1116,9 @@ $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; init&lt;/code&gt
 &lt;li class=&quot;list-item&quot;&gt;resolved&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이슈가 같은 repository에 있는지 여부에 따라 닫는 구문이 달라진다.&lt;/p&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;해당 내용은 &lt;a href=&quot;https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Github 공식 문서&lt;/a&gt;에 원문이 있으니 확인해 보는걸 추천&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;table class=&quot;table-auto my-4&quot;&gt;
 &lt;thead&gt;
 &lt;tr class=&quot;border border-zinc-700 dark:border-zinc-400 px-4 py-2 text-xs&quot;&gt;
@@ -1129,64 +1151,38 @@ $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; init&lt;/code&gt
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Fix&lt;/strong&gt;: 버그, 이슈 등 잘못된 무언가를 고치는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Correct&lt;/strong&gt;: 문법 오류, 타입, 이름, 오타 등을 수정하는 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Fix&lt;/code&gt;와 비슷하지만 보다 단순한 수정에 자주 쓰임&lt;/li&gt;
-&lt;/ul&gt;
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Fix와 비슷하지만 보다 단순한 수정에 자주 쓰임)&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Remove&lt;/strong&gt;: 코드나 파일을 삭제하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Add&lt;/strong&gt;: 새 코드나 파일을 추가하는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Implement&lt;/strong&gt;: 무언가를 구현한 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Add&lt;/code&gt;와 비슷하지만 좀더 큰 코드 단위 추가에 자주 쓰임&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;구현한 대상을 강조할때 사용&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Implement&lt;/strong&gt;: 무언가를 구현한 경우, 구현한 대상을 강조할 때 사용
+&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Add와 비슷하지만 좀 더 큰 코드 단위 추가에 자주 쓰임&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Use&lt;/strong&gt;: 구현을 위해 무언가를 사용한 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;특정 라이브러리나 프레임워크를 사용하기 위한 코드를 추가하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Refactor&lt;/strong&gt;: 코드를 리팩토링 하는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Simplify&lt;/strong&gt;: 코드를 단순화 하는 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;리팩토링과 비슷하지만 중복 제거 등 단순화만 하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Update&lt;/strong&gt;: 무언가를 업데이트 하는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Use&lt;/strong&gt;: 구현을 위해 무언가를 사용한 경우, 특정 라이브러리나 프레임워크를 사용하기 위한 코드를 추가하는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Refactor&lt;/strong&gt;: 코드를 리팩터링 하는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Simplify&lt;/strong&gt;: 코드를 단순화하는 경우, 리팩터링과 비슷하지만 중복 제거 등 단순화만 하는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Update&lt;/strong&gt;: 무언가를 업데이트하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Revise&lt;/strong&gt;: 문서를 수정하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Improve&lt;/strong&gt;: 성능, 구조, 접근성 등을 개선하는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Make&lt;/strong&gt;: 특정한 동작이 되게 만드는 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;기존 동작을 변경하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Make&lt;/strong&gt;: 특정한 동작이 되게 만드는 경우, 기존 동작을 변경하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Allow&lt;/strong&gt;: 특정 동작을 허용하는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Ensure&lt;/strong&gt;: 특정 처리를 보장하는 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;if문 처럼 조건을 확실하게 제공하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Ensure&lt;/strong&gt;: 특정 처리를 보장하는 경우, if문처럼 조건을 확실하게 제공하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Prevent&lt;/strong&gt;: 특정 처리를 못하게 막는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Avoid&lt;/strong&gt;: 특정 처리를 회피하는 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;if문 처럼 조건에 따라 특정 동작을 회피하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Avoid&lt;/strong&gt;: 특정 처리를 회피하는 경우, if문처럼 조건에 따라 특정 동작을 회피하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Move&lt;/strong&gt;: 코드나 파일을 이동하는 경우&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Rename&lt;/strong&gt;: 파일명을 변경한 경우
-&lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;단순 변수명, 함수명 등의 변경만 수행한 경우&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Verify&lt;/strong&gt;: 검증코드를 추가하는 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Rename&lt;/strong&gt;: 파일명을 변경한 경우, 단순 변수명, 함수명 등의 변경만 수행한 경우&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Verify&lt;/strong&gt;: 검증 코드를 추가하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Set&lt;/strong&gt;: 변수, 리터럴, 텍스트 등 단순 값을 변경하는 경우&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;strong&gt;Pass&lt;/strong&gt;: 매개변수를 전달하는 경우&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;마지막으로&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EC%A7%80%EB%A7%89%EC%9C%BC%EB%A1%9C&quot; aria-label=&quot;마지막으로 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마지막으로&lt;/h2&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;해당 포스트는 추가적으로 생각나는 요소가 있다면 내용을 추가 해나갈 예정이며 지금까지 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중이다.&lt;/p&gt;
+&lt;h2 id=&quot;관련-개인-프로젝트&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EB%A0%A8-%EA%B0%9C%EC%9D%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8&quot; aria-label=&quot;관련 개인 프로젝트 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관련 개인 프로젝트&lt;/h2&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;지금까지 정리한 내용을 기반으로 커밋 메시지 가이드를 쉽게 작성할 수 있는 토이 프로젝트를 진행중이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;관련 내용은 다음 링크들에서 확인 가능하다.&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
-&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;/gititle-project&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Blog post&lt;/a&gt;&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://github.com/HyeokjaeLee/gititle&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Github repository&lt;/a&gt;&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;/gititle&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Gititle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item></channel></rss>
