@@ -1,7 +1,7 @@
 ---
 title: 'Live Sass Compiler 사용하기'
-titleImage: 'https://user-images.githubusercontent.com/71566740/133248000-62950c37-88dd-491e-8d1f-f0e8c66241e0.png'
-description: '편리한 Sass 사용을 위한 익스텐션'
+titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f3841a12-33f5-4994-b147-b38b5a3f5e23'
+description: '편리한 Sass 사용을 위한 visual studio code 익스텐션'
 date: '2021-09-01'
 tags: [frontend]
 ---
@@ -53,7 +53,7 @@ Sass 익스텐션의 경우엔 별다른 설정이 필요 없지만 Live Sass Co
 
 > min.css는 css의 공백과 줄 바꿈을 삭제해 용량을 줄인 파일로 전송량을 줄일 수 있다.
 
-<br>나는 어차피 작성은 Sass로 하고 컴파일된 CSS를 직접 수정할 필요가 없다.
+나는 어차피 작성은 Sass로 하고 컴파일된 CSS를 직접 수정할 필요가 없다.
 
 min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한다.
 
@@ -69,14 +69,7 @@ min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한�
 }
 ```
 
-<br/>
-
-<div class="img-txt-wrap">
-    <div class="img-wrap">
-      설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-      <img  width="600" src="https://user-images.githubusercontent.com/71566740/133251442-d957eeaf-b125-4419-87bf-0fd5aa3f0413.png"/>
-      <br/>
-      나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-       <img  width="800" src="https://user-images.githubusercontent.com/71566740/133251746-ffd66e52-3d03-42cd-8bfd-0d90f861854b.png"/>
-    </div>
-</div>
+설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
+![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a9616878-13e1-4d9a-a56c-52820b54d377)
+나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
+![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6ae0829-8fff-4537-9c5f-dff53fc22559)

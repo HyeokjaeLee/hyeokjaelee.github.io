@@ -41,6 +41,7 @@ const POST_ARTICLE_STYLES = {
     'border border-zinc-700 dark:border-zinc-400 px-4 py-2 whitespace-pre-wrap',
   tableRow: 'border border-zinc-700 dark:border-zinc-400 px-4 py-2 text-xs',
   image: 'max-w-full rounded-sm my-12 mx-auto',
+  strong: 'font-black',
 };
 
 const config: GatsbyConfig = {
