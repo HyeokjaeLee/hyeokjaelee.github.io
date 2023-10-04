@@ -10,13 +10,13 @@ type PostTagTabProps = Pick<UseGetPostDataListReturn, 'tagCountMap'>;
 
 const POST_TAG_EMOJI_MAP = new Map([
   ['all', '📚'],
+  ['issues', '🚧'],
   ['frontend', '🎨'],
   ['backend', '🔧'],
   ['devops', '📦'],
-  ['etc.', '🎁'],
+  ['etc', '🎁'],
   ['project', '📝'],
   ['data', '📊'],
-  ['review', '📖'],
   ['devOps', '📦'],
 ]);
 
