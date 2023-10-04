@@ -6,10 +6,6 @@ date: '2021-10-29'
 tags: [backend]
 ---
 
-> 내용1
-> 내용2
-> 내용3
-
 # NestJS를 사용하는 이유
 
 NestJS는 Express와 함께 Node.js의 유명한 웹 애플리케이션 프레임워크이다.
