@@ -13,7 +13,8 @@ import type { PageProps } from 'gatsby';
 import type { PostPageQuery } from 'types';
 
 const PostPage = (pageProps: PageProps<PostPageQuery>) => {
-  const { postList, total, page, tagCountMap } = useGetPostDataList(pageProps);
+  const { postList, tagCountMap, ...paginationProps } =
+    useGetPostDataList(pageProps);
 
   return (
     <article className="flex flex-col items-center justify-between h-full">
@@ -28,14 +29,14 @@ const PostPage = (pageProps: PageProps<PostPageQuery>) => {
           ))}
         </ul>
       </div>
-      <PostListPagination total={total} page={page} />
+      <PostListPagination {...paginationProps} />
     </article>
   );
 };
 
 export default PostPage;
 
-export const Head = () => <Meta title="posts" />;
+export const Head = () => <Meta />;
 
 export const postPageQuery = graphql`
   query PostPage {
