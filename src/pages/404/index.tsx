@@ -1,5 +1,3 @@
-import { StaticImage } from 'gatsby-plugin-image';
-
 import * as React from 'react';
 
 const NotFoundPage = () => (

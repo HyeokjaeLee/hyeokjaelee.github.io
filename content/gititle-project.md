@@ -25,10 +25,11 @@ AngularJS commit conventions의 Type만으로 설명이 부족한 부분을 Emoj
 ### 프로젝트를 진행하면서 느낀 Vue.js
 
 React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.
-![react-vue](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/116b4b96-f807-456f-b08e-62151aba89ea)
-예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.
 
+> ![react-vue](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/116b4b96-f807-456f-b08e-62151aba89ea)
 > 보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.
+
+예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.
 
 특히 Node.js 환경 세팅 없이 cdn만으로 개발이 가능했다는 점과 별도의 build 없이 static 페이지로 배포가 가능하다는 점이 매우 편리했다.
 
@@ -58,15 +59,13 @@ Vue.js의 개발자 도구가 매우 편리하다고 하는데 아쉽게도 이�
 
 딱히 Backend에서 데이터를 받아올 만한 프로젝트가 아니기 때문에 앱 자체에 보이고 싶은 값들을 담아 클라이언트 쪽에서 검색 기능을 구현했다.
 
+> ![gititle](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8116a194-4deb-4c4b-a05d-4f657fe195d4)
 > Commit Message 구성요소 검색
-
-![gititle](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8116a194-4deb-4c4b-a05d-4f657fe195d4)
 
 대략적인 커밋 예시를 제공하고 각 커밋 메시지 영억을 클릭하면 해당 영역에 들어갈 수 있는 선택지를 제공하고 있으며 각 선택지들을 어떤 상황에 쓰이게 되는지 혹은 예시 내용을 보여줄 수 있는 UI를 제공하고 있다.
 
+> ![gititle2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cb16eb52-5376-475d-9221-fee51e3af1d9)
 > Commit Message 구성요소 아이템에 대한 선택지를 제공
-
-![gititle2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cb16eb52-5376-475d-9221-fee51e3af1d9)
 
 추가적으로 복사한 커밋 메시지들은 history를 남기고 추후에 필요할때 복사할 수 있게 하였고 PWA 설치 UI가 브라우저 자체에서 지원하긴 하지만 Gititle이 설치되어있지 않으면 앱 내에
 

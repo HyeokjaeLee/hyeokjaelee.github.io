@@ -5,5 +5,5 @@ import '@kfonts/nanum-square';
 import '@hyeokjaelee/pastime-ui/style.css';
 import './src/style/global.css';
 
-// Highlighting for code blocks
-import './src/style/prismjs.css';
+// post layout styles
+import './src/style/post-layout.css';

@@ -39,9 +39,12 @@ CSS-in-JS 방식 자체는 요즘 트렌드이기도 하고 제품이 성능 자
 
 #### 단점
 
-- CSS-in-CSS 방식에 비해 성능이 떨어짐<br/>
+- CSS-in-CSS 방식에 비해 성능이 떨어짐
+
   [Tomas Pustelnik / Real-world CSS vs. CSS-in-JS performance comparison](https://pustelto.com/blog/css-vs-css-in-js-perf/)
+
   > 요약하자면 앱의 속도 개선을 위해서는 JS 절대량을 줄여라
+
 - 스크립트 파일의 크기가 커지면 가독성을 해침 (특히 포메터를 사용할 경우)
 
 #### 관련 스택
@@ -51,7 +54,8 @@ CSS-in-JS 방식 자체는 요즘 트렌드이기도 하고 제품이 성능 자
 
 만약 위 두 기술스택중 선택한다면 Emotion을 선택할것 같다.
 
-잘 정리된 포스트가 있는데 가서 읽어 보는것도 좋을것 같다.<br/>[bepyan.log / styled-components 과 emotion, 도대체 차이가 뭔가?](https://velog.io/@bepyan/styled-components-%EA%B3%BC-emotion-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AD%94%EA%B0%80)
+잘 정리된 포스트가 있는데 가서 읽어 보는것도 좋을것 같다.
+[bepyan.log / styled-components 과 emotion, 도대체 차이가 뭔가?](https://velog.io/@bepyan/styled-components-%EA%B3%BC-emotion-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AD%94%EA%B0%80)
 
 ### CSS-in-CSS
 
