@@ -16,8 +16,7 @@ tags: [project, backend]
 
 ## COVID-19 API
 
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96)
-
+> ![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96)
 > 외부 API를 사용할때 가장 받기 싫은 메일인듯..
 
 이전에 Toyproject용으로 COVID-19의 여러 외부 정보들을 종합해 새로운 데이터를 추가하고 이상치를 제거해 GraphQL로 데이터를 제공하는 서버를 호스팅 해두었다.

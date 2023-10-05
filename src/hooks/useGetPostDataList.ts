@@ -1,4 +1,6 @@
-import { useMemo } from 'react';
+import { debounce } from 'lodash-es';
+
+import { useEffect, useMemo, useState } from 'react';
 
 import type { PageProps } from 'gatsby';
 import type { PostPageQuery } from 'types';
@@ -14,8 +16,6 @@ export interface PostData {
   date: string;
 }
 
-export const PAGE_SIZE = 8;
-
 export const useGetPostDataList = ({
   data: {
     allMarkdownRemark: { nodes },
@@ -25,6 +25,24 @@ export const useGetPostDataList = ({
   const searchParams = new URLSearchParams(search);
   const page = Number(searchParams.get('page')) || 1;
   const tag = searchParams.get('tag') || 'all';
+  const [pageSize, setPageSize] = useState(8);
+
+  useEffect(() => {
+    const resizeEvent = debounce(() => {
+      const { innerHeight } = window;
+      const calculedPageSize = (Math.floor(innerHeight / 350) - 1) * 4;
+      const pageSize = calculedPageSize < 8 ? 8 : calculedPageSize;
+      setPageSize(pageSize);
+    }, 500);
+
+    resizeEvent();
+
+    window.addEventListener('resize', resizeEvent);
+
+    return () => {
+      window.removeEventListener('resize', resizeEvent);
+    };
+  }, []);
 
   const { postList, tagCountMap } = useMemo(() => {
     const postList: PostData[] = [];
@@ -60,11 +78,12 @@ export const useGetPostDataList = ({
   });
 
   return {
-    total: filteredPostListByTag.length,
+    totalItems: filteredPostListByTag.length,
     page,
+    pageSize,
     postList: filteredPostListByTag.slice(
-      (page - 1) * PAGE_SIZE,
-      page * PAGE_SIZE,
+      (page - 1) * pageSize,
+      page * pageSize,
     ),
     tagCountMap,
   };

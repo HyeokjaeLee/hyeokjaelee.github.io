@@ -1,35 +1,11 @@
-import { graphql } from 'gatsby';
-
 import * as React from 'react';
 
-import type { PageProps } from 'gatsby';
-
-interface DataProps {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-}
-
-const NotFoundPage = ({
-  data,
-  location,
-}: PageProps<Queries.NotFoundPageQuery>) => (
-  <>
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </>
+const NotFoundPage = () => (
+  <article className="flex flex-col m-auto items-center gap-4 h-full justify-center">
+    <h1 className="text-7xl font-black">404 :(</h1>
+    <p className="text-lg font-bold">페이지를 찾을 수 없어요!</p>
+    <div className="text-9xl animate-bounce mt-6">🤖</div>
+  </article>
 );
 
 export default NotFoundPage;
-
-export const NotFoundPageQuery = graphql`
-  query NotFoundPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
