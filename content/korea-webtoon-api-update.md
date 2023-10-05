@@ -1,7 +1,7 @@
 ---
-title: 'Webtoon API'
+title: 'Webtoon API 개발'
 titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb'
-description: 'Daum 웹툰의 개편으로 인한 API 업데이트'
+description: '비공식 한국 웹툰 서비스 통합 API 개발'
 date: '2021-11-17'
 tags: [project, backend]
 ---
