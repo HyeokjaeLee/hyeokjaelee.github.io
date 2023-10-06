@@ -1,5 +1,5 @@
 ---
-title: 'Covid-19 API 업데이트'
+title: 'COVID-19 API 업데이트'
 titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96'
 description: '단계적 일상회복에 따른 Covid-19 API 업데이트'
 date: '2021-11-30'
