@@ -15,7 +15,8 @@ export const PostArticleNavigation = ({
   title,
   headings,
 }: PostArticleNavigationProps) => {
-  const { selectedHeading } = useSelectedPostArticleHeading(headings);
+  const { selectedHeading, setSelectedHeading } =
+    useSelectedPostArticleHeading(headings);
 
   if (!headings || !title) return null;
 
@@ -41,7 +42,12 @@ export const PostArticleNavigation = ({
               >
                 <button
                   className="text-start"
-                  onClick={() => scrollTo(`#${id}`)}
+                  onClick={() => {
+                    if (id) {
+                      setSelectedHeading(id);
+                      scrollTo(`#${id}`);
+                    }
+                  }}
                 >
                   {value}
                 </button>
