@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { debounce } from 'lodash-es';
+
+import { useEffect, useRef, useState } from 'react';
 
 import type { NotNullableMarkdownRemark } from '@components/PostArticle';
 
@@ -9,6 +11,9 @@ export const useSelectedPostArticleHeading = (
   headings: UseSelectedPostArticleHeadingParams,
 ) => {
   const [selectedHeading, setSelectedHeading] = useState('');
+
+  const preventScrollEvent = useRef(false);
+
   useEffect(() => {
     const idMap = new Map<
       string,
@@ -27,16 +32,11 @@ export const useSelectedPostArticleHeading = (
             isVisible: isIntersecting,
             element: target,
           });
-
-          for (const [id, { isVisible }] of idMap) {
-            if (isVisible) {
-              setSelectedHeading(id);
-              break;
-            }
-          }
         });
       },
-      { threshold: 0.5 },
+      {
+        threshold: 0.5,
+      },
     );
 
     headings?.forEach((heading) => {
@@ -47,10 +47,32 @@ export const useSelectedPostArticleHeading = (
       if (id) observer.observe(element);
     });
 
+    const main = document.querySelector('main');
+
+    const scrollEvent = debounce(() => {
+      if (main && !preventScrollEvent.current) {
+        for (const [id, { isVisible }] of idMap) {
+          if (isVisible) {
+            setSelectedHeading(id);
+            break;
+          }
+        }
+      } else preventScrollEvent.current = false;
+    }, 33.3);
+
+    main?.addEventListener('scroll', scrollEvent, { passive: true });
+
     return () => {
       observer.disconnect();
+      main?.removeEventListener('scroll', scrollEvent);
     };
   }, [headings]);
 
-  return { selectedHeading };
+  return {
+    selectedHeading,
+    setSelectedHeading: (id: string) => {
+      setSelectedHeading(id);
+      preventScrollEvent.current = true;
+    },
+  };
 };
