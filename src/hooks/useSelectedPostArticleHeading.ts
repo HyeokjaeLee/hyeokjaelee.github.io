@@ -58,7 +58,7 @@ export const useSelectedPostArticleHeading = (
           }
         }
       } else preventScrollEvent.current = false;
-    }, 33.3);
+    }, 30);
 
     main?.addEventListener('scroll', scrollEvent, { passive: true });
 
