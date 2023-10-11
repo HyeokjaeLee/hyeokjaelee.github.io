@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhyeokjaelee_github_io=self.webpackChunkhyeokjaelee_github_io||[]).push([[154],{2829:function(e,t,a){a.r(t);var l=a(959);t.default=()=>l.createElement(l.Fragment,null,l.createElement("h2",{className:"text-3xl"},"덕업일치 개발자, 이혁재입니다."),"2010년에 스마트폰")}}]);
-//# sourceMappingURL=component---src-pages-about-index-tsx-07f8abffc718ed5dfd89.js.map
