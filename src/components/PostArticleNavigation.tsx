@@ -41,7 +41,7 @@ export const PostArticleNavigation = ({
                 }}
               >
                 <button
-                  className="text-start"
+                  className="text-start cursor-pointer hover:underline"
                   onClick={() => {
                     if (id) {
                       setSelectedHeading(id);

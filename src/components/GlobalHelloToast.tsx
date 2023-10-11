@@ -17,7 +17,7 @@ export const GlobalHelloToast = () => {
     if (helloTarget !== undefined) {
       toast({
         message: `👋 ${
-          helloTarget ? `${helloTarget}님 ` : ''
+          helloTarget && helloTarget !== 'common' ? `${helloTarget}님 ` : ''
         }안녕하세요! 방문해주셔서 감사해요!`,
         type: 'info',
       });
