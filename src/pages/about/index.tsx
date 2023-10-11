@@ -6,9 +6,21 @@ import { ABOUT_TITLE_ID, AboutNavigation } from '@components/AboutNavigation';
 import { Bio } from '@components/Bio';
 import { CodestatesWorkExperience } from '@components/CodestatesWorkExperience';
 import { CoupangWorkExperience } from '@components/CoupangWorkExperience';
+import { Meta } from '@components/Meta';
 import { SideProjectSection } from '@components/SideProjectSection';
 import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
+
+export const Head = () => {
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const portfolioTarget = searchParams.get('portfolio');
+  const portfolioPreview = searchParams.get('preview');
+
+  const isPortfolio = !!(portfolioTarget || portfolioPreview !== null);
+
+  return <Meta title={isPortfolio ? 'Portfolio' : 'About'} />;
+};
 
 const About = () => {
   const { search } = useLocation();
@@ -75,7 +87,7 @@ const About = () => {
               </h2>
               <ul>
                 <AboutItem
-                  title="컴퓨터 공학 학사"
+                  title="공주대학교"
                   period="2016.04 - 2022.08"
                   summaries={['컴퓨터 공학 학사']}
                 />
