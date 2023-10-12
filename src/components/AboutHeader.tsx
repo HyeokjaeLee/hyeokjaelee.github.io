@@ -33,7 +33,7 @@ export const AboutHeader = () => (
     <h1 className="text-lg text-center">
       👋 안녕하세요!
       <br />
-      덕업일치 개발자,<span className="font-bold">이혁재</span>
+      덕업일치 개발자, <span className="font-bold">이혁재</span>
       입니다.
     </h1>
     <ul className="list-disc ml-2">
