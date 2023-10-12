@@ -22,7 +22,7 @@ export const PostArticleHeader = ({
         <h1 className="font-extrabold text-4xl tracking-tight leading-normal mb-7">
           {title}
         </h1>
-        <dl className="flex items-center">
+        <dl className="flex items-center flex-wrap">
           <dt className="mr-2">
             <Calendar className={ICON_SIZE} />
           </dt>
