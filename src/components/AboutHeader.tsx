@@ -7,7 +7,7 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 
 export const AboutHeader = () => (
   <header className="flex flex-col gap-12" id={ABOUT_TITLE_ID.ABOUT_ME}>
-    <section className="flex gap-9 items-center">
+    <section className="flex gap-9 items-center flex-wrap">
       <StaticImage
         src="../images/profile.jpeg"
         alt="profile"
