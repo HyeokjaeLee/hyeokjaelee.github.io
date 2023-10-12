@@ -16,7 +16,7 @@ export const CoupangWorkExperience = () => (
     <ul>
       <AboutItem
         id={ABOUT_TITLE_ID.EDP_CHAT_BOT}
-        title="배달파트너 센터 챗봇 개발"
+        title="카카오톡 챗봇 개발"
         summaries={['배달파트너 센터 챗봇 개발']}
         stacks={[
           {

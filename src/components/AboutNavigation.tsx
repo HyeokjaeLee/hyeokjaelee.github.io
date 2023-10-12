@@ -62,7 +62,7 @@ export const AboutNavigation = () => (
         depth: 2,
       },
       {
-        value: '배달파트너 센터 챗봇 개발',
+        value: '카카오톡 챗봇 개발',
         id: ABOUT_TITLE_ID.EDP_CHAT_BOT,
         depth: 3,
       },
