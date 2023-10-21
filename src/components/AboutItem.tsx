@@ -1,5 +1,4 @@
 import React from 'react';
-import { Calendar, Link2 } from 'react-feather';
 
 interface StackProps {
   name: string;
@@ -16,36 +15,31 @@ interface LinkProps {
 
 interface ProjectItemProps {
   title: string;
-  summaries?: string[];
-  stacks?: StackProps[];
-  links?: LinkProps[];
-  experiences?: string[];
-  period?: string;
+  stacks: StackProps[];
+  links: LinkProps[];
+  description?: string;
   id?: string;
+  borderBottom?: boolean;
 }
 
 export const AboutItem = ({
   title,
-  summaries,
   stacks,
-  experiences,
+  description,
   links,
-  period,
   id,
+  borderBottom,
 }: ProjectItemProps) => (
-  <li className="mb-7">
-    <h4 className="text-xl mb-3 flex items-center gap-2 flex-wrap" id={id}>
-      {title}{' '}
-      {period ? (
-        <small className="flex items-center text-sm gap-1 font-semibold text-zinc-400">
-          <Calendar className="w-4 h-4" />
-          {period}
-        </small>
-      ) : null}
-    </h4>
-    {stacks ? (
+  <li
+    className={`flex gap-2 border-zinc-200 dark:border-zinc-800 ${
+      borderBottom ? 'border-b pb-4 mb-4' : ''
+    }`}
+    id={id}
+  >
+    <header className="w-56">
+      <h4 className="text-xl font-bold">{title}</h4>
       <ul className="flex gap-1 mb-5 flex-wrap">
-        {stacks.map(({ name, backgroundColor, blackLogo, logo }) => (
+        {stacks?.map(({ name, backgroundColor, blackLogo, logo }) => (
           <li key={name}>
             <img
               src={`https://img.shields.io/badge/${name}-${backgroundColor.replace(
@@ -60,56 +54,46 @@ export const AboutItem = ({
           </li>
         ))}
       </ul>
-    ) : null}
-    {summaries ? (
-      <ul className="text-sm list-disc ml-4">
-        {summaries.map((summary, index) => (
-          <li key={index} className="mb-1">
-            {summary}
-          </li>
-        ))}
-      </ul>
-    ) : null}
-    {experiences ? (
-      <ul className="text-sm my-6">
-        {experiences.map((experience, index) => (
-          <li className="mb-2" key={index}>
-            {experience}
-          </li>
-        ))}
-      </ul>
-    ) : null}
-
-    {links ? (
-      <blockquote className="border-l-4 border-gray-500 pl-3 text-xs">
-        <h5 className="mb-1 flex gap-1 items-center font-bold">
-          <Link2 className="w-3 h-3" />
-          관련 링크
-        </h5>
-        <ul className="list-decimal ml-4">
-          {links.map(({ name, href, type = 'blog' }) => (
-            <li key={name}>
-              <a
-                href={href}
-                target="_blank"
-                className="text-blue-500 hover:underline"
-                rel="noreferrer"
-              >
-                {name} (
-                {
-                  {
-                    github: 'Github repo',
-                    blog: 'Blog post',
-                    storybook: 'Storybook',
-                    product: 'Product',
-                  }[type]
-                }
-                )
-              </a>
-            </li>
-          ))}
-        </ul>
-      </blockquote>
-    ) : null}
+    </header>
+    <div className="flex-1">
+      <dl>
+        {description ? (
+          <>
+            <dt className="font-bold text-lg mb-1">Description</dt>
+            <dd className="text-sm whitespace-pre-wrap">{description}</dd>
+          </>
+        ) : null}
+        {links ? (
+          <>
+            <dt className="font-bold text-lg mt-2">Link</dt>
+            <dd className="border-gray-500 text-xs">
+              <ul>
+                {links?.map(({ name, href, type = 'blog' }) => (
+                  <li key={name}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      className="text-blue-500 hover:underline"
+                      rel="noreferrer"
+                    >
+                      {name} (
+                      {
+                        {
+                          github: 'Github repo',
+                          blog: 'Blog post',
+                          storybook: 'Storybook',
+                          product: 'Product',
+                        }[type]
+                      }
+                      )
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </>
+        ) : null}
+      </dl>
+    </div>
   </li>
 );

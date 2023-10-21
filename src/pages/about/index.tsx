@@ -4,10 +4,9 @@ import { AboutHeader } from '@components/AboutHeader';
 import { AboutItem } from '@components/AboutItem';
 import { ABOUT_TITLE_ID, AboutNavigation } from '@components/AboutNavigation';
 import { Bio } from '@components/Bio';
-import { CodestatesWorkExperience } from '@components/CodestatesWorkExperience';
-import { CoupangWorkExperience } from '@components/CoupangWorkExperience';
 import { Meta } from '@components/Meta';
-import { SideProjectSection } from '@components/SideProjectSection';
+import { OpensourceSection } from '@components/OpensourceSection';
+import { WorkExperienceSection } from '@components/WorkExperienceSection';
 import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 
@@ -39,63 +38,44 @@ const About = () => {
   return (
     <article className="leading-relaxed mt-8 md:mt-14 p-4 font-nanum-square break-keep flex">
       {isPortfolio ? <div className="flex-1 hidden lg:block" /> : null}
-      <div className="max-w-3xl mx-auto flex flex-col gap-12">
+      <div className="max-w-3xl mx-auto flex flex-col gap-8">
         <AboutHeader />
         {isPortfolio ? (
           <>
-            <section>
-              <h2
-                className="font-bold text-3xl mb-6"
-                id={ABOUT_TITLE_ID.WORK_EXPERIENCE}
-              >
-                👨‍💻 Work experience
-              </h2>
-              <dl className="mb-4">
-                <CodestatesWorkExperience />
-                <CoupangWorkExperience />
-              </dl>
-            </section>
-            <SideProjectSection />
+            <WorkExperienceSection />
+            <OpensourceSection />
             <section>
               <h2 className="font-bold text-3xl mb-6" id={ABOUT_TITLE_ID.ETC}>
-                🗃️ Etc
+                🗃️ Other Experiences
               </h2>
               <ul>
                 <AboutItem
-                  title="정보처리기사 자격증"
+                  title="정보처리기사 자격증 취득"
                   period="2021.06"
-                  summaries={['정보처리기사 자격증 취득']}
+                  titleAlign="left"
                 />
                 <AboutItem
-                  title="프로그램 저작권 등록 - Webtoon Hub"
+                  title="프로그램 저작권 등록 - Webtoon Hub (C-2021-020527)"
                   period="2021.02"
-                  summaries={['등록번호: C-2021-020527']}
+                  titleAlign="left"
                 />
-                <AboutItem
-                  title="공주대학교 개발 창업 동아리 - Primitive"
-                  period="2016.05"
-                  summaries={[
-                    '재학 중: Android 개발 강의',
-                    '졸업 후: 취업 멘토링 활동',
-                  ]}
-                />
-              </ul>
-            </section>
-            <section>
-              <h2 className="font-bold text-3xl mb-6" id={ABOUT_TITLE_ID.EDU}>
-                🎓 Education
-              </h2>
-              <ul>
                 <AboutItem
                   title="공주대학교"
                   period="2016.04 - 2022.08"
-                  summaries={['컴퓨터 공학 학사']}
+                  titleAlign="left"
+                  description={``}
+                />
+                <AboutItem
+                  title="공주대학교 개발 동아리 - Primitive"
+                  period="2016.05"
+                  titleAlign="left"
+                  description="후배들을 대상으로 졸업 전엔 Android 개발 강의를 진행하였으며 졸업 후에는 취업 멘토링 활동을 하였습니다."
                 />
               </ul>
             </section>
           </>
         ) : null}
-        <footer className="py-12 border-t">
+        <footer className="py-12">
           <Bio />
         </footer>
       </div>
