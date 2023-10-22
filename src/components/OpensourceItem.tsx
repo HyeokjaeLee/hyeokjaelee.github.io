@@ -1,11 +1,6 @@
 import React from 'react';
 
-interface StackProps {
-  name: string;
-  logo?: string;
-  backgroundColor: string;
-  blackLogo?: boolean;
-}
+import { StackBadge, StackBadgeProps } from './StackBadge';
 
 interface LinkProps {
   name: string;
@@ -15,7 +10,7 @@ interface LinkProps {
 
 interface OpensourceItemProps {
   title: string;
-  stacks: StackProps[];
+  stacks: StackBadgeProps[];
   links: LinkProps[];
   description?: string;
 }
@@ -32,18 +27,9 @@ export const OpensourceItem = ({
     <header className="w-56">
       <h4 className="text-xl font-bold">{title}</h4>
       <ul className="flex gap-1 mt-2 mb-5 flex-wrap">
-        {stacks?.map(({ name, backgroundColor, blackLogo, logo }) => (
-          <li key={name}>
-            <img
-              src={`https://img.shields.io/badge/${name}-${backgroundColor.replace(
-                '#',
-                '',
-              )}?style=flat-square&logo=${logo ?? name}&logoColor=${
-                blackLogo ? 'black' : 'white'
-              }`}
-              alt={name}
-              loading="lazy"
-            />
+        {stacks?.map((props) => (
+          <li key={props.name}>
+            <StackBadge {...props} />
           </li>
         ))}
       </ul>

@@ -3,18 +3,18 @@ import React from 'react';
 import { Accordion } from '@hyeokjaelee/pastime-ui';
 
 import { ABOUT_TITLE_ID } from './AboutNavigation';
-import { WorkExperience } from './WorkExperience';
+import { Experience } from './Experience';
 
 export const WorkExperienceSection = () => (
   <section id={ABOUT_TITLE_ID.WORK_EXPERIENCE}>
     <h2 className="font-bold text-3xl mb-6">👨‍💻 Work experience</h2>
-    <WorkExperience
+    <Experience
       title="Codestates"
       period="2022.02 - 2023.08"
       jobTitle="Frontend engineer"
       borderBottom
     >
-      <WorkExperience.Item
+      <Experience.Item
         title="Codeship"
         borderBottom
         whatDidIDo={[
@@ -81,7 +81,7 @@ export const WorkExperienceSection = () => (
           },
         ]}
       />
-      <WorkExperience.Item
+      <Experience.Item
         title="WeWin"
         whatDidIDo={[
           '레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
@@ -145,13 +145,13 @@ export const WorkExperienceSection = () => (
           },
         ]}
       />
-    </WorkExperience>
-    <WorkExperience
+    </Experience>
+    <Experience
       title="Coupang"
       period="2019.08 - 2020.03"
       jobTitle="Eats Operator"
     >
-      <WorkExperience.Item
+      <Experience.Item
         title="EDP Operations"
         borderBottom
         description="음식이 고객에게 전달되기 까지 발생하는 이슈들을 트래킹하고 고객 경험을 개선하는 팀에서 직접적인 제품 개발이 아닌 업무 자동화, 데이터 수집, 가공 등 다양한 업무를 수행했습니다."
@@ -230,6 +230,6 @@ export const WorkExperienceSection = () => (
           </Accordion.Contents>
         </Accordion>
       </li>
-    </WorkExperience>
+    </Experience>
   </section>
 );

@@ -2,12 +2,7 @@ import React from 'react';
 
 import { useGlobalStore } from '@stores/useGlobalStore';
 
-interface StackProps {
-  name: string;
-  logo?: string;
-  backgroundColor: string;
-  blackLogo?: boolean;
-}
+import { StackBadge, StackBadgeProps } from './StackBadge';
 
 interface LinkProps {
   name: string;
@@ -15,23 +10,23 @@ interface LinkProps {
   type?: 'github' | 'blog' | 'storybook' | 'product';
 }
 
-interface WorkExperienceItemProps {
+interface ExperienceItemProps {
   title: string;
-  stacks: StackProps[];
+  stacks?: StackBadgeProps[];
   links?: LinkProps[];
   whatDidIDo?: string[];
   description?: string;
   borderBottom?: boolean;
 }
 
-const WorkExperienceItem = ({
+const ExperienceItem = ({
   title,
   stacks,
   whatDidIDo,
   description,
   links,
   borderBottom,
-}: WorkExperienceItemProps) => (
+}: ExperienceItemProps) => (
   <li
     className={`border-zinc-300 dark:border-zinc-700 ${
       borderBottom ? 'border-b pb-4 mb-4' : ''
@@ -62,18 +57,9 @@ const WorkExperienceItem = ({
           <dt className="font-bold text-lg mt-3 mb-1">Tech Stack</dt>
           <dd>
             <ul className="flex gap-1 flex-wrap">
-              {stacks.map(({ name, backgroundColor, blackLogo, logo }) => (
-                <li key={name}>
-                  <img
-                    src={`https://img.shields.io/badge/${name}-${backgroundColor.replace(
-                      '#',
-                      '',
-                    )}?style=flat-square&logo=${logo ?? name}&logoColor=${
-                      blackLogo ? 'black' : 'white'
-                    }`}
-                    alt={name}
-                    loading="lazy"
-                  />
+              {stacks.map((props) => (
+                <li key={props.name}>
+                  <StackBadge {...props} />
                 </li>
               ))}
             </ul>
@@ -114,16 +100,16 @@ const WorkExperienceItem = ({
   </li>
 );
 
-interface WorkExperienceProps {
+interface ExperienceProps {
   title: string;
   period?: string;
-  children: React.ReactNode;
-  jobTitle: string;
+  children?: React.ReactNode;
+  jobTitle?: string;
   id?: string;
   borderBottom?: boolean;
 }
 
-export const WorkExperience = Object.assign(
+export const Experience = Object.assign(
   ({
     title,
     period,
@@ -131,7 +117,7 @@ export const WorkExperience = Object.assign(
     jobTitle,
     id,
     borderBottom,
-  }: WorkExperienceProps) => {
+  }: ExperienceProps) => {
     const helloTarget = useGlobalStore((state) => state.helloTarget);
     return (
       <dl
@@ -140,9 +126,9 @@ export const WorkExperience = Object.assign(
         }`}
         id={id}
       >
-        <dt className="flex flex-col w-52">
+        <dt className={`flex flex-col ${children ? 'w-36' : ''}`}>
           <h3 className="font-bold text-2xl">{title}</h3>
-          <p className="text-sm">{jobTitle}</p>
+          {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
           {period && helloTarget ? (
             <span className="text-zinc-400 text-xs whitespace-nowrap">
               {period}
@@ -155,5 +141,5 @@ export const WorkExperience = Object.assign(
       </dl>
     );
   },
-  { Item: WorkExperienceItem },
+  { Item: ExperienceItem },
 );
