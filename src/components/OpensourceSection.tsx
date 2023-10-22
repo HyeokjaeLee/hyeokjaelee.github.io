@@ -4,7 +4,7 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { OpensourceItem } from './OpensourceItem';
 
 export const OpensourceSection = () => (
-  <section id={ABOUT_TITLE_ID.SIDE_PROJECT}>
+  <section id={ABOUT_TITLE_ID.OPEN_SOURCE}>
     <h2 className="font-bold text-3xl">🗂️ Opensource</h2>
     <p className="text-sm mb-6 ml-1 font-bold text-zinc-400">1인 개발</p>
     <ul>
@@ -151,7 +151,7 @@ export const OpensourceSection = () => (
             backgroundColor: '#06B6D4',
           },
         ]}
-        description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성 했습니다.`}
+        description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.`}
         links={[
           {
             name: 'Gatsby 블로그를 개발하면서',
@@ -226,7 +226,7 @@ export const OpensourceSection = () => (
             backgroundColor: '#5A0FC8',
           },
         ]}
-        description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성 할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
+        description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
         links={[
           {
             name: 'Gititle 프로젝트',
@@ -246,22 +246,8 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="Code convetion packages"
-        description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정을 독립적으로 배포되고 설치할 수 있게 했습니다.`}
+        description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
         stacks={[
-          {
-            name: 'TypeScript',
-            backgroundColor: '#3178C6',
-          },
-          {
-            name: 'Javascript',
-            backgroundColor: '#F7DF1E',
-            blackLogo: true,
-          },
-          {
-            name: 'React',
-            backgroundColor: '#61DAFB',
-            blackLogo: true,
-          },
           {
             name: 'Prettier',
             backgroundColor: '#F7B93E',
@@ -300,7 +286,7 @@ export const OpensourceSection = () => (
             backgroundColor: '#E10098',
           },
         ]}
-        description={`여러 API또는 웹상에 존재하는 COVID-19 관련 데이터를 정형화해 제공하는 API입니다.\nGraphQL을 이용해 사용자가 원하는 데이터만을 요청할 수 있게 했습니다.`}
+        description={`여러 API 또는 웹상에 존재하는 COVID-19 관련 데이터를 정형화해 제공하는 API입니다.\nGraphQL을 이용해 사용자가 원하는 데이터만을 요청할 수 있게 했습니다.`}
         links={[
           {
             name: 'COVID-19 API 업데이트',
