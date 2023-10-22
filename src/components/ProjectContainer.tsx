@@ -1,5 +1,4 @@
 import React from 'react';
-import { Calendar } from 'react-feather';
 
 import { useGlobalStore } from '@stores/useGlobalStore';
 
@@ -20,20 +19,19 @@ export const ProjectContainer = ({
 }: ProjectContainerProps) => {
   const helloTarget = useGlobalStore((state) => state.helloTarget);
   return (
-    <>
-      <dt className="mb-4">
-        <h3 className="font-bold text-2xl flex items-center" id={id}>
+    <dl className="flex gap-3 flex-col md:flex-row">
+      <dt className="flex flex-col w-52">
+        <h3 className="font-bold text-2xl" id={id}>
           {title}
-          {period && helloTarget ? (
-            <div className="text-zinc-400 text-base flex gap-1 items-center ml-2">
-              <Calendar className="w-4 h-4" />
-              <span>{period}</span>
-            </div>
-          ) : null}
         </h3>
-        <p className="text-sm ml-1">{jobTitle}</p>
+        <p className="text-sm">{jobTitle}</p>
+        {period && helloTarget ? (
+          <span className="text-zinc-400 text-xs whitespace-nowrap">
+            {period}
+          </span>
+        ) : null}
       </dt>
-      <dd className="mb-4">{children}</dd>
-    </>
+      <dd className="mb-4 flex-1">{children}</dd>
+    </dl>
   );
 };
