@@ -4,8 +4,10 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { SkillItem } from './SkillItem';
 
 export const SkillSection = () => (
-  <section id={ABOUT_TITLE_ID.SKILL}>
-    <h2 className="font-bold text-3xl mb-6">🛠️ Skill</h2>
+  <section>
+    <h2 id={ABOUT_TITLE_ID.SKILL} className="font-bold text-3xl mb-6">
+      🛠️ Skill
+    </h2>
     <dl>
       <SkillItem
         title="Overall"

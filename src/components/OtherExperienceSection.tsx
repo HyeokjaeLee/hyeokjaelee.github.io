@@ -4,8 +4,13 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { Experience } from './Experience';
 
 export const OtherExperienceSection = () => (
-  <section id={ABOUT_TITLE_ID.OTHER_EXPERIENCE}>
-    <h2 className="font-bold text-3xl mb-6">🗃️ Other Experience</h2>
+  <section>
+    <h2
+      className="font-bold text-3xl mb-6"
+      id={ABOUT_TITLE_ID.OTHER_EXPERIENCE}
+    >
+      🗃️ Other Experience
+    </h2>
     <Experience
       title="공주대학교"
       period="2016.04 - 2022.08"

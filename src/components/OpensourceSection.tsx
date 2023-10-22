@@ -4,8 +4,10 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { OpensourceItem } from './OpensourceItem';
 
 export const OpensourceSection = () => (
-  <section id={ABOUT_TITLE_ID.OPEN_SOURCE}>
-    <h2 className="font-bold text-3xl">🗂️ Opensource</h2>
+  <section>
+    <h2 id={ABOUT_TITLE_ID.OPEN_SOURCE} className="font-bold text-3xl">
+      🗂️ Opensource
+    </h2>
     <p className="text-sm mb-6 ml-1 font-bold text-zinc-400">1인 개발</p>
     <ul>
       <OpensourceItem

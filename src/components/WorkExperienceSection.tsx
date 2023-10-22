@@ -6,8 +6,10 @@ import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { Experience } from './Experience';
 
 export const WorkExperienceSection = () => (
-  <section id={ABOUT_TITLE_ID.WORK_EXPERIENCE}>
-    <h2 className="font-bold text-3xl mb-6">👨‍💻 Work experience</h2>
+  <section>
+    <h2 className="font-bold text-3xl mb-6" id={ABOUT_TITLE_ID.WORK_EXPERIENCE}>
+      👨‍💻 Work experience
+    </h2>
     <Experience
       title="Codestates"
       period="2022.02 - 2023.08"
