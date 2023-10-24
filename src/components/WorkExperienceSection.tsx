@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Accordion } from '@hyeokjaelee/pastime-ui';
 
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 import { Experience } from './Experience';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const WorkExperienceSection = () => (
   <section>
@@ -152,13 +152,14 @@ export const WorkExperienceSection = () => (
     </Experience>
     <Experience
       title="Coupang"
+      id="coupang"
       period="2019.08 - 2020.03"
       jobTitle="Eats Operator"
     >
       <Experience.Item
         title="EDP Operations"
         borderBottom
-        description="음식이 고객에게 전달되기까지 발생하는 이슈들을 트래킹 하고 고객 경험을 개선하는 팀에서 직접적인 제품 개발이 아닌 업무 자동화, 데이터 수집, 가공 등 다양한 업무를 수행했습니다."
+        description="서비스 초창기에 합류해 음식이 고객에게 전달되기까지 발생하는 이슈들을 트래킹 하고 고객 경험을 개선하는 팀에서 직접적인 제품 개발이 아닌 업무 자동화, 데이터 수집, 가공 등 다양한 업무를 수행했습니다."
         whatDidIDo={[
           '고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스 개발',
           '관제 업무 자동화',

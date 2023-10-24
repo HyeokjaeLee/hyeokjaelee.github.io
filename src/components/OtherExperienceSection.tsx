@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 import { Experience } from './Experience';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const OtherExperienceSection = () => (
   <section>
