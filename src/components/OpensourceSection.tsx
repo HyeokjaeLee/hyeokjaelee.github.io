@@ -12,6 +12,7 @@ export const OpensourceSection = () => (
     <ul>
       <OpensourceItem
         title="Briend"
+        id="briend"
         stacks={[
           {
             name: 'TypeScript',
@@ -60,6 +61,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="Pastime UI"
+        id="pastime-ui"
         stacks={[
           {
             name: 'TypeScript',
@@ -104,6 +106,7 @@ export const OpensourceSection = () => (
         ]}
       />
       <OpensourceItem
+        id="korea-webtoon-api"
         title="Korea webtoon API"
         description={`여러 가지 웹툰 플랫폼을 크롤링한 데이터를 정형화하고 제공하는 API입니다.\n지속적으로 트래픽이 발생하고 있어 유지보수 하고 있습니다.`}
         stacks={[
@@ -134,6 +137,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="블로그"
+        id="blog"
         stacks={[
           {
             name: 'TypeScript',
@@ -177,6 +181,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="KNU LMS scheduler"
+        id="knu-lms-scheduler"
         description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
         stacks={[
           {
@@ -208,6 +213,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="Gititle"
+        id="gititle"
         stacks={[
           {
             name: 'Javascript',
@@ -248,6 +254,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="Code convetion packages"
+        id="code-convetion-packages"
         description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
         stacks={[
           {
@@ -274,6 +281,7 @@ export const OpensourceSection = () => (
       />
       <OpensourceItem
         title="Korea COVID-19 API"
+        id="korea-covid-19-api"
         stacks={[
           {
             name: 'TypeScript',

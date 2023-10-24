@@ -40,23 +40,3 @@ export const useGetLastPostList = (): LastPost[] => {
 
   return lastPostList;
 };
-
-/**
- *  query LastPostList {
-        allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 5) {
-          nodes {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              titleImage
-              description
-              tags
-            }
-          }
-        }
-      }
- */

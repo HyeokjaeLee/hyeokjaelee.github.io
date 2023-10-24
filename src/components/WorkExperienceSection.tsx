@@ -18,6 +18,7 @@ export const WorkExperienceSection = () => (
     >
       <Experience.Item
         title="Codeship"
+        id="codeship"
         borderBottom
         whatDidIDo={[
           'PNPM 모노레포 구조 개발환경 구축',
@@ -85,6 +86,7 @@ export const WorkExperienceSection = () => (
       />
       <Experience.Item
         title="WeWin"
+        id="wewin"
         whatDidIDo={[
           '레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
           'B2B, B2C, 백오피스 클라이언트 개발',

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useGlobalStore } from '@stores/useGlobalStore';
-
 import { StackBadge, StackBadgeProps } from './StackBadge';
 
 interface LinkProps {
@@ -17,6 +15,7 @@ interface ExperienceItemProps {
   whatDidIDo?: string[];
   description?: string;
   borderBottom?: boolean;
+  id?: string;
 }
 
 const ExperienceItem = ({
@@ -26,13 +25,16 @@ const ExperienceItem = ({
   description,
   links,
   borderBottom,
+  id,
 }: ExperienceItemProps) => (
   <li
     className={`border-zinc-300 dark:border-zinc-700 ${
       borderBottom ? 'border-b pb-4 mb-4' : ''
     }`}
   >
-    <h4 className="text-xl font-bold">{title}</h4>
+    <h4 className="text-xl font-bold" id={id}>
+      {title}
+    </h4>
     <dl>
       {description ? (
         <>
@@ -117,29 +119,26 @@ export const Experience = Object.assign(
     jobTitle,
     id,
     borderBottom,
-  }: ExperienceProps) => {
-    const helloTarget = useGlobalStore((state) => state.helloTarget);
-    return (
-      <dl
-        className={`flex gap-3 flex-col md:flex-row border-zinc-300 dark:border-zinc-700 ${
-          borderBottom ? 'border-b mb-4' : ''
-        }`}
-        id={id}
-      >
-        <dt className={`flex flex-col ${children ? 'w-36' : ''}`}>
-          <h3 className="font-bold text-2xl">{title}</h3>
-          {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
-          {period && helloTarget ? (
-            <span className="text-zinc-400 text-xs whitespace-nowrap">
-              {period}
-            </span>
-          ) : null}
-        </dt>
-        <dd className="mb-4 flex-1">
-          <ul>{children}</ul>
-        </dd>
-      </dl>
-    );
-  },
+  }: ExperienceProps) => (
+    <dl
+      className={`flex gap-3 flex-col md:flex-row border-zinc-300 dark:border-zinc-700 ${
+        borderBottom ? 'border-b mb-4' : ''
+      }`}
+      id={id}
+    >
+      <dt className={`flex flex-col ${children ? 'w-36' : ''}`}>
+        <h3 className="font-bold text-2xl">{title}</h3>
+        {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
+        {period ? (
+          <span className="text-zinc-400 text-xs whitespace-nowrap">
+            {period}
+          </span>
+        ) : null}
+      </dt>
+      <dd className="mb-4 flex-1">
+        <ul>{children}</ul>
+      </dd>
+    </dl>
+  ),
   { Item: ExperienceItem },
 );
