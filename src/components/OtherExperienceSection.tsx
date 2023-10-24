@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ABOUT_TITLE_ID } from './AboutNavigation';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 import { Experience } from './Experience';
 
 export const OtherExperienceSection = () => (

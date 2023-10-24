@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Mail, Phone } from 'react-feather';
 
-import { ABOUT_TITLE_ID } from './AboutNavigation';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const AboutHeader = () => (
   <header className="flex flex-col gap-8" id={ABOUT_TITLE_ID.ABOUT_ME}>

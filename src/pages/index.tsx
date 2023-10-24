@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
@@ -8,6 +8,7 @@ import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
 import { useGetPostDataList } from '@hooks/useGetPostDataList';
+import { useToast } from '@hyeokjaelee/pastime-ui';
 
 import type { PageProps } from 'gatsby';
 import type { PostPageQuery } from 'types';
@@ -15,6 +16,14 @@ import type { PostPageQuery } from 'types';
 const PostPage = (pageProps: PageProps<PostPageQuery>) => {
   const { postList, tagCountMap, ...paginationProps } =
     useGetPostDataList(pageProps);
+
+  const { toast } = useToast();
+
+  useEffect(() => {
+    toast({
+      message: '👋 안녕하세요! 방문해주셔서 감사합니다.',
+    });
+  }, [toast]);
 
   return (
     <article className="flex flex-col items-center justify-between h-full">

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Accordion } from '@hyeokjaelee/pastime-ui';
 
-import { ABOUT_TITLE_ID } from './AboutNavigation';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 import { Experience } from './Experience';
 
 export const WorkExperienceSection = () => (

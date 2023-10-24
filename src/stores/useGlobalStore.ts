@@ -4,11 +4,8 @@ interface GlobalStore {
   isGlobalMenuOpen: boolean;
   setIsGlobalMenuOpen: (isGlobalMenuOpen: boolean) => void;
 
-  isFooterVisible: boolean;
-  setIsFooterVisible: (isFooterVisible: boolean) => void;
-
-  helloTarget?: string;
-  setHelloTarget: (helloTarget: string) => void;
+  isNavVisible: boolean;
+  setIsNavVisible: (isNavVisible: boolean) => void;
 }
 
 export const useGlobalStore = createWithEqualityFn<GlobalStore>(
@@ -16,10 +13,8 @@ export const useGlobalStore = createWithEqualityFn<GlobalStore>(
     isGlobalMenuOpen: false,
     setIsGlobalMenuOpen: (isGlobalMenuOpen) => set({ isGlobalMenuOpen }),
 
-    isFooterVisible: false,
-    setIsFooterVisible: (isFooterVisible) => set({ isFooterVisible }),
-
-    setHelloTarget: (helloTarget) => set({ helloTarget }),
+    isNavVisible: true,
+    setIsNavVisible: (isNavVisible) => set({ isNavVisible }),
   }),
   Object.is,
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ABOUT_TITLE_ID } from './AboutNavigation';
 import { OpensourceItem } from './OpensourceItem';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const OpensourceSection = () => (
   <section>

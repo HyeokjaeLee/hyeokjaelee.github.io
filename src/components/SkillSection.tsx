@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ABOUT_TITLE_ID } from './AboutNavigation';
+import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 import { SkillItem } from './SkillItem';
 
 export const SkillSection = () => (

@@ -10,7 +10,7 @@ export enum ABOUT_TITLE_ID {
   OTHER_EXPERIENCE = 'other-experience',
 }
 
-export const AboutNavigation = () => (
+export const PortfolioNavigation = () => (
   <PostArticleNavigation
     headings={[
       {
