@@ -14,7 +14,7 @@ export const WorkExperienceSection = () => (
       title="Codestates"
       period="2022.02 - 2023.08 (1년 7개월)"
       jobTitle="Frontend engineer"
-      description="7000여 명 이상이 수강한 국내 최초 코딩 부트캠프 스타트업"
+      description="9,000명 이상이 수강한 국내 최초 코딩 부트캠프 스타트업"
       borderBottom
     >
       <Experience.Item
