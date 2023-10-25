@@ -24,7 +24,7 @@ export const OpensourceItem = ({
   id,
 }: OpensourceItemProps) => (
   <li
-    className={`flex gap-3 border-zinc-200 dark:border-zinc-800 border-b pb-4 mb-4 last:border-none last:pb-0 last:mb-0 flex-col md:flex-row`}
+    className={`flex gap-3 border-zinc-800 border-b pb-4 mb-4 last:border-none last:pb-0 last:mb-0 flex-col md:flex-row`}
   >
     <header className="w-56">
       <h4 className="text-xl font-bold" id={id}>

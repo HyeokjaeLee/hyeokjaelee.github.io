@@ -12,7 +12,7 @@ interface ExperienceItemProps {
   title: string;
   stacks?: StackBadgeProps[];
   links?: LinkProps[];
-  whatDidIDo?: string[];
+  whatDidIDo?: (string | { what: string; result: string })[];
   description?: string;
   borderBottom?: boolean;
   id?: string;
@@ -47,9 +47,20 @@ const ExperienceItem = ({
           <dt className="font-bold text-lg mt-2 mb-1">What did I do</dt>
           <dd>
             <ul className="text-sm list-disc ml-4">
-              {whatDidIDo.map((summary, index) => (
-                <li key={index}>{summary}</li>
-              ))}
+              {whatDidIDo.map((summary, index) => {
+                if (typeof summary === 'object') {
+                  return (
+                    <li key={index}>
+                      {summary.what}
+                      <blockquote className="pl-2 border-l-4 border-yellow-400 my-2 text-zinc-400">
+                        {summary.result}
+                      </blockquote>
+                    </li>
+                  );
+                }
+
+                return <li key={index}>{summary}</li>;
+              })}
             </ul>
           </dd>
         </>
@@ -126,7 +137,7 @@ export const Experience = Object.assign(
       }`}
       id={id}
     >
-      <dt className={`flex flex-col ${children ? 'w-36' : ''}`}>
+      <dt className={`flex flex-col ${children ? 'w-44' : ''}`}>
         <h3 className="font-bold text-2xl">{title}</h3>
         {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
         {period ? (

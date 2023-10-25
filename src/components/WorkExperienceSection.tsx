@@ -12,7 +12,7 @@ export const WorkExperienceSection = () => (
     </h2>
     <Experience
       title="Codestates"
-      period="2022.02 - 2023.08"
+      period="2022.02 - 2023.08 (1년 7개월)"
       jobTitle="Frontend engineer"
       borderBottom
     >
@@ -20,14 +20,6 @@ export const WorkExperienceSection = () => (
         title="Codeship"
         id="codeship"
         borderBottom
-        whatDidIDo={[
-          'PNPM 모노레포 구조 개발환경 구축',
-          'Swagger API 문서를 기반으로 자동화된 CI/CD 파이프라인을 구축',
-          '스토리북 기반 디자인 시스템 구축',
-          '유효성 검사 라이브러리 개발',
-          'B2B, B2C, 백오피스 클라이언트 개발',
-          'MVP 유저 마이그레이션 프로세스 개발',
-        ]}
         stacks={[
           {
             name: 'TypeScript',
@@ -70,7 +62,29 @@ export const WorkExperienceSection = () => (
             backgroundColor: '#646CFF',
           },
         ]}
-        description={`내부 부트캠프 수료생, 외부 엔트리 개발자들과 기업을 연결하는 채용 플랫폼입니다.\n이전 팀에서의 경험을 바탕으로 첫 번째 프론트엔드 개발자로 합류해 비즈니스 설계, 기획, 개발자 채용 등 전반적인 업무에 참여했습니다.`}
+        description={`내부 부트캠프 수료생, 외부 엔트리 개발자들과 기업을 연결하는 채용 플랫폼입니다\n이전 팀에서의 경험을 바탕으로 첫 번째 프론트엔드 개발자로 합류해 개발을 포함한 제품 설계, 기획 등 전반적인 업무에 참여했습니다.`}
+        whatDidIDo={[
+          '3개의 제품(B2C, B2B, 백오피스) 클라이언트를 효율적으로 관리하기 위해 PNPM 기반 모노레포 개발환경 구축',
+          {
+            what: '백엔드 개발자와의 소통 비용을 줄이기 위해 Swagger API 문서를 기반으로 자동화된 CI/CD 파이프라인을 구축',
+            result: '배포 시간 절반 이상 단축',
+          },
+          {
+            what: 'API 문서를 기준으로 자동 생성되는 React query custom hook 개발',
+            result:
+              '이슈 발견 확률 향상 & 백엔드 개발자와의 소통 비용 대폭 감소',
+          },
+          {
+            what: 'Lighthouse를 활용해 제품 최적화',
+            result: '초기 렌더링 성능 약 20% 향상',
+          },
+          '디자이너와의 효율적인 협업을 위해 스토리북 기반 디자인 시스템 구축',
+          {
+            what: '최소한의 코드와 재렌더링으로 사용자 입력의 유효성을 검사 및 피드백하는 폼 라이브러리 개발',
+            result: '페이지 단위 렌더링 횟수 평균 3회 미만으로 감소',
+          },
+          '기존 MVP 유저 이탈을 방지하기 위한 마이그레이션 프로세스 개발',
+        ]}
         links={[
           {
             name: 'codeship-platform-app-library',
@@ -88,11 +102,27 @@ export const WorkExperienceSection = () => (
         title="WeWin"
         id="wewin"
         whatDidIDo={[
-          '레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
-          'B2B, B2C, 백오피스 클라이언트 개발',
-          '스토리북을 이용한 컴포넌트 기반 개발 도입',
+          {
+            what: '인재풀을 늘리고 구동 시간을 줄이기 위해 레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
+            result: '개발, 배포 환경에서의 구동 시간 20% 이상 단축',
+          },
+          {
+            what: '성공적인 스크럼 목표 달성을 위한 개발 시간 추정 정형화 및 협업 프로세스 개선',
+            result: '스크럼 성공률 10% 이상 향상',
+          },
+          '3개의 제품(B2C, B2B, 백오피스) 클라이언트를 효율적으로 관리하기 위해 기술 스택 통일',
+          {
+            what: '앱 렌더링 최적화를 위한 컴포넌트 컨셉 설정 및 개발',
+            result:
+              '사용자 입력 시 페이지 단위 렌더링이 아닌 컴포넌트 단위 렌더링으로 변경',
+          },
+          {
+            what: '스토리북을 이용한 컴포넌트 기반 개발 도입',
+            result:
+              '컴포넌트 재사용률 80% 이상 향상 및 디자이너와의 소통 비용 대폭 감소',
+          },
         ]}
-        description={`내부 부트캠프와 외부 기업들에 후불 결제 시스템을 제공하는 서비스입니다.\n개발 편의성 향상을 위해 여러 도구들을 도입하고 개발 프로세스를 개선했습니다.`}
+        description={`내부 부트캠프와 외부 기업들에 후불 결제 시스템을 제공하는 서비스입니다.\n개발 편의성 향상을 위해 여러 도구들을 도입하고 개발 프로세스를 개선하기 위해 팀원들과 함께 여러 가지 에자일 프레임워크를 시도했습니다.`}
         stacks={[
           {
             name: 'TypeScript',
@@ -153,7 +183,7 @@ export const WorkExperienceSection = () => (
     <Experience
       title="Coupang"
       id="coupang"
-      period="2019.08 - 2020.03"
+      period="2019.08 - 2020.03 (8개월)"
       jobTitle="Eats Operator"
     >
       <Experience.Item
@@ -162,8 +192,14 @@ export const WorkExperienceSection = () => (
         description="서비스 초창기에 합류해 음식이 고객에게 전달되기까지 발생하는 이슈들을 트래킹 하고 고객 경험을 개선하는 팀에서 직접적인 제품 개발이 아닌 업무 자동화, 데이터 수집, 가공 등 다양한 업무를 수행했습니다."
         whatDidIDo={[
           '고객 경험 Worst case 배달파트너 계정 정지 자동화 프로세스 개발',
-          '관제 업무 자동화',
-          '배정취소 기능 개발 지표 데이터 수집 / 시각화',
+          {
+            what: '관제 업무 자동화',
+            result: '업무 담당인원 한 명 수준으로 감소',
+          },
+          {
+            what: '배정취소 기능 개발 지표 데이터 수집 / 시각화',
+            result: '배정 취소 비율 10% 이상 감소 & 배정 취소 기능 개발',
+          },
           '배달파트너 센터 챗봇 개발',
         ]}
         stacks={[
