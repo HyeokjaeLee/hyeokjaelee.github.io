@@ -14,6 +14,7 @@ export const WorkExperienceSection = () => (
       title="Codestates"
       period="2022.02 - 2023.08 (1년 7개월)"
       jobTitle="Frontend engineer"
+      description="7000여 명 이상이 수강한 국내 최초 코딩 부트캠프 스타트업"
       borderBottom
     >
       <Experience.Item
@@ -181,10 +182,11 @@ export const WorkExperienceSection = () => (
       />
     </Experience>
     <Experience
-      title="Coupang"
+      title="Coupang Eats"
       id="coupang"
       period="2019.08 - 2020.03 (8개월)"
       jobTitle="Eats Operator"
+      description="700만명 이상이 사용하는 음식 배달 서비스"
     >
       <Experience.Item
         title="EDP Operations"

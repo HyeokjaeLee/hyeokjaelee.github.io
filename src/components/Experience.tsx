@@ -120,6 +120,7 @@ interface ExperienceProps {
   jobTitle?: string;
   id?: string;
   borderBottom?: boolean;
+  description?: string;
 }
 
 export const Experience = Object.assign(
@@ -130,20 +131,24 @@ export const Experience = Object.assign(
     jobTitle,
     id,
     borderBottom,
+    description,
   }: ExperienceProps) => (
     <dl
-      className={`flex gap-3 flex-col md:flex-row border-zinc-300 dark:border-zinc-700 ${
+      className={`flex gap-3 flex-col md:flex-row md:gap-5 border-zinc-300 dark:border-zinc-700 ${
         borderBottom ? 'border-b mb-4' : ''
       }`}
       id={id}
     >
-      <dt className={`flex flex-col ${children ? 'w-44' : ''}`}>
+      <dt className={`flex flex-col ${children ? 'md:w-44' : ''}`}>
         <h3 className="font-bold text-2xl">{title}</h3>
         {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
         {period ? (
           <span className="text-zinc-400 text-xs whitespace-nowrap">
             {period}
           </span>
+        ) : null}
+        {description ? (
+          <span className="text-xs mt-3">{description}</span>
         ) : null}
       </dt>
       <dd className="mb-4 flex-1">
