@@ -7,8 +7,8 @@ import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const AboutHeader = () => (
   <header className="flex flex-col gap-8" id={ABOUT_TITLE_ID.ABOUT_ME}>
-    <section className="flex gap-5 md:gap-12 flex-wrap items-center">
-      <h1 className="text-lg text-center">
+    <section className="flex gap-5 md:gap-12 flex-wrap justify-center">
+      <h1 className="text-lg text-center my-auto">
         👋 안녕하세요!
         <br />
         덕업일치 개발자, <span className="font-bold">이혁재</span>
@@ -36,7 +36,7 @@ export const AboutHeader = () => (
           <dd>+821093906067</dd>
         </dl>
       </div>
-      <div className="h-full">
+      <div>
         <h4 className="font-bold text-lg mb-2">Channel.</h4>
         <ul className="text-sm flex flex-col gap-3">
           <li>
