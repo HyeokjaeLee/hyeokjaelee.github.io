@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import { AboutHeader } from '@components/AboutHeader';
-import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { OpensourceSection } from '@components/OpensourceSection';
 import { OtherExperienceSection } from '@components/OtherExperienceSection';
@@ -17,11 +16,19 @@ const Portfolio = () => {
 
   useEffect(() => {
     setIsNavVisible(false);
-    return () => setIsNavVisible(true);
+    const isDarkMode = document.documentElement.classList.contains('dark');
+
+    if (!isDarkMode) document.documentElement.classList.add('dark');
+
+    return () => {
+      setIsNavVisible(true);
+
+      if (!isDarkMode) document.documentElement.classList.remove('dark');
+    };
   }, [setIsNavVisible]);
 
   return (
-    <article className="leading-relaxed mt-8 md:mt-14 p-4 font-nanum-square break-keep flex">
+    <article className="leading-relaxed my-8 md:my-14 p-4 font-nanum-square break-keep flex">
       <div className="flex-1 hidden lg:block" />
       <div className="max-w-3xl mx-auto flex flex-col gap-12">
         <AboutHeader />
@@ -29,9 +36,6 @@ const Portfolio = () => {
         <OpensourceSection />
         <OtherExperienceSection />
         <SkillSection />
-        <footer className="py-12">
-          <Bio />
-        </footer>
       </div>
       <PortfolioNavigation />
     </article>
