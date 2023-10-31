@@ -104,7 +104,7 @@ export const WorkExperienceSection = () => (
         id="wewin"
         whatDidIDo={[
           {
-            what: '인재풀을 늘리고 구동 시간을 줄이기 위해 레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
+            what: '레거시 개발환경 최신 개발 스택으로 마이그레이션 및 리펙토링',
             result: '개발, 배포 환경에서의 구동 시간 20% 이상 단축',
           },
           {
