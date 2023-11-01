@@ -73,7 +73,7 @@ export const AboutHeader = () => (
         </ul>
       </div>
     </section>
-    <div className="whitespace-pre-wrap text-sm">
+    <div className="whitespace-pre-wrap text-sm border-l-8 p-3 bg-zinc-50 dark:bg-zinc-700 rounded-md border-zinc-300 dark:border-gray-500">
       <p>
         중학생 때 우연히 Android 앱 개발을 시작했고 현재는 Javascript 생태계
         매력에 빠져 2년 차 프론트엔드 개발자로 일하고 있습니다.
