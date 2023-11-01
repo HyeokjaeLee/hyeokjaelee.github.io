@@ -21,6 +21,5 @@ export const StackBadge = ({
       blackLogo ? 'black' : 'white'
     }`}
     alt={name}
-    loading="lazy"
   />
 );
