@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import { Skeleton } from '@hyeokjaelee/pastime-ui';
+import React from 'react';
 
 export interface StackBadgeProps {
   name: string;
