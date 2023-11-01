@@ -75,9 +75,8 @@ export const AboutHeader = () => (
     </section>
     <div className="whitespace-pre-wrap text-sm">
       <p>
-        중학생 때 우연히 Android 앱 개발을 시작했고 현재는 빠르게 발전하는
-        Javascript 생태계에 흥미를 느껴 2년 차 프론트엔드 개발자로 일하고
-        있습니다.
+        중학생 때 우연히 Android 앱 개발을 시작했고 현재는 Javascript 생태계
+        매력에 빠져 2년 차 프론트엔드 개발자로 일하고 있습니다.
       </p>
       <br />
       <p>
