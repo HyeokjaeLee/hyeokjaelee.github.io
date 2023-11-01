@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import { Skeleton } from '@hyeokjaelee/pastime-ui';
+import React from 'react';
 
 export interface StackBadgeProps {
   name: string;
@@ -23,6 +21,5 @@ export const StackBadge = ({
       blackLogo ? 'black' : 'white'
     }`}
     alt={name}
-    loading="lazy"
   />
 );
