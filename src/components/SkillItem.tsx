@@ -16,7 +16,7 @@ export const SkillItem = ({
     <dd className={borderBottom ? 'border-zinc-700 border-b mb-3 pb-5' : ''}>
       <ul className="text-sm list-disc ml-3">
         {whatCanIDo.map((item) => (
-          <li>{item}</li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </dd>
