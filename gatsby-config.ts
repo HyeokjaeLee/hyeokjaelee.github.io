@@ -2,7 +2,13 @@ import path from 'path';
 
 import type { GatsbyConfig } from 'gatsby';
 
-export const ALIAS = ['stores', 'components', 'layouts', 'hooks'].reduce(
+export const ALIAS = [
+  'stores',
+  'components',
+  'layouts',
+  'hooks',
+  'utils',
+].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
     return alias;
@@ -68,6 +74,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-pnpm',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {

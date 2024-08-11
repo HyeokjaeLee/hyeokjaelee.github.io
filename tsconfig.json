@@ -16,7 +16,8 @@
     "paths": {
       "@*": ["./src/*"],
       "types": ["types"]
-    }
+    },
+    "typeRoots": ["./types"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./types/**/*"]
 }

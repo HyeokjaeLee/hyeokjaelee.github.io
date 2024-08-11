@@ -8,16 +8,14 @@ import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
 import { useGetPostDataList } from '@hooks/useGetPostDataList';
-import { useToast } from '@hyeokjaelee/pastime-ui';
 
 import type { PageProps } from 'gatsby';
-import type { PostPageQuery } from 'types';
+import { PostPageQuery } from 'types/graphql-types';
+import { toast } from '@utils/toast';
 
 const PostPage = (pageProps: PageProps<PostPageQuery>) => {
   const { postList, tagCountMap, ...paginationProps } =
     useGetPostDataList(pageProps);
-
-  const { toast } = useToast();
 
   useEffect(() => {
     toast({
