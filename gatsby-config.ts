@@ -8,6 +8,7 @@ export const ALIAS = [
   'layouts',
   'hooks',
   'utils',
+  'constants',
 ].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
@@ -91,7 +92,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: path.resolve(`./src/layouts/GlobalLayout.tsx`),
+        component: path.resolve(`./src/layouts/GlobalLayout/index.tsx`),
       },
     },
 

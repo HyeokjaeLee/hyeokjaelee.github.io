@@ -2,23 +2,27 @@
 @import 'prismjs/themes/prism-tomorrow.css';
 
 .gatsby-highlight-code-line {
-  background-color: #383838;
   display: block;
+
   margin-right: -1em;
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
   border-left: 0.25em solid yellow;
+
+  background-color: #383838;
 }
 
 .gatsby-highlight > pre[class*='language-'] {
-  margin: 0;
-  padding: 0.75rem;
   overflow: auto;
+
+  margin: 0;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border-radius: 0.125rem;
+
   font-size: 0.75rem;
   line-height: 1.5;
-  border-radius: 0.125rem;
-  margin: 1rem 0;
 }
 
 code[class*='language-'] {
@@ -26,28 +30,22 @@ code[class*='language-'] {
 }
 
 :not(pre) > code[class*='language-'] {
-  font-size: 85%;
+  margin: 0 0.1rem;
   padding: 0.2rem 0.4rem;
   border-radius: 0.125rem;
-  margin: 0 0.1rem;
+
+  font-size: 85%;
 }
 
 .blockquote-container:has(img) {
-  border: none;
+  width: 100%;
   margin: 3em auto;
   padding: 0;
+  border: none;
+
+  font-style: normal;
   font-size: smaller;
   text-align: center;
-  font-style: normal;
-  width: 100%;
-}
-
-.blockquote-container:has(img) > p {
-  margin: 0;
-  color: gray;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
 }
 
 .blockquote-container > p > img {
@@ -58,13 +56,23 @@ code[class*='language-'] {
   margin: 0.4em;
 }
 
+.post-body > hr {
+  max-width: 50%;
+  margin: 2em auto;
+  border-width: 1px;
+  border-color: gray;
+}
+
 .list-container > p {
   margin: 0;
 }
 
-.post-body > hr {
-  max-width: 50%;
-  margin: 2em auto;
-  border-color: gray;
-  border-width: 1px;
+.blockquote-container:has(img) > p {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+
+  color: gray;
+  line-height: 1.2;
 }

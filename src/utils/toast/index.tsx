@@ -27,6 +27,6 @@ export const toast = ({
 
   return toastifyToast(message, {
     autoClose: holdTime,
-    icon: <Icon className="w-20 h-20" />,
+    icon: <Icon className="w-5 h-5" />,
   });
 };

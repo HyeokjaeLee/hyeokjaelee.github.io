@@ -19,7 +19,8 @@ const PostPage = (pageProps: PageProps<PostPageQuery>) => {
 
   useEffect(() => {
     toast({
-      message: '👋 안녕하세요! 방문해주셔서 감사합니다.',
+      message: '👋 안녕하세요! 방문해주셔서 감사합니다.\n ㄹ리리리',
+      holdTime: 9999999,
     });
   }, [toast]);
 
