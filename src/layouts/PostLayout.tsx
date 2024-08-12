@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Meta } from '@components/Meta';
 import { PostArticle } from '@components/PostArticle';
 
-import type { PostLayoutQuery } from 'types';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 type PostLayoutProps = PageProps<PostLayoutQuery>;
 

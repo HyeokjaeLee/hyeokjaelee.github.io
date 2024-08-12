@@ -1,4 +1,4 @@
-import { PostLayoutQuery } from 'types';
+import { PostLayoutQuery } from 'types/graphql-types';
 
 import React from 'react';
 

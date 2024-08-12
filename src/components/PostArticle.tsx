@@ -5,7 +5,7 @@ import { PostArticleFooter } from './PostArticleFooter';
 import { PostArticleHeader } from './PostArticleHeader';
 import { PostArticleNavigation } from './PostArticleNavigation';
 
-import type { PostLayoutQuery } from 'types';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 export type NotNullableMarkdownRemark = Exclude<
   PostLayoutQuery['markdownRemark'],

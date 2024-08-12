@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { LastPostListQuery } from 'types';
+import { LastPostListQuery } from 'types/graphql-types';
 
 interface LastPost {
   slug: string;
@@ -10,23 +10,21 @@ interface LastPost {
 export const useGetLastPostList = (): LastPost[] => {
   const {
     allMarkdownRemark: { nodes },
-  } = useStaticQuery<LastPostListQuery>(
-    graphql`
-      query LastPostList {
-        allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 5) {
-          nodes {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              titleImage
-            }
+  } = useStaticQuery<LastPostListQuery>(graphql`
+    query LastPostList {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 5) {
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            titleImage
           }
         }
       }
-    `,
-  );
+    }
+  `);
 
   const lastPostList: LastPost[] = [];
 

@@ -3,7 +3,7 @@ import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather';
 
 import { Link } from '@reach/router';
 
-import type { PostLayoutQuery } from 'types';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 type OtherPostLinkProps = Exclude<
   PostLayoutQuery['previous'] | PostLayoutQuery['next'],
