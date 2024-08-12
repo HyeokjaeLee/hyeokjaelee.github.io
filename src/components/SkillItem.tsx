@@ -12,9 +12,9 @@ export const SkillItem = ({
   borderBottom,
 }: SkillItemProps) => (
   <>
-    <dt className="font-bold text-xl mb-4">{title}</dt>
-    <dd className={borderBottom ? 'border-zinc-700 border-b mb-3 pb-5' : ''}>
-      <ul className="text-sm list-disc ml-3">
+    <dt className="mb-4 text-xl font-bold">{title}</dt>
+    <dd className={borderBottom ? 'mb-3 border-b border-zinc-700 pb-5' : ''}>
+      <ul className="ml-3 list-disc text-sm">
         {whatCanIDo.map((item) => (
           <li key={item}>{item}</li>
         ))}

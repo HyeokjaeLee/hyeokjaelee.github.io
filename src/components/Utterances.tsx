@@ -29,6 +29,7 @@ export const Utterances = () => {
 
       if (!UtterancesContainer) {
         setStatus(STATUS.FAIL);
+
         return;
       }
 
@@ -54,7 +55,7 @@ export const Utterances = () => {
   }, [isDarkMode]);
 
   return (
-    <section className="py-4 px-5 mx-auto flex">
+    <section className="mx-auto flex px-5 py-4">
       <div
         ref={ref}
         className={`min-h-[269px] w-full ${
@@ -63,9 +64,9 @@ export const Utterances = () => {
       />
       {
         {
-          [STATUS.LOADING]: <Skeleton className="w-full h-64" />,
+          [STATUS.LOADING]: <Skeleton className="h-64 w-full" />,
           [STATUS.FAIL]: (
-            <div className="flex flex-col h-64 justify-center items-center w-full gap-2 font-semibold text-zinc-300 dark:text-zinc-700">
+            <div className="flex h-64 w-full flex-col items-center justify-center gap-2 font-semibold text-zinc-300 dark:text-zinc-700">
               <div className="text-5xl">😭</div>
               댓글을 가져오지 못했어요 ㅜㅜ
             </div>

@@ -28,9 +28,9 @@ const Portfolio = () => {
   }, [setIsNavVisible]);
 
   return (
-    <article className="leading-relaxed my-8 md:my-14 p-4 font-nanum-square break-keep flex">
-      <div className="flex-1 hidden lg:block" />
-      <div className="max-w-3xl mx-auto flex flex-col gap-12">
+    <article className="md:my-14 my-8 flex break-keep p-4 font-nanum-square leading-relaxed">
+      <div className="lg:block hidden flex-1" />
+      <div className="mx-auto flex max-w-3xl flex-col gap-12">
         <AboutHeader />
         <WorkExperienceSection />
         <OpensourceSection />

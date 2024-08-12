@@ -1,20 +1,20 @@
-import { shallow } from 'zustand/shallow';
-
-import React, { useLayoutEffect } from 'react';
-
-import { GlobalHeader } from '@components/GlobalHeader';
-import { GlobalMenu } from '@components/GlobalMenu';
-import { useBindDarkMode } from '@hooks/useBindDarkMode';
-
-import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import 'react-toastify/dist/ReactToastify.css';
 
 import type { PageProps } from 'gatsby';
-import { ToastContainer, Slide } from 'react-toastify';
-import { cn } from '@utils/cn';
-import { X } from 'react-feather';
+
 import { throttle } from 'lodash-es';
+import { shallow } from 'zustand/shallow';
+
+import React, { useLayoutEffect } from 'react';
+import { X } from 'react-feather';
+import { ToastContainer, Slide } from 'react-toastify';
+
+import { GlobalHeader } from '@components/GlobalHeader';
+import { GlobalMenu } from '@components/GlobalMenu';
 import { SCREEN_BREAKPOINTS } from '@constants';
+import { useBindDarkMode } from '@hooks/useBindDarkMode';
+import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
+import { cn } from '@utils/cn';
 
 const GlobalLayout = ({ children }: PageProps) => {
   const [screen, setScreen] = useGlobalStore(
@@ -42,11 +42,12 @@ const GlobalLayout = ({ children }: PageProps) => {
     window.addEventListener('resize', resizeEvent);
 
     return () => window.removeEventListener('resize', resizeEvent);
-  }, []);
+  }, [setScreen]);
 
   const isPhone = screen === SCREEN.PHONE;
 
   useBindDarkMode();
+
   return (
     <>
       <GlobalHeader />
@@ -58,26 +59,26 @@ const GlobalLayout = ({ children }: PageProps) => {
         )}
       >
         <ToastContainer
-          stacked={isPhone}
-          draggable={isPhone}
-          closeButton={({ closeToast }) => (
-            <button
-              type="button"
-              className={cn('w-5 h-5', 'phone:hidden')}
-              onClick={closeToast}
-            >
-              <X className="w-full h-full" />
-            </button>
-          )}
-          draggableDirection="x"
-          draggablePercent={20}
-          position="top-center"
+          bodyClassName="p-0 whitespace-pre-line flex gap-1"
           className={cn(
             'max-w-96 w-full relative h-0 p-0',
             'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
           )}
+          closeButton={({ closeToast }) => (
+            <button
+              className={cn('w-5 h-5', 'phone:hidden')}
+              type="button"
+              onClick={closeToast}
+            >
+              <X className="size-full" />
+            </button>
+          )}
+          draggable={isPhone}
+          draggableDirection="x"
+          draggablePercent={20}
+          position="top-center"
+          stacked={isPhone}
           theme="colored"
-          bodyClassName="p-0 whitespace-pre-line flex gap-1"
           toastClassName={cn(
             'p-4 rounded-lg backdrop-blur-sm flex justify-center',
             'dark:text-white dark:!bg-[rgba(0,0,0,0.8)]',

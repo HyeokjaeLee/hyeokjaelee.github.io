@@ -1,11 +1,12 @@
-import { graphql, PageProps } from 'gatsby';
+import type { PageProps } from 'gatsby';
+import type { PostLayoutQuery } from 'types/graphql-types';
+
+import { graphql } from 'gatsby';
 
 import * as React from 'react';
 
 import { Meta } from '@components/Meta';
 import { PostArticle } from '@components/PostArticle';
-
-import type { PostLayoutQuery } from 'types/graphql-types';
 
 type PostLayoutProps = PageProps<PostLayoutQuery>;
 
@@ -13,7 +14,8 @@ const PostLayout = ({ data }: PostLayoutProps) => <PostArticle {...data} />;
 
 export const Head = ({ data: { markdownRemark } }: PostLayoutProps) => {
   const { title, description } = markdownRemark?.frontmatter ?? {};
-  return <Meta title={title} description={description} />;
+
+  return <Meta description={description} title={title} />;
 };
 
 export default PostLayout;

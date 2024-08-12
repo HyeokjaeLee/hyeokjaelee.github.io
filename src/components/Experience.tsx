@@ -1,6 +1,8 @@
+import type { StackBadgeProps } from './StackBadge';
+
 import React from 'react';
 
-import { StackBadge, StackBadgeProps } from './StackBadge';
+import { StackBadge } from './StackBadge';
 
 interface LinkProps {
   name: string;
@@ -29,7 +31,7 @@ const ExperienceItem = ({
 }: ExperienceItemProps) => (
   <li
     className={`border-zinc-300 dark:border-zinc-700 ${
-      borderBottom ? 'border-b pb-4 mb-4' : ''
+      borderBottom ? 'mb-4 border-b pb-4' : ''
     }`}
   >
     <h4 className="text-xl font-bold" id={id}>
@@ -38,21 +40,21 @@ const ExperienceItem = ({
     <dl>
       {description ? (
         <>
-          <dt className="font-bold text-lg mt-3 mb-1">Description</dt>
-          <dd className="text-sm whitespace-pre-wrap">{description}</dd>
+          <dt className="mb-1 mt-3 text-lg font-bold">Description</dt>
+          <dd className="whitespace-pre-wrap text-sm">{description}</dd>
         </>
       ) : null}
       {whatDidIDo ? (
         <>
-          <dt className="font-bold text-lg mt-2 mb-1">What did I do</dt>
+          <dt className="mb-1 mt-2 text-lg font-bold">What did I do</dt>
           <dd>
-            <ul className="text-sm list-disc ml-4">
+            <ul className="ml-4 list-disc text-sm">
               {whatDidIDo.map((summary, index) => {
                 if (typeof summary === 'object') {
                   return (
                     <li key={index}>
                       {summary.what}
-                      <blockquote className="pl-2 border-l-4 border-yellow-400 my-2 text-zinc-400">
+                      <blockquote className="my-2 border-l-4 border-yellow-400 pl-2 text-zinc-400">
                         {summary.result}
                       </blockquote>
                     </li>
@@ -67,9 +69,9 @@ const ExperienceItem = ({
       ) : null}
       {stacks ? (
         <>
-          <dt className="font-bold text-lg mt-3 mb-1">Tech Stack</dt>
+          <dt className="mb-1 mt-3 text-lg font-bold">Tech Stack</dt>
           <dd>
-            <ul className="flex gap-1 flex-wrap">
+            <ul className="flex flex-wrap gap-1">
               {stacks.map((props) => (
                 <li key={props.name}>
                   <StackBadge {...props} />
@@ -82,16 +84,16 @@ const ExperienceItem = ({
     </dl>
     {links ? (
       <>
-        <dt className="font-bold text-lg mt-3">Link</dt>
+        <dt className="mt-3 text-lg font-bold">Link</dt>
         <dd>
           <ul className="border-gray-500 text-xs">
             {links.map(({ name, href, type = 'blog' }) => (
               <li key={name}>
                 <a
-                  href={href}
-                  target="_blank"
                   className="text-blue-500 hover:underline"
+                  href={href}
                   rel="noreferrer"
+                  target="_blank"
                 >
                   {name} (
                   {
@@ -134,21 +136,21 @@ export const Experience = Object.assign(
     description,
   }: ExperienceProps) => (
     <dl
-      className={`flex gap-3 flex-col md:flex-row md:gap-5 border-zinc-300 dark:border-zinc-700 ${
-        borderBottom ? 'border-b mb-4' : ''
+      className={`md:flex-row md:gap-5 flex flex-col gap-3 border-zinc-300 dark:border-zinc-700 ${
+        borderBottom ? 'mb-4 border-b' : ''
       }`}
       id={id}
     >
       <dt className={`flex flex-col ${children ? 'md:w-44' : ''}`}>
-        <h3 className="font-bold text-2xl">{title}</h3>
+        <h3 className="text-2xl font-bold">{title}</h3>
         {jobTitle ? <p className="text-sm">{jobTitle}</p> : null}
         {period ? (
-          <span className="text-zinc-400 text-xs whitespace-nowrap">
+          <span className="whitespace-nowrap text-xs text-zinc-400">
             {period}
           </span>
         ) : null}
         {description ? (
-          <span className="text-xs mt-3">{description}</span>
+          <span className="mt-3 text-xs">{description}</span>
         ) : null}
       </dt>
       <dd className="mb-4 flex-1">

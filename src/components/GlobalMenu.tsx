@@ -24,17 +24,17 @@ export const GlobalMenu = () => {
 
   return (
     <Drawer
-      opened={isGlobalMenuOpen}
-      drawerDirection="left"
       className="p-2"
+      drawerDirection="left"
+      opened={isGlobalMenuOpen}
       onClose={() => setIsGlobalMenuOpen(false)}
     >
       <Drawer.Header
         closeButton
-        className="flex gap-40 items-start justify-between p-2"
+        className="flex items-start justify-between gap-40 p-2"
       >
-        <div className="p-2 bg-black dark:bg-white rounded-full">
-          <Logo className="w-5 h-5" fill={isDarkMode ? 'black' : 'white'} />
+        <div className="rounded-full bg-black p-2 dark:bg-white">
+          <Logo className="size-5" fill={isDarkMode ? 'black' : 'white'} />
         </div>
       </Drawer.Header>
       <GlobalMenuPageList />

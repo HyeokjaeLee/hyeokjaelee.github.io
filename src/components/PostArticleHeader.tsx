@@ -1,9 +1,9 @@
+import type { NotNullableMarkdownRemark } from './PostArticle';
+
 import React from 'react';
 import { Calendar, Tag } from 'react-feather';
 
 import { Link } from '@reach/router';
-
-import type { NotNullableMarkdownRemark } from './PostArticle';
 
 type PostArticleHeaderProps = Pick<
   Exclude<NotNullableMarkdownRemark['frontmatter'], undefined | null>,
@@ -17,19 +17,19 @@ export const PostArticleHeader = ({
   tags,
 }: PostArticleHeaderProps) =>
   title && date && tags ? (
-    <header className="mb-7 pb-7 border-b border-zinc-300 dark:border-zinc-700 relative overflow-hidden">
-      <div className="max-w-3xl mx-auto font-pretendard z-[1]">
-        <h1 className="font-extrabold text-4xl tracking-tight leading-normal mb-7">
+    <header className="relative mb-7 overflow-hidden border-b border-zinc-300 pb-7 dark:border-zinc-700">
+      <div className="z-[1] mx-auto max-w-3xl font-pretendard">
+        <h1 className="mb-7 text-4xl font-extrabold leading-normal tracking-tight">
           {title}
         </h1>
-        <dl className="flex items-center flex-wrap">
+        <dl className="flex flex-wrap items-center">
           <dt className="mr-2">
             <Calendar className={ICON_SIZE} />
           </dt>
           <dd>
             <small>{date}</small>
           </dd>
-          <dt className="mr-2 ml-6 mt-[0.15rem]">
+          <dt className="ml-6 mr-2 mt-[0.15rem]">
             <Tag className={ICON_SIZE} />
           </dt>
           <dd>
@@ -37,7 +37,7 @@ export const PostArticleHeader = ({
               {tags.map((tag) => (
                 <li
                   key={tag}
-                  className="text-xs py-1 px-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 rounded-md font-semibold text-zinc-600 dark:text-zinc-200 transition-colors"
+                  className="rounded-md bg-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-600 transition-colors hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
                 >
                   <Link to={`/?tag=${tag}`}>#{tag}</Link>
                 </li>

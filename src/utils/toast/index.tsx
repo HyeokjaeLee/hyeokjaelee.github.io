@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { toast as toastifyToast } from 'react-toastify';
 
 import { ReactComponent as FailIcon } from './icon/fail.svg';
@@ -27,6 +26,6 @@ export const toast = ({
 
   return toastifyToast(message, {
     autoClose: holdTime,
-    icon: <Icon className="w-5 h-5" />,
+    icon: <Icon className="size-5" />,
   });
 };

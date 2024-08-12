@@ -1,5 +1,6 @@
+import type { SocialDataQuery } from 'types/graphql-types';
+
 import { graphql, useStaticQuery } from 'gatsby';
-import { SocialDataQuery } from 'types/graphql-types';
 
 import { GitHub, Linkedin, Mail } from 'react-feather';
 import type { Icon } from 'react-feather';

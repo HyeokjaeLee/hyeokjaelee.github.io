@@ -14,17 +14,17 @@ export const GlobalHeader = () => {
   );
 
   return (
-    <header className="bg-black flex px-3 gap-3 items-center h-nav">
-      <div className="flex-1 flex gap-3 items-center">
+    <header className="flex h-nav items-center gap-3 bg-black px-3">
+      <div className="flex flex-1 items-center gap-3">
         <Button
-          icon={<Menu className="w-4 h-4" />}
+          fixedDarkMode="dark"
+          icon={<Menu className="size-4" />}
           size="small"
           theme="clear"
-          fixedDarkMode="dark"
           onClick={() => setIsGlobalMenuOpen(true)}
         />
         <Link to="/">
-          <Logo className="w-6 h-6" />
+          <Logo className="size-6" />
         </Link>
         <PostSearchbox />
       </div>

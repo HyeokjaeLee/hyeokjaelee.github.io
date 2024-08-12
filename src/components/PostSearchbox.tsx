@@ -12,20 +12,20 @@ export const PostSearchbox = () => {
 
   return (
     <Searchbox
-      fixedDarkMode="dark"
-      size="small"
-      className={`w-full text-xs transition-all z-20 ${
+      className={`z-20 w-full text-xs transition-all ${
         isFocused ? 'max-w-xs' : 'max-w-[20em]'
       }`}
+      fixedDarkMode="dark"
       options={[...postMap.keys()]}
       placeholder="찾고 싶은 글이 있나요?"
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
+      size="small"
       value={keyword}
+      onBlur={() => setIsFocused(false)}
       onChange={(e) => {
         e.preventInnerStateChange();
         setKeyword(e.value);
       }}
+      onFocus={() => setIsFocused(true)}
       onSelect={(e) => {
         e.prventDefault();
         const slug = postMap.get(e.value);

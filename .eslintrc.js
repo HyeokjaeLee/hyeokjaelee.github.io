@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     // 전역 변수 사용을 정의합니다. 추가하지 않으면 ESLint 규칙에 걸리게 됩니다.
     browser: true,
@@ -10,11 +11,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:@next/next/recommended',
     'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:@tanstack/eslint-plugin-query/recommended',
     'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
+    'plugin:tailwindcss/recommended',
   ],
   parser: '@typescript-eslint/parser', // ESLint 파서를 지정합니다.
   parserOptions: {
@@ -39,7 +39,6 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-namespace': 'off',
-    '@next/next/no-img-element': 'off',
     'import/no-unresolved': 'off',
     'padding-line-between-statements': [
       'error',
@@ -85,6 +84,10 @@ module.exports = {
       'error',
       {
         'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false,
+        },
         groups: [
           'type',
           'builtin',
@@ -93,20 +96,20 @@ module.exports = {
           'parent',
           'sibling',
           'index',
-          'unknown',
         ],
         pathGroups: [
           {
-            pattern: 'react*',
+            pattern: '{react*,react*/**}',
             group: 'external',
-            position: 'before',
+            position: 'after',
+          },
+          {
+            pattern: '{@*,@*/**}',
+            group: 'internal',
+            position: 'after',
           },
         ],
-
-        pathGroupsExcludedImportTypes: ['@tanstack*'],
-        alphabetize: {
-          order: 'asc',
-        },
+        pathGroupsExcludedImportTypes: [],
       },
     ],
   },

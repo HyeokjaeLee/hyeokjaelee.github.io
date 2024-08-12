@@ -1,6 +1,8 @@
+import type { StackBadgeProps } from './StackBadge';
+
 import React from 'react';
 
-import { StackBadge, StackBadgeProps } from './StackBadge';
+import { StackBadge } from './StackBadge';
 
 interface LinkProps {
   name: string;
@@ -23,14 +25,12 @@ export const OpensourceItem = ({
   links,
   id,
 }: OpensourceItemProps) => (
-  <li
-    className={`flex gap-3 border-zinc-800 border-b pb-4 mb-4 last:border-none last:pb-0 last:mb-0 flex-col md:flex-row`}
-  >
+  <li className="md:flex-row mb-4 flex flex-col gap-3 border-b border-zinc-800 pb-4 last:mb-0 last:border-none last:pb-0">
     <header className="md:w-56">
       <h4 className="text-xl font-bold" id={id}>
         {title}
       </h4>
-      <ul className="flex gap-1 mt-2 mb-5 flex-wrap">
+      <ul className="mb-5 mt-2 flex flex-wrap gap-1">
         {stacks?.map((props) => (
           <li key={props.name}>
             <StackBadge {...props} />
@@ -41,22 +41,22 @@ export const OpensourceItem = ({
     <dl className="flex-1">
       {description ? (
         <>
-          <dt className="font-bold text-lg mb-1">Description</dt>
-          <dd className="text-sm whitespace-pre-wrap">{description}</dd>
+          <dt className="mb-1 text-lg font-bold">Description</dt>
+          <dd className="whitespace-pre-wrap text-sm">{description}</dd>
         </>
       ) : null}
       {links ? (
         <>
-          <dt className="font-bold text-lg mt-2">Link</dt>
+          <dt className="mt-2 text-lg font-bold">Link</dt>
           <dd className="border-gray-500 text-xs">
             <ul>
               {links?.map(({ name, href, type = 'blog' }) => (
                 <li key={name}>
                   <a
-                    href={href}
-                    target="_blank"
                     className="text-blue-500 hover:underline"
+                    href={href}
                     rel="noreferrer"
+                    target="_blank"
                   >
                     {name} (
                     {

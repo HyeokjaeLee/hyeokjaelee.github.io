@@ -1,5 +1,6 @@
+import type { LastPostListQuery } from 'types/graphql-types';
+
 import { graphql, useStaticQuery } from 'gatsby';
-import { LastPostListQuery } from 'types/graphql-types';
 
 interface LastPost {
   slug: string;

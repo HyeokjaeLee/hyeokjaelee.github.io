@@ -24,9 +24,10 @@ export const PostTagTab = ({ tagCountMap }: PostTagTabProps) => {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const selectedTag = searchParams.get('tag');
+
   return (
-    <section className="w-full flex justify-center sticky top-0 z-10 bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-300 dark:border-zinc-700">
-      <Tab size="small" className="font-normal text-sm">
+    <section className="sticky top-0 z-10 flex w-full justify-center border-b border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900">
+      <Tab className="text-sm font-normal" size="small">
         {['all', ...tagCountMap.keys()].map((tag) => (
           <Tab.Item
             key={tag}

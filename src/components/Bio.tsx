@@ -13,20 +13,20 @@ export const Bio = () => {
 
   return (
     <section className="flex items-center gap-4">
-      <div className="rounded-full bg-zinc-900 dark:bg-zinc-50 p-4">
-        <Logo className="w-14 h-14" fill={isDarkMode ? 'black' : 'white'} />
+      <div className="rounded-full bg-zinc-900 p-4 dark:bg-zinc-50">
+        <Logo className="size-14" fill={isDarkMode ? 'black' : 'white'} />
       </div>
       <div>
-        <h2 className="font-semibold text-xl mb-1">{title}</h2>
-        <ul className="flex gap-2 flex-wrap items-center">
+        <h2 className="mb-1 text-xl font-semibold">{title}</h2>
+        <ul className="flex flex-wrap items-center gap-2">
           {socialDataList.map(({ name, href, icon: Icon, target }) => (
             <li key={name}>
               <a
-                className="flex gap-1 text-xs items-center hover:underline cursor-pointer"
+                className="flex cursor-pointer items-center gap-1 text-xs hover:underline"
                 href={href}
                 target={target}
               >
-                <Icon className="w-3 h-3" />
+                <Icon className="size-3" />
                 <span>{name}</span>
               </a>
             </li>

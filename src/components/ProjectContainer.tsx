@@ -15,14 +15,14 @@ export const ProjectContainer = ({
   jobTitle,
   id,
 }: ProjectContainerProps) => (
-  <dl className="flex gap-3 flex-col md:flex-row">
-    <dt className="flex flex-col w-52">
-      <h3 className="font-bold text-2xl" id={id}>
+  <dl className="md:flex-row flex flex-col gap-3">
+    <dt className="flex w-52 flex-col">
+      <h3 className="text-2xl font-bold" id={id}>
         {title}
       </h3>
       <p className="text-sm">{jobTitle}</p>
       {period ? (
-        <span className="text-zinc-400 text-xs whitespace-nowrap">
+        <span className="whitespace-nowrap text-xs text-zinc-400">
           {period}
         </span>
       ) : null}

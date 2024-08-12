@@ -1,5 +1,6 @@
+import type { PostListToSearchQuery } from 'types/graphql-types';
+
 import { graphql, useStaticQuery } from 'gatsby';
-import { PostListToSearchQuery } from 'types/graphql-types';
 
 export const useGetPostMapToSearch = () => {
   const {

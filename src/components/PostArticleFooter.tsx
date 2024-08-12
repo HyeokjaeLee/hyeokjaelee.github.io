@@ -1,4 +1,4 @@
-import { PostLayoutQuery } from 'types/graphql-types';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 import React from 'react';
 
@@ -12,10 +12,10 @@ export const PostArticleFooter = ({
   previous,
   next,
 }: PostArticleFooterProps) => (
-  <footer className="max-w-3xl mx-auto mt-9 lg:mt-40">
+  <footer className="lg:mt-40 mx-auto mt-9 max-w-3xl">
     <Bio />
-    <hr className="border-zinc-300 dark:border-zinc-700 mt-9" />
-    <section className="flex gap-3 justify-between mt-5 flex-col md:flex-row">
+    <hr className="mt-9 border-zinc-300 dark:border-zinc-700" />
+    <section className="md:flex-row mt-5 flex flex-col justify-between gap-3">
       <OtherPostLink {...previous} type="previous" />
       <OtherPostLink {...next} type="next" />
     </section>

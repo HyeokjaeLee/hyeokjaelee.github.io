@@ -1,3 +1,6 @@
+import type { PageProps } from 'gatsby';
+import type { PostPageQuery } from 'types/graphql-types';
+
 import { graphql } from 'gatsby';
 
 import React, { useEffect } from 'react';
@@ -8,9 +11,6 @@ import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
 import { useGetPostDataList } from '@hooks/useGetPostDataList';
-
-import type { PageProps } from 'gatsby';
-import { PostPageQuery } from 'types/graphql-types';
 import { toast } from '@utils/toast';
 
 const PostPage = (pageProps: PageProps<PostPageQuery>) => {
@@ -22,16 +22,16 @@ const PostPage = (pageProps: PageProps<PostPageQuery>) => {
       message: '👋 안녕하세요! 방문해주셔서 감사합니다.\n ㄹ리리리',
       holdTime: 9999999,
     });
-  }, [toast]);
+  }, []);
 
   return (
-    <article className="flex flex-col items-center justify-between h-full">
+    <article className="flex h-full flex-col items-center justify-between">
       <header className="py-7">
         <Bio />
       </header>
-      <div className="flex flex-col items-center gap-1 w-full">
+      <div className="flex w-full flex-col items-center gap-1">
         <PostTagTab tagCountMap={tagCountMap} />
-        <ul className="flex flex-wrap w-full px-2 max-w-6xl mx-auto">
+        <ul className="mx-auto flex w-full max-w-6xl flex-wrap px-2">
           {postList.map((postData) => (
             <PostCard {...postData} key={postData.slug} />
           ))}

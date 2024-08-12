@@ -20,8 +20,8 @@ export const PostListPagination = (props: PostListPaginationProps) => {
     <section className="mt-auto p-5">
       <Pagination
         {...props}
-        size="small"
         className="text-sm font-normal"
+        size="small"
         onChange={(page) =>
           navigate(`?tag=${selectedTag ?? 'all'}&page=${page}`)
         }
