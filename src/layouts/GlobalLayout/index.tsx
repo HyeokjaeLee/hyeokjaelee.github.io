@@ -9,7 +9,7 @@ import { useLayoutEffect } from 'react';
 import { X } from 'react-feather';
 import { ToastContainer, Slide } from 'react-toastify';
 
-import { SCREEN_BREAKPOINTS } from '@constants';
+import { SCREEN_BREAKPOINTS, SELECTOR } from '@constants';
 import { useBindDarkMode } from '@hooks/useBindDarkMode';
 import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
@@ -59,6 +59,7 @@ const GlobalLayout = ({ children }: PageProps) => {
           'bg-zinc-100 text-zinc-800',
           'dark:bg-zinc-900 dark:text-zinc-50',
         )}
+        id={SELECTOR.MAIN}
       >
         <ToastContainer
           bodyClassName="p-0 whitespace-pre-line flex gap-1"

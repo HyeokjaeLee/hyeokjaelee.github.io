@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+
 import { SCREEN_BREAKPOINTS } from './src/constants';
 const NAV_HEIGHT = '3em';
 
@@ -12,6 +13,7 @@ const config = {
     './gatsby-config.ts',
     './gatsby-ssr.ts',
   ],
+  plugins: [require('tailwindcss-animated')],
   theme: {
     screens: {
       phone: { max: `${SCREEN_BREAKPOINTS.PHONE_MAX}px` },
