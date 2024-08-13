@@ -1,10 +1,10 @@
+import type { GatsbyNode } from 'gatsby';
+
 import path from 'path';
 
 import { createFilePath } from 'gatsby-source-filesystem';
 
 import { ALIAS } from './gatsby-config';
-
-import type { GatsbyNode } from 'gatsby';
 
 export const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -28,6 +28,7 @@ export const createPages = async ({ graphql, actions, reporter }) => {
       `There was an error loading your blog posts`,
       result.errors,
     );
+
     return;
   }
 
@@ -125,6 +126,15 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     output,
     resolve: {
       alias: ALIAS,
+    },
+  });
+};
+
+export const onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPreset({
+    name: `babel-preset-gatsby`,
+    options: {
+      reactRuntime: 'automatic', // React 자동 import 설정
     },
   });
 };

@@ -1,12 +1,10 @@
-import React from 'react';
 import { Menu } from 'react-feather';
 
+import { Logo } from '@components/Logo';
+import { PostSearchbox } from '@components/PostSearchbox';
 import { Button } from '@hyeokjaelee/pastime-ui';
 import { Link } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
-
-import { Logo } from './Logo';
-import { PostSearchbox } from './PostSearchbox';
 
 export const GlobalHeader = () => {
   const setIsGlobalMenuOpen = useGlobalStore(

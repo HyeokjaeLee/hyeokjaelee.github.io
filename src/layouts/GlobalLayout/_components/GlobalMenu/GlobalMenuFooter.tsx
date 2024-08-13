@@ -2,7 +2,8 @@ import React from 'react';
 
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
 
-import { DarkModeSwitch } from './DarkModeSwitch';
+import { DarkModeSwitch } from '../../../../components/DarkModeSwitch';
+
 import { LIST_SECTION_BORDER_STYLES } from './GlobalMenuLastPostList';
 
 export const GlobalMenuFooter = () => {

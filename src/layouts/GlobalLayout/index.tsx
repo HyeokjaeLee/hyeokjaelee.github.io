@@ -5,16 +5,18 @@ import type { PageProps } from 'gatsby';
 import { throttle } from 'lodash-es';
 import { shallow } from 'zustand/shallow';
 
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { X } from 'react-feather';
 import { ToastContainer, Slide } from 'react-toastify';
 
-import { GlobalHeader } from '@components/GlobalHeader';
-import { GlobalMenu } from '@components/GlobalMenu';
 import { SCREEN_BREAKPOINTS } from '@constants';
 import { useBindDarkMode } from '@hooks/useBindDarkMode';
 import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
+
+import { GlobalHeader } from './_components/GlobalHeader';
+import { GlobalMenu } from './_components/GlobalMenu';
+import { GlobalProvider } from './_components/GlobalProvider';
 
 const GlobalLayout = ({ children }: PageProps) => {
   const [screen, setScreen] = useGlobalStore(
@@ -37,7 +39,7 @@ const GlobalLayout = ({ children }: PageProps) => {
 
     handleResize();
 
-    const resizeEvent = throttle(handleResize, 1_000 / 30);
+    const resizeEvent = throttle(handleResize, 1_000 / 120);
 
     window.addEventListener('resize', resizeEvent);
 
@@ -49,7 +51,7 @@ const GlobalLayout = ({ children }: PageProps) => {
   useBindDarkMode();
 
   return (
-    <>
+    <GlobalProvider>
       <GlobalHeader />
       <main
         className={cn(
@@ -89,7 +91,7 @@ const GlobalLayout = ({ children }: PageProps) => {
         {children}
       </main>
       <GlobalMenu />
-    </>
+    </GlobalProvider>
   );
 };
 

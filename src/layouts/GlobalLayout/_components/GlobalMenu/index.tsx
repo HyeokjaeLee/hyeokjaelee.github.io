@@ -1,7 +1,8 @@
 import { shallow } from 'zustand/shallow';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
+import { Logo } from '@components/Logo';
 import { Drawer, useDarkMode } from '@hyeokjaelee/pastime-ui';
 import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
@@ -9,7 +10,6 @@ import { useGlobalStore } from '@stores/useGlobalStore';
 import { GlobalMenuFooter } from './GlobalMenuFooter';
 import { GlobalMenuLastPostList } from './GlobalMenuLastPostList';
 import { GlobalMenuPageList } from './GlobalMenuPageList';
-import { Logo } from './Logo';
 
 export const GlobalMenu = () => {
   const [isGlobalMenuOpen, setIsGlobalMenuOpen] = useGlobalStore(

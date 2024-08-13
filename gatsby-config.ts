@@ -1,6 +1,6 @@
-import path from 'path';
-
 import type { GatsbyConfig } from 'gatsby';
+
+import path from 'path';
 
 export const ALIAS = [
   'stores',
@@ -12,6 +12,7 @@ export const ALIAS = [
 ].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
+
     return alias;
   },
   {
@@ -95,7 +96,6 @@ const config: GatsbyConfig = {
         component: path.resolve(`./src/layouts/GlobalLayout/index.tsx`),
       },
     },
-
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
