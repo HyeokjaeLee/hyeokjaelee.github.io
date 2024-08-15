@@ -1,5 +1,3 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import type { PageProps } from 'gatsby';
 
 import { throttle } from 'lodash-es';
@@ -10,7 +8,6 @@ import { X } from 'react-feather';
 import { ToastContainer, Slide } from 'react-toastify';
 
 import { SCREEN_BREAKPOINTS, SELECTOR } from '@constants';
-import { useBindDarkMode } from '@hooks/useBindDarkMode';
 import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 
@@ -47,8 +44,6 @@ const GlobalLayout = ({ children }: PageProps) => {
   }, [setScreen]);
 
   const isPhone = screen === SCREEN.PHONE;
-
-  useBindDarkMode();
 
   return (
     <GlobalProvider>

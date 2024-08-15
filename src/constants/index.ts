@@ -7,3 +7,7 @@ export enum SCREEN_BREAKPOINTS {
 export enum SELECTOR {
   MAIN = 'main',
 }
+
+export enum LOCAL_STARGE_KEY {
+  DARK_MODE = 'dark-mode',
+}

@@ -1,21 +1,28 @@
 import { throttle } from 'lodash-es';
 import { shallow } from 'zustand/shallow';
 
-import type { CSSProperties } from 'react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import type { SwipeCallback } from 'react-swipeable';
 import { useSwipeable } from 'react-swipeable';
 import { Transition } from 'react-transition-group';
 
 import { Logo } from '@components/Logo';
-import { Drawer, useDarkMode } from '@hyeokjaelee/pastime-ui';
+import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
+import { Switch } from '@radix-ui/themes';
 import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 
 import { GlobalMenuFooter } from './GlobalMenuFooter';
-import { GlobalMenuLastPostList } from './GlobalMenuLastPostList';
-import { GlobalMenuPageList } from './GlobalMenuPageList';
+
+const THROTTLE_TIME = 1_000 / 75;
 
 export const GlobalMenu = () => {
   const [isGlobalMenuOpen, setIsGlobalMenuOpen] = useGlobalStore(
@@ -26,114 +33,116 @@ export const GlobalMenu = () => {
 
   useEffect(() => setIsGlobalMenuOpen(false), [setIsGlobalMenuOpen, pathname]);
 
-  const { isDarkMode } = useDarkMode();
-
   const [deltaX, setDeltaX] = useState(0);
 
   const drawerRef = useRef<HTMLElement | null>(null);
 
+  const socialDataList = useGetSocialDataList();
+
+  const [isSwiping, setIsSwiping] = useState(false);
+
+  const [, setTransition] = useTransition();
+
   const handleSwiping = useMemo(
     () =>
       throttle<SwipeCallback>(({ deltaX }) => {
-        const floorDeltaX = Math.floor(deltaX);
+        setIsSwiping(true);
+        setTransition(() => {
+          const floorDeltaX = Math.floor(deltaX);
 
-        if (0 <= floorDeltaX) return;
+          if (0 <= floorDeltaX) return;
 
-        setDeltaX(floorDeltaX);
-      }, 1_000 / 120),
+          setDeltaX(floorDeltaX);
+        });
+      }, THROTTLE_TIME),
     [],
   );
+
+  const drawerWidth = drawerRef.current?.offsetWidth ?? 0;
 
   const drawerHandler = useSwipeable({
     trackMouse: true,
     onSwiping: handleSwiping,
-    onSwipedLeft: ({ deltaX }) => {
-      const drawerWidth = drawerRef.current?.offsetWidth;
 
-      if (!drawerWidth) return;
+    onSwiped: ({ deltaX, velocity }) => {
+      setIsSwiping(false);
 
-      if (deltaX < -drawerWidth / 2) return setIsGlobalMenuOpen(false);
+      if (deltaX < -drawerWidth / 2 || 1.5 < velocity) {
+        return setIsGlobalMenuOpen(false);
+      }
 
-      setDeltaX(0);
+      setTransition(() => {
+        setTimeout(() => setDeltaX(0), THROTTLE_TIME);
+      });
     },
   });
+
+  useLayoutEffect(() => {
+    if (isGlobalMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [isGlobalMenuOpen]);
 
   return (
     <Transition
       mountOnEnter
+      unmountOnExit
       in={isGlobalMenuOpen}
+      nodeRef={drawerRef}
       timeout={{
         appear: 0,
-        enter: 0,
-        exit: 300,
+        enter: 300,
+        exit: 200,
       }}
+      onExited={() => setDeltaX(0)}
+      onExiting={() => setDeltaX(-drawerWidth)}
     >
-      {(state) => {
-        const [backdropStyles, transitionStyles] = (() => {
-          const transformStyles =
-            0 <= deltaX
-              ? undefined
-              : ({
-                  transform: `translate3d(${deltaX}px, 0, 0)`,
-                  transition: 'none',
-                } satisfies CSSProperties);
-
-          const durationStyles: CSSProperties = {
-            transitionDuration: '300ms',
-          };
-
-          switch (state) {
-            case 'entering':
-            case 'exiting':
-              return [
-                { opacity: '0', ...durationStyles },
-                {
-                  transform: 'translate3d(0, 0, 0)',
-                  ...transformStyles,
-                  ...durationStyles,
-                },
-              ];
-            case 'entered':
-              return [
-                { opacity: '1', ...durationStyles },
-                {
-                  transition: `transform 300ms cubic-bezier(0.4, 0, 0.2, 1)`,
-                  ...transformStyles,
-                  ...durationStyles,
-                },
-              ];
-            case 'exited':
-            case 'unmounted':
-              return [
-                { display: 'none', ...durationStyles },
-                { display: 'none', ...transformStyles, ...durationStyles },
-              ];
-
-            default:
-              return [];
-          }
-        })();
-
-        return (
-          <>
-            <div className="fixed left-0 top-0 z-20 size-full bg-gray-950/50 backdrop-blur-[1px]" />
-            <section
-              {...drawerHandler}
-              ref={(el) => {
-                drawerRef.current = el;
-                drawerHandler.ref(el);
-              }}
-              className={cn(
-                'fixed top-0 left-0 h-dvh w-full max-w-96 bg-white z-30 shadow-sm rounded-r-md',
-                'phone:max-w-full phone:rounded-none',
-              )}
-              style={transitionStyles}
-            >
-              sss
+      {(state) => (
+        <>
+          <div
+            className={cn(
+              'fixed left-0 top-0 z-20 size-full bg-gray-950/50 backdrop-blur-[1px]',
+              {
+                'animate-fade animate-duration-300': state === 'entering',
+                'animate-fade animate-reverse animate-duration-200':
+                  state === 'exiting',
+              },
+            )}
+            onClick={() => setIsGlobalMenuOpen(false)}
+          />
+          <article
+            {...drawerHandler}
+            ref={(el) => {
+              drawerRef.current = el;
+              drawerHandler.ref(el);
+            }}
+            className={cn(
+              'fixed top-0 left-0 h-dvh w-full z-30 shadow-sm flex flex-col',
+              'bg-white dark:bg-zinc-800',
+              'max-w-96 phone:max-w-full',
+              'rounded-r-md phone:rounded-none ease-out',
+              {
+                'animate-fade-right animate-duration-300': state === 'entering',
+                'duration-300': state === 'entered' && !isSwiping,
+                'duration-200': state === 'exiting',
+              },
+            )}
+            style={{
+              transform: `translate3d(${deltaX}px, 0, 0)`,
+            }}
+          >
+            <header>
+              <Logo />
+            </header>
+            <section className="flex-1 overflow-auto">
+              <div className="h-[9999px]">ss</div>
             </section>
-          </>
-        );
-      }}
+            <GlobalMenuFooter />
+          </article>
+        </>
+      )}
     </Transition>
   );
 };

@@ -13,7 +13,22 @@ const config = {
     './gatsby-config.ts',
     './gatsby-ssr.ts',
   ],
-  plugins: [require('tailwindcss-animated')],
+  plugins: [
+    ({ addUtilities }) => {
+      const utilities = {
+        '.hide-scrollbar': {
+          'scrollbar-width': 'none',
+          '-ms-overflow-style': 'none',
+        },
+        '.hide-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+      };
+
+      addUtilities(utilities, ['responsive', 'hover']);
+    },
+    require('tailwindcss-animated'),
+  ],
   theme: {
     screens: {
       phone: { max: `${SCREEN_BREAKPOINTS.PHONE_MAX}px` },

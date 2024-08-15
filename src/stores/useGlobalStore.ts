@@ -14,6 +14,9 @@ interface GlobalStore {
 
   screen?: SCREEN;
   setScreen: (screen: SCREEN) => void;
+
+  isDarkMode: boolean;
+  setIsDarkMode: (isDarkMode: boolean) => void;
 }
 
 export const useGlobalStore = createWithEqualityFn<GlobalStore>((set) => ({
@@ -24,4 +27,11 @@ export const useGlobalStore = createWithEqualityFn<GlobalStore>((set) => ({
   setIsNavVisible: (isNavVisible) => set({ isNavVisible }),
 
   setScreen: (screen) => set({ screen }),
+
+  isDarkMode: false,
+  setIsDarkMode: (isDarkMode) => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
+
+    return set({ isDarkMode });
+  },
 }));

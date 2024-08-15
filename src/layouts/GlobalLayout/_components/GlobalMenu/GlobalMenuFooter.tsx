@@ -1,29 +1,25 @@
-import React from 'react';
+import { shallow } from 'zustand/shallow';
 
+import { LOCAL_STARGE_KEY } from '@constants';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
-
-import { DarkModeSwitch } from '../../../../components/DarkModeSwitch';
-
-import { LIST_SECTION_BORDER_STYLES } from './GlobalMenuLastPostList';
+import { Switch } from '@radix-ui/themes';
+import { useGlobalStore } from '@stores/useGlobalStore';
 
 export const GlobalMenuFooter = () => {
   const socialDataList = useGetSocialDataList();
+  const [isDarkMode, setIsDarkMode] = useGlobalStore(
+    (state) => [state.isDarkMode, state.setIsDarkMode],
+    shallow,
+  );
 
   return (
-    <footer className="mt-auto">
-      <img
-        alt="visitor"
-        className="ml-auto animate-bounce py-2"
-        src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhyeokjaelee.github.io&count_bg=%236C7686&title_bg=%237F8B9E&icon_color=%23FFFFFF&title=Visitor&edge_flat=false"
-      />
-      <div
-        className={`mb-1 flex justify-between py-3 ${LIST_SECTION_BORDER_STYLES}`}
-      >
+    <footer className="border-t border-gray-300 p-4 dark:border-gray-700">
+      <div className="flex justify-between">
         <ul className="flex flex-col gap-1">
           {socialDataList.map(({ name, href, target, icon: Icon }) => (
             <li key={name}>
               <a
-                className="flex cursor-pointer items-center gap-2 text-xs font-light hover:underline"
+                className="flex cursor-pointer items-center gap-2 text-sm font-light hover:underline"
                 href={href}
                 target={target}
               >
@@ -32,9 +28,19 @@ export const GlobalMenuFooter = () => {
             </li>
           ))}
         </ul>
-        <DarkModeSwitch />
+        <Switch
+          defaultChecked={isDarkMode}
+          onCheckedChange={(value) => {
+            localStorage.setItem(
+              LOCAL_STARGE_KEY.DARK_MODE,
+              JSON.stringify(value),
+            );
+
+            setIsDarkMode(value);
+          }}
+        />
       </div>
-      <div className="text-[0.6em] font-light leading-none text-gray-500">
+      <div className="mt-2 text-xs font-light leading-none text-gray-500">
         © 2023. Hyeokjae all rights reserved.
       </div>
     </footer>
