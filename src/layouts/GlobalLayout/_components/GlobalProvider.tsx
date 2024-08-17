@@ -18,5 +18,5 @@ export const GlobalProvider = ({ children }: PropsWithChildren) => {
     setIsDarkMode(isDarkMode);
   }, [setIsDarkMode]);
 
-  return <Theme>{children}</Theme>;
+  return <Theme className="flex max-h-dvh flex-col">{children}</Theme>;
 };

@@ -14,7 +14,7 @@ export const Bio = () => {
   return (
     <section className="flex items-center gap-4">
       <div className="rounded-full bg-zinc-900 p-4 dark:bg-zinc-50">
-        <Logo className="size-14" fill={isDarkMode ? 'black' : 'white'} />
+        <Logo className="size-14" />
       </div>
       <div>
         <h2 className="mb-1 text-xl font-semibold">{title}</h2>

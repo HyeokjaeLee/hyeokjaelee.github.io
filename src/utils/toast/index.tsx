@@ -14,7 +14,7 @@ export interface ToastOptions {
 
 export const toast = ({
   message,
-  holdTime = 3000,
+  holdTime = 3_000,
   type = 'success',
 }: ToastOptions) => {
   const Icon = {

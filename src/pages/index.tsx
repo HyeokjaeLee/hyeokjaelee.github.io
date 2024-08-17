@@ -3,26 +3,16 @@ import type { PostPageQuery } from 'types/graphql-types';
 
 import { graphql } from 'gatsby';
 
-import React, { useEffect } from 'react';
-
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { PostTagTab } from '@components/PostTagTab';
 import { useGetPostDataList } from '@hooks/useGetPostDataList';
-import { toast } from '@utils/toast';
 
 const PostPage = (pageProps: PageProps<PostPageQuery>) => {
   const { postList, tagCountMap, ...paginationProps } =
     useGetPostDataList(pageProps);
-
-  useEffect(() => {
-    toast({
-      message: '👋 안녕하세요! 방문해주셔서 감사합니다.\n ㄹ리리리',
-      holdTime: 9999999,
-    });
-  }, []);
 
   return (
     <article className="flex h-full flex-col items-center justify-between">

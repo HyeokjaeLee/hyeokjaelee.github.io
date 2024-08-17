@@ -9,13 +9,13 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { X } from 'react-feather';
 import type { SwipeCallback } from 'react-swipeable';
 import { useSwipeable } from 'react-swipeable';
 import { Transition } from 'react-transition-group';
 
 import { Logo } from '@components/Logo';
-import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
-import { Switch } from '@radix-ui/themes';
+import { IconButton } from '@radix-ui/themes';
 import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
@@ -36,8 +36,6 @@ export const GlobalMenu = () => {
   const [deltaX, setDeltaX] = useState(0);
 
   const drawerRef = useRef<HTMLElement | null>(null);
-
-  const socialDataList = useGetSocialDataList();
 
   const [isSwiping, setIsSwiping] = useState(false);
 
@@ -133,8 +131,24 @@ export const GlobalMenu = () => {
               transform: `translate3d(${deltaX}px, 0, 0)`,
             }}
           >
-            <header>
-              <Logo />
+            <header className="flex justify-between p-5">
+              <div
+                className={cn(
+                  'p-2 size-fit rounded-full',
+                  'bg-zinc-900 dark:bg-zinc-100',
+                  'text-zinc-100 dark:text-zinc-800',
+                )}
+              >
+                <Logo className="size-8" />
+              </div>
+              <IconButton
+                className="cursor-pointer text-zinc-800 dark:text-zinc-100"
+                type="button"
+                variant="ghost"
+                onClick={() => setIsGlobalMenuOpen(false)}
+              >
+                <X className="size-5" />
+              </IconButton>
             </header>
             <section className="flex-1 overflow-auto">
               <div className="h-[9999px]">ss</div>

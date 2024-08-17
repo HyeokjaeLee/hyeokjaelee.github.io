@@ -3,19 +3,21 @@ import type { PageProps } from 'gatsby';
 import { throttle } from 'lodash-es';
 import { shallow } from 'zustand/shallow';
 
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { X } from 'react-feather';
 import { ToastContainer, Slide } from 'react-toastify';
 
-import { SCREEN_BREAKPOINTS, SELECTOR } from '@constants';
+import { SCREEN_BREAKPOINTS, SELECTOR, SESSION_STORAGE_KEY } from '@constants';
+import { IconButton } from '@radix-ui/themes';
 import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
+import { toast } from '@utils/toast';
 
 import { GlobalHeader } from './_components/GlobalHeader';
 import { GlobalMenu } from './_components/GlobalMenu';
 import { GlobalProvider } from './_components/GlobalProvider';
 
-const GlobalLayout = ({ children }: PageProps) => {
+const GlobalLayout = ({ children, location }: PageProps) => {
   const [screen, setScreen] = useGlobalStore(
     (state) => [state.screen, state.setScreen],
     shallow,
@@ -45,31 +47,45 @@ const GlobalLayout = ({ children }: PageProps) => {
 
   const isPhone = screen === SCREEN.PHONE;
 
+  useEffect(() => {
+    if (sessionStorage.getItem(SESSION_STORAGE_KEY.WELCOME_TOAST)) return;
+
+    sessionStorage.setItem(SESSION_STORAGE_KEY.WELCOME_TOAST, 'true');
+    toast({
+      message: '👋 안녕하세요! 방문해주셔서 감사합니다.',
+    });
+  }, []);
+
   return (
     <GlobalProvider>
-      <GlobalHeader />
+      <GlobalHeader search={location.search} />
       <main
         className={cn(
-          'h-page overflow-auto',
+          'flex-1 overflow-auto',
           'bg-zinc-100 text-zinc-800',
           'dark:bg-zinc-900 dark:text-zinc-50',
         )}
         id={SELECTOR.MAIN}
       >
         <ToastContainer
-          bodyClassName="p-0 whitespace-pre-line flex gap-1"
+          bodyClassName="p-0 whitespace-pre-line flex gap-1 font-pretendard"
           className={cn(
             'max-w-96 w-full relative h-0 p-0',
             'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
           )}
           closeButton={({ closeToast }) => (
-            <button
-              className={cn('w-5 h-5', 'phone:hidden')}
+            <IconButton
+              className={cn(
+                'w-5 h-5',
+                'text-zinc-900 dark:text-zinc-100',
+                'phone:hidden',
+              )}
               type="button"
+              variant="ghost"
               onClick={closeToast}
             >
               <X className="size-full" />
-            </button>
+            </IconButton>
           )}
           draggable={isPhone}
           draggableDirection="x"
