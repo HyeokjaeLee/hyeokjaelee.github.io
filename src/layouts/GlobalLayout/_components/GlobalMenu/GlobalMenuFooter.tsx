@@ -46,6 +46,7 @@ export const GlobalMenuFooter = () => {
           </label>
           <Switch
             className="cursor-pointer"
+            color="gray"
             defaultChecked={isDarkMode}
             id={SWITCH_ID}
             onCheckedChange={(value) => {

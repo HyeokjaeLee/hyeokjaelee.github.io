@@ -44,6 +44,7 @@
     "react-swipeable": "^7.0.1",
     "react-toastify": "^10.0.5",
     "react-transition-group": "^4.4.5",
+    "swiper": "^11.1.9",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animated": "^1.1.2",
     "zustand": "^4.5.4"

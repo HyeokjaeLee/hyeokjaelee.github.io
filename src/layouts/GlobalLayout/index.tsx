@@ -58,6 +58,39 @@ const GlobalLayout = ({ children, location }: PageProps) => {
 
   return (
     <GlobalProvider>
+      <ToastContainer
+        bodyClassName="p-0 whitespace-pre-line flex gap-1 font-pretendard"
+        className={cn(
+          'max-w-96 w-full relative h-0 p-0',
+          'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
+        )}
+        closeButton={({ closeToast }) => (
+          <IconButton
+            className={cn(
+              'w-5 h-5',
+              'text-zinc-900 dark:text-zinc-100',
+              'phone:hidden',
+            )}
+            type="button"
+            variant="ghost"
+            onClick={closeToast}
+          >
+            <X className="size-full" />
+          </IconButton>
+        )}
+        draggable={isPhone}
+        draggableDirection="x"
+        draggablePercent={20}
+        position="top-center"
+        stacked={isPhone}
+        theme="colored"
+        toastClassName={cn(
+          'p-4 rounded-lg backdrop-blur-sm flex justify-center',
+          'dark:text-white dark:!bg-[rgba(0,0,0,0.8)]',
+          'text-black !bg-[rgba(255,255,255,0.8)]',
+        )}
+        transition={Slide}
+      />
       <GlobalHeader search={location.search} />
       <main
         className={cn(
@@ -67,42 +100,9 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         )}
         id={SELECTOR.MAIN}
       >
-        <ToastContainer
-          bodyClassName="p-0 whitespace-pre-line flex gap-1 font-pretendard"
-          className={cn(
-            'max-w-96 w-full relative h-0 p-0',
-            'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
-          )}
-          closeButton={({ closeToast }) => (
-            <IconButton
-              className={cn(
-                'w-5 h-5',
-                'text-zinc-900 dark:text-zinc-100',
-                'phone:hidden',
-              )}
-              type="button"
-              variant="ghost"
-              onClick={closeToast}
-            >
-              <X className="size-full" />
-            </IconButton>
-          )}
-          draggable={isPhone}
-          draggableDirection="x"
-          draggablePercent={20}
-          position="top-center"
-          stacked={isPhone}
-          theme="colored"
-          toastClassName={cn(
-            'p-4 rounded-lg backdrop-blur-sm flex justify-center',
-            'dark:text-white dark:!bg-[rgba(0,0,0,0.8)]',
-            'text-black !bg-[rgba(255,255,255,0.8)]',
-          )}
-          transition={Slide}
-        />
         {children}
       </main>
-      <GlobalMenu />
+      <GlobalMenu pathname={location.pathname} />
     </GlobalProvider>
   );
 };

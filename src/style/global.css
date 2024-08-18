@@ -16,11 +16,16 @@
 @layer components {
   @import '@radix-ui/themes/styles.css';
   @import 'react-toastify/dist/ReactToastify.css';
+  @import 'swiper/css';
 
   input,
+  textarea {
+    @apply font-pretendard;
+  }
+
   button,
-  textarea,
   .rt-BaseButton {
     @apply font-pretendard;
+    @apply cursor-pointer;
   }
 }

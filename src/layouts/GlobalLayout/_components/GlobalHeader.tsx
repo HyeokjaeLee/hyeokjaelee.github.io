@@ -23,15 +23,25 @@ interface GlobalHeaderProps {
   search: string;
 }
 
-const debouncedUpdateSearchQuery = debounce((value: string) => {
+const updateSearchQueryString = (value: string) => {
   const searchParams = new URLSearchParams(location.search);
 
-  value ? searchParams.set('q', value) : searchParams.delete('q');
+  if (value) {
+    searchParams.set('q', value);
+  } else {
+    searchParams.delete('q');
+  }
 
+  console.log('searchParams', searchParams.toString());
   navigate(`${location.pathname}?${searchParams.toString()}`, {
     replace: true,
   });
-}, 1_000 / 30);
+};
+
+const debounceUpdateSearchQueryString = debounce(
+  updateSearchQueryString,
+  1_000 / 15,
+);
 
 export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
   const setIsGlobalMenuOpen = useGlobalStore(
@@ -55,6 +65,29 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
     }
   `);
 
+  const [searchQuery, setSearchQuery] = useState(
+    new URLSearchParams(search).get('q') || '',
+  );
+
+  const [isSearchModalOpened, setIsSearchModalOpened] = useState(!!searchQuery);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'k' && e.ctrlKey) {
+        e.preventDefault();
+        setIsSearchModalOpened(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    debounceUpdateSearchQueryString(searchQuery);
+  }, [searchQuery]);
+
   return (
     <nav
       className={cn(
@@ -63,7 +96,7 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
       )}
     >
       <div className="flex max-w-7xl flex-1 items-center justify-between gap-3">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-8">
           <IconButton
             color="gray"
             type="button"
@@ -72,17 +105,29 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
           >
             <Menu className="size-6" />
           </IconButton>
-          <Link className="flex items-center gap-4" to="/">
-            <Logo className="size-8" />
-            <div className="h-8 w-px rotate-[30deg] dark:bg-zinc-700" />
-            <GitHub />
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/">
+              <Logo className="size-8 text-zinc-700 dark:text-zinc-50" />
+            </Link>
+            <div className="h-7 w-px rotate-[30deg] bg-zinc-300 dark:bg-zinc-700" />
+            <Link to="https://github.com/HyeokjaeLee">
+              <GitHub className="size-6 text-zinc-600 dark:text-zinc-300" />
+            </Link>
+          </div>
         </div>
-        <Dialog.Root>
+        <Dialog.Root
+          open={isSearchModalOpened}
+          onOpenChange={(value) => {
+            setIsSearchModalOpened(value);
+
+            if (!value) setTimeout(() => setSearchQuery(''), 1_000 / 15);
+          }}
+        >
           <Dialog.Trigger>
             <Button className="text-zinc-400" color="gray" variant="soft">
               <Search className="size-4" />
               <div className="ml-1 mr-14">Search post...</div>
+              <Kbd>Ctrl + K</Kbd>
             </Button>
           </Dialog.Trigger>
           <Dialog.Content className="flex max-h-[calc(100dvh-5rem)] flex-col">
@@ -91,9 +136,12 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
               placeholder="Search post..."
               size="3"
               type="search"
+              value={searchQuery}
               variant="soft"
               onChange={(e) => {
                 e.preventDefault();
+
+                setSearchQuery(e.target.value);
               }}
             >
               <TextField.Slot>

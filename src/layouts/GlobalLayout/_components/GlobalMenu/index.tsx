@@ -24,12 +24,15 @@ import { GlobalMenuFooter } from './GlobalMenuFooter';
 
 const THROTTLE_TIME = 1_000 / 75;
 
-export const GlobalMenu = () => {
+interface GlobalMenuProps {
+  pathname: string;
+}
+
+export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
   const [isGlobalMenuOpen, setIsGlobalMenuOpen] = useGlobalStore(
     (state) => [state.isGlobalMenuOpen, state.setIsGlobalMenuOpen],
     shallow,
   );
-  const { pathname } = useLocation();
 
   useEffect(() => setIsGlobalMenuOpen(false), [setIsGlobalMenuOpen, pathname]);
 
@@ -118,7 +121,7 @@ export const GlobalMenu = () => {
             }}
             className={cn(
               'fixed top-0 left-0 h-dvh w-full z-30 shadow-sm flex flex-col',
-              'bg-white dark:bg-zinc-800',
+              'bg-zinc-50 dark:bg-zinc-900',
               'max-w-96 phone:max-w-full',
               'rounded-r-md phone:rounded-none ease-out',
               {
@@ -142,7 +145,8 @@ export const GlobalMenu = () => {
                 <Logo className="size-8" />
               </div>
               <IconButton
-                className="cursor-pointer text-zinc-800 dark:text-zinc-100"
+                className="cursor-pointer"
+                color="gray"
                 type="button"
                 variant="ghost"
                 onClick={() => setIsGlobalMenuOpen(false)}
@@ -150,7 +154,7 @@ export const GlobalMenu = () => {
                 <X className="size-5" />
               </IconButton>
             </header>
-            <section className="flex-1 overflow-auto">
+            <section className="flex-1 overflow-auto hide-scrollbar">
               <div className="h-[9999px]">ss</div>
             </section>
             <GlobalMenuFooter />
