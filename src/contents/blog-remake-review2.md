@@ -1,6 +1,6 @@
 ---
 title: 'Gatsby 블로그를 개발하면서'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d3252f4e-2126-4875-aa37-f38cf2f16633'
+titleImage: '../images/contents/blog-remake-review2/gatsby.png'
 description: 'Next.js에서 Gatsby로 블로그를 이전하면서 느낀 점'
 date: '2021-12-01'
 tags: [etc, frontend]
@@ -50,7 +50,7 @@ Gatsby는 이런 상황에서 Next.js의 훌륭한 대안이었다.
 
 하지만 유니크한 개인 블로그 겸 포트폴리오 페이지를 가지고 싶어서 템플릿 없이 만들게 되었다.
 
-![blog](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/03870b6f-8dfb-44b1-9622-1f0d1646ca84)
+![블로그 디자인](../images/contents/blog-remake-review2/blog-design.gif)
 
 ### 블로그 디자인에 고려했던 부분
 

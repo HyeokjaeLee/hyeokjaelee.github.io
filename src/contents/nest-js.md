@@ -1,6 +1,6 @@
 ---
 title: 'NestJS 웹서버 구축하기'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c24d9728-71e0-46d4-8c33-e206df94d3e0'
+titleImage: '../images/contents/nest-js/nest.jpg'
 description: 'Typescript를 이용한 NestJS 코드 작성'
 date: '2021-10-29'
 tags: [backend]
@@ -79,7 +79,7 @@ npm run start
 ```
 
 생성된 프로젝트의 구조는 다음과 같다.
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/76cadfbb-2b16-4b04-82da-08826d29742f)
+![프로젝트 구조](../images/contents/nest-js/project-dir.png)
 
 - **app.controller.spc.ts**: 유닛 테스트를 위한 파일
 - **app.controller.ts**: 기본 컨트롤러

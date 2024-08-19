@@ -1,6 +1,6 @@
 ---
 title: 'Copilot 사용 후기'
-titleImage: 'https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png'
+titleImage: '../images/contents/copilot-review/copilot.png'
 description: 'Github의 코딩 AI, Copilot 한 달 사용 리뷰'
 date: '2021-08-26'
 tags: [etc]
@@ -14,7 +14,7 @@ Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들�
 
 Github에서 얼마 전 [Copilot Technical Preview](https://copilot.github.com/)를 공개했고 바로 다운로드해서 사용하지는 못하고 위 링크에서 신청한 후에 초대장을 받아야 사용 가능했다.
 
-![invite](https://user-images.githubusercontent.com/71566740/130893661-970498c3-c250-4d03-9096-f443737461d3.png)
+![Copilot 초대장](../images/contents/copilot-review/copilot-invite.png)
 
 Github 활동량이 많을수록 빠르게 수락된다고 하던데 내 기준으로 7월 초쯤에 신청하고 일주일 정도 후에 초대장을 받은 것 같다.
 

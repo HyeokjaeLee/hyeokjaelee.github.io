@@ -34,35 +34,11 @@
           alt="/blog-remake-review1/"
           height={600}
         />
-      )}[props.size],"/blog-remake-review2/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d3252f4e-2126-4875-aa37-f38cf2f16633"
-          alt="/blog-remake-review2/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d3252f4e-2126-4875-aa37-f38cf2f16633"
-          alt="/blog-remake-review2/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d3252f4e-2126-4875-aa37-f38cf2f16633"
-          alt="/blog-remake-review2/"
-          height={600}
-        />
       )}[props.size],"/components-styling/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/272626876-941eb55c-5977-4a96-896a-488d464b75b7.png"
+          src="../images/contents/components-styling/react.png"
           alt="/components-styling/"
           height={100}
         />
@@ -70,7 +46,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/272626876-941eb55c-5977-4a96-896a-488d464b75b7.png"
+          src="../images/contents/components-styling/react.png"
           alt="/components-styling/"
           height={200}
         />
@@ -78,7 +54,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/272626876-941eb55c-5977-4a96-896a-488d464b75b7.png"
+          src="../images/contents/components-styling/react.png"
           alt="/components-styling/"
           height={600}
         />
@@ -106,6 +82,54 @@
           alt="/briend/"
           height={600}
         />
+      )}[props.size],"/blog-remake-review2/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review2/gatsby.png"
+          alt="/blog-remake-review2/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review2/gatsby.png"
+          alt="/blog-remake-review2/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review2/gatsby.png"
+          alt="/blog-remake-review2/"
+          height={600}
+        />
+      )}[props.size],"/copilot-review/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/copilot-review/copilot.png"
+          alt="/copilot-review/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/copilot-review/copilot.png"
+          alt="/copilot-review/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/copilot-review/copilot.png"
+          alt="/copilot-review/"
+          height={600}
+        />
       )}[props.size],"/digital-nomad-in-jeju/": {100: (
         <StaticImage
           className={props.className}
@@ -130,52 +154,28 @@
           alt="/digital-nomad-in-jeju/"
           height={600}
         />
-      )}[props.size],"/copilot-review/": {100: (
+      )}[props.size],"/digital-nomad-in-chiang-mai/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png"
-          alt="/copilot-review/"
+          src="../images/contents/digital-nomad-in-chiang-mai/yellow.jpg"
+          alt="/digital-nomad-in-chiang-mai/"
           height={100}
         />
       ),200: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png"
-          alt="/copilot-review/"
+          src="../images/contents/digital-nomad-in-chiang-mai/yellow.jpg"
+          alt="/digital-nomad-in-chiang-mai/"
           height={200}
         />
       ),600: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://user-images.githubusercontent.com/71566740/131648745-0ab54f7e-d004-434e-89d8-d401b8719f51.png"
-          alt="/copilot-review/"
-          height={600}
-        />
-      )}[props.size],"/covid-19-api-update/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96"
-          alt="/covid-19-api-update/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96"
-          alt="/covid-19-api-update/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96"
-          alt="/covid-19-api-update/"
+          src="../images/contents/digital-nomad-in-chiang-mai/yellow.jpg"
+          alt="/digital-nomad-in-chiang-mai/"
           height={600}
         />
       )}[props.size],"/employment-memoirs/": {100: (
@@ -274,6 +274,78 @@
           alt="/knu-lms-scheduler/"
           height={600}
         />
+      )}[props.size],"/employment-memoirs2/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={600}
+        />
+      )}[props.size],"/korea-webtoon-api-update/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
+          alt="/korea-webtoon-api-update/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
+          alt="/korea-webtoon-api-update/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
+          alt="/korea-webtoon-api-update/"
+          height={600}
+        />
+      )}[props.size],"/nodejs-crawling/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
+          alt="/nodejs-crawling/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
+          alt="/nodejs-crawling/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
+          alt="/nodejs-crawling/"
+          height={600}
+        />
       )}[props.size],"/react-atomic/": {100: (
         <StaticImage
           className={props.className}
@@ -326,7 +398,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c24d9728-71e0-46d4-8c33-e206df94d3e0"
+          src="../images/contents/nest-js/nest.jpg"
           alt="/nest-js/"
           height={100}
         />
@@ -334,7 +406,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c24d9728-71e0-46d4-8c33-e206df94d3e0"
+          src="../images/contents/nest-js/nest.jpg"
           alt="/nest-js/"
           height={200}
         />
@@ -342,80 +414,8 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c24d9728-71e0-46d4-8c33-e206df94d3e0"
+          src="../images/contents/nest-js/nest.jpg"
           alt="/nest-js/"
-          height={600}
-        />
-      )}[props.size],"/employment-memoirs2/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
-          height={600}
-        />
-      )}[props.size],"/nodejs-crawling/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
-          alt="/nodejs-crawling/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
-          alt="/nodejs-crawling/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a"
-          alt="/nodejs-crawling/"
-          height={600}
-        />
-      )}[props.size],"/typescript-express-server/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
-          alt="/typescript-express-server/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
-          alt="/typescript-express-server/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
-          alt="/typescript-express-server/"
           height={600}
         />
       )}[props.size],"/good-commit-message/": {100: (
@@ -442,6 +442,30 @@
           alt="/good-commit-message/"
           height={600}
         />
+      )}[props.size],"/react-design-pattern/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
+          alt="/react-design-pattern/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
+          alt="/react-design-pattern/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
+          alt="/react-design-pattern/"
+          height={600}
+        />
       )}[props.size],"/sass-compiler/": {100: (
         <StaticImage
           className={props.className}
@@ -464,30 +488,6 @@
           imgClassName={props.imgClassName}
           src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f3841a12-33f5-4994-b147-b38b5a3f5e23"
           alt="/sass-compiler/"
-          height={600}
-        />
-      )}[props.size],"/digital-nomad-in-chiang-mai/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4624a012-2823-464f-ac27-16d1c43bbde6"
-          alt="/digital-nomad-in-chiang-mai/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4624a012-2823-464f-ac27-16d1c43bbde6"
-          alt="/digital-nomad-in-chiang-mai/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4624a012-2823-464f-ac27-16d1c43bbde6"
-          alt="/digital-nomad-in-chiang-mai/"
           height={600}
         />
       )}[props.size],"/spawn-node-gyp-enoent/": {100: (
@@ -514,52 +514,52 @@
           alt="/spawn-node-gyp-enoent/"
           height={600}
         />
-      )}[props.size],"/korea-webtoon-api-update/": {100: (
+      )}[props.size],"/typescript-express-server/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
-          alt="/korea-webtoon-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
+          alt="/typescript-express-server/"
           height={100}
         />
       ),200: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
-          alt="/korea-webtoon-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
+          alt="/typescript-express-server/"
           height={200}
         />
       ),600: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb"
-          alt="/korea-webtoon-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc"
+          alt="/typescript-express-server/"
           height={600}
         />
-      )}[props.size],"/react-design-pattern/": {100: (
+      )}[props.size],"/covid-19-api-update/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
-          alt="/react-design-pattern/"
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
           height={100}
         />
       ),200: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
-          alt="/react-design-pattern/"
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
           height={200}
         />
       ),600: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b"
-          alt="/react-design-pattern/"
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
           height={600}
         />
       )}[props.size],}[props.slug]}

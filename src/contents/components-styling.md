@@ -1,6 +1,6 @@
 ---
 title: '리액트 컴포넌트 스타일링 정리'
-titleImage: 'https://user-images.githubusercontent.com/71566740/272626876-941eb55c-5977-4a96-896a-488d464b75b7.png'
+titleImage: '../images/contents/components-styling/react.png'
 description: '리액트 기반 제품을 개발하면서 고민했던 컴포넌트 스타일링 방법에 대한 고민'
 date: '2022-03-12'
 tags: [frontend]

@@ -48,9 +48,12 @@ code[class*='language-'] {
   @apply m-0;
 }
 
+.post-body .gatsby-resp-image-background-image {
+  @apply rounded-md;
+}
+
 .post-body img {
   @apply rounded-md;
-  @apply overflow-hidden;
   @apply border-zinc-300;
   @apply dark:border-zinc-800;
   @apply border;
