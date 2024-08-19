@@ -2,19 +2,17 @@ import React from 'react';
 
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
-import { useDarkMode } from '@hyeokjaelee/pastime-ui';
 
 import { Logo } from './Logo';
 
 export const Bio = () => {
-  const { isDarkMode } = useDarkMode();
   const socialDataList = useGetSocialDataList();
   const { title } = useGetSiteMetaData();
 
   return (
     <section className="flex items-center gap-4">
       <div className="rounded-full bg-zinc-900 p-4 dark:bg-zinc-50">
-        <Logo className="size-14" />
+        <Logo className="size-14 text-zinc-50 dark:text-zinc-900" />
       </div>
       <div>
         <h2 className="mb-1 text-xl font-semibold">{title}</h2>

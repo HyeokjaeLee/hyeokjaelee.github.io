@@ -103,9 +103,13 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
               <Logo className="size-8 text-zinc-700 dark:text-zinc-50" />
             </Link>
             <div className="h-7 w-px rotate-[30deg] bg-zinc-300 dark:bg-zinc-700" />
-            <Link to="https://github.com/HyeokjaeLee">
+            <a
+              href="https://github.com/HyeokjaeLee"
+              rel="noreferrer"
+              target="_blank"
+            >
               <GitHub className="size-6 text-zinc-600 dark:text-zinc-300" />
-            </Link>
+            </a>
           </div>
         </div>
         <Dialog.Root

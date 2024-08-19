@@ -5,18 +5,14 @@ import { graphql, Link, navigate } from 'gatsby';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { shallow } from 'zustand/shallow';
 
-import { useMemo, useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, Heart, Tag } from 'react-feather';
+import { ChevronLeft, ChevronRight } from 'react-feather';
 
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
-import { PostCard } from '@components/PostCard';
-import { PostListPagination } from '@components/PostListPagination';
-import { TitleImage } from '@generated/TitleImage';
-import { useGetPostDataList } from '@hooks/useGetPostDataList';
-import { Button, IconButton } from '@radix-ui/themes';
-import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
-import { cn } from '@utils/cn';
+import { PostLargeCard } from '@components/PostLargeCard';
+import { Button } from '@radix-ui/themes';
+import { useGlobalStore } from '@stores/useGlobalStore';
+
 const POST_TAG_EMOJI_LIST = [
   ['all', '📚'],
   ['issues', '🚧'],
@@ -32,7 +28,7 @@ const POST_TAG_EMOJI_LIST = [
 const PAGINATION_BUTTON_COUNT = 7;
 
 const PostPage = ({
-  location: { search, pathname },
+  location: { search },
   data: {
     allMarkdownRemark: { nodes },
   },
@@ -40,7 +36,7 @@ const PostPage = ({
   const searchParams = new URLSearchParams(search);
   const page = Number(searchParams.get('page')) || 1;
   const tag = searchParams.get('tag') || 'all';
-  const pageSize = 6;
+  const pageSize = 12;
 
   const [likePostMap, setLikePostMap] = useGlobalStore(
     (state) => [state.likePostMap, state.setLikePostMap],
@@ -102,74 +98,26 @@ const PostPage = ({
           ))}
         </Swiper>
         <ul className="mx-auto flex w-full max-w-6xl flex-wrap gap-9 px-9">
-          {postListOfPage.map((post) => {
-            const { slug } = post.fields ?? {};
+          {postListOfPage.map(({ fields, frontmatter }) => {
+            const { slug } = fields ?? {};
 
             return slug ? (
-              <Link
+              <PostLargeCard
                 key={slug}
-                className={cn(
-                  'block rounded-md hover:-translate-y-1 transition-transform',
-                  'bg-white dark:bg-zinc-800',
-                  'shadow-sm dark:shadow-md',
-                  'hover:shadow-md dark:hover:shadow-lg',
-                  'w-[calc(33.333333%-1.5rem)] phone:w-full tablet:w-[calc(50%-1.125rem)]',
-                )}
-                to={slug}
-              >
-                <TitleImage
-                  className="relative h-0 w-full overflow-hidden rounded-t-md pb-[50%]"
-                  imgClassName="absolute w-full object-cover rounded-b-none"
-                  size={600}
-                  slug={slug}
-                />
-                <article>
-                  <strong className="mb-1 mt-4 block truncate px-4 text-base font-semibold">
-                    {post.frontmatter?.title}
-                  </strong>
-                  <p className="line-clamp-2 min-h-10 px-4 text-sm text-zinc-600 dark:text-zinc-400">
-                    {post.frontmatter?.description}
-                  </p>
-                  <section className="mx-4 mb-2 mt-4 flex gap-2">
-                    <ul className="flex flex-1 flex-wrap justify-end gap-2">
-                      {post.frontmatter?.tags?.map((tag) => (
-                        <li
-                          key={tag}
-                          className="font-firacode text-xs text-zinc-400"
-                        >
-                          #{tag}
-                        </li>
-                      ))}
-                    </ul>
-                    <Tag className="mt-0.5 size-3 text-zinc-400" />
-                  </section>
-                  <section className="mb-2 flex items-center justify-between border-t border-zinc-200 px-4 pt-2 dark:border-zinc-700">
-                    <div className="flex items-center gap-2 text-zinc-400">
-                      <Clock className="size-3" />
-                      <time className="text-xs">{post.frontmatter?.date}</time>
-                    </div>
-                    <IconButton
-                      className="size-5"
-                      variant="ghost"
-                      onClick={(e) => {
-                        e.preventDefault();
+                date={frontmatter?.date}
+                description={frontmatter?.description}
+                href={slug}
+                isLiked={likePostMap.get(slug)}
+                tags={frontmatter?.tags ?? []}
+                title={frontmatter?.title || '무제'}
+                onClickLikeButton={() => {
+                  setLikePostMap((likePostMap) => {
+                    likePostMap.set(slug, !likePostMap.get(slug));
 
-                        setLikePostMap((likePostMap) => {
-                          likePostMap.set(slug, !likePostMap.get(slug));
-
-                          return likePostMap;
-                        });
-                      }}
-                    >
-                      <Heart
-                        className={cn('size-3 text-zinc-400', {
-                          'fill-red-500 text-red-500': likePostMap.get(slug),
-                        })}
-                      />
-                    </IconButton>
-                  </section>
-                </article>
-              </Link>
+                    return likePostMap;
+                  });
+                }}
+              />
             ) : null;
           })}
         </ul>

@@ -30,11 +30,28 @@ export const postLayoutQuery = graphql`
         value
         id
       }
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "YY년 MM월 DD일")
         description
         tags
+      }
+    }
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "YY년 MM월 DD일")
+          title
+          titleImage
+          tags
+          description
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
