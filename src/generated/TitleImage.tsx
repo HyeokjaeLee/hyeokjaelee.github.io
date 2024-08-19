@@ -10,55 +10,7 @@
   
   export const TitleImage = (props: TitleImageProps) => {
     return {
-  "/blog-remake-review1/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/blog-remake-review1/nextjs.png"
-          alt="/blog-remake-review1/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/blog-remake-review1/nextjs.png"
-          alt="/blog-remake-review1/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/blog-remake-review1/nextjs.png"
-          alt="/blog-remake-review1/"
-          height={600}
-        />
-      )}[props.size],"/components-styling/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/components-styling/react.png"
-          alt="/components-styling/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/components-styling/react.png"
-          alt="/components-styling/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="../images/contents/components-styling/react.png"
-          alt="/components-styling/"
-          height={600}
-        />
-      )}[props.size],"/briend/": {100: (
+  "/briend/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
@@ -106,6 +58,30 @@
           alt="/blog-remake-review2/"
           height={600}
         />
+      )}[props.size],"/components-styling/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/components-styling/react.png"
+          alt="/components-styling/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/components-styling/react.png"
+          alt="/components-styling/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/components-styling/react.png"
+          alt="/components-styling/"
+          height={600}
+        />
       )}[props.size],"/copilot-review/": {100: (
         <StaticImage
           className={props.className}
@@ -130,11 +106,35 @@
           alt="/copilot-review/"
           height={600}
         />
+      )}[props.size],"/covid-19-api-update/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/covid-19-api-update/covid-19-api.png"
+          alt="/covid-19-api-update/"
+          height={600}
+        />
       )}[props.size],"/digital-nomad-in-jeju/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c83a3da-da01-42c5-a558-810e8c263f8e"
+          src="../images/contents/digital-nomad-in-jeju/jeju-cafe.jpeg"
           alt="/digital-nomad-in-jeju/"
           height={100}
         />
@@ -142,7 +142,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c83a3da-da01-42c5-a558-810e8c263f8e"
+          src="../images/contents/digital-nomad-in-jeju/jeju-cafe.jpeg"
           alt="/digital-nomad-in-jeju/"
           height={200}
         />
@@ -150,7 +150,7 @@
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c83a3da-da01-42c5-a558-810e8c263f8e"
+          src="../images/contents/digital-nomad-in-jeju/jeju-cafe.jpeg"
           alt="/digital-nomad-in-jeju/"
           height={600}
         />
@@ -202,6 +202,30 @@
           alt="/employment-memoirs/"
           height={600}
         />
+      )}[props.size],"/employment-memoirs2/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
+          alt="/employment-memoirs2/"
+          height={600}
+        />
       )}[props.size],"/gititle-project/": {100: (
         <StaticImage
           className={props.className}
@@ -226,76 +250,28 @@
           alt="/gititle-project/"
           height={600}
         />
-      )}[props.size],"/install-private-packages-with-yarn-berry/": {100: (
+      )}[props.size],"/good-commit-message/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
-          alt="/install-private-packages-with-yarn-berry/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
+          alt="/good-commit-message/"
           height={100}
         />
       ),200: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
-          alt="/install-private-packages-with-yarn-berry/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
+          alt="/good-commit-message/"
           height={200}
         />
       ),600: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
-          alt="/install-private-packages-with-yarn-berry/"
-          height={600}
-        />
-      )}[props.size],"/knu-lms-scheduler/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
-          alt="/knu-lms-scheduler/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
-          alt="/knu-lms-scheduler/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
-          alt="/knu-lms-scheduler/"
-          height={600}
-        />
-      )}[props.size],"/employment-memoirs2/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709"
-          alt="/employment-memoirs2/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
+          alt="/good-commit-message/"
           height={600}
         />
       )}[props.size],"/korea-webtoon-api-update/": {100: (
@@ -322,6 +298,54 @@
           alt="/korea-webtoon-api-update/"
           height={600}
         />
+      )}[props.size],"/knu-lms-scheduler/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
+          alt="/knu-lms-scheduler/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
+          alt="/knu-lms-scheduler/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6"
+          alt="/knu-lms-scheduler/"
+          height={600}
+        />
+      )}[props.size],"/install-private-packages-with-yarn-berry/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
+          alt="/install-private-packages-with-yarn-berry/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
+          alt="/install-private-packages-with-yarn-berry/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b40ef5d8-6697-41ff-83e6-3e79aef7617a"
+          alt="/install-private-packages-with-yarn-berry/"
+          height={600}
+        />
       )}[props.size],"/nodejs-crawling/": {100: (
         <StaticImage
           className={props.className}
@@ -346,54 +370,6 @@
           alt="/nodejs-crawling/"
           height={600}
         />
-      )}[props.size],"/react-atomic/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
-          alt="/react-atomic/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
-          alt="/react-atomic/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
-          alt="/react-atomic/"
-          height={600}
-        />
-      )}[props.size],"/react-component-concept/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
-          alt="/react-component-concept/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
-          alt="/react-component-concept/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
-          alt="/react-component-concept/"
-          height={600}
-        />
       )}[props.size],"/nest-js/": {100: (
         <StaticImage
           className={props.className}
@@ -416,30 +392,6 @@
           imgClassName={props.imgClassName}
           src="../images/contents/nest-js/nest.jpg"
           alt="/nest-js/"
-          height={600}
-        />
-      )}[props.size],"/good-commit-message/": {100: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
-          alt="/good-commit-message/"
-          height={100}
-        />
-      ),200: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
-          alt="/good-commit-message/"
-          height={200}
-        />
-      ),600: (
-        <StaticImage
-          className={props.className}
-          imgClassName={props.imgClassName}
-          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49"
-          alt="/good-commit-message/"
           height={600}
         />
       )}[props.size],"/react-design-pattern/": {100: (
@@ -514,6 +466,30 @@
           alt="/spawn-node-gyp-enoent/"
           height={600}
         />
+      )}[props.size],"/blog-remake-review1/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review1/nextjs.png"
+          alt="/blog-remake-review1/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review1/nextjs.png"
+          alt="/blog-remake-review1/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="../images/contents/blog-remake-review1/nextjs.png"
+          alt="/blog-remake-review1/"
+          height={600}
+        />
       )}[props.size],"/typescript-express-server/": {100: (
         <StaticImage
           className={props.className}
@@ -538,28 +514,52 @@
           alt="/typescript-express-server/"
           height={600}
         />
-      )}[props.size],"/covid-19-api-update/": {100: (
+      )}[props.size],"/react-atomic/": {100: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="../images/contents/covid-19-api-update/covid-19-api.png"
-          alt="/covid-19-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
+          alt="/react-atomic/"
           height={100}
         />
       ),200: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="../images/contents/covid-19-api-update/covid-19-api.png"
-          alt="/covid-19-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
+          alt="/react-atomic/"
           height={200}
         />
       ),600: (
         <StaticImage
           className={props.className}
           imgClassName={props.imgClassName}
-          src="../images/contents/covid-19-api-update/covid-19-api.png"
-          alt="/covid-19-api-update/"
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3"
+          alt="/react-atomic/"
+          height={600}
+        />
+      )}[props.size],"/react-component-concept/": {100: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
+          alt="/react-component-concept/"
+          height={100}
+        />
+      ),200: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
+          alt="/react-component-concept/"
+          height={200}
+        />
+      ),600: (
+        <StaticImage
+          className={props.className}
+          imgClassName={props.imgClassName}
+          src="https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3"
+          alt="/react-component-concept/"
           height={600}
         />
       )}[props.size],}[props.slug]}

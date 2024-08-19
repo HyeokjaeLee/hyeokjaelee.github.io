@@ -143,7 +143,7 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-figure-caption`,
             options: {
-              figureClassName: 'w-full my-12',
+              figureClassName: 'w-full my-6',
               captionClassName:
                 'text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic',
             },
