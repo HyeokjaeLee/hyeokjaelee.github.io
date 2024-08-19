@@ -5,6 +5,8 @@ import type { PostData } from '@hooks/useGetPostDataList';
 import { Skeleton, Tooltip } from '@hyeokjaelee/pastime-ui';
 import { Link } from '@reach/router';
 
+import { TitleImage } from '../generated/TitleImage';
+
 type PostCardProps = PostData;
 
 export const PostCard = ({
@@ -25,11 +27,13 @@ export const PostCard = ({
       >
         <article className="w-full rounded-md transition-shadow hover:shadow-lg dark:shadow-black">
           <div className="relative h-0 w-full overflow-hidden rounded-t-md pb-[50%]">
+            <TitleImage size={100} slug={slug} />
             <Skeleton
               className={`absolute size-full object-cover ${
                 isLoading ? '' : 'hidden'
               }`}
             />
+
             <img
               alt={title}
               className={`absolute size-full object-cover ${

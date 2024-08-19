@@ -3,19 +3,11 @@ import type { PostListToSearchQuery } from 'types/graphql-types';
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
 
-import { useEffect, useRef, useState } from 'react';
-import { GitHub, Menu, Search, X } from 'react-feather';
+import { useEffect, useState } from 'react';
+import { GitHub, Menu, Search } from 'react-feather';
 
 import { Logo } from '@components/Logo';
-import {
-  Box,
-  Button,
-  Dialog,
-  IconButton,
-  Kbd,
-  Text,
-  TextField,
-} from '@radix-ui/themes';
+import { Button, Dialog, IconButton, Kbd, TextField } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 
@@ -32,15 +24,16 @@ const updateSearchQueryString = (value: string) => {
     searchParams.delete('q');
   }
 
-  console.log('searchParams', searchParams.toString());
   navigate(`${location.pathname}?${searchParams.toString()}`, {
     replace: true,
   });
 };
 
+const THROTTLE_TIME = 1_000 / 15;
+
 const debounceUpdateSearchQueryString = debounce(
   updateSearchQueryString,
-  1_000 / 15,
+  THROTTLE_TIME,
 );
 
 export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
@@ -120,7 +113,7 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
           onOpenChange={(value) => {
             setIsSearchModalOpened(value);
 
-            if (!value) setTimeout(() => setSearchQuery(''), 1_000 / 15);
+            if (!value) setTimeout(() => setSearchQuery(''), THROTTLE_TIME);
           }}
         >
           <Dialog.Trigger>

@@ -26,6 +26,8 @@
     "gatsby-plugin-typescript": "^5.13.1",
     "gatsby-remark-autolink-headers": "^6.13.1",
     "gatsby-remark-classes": "^1.0.2",
+    "gatsby-remark-figure-caption": "^2.0.0",
+    "gatsby-remark-gifs": "^1.2.0",
     "gatsby-remark-images": "^7.13.1",
     "gatsby-remark-prismjs": "^7.13.1",
     "gatsby-remark-responsive-iframe": "^6.13.1",

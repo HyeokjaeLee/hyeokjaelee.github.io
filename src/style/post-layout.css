@@ -1,78 +1,59 @@
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import 'prismjs/themes/prism-tomorrow.css';
 
 .gatsby-highlight-code-line {
-  display: block;
-
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid yellow;
-
-  background-color: #383838;
+  @apply block;
+  @apply mx-[-1em];
+  @apply pr-4;
+  @apply pl-3;
+  @apply border-l-4;
+  @apply border-yellow-500;
 }
 
 .gatsby-highlight > pre[class*='language-'] {
-  overflow: auto;
-
-  margin: 0;
-  margin: 1rem 0;
-  padding: 0.75rem;
-  border-radius: 0.125rem;
-
-  font-size: 0.75rem;
-  line-height: 1.5;
+  @apply overflow-auto;
+  @apply my-4;
+  @apply rounded-md;
+  @apply p-3;
+  @apply text-sm;
+  @apply leading-4;
 }
 
 code[class*='language-'] {
-  font-family: 'Fira Code', monospace;
+  @apply font-firacode;
 }
 
 :not(pre) > code[class*='language-'] {
-  margin: 0 0.1rem;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.125rem;
-
-  font-size: 85%;
-}
-
-.blockquote-container:has(img) {
-  width: 100%;
-  margin: 3em auto;
-  padding: 0;
-  border: none;
-
-  font-style: normal;
-  font-size: smaller;
-  text-align: center;
-}
-
-.blockquote-container > p > img {
-  margin: 2px auto;
+  @apply mx-0.5;
+  @apply px-1.5;
+  @apply py-0.5;
+  @apply rounded-md;
+  @apply text-xs;
+  @apply not-italic;
 }
 
 .list-container {
-  margin: 0.4em;
+  @apply m-1.5;
 }
 
 .post-body > hr {
-  max-width: 50%;
-  margin: 2em auto;
-  border-width: 1px;
-  border-color: gray;
+  @apply max-w-[calc(100%-10rem)];
+  @apply my-12;
+  @apply mx-auto;
+  @apply border-[0.5px];
+  @apply border-zinc-300;
+  @apply dark:border-zinc-800;
 }
 
 .list-container > p {
-  margin: 0;
+  @apply m-0;
 }
 
-.blockquote-container:has(img) > p {
-  display: flex;
-  flex-direction: column;
-
-  margin: 0;
-
-  color: gray;
-  line-height: 1.2;
+img {
+  @apply rounded-md;
+  @apply overflow-hidden;
+  @apply border-zinc-300;
+  @apply dark:border-zinc-800;
+  @apply border-[1px];
+  @apply max-w-full;
+  @apply mx-auto;
 }

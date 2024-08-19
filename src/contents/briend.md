@@ -1,6 +1,6 @@
 ---
 title: 'Briend 번역 채팅앱 개발'
-titleImage: 'https://github.com/HyeokjaeLee/briend/assets/71566740/93f1943e-619c-4347-834b-2377ad9d7a75'
+titleImage: '../images/contents/briend/briend.jpg'
 description: '유지비 0원에 도전, 짠내나는 번역 채팅앱 개발기'
 date: '2023-10-06'
 tags: [project, frontend, backend]
@@ -27,8 +27,7 @@ tags: [project, frontend, backend]
 
 채팅에 필요한 최소한의 정보를 받되 모든 정보는 초대 하는 사람이 입력하도록 했다.
 
-> ![briend-preview](https://github.com/HyeokjaeLee/briend/assets/71566740/30907aa5-262a-4acb-9dbc-81bda1133879)
-> 상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림
+![상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림](../images/contents/briend/briend2.gif)
 
 QR을 스캔하면 바로 브라우저에서 사용할 수 있는 웹앱 형식을 생각했다.
 
@@ -91,8 +90,7 @@ DB는 따로 두지 않고 모든 채팅 정보들은 `Indexed DB`를 통해 브
 
 모든 개발이 완료된 후엔 일본을 여행했을때 사귀었던 한국말을 잘하는 일본 친구에게 테스트를 부탁했다.
 
-> ![preview](https://github.com/HyeokjaeLee/briend/assets/71566740/93f1943e-619c-4347-834b-2377ad9d7a75)
-> 일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면
+![일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면](../images/contents/briend/briend.jpg)
 
 생각보다 대화가 굉장히 자연스러워서 놀랐다.
 

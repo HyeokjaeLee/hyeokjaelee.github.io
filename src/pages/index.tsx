@@ -9,7 +9,6 @@ import { Meta } from '@components/Meta';
 import { PostCard } from '@components/PostCard';
 import { PostListPagination } from '@components/PostListPagination';
 import { useGetPostDataList } from '@hooks/useGetPostDataList';
-
 const POST_TAG_EMOJI_LIST = [
   ['all', '📚'],
   ['issues', '🚧'],

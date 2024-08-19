@@ -1,5 +1,7 @@
+import type { MarkdownRemark } from './types/graphql-types';
 import type { GatsbyNode } from 'gatsby';
 
+import { writeFileSync } from 'fs';
 import path from 'path';
 
 import { createFilePath } from 'gatsby-source-filesystem';
@@ -53,22 +55,87 @@ export const createPages = async ({ graphql, actions, reporter }) => {
   }
 };
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({
-  node,
-  actions,
-  getNode,
-}) => {
+const imageMap = new Map<
+  string,
+  {
+    sizes: number[];
+    src: string;
+    slug: string;
+  }
+>();
+
+export const onCreateNode: GatsbyNode<
+  Pick<
+    MarkdownRemark,
+    | 'id'
+    | 'children'
+    | 'parent'
+    | 'internal'
+    | 'frontmatter'
+    | 'fileAbsolutePath'
+  >
+>['onCreateNode'] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+  const { frontmatter, fileAbsolutePath } = node;
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+  if (
+    !frontmatter ||
+    node.internal.type !== 'MarkdownRemark' ||
+    !fileAbsolutePath
+  )
+    return;
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
+  const slug = createFilePath({ node, getNode });
+
+  if (frontmatter.titleImage) {
+    imageMap.set(slug, {
+      //* 정적으로 생성할 이미지 사이즈
+      sizes: [100, 200],
+      src: frontmatter.titleImage,
+      slug,
     });
   }
+
+  let generatedImageString = `
+  import { StaticImage } from 'gatsby-plugin-image';
+  
+  interface TitleImageProps {
+    slug: string;
+    size: number;
+    className?: string;
+  }
+  
+  export const TitleImage = (props: TitleImageProps) => {
+    return {
+  `;
+
+  imageMap.forEach(({ sizes, slug, src }) => {
+    const componentString = sizes.map(
+      (size) => `${size}: (
+        <StaticImage
+          className={props.className}
+          src="${src}"
+          alt="${slug}"
+          height={${size}}
+        />
+      )`,
+    );
+
+    generatedImageString += `"${slug}": {${componentString.join(',')}}[props.size],`;
+  });
+
+  generatedImageString += `}[props.slug]}`;
+
+  writeFileSync(
+    path.resolve(__dirname, 'src/generated/TitleImage.tsx'),
+    generatedImageString,
+  );
+
+  createNodeField({
+    name: 'slug',
+    node,
+    value: slug,
+  });
 };
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =

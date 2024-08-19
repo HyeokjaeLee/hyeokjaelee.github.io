@@ -1,6 +1,6 @@
 ---
 title: '리액트 컴포넌트, 어떤 컨셉으로 개발할까?'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4087d06f-6607-4190-956e-e8d7363d4dd4'
+titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3'
 description: '리렌더링을 최소화한 React 기반 컴포넌트 라이브러리를 개발하면서 고민했던 내용'
 date: '2022-11-16'
 tags: [frontend]
