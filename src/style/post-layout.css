@@ -35,7 +35,7 @@ code[class*='language-'] {
   @apply m-1.5;
 }
 
-.post-body > hr {
+.post-body hr {
   @apply max-w-[calc(100%-10rem)];
   @apply my-12;
   @apply mx-auto;
@@ -48,12 +48,12 @@ code[class*='language-'] {
   @apply m-0;
 }
 
-img {
+.post-body img {
   @apply rounded-md;
   @apply overflow-hidden;
   @apply border-zinc-300;
   @apply dark:border-zinc-800;
-  @apply border-[1px];
+  @apply border;
   @apply max-w-full;
   @apply mx-auto;
 }

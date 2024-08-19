@@ -1,10 +1,15 @@
 import { createWithEqualityFn } from 'zustand/traditional';
 
+import { LOCAL_STARGE_KEY } from '@constants';
+
 export enum SCREEN {
   PHONE = 'phone',
   TABLET = 'tablet',
   DESKTOP = 'desktop',
 }
+
+type LikePostMap = Map<string, boolean>;
+
 interface GlobalStore {
   isGlobalMenuOpen: boolean;
   setIsGlobalMenuOpen: (isGlobalMenuOpen: boolean) => void;
@@ -17,9 +22,12 @@ interface GlobalStore {
 
   isDarkMode: boolean;
   setIsDarkMode: (isDarkMode: boolean) => void;
+
+  likePostMap: LikePostMap;
+  setLikePostMap: (callback: (likePostMap: LikePostMap) => LikePostMap) => void;
 }
 
-export const useGlobalStore = createWithEqualityFn<GlobalStore>((set) => ({
+export const useGlobalStore = createWithEqualityFn<GlobalStore>((set, get) => ({
   isGlobalMenuOpen: false,
   setIsGlobalMenuOpen: (isGlobalMenuOpen) => set({ isGlobalMenuOpen }),
 
@@ -33,5 +41,17 @@ export const useGlobalStore = createWithEqualityFn<GlobalStore>((set) => ({
     document.documentElement.classList.toggle('dark', isDarkMode);
 
     return set({ isDarkMode });
+  },
+
+  likePostMap: new Map(),
+  setLikePostMap: (callback) => {
+    const likePostMap = callback(get().likePostMap);
+
+    localStorage.setItem(
+      LOCAL_STARGE_KEY.LIKE_POST_LIST,
+      JSON.stringify(Array.from(likePostMap.entries())),
+    );
+
+    return set({ likePostMap: new Map(likePostMap) });
   },
 }));

@@ -1,6 +1,6 @@
 ---
 title: 'Next.js 블로그를 떠나는 이유'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/e5f6dadc-0b6d-4eb7-b382-3a55b3a2d977'
+titleImage: '../images/contents/blog-remake-review1/nextjs.png'
 description: '블로그 이전 준비'
 date: '2021-08-02'
 tags: [etc, frontend]

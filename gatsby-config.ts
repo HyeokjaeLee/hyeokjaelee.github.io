@@ -10,6 +10,7 @@ export const ALIAS = [
   'utils',
   'constants',
   'images',
+  'generated',
 ].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);

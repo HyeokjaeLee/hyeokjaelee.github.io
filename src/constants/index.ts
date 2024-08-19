@@ -10,6 +10,7 @@ export enum SELECTOR {
 
 export enum LOCAL_STARGE_KEY {
   DARK_MODE = 'dark-mode',
+  LIKE_POST_LIST = 'like-post-list',
 }
 
 export enum SESSION_STORAGE_KEY {

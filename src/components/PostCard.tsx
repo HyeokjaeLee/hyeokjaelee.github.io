@@ -27,7 +27,6 @@ export const PostCard = ({
       >
         <article className="w-full rounded-md transition-shadow hover:shadow-lg dark:shadow-black">
           <div className="relative h-0 w-full overflow-hidden rounded-t-md pb-[50%]">
-            <TitleImage size={100} slug={slug} />
             <Skeleton
               className={`absolute size-full object-cover ${
                 isLoading ? '' : 'hidden'

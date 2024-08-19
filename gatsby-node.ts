@@ -90,7 +90,7 @@ export const onCreateNode: GatsbyNode<
   if (frontmatter.titleImage) {
     imageMap.set(slug, {
       //* 정적으로 생성할 이미지 사이즈
-      sizes: [100, 200],
+      sizes: [100, 200, 600],
       src: frontmatter.titleImage,
       slug,
     });
@@ -103,6 +103,7 @@ export const onCreateNode: GatsbyNode<
     slug: string;
     size: number;
     className?: string;
+    imgClassName?: string;
   }
   
   export const TitleImage = (props: TitleImageProps) => {
@@ -114,6 +115,7 @@ export const onCreateNode: GatsbyNode<
       (size) => `${size}: (
         <StaticImage
           className={props.className}
+          imgClassName={props.imgClassName}
           src="${src}"
           alt="${slug}"
           height={${size}}

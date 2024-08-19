@@ -85,7 +85,7 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
     <nav
       className={cn(
         'flex items-center gap-3 p-3 justify-center',
-        'bg-zinc-50 dark:bg-zinc-900',
+        'bg-zinc-100 dark:bg-zinc-900',
       )}
     >
       <div className="flex max-w-7xl flex-1 items-center justify-between gap-3">
