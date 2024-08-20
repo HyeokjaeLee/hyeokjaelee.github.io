@@ -44,7 +44,7 @@ export const createPages = async ({ graphql, actions, reporter }) => {
 
       createPage({
         path: post.fields.slug,
-        component: path.resolve(`./src/layouts/PostLayout.tsx`),
+        component: path.resolve(`./src/layouts/PostLayout/index.tsx`),
         context: {
           id: post.id,
           previousPostId,

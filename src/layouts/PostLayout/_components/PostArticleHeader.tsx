@@ -1,4 +1,4 @@
-import type { NotNullableMarkdownRemark } from './PostArticle';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 import React from 'react';
 import { Calendar, Tag } from 'react-feather';
@@ -6,7 +6,10 @@ import { Calendar, Tag } from 'react-feather';
 import { Link } from '@reach/router';
 
 type PostArticleHeaderProps = Pick<
-  Exclude<NotNullableMarkdownRemark['frontmatter'], undefined | null>,
+  Exclude<
+    Exclude<PostLayoutQuery['markdownRemark'], undefined | null>['frontmatter'],
+    undefined | null
+  >,
   'date' | 'tags' | 'title'
 >;
 const ICON_SIZE = 'w-4 h-4';
