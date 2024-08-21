@@ -77,18 +77,18 @@ const PostPage = ({
     }
   }
 
-  const pagination = (page: number) => {
+  const getPage = (page: number) => {
     const searchParams = new URLSearchParams(search);
 
     searchParams.set('page', String(page));
 
-    document.getElementById(SELECTOR.MAIN)?.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-
     return `?${searchParams.toString()}`;
   };
+
+  const scrollToTop = () =>
+    document.getElementById(SELECTOR.MAIN)?.scrollTo({
+      top: 0,
+    });
 
   return (
     <article className="flex h-full flex-col items-center justify-between">
@@ -137,7 +137,8 @@ const PostPage = ({
             type="button"
             variant="outline"
             onClick={() => {
-              navigate(pagination(page - 1));
+              navigate(getPage(page - 1));
+              scrollToTop();
             }}
           >
             <ChevronLeft />
@@ -154,7 +155,14 @@ const PostPage = ({
                 color="gray"
                 variant={isSelected ? 'solid' : 'outline'}
               >
-                <Link to={pagination(pageNavigation)}>{pageNavigation}</Link>
+                <Link
+                  to={getPage(pageNavigation)}
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >
+                  {pageNavigation}
+                </Link>
               </Button>
             </li>
           );
@@ -167,7 +175,8 @@ const PostPage = ({
             type="button"
             variant="outline"
             onClick={() => {
-              navigate(pagination(page + 1));
+              navigate(getPage(page + 1));
+              scrollToTop();
             }}
           >
             <ChevronRight />

@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { throttle } from 'lodash-es';
 import { shallow } from 'zustand/shallow';
 
@@ -20,6 +21,8 @@ import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 
 import { GlobalMenuFooter } from './GlobalMenuFooter';
+import { LastPostList } from './LastPostList';
+import { LikePostList } from './LikePostList';
 
 const THROTTLE_TIME = 1_000 / 75;
 
@@ -153,8 +156,19 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
                 <X className="size-5" />
               </IconButton>
             </header>
-            <section className="flex-1 overflow-auto hide-scrollbar">
-              <div className="h-[9999px]">ss</div>
+            <ul className="m-4 flex flex-col gap-4 font-bold text-zinc-700 dark:text-zinc-200">
+              <li>
+                <Link to="/">📔 Post</Link>
+              </li>
+              <li>
+                <Link className="underline" to="/about">
+                  🙌 About Me
+                </Link>
+              </li>
+            </ul>
+            <section className="m-2 flex flex-1 flex-col gap-8 overflow-auto hide-scrollbar">
+              <LastPostList />
+              <LikePostList />
             </section>
             <GlobalMenuFooter />
           </article>

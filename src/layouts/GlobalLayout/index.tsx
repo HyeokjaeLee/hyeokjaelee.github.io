@@ -56,6 +56,12 @@ const GlobalLayout = ({ children, location }: PageProps) => {
     });
   }, []);
 
+  useEffect(() => {
+    document.getElementById(SELECTOR.MAIN)?.scrollTo({
+      top: 0,
+    });
+  }, [location.pathname]);
+
   return (
     <GlobalProvider>
       <ToastContainer

@@ -4,10 +4,10 @@ import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
 
 import { useEffect, useState } from 'react';
-import { Calendar, GitHub, Heart, Menu, Search } from 'react-feather';
+import { GitHub, Menu, Search } from 'react-feather';
 
 import { Logo } from '@components/Logo';
-import { TitleImage } from '@generated/TitleImage';
+import { PostSmallCard } from '@components/PostSmallCard';
 import { Button, Dialog, IconButton, Kbd, TextField } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
@@ -137,10 +137,10 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
           }}
         >
           <Dialog.Trigger>
-            <Button className="text-zinc-400" color="gray" variant="soft">
+            <Button className="flex text-zinc-400" color="gray" variant="soft">
               <Search className="size-4" />
-              <div className="ml-1 mr-14">Search post...</div>
-              <Kbd>Ctrl + K</Kbd>
+              <div className="ml-1 mr-14 phone:mr-8">Search post...</div>
+              <Kbd className="phone:hidden">Ctrl + K</Kbd>
             </Button>
           </Dialog.Trigger>
           <Dialog.Content className="flex max-h-[calc(100dvh-10rem)] flex-col phone:max-w-[calc(100dvw-2rem)]">
@@ -166,7 +166,7 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
                 </TextField.Slot>
               </TextField.Root>
             </div>
-            <ul className="mt-4 flex flex-1 flex-col gap-4 overflow-y-auto px-1">
+            <ul className="mt-4 flex flex-1 flex-col gap-4 overflow-y-auto px-1 hide-scrollbar">
               {searchedPosts.map(({ fields, frontmatter }, index) => {
                 const slug = fields?.slug;
 
@@ -180,27 +180,11 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
                       setIsSearchModalOpened(false);
                     }}
                   >
-                    <Link
-                      className="flex items-center gap-4 rounded-sm p-2 transition-colors hover:bg-zinc-100"
-                      to={slug}
-                    >
-                      <div>
-                        <TitleImage
-                          className="relative h-0 w-14 rounded-xl pb-14"
-                          imgClassName="absolute w-full object-cover"
-                          size={100}
-                          slug={slug}
-                        />
-                      </div>
-                      <section className="flex-1 overflow-hidden">
-                        <strong className="truncate text-base">
-                          {frontmatter?.title}
-                        </strong>
-                        <p className="truncate text-sm text-zinc-600 dark:text-zinc-400">
-                          {frontmatter?.description}
-                        </p>
-                      </section>
-                    </Link>
+                    <PostSmallCard
+                      description={frontmatter?.description}
+                      slug={slug}
+                      title={frontmatter?.title}
+                    />
                   </li>
                 );
               })}
