@@ -67,7 +67,7 @@ export const PostLargeCard = ({
           </ul>
           <Tag className="mt-1 size-3 text-zinc-400" />
         </section>
-        <section className="flex items-center justify-between border-t border-zinc-200 px-4 py-2 dark:border-zinc-700">
+        <section className="flex items-center justify-between border-t border-zinc-200 px-3 py-2 dark:border-zinc-700">
           <div className="flex items-center gap-2 text-zinc-400">
             <Calendar className="size-3" />
             <time className="text-xs">{date}</time>

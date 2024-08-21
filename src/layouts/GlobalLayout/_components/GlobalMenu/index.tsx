@@ -16,7 +16,6 @@ import { Transition } from 'react-transition-group';
 
 import { Logo } from '@components/Logo';
 import { IconButton } from '@radix-ui/themes';
-import { useLocation } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 

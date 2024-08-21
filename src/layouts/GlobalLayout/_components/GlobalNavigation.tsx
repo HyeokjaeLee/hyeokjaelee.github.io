@@ -4,9 +4,10 @@ import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
 
 import { useEffect, useState } from 'react';
-import { GitHub, Menu, Search } from 'react-feather';
+import { Calendar, GitHub, Heart, Menu, Search } from 'react-feather';
 
 import { Logo } from '@components/Logo';
+import { TitleImage } from '@generated/TitleImage';
 import { Button, Dialog, IconButton, Kbd, TextField } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
@@ -29,14 +30,14 @@ const updateSearchQueryString = (value: string) => {
   });
 };
 
-const THROTTLE_TIME = 1_000 / 15;
+const DEBOUNCE_TIME = 300;
 
 const debounceUpdateSearchQueryString = debounce(
   updateSearchQueryString,
-  THROTTLE_TIME,
+  DEBOUNCE_TIME,
 );
 
-export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
+export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
   const setIsGlobalMenuOpen = useGlobalStore(
     (state) => state.setIsGlobalMenuOpen,
   );
@@ -51,16 +52,20 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
             slug
           }
           frontmatter {
+            date(formatString: "YY/MM/DD")
             title
+            titleImage
+            tags
+            description
           }
         }
       }
     }
   `);
 
-  const [searchQuery, setSearchQuery] = useState(
-    new URLSearchParams(search).get('q') || '',
-  );
+  const urlSearchQuery = new URLSearchParams(search).get('q') || '';
+
+  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
 
   const [isSearchModalOpened, setIsSearchModalOpened] = useState(!!searchQuery);
 
@@ -80,6 +85,17 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
   useEffect(() => {
     debounceUpdateSearchQueryString(searchQuery);
   }, [searchQuery]);
+
+  const searchedPosts = nodes.filter((node) => {
+    const searchString =
+      `${node.frontmatter?.title}${node.frontmatter?.description}`
+        .toLowerCase()
+        .replaceAll(' ', '');
+
+    return searchString.includes(
+      urlSearchQuery.toLowerCase().replaceAll(' ', ''),
+    );
+  });
 
   return (
     <nav
@@ -117,7 +133,7 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
           onOpenChange={(value) => {
             setIsSearchModalOpened(value);
 
-            if (!value) setTimeout(() => setSearchQuery(''), THROTTLE_TIME);
+            if (!value) setTimeout(() => setSearchQuery(''), DEBOUNCE_TIME);
           }}
         >
           <Dialog.Trigger>
@@ -127,36 +143,64 @@ export const GlobalHeader = ({ search }: GlobalHeaderProps) => {
               <Kbd>Ctrl + K</Kbd>
             </Button>
           </Dialog.Trigger>
-          <Dialog.Content className="flex max-h-[calc(100dvh-5rem)] flex-col">
-            <TextField.Root
-              color="gray"
-              placeholder="Search post..."
-              size="3"
-              type="search"
-              value={searchQuery}
-              variant="soft"
-              onChange={(e) => {
-                e.preventDefault();
+          <Dialog.Content className="flex max-h-[calc(100dvh-10rem)] flex-col phone:max-w-[calc(100dvw-2rem)]">
+            <div>
+              <TextField.Root
+                color="gray"
+                placeholder="Search post..."
+                size="3"
+                type="search"
+                value={searchQuery}
+                variant="soft"
+                onChange={(e) => {
+                  e.preventDefault();
 
-                setSearchQuery(e.target.value);
-              }}
-            >
-              <TextField.Slot>
-                <Search className="size-4" />
-              </TextField.Slot>
-              <TextField.Slot>
-                <Kbd>Esc</Kbd>
-              </TextField.Slot>
-            </TextField.Root>
-            <ul className="mt-4 flex-1 overflow-auto">
-              {nodes.map(({ fields, frontmatter }, index) => {
+                  setSearchQuery(e.target.value);
+                }}
+              >
+                <TextField.Slot>
+                  <Search className="size-4" />
+                </TextField.Slot>
+                <TextField.Slot>
+                  <Kbd>Esc</Kbd>
+                </TextField.Slot>
+              </TextField.Root>
+            </div>
+            <ul className="mt-4 flex flex-1 flex-col gap-4 overflow-y-auto px-1">
+              {searchedPosts.map(({ fields, frontmatter }, index) => {
                 const slug = fields?.slug;
 
                 if (!slug) throw new Error('slug is required');
 
                 return (
-                  <li key={index}>
-                    <Link to={slug}>{frontmatter?.title}</Link>
+                  <li
+                    key={index}
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsSearchModalOpened(false);
+                    }}
+                  >
+                    <Link
+                      className="flex items-center gap-4 rounded-sm p-2 transition-colors hover:bg-zinc-100"
+                      to={slug}
+                    >
+                      <div>
+                        <TitleImage
+                          className="relative h-0 w-14 rounded-xl pb-14"
+                          imgClassName="absolute w-full object-cover"
+                          size={100}
+                          slug={slug}
+                        />
+                      </div>
+                      <section className="flex-1 overflow-hidden">
+                        <strong className="truncate text-base">
+                          {frontmatter?.title}
+                        </strong>
+                        <p className="truncate text-sm text-zinc-600 dark:text-zinc-400">
+                          {frontmatter?.description}
+                        </p>
+                      </section>
+                    </Link>
                   </li>
                 );
               })}

@@ -13,8 +13,8 @@ import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 import { toast } from '@utils/toast';
 
-import { GlobalHeader } from './_components/GlobalHeader';
 import { GlobalMenu } from './_components/GlobalMenu';
+import { GlobalNavigation } from './_components/GlobalNavigation';
 import { GlobalProvider } from './_components/GlobalProvider';
 
 const GlobalLayout = ({ children, location }: PageProps) => {
@@ -91,7 +91,7 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         )}
         transition={Slide}
       />
-      <GlobalHeader search={location.search} />
+      <GlobalNavigation search={location.search} />
       <main
         className={cn(
           'flex-1 overflow-auto',

@@ -6,12 +6,12 @@ import parse from 'html-react-parser';
 
 import * as React from 'react';
 
+import { ArticleNavigationContainer } from '@components/ArticleNavigation';
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 
 import { Comment } from './_components/Comment';
 import { PostArticleHeader } from './_components/PostArticleHeader';
-import { PostContentsContainer } from './_components/PostContentsContainer';
 import { RandomPostSuggestion } from './_components/RandomPostSuggestion';
 
 type PostLayoutProps = PageProps<PostLayoutQuery>;
@@ -25,23 +25,27 @@ export const Head = ({ data: { markdownRemark } }: PostLayoutProps) => {
 const PostLayout = ({
   data: { markdownRemark, allMarkdownRemark },
 }: PostLayoutProps) => {
-  const { frontmatter, headings, html } = markdownRemark ?? {};
+  const { fields, frontmatter, headings, html } = markdownRemark ?? {};
 
   return (
     <article className="mt-16 break-keep py-4 font-nanum-square leading-relaxed phone:mt-8 tablet:mt-14">
       <PostArticleHeader
         date={frontmatter?.date}
+        slug={fields?.slug}
         tags={frontmatter?.tags}
         title={frontmatter?.title}
       />
-      <PostContentsContainer headings={headings} title={frontmatter?.title}>
+      <ArticleNavigationContainer
+        headings={headings}
+        title={frontmatter?.title}
+      >
         <section
-          className="post-body mx-auto w-full max-w-3xl"
+          className="post-body mx-auto w-full max-w-3xl px-4"
           itemProp="post-article-body"
         >
           {html ? parse(html) : null}
         </section>
-      </PostContentsContainer>
+      </ArticleNavigationContainer>
       <footer className="mx-auto mt-40 max-w-4xl phone:mt-9">
         <section className="px-4">
           <Bio />

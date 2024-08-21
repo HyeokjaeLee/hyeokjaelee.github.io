@@ -10,6 +10,7 @@ import { ChevronLeft, ChevronRight } from 'react-feather';
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { PostLargeCard } from '@components/PostLargeCard';
+import { SELECTOR } from '@constants';
 import { Button } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 
@@ -80,6 +81,11 @@ const PostPage = ({
     const searchParams = new URLSearchParams(search);
 
     searchParams.set('page', String(page));
+
+    document.getElementById(SELECTOR.MAIN)?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
 
     return `?${searchParams.toString()}`;
   };

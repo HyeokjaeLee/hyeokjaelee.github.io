@@ -1,23 +1,24 @@
-import type { PostLayoutQuery } from 'types/graphql-types';
-
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { debounce } from 'lodash-es';
 
 import { useEffect, useRef, useState } from 'react';
-interface PostContentsContainer
-  extends Pick<
-    Exclude<PostLayoutQuery['markdownRemark'], undefined | null>,
-    'headings'
-  > {
+interface ArticleNavigationContainerProps {
+  headings?:
+    | ({
+        depth?: number | null;
+        value?: string | null;
+        id?: string | null;
+      } | null)[]
+    | null;
   title?: string | null;
   children?: React.ReactNode;
 }
 
-export const PostContentsContainer = ({
+export const ArticleNavigationContainer = ({
   title,
   children,
   headings,
-}: PostContentsContainer) => {
+}: ArticleNavigationContainerProps) => {
   const [selectedHeading, setSelectedHeading] = useState('');
 
   const preventScrollEvent = useRef(false);
@@ -81,7 +82,7 @@ export const PostContentsContainer = ({
       <div className="block flex-1 phone:hidden tablet:hidden" />
       {children}
       <aside className="block flex-1 phone:hidden tablet:hidden">
-        <nav className="sticky top-2 my-4 ml-12 min-w-[15em] max-w-xs border-l-2 border-zinc-300 px-4 py-1 text-xs dark:border-zinc-700">
+        <nav className="sticky top-4 my-4 ml-12 min-w-[15em] max-w-xs px-4 py-1 text-xs">
           <h3 className="mb-2 text-base font-bold">{title}</h3>
           <ul className="ml-4 flex list-disc flex-col gap-1">
             {headings?.map((heading, index) => {
