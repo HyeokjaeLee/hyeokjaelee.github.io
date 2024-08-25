@@ -1,10 +1,13 @@
 import type { PageProps } from 'gatsby';
+import type SwiperType from 'swiper';
 import type { PostPageQuery } from 'types/graphql-types';
 
 import { graphql, Link, navigate } from 'gatsby';
+import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { shallow } from 'zustand/shallow';
 
+import { useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 
 import { Bio } from '@components/Bio';
@@ -13,17 +16,17 @@ import { PostLargeCard } from '@components/PostLargeCard';
 import { SELECTOR } from '@constants';
 import { Button } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import { cn } from '@utils/cn';
 
 const POST_TAG_EMOJI_LIST = [
   ['all', '📚'],
   ['issues', '🚧'],
   ['frontend', '🎨'],
   ['backend', '🔧'],
-  ['devops', '📦'],
+  ['devOps', '📦'],
   ['etc', '🎁'],
   ['project', '📝'],
   ['data', '📊'],
-  ['devOps', '📦'],
 ];
 
 const PAGINATION_BUTTON_COUNT = 7;
@@ -90,18 +93,62 @@ const PostPage = ({
       top: 0,
     });
 
+  const slideRef = useRef<SwiperType | null>(null);
+
+  useEffect(() => {
+    const swiperIndex = POST_TAG_EMOJI_LIST.findIndex(
+      ([value]) => value === tag,
+    );
+    if (slideRef.current) {
+      slideRef.current.slideTo(swiperIndex);
+    }
+  }, [page, tag]);
+
   return (
     <article className="flex h-full flex-col items-center justify-between">
       <header className="py-7">
         <Bio />
       </header>
       <div className="flex w-full flex-col items-center gap-1">
-        <Swiper className="max-w-6xl">
-          {POST_TAG_EMOJI_LIST.map(([title, emoji]) => (
-            <SwiperSlide key={title} className="w-fit">
-              {`${emoji} ${title}`}
-            </SwiperSlide>
-          ))}
+        <Swiper
+          mousewheel
+          autoplay={{
+            delay: 3_000,
+            disableOnInteraction: true,
+          }}
+          className="mx-auto w-fit max-w-full"
+          modules={[Mousewheel, Autoplay]}
+          slidesPerView="auto"
+          spaceBetween={10}
+          onSwiper={(swiper) => (slideRef.current = swiper)}
+        >
+          {POST_TAG_EMOJI_LIST.map(([value, emoji]) => {
+            const isCurrentTag = value === tag;
+
+            return (
+              <SwiperSlide key={value} className="my-4 w-fit">
+                <Link
+                  className={cn(
+                    'flex justify-center items-center gap-1 transition-colors rounded-full px-4 py-1 shadow-sm text-sm',
+                    'bg-white dark:bg-zinc-800',
+                    {
+                      'bg-zinc-800 text-white dark:bg-white dark:text-zinc-900':
+                        isCurrentTag,
+                    },
+                  )}
+                  to={`?tag=${value}`}
+                >
+                  {isCurrentTag ? (
+                    <div className="w-5 animate-flip-up text-base animate-duration-500">
+                      {emoji}
+                    </div>
+                  ) : null}
+
+                  {value}
+                </Link>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
         <ul className="mx-auto flex w-full max-w-6xl flex-wrap gap-9 px-9">
           {postListOfPage.map(({ fields, frontmatter }) => {

@@ -161,9 +161,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
                 <Link to="/">📔 Post</Link>
               </li>
               <li>
-                <Link className="underline" to="/about">
-                  🙌 About Me
-                </Link>
+                <Link to="/about">🙌 About Me</Link>
               </li>
             </ul>
             <section className="m-2 flex flex-1 flex-col gap-8 overflow-auto hide-scrollbar">
