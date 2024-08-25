@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[덕업일치 개발자의 블로그입니다.]]></description><link>https://hyeokjaelee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Aug 2024 12:43:40 GMT</lastBuildDate><item><title><![CDATA[Briend 번역 채팅앱 개발]]></title><description><![CDATA[…]]></description><link>https://hyeokjaelee.github.io/briend/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/briend/</guid><pubDate>Fri, 06 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;나는 여행다니면서 현지 새로운 사람들을 만나는것을 좋아한다.&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[덕업일치 개발자의 블로그입니다.]]></description><link>https://hyeokjaelee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Aug 2024 11:41:16 GMT</lastBuildDate><item><title><![CDATA[Briend 번역 채팅앱 개발]]></title><description><![CDATA[…]]></description><link>https://hyeokjaelee.github.io/briend/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/briend/</guid><pubDate>Fri, 06 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;나는 여행다니면서 현지 새로운 사람들을 만나는것을 좋아한다.&lt;/strong&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;하지만 영어를 잘하는 편은 아니라 가끔 소통이 불편해서 번역기를 자주 이용했는데 마이크를 상대한테 가져다 대고 인식이 될때 까지 뻘쭘한 시간을 보내는것이 불편해서 어떻게 하면 좀더 편하게 소통할 수 있을까 고민하던 와중에 떠올린 간단한 앱을 개발했다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;영어는 못하지만 코딩은 할 줄 알지...
@@ -11,10 +11,7 @@
 &lt;h3 id=&quot;편의성&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%ED%8E%B8%EC%9D%98%EC%84%B1&quot; aria-label=&quot;편의성 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;편의성&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;우선 상대방에게 부담없이 들이밀기 위해선 초대 받는 사람의 앱 사용 뎁스를 최소한으로 해야한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;채팅에 필요한 최소한의 정보를 받되 모든 정보는 초대 하는 사람이 입력하도록 했다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/briend/assets/71566740/30907aa5-262a-4acb-9dbc-81bda1133879&quot; alt=&quot;briend-preview&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;/18c56850a9d060084265082fc96df12b/briend2.gif&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;QR을 스캔하면 바로 브라우저에서 사용할 수 있는 웹앱 형식을 생각했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;네이티브 앱같은 경험을 주기 위해서 PWA도 지원했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;호스트 사용자(한국인)는 카카오 로그인을 통해 별도의 가입 없이 사용할 수 있게 했고 다크 모드나 로그인 저장 같은 단순한 편의 기능들만 추가 해주었다.&lt;/p&gt;
@@ -56,56 +53,447 @@
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;그 외에도 Pusher 채널을 항시 열어 놓을 수 없으니 일정 시간이 지나면 해당 채널의 토큰이 만료되도록 설정해 두었고 상대방이 채팅 화면을 보고 있는지 체크하고 채팅 화면을 보고 있을때만 메시지를 전달 할 수 있도록 개발했다.&lt;/p&gt;
 &lt;h2 id=&quot;테스트&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;테스트 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;모든 개발이 완료된 후엔 일본을 여행했을때 사귀었던 한국말을 잘하는 일본 친구에게 테스트를 부탁했다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/briend/assets/71566740/93f1943e-619c-4347-834b-2377ad9d7a75&quot; alt=&quot;preview&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 759px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHj1zUJkK//xAAZEAACAwEAAAAAAAAAAAAAAAABAgADETL/2gAIAQEAAQUCVdZqQowTktaWmz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAADAAIDAAAAAAAAAAAAAAAAARECEDFRkf/aAAgBAQAGPwJLstpwjFojnmv/xAAbEAEAAwADAQAAAAAAAAAAAAABABEhMVFhkf/aAAgBAQABPyFe+BcrUarieTHcuIlwMCl3lI+n5P/aAAwDAQACAAMAAAAQDN//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhMUHB0bH/2gAIAQEAAT8QqRSKuLahAHnBmx8Z0CyaDhA07+wUTNqs0+wb6k//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3cb8fdaccc96f6d087e414e4428817ad/f1512/briend.webp 200w,
+/static/3cb8fdaccc96f6d087e414e4428817ad/f59aa/briend.webp 400w,
+/static/3cb8fdaccc96f6d087e414e4428817ad/08c81/briend.webp 759w&quot;
+              sizes=&quot;(max-width: 759px) 100vw, 759px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3cb8fdaccc96f6d087e414e4428817ad/16d62/briend.jpg 200w,
+/static/3cb8fdaccc96f6d087e414e4428817ad/27ec1/briend.jpg 400w,
+/static/3cb8fdaccc96f6d087e414e4428817ad/8fdab/briend.jpg 759w&quot;
+            sizes=&quot;(max-width: 759px) 100vw, 759px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3cb8fdaccc96f6d087e414e4428817ad/8fdab/briend.jpg&quot;
+            alt=&quot;briend&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;생각보다 대화가 굉장히 자연스러워서 놀랐다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;응답 속도 역시 무료 플랜들로 도배해놓은 프로젝트 치곤 나쁘지 않다.&lt;/p&gt;
 &lt;h2 id=&quot;느낀점&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%8A%90%EB%82%80%EC%A0%90&quot; aria-label=&quot;느낀점 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;느낀점&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;평소 디자이너와 백엔드 개발자분들과 협업을 하니 디자인이나 API에 대한 고민이 많이 줄었던것 같은데 다시 한번 그 분들의 소중함을 느낀다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;물론 이런 고민들이 즐겁긴 하지만 한번에 이것저것 하려니 실제로 코드 치는 시간보단 그외 것에 대한 고민들이 많았던것 같다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;당장 다음주에 또 일본에 가는데 한번 사용해 봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[제주도 디지털 노마드 생활기]]></title><description><![CDATA[이번에 제주도에 거주중인 동료 개발자분의 결혼식이 있었다. 비행기 탄김에 한달정도 제주도에서 살아볼 생각으로 노트북을 챙겨서 제주도로 날아왔다.…]]></description><link>https://hyeokjaelee.github.io/digital-nomad-in-jeju/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/digital-nomad-in-jeju/</guid><pubDate>Mon, 10 Apr 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이번에 제주도에 거주중인 동료 개발자분의 결혼식이 있었다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;당장 다음주에 또 일본에 가는데 한번 사용해 봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[제주도 디지털 노마드 생활기]]></title><description><![CDATA[…]]></description><link>https://hyeokjaelee.github.io/digital-nomad-in-jeju/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/digital-nomad-in-jeju/</guid><pubDate>Mon, 10 Apr 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이번에 제주도에 거주중인 동료 개발자분의 결혼식이 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;비행기 탄김에 한달정도 제주도에서 살아볼 생각으로 노트북을 챙겨서 제주도로 날아왔다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5a22f6b4-40d0-4b6f-bfa0-a6fbc51d6af7&quot; alt=&quot;1&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-비행기 타는날 아침에 공항 라운지로 출근해서 일하고 값 싼 밤 비행기를 탓다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 765px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHBK3NCM4SfRWLyi80//8QAHBAAAgICAwAAAAAAAAAAAAAAAQIAAxAREyEy/9oACAEBAAEFAlphRFh4wTf0bdzeD5iostRQNCf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERD/2gAIAQMBAT8ByI//xAAXEQEAAwAAAAAAAAAAAAAAAAAAEBES/9oACAECAQE/AY0t/8QAGxAAAwACAwAAAAAAAAAAAAAAAAEhEDERIOH/2gAIAQEABj8CLyekKka6aRFj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFRYRBBkf/aAAgBAQABPyFrFuuprCObloZeyKqqrNEY5TzEXrMGmWxv34Q5+UtojOif/9oADAMBAAIAAwAAABDMOMz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EAf/xAAWEQEBAQAAAAAAAAAAAAAAAAAQATH/2gAIAQIBAT8Qpo//xAAeEAEAAwACAgMAAAAAAAAAAAABABEhMVFBYYGhwf/aAAgBAQABPxBo6XNMPmIKyQqTn8mICOYH6hXNJ0t9+4aDCIcQItJQuTU5O5YqfKFeY9tQCbuiG2eZ/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d7892d485f8cebba8cb35f6e79aaaa11/f1512/sky.webp 200w,
+/static/d7892d485f8cebba8cb35f6e79aaaa11/f59aa/sky.webp 400w,
+/static/d7892d485f8cebba8cb35f6e79aaaa11/2115d/sky.webp 765w&quot;
+              sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d7892d485f8cebba8cb35f6e79aaaa11/16d62/sky.jpg 200w,
+/static/d7892d485f8cebba8cb35f6e79aaaa11/27ec1/sky.jpg 400w,
+/static/d7892d485f8cebba8cb35f6e79aaaa11/302c6/sky.jpg 765w&quot;
+            sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d7892d485f8cebba8cb35f6e79aaaa11/302c6/sky.jpg&quot;
+            alt=&quot;sky&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;비행기 타는날 아침에 공항 라운지로 출근해서 일하고 값 싼 밤 비행기를 탓다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;업무-환경&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EC%97%85%EB%AC%B4-%ED%99%98%EA%B2%BD&quot; aria-label=&quot;업무 환경 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;업무 환경&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;산책하는 취미가 있어서 산책로와 카페가 많은 애월에 숙소를 잡았다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8624870f-be2d-4e36-ab4f-e0d4e1d1d99a&quot; alt=&quot;2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAED/9oADAMBAAIQAxAAAAFTJaLQaaB//8QAGhAAAQUBAAAAAAAAAAAAAAAAAAECAxESE//aAAgBAQABBQLAjDAkzqbLadD/xAAXEQADAQAAAAAAAAAAAAAAAAAAARIT/9oACAEDAQE/AYZmz//EABURAQEAAAAAAAAAAAAAAAAAAAAT/9oACAECAQE/AaKv/8QAFhABAQEAAAAAAAAAAAAAAAAAEDEA/9oACAEBAAY/Am6n/8QAGRABAQADAQAAAAAAAAAAAAAAAQAxQXFR/9oACAEBAAE/IRy+QoEPkdd3F//aAAwDAQACAAMAAAAQBy//xAAWEQADAAAAAAAAAAAAAAAAAAAQEUH/2gAIAQMBAT8QZQf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QksP/xAAdEAEAAgICAwAAAAAAAAAAAAABABExQSFxkbHR/9oACAEBAAE/EEhR4lTOUsS5Ls3ULqiaPQgE5N9v2f/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b0922bd672ff20685cf83f8057110b56/f1512/jeju1.webp 200w,
+/static/b0922bd672ff20685cf83f8057110b56/f59aa/jeju1.webp 400w,
+/static/b0922bd672ff20685cf83f8057110b56/47a22/jeju1.webp 800w,
+/static/b0922bd672ff20685cf83f8057110b56/cc89b/jeju1.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b0922bd672ff20685cf83f8057110b56/16d62/jeju1.jpg 200w,
+/static/b0922bd672ff20685cf83f8057110b56/27ec1/jeju1.jpg 400w,
+/static/b0922bd672ff20685cf83f8057110b56/5fd6b/jeju1.jpg 800w,
+/static/b0922bd672ff20685cf83f8057110b56/84faa/jeju1.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b0922bd672ff20685cf83f8057110b56/5fd6b/jeju1.jpg&quot;
+            alt=&quot;jeju1&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소 풍경&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;처음에는 예쁜 카페들을 찾아 다니면서 일할 생각이었지만 하루 일해보니 그런 카페들은 대부분 소규모 카페들이라 하루종일 일하는 내 입장에서는 조금 부담 스러웠다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d481f84c-4102-478d-a0a7-877118377127&quot; alt=&quot;3&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt; &lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4e0600ea-0963-4f8c-b917-1f16ea0b675a&quot; alt=&quot;8&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-결국 숙소 앞에 투썸플레이스에서 대부분 일했던것 같다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUEBv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB3TmOuqSiEIYqoL//xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIRAwQSMkH/2gAIAQEAAQUC2KeP0y9FFRdM5FkXcf/EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/ASP/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAdEAACAQQDAAAAAAAAAAAAAAAAAQIQESFRA2Gh/9oACAEBAAY/Ak+xZ9pZzutaEzPLKqZ//8QAHBAAAwEAAgMAAAAAAAAAAAAAAAERITFRQWFx/9oACAEBAAE/IXRH9CdR3FS7NpSeTD4zN5L7T6Y2LGPuYf/aAAwDAQACAAMAAAAQIBh+/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARIf/aAAgBAwEBPxDgxsZgv//EABgRAQEAAwAAAAAAAAAAAAAAAAEAEBEh/9oACAECAQE/EE33BN//xAAdEAEBAAIDAAMAAAAAAAAAAAABEQAhMUFRYXGB/9oACAEBAAE/ENZsKVOnvIA6k18vvJpFPTJLoLzk6AxQC6LxTg1ZgUHe2U/KYlVirvDwM3Aorn//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2ebb3816a8fa42283db460a9dc8e2a1f/f1512/jeju2.webp 200w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/f59aa/jeju2.webp 400w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/47a22/jeju2.webp 800w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/f98eb/jeju2.webp 918w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2ebb3816a8fa42283db460a9dc8e2a1f/16d62/jeju2.jpg 200w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/27ec1/jeju2.jpg 400w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/5fd6b/jeju2.jpg 800w,
+/static/2ebb3816a8fa42283db460a9dc8e2a1f/777f4/jeju2.jpg 918w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2ebb3816a8fa42283db460a9dc8e2a1f/5fd6b/jeju2.jpg&quot;
+            alt=&quot;jeju2&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;애월 투썸플레이스&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHUVqIiomv/xAAYEAEBAQEBAAAAAAAAAAAAAAACAQADEv/aAAgBAQABBQLsKrGuYtWssyPuIDf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECEjIRIjFRcf/aAAgBAQAGPwKXpXUxbOLPtm5Gckf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhQTFx/9oACAEBAAE/IaeQq4KdJ4628ZYvZ32Iv0dJtbjRTyITyFZP/9oADAMBAAIAAwAAABCkH//EABgRAAIDAAAAAAAAAAAAAAAAAAAxARFR/9oACAEDAQE/EGRc4f/EABgRAAIDAAAAAAAAAAAAAAAAAAABESEx/9oACAECAQE/EHlkI//EAB4QAQACAgEFAAAAAAAAAAAAAAEAESExgUFRYXGh/9oACAEBAAE/ENXkZWBdW95YBdwBecOT1FNbyg25gJgKALfnMHDjA5X3q4OADAnpxP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/dd8809f7ebcfe8192e406d2c02e240c3/f1512/jeju3.webp 200w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/f59aa/jeju3.webp 400w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/47a22/jeju3.webp 800w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/cc89b/jeju3.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/dd8809f7ebcfe8192e406d2c02e240c3/16d62/jeju3.jpg 200w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/27ec1/jeju3.jpg 400w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/5fd6b/jeju3.jpg 800w,
+/static/dd8809f7ebcfe8192e406d2c02e240c3/84faa/jeju3.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/dd8809f7ebcfe8192e406d2c02e240c3/5fd6b/jeju3.jpg&quot;
+            alt=&quot;jeju3&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;결국 숙소 앞에 투썸플레이스에서 대부분 일했던것 같다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;인터페이스 작업할때 맥북만으로는 화면이 작아 불편한 부분들이 있어서 항상 아이패드를 챙겨다니며 보조 모니터로 활용했다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;처음엔 바다를 보는게 일하는게 좋아서 통창앞에 항상 자리를 잡았었는데 날씨가 아직 쌀쌀했음에도 낮에는 너무 더웠다..&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/881bf60a-430f-4446-b557-66709389ef8f&quot; alt=&quot;9&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-카페에서 탁 트인 바다를 보면서 일하니 일할 맛이 났다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a4c20727-ba7e-4975-b4f9-ecc24c3fb64f&quot; alt=&quot;4&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgME/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAZvyZUxE5H//xAAaEAACAgMAAAAAAAAAAAAAAAAAAQIRAwQT/9oACAEBAAEFAkiijtJJ7eQucz//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/Aahj/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAECAQE/AVbW/8QAGBAAAwEBAAAAAAAAAAAAAAAAARARAJH/2gAIAQEABj8CdpVp7v/EABsQAAICAwEAAAAAAAAAAAAAAAERACEQMVGR/9oACAEBAAE/ISvRjjQg7fmBFoBrsuPz/9oADAMBAAIAAwAAABBwP//EABcRAQADAAAAAAAAAAAAAAAAAAABEUH/2gAIAQMBAT8QjRR//8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQIBAT8QjD//xAAeEAEAAgAHAQAAAAAAAAAAAAABABEhMUFRYYGhsf/aAAgBAQABPxCoaOoVFLNYDuQDXDhIgSFlYv5ByMXFUeE//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5876ebb73667f934bd1d869850c58b24/f1512/jeju4.webp 200w,
+/static/5876ebb73667f934bd1d869850c58b24/f59aa/jeju4.webp 400w,
+/static/5876ebb73667f934bd1d869850c58b24/47a22/jeju4.webp 800w,
+/static/5876ebb73667f934bd1d869850c58b24/cc89b/jeju4.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5876ebb73667f934bd1d869850c58b24/16d62/jeju4.jpg 200w,
+/static/5876ebb73667f934bd1d869850c58b24/27ec1/jeju4.jpg 400w,
+/static/5876ebb73667f934bd1d869850c58b24/5fd6b/jeju4.jpg 800w,
+/static/5876ebb73667f934bd1d869850c58b24/84faa/jeju4.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5876ebb73667f934bd1d869850c58b24/5fd6b/jeju4.jpg&quot;
+            alt=&quot;jeju4&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;카페에서 탁 트인 바다를 보면서 일하니 일할 맛이 났다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 765px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAYAQADAQEAAAAAAAAAAAAAAAAAAgMBBP/aAAwDAQACEAMQAAABYugeU52aIY+Xnthgx//EABoQAAMBAQEBAAAAAAAAAAAAAAABAhIhAxP/2gAIAQEAAQUCfmzJk+puSr6k6VTmSyu2f//EABgRAAIDAAAAAAAAAAAAAAAAAAABAhAS/9oACAEDAQE/AXFmHf8A/8QAGREBAAIDAAAAAAAAAAAAAAAAAQACAxAT/9oACAECAQE/ATLWdSBr/8QAGxAAAgIDAQAAAAAAAAAAAAAAECEAATFRYXH/2gAIAQEABj8CLCixudsV6f/EABsQAQACAwEBAAAAAAAAAAAAAAEAERAhQTGh/9oACAEBAAE/IU7IruJfxQ/Iyp2lS+aDqAF3AAno8hqW4//aAAwDAQACAAMAAAAQ8w9M/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARMf/aAAgBAwEBPxALEyL/xAAYEQACAwAAAAAAAAAAAAAAAAAAARBBYf/aAAgBAgEBPxC0zUSo/8QAIBABAAICAgEFAAAAAAAAAAAAAQARITFRYUFxgbHB8f/aAAgBAQABPxAKkT1g9Jn+R0UGurG2cfEJV65sKmPw5sPuVhNgWoqcEu/biD0lu1jXrFeMRTZTB1Fn/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/24ff84c5b7a488739e425d32b819ec10/f1512/jeju5.webp 200w,
+/static/24ff84c5b7a488739e425d32b819ec10/f59aa/jeju5.webp 400w,
+/static/24ff84c5b7a488739e425d32b819ec10/2115d/jeju5.webp 765w&quot;
+              sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/24ff84c5b7a488739e425d32b819ec10/16d62/jeju5.jpg 200w,
+/static/24ff84c5b7a488739e425d32b819ec10/27ec1/jeju5.jpg 400w,
+/static/24ff84c5b7a488739e425d32b819ec10/302c6/jeju5.jpg 765w&quot;
+            sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/24ff84c5b7a488739e425d32b819ec10/302c6/jeju5.jpg&quot;
+            alt=&quot;jeju5&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;출근길&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;제주도에 있는 동안 숙소와 카페가 거리가 조금 있어서 매일 걸었던 출근길은 사무실이나 집에서 일할때 보다 상쾌하게 하루를 시작할 수 있게 해주었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8c8517e5-88af-4ada-a878-cbc0f390135a&quot; alt=&quot;5&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt; &lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/3f6746a6-3ea7-4721-b584-18efa4e59563&quot; alt=&quot;6&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-숙소에 루프탑이 있었는데 해질녘에 너무 예뻐서 바람이 많이 불지 않는 날엔 종종 루프탑에서 일할 때도 있었다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c83a3da-da01-42c5-a558-810e8c263f8e&quot; alt=&quot;11&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABbrmzY8IB/8QAGhAAAgMBAQAAAAAAAAAAAAAAAAECAxMSIf/aAAgBAQABBQKUoNI9OrDWxG1h/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BiP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAYEAADAQEAAAAAAAAAAAAAAAAAATEQIf/aAAgBAQAGPwI4mXKU/8QAHBABAAIBBQAAAAAAAAAAAAAAAQARECExQVFh/9oACAEBAAE/IRA3fk7siW3E0ykxCnKf/9oADAMBAAIAAwAAABCI7//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/EKP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxCVv//EABsQAQEAAwADAAAAAAAAAAAAAAERACExcaGx/9oACAEBAAE/EDdM9NPecKEdXWBUJeYzBNGnzNvYjy41ZeHP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/75fbeaad4996af2ddb8e220e5105f943/f1512/jeju6.webp 200w,
+/static/75fbeaad4996af2ddb8e220e5105f943/f59aa/jeju6.webp 400w,
+/static/75fbeaad4996af2ddb8e220e5105f943/47a22/jeju6.webp 800w,
+/static/75fbeaad4996af2ddb8e220e5105f943/cc89b/jeju6.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/75fbeaad4996af2ddb8e220e5105f943/16d62/jeju6.jpg 200w,
+/static/75fbeaad4996af2ddb8e220e5105f943/27ec1/jeju6.jpg 400w,
+/static/75fbeaad4996af2ddb8e220e5105f943/5fd6b/jeju6.jpg 800w,
+/static/75fbeaad4996af2ddb8e220e5105f943/84faa/jeju6.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/75fbeaad4996af2ddb8e220e5105f943/5fd6b/jeju6.jpg&quot;
+            alt=&quot;jeju6&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소 루프탑 풍경&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDAf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABak6XKGB//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERAgMSE//aAAgBAQABBQJUVsQtqnaZ6Yn/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGI/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Bqv/EABkQAQACAwAAAAAAAAAAAAAAAAACQRAhMf/aAAgBAQAGPwJvFrck/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAERITFRYXGh8f/aAAgBAQABPyF3qWJiwanRtBlZXfJ6h//aAAwDAQACAAMAAAAQex//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QkMP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QtNv/xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhMUFxgbH/2gAIAQEAAT8QSQt7DmCuArFpT3ACnn2EUQwNIQNkGqp9hwsdJ//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/359b1204441e5fb385a8092d16d65187/f1512/jeju7.webp 200w,
+/static/359b1204441e5fb385a8092d16d65187/f59aa/jeju7.webp 400w,
+/static/359b1204441e5fb385a8092d16d65187/47a22/jeju7.webp 800w,
+/static/359b1204441e5fb385a8092d16d65187/cc89b/jeju7.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/359b1204441e5fb385a8092d16d65187/16d62/jeju7.jpg 200w,
+/static/359b1204441e5fb385a8092d16d65187/27ec1/jeju7.jpg 400w,
+/static/359b1204441e5fb385a8092d16d65187/5fd6b/jeju7.jpg 800w,
+/static/359b1204441e5fb385a8092d16d65187/84faa/jeju7.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/359b1204441e5fb385a8092d16d65187/5fd6b/jeju7.jpg&quot;
+            alt=&quot;jeju7&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소에 루프탑이 있었는데 해질녘에 너무 예뻐서 바람이 많이 불지 않는 날엔 종종 루프탑에서 일할 때도 있었다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQCBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAABY5Y1UhR//8QAGxAAAgIDAQAAAAAAAAAAAAAAAhEAAQMSEyH/2gAIAQEAAQUC70zyozO9vGSlz//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwHKP//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAZEAADAQEBAAAAAAAAAAAAAAAAATERIVH/2gAIAQEABj8Cx3wTaiZ00pT/xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhMUFRkf/aAAgBAQABPyEPAQKuvsuNTbd77hUpciXnFvU//9oADAMBAAIAAwAAABBg3//EABURAQEAAAAAAAAAAAAAAAAAABEA/9oACAEDAQE/EAML/8QAFREBAQAAAAAAAAAAAAAAAAAAEQD/2gAIAQIBAT8QaSv/xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhQTGRof/aAAgBAQABPxDZCSk6KEFRUUvABPTAy85AYJa+xAWo5ekrtc6S8URWE//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2a5711d52cd1d1b7b347366f190ff693/f1512/jeju-cafe.webp 200w,
+/static/2a5711d52cd1d1b7b347366f190ff693/f59aa/jeju-cafe.webp 400w,
+/static/2a5711d52cd1d1b7b347366f190ff693/47a22/jeju-cafe.webp 800w,
+/static/2a5711d52cd1d1b7b347366f190ff693/cc89b/jeju-cafe.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2a5711d52cd1d1b7b347366f190ff693/16d62/jeju-cafe.jpg 200w,
+/static/2a5711d52cd1d1b7b347366f190ff693/27ec1/jeju-cafe.jpg 400w,
+/static/2a5711d52cd1d1b7b347366f190ff693/5fd6b/jeju-cafe.jpg 800w,
+/static/2a5711d52cd1d1b7b347366f190ff693/84faa/jeju-cafe.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2a5711d52cd1d1b7b347366f190ff693/5fd6b/jeju-cafe.jpg&quot;
+            alt=&quot;jeju cafe&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소에서 조금 거리가 있던 카페&lt;/figcaption&gt;&lt;/figure&gt;
 중간에 치앙마이에 있을때도 중간에 놀러왔던 다른 회사 개발자 친구가 와서 함께 카페에 가서 일했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;사람 만나는걸 좋아하는 나는 역시 혼자 있는것 보단 누구 한명 옆에 있으니 좋았다.&lt;/p&gt;
 &lt;h2 id=&quot;퇴근-후&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%87%B4%EA%B7%BC-%ED%9B%84&quot; aria-label=&quot;퇴근 후 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;퇴근 후&lt;/h2&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/ae425c42-c1c9-47c1-acdf-7bc92e48dd73&quot; alt=&quot;10&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;퇴근 후엔 주로 산책을 다녔다.&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 765px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDBAL/xAAYAQACAwAAAAAAAAAAAAAAAAACAwABBP/aAAwDAQACEAMQAAABk6pyspUAtTy1zP7KlT//xAAcEAADAAMAAwAAAAAAAAAAAAAAAQIQERIDExT/2gAIAQEAAQUCxXW142x8yeyRWamj5oeEJn//xAAZEQACAwEAAAAAAAAAAAAAAAAAARAREyH/2gAIAQMBAT8BzZyKR//EABkRAAMAAwAAAAAAAAAAAAAAAAABERATUf/aAAgBAgEBPwHaqO9xWf/EABsQAAICAwEAAAAAAAAAAAAAAAABEDERICFB/9oACAEBAAY/Ao4eouXlWW9P/8QAHBAAAgIDAQEAAAAAAAAAAAAAAAERMSFhcVGB/9oACAEBAAE/ISB9IVvHTBRbOND0Ia7h9J0D0Xkj6IcZB//aAAwDAQACAAMAAAAQZPez/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQAQEWH/2gAIAQMBAT8QQNYAMSuE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAQARMWH/2gAIAQIBAT8QFwSbpEzl6X//xAAcEAEAAgMBAQEAAAAAAAAAAAABABEhMVFBcbH/2gAIAQEAAT8QDkF7iCQdObimgKyMvkuovanvlxThLlRg/YgotJaNXcUUZ8htRr3Cbez/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c4896e683a973e4a867c6a071610526f/f1512/jeju8.webp 200w,
+/static/c4896e683a973e4a867c6a071610526f/f59aa/jeju8.webp 400w,
+/static/c4896e683a973e4a867c6a071610526f/2115d/jeju8.webp 765w&quot;
+              sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c4896e683a973e4a867c6a071610526f/16d62/jeju8.jpg 200w,
+/static/c4896e683a973e4a867c6a071610526f/27ec1/jeju8.jpg 400w,
+/static/c4896e683a973e4a867c6a071610526f/302c6/jeju8.jpg 765w&quot;
+            sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c4896e683a973e4a867c6a071610526f/302c6/jeju8.jpg&quot;
+            alt=&quot;jeju8&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;퇴근 후엔 주로 산책을 다녔다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;애월에 숙소를 잡은 가장 큰이유는 산책로였는데, 바닷소리를 들으며 걸으니 평소 산책다닐때와는 또 다른 느낌이었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/13c55ca5-368d-4705-af13-b30e4252016a&quot; alt=&quot;7&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-보통 코스를 다돌고 나면 완전히 캄캄해졌다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGG9FGMQ4X/xAAaEAEAAgMBAAAAAAAAAAAAAAABAAIDERIh/9oACAEBAAEFAg3OIgQPcOSlJd3b/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BR//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAZEAACAwEAAAAAAAAAAAAAAAAAEQECICH/2gAIAQEABj8CxLqzh//EABkQAQEBAQEBAAAAAAAAAAAAAAEAESFBYf/aAAgBAQABPyGAfXs5myYLLbPsDI5f/9oADAMBAAIAAwAAABDfD//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPxANj//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxBuFH//xAAbEAEBAQACAwAAAAAAAAAAAAABEQAhQTFhgf/aAAgBAQABPxDjRPrNMgx0F3Kx9hkd1ZkE+Yquj8Xg3//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/40e695c8e8d1ef976b83206fdf4def5f/f1512/jeju9.webp 200w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/f59aa/jeju9.webp 400w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/47a22/jeju9.webp 800w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/cc89b/jeju9.webp 1020w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/40e695c8e8d1ef976b83206fdf4def5f/16d62/jeju9.jpg 200w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/27ec1/jeju9.jpg 400w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/5fd6b/jeju9.jpg 800w,
+/static/40e695c8e8d1ef976b83206fdf4def5f/84faa/jeju9.jpg 1020w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/40e695c8e8d1ef976b83206fdf4def5f/5fd6b/jeju9.jpg&quot;
+            alt=&quot;jeju9&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;보통 코스를 다돌고 나면 완전히 캄캄해졌다.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;육지에 있을때도 퇴근하면 산책을 매일 가는 편인데 고민하던 내용이 산책중에 해결되거나 새로운 아이디어가 떠오르는 경우가 많아서 산책을 좋아하는 편이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;주말에만 자동차를 렌트해서 제주도 이곳저곳을 돌아다녔는데 보통 맛집 위주로 다녔다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다만 주말에 숙소 주변 렌트존에서 자동차를 빌리려다 보니 차량들이 다 나가고 없어서 필요 이상으로 큰 차를 빌려 다녔다.&lt;/p&gt;
@@ -138,52 +526,416 @@
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;업무를 위한 코워킹 스페이스나 카페는 대부분 무선 인터넷이 잘되어 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다른 카페들은 그래도 대부분 가격이 싼 편이었는데 처음에 자주 갔었던 스타벅스는 현지 물가를 생각하면 꽤 비싼 편이었던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;하지만 사람이 몰리는 시간에 인터넷이 느려지는 경우가 있었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/e51be0c8-0d96-42b7-a805-2a73f33e93c8&quot; alt=&quot;스타벅스&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt; &lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/ef7d58df-b0da-4871-a1dd-e26975551920&quot; alt=&quot;스타벅스2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-숙소 앞 스타벅스&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAEiecRkGh//xAAYEAEBAQEBAAAAAAAAAAAAAAACEQEAA//aAAgBAQABBQJap5nR1vGvfduiE//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAMAAwAAAAAAAAAAAAAAAAABAhESIf/aAAgBAQAGPwJG1HKRKTw5NarJ0//EABsQAAICAwEAAAAAAAAAAAAAAAERADEhQWFx/9oACAEBAAE/ISmbpS5ADhzeh0z3pIcqruEApLzP/9oADAMBAAIAAwAAABBnP//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EB5kht//xAAeEAEBAAICAgMAAAAAAAAAAAABEQAhMZFBUXGhwf/aAAgBAQABPxBr1IgapTXePhQ/cLvz8YhLlcwb3hK17xLqP3lZwRAQwfTsx4LPzP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c33a572126817f10493f2629d427ff38/f1512/startbucks.webp 200w,
+/static/c33a572126817f10493f2629d427ff38/f59aa/startbucks.webp 400w,
+/static/c33a572126817f10493f2629d427ff38/47a22/startbucks.webp 800w,
+/static/c33a572126817f10493f2629d427ff38/10c02/startbucks.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c33a572126817f10493f2629d427ff38/16d62/startbucks.jpg 200w,
+/static/c33a572126817f10493f2629d427ff38/27ec1/startbucks.jpg 400w,
+/static/c33a572126817f10493f2629d427ff38/5fd6b/startbucks.jpg 800w,
+/static/c33a572126817f10493f2629d427ff38/18e3b/startbucks.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c33a572126817f10493f2629d427ff38/5fd6b/startbucks.jpg&quot;
+            alt=&quot;startbucks&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소 앞 스타벅스 테라스&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBQL/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABl7rTK06As1sopvmCM//EAB0QAAICAQUAAAAAAAAAAAAAAAECAAMRExQgIjH/2gAIAQEAAQUCRQYQsHiU9GrMwYwy1Dadm8Xh/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPwGOlHn/xAAZEQEAAgMAAAAAAAAAAAAAAAABABAREiH/2gAIAQIBAT8B2Hkwwr//xAAeEAACAQMFAAAAAAAAAAAAAAAAATECITIREiBBkf/aAAgBAQAGPwKCBCuk+zTIxq8LWRukjh//xAAdEAEAAgICAwAAAAAAAAAAAAABABExQRAhUWHw/9oACAEBAAE/IRqbVuH1hojRKKKjaLuw9A4nWSAz6kp1hPiy3ywW88f/2gAMAwEAAgADAAAAELjWsP/EABcRAQEBAQAAAAAAAAAAAAAAABEAASH/2gAIAQMBAT8QJPIWGL//xAAYEQADAQEAAAAAAAAAAAAAAAAAESEBYf/aAAgBAgEBPxBRMpyNqEP/xAAfEAEBAAICAgMBAAAAAAAAAAABEQAhMVFhcUGBobH/2gAIAQEAAT8QnQhyXvHdAhW0n3gngBAMJTzzb0+tZd02vXlXnAQhAJWsIrXBtfa5GgKEs5JnlX5Hj+ZoTRe3NBU6uKrv+Z//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/f53752c78d0686cb8af2f455afc47280/f1512/starbucks2.webp 200w,
+/static/f53752c78d0686cb8af2f455afc47280/f59aa/starbucks2.webp 400w,
+/static/f53752c78d0686cb8af2f455afc47280/47a22/starbucks2.webp 800w,
+/static/f53752c78d0686cb8af2f455afc47280/10c02/starbucks2.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/f53752c78d0686cb8af2f455afc47280/16d62/starbucks2.jpg 200w,
+/static/f53752c78d0686cb8af2f455afc47280/27ec1/starbucks2.jpg 400w,
+/static/f53752c78d0686cb8af2f455afc47280/5fd6b/starbucks2.jpg 800w,
+/static/f53752c78d0686cb8af2f455afc47280/18e3b/starbucks2.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/f53752c78d0686cb8af2f455afc47280/5fd6b/starbucks2.jpg&quot;
+            alt=&quot;starbucks2&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;스타벅스2&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;나는 현지에서 데이터 무제한 유심을 개통해서 테더링해 사용했기 때문에 큰 문제가 되진 않았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;태국의 준수한 인터넷 환경에는 값싼 데이터 요금 역시 포함된다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;한 달 기준 300밧(대략 12000원) 정도면 무제한 인터넷을 사용할 수 있다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;업무 장소는 그날 일어나서 기분에 따라 움직였는데 가끔 정말 나가기 싫은 날은 그냥 숙소에서 일하는 경우도 있었고 숙소 내에 있는 카페에서 일하는 경우도 있었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/259111b6-ff75-40df-9950-536f8cb27004&quot; alt=&quot;숙소 카페&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt; &lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/ba6f18a0-b0ea-4755-8493-9071d116a382&quot; alt=&quot;숙소&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-숙소와 숙소내부 카페&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABAAFAgP/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwD/2gAMAwEAAhADEAAAAV9BEjbPhd5tXGuJa8b/xAAdEAABBAIDAAAAAAAAAAAAAAACAAEDExASERQh/9oACAEBAAEFArdX7DIp/ZjYh5fEg7vQarkQZ//EABYRAQEBAAAAAAAAAAAAAAAAABEAEP/aAAgBAwEBPwEwi//EABcRAAMBAAAAAAAAAAAAAAAAAAAQEiH/2gAIAQIBAT8BxUUf/8QAHRAAAQMFAQAAAAAAAAAAAAAAAAEQMQIRICEi4f/aAAgBAQAGPwLZBAi0rd+W9w//xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhkTFBYf/aAAgBAQABPyHYm1ZRteyx47EoaT25+TyNvxjVUC5SYnZV5BgFRNn/2gAMAwEAAgADAAAAEJQiMv/EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxDRYwWzf//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESH/2gAIAQIBAT8QFG3JRwt3/8QAHBABAAIDAQEBAAAAAAAAAAAAAQARITFBoVFh/9oACAEBAAE/EBjtY8qvk0SNdhl7FYr3DC1Mfuo0X6ImXwYsp+XLqHgJy+iYCjE4MC2J/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/954ba52ac835cc32af5cc5ed55026d03/f1512/cafe.webp 200w,
+/static/954ba52ac835cc32af5cc5ed55026d03/f59aa/cafe.webp 400w,
+/static/954ba52ac835cc32af5cc5ed55026d03/47a22/cafe.webp 800w,
+/static/954ba52ac835cc32af5cc5ed55026d03/10c02/cafe.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/954ba52ac835cc32af5cc5ed55026d03/16d62/cafe.jpg 200w,
+/static/954ba52ac835cc32af5cc5ed55026d03/27ec1/cafe.jpg 400w,
+/static/954ba52ac835cc32af5cc5ed55026d03/5fd6b/cafe.jpg 800w,
+/static/954ba52ac835cc32af5cc5ed55026d03/18e3b/cafe.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/954ba52ac835cc32af5cc5ed55026d03/5fd6b/cafe.jpg&quot;
+            alt=&quot;cafe&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소 카페&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAMEAQIF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAG1C1Q4wbm/HvhxZx4f/8QAHRAAAgIBBQAAAAAAAAAAAAAAAQIAAxEEEBITIf/aAAgBAQABBQLEsMMpNhgKqS6ks3WHzyzNSfdv/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/ASv/xAAXEQADAQAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/AUZf/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECERAhIjEyYf/aAAgBAQAGPwI2s7SJWn5ZTda2coZeI5//xAAcEAADAQEBAAMAAAAAAAAAAAAAAREhUUFxgaH/2gAIAQEAAT8hmkXy4Unv4F45wKtNpUVif9jZk1uPwuz7eHyHSuSjIn4f/9oADAMBAAIAAwAAABDbyTL/xAAVEQEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAwEBPxBh/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxCO6qhb/8QAHRABAQEBAAMAAwAAAAAAAAAAAREAITFBYVGx4f/aAAgBAQABPxAa8sB8B4euDSv3OP1pVS1Eh3XmTFuZgMfeSjiCSri5/ifLL/vJpdI+5tO5RUL9N//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/65b731f2957350fdf93385f167dd3831/f1512/home.webp 200w,
+/static/65b731f2957350fdf93385f167dd3831/f59aa/home.webp 400w,
+/static/65b731f2957350fdf93385f167dd3831/47a22/home.webp 800w,
+/static/65b731f2957350fdf93385f167dd3831/10c02/home.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/65b731f2957350fdf93385f167dd3831/16d62/home.jpg 200w,
+/static/65b731f2957350fdf93385f167dd3831/27ec1/home.jpg 400w,
+/static/65b731f2957350fdf93385f167dd3831/5fd6b/home.jpg 800w,
+/static/65b731f2957350fdf93385f167dd3831/18e3b/home.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/65b731f2957350fdf93385f167dd3831/5fd6b/home.jpg&quot;
+            alt=&quot;home&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;숙소에 놀러온 다른 회사 개발자 친구&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;인터넷이 빠르고 크게 이야기해도 주변사람들에게 피해줄 일이 없어서 화상 미팅이 많은 날은 숙소에서 일하는 경우가 많았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;카페 중에 스타벅스 말고도 캠프라는 카페도 자주 갔었는데 나처럼 일하러 온 사람들도 많았지만 현지 대학생들도 많았다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/00541c98-d770-4ed7-a882-05710926b768&quot; alt=&quot;마야몰 캠프&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-Maya Camp&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAZrzuTaSjK9ahltFjP8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMTMSL/2gAIAQEAAQUCdqKpBsgxizU2NEL5CzhZdzJ5Q9Tn/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8BhLCz/8QAFxEBAAMAAAAAAAAAAAAAAAAAABASQf/aAAgBAgEBPwGNVf/EABsQAAICAwEAAAAAAAAAAAAAAAABESEQMUFh/9oACAEBAAY/AtSjcFNQS7KOnhCvFCx//8QAHhAAAgICAgMAAAAAAAAAAAAAAAERITFBEGFRcYH/2gAIAQEAAT8henE7F6To3kqoaCyYREpeY8IgqULxfc+WDZDHprrhPf2f/9oADAMBAAIAAwAAABAfHIP/xAAYEQEBAQEBAAAAAAAAAAAAAAABABEhUf/aAAgBAwEBPxDPZOyCVt3/xAAYEQEBAQEBAAAAAAAAAAAAAAABABEhMf/aAAgBAgEBPxDecjyUQBYv/8QAHxABAQACAQQDAAAAAAAAAAAAAREAITFBYXGRUYHB/9oACAEBAAE/EGSCcu/vzj7aAdg05k3rK9s+rMcMlNnHvHCJAkPu5dAjQYvkpuIHiY8q2geDviVCnRDGFJUU+M4/QP3G5Hln/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8bf57d6f86686699f8928b28e0fa31e5/f1512/camp.webp 200w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/f59aa/camp.webp 400w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/47a22/camp.webp 800w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/10c02/camp.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8bf57d6f86686699f8928b28e0fa31e5/16d62/camp.jpg 200w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/27ec1/camp.jpg 400w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/5fd6b/camp.jpg 800w,
+/static/8bf57d6f86686699f8928b28e0fa31e5/18e3b/camp.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8bf57d6f86686699f8928b28e0fa31e5/5fd6b/camp.jpg&quot;
+            alt=&quot;camp&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;마야몰 캠프&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;가장 자주 갔었던 곳은 코워킹 스페이스 Yellow라는 곳이었는데 한국 공유 오피스와 비슷한 느낌이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;2층을 임대해서 사용하는 회사들도 있었고 1층에는 여러 나라에서 온 개발자, 디자이너등이 있었고 카페처럼 공부를 위해 찾는 사람은 없었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/1aecb4d2-57f7-42be-9ac1-c72314e1b635&quot; alt=&quot;yellow&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4624a012-2823-464f-ac27-16d1c43bbde6&quot; alt=&quot;yellow3&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-Yellow coworking space&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAXAQEAAwAAAAAAAAAAAAAAAAACAAED/9oADAMBAAIQAxAAAAHNoVCRxFR1mme8wZv/xAAcEAACAgIDAAAAAAAAAAAAAAABAgADEBESEzL/2gAIAQEAAQUCFk3C6xbCo7Yw5MDpqzto3lMf/8QAFREBAQAAAAAAAAAAAAAAAAAAEAH/2gAIAQMBAT8BIf/EABgRAAIDAAAAAAAAAAAAAAAAAAACEBEh/9oACAECAQE/AdKGj//EAB4QAAIBAwUAAAAAAAAAAAAAAAABMQIQERIhM4Gh/9oACAEBAAY/At6WST6Yk4xvGCWjVVZC7t//xAAdEAEAAwACAwEAAAAAAAAAAAABABEhMUFRcaGx/9oACAEBAAE/IUOp5JvcBErA06r25FXqfVM1CFw4lSqTipYNzhMn2z9YJ//aAAwDAQACAAMAAAAQqBZy/8QAGREAAwADAAAAAAAAAAAAAAAAAAERECFR/9oACAEDAQE/EKror5jT/8QAGhEAAgIDAAAAAAAAAAAAAAAAABEBECExUf/aAAgBAgEBPxCYTOxO0R//xAAgEAEAAgIBBAMAAAAAAAAAAAABABEhMWEQQZHwUXGB/9oACAEBAAE/EKKn2FY+IbjzCmu1xG+XrcGhUtlm/wAlik5syLrm4Y+QAaH1KhhVbjxibslgNtZ8RuFJ56f7XJNJ/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/37fb702487bea4ee172bf4804387b10f/f1512/yellow.webp 200w,
+/static/37fb702487bea4ee172bf4804387b10f/f59aa/yellow.webp 400w,
+/static/37fb702487bea4ee172bf4804387b10f/47a22/yellow.webp 800w,
+/static/37fb702487bea4ee172bf4804387b10f/10c02/yellow.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/37fb702487bea4ee172bf4804387b10f/16d62/yellow.jpg 200w,
+/static/37fb702487bea4ee172bf4804387b10f/27ec1/yellow.jpg 400w,
+/static/37fb702487bea4ee172bf4804387b10f/5fd6b/yellow.jpg 800w,
+/static/37fb702487bea4ee172bf4804387b10f/18e3b/yellow.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/37fb702487bea4ee172bf4804387b10f/5fd6b/yellow.jpg&quot;
+            alt=&quot;yellow&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;코워킹 스페이스 Yellow&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAeqlKRcYApjLcWmQT//EABsQAAMAAgMAAAAAAAAAAAAAAAABAhASESEx/9oACAEBAAEFAm+RjZvRd0hp2XRdPWb6n28f/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AXT/xAAWEQADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8BcP/EAB0QAAEEAgMAAAAAAAAAAAAAAAABEBEhAkEycZH/2gAIAQEABj8CfiXjBMiWaqzfgovTf//EAB0QAAICAgMBAAAAAAAAAAAAAAABEUEhURAxcfD/2gAIAQEAAT8hZ2ZBdGU3M/CJxHbY0kyrAmhbGWcSShchOpcL4els/9oADAMBAAIAAwAAABCwDPL/xAAYEQEAAwEAAAAAAAAAAAAAAAABABARMf/aAAgBAwEBPxAMp5NE/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEREEH/2gAIAQIBAT8QbudJZ//EAB4QAQACAgIDAQAAAAAAAAAAAAEAESExQVFhcbGh/9oACAEBAAE/ECstdGJW4eSBNBw1317qW4NUdMVuTQYmQUawVMuaJ2IkuUuN+wiF2uVANT9s39PxPpP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b665057bbd6f6811c881a637fb893e8f/f1512/yellow2.webp 200w,
+/static/b665057bbd6f6811c881a637fb893e8f/f59aa/yellow2.webp 400w,
+/static/b665057bbd6f6811c881a637fb893e8f/47a22/yellow2.webp 800w,
+/static/b665057bbd6f6811c881a637fb893e8f/10c02/yellow2.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b665057bbd6f6811c881a637fb893e8f/16d62/yellow2.jpg 200w,
+/static/b665057bbd6f6811c881a637fb893e8f/27ec1/yellow2.jpg 400w,
+/static/b665057bbd6f6811c881a637fb893e8f/5fd6b/yellow2.jpg 800w,
+/static/b665057bbd6f6811c881a637fb893e8f/18e3b/yellow2.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b665057bbd6f6811c881a637fb893e8f/5fd6b/yellow2.jpg&quot;
+            alt=&quot;yellow2&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;코워킹 스페이스에서 일하고 있는 사람들&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;원데이 패스도 있었지만 한 달 이상 결제하면 가격도 싸고 지문인식으로 출입이 가능해서 더 늦은 시간까지 이용할 수 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;비정기적으로 저녁시간에 그곳에서 일하는 사람들과 식사자리를 만들어 주기도 했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;점심시간에는 야외 좌석에서 점심을 시켜 먹는 사람들이 많았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;배달비도 500원 수준이고 음식 가격 역시 현지 음식들로 먹으면 2000원 정도면 해결되었다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/6c555a92-79c7-463f-8eda-52c58bc23de5&quot; alt=&quot;yellow2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-모르는 고양이&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAEDAgQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGiWJvHMCZKmbMZX//EAB8QAAICAgEFAAAAAAAAAAAAAAABAgMREwQSITEyM//aAAgBAQABBQLWma685SJSlAXJeHfYdR4Xdkfe77I//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQIBAT8BI//EAB4QAAEDBQEBAAAAAAAAAAAAAAEAESECAxAxQUJx/9oACAEBAAY/Aor11Tcf4ooXkqLYWgmLnqBIY5OP/8QAHxAAAgIBBAMAAAAAAAAAAAAAAAERMSFBUYGxEGHB/9oACAEBAAE/IWsse5qK4PskixmxwK1KXdQfZ5Op4NLIXL0N5xtBvKd678Kh/9oADAMBAAIAAwAAABCDxHL/xAAZEQEAAgMAAAAAAAAAAAAAAAABABEQITH/2gAIAQMBAT8QbW5uHMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAASEQ/9oACAECAQE/EGhBq5//xAAhEAEAAgIBAwUAAAAAAAAAAAABABEhMWFRgbEQQXHB8P/aAAgBAQABPxAWLXYBlshAX/agG06kC9oLq7Fplb4mesXV3xMnl6BP3A1jSBwEoM+99oZmCvj1DnmIYAaA6T9/H0HlfM//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a6a4010c874514a84f6fcf3e26440b95/f1512/cat.webp 200w,
+/static/a6a4010c874514a84f6fcf3e26440b95/f59aa/cat.webp 400w,
+/static/a6a4010c874514a84f6fcf3e26440b95/47a22/cat.webp 800w,
+/static/a6a4010c874514a84f6fcf3e26440b95/10c02/cat.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a6a4010c874514a84f6fcf3e26440b95/16d62/cat.jpg 200w,
+/static/a6a4010c874514a84f6fcf3e26440b95/27ec1/cat.jpg 400w,
+/static/a6a4010c874514a84f6fcf3e26440b95/5fd6b/cat.jpg 800w,
+/static/a6a4010c874514a84f6fcf3e26440b95/18e3b/cat.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a6a4010c874514a84f6fcf3e26440b95/5fd6b/cat.jpg&quot;
+            alt=&quot;cat&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;모르는 고양이&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;야외 자리에 앉아서 일하고 있을 때는 가끔 고양이에게 간택당하는 경우도 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;전체적으로 평소 일하던 환경보다 모니터가 작은 것 외에는 불편한 부분은 없다.&lt;/p&gt;
 &lt;h2 id=&quot;퇴근-후&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%87%B4%EA%B7%BC-%ED%9B%84&quot; aria-label=&quot;퇴근 후 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;퇴근 후&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;치앙마이는 또 마사지로 유명한데 앉아있는 시간이 긴 직업이다 보니 허리가 뻐근해서 퇴근하고 코워킹 스페이스 주변에서 마사지를 받고 들어가는 경우가 많았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;현지 시간으로 일찍 출근하긴 했지만 퇴근 후 개인적으로 사용할 수 있는 시간이 길었던 게 가장 좋았다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a803da97-5deb-46e1-b544-a906163b831e&quot; alt=&quot;치앙마이&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-퇴근해도 낮&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAwQC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHhkgYuW4iJzalt+W4kb//EABsQAAICAwEAAAAAAAAAAAAAAAEDAAIQESEi/9oACAEBAAEFAi72uu8CKaVrs4kixi+1tXsBm5//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEj/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAEREv/aAAgBAgEBPwHpqRj/xAAdEAABAwUBAAAAAAAAAAAAAAABABAxAhIgISJB/9oACAEBAAY/AuYV7nT1AmV7h//EABwQAQADAQEAAwAAAAAAAAAAAAEAETEhQVGRsf/aAAgBAQABPyFO6B8haWpzs4ahArAES2VzI/X8glShY/gNC39J7GrYKtn/2gAMAwEAAgADAAAAEFfMcv/EABcRAQEBAQAAAAAAAAAAAAAAAAARASH/2gAIAQMBAT8QZi8V/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8QXUKEp3P/xAAfEAEAAwACAQUAAAAAAAAAAAABABEhMUFxUYGh8PH/2gAIAQEAAT8QX6glo/E1GC5AO6+9Ss/KMpZZcMRtNyxstK9xFhxBDiv2A1otHIncKlJS3gRUXmFIIldqf//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7a91e7464a17b5b8d7341e33c6c22b59/f1512/water.webp 200w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/f59aa/water.webp 400w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/47a22/water.webp 800w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/10c02/water.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7a91e7464a17b5b8d7341e33c6c22b59/16d62/water.jpg 200w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/27ec1/water.jpg 400w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/5fd6b/water.jpg 800w,
+/static/7a91e7464a17b5b8d7341e33c6c22b59/18e3b/water.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7a91e7464a17b5b8d7341e33c6c22b59/5fd6b/water.jpg&quot;
+            alt=&quot;water&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;퇴근해도 낮&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;한국에 있을 때는 퇴근 시간이 되어도 성격상 퇴근하지 않는 경우가 많았지만 퇴근후 하고 싶은 일들이 많았기 때문에 태국에서는 최대한 칼퇴근하려고 노력했다.&lt;/p&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/1a00d5a3-dac5-4728-810d-15a6decb9ddb&quot; alt=&quot;퇴근후&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt; &lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/de01b81f-c98e-402d-9426-ca2307bcca83&quot; alt=&quot;퇴근후2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-현지에서 사귄 친구들과 놀러다니기&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAc9Z0CIdR//EABoQAAIDAQEAAAAAAAAAAAAAAAECAAMREyH/2gAIAQEAAQUCNflSMV5ZDZNwMXB//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Bh//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPwHYS//EABgQAAMBAQAAAAAAAAAAAAAAAAABITEQ/9oACAEBAAY/AoZxE0jP/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFxUf/aAAgBAQABPyG8Ib8gjWZBjjGGj9mN6d2ORK9n/9oADAMBAAIAAwAAABAI7//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxASbK3/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREx/9oACAECAQE/EHJFh//EABsQAQADAQADAAAAAAAAAAAAAAEAEUEhMVGB/9oACAEBAAE/EEcej22X0jthkHHk7wjc7R0lQRFXuy05Xy4vBa+R/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5d584e4f7a8a915398f5fd00803ea0b7/f1512/market.webp 200w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/f59aa/market.webp 400w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/47a22/market.webp 800w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/10c02/market.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5d584e4f7a8a915398f5fd00803ea0b7/16d62/market.jpg 200w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/27ec1/market.jpg 400w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/5fd6b/market.jpg 800w,
+/static/5d584e4f7a8a915398f5fd00803ea0b7/18e3b/market.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5d584e4f7a8a915398f5fd00803ea0b7/5fd6b/market.jpg&quot;
+            alt=&quot;market&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;현지에서 사귄 친구들과 갔던 시장&lt;/figcaption&gt;&lt;/figure&gt; &lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAebZAySDJp//xAAZEAADAQEBAAAAAAAAAAAAAAAAAQIDERL/2gAIAQEAAQUCiOl4+Uya4Vo6R//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAADAAAAAAAAAAAAAAAAAAAAIDH/2gAIAQEABj8CKv8A/8QAGRABAQEAAwAAAAAAAAAAAAAAAQAhEBFR/9oACAEBAAE/IfbdWo0hsjtY8f/aAAwDAQACAAMAAAAQQC//xAAWEQADAAAAAAAAAAAAAAAAAAABEFH/2gAIAQMBAT8QsL//xAAXEQEAAwAAAAAAAAAAAAAAAAABEBEx/9oACAECAQE/EFbyP//EABoQAQACAwEAAAAAAAAAAAAAAAEAESExUUH/2gAIAQEAAT8QJ6j4MOouCCMGWLXaYRGQ6xtbn//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e1b599d69f8ef7cf33794d2d22604b59/f1512/concert.webp 200w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/f59aa/concert.webp 400w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/47a22/concert.webp 800w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/10c02/concert.webp 960w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e1b599d69f8ef7cf33794d2d22604b59/16d62/concert.jpg 200w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/27ec1/concert.jpg 400w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/5fd6b/concert.jpg 800w,
+/static/e1b599d69f8ef7cf33794d2d22604b59/18e3b/concert.jpg 960w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e1b599d69f8ef7cf33794d2d22604b59/5fd6b/concert.jpg&quot;
+            alt=&quot;concert&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;현지에서 사귄 친구들과 갔던 술집&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;사실 치앙마이를 처음 와본 것은 아니고 5년 전쯤에 가족여행으로 오긴 했지만 워케이션으로 온 치앙마이는 또 다른 느낌이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;치앙마이는 관광지로서는 일주일 정도면 충분한 곳이었지만 일하기는 최고였던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;만약 일하지 않고 한 달 반을 있었다면 좀 심심했을 것 같다.&lt;/p&gt;
@@ -193,7 +945,7 @@ Yellow coworking space&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;일반적으로 값을 입력받는 컴포넌트들은 해당 컴포넌트 상위 컴포넌트에서 state를 전달받아 사용되는 경우가 많다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;하지만 state를 외부에서 전달받아 사용하게 되면 state를 지니고 있는 상위 컴포넌트 하위에 있는 모든 컴포넌트들에 재렌더링이 발생한다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/da87d333-6dae-4c2d-92f0-390aa57baf50&quot; alt=&quot;bad-render&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/da87d333-6dae-4c2d-92f0-390aa57baf50&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;bad-render&lt;/figcaption&gt;&lt;/figure&gt;
 불필요한 재렌더링 발생&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이런 문제점을 해결하기 위해 react-hook-form과 같은 라이브러리가 있지만 해당 라이브러리가 제시한 구조가 번거롭고 Validation 자유도 역시 그렇게 좋지 못하다고 생각해서 입력을 받는 모든 컴포넌트들이 자체적으로 state를 가지게 함으로써 이 문제를 해결했다.&lt;/p&gt;
@@ -207,7 +959,7 @@ Yellow coworking space&lt;/p&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이렇게 설계된 컴포넌트들로 페이지를 구성하면 다음과 같이 실제로 값이 수정되는 컴포넌트에서만 재렌더링이 발생하도록 할 수 있다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/df938800-02a9-407c-a4d9-814ba1356ae0&quot; alt=&quot;good-render&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/df938800-02a9-407c-a4d9-814ba1356ae0&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;good-render&lt;/figcaption&gt;&lt;/figure&gt;
 실제 값이 수정되는 컴포넌트만 재렌더링이 발생&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이렇게 컴포넌트 자체적으로 state를 관리하면서 Input 컴포넌트들에 공통적으로 적용되어야 할 Validation 등을 고차 컴포넌트(Higher-Order-Components)를 표방한 함수에 분리해 두었다.&lt;/p&gt;
@@ -224,7 +976,7 @@ Yellow coworking space&lt;/p&gt;
   &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;comma-separated-number&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token attr-name&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;원&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/215722ac-103e-4d90-a916-5f5e27d7f201&quot; alt=&quot;good-render2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/215722ac-103e-4d90-a916-5f5e27d7f201&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;good-render2&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;타입-추론&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%83%80%EC%9E%85-%EC%B6%94%EB%A1%A0&quot; aria-label=&quot;타입 추론 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;타입 추론&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개인적으로 프론트엔드 개발을 하면서 가장 실수가 잦은 부분이 데이터 바인딩 과정인데 최대한 개발자의 실수를 방지하기 위해 엄격한 타입 추론을 제공하려 했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;예를 들면 Searchbox 컴포넌트의 경우엔 제공되는 options, value, onChange의 매개변수가 서로 의존성을 가지며 상호작용이 이루어져야 한다.&lt;/p&gt;
@@ -252,17 +1004,17 @@ Yellow coworking space&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;위 Searchbox의 Props와 같이 각 타입들이 엄격하게 관리되면 특정 값은 자유롭게 입력받을 수 있으면서 해당 값을 참고해야 하는 다른 값들은 엄격하게 관리할 수 있다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3&quot; alt=&quot;type&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;type&lt;/figcaption&gt;&lt;/figure&gt;
 options을 자유로운 형식의 array로 입력받을 수 있음&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fa5409b9-7431-437c-bef1-5e4e48d5d3c6&quot; alt=&quot;type2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fa5409b9-7431-437c-bef1-5e4e48d5d3c6&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;type2&lt;/figcaption&gt;&lt;/figure&gt;
 options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;물론 이것 역시 value, onChange 매개변수 등의 타입은 정확하게 추론할 수 있어야 한다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/530c7918-0f6d-4301-be52-cffa9dee64d6&quot; alt=&quot;storybook&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/530c7918-0f6d-4301-be52-cffa9dee64d6&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;storybook&lt;/figcaption&gt;&lt;/figure&gt;
 type에 따라 입력받을 수 있는 값이 달라짐&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이런 타입 추론은 추후 validation 로직에서도 유용하다.&lt;/p&gt;
@@ -278,7 +1030,7 @@ type에 따라 입력받을 수 있는 값이 달라짐&lt;/p&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4087d06f-6607-4190-956e-e8d7363d4dd4&quot; alt=&quot;good-render3&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4087d06f-6607-4190-956e-e8d7363d4dd4&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;good-render3&lt;/figcaption&gt;&lt;/figure&gt;
 validation을 체크하는 로직 역시 컴포넌트 내부에서 관리되고 있으므로 컴포넌트 외부 렌더링에 영향을 주지 않는다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이런 validation들을 모두 통과해야 요청을 보낼 수 있게 하는 로직은 useValidationStore라는 커스텀 hook을 만들어뒀다.&lt;/p&gt;
@@ -343,7 +1095,7 @@ validation을 체크하는 로직 역시 컴포넌트 내부에서 관리되고 
 &lt;/ul&gt;
 &lt;h3 id=&quot;제품-디렉토리-구조&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%ED%92%88-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;제품 디렉토리 구조 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제품 디렉토리 구조&lt;/h3&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f9ecca03-a654-4bf4-9976-0cf669f9c130&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f9ecca03-a654-4bf4-9976-0cf669f9c130&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
 components, pages 디렉토리 구조&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.&lt;/p&gt;
@@ -544,7 +1296,7 @@ components, pages 디렉토리 구조&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/852b8e8d-4c28-4455-b80a-7ccaf9a4ee18&quot; alt=&quot;mvc&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/852b8e8d-4c28-4455-b80a-7ccaf9a4ee18&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;mvc&lt;/figcaption&gt;&lt;/figure&gt;
 소프트웨어를 Model - View - Controller 요소로 구분함&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;역할&lt;/strong&gt;&lt;/p&gt;
@@ -556,7 +1308,7 @@ components, pages 디렉토리 구조&lt;/p&gt;
 &lt;h3 id=&quot;mvvm&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#mvvm&quot; aria-label=&quot;mvvm permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;MVVM&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/3ed6ea82-eae0-4595-9292-db24fbefc7ec&quot; alt=&quot;mvvm&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/3ed6ea82-eae0-4595-9292-db24fbefc7ec&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;mvvm&lt;/figcaption&gt;&lt;/figure&gt;
 MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;역할&lt;/strong&gt;&lt;/p&gt;
@@ -568,7 +1320,7 @@ MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨&lt;/p&gt;
 &lt;h3 id=&quot;flux&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#flux&quot; aria-label=&quot;flux permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Flux&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dd2ed5bc-5395-4b8a-a59b-1bd95dc40a7f&quot; alt=&quot;flux&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dd2ed5bc-5395-4b8a-a59b-1bd95dc40a7f&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;flux&lt;/figcaption&gt;&lt;/figure&gt;
 MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;역할&lt;/strong&gt;&lt;/p&gt;
@@ -584,7 +1336,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/6901ba00-9c57-462e-a74d-b396de46f605&quot; alt=&quot;pcc&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/6901ba00-9c57-462e-a74d-b396de46f605&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;pcc&lt;/figcaption&gt;&lt;/figure&gt;
 앱을 Container Component와 Presentational Component로 나누어 개발한다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;역할&lt;/strong&gt;&lt;/p&gt;
@@ -599,7 +1351,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;위에서 언급한 패턴들은 대부분 로직과 컴포넌트를 어떤 기준으로 분리하고 운용하는지에 대한 패턴이라면 Atomic 디자인 패턴은 그것보단 인터페이스와 재사용성에 중점을 둔 패턴이라는 생각이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b82b158f-c4b1-4147-83ff-0f79b50645cb&quot; alt=&quot;atomic&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b82b158f-c4b1-4147-83ff-0f79b50645cb&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;atomic&lt;/figcaption&gt;&lt;/figure&gt;
 여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;역할&lt;/strong&gt;&lt;/p&gt;
@@ -623,7 +1375,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;li class=&quot;list-item list-container&quot;&gt;Pages: Templates을 배치하여 웹 애플리케이션 페이지 하나에 대응하는 컴포넌트&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;디자인-패턴-중요한-건-알겠는데&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B1%B4-%EC%95%8C%EA%B2%A0%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;디자인 패턴 중요한 건 알겠는데 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;디자인 패턴, 중요한 건 알겠는데...&lt;/h2&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&quot;디자인-패턴-중요한-건-알겠는데-왜-써야-하지&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B1%B4-%EC%95%8C%EA%B2%A0%EB%8A%94%EB%8D%B0-%EC%99%9C-%EC%8D%A8%EC%95%BC-%ED%95%98%EC%A7%80&quot; aria-label=&quot;디자인 패턴 중요한 건 알겠는데 왜 써야 하지 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;디자인 패턴 중요한 건 알겠는데 왜 써야 하지?&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;실제로 내가 학교에서 &apos;고급 소프트웨어 설계&apos; 과목을 수강하면서 했던 생각이다.&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
@@ -880,7 +1632,7 @@ info This module is OPTIONAL, you can safely ignore this error
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;아직도 당시 술 마시고 동방에 모여 동기들과 음주 코딩한 기억이 새록새록하다.&lt;/p&gt;
 &lt;h3 id=&quot;전역&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EC%A0%84%EC%97%AD&quot; aria-label=&quot;전역 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;전역&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;그렇게 2학년까지 보내고 군대에 갔고 군대에서도 포병으로 갔다가 컴퓨터를 잘한다는 이유로 중간에 행정병으로 보직이 바뀌었다.
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97400455-fcf2-489d-8386-cf27caa47940&quot; alt=&quot;baby&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97400455-fcf2-489d-8386-cf27caa47940&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;baby&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;내가 할 일들을 한셀(엑셀)과 자바스크립트를 통해 자동화해서 편하게 보냈었고 덕분에 휴가도 많이 나와서 남들보다 편한 군생활을 했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다만 IDE가 없어서 노트장에 코드를 짜느라 개고생 했던 기억이 있다.&lt;/p&gt;
 &lt;h3 id=&quot;첫번째-직장&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EC%B2%AB%EB%B2%88%EC%A7%B8-%EC%A7%81%EC%9E%A5&quot; aria-label=&quot;첫번째 직장 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;첫번째 직장&lt;/h3&gt;
@@ -896,7 +1648,7 @@ info This module is OPTIONAL, you can safely ignore this error
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;덕분에 학점은 말아먹고 Github엔 잔디밭이 생겼다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/2b5e1740-b44d-44d2-8fc0-016f0200d302&quot; alt=&quot;commit log&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/2b5e1740-b44d-44d2-8fc0-016f0200d302&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;commit log&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;실제 프로그램을 설계할 때 이론의 중요성은 매우 크다고 느끼지만 그걸 단순히 텍스트로 공부하는 것보다 직접 불편함도 느껴보고 여러 가지 패턴이나 개발 방법론들의 중요성을 깨닫는 게 더 즐거웠을 뿐 CS 지식이 중요하지 않다는 건 아니다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;실제로 CS 관련 질문들도 면접에서 많이 물어봤던것 같다.&lt;/p&gt;
@@ -927,32 +1679,32 @@ info This module is OPTIONAL, you can safely ignore this error
 &lt;h3 id=&quot;기억에-남는-회사&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%96%B5%EC%97%90-%EB%82%A8%EB%8A%94-%ED%9A%8C%EC%82%AC&quot; aria-label=&quot;기억에 남는 회사 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기억에 남는 회사&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다음은 내가 경험했던 채용 과정들 중 기억에 남는 일부를 정리해 놓은 것이다.&lt;/p&gt;
 &lt;h4 id=&quot;당근마켓-frontend-engineer--경력-무관&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EB%8B%B9%EA%B7%BC%EB%A7%88%EC%BC%93-frontend-engineer--%EA%B2%BD%EB%A0%A5-%EB%AC%B4%EA%B4%80&quot; aria-label=&quot;당근마켓 frontend engineer  경력 무관 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;당근마켓 (Frontend Engineer / 경력 무관)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f65e133a-651c-48c1-bd11-898ccec71945&quot; alt=&quot;당근마켓&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f65e133a-651c-48c1-bd11-898ccec71945&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;당근마켓&lt;/figcaption&gt;&lt;/figure&gt;
 가장 먼저 이력서를 제출했고 처음 보게 된 인터뷰였다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개발자 두 분과 진행했고 편안한 분위기를 유도해 주셨지만 너무 준비를 안 했던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;인터뷰 기회를 얻었지만 이 당시 아직 첫 번째 인터뷰였기 때문에 뭘 물어볼지도 감이 안 잡혔고 아무 준비도 없이 인터뷰를 진행했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;덕분에 날카로운 질문 공세에 신나게 맞다가 끝났다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;다음 인터뷰를 준비할 수 있는 좋은 경험이었던 것 같다.&lt;/p&gt;
 &lt;h4 id=&quot;인프런-frontend-engineer--경력-3년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%ED%94%84%EB%9F%B0-frontend-engineer--%EA%B2%BD%EB%A0%A5-3%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;인프런 frontend engineer  경력 3년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인프런 (Frontend Engineer / 경력 3년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0b1f7598-da0e-4323-aea6-263cb001e138&quot; alt=&quot;인프런&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0b1f7598-da0e-4323-aea6-263cb001e138&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;인프런&lt;/figcaption&gt;&lt;/figure&gt;
 과제형 코딩 테스트가 기억에 남는데 node.js express 서버를 이용해 요구사항에 맞는 웹페이지를 만드는 과제였다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;오랜만에 프레임워크나 라이브러리 없이 자바스크립트만으로 개발을 했고 코드에 대한 피드백을 줬던 부분이 기억에 남는다.&lt;/p&gt;
 &lt;h4 id=&quot;버킷플레이스--오늘의집-data-engineer--경력-무관&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EB%B2%84%ED%82%B7%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4--%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91-data-engineer--%EA%B2%BD%EB%A0%A5-%EB%AC%B4%EA%B4%80&quot; aria-label=&quot;버킷플레이스  오늘의집 data engineer  경력 무관 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;버킷플레이스 / 오늘의집 (Data Engineer / 경력 무관)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/72b4198b-b819-476c-906d-8c74c3ef8f45&quot; alt=&quot;오늘의집&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/72b4198b-b819-476c-906d-8c74c3ef8f45&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;오늘의집&lt;/figcaption&gt;&lt;/figure&gt;
 오늘의집이라는 회사에 관심도 있었고 Data를 다루는 것에 살짝 흥미가 있었기 때문에 지원해봤다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행했고 난이도는 매우 쉬운 편이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;나는 파이썬과 Go 중에 고민하다가 Go를 이용해 풀었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;특이했던 점은 서류 이후 과정에 참여하면 과정마다 인터뷰 비용을 오늘의 집 포인트로 지급했다.&lt;/p&gt;
 &lt;h4 id=&quot;넥슨-backend-engineer--경력-무관&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EB%84%A5%EC%8A%A8-backend-engineer--%EA%B2%BD%EB%A0%A5-%EB%AC%B4%EA%B4%80&quot; aria-label=&quot;넥슨 backend engineer  경력 무관 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;넥슨 (Backend Engineer / 경력 무관)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6785d69-85b9-4bc3-9429-a5849f673980&quot; alt=&quot;넥슨&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6785d69-85b9-4bc3-9429-a5849f673980&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;넥슨&lt;/figcaption&gt;&lt;/figure&gt;
 요런 내용이 있어서 이메일을 받은 메일을 올리진 못했다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cd27ce8d-8d9f-4ddf-b44e-5cfa561caf61&quot; alt=&quot;넥슨2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cd27ce8d-8d9f-4ddf-b44e-5cfa561caf61&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;넥슨2&lt;/figcaption&gt;&lt;/figure&gt;
 학창 시절 넥슨의 게임을 즐겨했기 때문에 유일하게 지원했던 대기업이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;결과 통보까지 좀 오랜 시간이 걸리긴 했지만 합격 관련 내용들은 담당자에게 직접 유선으로 안내받았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;코딩 테스트는 자체 플랫폼에서 진행되었고 난이도는 다른 기업들에 비해 어렵진 않았다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;학교에서 배울만한 정석정인 알고리즘 문제였던걸로 기억한다.&lt;/p&gt;
 &lt;h4 id=&quot;opgg-backend-engineer--경력-2년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#opgg-backend-engineer--%EA%B2%BD%EB%A0%A5-2%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;opgg backend engineer  경력 2년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OPGG (Backend Engineer / 경력 2년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/984cb135-a59a-4f69-bbf6-8accf36a7a79&quot; alt=&quot;OPGG&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/984cb135-a59a-4f69-bbf6-8accf36a7a79&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;OPGG&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;유일하게 하는 게임인 리그 오브 레전드의 전적 검색 사이트인데 해당 서비스를 자주 이용하는 나는 해당 공고를 보고 홀린 듯이 지원했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;아무래도 실제 사용하던 서비스이다 보니 개발에 참여해보고 싶다는 생각이었던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;서류 합격 이후 과제 전형이 진행되었는데 최근 3주 동안 여러 회사의 과제를 동시에 진행했기 때문에 부득이하게 과제 기간 조정을 요청했다.&lt;/p&gt;
@@ -961,7 +1713,7 @@ info This module is OPTIONAL, you can safely ignore this error
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;OPGG는 코딩이 아닌 아키텍처 설계를 통해 과제를 진행했는데 이런 식의 과제도 있다는 걸 처음 알았다.&lt;/p&gt;
 &lt;h4 id=&quot;힐링페이퍼-frontend-engineer--경력-3년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%ED%9E%90%EB%A7%81%ED%8E%98%EC%9D%B4%ED%8D%BC-frontend-engineer--%EA%B2%BD%EB%A0%A5-3%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;힐링페이퍼 frontend engineer  경력 3년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;힐링페이퍼 (Frontend Engineer / 경력 3년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/25e3fa11-afba-4bd5-a79f-b0ea49f207eb&quot; alt=&quot;힐링페이퍼&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/25e3fa11-afba-4bd5-a79f-b0ea49f207eb&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;힐링페이퍼&lt;/figcaption&gt;&lt;/figure&gt;
 Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지고 있는 것 같아서 지원했다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;나중에 동료 개발자 분들을 통해 알게 된 사실이지만 현재 재직 중인 회사에서 같이 일하신 적이 있으시다고 한다.&lt;/p&gt;
@@ -971,14 +1723,14 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;채용 프로세스 진행과정이 매끄럽진 않았지만 개발자분들께 내 코드에 대한 피드백도 받을 수 있었고 유익한 경험이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;특이했던 점은 보통 면접관들의 채용 리소스를 아끼기 위해 코딩 테스트를 보통 먼저 진행하는데 면접 이후에 코딩 테스트가 진행되었다.&lt;/p&gt;
 &lt;h4 id=&quot;워시스왓--세탁특공대-backend-engineer--경력-무관&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EC%9B%8C%EC%8B%9C%EC%8A%A4%EC%99%93--%EC%84%B8%ED%83%81%ED%8A%B9%EA%B3%B5%EB%8C%80-backend-engineer--%EA%B2%BD%EB%A0%A5-%EB%AC%B4%EA%B4%80&quot; aria-label=&quot;워시스왓  세탁특공대 backend engineer  경력 무관 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;워시스왓 / 세탁특공대 (Backend Engineer / 경력 무관)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97bcba71-5ea0-4b2f-85c5-ea3536f80b1d&quot; alt=&quot;워시스왓&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97bcba71-5ea0-4b2f-85c5-ea3536f80b1d&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;워시스왓&lt;/figcaption&gt;&lt;/figure&gt;
 클라이언트의 요청을 처리하는 단순한 Backend 서버를 만드는 과제형 코딩 테스트를 진행했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;express 베이스였고 토큰 생성, 계정 생성 등 기본적인 기능들은 MVC 패턴 기반으로 구현되어 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;프로세스를 진행할 때마다 일정 금액을 입금해줬다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;채용 과정에 시간을 투자하는 입장에서는 좋은 지원 경험을 줬던 것 같다.&lt;/p&gt;
 &lt;h4 id=&quot;야놀자-backend-engineer--경력-3년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EC%95%BC%EB%86%80%EC%9E%90-backend-engineer--%EA%B2%BD%EB%A0%A5-3%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;야놀자 backend engineer  경력 3년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;야놀자 (Backend Engineer / 경력 3년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/790dd79e-901b-4720-8046-39f27049cf95&quot; alt=&quot;야놀자&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/790dd79e-901b-4720-8046-39f27049cf95&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;야놀자&lt;/figcaption&gt;&lt;/figure&gt;
 처음 보는 플랫폼에서 코딩 테스트가 진행되었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;난이도는 어렵지 않았지만 지문이 모두 영어였다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;코드 짜는 시간보다 문제 이해하는 시간이 더 오래 걸렸던 것 같다. (영어 공부 좀 해야 할 듯)&lt;/p&gt;
@@ -986,7 +1738,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;코딩 테스트에서 광탈한 회사이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개인적으로 경험해본 모든 회사들 중에 코딩테스트 난이도가 가장 어렵지 않았나 생각한다.&lt;/p&gt;
 &lt;h4 id=&quot;비바-퍼블리카--toss-frontend-engineer--경력-2년-이하&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EB%B0%94-%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%B9%B4--toss-frontend-engineer--%EA%B2%BD%EB%A0%A5-2%EB%85%84-%EC%9D%B4%ED%95%98&quot; aria-label=&quot;비바 퍼블리카  toss frontend engineer  경력 2년 이하 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비바 퍼블리카 / Toss (Frontend Engineer / 경력 2년 이하)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/330a014d-9d03-465e-b294-fe17d9fd9c20&quot; alt=&quot;토스&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/330a014d-9d03-465e-b294-fe17d9fd9c20&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;토스&lt;/figcaption&gt;&lt;/figure&gt;
 특이하게 경력 몇 년 이상이 아니라 이하인 채용공고였다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;코딩 테스트도 일반적인 플랫폼에서 진행하는 것이 아닌 정해진 시간에 Github repository에 초대되어 문제를 풀고 제출하는 방식이었고 인터뷰 전 보안 서약서도 작성한다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
@@ -994,20 +1746,20 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;채용 과정에 늦게 참여해서 이미 특정 회사에 합류하기로 마음먹은 이후라 이후 채용과정에는 참여하지 않았지만 조금만 더 일찍 결과가 나왔으면 고민했을지 모르겠다.&lt;/p&gt;
 &lt;h4 id=&quot;굿닥-frontend-engineer--경력-3년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EA%B5%BF%EB%8B%A5-frontend-engineer--%EA%B2%BD%EB%A0%A5-3%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;굿닥 frontend engineer  경력 3년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;굿닥 (Frontend Engineer / 경력 3년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/7e359ff9-b026-43d7-a4ba-873af2ef64a2&quot; alt=&quot;굿닥&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/7e359ff9-b026-43d7-a4ba-873af2ef64a2&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;굿닥&lt;/figcaption&gt;&lt;/figure&gt;
 긴 인터뷰 시간 동안 테크 리드 분과 1:1로 대화를 나누었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨는데 그런 부분들덕에 Frontend 뿐만아니라 여러가지 주재를 오가면서 대화를 나눴다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이후 채용 과정이 딜레이 되는 등 부드럽게 진행되진 않았지만 테크 리드분의 마인드나 관심도가 확실하게 느껴졌다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;토스와 마찬가지 이유로 남은 채용과정은 참여하지 않았다.&lt;/p&gt;
 &lt;h4 id=&quot;슈가힐--네모-frontend-engineer--경력-1년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EC%8A%88%EA%B0%80%ED%9E%90--%EB%84%A4%EB%AA%A8-frontend-engineer--%EA%B2%BD%EB%A0%A5-1%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;슈가힐  네모 frontend engineer  경력 1년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;슈가힐 / 네모 (Frontend Engineer / 경력 1년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a2f7d760-7410-4d7e-90b6-f8fdaba99be3&quot; alt=&quot;슈가힐&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a2f7d760-7410-4d7e-90b6-f8fdaba99be3&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;슈가힐&lt;/figcaption&gt;&lt;/figure&gt;
 개발자 두 분과 인터뷰를 진행했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;두분 모두 자신이 만들고 있는 프로덕트의 퍼포먼스를 최적화하신 부분에 대해 자부심이 있으신 것 같았고 나 역시 그 부분에 관심이 있었기 때문에 대화가 즐거웠다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;내 프로젝트에 대한 발표가 있었기 때문에 PPT를 준비했고 이와 관련한 질문들이 편한 분위기 속에서 오고 갔다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;게더 타운에서의 인터뷰는 신선했고 실제로 직방의 자회사인 만큼 직방 자체 메타버스 플랫폼에서 근무한다고 했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;사실 이 글을 쓰고 있는 날짜 기준으로 오늘 점심 최종 인터뷰 일정이 잡혀있었지만 Toss나 굿닥과 같은 이유로 참여하지 않았다.&lt;/p&gt;
 &lt;h4 id=&quot;코드스테이츠-frontend-engineer--경력-2년-이상&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-xl&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%B8%A0-frontend-engineer--%EA%B2%BD%EB%A0%A5-2%EB%85%84-%EC%9D%B4%EC%83%81&quot; aria-label=&quot;코드스테이츠 frontend engineer  경력 2년 이상 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드스테이츠 (Frontend Engineer / 경력 2년 이상)&lt;/h4&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/18c83f74-7750-4a8e-b0f4-30ccdf137130&quot; alt=&quot;코드스테이츠&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/18c83f74-7750-4a8e-b0f4-30ccdf137130&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;코드스테이츠&lt;/figcaption&gt;&lt;/figure&gt;
 총 3시간의 온라인 인터뷰와 라이브 코딩 테스트를 진행했고 함께 일할 사람을 신중하게 선택함을 느낄 수 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;짧지 않은 인터뷰 시간이었기 때문에 정말 많은 대화들을 나눌 수 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;서류 통과 이후 굉장히 빠른 속도로 채용과정이 진행되었고 경험한 모든 기업들의 채용 프로세스 중 가장 지원자 경험이 좋았다.&lt;/p&gt;
@@ -1039,7 +1791,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;h2 id=&quot;블로그-디자인&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%94%94%EC%9E%90%EC%9D%B8&quot; aria-label=&quot;블로그 디자인 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;블로그 디자인&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;사실 사용하고 있는 블로그 디자인보다 예쁘고 잘 만들어진 Gatsby 템플릿들이 무척 많다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;하지만 유니크한 개인 블로그 겸 포트폴리오 페이지를 가지고 싶어서 템플릿 없이 만들게 되었다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/03870b6f-8dfb-44b1-9622-1f0d1646ca84&quot; alt=&quot;blog&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;/bc3307e4a91d2fab57d229faf8754c2e/blog-design.gif&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;블로그 디자인&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&quot;블로그-디자인에-고려했던-부분&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90-%EA%B3%A0%EB%A0%A4%ED%96%88%EB%8D%98-%EB%B6%80%EB%B6%84&quot; aria-label=&quot;블로그 디자인에 고려했던 부분 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;블로그 디자인에 고려했던 부분&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;개인 블로그를 만들면서 오히려 코드 작성보다는 디자인이 어려웠던 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;특히 화면 크기에 따라 최적화된 반응형 UI를 보여줄 수 있도록 해야 했기 때문에 많은 고민을 했다.&lt;/p&gt;
@@ -1078,10 +1830,44 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;정부에서 단계적 일상 회복을 시행함에 따라 공공데이터 포털의 Covid-19 API의 일부 항목이 제외된 것이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;오늘은 이것에 대해 글을 써보려 한다.&lt;/p&gt;
 &lt;h2 id=&quot;covid-19-api&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#covid-19-api&quot; aria-label=&quot;covid 19 api permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;COVID-19 API&lt;/h2&gt;
-&lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b57ba86c-cd98-4e5d-a4a0-bfd89107dd96&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-외부 API를 사용할때 가장 받기 싫은 메일인듯..&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYklEQVR42o3OwRGAMAhE0fTfqHpwRgkQMEDEFKD+A7fHbFGRfVuXdWPm1lrvfXzVzfR6KuGucgmfjY7kROTu419ljGDcAY5aoSICQPpcISJ53x9NTDANI1ZVNbMcb7OIeME3DQ3rjT8EdBwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/53bc7e4bbc401c26ca7fd602b00ccc51/f1512/covid-19-api.webp 200w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/f59aa/covid-19-api.webp 400w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/47a22/covid-19-api.webp 800w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/5bb53/covid-19-api.webp 1200w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/2f2e2/covid-19-api.webp 1265w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/53bc7e4bbc401c26ca7fd602b00ccc51/f8f3a/covid-19-api.png 200w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/6a8a8/covid-19-api.png 400w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/7842b/covid-19-api.png 800w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/5ece7/covid-19-api.png 1200w,
+/static/53bc7e4bbc401c26ca7fd602b00ccc51/a15e6/covid-19-api.png 1265w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/53bc7e4bbc401c26ca7fd602b00ccc51/7842b/covid-19-api.png&quot;
+            alt=&quot;covid 19 api&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;외부 API를 사용할때 가장 받기 싫은 메일인듯..&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이전에 Toyproject용으로 COVID-19의 여러 외부 정보들을 종합해 새로운 데이터를 추가하고 이상치를 제거해 GraphQL로 데이터를 제공하는 서버를 호스팅 해두었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Toyproject는 데이터를 이용해 정보를 제공하는 Dashboard였다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이번에 API를 수정하면 당연히 Dashboard도 변경사항이 생길 것이고 나는 이것을 최소화하고 싶었다.&lt;/p&gt;
@@ -1141,7 +1927,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;h3 id=&quot;️-2022-12-01&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EF%B8%8F-2022-12-01&quot; aria-label=&quot;️ 2022 12 01 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🗓️ 2022-12-01&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/079d3499-6fd0-4f60-b26c-460f46619ce0&quot; alt=&quot;google-search&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/079d3499-6fd0-4f60-b26c-460f46619ce0&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;google-search&lt;/figcaption&gt;&lt;/figure&gt;
 내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.&lt;/p&gt;
@@ -1190,7 +1976,38 @@ nest new &amp;lt;프로젝트명&gt;
 # nest 실행
 npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;생성된 프로젝트의 구조는 다음과 같다.
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/76cadfbb-2b16-4b04-82da-08826d29742f&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 277px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR42mWSy2/TQBDGfeLAoQhRFJLQZmfWdpL1+r3ejR9JnRRoZaASICR6oAcqcUDihDhx4y9n1g5S20gja/z49vd9M3ZONtnJr1dcKVwbECHzBPOD/yXvNH3vBYwLlLGrC2qc0yzyrzdenoFWdM+QasngoOghvSWxG8AiBBkzVzjA/PFy/dy8g0BiW4HKwSisDaxXeFFDqWGleWOYKTBPSTmIeaGocYAvJqodmY5kvDuDVQGVRrrWBhtNB7G24tuSNQZ1PojZIsQss2KcwbPux9GXvyAEmgKSFPoIdApuDBQK0nQfBAfbApYhp8xWDO7T3fXji1tQqXu1tT6JWWqL2q6oh1rDQlrZUAM57ckvfPnppf9z5E3ilFPaLCMyGmWPIGyW7ud0Tyz3tqfz4GwafTiOpqX23rfWakXMEs9rpJnVms2D++LetlJ22uOZfNu5377Opn6MFE/GECWUnIUxixJySB8dkEPM7fCcMYSX69nN5WiiK//zObSWCbsKXjf4psEiP7At2DJE1a+KM3yyu3109QcDAXlu90xY+pnu/hgPyHOJSTqsCo+770cff2MeIe15W/NdCXFiCb58qBwyi8itDHPFP4Twei44xIv3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e68ecb517c6d4a52d4587ace023bdee8/f1512/project-dir.webp 200w,
+/static/e68ecb517c6d4a52d4587ace023bdee8/b01a4/project-dir.webp 277w&quot;
+              sizes=&quot;(max-width: 277px) 100vw, 277px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e68ecb517c6d4a52d4587ace023bdee8/f8f3a/project-dir.png 200w,
+/static/e68ecb517c6d4a52d4587ace023bdee8/b8799/project-dir.png 277w&quot;
+            sizes=&quot;(max-width: 277px) 100vw, 277px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e68ecb517c6d4a52d4587ace023bdee8/b8799/project-dir.png&quot;
+            alt=&quot;project dir&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;프로젝트 구조&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;ul class=&quot;list-disc ml-5&quot;&gt;
 &lt;li class=&quot;list-item list-container&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;app.controller.spc.ts&lt;/strong&gt;: 유닛 테스트를 위한 파일&lt;/li&gt;
 &lt;li class=&quot;list-item list-container&quot;&gt;&lt;strong class=&quot;font-black&quot;&gt;app.controller.ts&lt;/strong&gt;: 기본 컨트롤러&lt;/li&gt;
@@ -1390,7 +2207,7 @@ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;피드백&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%ED%94%BC%EB%93%9C%EB%B0%B1&quot; aria-label=&quot;피드백 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;피드백&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;어느 정도 실사용이 가능해지면서 일종의 클로즈 베타 느낌으로 또 한번 동기들에게 피드백을 요청했고 동기들이 준 피드백을 기반으로 소소한 버그들을 수정했다.&lt;/p&gt;
 &lt;h3 id=&quot;배포&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EB%B0%B0%ED%8F%AC&quot; aria-label=&quot;배포 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;배포&lt;/h3&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;동기가 에브리타임이라는 대학교 커뮤니티를 알려줬는데 학생증이 있어야 계정을 생성할 수 있어서 그냥 친구 아이디를 빌려서 게시물을 작성했다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;배포는 &lt;a href=&quot;https://github.com/HyeokjaeLee/knu-lms-scheduler&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;해당 프로젝트 Repository&lt;/a&gt;에 릴리즈 탭을 통해 진행했다.&lt;/p&gt;
@@ -1404,11 +2221,11 @@ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;학교 온라인 강의 시스템에서 내가 불편하다고 느끼는 부분들을 다른 사람들도 똑같이 공감하고 있다는 것도 신기했고 프로젝트도 그냥 혼자 만들고 끝나는게 아니라 완성후 배포도 해보고 사용자들의 반응도 보고 하는게 더 재미있는 것 같다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;해당 프로젝트도 일회성으로 끝나는게 아니라 사용자들이 준 피드백을 기반으로 시간 날 때마다 업데이트를 하는 것도 좋을 것 같다. (물론 졸업 전까지만 ^^)&lt;/p&gt;
 &lt;h3 id=&quot;반응&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EB%B0%98%EC%9D%91&quot; aria-label=&quot;반응 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;반응&lt;/h3&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/96290eb2-8a91-42c8-ae10-ebb4df7a4620&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/51a6cdd1-2df4-47da-b326-e092a875db20&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d4efefe7-22a1-45fe-b802-8acbceab2c4b&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/69a65672-bdad-4667-91b0-9070bc55ed62&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/60ee484b-28e1-4ac8-825b-8ecdfc79865a&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/96290eb2-8a91-42c8-ae10-ebb4df7a4620&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/51a6cdd1-2df4-47da-b326-e092a875db20&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d4efefe7-22a1-45fe-b802-8acbceab2c4b&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/69a65672-bdad-4667-91b0-9070bc55ed62&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/60ee484b-28e1-4ac8-825b-8ecdfc79865a&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;올린지 몇분만에 HOT 게시물과 실시간 인기 검색 게시물이 되었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;에브리타임에는 많은 반응을 얻은 글을 연도와 학기별로 구분해 Best 게시물로 선정해 놓는 기능이 있던데 나중에는 거기에 선정되어 있었고 특별한 경험이었다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;분명히 익명으로 올렸는데 깃허브 링크에 이름이 포함되어있어서 의도치 않게 익명성이 전혀 없어졌지만 게시물 댓글들도 재미있는 댓글들이 많았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gititle 프로젝트]]></title><description><![CDATA[나는 작성한 코드를 커밋할 때 AngularJS commit conventions에 추가로 내가 정한 몇 가지 규칙을 더해 규칙성 있게 작성하려고 노력한다. AngularJS commit conventions의 Type…]]></description><link>https://hyeokjaelee.github.io/gititle-project/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/gititle-project/</guid><pubDate>Tue, 14 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;나는 작성한 코드를 커밋할 때 AngularJS commit conventions에 추가로 내가 정한 몇 가지 규칙을 더해 규칙성 있게 작성하려고 노력한다.&lt;/p&gt;
@@ -1425,7 +2242,7 @@ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;프로젝트를-진행하면서-느낀-vuejs&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%98%EB%A9%B4%EC%84%9C-%EB%8A%90%EB%82%80-vuejs&quot; aria-label=&quot;프로젝트를 진행하면서 느낀 vuejs permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트를 진행하면서 느낀 Vue.js&lt;/h3&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/116b4b96-f807-456f-b08e-62151aba89ea&quot; alt=&quot;react-vue&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/116b4b96-f807-456f-b08e-62151aba89ea&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;react-vue&lt;/figcaption&gt;&lt;/figure&gt;
 보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.&lt;/p&gt;
@@ -1457,12 +2274,12 @@ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;프로젝트-결과물&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%B0%EA%B3%BC%EB%AC%BC&quot; aria-label=&quot;프로젝트 결과물 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 결과물&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;딱히 Backend에서 데이터를 받아올 만한 프로젝트가 아니기 때문에 앱 자체에 보이고 싶은 값들을 담아 클라이언트 쪽에서 검색 기능을 구현했다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8116a194-4deb-4c4b-a05d-4f657fe195d4&quot; alt=&quot;gititle&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8116a194-4deb-4c4b-a05d-4f657fe195d4&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;gititle&lt;/figcaption&gt;&lt;/figure&gt;
 Commit Message 구성요소 검색&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;대략적인 커밋 예시를 제공하고 각 커밋 메시지 영억을 클릭하면 해당 영역에 들어갈 수 있는 선택지를 제공하고 있으며 각 선택지들을 어떤 상황에 쓰이게 되는지 혹은 예시 내용을 보여줄 수 있는 UI를 제공하고 있다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cb16eb52-5376-475d-9221-fee51e3af1d9&quot; alt=&quot;gititle2&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cb16eb52-5376-475d-9221-fee51e3af1d9&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;gititle2&lt;/figcaption&gt;&lt;/figure&gt;
 Commit Message 구성요소 아이템에 대한 선택지를 제공&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;추가적으로 복사한 커밋 메시지들은 history를 남기고 추후에 필요할때 복사할 수 있게 하였고 PWA 설치 UI가 브라우저 자체에서 지원하긴 하지만 Gititle이 설치되어있지 않으면 앱 내에&lt;/p&gt;
@@ -1515,9 +2332,9 @@ Commit Message 구성요소 아이템에 대한 선택지를 제공&lt;/p&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a9616878-13e1-4d9a-a56c-52820b54d377&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a9616878-13e1-4d9a-a56c-52820b54d377&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 &lt;code class=&quot;language-text&quot;&gt;savePath&lt;/code&gt;부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6ae0829-8fff-4537-9c5f-dff53fc22559&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[크롤링을 통한 데이터 수집하기]]></title><description><![CDATA[이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript…]]></description><link>https://hyeokjaelee.github.io/nodejs-crawling/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/nodejs-crawling/</guid><pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript를 이용한 프로젝트에서 크롤링할 일이 생겨서 관련 내용을 정리해 봤다.&lt;/p&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6ae0829-8fff-4537-9c5f-dff53fc22559&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[크롤링을 통한 데이터 수집하기]]></title><description><![CDATA[이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript…]]></description><link>https://hyeokjaelee.github.io/nodejs-crawling/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/nodejs-crawling/</guid><pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript를 이용한 프로젝트에서 크롤링할 일이 생겨서 관련 내용을 정리해 봤다.&lt;/p&gt;
 &lt;h2 id=&quot;도구-선택&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EB%8F%84%EA%B5%AC-%EC%84%A0%ED%83%9D&quot; aria-label=&quot;도구 선택 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;도구 선택&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;크롤링에 활용 가능한 도구는 언어별로 Jsoup(Java), BeautifulSoup(Python) 등 여러 종류가 있지만 이번 포스트에서는 Node.js 도구들을 이용해 OpenInsider(해외 내부자 거래 정보 사이트)를 크롤링하는 과정을 간단하게 설명해보려 한다.&lt;/p&gt;
 &lt;blockquote class=&quot;border-l-4 border-gray-500 pl-4 italic blockquote-container&quot;&gt;
@@ -1543,7 +2360,7 @@ yarn add axios cheerio&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;원하는 정보를 개발자 도구로 열어보면 해당 정보를 포함하는 html 태그를 확인할 수 있다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;우리는 이 태그의 selector를 복사해야 한다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보자
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&quot;첫-번째-값의-selector&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-2xl&quot;&gt;&lt;a href=&quot;#%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EA%B0%92%EC%9D%98-selector&quot; aria-label=&quot;첫 번째 값의 selector permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;첫 번째 값의 Selector&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/*거래 날짜*/
 #tablewrapper &gt; table &gt; tbody &gt; tr:nth-child(1) &gt; td:nth-child(3) &gt; div
@@ -1573,11 +2390,46 @@ yarn add axios cheerio&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;실행&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89&quot; aria-label=&quot;실행 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;node index&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;실행하면 다음과 같은 수집한 정보들이 출력됨을 확인할 수 있다.
-&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dc8fc27f-9dcc-4cfc-b0b2-14ff72dab37b&quot; alt=&quot;image&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Copilot 사용 후기]]></title><description><![CDATA[Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다. Copilot Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다. Github…]]></description><link>https://hyeokjaelee.github.io/copilot-review/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/copilot-review/</guid><pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다.&lt;/p&gt;
+&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;img src=&quot;https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dc8fc27f-9dcc-4cfc-b0b2-14ff72dab37b&quot;&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Copilot 사용 후기]]></title><description><![CDATA[Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다. Copilot Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다. Github…]]></description><link>https://hyeokjaelee.github.io/copilot-review/</link><guid isPermaLink="false">https://hyeokjaelee.github.io/copilot-review/</guid><pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다.&lt;/p&gt;
 &lt;h2 id=&quot;copilot&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#copilot&quot; aria-label=&quot;copilot permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Copilot&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다.&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Github에서 얼마 전 &lt;a href=&quot;https://copilot.github.com/&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;Copilot Technical Preview&lt;/a&gt;를 공개했고 바로 다운로드해서 사용하지는 못하고 위 링크에서 신청한 후에 초대장을 받아야 사용 가능했다.&lt;/p&gt;
-&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/71566740/130893661-970498c3-c250-4d03-9096-f443737461d3.png&quot; alt=&quot;invite&quot; class=&quot;max-w-full rounded-sm my-12 mx-auto&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;&lt;figure class=&quot;w-full my-6&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACAklEQVR42o1Tu67TQBDNhyHdj0Gip0JCQlRINJQUFCgVPYqQKImokBLdcK08rpKYONdev9b27jp2bMcvjte5CXmAOIX3aHbOzOzMuLO7QJZlVVWZptntdj9JCCGKooD9zLOzu4Y8z+G9keBC5BKXbo24LMv6FFCGmwj5Gw4ZaqmrS58TMbxb7tvk68d3aZKA/5rdv3n5Qvk5AsdtJXFF3OglVwaDzx/e27YD/q3ff3Jz0+v1WsF5ZkTabrexRJIkaIzgggV4rEDcMAwdx+Gcw55KwA0cVx0cTW0S8/l8OByOx+N7CUVRZrMZyHq9nk6nk8kEX8uyCCFBEDTiP8v2PA/Xqqoul0sEQjhN0xaLha7rSA4NlMh83rDqLzg28tFQSoA14naAxDB0y1WJ74rE4QljHFX4vo+n4mRBQLzQCBKXbwMJ5Id+vyTw8yTaZqRJmu2y+p/Yl40DGixTFEXoLb7g6P9/ids3tG9rNqFq+vfF6j+9ffVcefts9Po7HT7aj+24siRNCLmJemz+8IYjdjfwb92UHuwnmdEwPNJ1nU0YMsYE9oNzFviMRRYtLbcw7EKzMoOmXGxwBaBh7X/WiLFVK+yBbpq2Y5jW2jANYtouXRl0sSLqg6MZ/gOhLvUopRg4po0Q+yXBsMI4YXEh4oxHWRDlcVa0863r46gPYz+U/RuWfMMc1SHrygAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4f519563546b978ffa17010bb61c7507/f1512/copilot-invite.webp 200w,
+/static/4f519563546b978ffa17010bb61c7507/f59aa/copilot-invite.webp 400w,
+/static/4f519563546b978ffa17010bb61c7507/47a22/copilot-invite.webp 800w,
+/static/4f519563546b978ffa17010bb61c7507/38ec7/copilot-invite.webp 948w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4f519563546b978ffa17010bb61c7507/f8f3a/copilot-invite.png 200w,
+/static/4f519563546b978ffa17010bb61c7507/6a8a8/copilot-invite.png 400w,
+/static/4f519563546b978ffa17010bb61c7507/7842b/copilot-invite.png 800w,
+/static/4f519563546b978ffa17010bb61c7507/94f40/copilot-invite.png 948w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4f519563546b978ffa17010bb61c7507/7842b/copilot-invite.png&quot;
+            alt=&quot;copilot invite&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;figcaption class=&quot;text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic&quot;&gt;Copilot 초대장&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;Github 활동량이 많을수록 빠르게 수락된다고 하던데 내 기준으로 7월 초쯤에 신청하고 일주일 정도 후에 초대장을 받은 것 같다.&lt;/p&gt;
 &lt;h2 id=&quot;한-달간-사용해본-느낌&quot; style=&quot;position:relative;&quot; class=&quot;font-bold mt-10 mb-4 text-3xl&quot;&gt;&lt;a href=&quot;#%ED%95%9C-%EB%8B%AC%EA%B0%84-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B8-%EB%8A%90%EB%82%8C&quot; aria-label=&quot;한 달간 사용해본 느낌 permalink&quot; class=&quot;anchor before&quot; class=&quot;text-blue-500 hover:underline&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;한 달간 사용해본 느낌&lt;/h2&gt;
 &lt;p class=&quot;my-4 whitespace-pre-wrap&quot;&gt;일단 이전에 봤던 GPT-3를 이용해 작문하는 것을 매우 인상적으로 보았기 때문에 같은 기반인 Copilot 역시 기대가 컸다.&lt;/p&gt;
