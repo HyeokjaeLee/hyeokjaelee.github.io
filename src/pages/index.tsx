@@ -119,14 +119,17 @@ const PostPage = ({
           className="mx-auto w-fit max-w-full"
           modules={[Mousewheel, Autoplay]}
           slidesPerView="auto"
-          spaceBetween={10}
+          spaceBetween={4}
           onSwiper={(swiper) => (slideRef.current = swiper)}
         >
           {POST_TAG_EMOJI_LIST.map(([value, emoji]) => {
             const isCurrentTag = value === tag;
 
             return (
-              <SwiperSlide key={value} className="my-4 w-fit">
+              <SwiperSlide
+                key={value}
+                className={cn('my-4 w-fit', 'phone:first:ml-4')}
+              >
                 <Link
                   className={cn(
                     'flex justify-center items-center gap-1 transition-colors rounded-full px-4 py-1 shadow-sm text-sm',

@@ -2,7 +2,7 @@
   "name": "hyeokjaelee.github.io",
   "private": true,
   "description": "덕업일치 개발자의 블로그입니다.",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "author": "HyeokjaeLee <leehyeokjae97@gamil.com>",
   "dependencies": {
     "@hyeokjaelee/pastime-ui": "^1.4.43",
