@@ -48,19 +48,21 @@ const GlobalLayout = ({ children, location }: PageProps) => {
   const isPhone = screen === SCREEN.PHONE;
 
   useEffect(() => {
+    if (!screen) return;
+
     if (sessionStorage.getItem(SESSION_STORAGE_KEY.WELCOME_TOAST)) return;
 
     sessionStorage.setItem(SESSION_STORAGE_KEY.WELCOME_TOAST, 'true');
     toast({
       message: '👋 안녕하세요! 방문해주셔서 감사합니다.',
     });
-  }, []);
+  }, [screen]);
 
   useEffect(() => {
     document.getElementById(SELECTOR.MAIN)?.scrollTo({
       top: 0,
     });
-  }, [location.pathname]);
+  }, [location.pathname, screen]);
 
   return (
     <GlobalProvider>
@@ -69,6 +71,7 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         className={cn(
           'max-w-96 w-full relative h-0 p-0',
           'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
+          'toast-break-point:left-0 toast-break-point:mx-auto toast-break-point:top-2',
         )}
         closeButton={({ closeToast }) => (
           <IconButton

@@ -67,7 +67,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
     trackMouse: true,
     onSwiping: handleSwiping,
 
-    onSwiped: ({ deltaX, velocity }) => {
+    onSwipedLeft: ({ deltaX, velocity }) => {
       setIsSwiping(false);
 
       if (deltaX < -drawerWidth / 2 || 1.5 < velocity) {

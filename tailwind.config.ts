@@ -31,6 +31,9 @@ const config = {
   ],
   theme: {
     screens: {
+      'toast-break-point': {
+        max: '480px',
+      },
       phone: { max: `${SCREEN_BREAKPOINTS.PHONE_MAX}px` },
       tablet: {
         min: `${SCREEN_BREAKPOINTS.TABLET_MIN}px`,
