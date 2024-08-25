@@ -1,10 +1,10 @@
+import type { NotNullableMarkdownRemark } from './PostArticle';
+
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import React from 'react';
 
 import { useSelectedPostArticleHeading } from '@hooks/useSelectedPostArticleHeading';
-
-import type { NotNullableMarkdownRemark } from './PostArticle';
 
 interface PostArticleNavigationProps
   extends Pick<NotNullableMarkdownRemark, 'headings'> {
@@ -21,19 +21,20 @@ export const PostArticleNavigation = ({
   if (!headings || !title) return null;
 
   return (
-    <div className="flex-1 hidden lg:block">
-      <nav className="my-4 ml-12 sticky top-2 px-4 py-1 text-xs border-l-2 border-zinc-300 dark:border-zinc-700 min-w-[15em] max-w-xs">
-        <h3 className="font-bold text-base mb-2">{title}</h3>
-        <ul className="list-disc ml-4 flex flex-col gap-1">
+    <div className="block flex-1 phone:hidden tablet:hidden">
+      <nav className="sticky top-2 my-4 ml-12 min-w-[15em] max-w-xs border-l-2 border-zinc-300 px-4 py-1 text-xs dark:border-zinc-700">
+        <h3 className="mb-2 text-base font-bold">{title}</h3>
+        <ul className="ml-4 flex list-disc flex-col gap-1">
           {headings.map((heading, index) => {
             if (!heading) return null;
             const { value, depth, id } = heading;
+
             return (
               <li
                 key={index}
                 className={`list-item transition-all ${
                   selectedHeading === id
-                    ? 'text-zinc-700 dark:text-zinc-200 font-bold text-sm'
+                    ? 'text-sm font-bold text-zinc-700 dark:text-zinc-200'
                     : 'text-zinc-400 dark:text-zinc-500'
                 }`}
                 style={{
@@ -41,7 +42,7 @@ export const PostArticleNavigation = ({
                 }}
               >
                 <button
-                  className="text-start cursor-pointer hover:underline"
+                  className="cursor-pointer text-start hover:underline"
                   onClick={() => {
                     if (id) {
                       setSelectedHeading(id);

@@ -5,13 +5,13 @@ import { SkillItem } from './SkillItem';
 
 export const SkillSection = () => (
   <section>
-    <h2 id={ABOUT_TITLE_ID.SKILL} className="font-bold text-3xl mb-6">
+    <h2 className="mb-6 text-3xl font-bold" id={ABOUT_TITLE_ID.SKILL}>
       🛠️ Skill
     </h2>
     <dl>
       <SkillItem
-        title="Overall"
         borderBottom
+        title="Overall"
         whatCanIDo={[
           '포지션에 관계없이 제품의 발전을 위해 고민하고 의견을 제시합니다.',
           '이슈 해결을 위해 개발 외적인 방법을 포함한 다양한 방식을 적극적으로 탐색하고 최선의 결과를 얻을 수 있게 노력합니다.',
@@ -19,8 +19,8 @@ export const SkillSection = () => (
         ]}
       />
       <SkillItem
-        title="Frontend"
         borderBottom
+        title="Frontend"
         whatCanIDo={[
           'Next를 포함한 React 기반의 프로젝트를 구축하고 유지보수할 수 있습니다.',
           'Typescript의 여러 유틸리티 타입을 활용하여 안정성을 높인 코드를 작성할 수 있습니다.',
@@ -30,8 +30,8 @@ export const SkillSection = () => (
         ]}
       />
       <SkillItem
-        title="Backend"
         borderBottom
+        title="Backend"
         whatCanIDo={[
           '필요에 따라 BFF와 같은 Node 기반의 간단한 API 서버를 구축할 수 있습니다.',
           '프론트엔드 입장에서 효율적인 스키마 설계에 대해 고민하고 의견을 제시할 수 있습니다.',

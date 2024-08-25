@@ -1,10 +1,20 @@
-import path from 'path';
-
 import type { GatsbyConfig } from 'gatsby';
 
-export const ALIAS = ['stores', 'components', 'layouts', 'hooks'].reduce(
+import path from 'path';
+
+export const ALIAS = [
+  'stores',
+  'components',
+  'layouts',
+  'hooks',
+  'utils',
+  'constants',
+  'images',
+  'generated',
+].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
+
     return alias;
   },
   {
@@ -40,7 +50,6 @@ const POST_ARTICLE_STYLES = {
   tableCell:
     'border border-zinc-700 dark:border-zinc-400 px-4 py-2 whitespace-pre-wrap',
   tableRow: 'border border-zinc-700 dark:border-zinc-400 px-4 py-2 text-xs',
-  image: 'max-w-full rounded-sm my-12 mx-auto',
   strong: 'font-black',
 };
 
@@ -68,6 +77,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-pnpm',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
@@ -84,10 +94,12 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: path.resolve(`./src/layouts/GlobalLayout.tsx`),
+        component: path.resolve(
+          __dirname,
+          '/src/layouts/GlobalLayout/index.tsx',
+        ),
       },
     },
-
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -98,7 +110,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
+        path: `${__dirname}/src/contents`,
         name: `blog`,
       },
     },
@@ -115,16 +127,7 @@ const config: GatsbyConfig = {
         plugins: [
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 500,
-              loading: 'lazy',
-              linkImagesToOriginal: true,
-              disableBgImageOnAlpha: true,
-              showCaptions: true,
-            },
-          },
+          'gatsby-remark-gifs',
           {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
@@ -135,6 +138,23 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-remark-classes',
             options: {
               classMap: POST_ARTICLE_STYLES,
+            },
+          },
+          {
+            resolve: `gatsby-remark-figure-caption`,
+            options: {
+              figureClassName: 'w-full my-6',
+              captionClassName:
+                'text-center text-sm text-zinc-400 dark:text-zinc-500 mt-1 not-italic',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              quality: 90,
+              withWebp: true,
             },
           },
         ],

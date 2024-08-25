@@ -1,9 +1,9 @@
+import type { PostLayoutQuery } from 'types/graphql-types';
+
 import React from 'react';
 import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather';
 
 import { Link } from '@reach/router';
-
-import type { PostLayoutQuery } from 'types';
 
 type OtherPostLinkProps = Exclude<
   PostLayoutQuery['previous'] | PostLayoutQuery['next'],
@@ -27,13 +27,13 @@ export const OtherPostLink = ({
 
   return (
     <Link
-      to={slug}
-      className={`group cursor-pointer bg-zinc-200 dark:bg-zinc-800 px-2 py-4 rounded-lg w-full items-center flex ${
+      className={`group flex w-full cursor-pointer items-center rounded-lg bg-zinc-200 px-2 py-4 dark:bg-zinc-800 ${
         {
           previous: 'flex-row',
           next: 'flex-row-reverse text-right',
         }[type]
       }`}
+      to={slug}
     >
       {
         {
@@ -44,13 +44,13 @@ export const OtherPostLink = ({
           ),
           next: (
             <ArrowRightCircle
-              className={`${ICON_STYLE} group-hover:mr-0 group-hover:ml-4`}
+              className={`${ICON_STYLE} group-hover:ml-4 group-hover:mr-0`}
             />
           ),
         }[type]
       }
       <div className="flex flex-col">
-        <small className="font-semibold text-zinc-400 dark:text-zinc-600 text-xs">
+        <small className="text-xs font-semibold text-zinc-400 dark:text-zinc-600">
           {
             {
               previous: '이전 포스트',
@@ -59,7 +59,7 @@ export const OtherPostLink = ({
           }
         </small>
         <h3
-          className={`text-sm font-bold w-full text-zinc-800 dark:text-zinc-200 ${
+          className={`w-full text-sm font-bold text-zinc-800 dark:text-zinc-200 ${
             type === 'previous' ? 'pr-2' : 'pl-2'
           }`}
         >

@@ -1,10 +1,31 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+/* stylelint-disable no-invalid-position-at-import-rule */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body,
-#___gatsby,
-#gatsby-focus-wrapper {
-  height: 100%;
-  width: 100%;
+@layer base {
+  body,
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    @apply w-full;
+    @apply h-full;
+  }
+}
+@layer components {
+  @import '@radix-ui/themes/styles.css';
+  @import 'react-toastify/dist/ReactToastify.css';
+  @import 'swiper/css';
+
+  input,
+  textarea {
+    @apply font-pretendard;
+  }
+
+  button,
+  .rt-BaseButton {
+    @apply font-pretendard;
+    @apply cursor-pointer;
+  }
 }

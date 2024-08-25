@@ -35,17 +35,17 @@ export const Meta = ({ title, description, children }: MetaProps) => {
     <>
       <title>{metaTitle}</title>
       <meta
-        name="google-site-verification"
         content="6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw"
+        name="google-site-verification"
       />
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={metaTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={metaTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="theme-color" content="#000000" />
+      <meta content={metaDescription} name="description" />
+      <meta content={metaTitle} property="og:title" />
+      <meta content={metaDescription} property="og:description" />
+      <meta content="website" property="og:type" />
+      <meta content="summary" name="twitter:card" />
+      <meta content={metaTitle} name="twitter:title" />
+      <meta content={metaDescription} name="twitter:description" />
+      <meta content="#000000" name="theme-color" />
       <GoogleAnalytics />
       {children}
     </>

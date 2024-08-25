@@ -1,25 +1,43 @@
 import type { Config } from 'tailwindcss';
 
+import { SCREEN_BREAKPOINTS } from './src/constants';
 const NAV_HEIGHT = '3em';
 
 const PAGE_HEIGHT = `calc(100% - ${NAV_HEIGHT})`;
 
-const config: Config = {
+const config = {
+  mode: 'jit',
   darkMode: 'class',
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
     './gatsby-config.ts',
     './gatsby-ssr.ts',
   ],
-  theme: {
-    extend: {
-      screens: {
-        sm: '500px',
-        md: '700px',
-        lg: '1100px',
-        xl: '1400px',
-      },
+  plugins: [
+    ({ addUtilities }) => {
+      const utilities = {
+        '.hide-scrollbar': {
+          'scrollbar-width': 'none',
+          '-ms-overflow-style': 'none',
+        },
+        '.hide-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+      };
 
+      addUtilities(utilities, ['responsive', 'hover']);
+    },
+    require('tailwindcss-animated'),
+  ],
+  theme: {
+    screens: {
+      phone: { max: `${SCREEN_BREAKPOINTS.PHONE_MAX}px` },
+      tablet: {
+        min: `${SCREEN_BREAKPOINTS.TABLET_MIN}px`,
+        max: `${SCREEN_BREAKPOINTS.TABLET_MAX}px`,
+      },
+    },
+    extend: {
       fontFamily: {
         pretendard: [
           'Pretendard Variable',
@@ -65,6 +83,6 @@ const config: Config = {
       },
     },
   },
-};
+} satisfies Config;
 
 export default config;

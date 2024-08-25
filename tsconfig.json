@@ -15,8 +15,10 @@
     "resolveJsonModule": true,
     "paths": {
       "@*": ["./src/*"],
-      "types": ["types"]
-    }
+      "types": ["types"],
+      "tailwind-config": ["tailwind.config.ts"]
+    },
+    "typeRoots": ["./types"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./types/**/*"]
 }

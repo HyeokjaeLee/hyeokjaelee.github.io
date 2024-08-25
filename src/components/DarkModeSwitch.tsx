@@ -4,8 +4,6 @@ import { Sun, Moon } from 'react-feather';
 import { DARK_MODE_LOCAL_STORAGE_KEY } from '@hooks/useBindDarkMode';
 import { Switch, useDarkMode } from '@hyeokjaelee/pastime-ui';
 
-const iconClassName = 'text-black h-2 w-2';
-
 export const DarkModeSwitch = () => {
   const { isDarkMode } = useDarkMode();
 
@@ -24,9 +22,9 @@ export const DarkModeSwitch = () => {
       }}
     >
       {isDarkMode ? (
-        <Moon className={iconClassName} />
+        <Moon className="size-2 text-black" />
       ) : (
-        <Sun className={iconClassName} />
+        <Sun className="size-2 text-black" />
       )}
     </Switch>
   );

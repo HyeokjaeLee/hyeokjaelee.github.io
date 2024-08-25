@@ -14,12 +14,12 @@ export const StackBadge = ({
   logo,
 }: StackBadgeProps) => (
   <img
+    alt={name}
     src={`https://img.shields.io/badge/${name}-${backgroundColor.replace(
       '#',
       '',
     )}?style=flat-square&logo=${logo ?? name}&logoColor=${
       blackLogo ? 'black' : 'white'
     }`}
-    alt={name}
   />
 );

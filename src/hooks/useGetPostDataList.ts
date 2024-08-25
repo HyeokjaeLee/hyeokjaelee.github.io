@@ -1,9 +1,9 @@
+import type { PageProps } from 'gatsby';
+import type { PostPageQuery } from 'types/graphql-types';
+
 import { debounce } from 'lodash-es';
 
 import { useEffect, useMemo, useState } from 'react';
-
-import type { PageProps } from 'gatsby';
-import type { PostPageQuery } from 'types';
 
 type UseGetPostLIstParams = PageProps<PostPageQuery>;
 

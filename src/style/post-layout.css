@@ -1,70 +1,62 @@
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import 'prismjs/themes/prism-tomorrow.css';
 
 .gatsby-highlight-code-line {
-  background-color: #383838;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid yellow;
+  @apply block;
+  @apply mx-[-1em];
+  @apply pr-4;
+  @apply pl-3;
+  @apply border-l-4;
+  @apply border-yellow-500;
 }
 
 .gatsby-highlight > pre[class*='language-'] {
-  margin: 0;
-  padding: 0.75rem;
-  overflow: auto;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  border-radius: 0.125rem;
-  margin: 1rem 0;
+  @apply overflow-auto;
+  @apply my-4;
+  @apply rounded-md;
+  @apply p-3;
+  @apply text-sm;
+  @apply leading-4;
 }
 
 code[class*='language-'] {
-  font-family: 'Fira Code', monospace;
+  @apply font-firacode;
 }
 
 :not(pre) > code[class*='language-'] {
-  font-size: 85%;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.125rem;
-  margin: 0 0.1rem;
-}
-
-.blockquote-container:has(img) {
-  border: none;
-  margin: 3em auto;
-  padding: 0;
-  font-size: smaller;
-  text-align: center;
-  font-style: normal;
-  width: 100%;
-}
-
-.blockquote-container:has(img) > p {
-  margin: 0;
-  color: gray;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.blockquote-container > p > img {
-  margin: 2px auto;
+  @apply mx-0.5;
+  @apply px-1.5;
+  @apply py-0.5;
+  @apply rounded-md;
+  @apply text-xs;
+  @apply not-italic;
 }
 
 .list-container {
-  margin: 0.4em;
+  @apply m-1.5;
+}
+
+.post-body hr {
+  @apply max-w-[calc(100%-10rem)];
+  @apply my-12;
+  @apply mx-auto;
+  @apply border-[0.5px];
+  @apply border-zinc-300;
+  @apply dark:border-zinc-800;
 }
 
 .list-container > p {
-  margin: 0;
+  @apply m-0;
 }
 
-.post-body > hr {
-  max-width: 50%;
-  margin: 2em auto;
-  border-color: gray;
-  border-width: 1px;
+.post-body .gatsby-resp-image-background-image {
+  @apply rounded-md;
+}
+
+.post-body img {
+  @apply rounded-md;
+  @apply border-zinc-300;
+  @apply dark:border-zinc-800;
+  @apply border;
+  @apply max-w-full;
+  @apply mx-auto;
 }

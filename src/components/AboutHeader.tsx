@@ -7,44 +7,44 @@ import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const AboutHeader = () => (
   <header className="flex flex-col gap-8" id={ABOUT_TITLE_ID.ABOUT_ME}>
-    <section className="flex gap-5 md:gap-12 flex-wrap justify-center">
-      <h1 className="text-lg text-center my-auto">
+    <section className="md:gap-12 flex flex-wrap justify-center gap-5">
+      <h1 className="my-auto text-center text-lg">
         👋 안녕하세요!
         <br />
         덕업일치 개발자, <span className="font-bold">이혁재</span>
         입니다.
       </h1>
       <div>
-        <h4 className="font-bold text-lg mb-2">Contact.</h4>
+        <h4 className="mb-2 text-lg font-bold">Contact.</h4>
         <dl className="text-sm">
           <dt className="flex items-center gap-2 font-bold">
-            <Mail className="w-4 h-4" />
+            <Mail className="size-4" />
             email
           </dt>
           <dd className="mb-2">
             <a
-              href="mailto:leehyeokjae97@gmail.com"
               className="hover:underline"
+              href="mailto:leehyeokjae97@gmail.com"
             >
               leehyeokjae97@gmail.com
             </a>
           </dd>
           <dt className="flex items-center gap-2 font-bold">
-            <Phone className="w-4 h-4" />
+            <Phone className="size-4" />
             phone
           </dt>
           <dd>+821093906067</dd>
         </dl>
       </div>
       <div>
-        <h4 className="font-bold text-lg mb-2">Channel.</h4>
-        <ul className="text-sm flex flex-col gap-3">
+        <h4 className="mb-2 text-lg font-bold">Channel.</h4>
+        <ul className="flex flex-col gap-3 text-sm">
           <li>
             <Link
-              to="/"
               className="flex items-center gap-2 font-bold hover:underline"
+              to="/"
             >
-              <PenTool className="w-4 h-4" />
+              <PenTool className="size-4" />
               blog
             </Link>
           </li>
@@ -52,28 +52,28 @@ export const AboutHeader = () => (
             <a
               className="flex items-center gap-2 font-bold hover:underline"
               href="https://github.com/HyeokjaeLee"
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
-              <GitHub className="w-4 h-4" />
+              <GitHub className="size-4" />
               GitHub
             </a>
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/hyeokjae-lee-844042225"
-              target="_blank"
               className="flex items-center gap-2 font-bold hover:underline"
+              href="https://www.linkedin.com/in/hyeokjae-lee-844042225"
               rel="noreferrer"
+              target="_blank"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="size-4" />
               Linkedin
             </a>
           </li>
         </ul>
       </div>
     </section>
-    <div className="whitespace-pre-wrap text-sm border-l-8 p-3 bg-zinc-50 dark:bg-zinc-700 rounded-md border-zinc-300 dark:border-gray-500">
+    <div className="whitespace-pre-wrap rounded-md border-l-8 border-zinc-300 bg-zinc-50 p-3 text-sm dark:border-gray-500 dark:bg-zinc-700">
       <p>
         중학생 때 우연히 Android 앱 개발을 시작했고 현재는 Javascript 생태계
         매력에 빠져 2년 차 프론트엔드 개발자로 일하고 있습니다.
