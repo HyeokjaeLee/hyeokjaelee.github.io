@@ -23,6 +23,9 @@ const config = {
         '.hide-scrollbar::-webkit-scrollbar': {
           display: 'none',
         },
+        '.scroll-touch': {
+          '-webkit-overflow-scrolling': 'touch',
+        },
       };
 
       addUtilities(utilities, ['responsive', 'hover']);

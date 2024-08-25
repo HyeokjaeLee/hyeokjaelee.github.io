@@ -48,7 +48,9 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
 
   const handleSwiping = useMemo(
     () =>
-      throttle<SwipeCallback>(({ deltaX }) => {
+      throttle<SwipeCallback>(({ deltaX, dir }) => {
+        if (dir !== 'Left') return;
+
         setIsSwiping(true);
         setTransition(() => {
           const floorDeltaX = Math.floor(deltaX);
@@ -164,7 +166,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
                 <Link to="/about">🙌 About Me</Link>
               </li>
             </ul>
-            <section className="m-2 flex flex-1 flex-col gap-8 overflow-auto hide-scrollbar">
+            <section className="m-2 flex flex-1 flex-col gap-8 overflow-auto hide-scrollbar scroll-touch">
               <LastPostList />
               <LikePostList />
             </section>
