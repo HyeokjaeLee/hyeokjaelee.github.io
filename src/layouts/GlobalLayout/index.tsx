@@ -90,6 +90,7 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         draggable={isPhone}
         draggableDirection="x"
         draggablePercent={20}
+        limit={3}
         position="top-center"
         stacked={isPhone}
         theme="colored"
