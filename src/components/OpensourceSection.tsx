@@ -11,16 +11,23 @@ export const OpensourceSection = () => {
   return (
     <section>
       <h2 className="text-3xl font-bold" id={ABOUT_TITLE_ID.OPEN_SOURCE}>
-        🗂️ Opensource
+        🗂️ Side Projects
       </h2>
       <p className="mb-6 ml-1 text-sm font-bold text-zinc-400">
         개인 성장과 불편함을 해소하기 위해 개발한 1인 오픈소스 프로젝트입니다.
       </p>
       <ul>
         <OpensourceItem
-          description={`QR 스캔을 통해 양방향 번역을 지원하는 인스턴트 채팅앱입니다.\n개인 컴포넌트 라이브러리와 Next 13 app directory 활용해 개발했습니다.\n코스트를 줄이기 위해 Indexed DB를 이용해 정보를 저장하고 서버 및 외부 API 호출을 최소화할 수 있게 최대한 많은 로직을 클라이언트가 처리할 수 있도록 설계했습니다.`}
+          description={`QR 스캔을 통해 양방향 번역을 지원하는 인스턴트 채팅앱입니다.  
+처음엔 개인 컴포넌트 라이브러리와 Next 13 app directory 활용해 개발했고 현재는 Next 15와 shadcn 기반으로 전환했습니다.  
+비용을 줄이기 위해 Indexed DB와 React-Query session cache를 적극 활용해 정보를 저장하고 서버 및 외부 API 호출을 최소화할 수 있도록 설계했습니다.`}
           id="briend"
           links={[
+            {
+              name: '언어의 장벽없는 새로운 사람과의 대화 - Briend',
+              href: 'https://briend.vercel.app',
+              type: 'product',
+            },
             {
               name: 'Briend 번역 채팅앱 개발',
               href: '/briend',
@@ -30,34 +37,51 @@ export const OpensourceSection = () => {
               href: 'https://github.com/HyeokjaeLee/briend',
               type: 'github',
             },
-            {
-              name: '언어의 장벽없는 새로운 사람과의 대화 - Briend',
-              href: 'https://briend.vercel.app',
-              type: 'product',
-            },
+          ]}
+          list={[
+            'i18n 구현 (영어, 태국어, 일본어, 중국어, 한국어, 베트남어)',
+            'API 호출 비용 최적화',
+            'P2P 기반 실시간 채팅 로직 개발',
+            'firebase 기반 실시간 채팅 로직 개발',
+            '최신 기술 스택 기반으로 리팩토링',
+            'on-device AI 기반 번역 로직 구현',
+            '나라별 시간 formatting 로직 개발',
+            'Anonymous 인증 및 SNS 로그인 & 계정 통합 로직 개발',
           ]}
           stacks={[
+            {
+              name: 'Bun',
+              backgroundColor: '#000000',
+            },
+
+            {
+              name: 'Next.js v15',
+              logo: 'Next.js',
+              backgroundColor: '#000000',
+            },
+            {
+              name: 'ShadcnUI',
+              backgroundColor: '#000000',
+            },
+            { name: 'tRPC', backgroundColor: '#2596BE' },
+            {
+              name: 'Tailwind v4',
+              logo: 'TailwindCSS',
+              backgroundColor: '#06B6D4',
+            },
+            {
+              name: 'Firebase',
+              backgroundColor: '#DD2C00',
+            },
+
             {
               name: 'TypeScript',
               backgroundColor: '#3178C6',
             },
             {
-              name: 'Next.js',
-              backgroundColor: '#000000',
-            },
-            {
               name: 'Zustand',
               logo: 'React',
               backgroundColor: '#423E39',
-            },
-            {
-              name: 'Pusher',
-              backgroundColor: '#300D4F',
-            },
-            {
-              name: 'Tailwind',
-              logo: 'TailwindCSS',
-              backgroundColor: '#06B6D4',
             },
             {
               name: 'PWA',
@@ -67,7 +91,10 @@ export const OpensourceSection = () => {
           title="Briend"
         />
         <OpensourceItem
-          description={`개인 프로젝트에서 사용하기 위해 개발한 React 컴포넌트 라이브러리입니다.\nStorybook을 이용해 문서화하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.\n사용자의 입력을 받는 컴포넌트들이 외부 상태를 업데이트시키지 않고 유효성 검사 기능을 자체적으로 제공합니다.`}
+          description={`개인 프로젝트에서 사용하기 위해 개발한 React 컴포넌트 라이브러리입니다.  
+Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.  
+사용자의 입력을 받는 컴포넌트들이 외부 상태를 업데이트시키지 않고 유효성 검사 기능을 자체적으로 제공합니다.  
+최근에 해당 라이브러리 목적을 shadcn이 충족시켜줘 더이상 업데이트 하지 않고 있습니다.`}
           id="pastime-ui"
           links={[
             {
@@ -80,6 +107,11 @@ export const OpensourceSection = () => {
               href: 'https://hyeokjaelee.github.io/pastime-ui',
               type: 'storybook',
             },
+          ]}
+          list={[
+            'Storybook을 이용해 문서화',
+            'Github action을 통해 자동으로 배포',
+            '사용자의 입력을 받는 컴포넌트들이 외부 상태를 업데이트시키지 않고 유효성 검사 기능을 자체적으로 제공',
           ]}
           stacks={[
             {
@@ -125,6 +157,12 @@ export const OpensourceSection = () => {
               href: 'https://github.com/HyeokjaeLee/korea-webtoon-api',
               type: 'github',
             },
+          ]}
+          list={[
+            'Nest.js 기반 웹 서버 구축',
+            'OpenAPI 스펙 swagger 문서 제공',
+            'Naver, Kakao Page, 다음 웹툰 페이지 및 API 응답 분석 및 크롤링 로직 개발',
+            '각 웹툰 공급자 데이터 정형화',
           ]}
           stacks={[
             {

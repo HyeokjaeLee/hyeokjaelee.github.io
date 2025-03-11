@@ -16,6 +16,7 @@ interface OpensourceItemProps {
   links: LinkProps[];
   description?: string;
   id?: string;
+  list?: string[];
 }
 
 export const OpensourceItem = ({
@@ -24,8 +25,9 @@ export const OpensourceItem = ({
   description,
   links,
   id,
+  list,
 }: OpensourceItemProps) => (
-  <li className="md:flex-row mb-4 flex flex-col gap-3 border-b border-zinc-800 pb-4 last:mb-0 last:border-none last:pb-0">
+  <li className="mb-4 flex flex-col gap-3 border-b border-zinc-800 pb-4 last:mb-0 last:border-none last:pb-0 md:flex-row">
     <header className="md:w-56">
       <h4 className="text-xl font-bold" id={id}>
         {title}
@@ -44,6 +46,13 @@ export const OpensourceItem = ({
           <dt className="mb-1 text-lg font-bold">Description</dt>
           <dd className="whitespace-pre-wrap text-sm">{description}</dd>
         </>
+      ) : null}
+      {list ? (
+        <ul className="my-4 ml-4 list-disc">
+          {list.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       ) : null}
       {links ? (
         <>

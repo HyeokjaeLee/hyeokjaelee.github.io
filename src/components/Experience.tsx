@@ -1,6 +1,7 @@
 import type { StackBadgeProps } from './StackBadge';
 
 import React from 'react';
+import { ExternalLink } from 'react-feather';
 
 import { StackBadge } from './StackBadge';
 
@@ -115,6 +116,95 @@ const ExperienceItem = ({
   </li>
 );
 
+interface ExperienceContentProps {
+  description: string[];
+  project: {
+    title: string;
+    content: (
+      | string
+      | {
+          what: string;
+          result?: string;
+          link?: string;
+        }
+    )[];
+  }[];
+}
+
+const ExperienceContent = ({
+  description,
+  project,
+}: ExperienceContentProps) => {
+  return (
+    <ul className="flex flex-col gap-6 leading-6">
+      <li>
+        <ul className="ml-4 list-disc">
+          {description.map((item, index) => {
+            const splittedItem = item.split('***');
+
+            return (
+              <li key={index}>
+                {splittedItem.map((part, partIndex) => {
+                  // 짝수 인덱스는 일반 텍스트, 홀수 인덱스는 강조할 텍스트
+                  return partIndex % 2 === 0 ? (
+                    part
+                  ) : (
+                    <strong key={partIndex}>{part}</strong>
+                  );
+                })}
+              </li>
+            );
+          })}
+        </ul>
+      </li>
+      <li>
+        <h4 className="mb-3 text-xl font-bold">프로젝트</h4>
+        <dl>
+          {project.map(({ title, content }, index) => {
+            return (
+              <>
+                <dt className="mb-2 text-lg font-bold">
+                  {index + 1}. {title}
+                </dt>
+                <dd className="mb-4">
+                  <ul className="ml-8 list-disc text-sm leading-6">
+                    {content.map((value, index) => {
+                      if (typeof value === 'object') {
+                        return (
+                          <li key={index}>
+                            {value.what}
+                            {value.link ? (
+                              <a
+                                className="ml-1 inline-block"
+                                href={value.link}
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                <ExternalLink className="size-3 text-blue-500" />
+                              </a>
+                            ) : null}
+                            {value.result ? (
+                              <blockquote className="my-2 border-l-4 border-yellow-400 pl-2 text-zinc-400">
+                                {value.result}
+                              </blockquote>
+                            ) : null}
+                          </li>
+                        );
+                      }
+
+                      return <li key={index}>{value}</li>;
+                    })}
+                  </ul>
+                </dd>
+              </>
+            );
+          })}
+        </dl>
+      </li>
+    </ul>
+  );
+};
+
 interface ExperienceProps {
   title: string;
   period?: string;
@@ -123,6 +213,7 @@ interface ExperienceProps {
   id?: string;
   borderBottom?: boolean;
   description?: string;
+  stacks?: StackBadgeProps[];
 }
 
 export const Experience = Object.assign(
@@ -134,9 +225,10 @@ export const Experience = Object.assign(
     id,
     borderBottom,
     description,
+    stacks,
   }: ExperienceProps) => (
     <dl
-      className={`md:flex-row md:gap-5 flex flex-col gap-3 border-zinc-300 dark:border-zinc-700 ${
+      className={`flex flex-col gap-3 border-zinc-300 dark:border-zinc-700 md:flex-row md:gap-5 ${
         borderBottom ? 'mb-4 border-b' : ''
       }`}
       id={id}
@@ -152,11 +244,12 @@ export const Experience = Object.assign(
         {description ? (
           <span className="mt-3 text-xs">{description}</span>
         ) : null}
+        <section className="mt-4 flex flex-wrap gap-1">
+          {stacks?.map((stack) => <StackBadge key={stack.name} {...stack} />)}
+        </section>
       </dt>
-      <dd className="mb-4 flex-1">
-        <ul>{children}</ul>
-      </dd>
+      <dd className="mb-4 flex-1">{children}</dd>
     </dl>
   ),
-  { Item: ExperienceItem },
+  { Item: ExperienceItem, Content: ExperienceContent },
 );

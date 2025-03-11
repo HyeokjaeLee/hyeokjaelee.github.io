@@ -11,32 +11,15 @@ export const OtherExperienceSection = () => (
     >
       🗃️ Other Experience
     </h2>
-    <Experience
-      jobTitle="컴퓨터 공학과 졸업"
-      period="2016.04 - 2022.08"
-      title="공주대학교"
-    >
-      <Experience.Item
-        borderBottom
-        description={`학과 개발 동아리입니다.\n후배들을 대상으로 졸업 전엔 Android 개발 강의를 진행하였으며 졸업 후에는 취업 멘토링 활동을 하였습니다.`}
-        title="개발 동아리 - Primitive"
-      />
-      <Experience.Item
-        borderBottom
-        description={`여러 웹툰 플랫폼의 정보를 제공하는 앱입니다.\n학교에서 프로그램 저작권 제안을 받아 등록했습니다.\n등록번호: C-2021-020527`}
-        links={[
-          {
-            href: 'https://github.com/HyeokjaeLee/webtoon-hub',
-            name: 'webtoon-hub',
-            type: 'github',
-          },
-        ]}
-        title="프로그램 저작권 등록 - Webtoon Hub"
-      />
-      <Experience.Item
-        description="2021년 6월에 정보처리기사 자격증을 취득했습니다."
-        title="자격증 취득 - 정보처리기사"
-      />
-    </Experience>
+    <ul className="list-disc text-lg font-bold leading-8">
+      <li>2024년 웰로 우수사원 선정 (2024.12)</li>
+      <li>Primitive 개발 동아리 활동 / 취업 멘토링 (2022~ )</li>
+      <li>정보처리기사 자격증 취득 (2021.06)</li>
+      <li>
+        Primitive 개발 동아리 활동 / 안드로이드 개발 강의 (2016.04 - 2022.03)
+      </li>
+      <li>Webtoon Hub 프로그램 저작권 등록 (C-2021-020527)</li>
+      <li>공주대학교 컴퓨터 공학 전공 (2016.04 - 2022.08)</li>
+    </ul>
   </section>
 );
