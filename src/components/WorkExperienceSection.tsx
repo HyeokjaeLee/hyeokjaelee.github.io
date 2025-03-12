@@ -87,6 +87,7 @@ export const WorkExperienceSection = () => {
             name: 'ChakraUI',
             backgroundColor: '#319795',
           },
+{name: 'Framer', backgroundColor: '#0055FF'}
         ]}
         title="주식회사 웰로"
       >
