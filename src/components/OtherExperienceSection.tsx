@@ -6,7 +6,7 @@ import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 export const OtherExperienceSection = () => (
   <section>
     <h2
-      className="mb-6 text-3xl font-bold"
+      className="mb-6 ml-4 text-3xl font-bold"
       id={ABOUT_TITLE_ID.OTHER_EXPERIENCE}
     >
       🗃️ Other Experience
