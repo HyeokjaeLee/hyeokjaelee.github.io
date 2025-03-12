@@ -6,12 +6,12 @@ import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 export const OtherExperienceSection = () => (
   <section>
     <h2
-      className="mb-6 ml-4 text-3xl font-bold"
+      className="mb-6 text-3xl font-bold"
       id={ABOUT_TITLE_ID.OTHER_EXPERIENCE}
     >
       🗃️ Other Experience
     </h2>
-    <ul className="list-disc text-lg font-bold leading-8">
+    <ul className="list-disc ml-4 text-lg font-bold leading-8">
       <li>2024년 웰로 우수사원 선정 (2024.12)</li>
       <li>Primitive 개발 동아리 활동 / 취업 멘토링 (2022~ )</li>
       <li>정보처리기사 자격증 취득 (2021.06)</li>
