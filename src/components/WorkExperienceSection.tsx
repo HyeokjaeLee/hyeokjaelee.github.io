@@ -100,7 +100,7 @@ export const WorkExperienceSection = () => {
             {
               title: 'Wello Web & App 개발 (Flutter → Next.js 전환)',
               content: [
-                'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 효율적인 통신 방식 구현',
+                'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 통신 방식 구현',
                 'Next 14 app directory 기반의 프론트엔드 아키텍쳐 설계',
                 '앱과 웹 모두에서 작동하는 OAuth 2.0 인증 방식 및 (Google, Apple, Naver, Kakao), 본인 인증 구현',
                 'route groups을 활용한 접근 제어 로직 개발',
@@ -115,7 +115,7 @@ export const WorkExperienceSection = () => {
                 '동일 코드베이스에서 구동 환경에 따라 기존 앱의 동작을 변경하는 모듈식 컨트롤러 설계',
                 '자사 앱, 웹, KB Pay 환경 간 클라이언트 정보 공유 방식 설계',
                 'KB Pay 앱을 통한 인증 로직 개발',
-                '폐쇠망 환경 트러블 슈팅',
+                '폐쇄망 환경에서의 문제 해결',
               ],
             },
             {
@@ -123,7 +123,7 @@ export const WorkExperienceSection = () => {
               content: [
                 'PNPM, Turborepo 기반 모노레포 환경 구성',
                 '공유 리소스(assets, components, hooks) 패키지 정의 및 개발',
-                'OAuth 2.0 인증 방식 (Kakao, Google), Email 인증 방식 구현',
+                'OAuth 2.0 인증 방식 (Kakao, Google, Apple), Email 인증 방식 구현',
                 '사용자 권한에 따른 pathname, middleware 기반의 접근 제어 및 문서 암호화/복호화 로직 개발',
               ],
             },
@@ -139,7 +139,7 @@ export const WorkExperienceSection = () => {
                   what: '디바이스 Viewport 사이즈와 지도의 축척을 통해 조회 리소스 최적화',
                   result: 'API 응답 시간 80% 이상 단축',
                 },
-                '범용 낙관적 업데이트 로직 개발',
+                '범용 옵티미스틱 업데이트 로직 개발',
                 {
                   what: '터치 가속도를 이용한 User 스크롤 인터렉션 및 Windowing 로직 개발',
                   result:
