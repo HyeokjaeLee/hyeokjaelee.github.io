@@ -15,7 +15,7 @@ export const ProjectContainer = ({
   jobTitle,
   id,
 }: ProjectContainerProps) => (
-  <dl className="md:flex-row flex flex-col gap-3">
+  <dl className="flex flex-col gap-3 md:flex-row">
     <dt className="flex w-52 flex-col">
       <h3 className="text-2xl font-bold" id={id}>
         {title}

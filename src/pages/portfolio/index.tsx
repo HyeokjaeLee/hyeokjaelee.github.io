@@ -5,7 +5,6 @@ import { Meta } from '@components/Meta';
 import { OpensourceSection } from '@components/OpensourceSection';
 import { OtherExperienceSection } from '@components/OtherExperienceSection';
 import { PortfolioNavigation } from '@components/PortfolioNavigation';
-import { SkillSection } from '@components/SkillSection';
 import { WorkExperienceSection } from '@components/WorkExperienceSection';
 import { useGlobalStore } from '@stores/useGlobalStore';
 

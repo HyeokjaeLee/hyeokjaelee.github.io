@@ -24,6 +24,11 @@ export const OpensourceSection = () => {
           id="briend"
           links={[
             {
+              name: 'briend',
+              href: 'https://github.com/HyeokjaeLee/briend',
+              type: 'github',
+            },
+            {
               name: '언어의 장벽없는 새로운 사람과의 대화 - Briend',
               href: 'https://briend.vercel.app',
               type: 'product',
@@ -31,11 +36,6 @@ export const OpensourceSection = () => {
             {
               name: 'Briend 번역 채팅앱 개발',
               href: '/briend',
-            },
-            {
-              name: 'briend',
-              href: 'https://github.com/HyeokjaeLee/briend',
-              type: 'github',
             },
           ]}
           list={[

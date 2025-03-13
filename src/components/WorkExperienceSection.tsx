@@ -87,7 +87,7 @@ export const WorkExperienceSection = () => {
             name: 'ChakraUI',
             backgroundColor: '#319795',
           },
-{name: 'Framer', backgroundColor: '#0055FF'}
+          { name: 'Framer', backgroundColor: '#0055FF' },
         ]}
         title="주식회사 웰로"
       >
@@ -106,7 +106,7 @@ export const WorkExperienceSection = () => {
                 '앱과 웹 모두에서 작동하는 OAuth 2.0 인증 방식 및 (Google, Apple, Naver, Kakao), 본인 인증 구현',
                 'route groups을 활용한 접근 제어 로직 개발',
                 'iOS/Android WebView, 웹 브라우저 환경 차이를 고려한 크로스 플랫폼 호환성 최적화',
-                '앱과 웹 환경에서의 browser history를 일괄되게 관리하기 위한 history stack 및 router, link 컴포넌트 개발',
+                'browser history를 앱과 웹 환경에서 일괄되게 관리하기 위한 history stack 및 router, link 컴포넌트 개발',
                 '개인화 맞춤 정책 추천 및 기존 앱 기능 개발',
               ],
             },
