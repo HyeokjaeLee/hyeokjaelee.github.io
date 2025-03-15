@@ -1,7 +1,7 @@
-import { LOCAL_STARGE_KEY } from '@constants';
+import { LOCAL_STORAGE_KEY } from '@constants';
 import { Theme } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
-import { type PropsWithChildren,useLayoutEffect } from 'react';
+import { type PropsWithChildren, useLayoutEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
 export const GlobalProvider = ({ children }: PropsWithChildren) => {
@@ -11,7 +11,7 @@ export const GlobalProvider = ({ children }: PropsWithChildren) => {
   );
   useLayoutEffect(() => {
     const isDarkModeStorageValue = localStorage.getItem(
-      LOCAL_STARGE_KEY.DARK_MODE,
+      LOCAL_STORAGE_KEY.DARK_MODE,
     );
 
     const isDarkMode: boolean = isDarkModeStorageValue
@@ -20,12 +20,12 @@ export const GlobalProvider = ({ children }: PropsWithChildren) => {
 
     setIsDarkMode(isDarkMode);
 
-    const likePostList = localStorage.getItem(LOCAL_STARGE_KEY.LIKE_POST_LIST);
+    const likePostList = localStorage.getItem(LOCAL_STORAGE_KEY.LIKE_POST_LIST);
 
     if (likePostList) {
       setLikePostMap(() => new Map(JSON.parse(likePostList)));
     }
   }, [setIsDarkMode, setLikePostMap]);
 
-  return <Theme className="flex max-h-dvh flex-col">{children}</Theme>;
+  return <Theme className="flex size-full flex-col">{children}</Theme>;
 };

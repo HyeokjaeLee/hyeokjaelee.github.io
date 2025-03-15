@@ -1,5 +1,4 @@
 import type { GatsbyConfig } from 'gatsby';
-
 import path from 'path';
 
 export const ALIAS = [
@@ -11,6 +10,7 @@ export const ALIAS = [
   'constants',
   'images',
   'generated',
+  'shared',
 ].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);

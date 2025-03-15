@@ -1,4 +1,4 @@
-import { LOCAL_STARGE_KEY } from '@constants';
+import { LOCAL_STORAGE_KEY } from '@constants';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
 import { Switch } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
@@ -36,9 +36,9 @@ export const GlobalMenuFooter = () => {
             htmlFor={SWITCH_ID}
           >
             {isDarkMode ? (
-              <Moon className="size-3 animate-wiggle-more" />
+              <Moon className="animate-wiggle-more size-3" />
             ) : (
-              <Sun className="size-3 animate-wiggle-more" />
+              <Sun className="animate-wiggle-more size-3" />
             )}
             <p className="text-xs">{isDarkMode ? 'dark' : 'light'}</p>
           </label>
@@ -49,7 +49,7 @@ export const GlobalMenuFooter = () => {
             id={SWITCH_ID}
             onCheckedChange={(value) => {
               localStorage.setItem(
-                LOCAL_STARGE_KEY.DARK_MODE,
+                LOCAL_STORAGE_KEY.DARK_MODE,
                 JSON.stringify(value),
               );
 

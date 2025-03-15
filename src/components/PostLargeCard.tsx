@@ -30,13 +30,12 @@ export const PostLargeCard = ({
   return (
     <Link
       className={cn(
-        'block rounded-md hover:-translate-y-1 transition-transform',
+        'block rounded-md transition-transform hover:-translate-y-1',
         'bg-white dark:bg-zinc-800',
         'shadow-xs dark:shadow-md',
         'hover:shadow-md dark:hover:shadow-lg',
         {
-          'w-[calc(33.333333%-1.5rem)] phone:w-full tablet:w-[calc(50%-1.125rem)]':
-            dynamicWidth,
+          'w-full lg:w-1/3': dynamicWidth,
         },
         className,
       )}

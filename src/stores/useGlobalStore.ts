@@ -1,4 +1,4 @@
-import { LOCAL_STARGE_KEY } from '@constants';
+import { LOCAL_STORAGE_KEY } from '@constants';
 import { createWithEqualityFn } from 'zustand/traditional';
 
 export enum SCREEN {
@@ -47,7 +47,7 @@ export const useGlobalStore = createWithEqualityFn<GlobalStore>((set, get) => ({
     const likePostMap = callback(get().likePostMap);
 
     localStorage.setItem(
-      LOCAL_STARGE_KEY.LIKE_POST_LIST,
+      LOCAL_STORAGE_KEY.LIKE_POST_LIST,
       JSON.stringify(Array.from(likePostMap.entries())),
     );
 

@@ -7,7 +7,7 @@ import type { PageProps } from 'gatsby';
 import { throttle } from 'lodash-es';
 import { useEffect, useLayoutEffect } from 'react';
 import { X } from 'react-feather';
-import { Slide,ToastContainer } from 'react-toastify';
+import { Slide, ToastContainer } from 'react-toastify';
 import { shallow } from 'zustand/shallow';
 
 import { GlobalMenu } from './_components/GlobalMenu';
@@ -66,14 +66,14 @@ const GlobalLayout = ({ children, location }: PageProps) => {
       <ToastContainer
         bodyClassName="p-0 whitespace-pre-line flex gap-1 font-pretendard"
         className={cn(
-          'max-w-96 w-full relative h-0 p-0',
-          'phone:max-w-[calc(100vw-2rem)] mr-4 left-[calc(50dvw-0.25rem)]',
+          'relative h-0 w-full max-w-96 p-0',
+          'phone:max-w-[calc(100vw-2rem)] left-[calc(50dvw-0.25rem)] mr-4',
           'toast-break-point:left-0 toast-break-point:mx-auto toast-break-point:top-2',
         )}
         closeButton={({ closeToast }) => (
           <IconButton
             className={cn(
-              'w-5 h-5',
+              'h-5 w-5',
               'text-zinc-900 dark:text-zinc-100',
               'phone:hidden',
             )}
@@ -92,16 +92,16 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         stacked={isPhone}
         theme="colored"
         toastClassName={cn(
-          'p-4 rounded-lg backdrop-blur-xs flex justify-center',
-          'dark:text-white dark:bg-[rgba(0,0,0,0.8)]!',
-          'text-black bg-[rgba(255,255,255,0.8)]!',
+          'backdrop-blur-xs flex justify-center rounded-lg p-4',
+          'dark:bg-[rgba(0,0,0,0.8)]! dark:text-white',
+          'bg-[rgba(255,255,255,0.8)]! text-black',
         )}
         transition={Slide}
       />
       <GlobalNavigation search={location.search} />
       <main
         className={cn(
-          'flex-1 overflow-auto',
+          'size-full flex-1 overflow-auto',
           'bg-zinc-100 text-zinc-800',
           'dark:bg-zinc-900 dark:text-zinc-50',
         )}

@@ -1,19 +1,21 @@
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { PostLargeCard } from '@components/PostLargeCard';
-import { SELECTOR } from '@constants';
-import { Button } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 import type { PageProps } from 'gatsby';
-import { graphql, Link, navigate } from 'gatsby';
-import { useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'react-feather';
+import { graphql, Link } from 'gatsby';
+import { useLayoutEffect, useRef, useState } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import type { GridChildComponentProps } from 'react-window';
+import { FixedSizeGrid } from 'react-window';
 import type SwiperType from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { PostPageQuery } from 'types/graphql-types';
 import { shallow } from 'zustand/shallow';
+
+import { PostList } from './_components/PostList';
 
 const POST_TAG_EMOJI_LIST = [
   ['all', '📚'],
@@ -26,18 +28,27 @@ const POST_TAG_EMOJI_LIST = [
   ['data', '📊'],
 ];
 
-const PAGINATION_BUTTON_COUNT = 7;
+// PostItem 타입 정의
+interface PostItem {
+  fields?: {
+    slug?: string;
+  };
+  frontmatter?: {
+    date?: string;
+    title?: string;
+    tags?: string[];
+    description?: string;
+  };
+}
 
 const PostPage = ({
-  location: { search },
+  location,
   data: {
     allMarkdownRemark: { nodes },
   },
 }: PageProps<PostPageQuery>) => {
-  const searchParams = new URLSearchParams(search);
-  const page = Number(searchParams.get('page')) || 1;
+  const searchParams = new URLSearchParams(location.search);
   const tag = searchParams.get('tag') || 'all';
-  const pageSize = 12;
 
   const [likePostMap, setLikePostMap] = useGlobalStore(
     (state) => [state.likePostMap, state.setLikePostMap],
@@ -48,58 +59,36 @@ const PostPage = ({
     ({ frontmatter }) => tag === 'all' || frontmatter?.tags?.includes(tag),
   );
 
-  const postCount = postList.length;
+  // 윈도우 크기에 따라 그리드 열 수 조정
+  const [columnCount, setColumnCount] = useState(3);
 
-  const postListOfPage = postList.slice((page - 1) * pageSize, page * pageSize);
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setColumnCount(1);
+      } else if (window.innerWidth < 1024) {
+        setColumnCount(2);
+      } else {
+        setColumnCount(3);
+      }
+    };
 
-  const isPaginationExisted = !!(pageSize && postCount && page);
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-  const lastPage = isPaginationExisted ? Math.ceil(postCount / pageSize) : 0;
-
-  const isFirstPage = !isPaginationExisted || page <= 1;
-  const isLastPage = !isPaginationExisted || page >= lastPage;
-
-  const displayedIndexList: number[] = isPaginationExisted
-    ? [page]
-    : Array.from({ length: PAGINATION_BUTTON_COUNT });
-
-  if (isPaginationExisted) {
-    for (let i = 1; i <= PAGINATION_BUTTON_COUNT; i += 1) {
-      const rightSidePage = page + i;
-      if (rightSidePage <= lastPage) displayedIndexList.push(rightSidePage);
-
-      if (displayedIndexList.length >= PAGINATION_BUTTON_COUNT) break;
-
-      const leftSidePage = page - i;
-      if (leftSidePage > 0) displayedIndexList.unshift(leftSidePage);
-
-      if (displayedIndexList.length >= PAGINATION_BUTTON_COUNT) break;
-    }
-  }
-
-  const getPage = (page: number) => {
-    const searchParams = new URLSearchParams(search);
-
-    searchParams.set('page', String(page));
-
-    return `?${searchParams.toString()}`;
-  };
-
-  const scrollToTop = () =>
-    document.getElementById(SELECTOR.MAIN)?.scrollTo({
-      top: 0,
-    });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const slideRef = useRef<SwiperType | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const swiperIndex = POST_TAG_EMOJI_LIST.findIndex(
       ([value]) => value === tag,
     );
     if (slideRef.current) {
       slideRef.current.slideTo(swiperIndex);
     }
-  }, [page, tag]);
+  }, [tag]);
 
   return (
     <article className="flex h-full flex-col items-center justify-between">
@@ -129,7 +118,7 @@ const PostPage = ({
               >
                 <Link
                   className={cn(
-                    'flex justify-center items-center gap-1 transition-colors rounded-full px-4 py-1 shadow-xs text-sm',
+                    'shadow-xs flex items-center justify-center gap-1 rounded-full px-4 py-1 text-sm transition-colors',
                     'bg-white dark:bg-zinc-800',
                     {
                       'bg-zinc-800 text-white dark:bg-white dark:text-zinc-900':
@@ -139,7 +128,7 @@ const PostPage = ({
                   to={`?tag=${value}`}
                 >
                   {isCurrentTag ? (
-                    <div className="w-5 animate-flip-up text-base animate-duration-500">
+                    <div className="animate-flip-up animate-duration-500 w-5 text-base">
                       {emoji}
                     </div>
                   ) : null}
@@ -150,86 +139,8 @@ const PostPage = ({
             );
           })}
         </Swiper>
-        <ul className="mx-auto flex w-full max-w-6xl flex-wrap gap-9 px-9">
-          {postListOfPage.map(({ fields, frontmatter }) => {
-            const { slug } = fields ?? {};
-
-            return slug ? (
-              <PostLargeCard
-                key={slug}
-                date={frontmatter?.date}
-                description={frontmatter?.description}
-                href={slug}
-                isLiked={likePostMap.get(slug)}
-                tags={frontmatter?.tags ?? []}
-                title={frontmatter?.title || '무제'}
-                onClickLikeButton={() => {
-                  setLikePostMap((likePostMap) => {
-                    likePostMap.set(slug, !likePostMap.get(slug));
-
-                    return likePostMap;
-                  });
-                }}
-              />
-            ) : null;
-          })}
-        </ul>
+        <PostList postList={postList} />
       </div>
-      <ul className="my-9 flex">
-        <li>
-          <Button
-            className="min-w-12 shadow-none"
-            color="gray"
-            disabled={isFirstPage}
-            type="button"
-            variant="outline"
-            onClick={() => {
-              navigate(getPage(page - 1));
-              scrollToTop();
-            }}
-          >
-            <ChevronLeft />
-          </Button>
-        </li>
-        {displayedIndexList.map((pageNavigation) => {
-          const isSelected = pageNavigation === page;
-
-          return (
-            <li key={pageNavigation}>
-              <Button
-                asChild
-                className="min-w-12 shadow-none"
-                color="gray"
-                variant={isSelected ? 'solid' : 'outline'}
-              >
-                <Link
-                  to={getPage(pageNavigation)}
-                  onClick={() => {
-                    scrollToTop();
-                  }}
-                >
-                  {pageNavigation}
-                </Link>
-              </Button>
-            </li>
-          );
-        })}
-        <li>
-          <Button
-            className="min-w-12 shadow-none"
-            color="gray"
-            disabled={isLastPage}
-            type="button"
-            variant="outline"
-            onClick={() => {
-              navigate(getPage(page + 1));
-              scrollToTop();
-            }}
-          >
-            <ChevronRight />
-          </Button>
-        </li>
-      </ul>
     </article>
   );
 };
