@@ -1,7 +1,6 @@
-import { Link } from 'gatsby';
-
 import { TitleImage } from '@generated/TitleImage';
 import { cn } from '@utils/cn';
+import { Link } from 'gatsby';
 
 interface PostLargeCardProps {
   title?: string | null;

@@ -1,11 +1,9 @@
-import { shallow } from 'zustand/shallow';
-
-import { Moon, Sun } from 'react-feather';
-
 import { LOCAL_STARGE_KEY } from '@constants';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
 import { Switch } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import { Moon, Sun } from 'react-feather';
+import { shallow } from 'zustand/shallow';
 
 const SWITCH_ID = 'dark-mode-switch';
 

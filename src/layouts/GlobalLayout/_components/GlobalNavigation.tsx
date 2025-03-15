@@ -1,16 +1,13 @@
-import type { PostListToSearchQuery } from 'types/graphql-types';
-
-import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
-import { debounce } from 'lodash-es';
-
-import { useEffect, useState } from 'react';
-import { GitHub, Menu, Search } from 'react-feather';
-
 import { Logo } from '@components/Logo';
 import { PostSmallCard } from '@components/PostSmallCard';
 import { Button, Dialog, IconButton, Kbd, TextField } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
+import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
+import { debounce } from 'lodash-es';
+import { useEffect, useState } from 'react';
+import { GitHub, Menu, Search } from 'react-feather';
+import type { PostListToSearchQuery } from 'types/graphql-types';
 
 interface GlobalHeaderProps {
   search: string;

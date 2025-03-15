@@ -1,11 +1,9 @@
-import { navigate } from 'gatsby';
-
-import React, { useEffect } from 'react';
-
 import { AboutHeader } from '@components/AboutHeader';
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { useLocation } from '@reach/router';
+import { navigate } from 'gatsby';
+import React, { useEffect } from 'react';
 
 export const Head = () => <Meta title="About" />;
 

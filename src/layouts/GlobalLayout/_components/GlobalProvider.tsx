@@ -1,10 +1,8 @@
-import { shallow } from 'zustand/shallow';
-
-import { useLayoutEffect, type PropsWithChildren } from 'react';
-
 import { LOCAL_STARGE_KEY } from '@constants';
 import { Theme } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import { type PropsWithChildren,useLayoutEffect } from 'react';
+import { shallow } from 'zustand/shallow';
 
 export const GlobalProvider = ({ children }: PropsWithChildren) => {
   const [setIsDarkMode, setLikePostMap] = useGlobalStore(

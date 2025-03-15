@@ -1,10 +1,8 @@
-import { navigate } from 'gatsby';
-
-import React from 'react';
-
 import type { UseGetPostDataListReturn } from '@hooks/useGetPostDataList';
 import { Tab } from '@hyeokjaelee/pastime-ui';
 import { useLocation } from '@reach/router';
+import { navigate } from 'gatsby';
+import React from 'react';
 
 type PostTagTabProps = Pick<UseGetPostDataListReturn, 'tagCountMap'>;
 

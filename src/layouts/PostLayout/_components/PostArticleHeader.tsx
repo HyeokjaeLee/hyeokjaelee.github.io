@@ -1,13 +1,11 @@
-import type { PostLayoutQuery } from 'types/graphql-types';
-
-import React from 'react';
-import { Calendar, Heart, Share2, Tag } from 'react-feather';
-
 import { IconButton } from '@radix-ui/themes';
 import { Link } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 import { toast } from '@utils/toast';
+import React from 'react';
+import { Calendar, Heart, Share2, Tag } from 'react-feather';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 interface PostArticleHeaderProps
   extends Pick<

@@ -1,7 +1,6 @@
+import { Link } from '@reach/router';
 import React from 'react';
 import { GitHub, Linkedin, Mail, PenTool, Phone } from 'react-feather';
-
-import { Link } from '@reach/router';
 
 import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 

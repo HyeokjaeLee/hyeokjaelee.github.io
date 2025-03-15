@@ -1,15 +1,3 @@
-import type { PageProps } from 'gatsby';
-import type SwiperType from 'swiper';
-import type { PostPageQuery } from 'types/graphql-types';
-
-import { graphql, Link, navigate } from 'gatsby';
-import { Autoplay, Mousewheel } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { shallow } from 'zustand/shallow';
-
-import { useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'react-feather';
-
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
 import { PostLargeCard } from '@components/PostLargeCard';
@@ -17,6 +5,15 @@ import { SELECTOR } from '@constants';
 import { Button } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
+import type { PageProps } from 'gatsby';
+import { graphql, Link, navigate } from 'gatsby';
+import { useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'react-feather';
+import type SwiperType from 'swiper';
+import { Autoplay, Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import type { PostPageQuery } from 'types/graphql-types';
+import { shallow } from 'zustand/shallow';
 
 const POST_TAG_EMOJI_LIST = [
   ['all', '📚'],

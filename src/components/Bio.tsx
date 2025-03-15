@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
+import React from 'react';
 
 import { Logo } from './Logo';
 

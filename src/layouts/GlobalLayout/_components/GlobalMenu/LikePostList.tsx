@@ -1,9 +1,7 @@
-import type { LikePostListQuery } from 'types/graphql-types';
-
-import { graphql, useStaticQuery } from 'gatsby';
-
 import { PostSmallCard } from '@components/PostSmallCard';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import { graphql, useStaticQuery } from 'gatsby';
+import type { LikePostListQuery } from 'types/graphql-types';
 
 export const LikePostList = () => {
   const {

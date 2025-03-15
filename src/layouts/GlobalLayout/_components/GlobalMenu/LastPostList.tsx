@@ -1,8 +1,6 @@
-import type { LastPostListQuery } from 'types/graphql-types';
-
-import { graphql, useStaticQuery } from 'gatsby';
-
 import { PostSmallCard } from '@components/PostSmallCard';
+import { graphql, useStaticQuery } from 'gatsby';
+import type { LastPostListQuery } from 'types/graphql-types';
 
 export const LastPostList = () => {
   const {

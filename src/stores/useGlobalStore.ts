@@ -1,6 +1,5 @@
-import { createWithEqualityFn } from 'zustand/traditional';
-
 import { LOCAL_STARGE_KEY } from '@constants';
+import { createWithEqualityFn } from 'zustand/traditional';
 
 export enum SCREEN {
   PHONE = 'phone',

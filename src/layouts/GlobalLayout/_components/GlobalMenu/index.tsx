@@ -1,7 +1,9 @@
+import { Logo } from '@components/Logo';
+import { IconButton } from '@radix-ui/themes';
+import { useGlobalStore } from '@stores/useGlobalStore';
+import { cn } from '@utils/cn';
 import { Link } from 'gatsby';
 import { throttle } from 'lodash-es';
-import { shallow } from 'zustand/shallow';
-
 import {
   useEffect,
   useLayoutEffect,
@@ -14,11 +16,7 @@ import { X } from 'react-feather';
 import type { SwipeCallback } from 'react-swipeable';
 import { useSwipeable } from 'react-swipeable';
 import { Transition } from 'react-transition-group';
-
-import { Logo } from '@components/Logo';
-import { IconButton } from '@radix-ui/themes';
-import { useGlobalStore } from '@stores/useGlobalStore';
-import { cn } from '@utils/cn';
+import { shallow } from 'zustand/shallow';
 
 import { GlobalMenuFooter } from './GlobalMenuFooter';
 import { LastPostList } from './LastPostList';
@@ -106,7 +104,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
     >
       {(state) => (
         <>
-          <div
+          <dialog
             className={cn(
               'fixed left-0 top-0 z-20 size-full bg-gray-950/50 backdrop-blur-[1px]',
               {
@@ -124,10 +122,10 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
               drawerHandler.ref(el);
             }}
             className={cn(
-              'fixed top-0 left-0 h-dvh w-full z-30 shadow-xs flex flex-col',
+              'shadow-xs fixed left-0 top-0 z-30 flex h-dvh w-full flex-col',
               'bg-zinc-50 dark:bg-zinc-900',
-              'max-w-96 phone:max-w-full',
-              'rounded-r-md phone:rounded-none ease-out',
+              'phone:max-w-full max-w-96',
+              'phone:rounded-none rounded-r-md ease-out',
               {
                 'animate-fade-right animate-duration-300': state === 'entering',
                 'duration-300': state === 'entered' && !isSwiping,
@@ -141,7 +139,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
             <header className="flex justify-between p-5">
               <div
                 className={cn(
-                  'p-2 size-fit rounded-full',
+                  'size-fit rounded-full p-2',
                   'bg-zinc-900 dark:bg-zinc-100',
                   'text-zinc-100 dark:text-zinc-800',
                 )}
@@ -166,7 +164,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
                 <Link to="/about">🙌 About Me</Link>
               </li>
             </ul>
-            <section className="m-2 flex flex-1 flex-col gap-8 overflow-auto hide-scrollbar scroll-touch">
+            <section className="hide-scrollbar scroll-touch m-2 flex flex-1 flex-col gap-8 overflow-auto">
               <LastPostList />
               <LikePostList />
             </section>

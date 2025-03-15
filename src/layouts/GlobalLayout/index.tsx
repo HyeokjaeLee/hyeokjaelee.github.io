@@ -1,17 +1,14 @@
-import type { PageProps } from 'gatsby';
-
-import { throttle } from 'lodash-es';
-import { shallow } from 'zustand/shallow';
-
-import { useEffect, useLayoutEffect } from 'react';
-import { X } from 'react-feather';
-import { ToastContainer, Slide } from 'react-toastify';
-
 import { SCREEN_BREAKPOINTS, SELECTOR, SESSION_STORAGE_KEY } from '@constants';
 import { IconButton } from '@radix-ui/themes';
 import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 import { toast } from '@utils/toast';
+import type { PageProps } from 'gatsby';
+import { throttle } from 'lodash-es';
+import { useEffect, useLayoutEffect } from 'react';
+import { X } from 'react-feather';
+import { Slide,ToastContainer } from 'react-toastify';
+import { shallow } from 'zustand/shallow';
 
 import { GlobalMenu } from './_components/GlobalMenu';
 import { GlobalNavigation } from './_components/GlobalNavigation';

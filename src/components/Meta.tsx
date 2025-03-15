@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
+import React from 'react';
 
 const GoogleAnalytics = () => (
   <>
