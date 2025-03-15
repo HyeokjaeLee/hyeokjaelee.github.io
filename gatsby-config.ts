@@ -87,9 +87,7 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: `types/graphql-types.d.ts`,
-      },
+      options: { codegenDelay: 200, fileName: `types/graphql-types.d.ts` },
     },
     {
       resolve: `gatsby-plugin-layout`,

@@ -95,9 +95,9 @@ const GlobalLayout = ({ children, location }: PageProps) => {
         stacked={isPhone}
         theme="colored"
         toastClassName={cn(
-          'p-4 rounded-lg backdrop-blur-sm flex justify-center',
-          'dark:text-white dark:!bg-[rgba(0,0,0,0.8)]',
-          'text-black !bg-[rgba(255,255,255,0.8)]',
+          'p-4 rounded-lg backdrop-blur-xs flex justify-center',
+          'dark:text-white dark:bg-[rgba(0,0,0,0.8)]!',
+          'text-black bg-[rgba(255,255,255,0.8)]!',
         )}
         transition={Slide}
       />

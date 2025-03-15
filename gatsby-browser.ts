@@ -4,7 +4,6 @@ import '@kfonts/nanum-square';
 // global styles
 import '@hyeokjaelee/pastime-ui/style.css';
 
-import './src/style/global.css';
+import './src/styles/global.css';
 
-// post layout styles
-import './src/style/post-layout.css';
+import 'prismjs/themes/prism-tomorrow.css';

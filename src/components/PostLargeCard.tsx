@@ -34,7 +34,7 @@ export const PostLargeCard = ({
       className={cn(
         'block rounded-md hover:-translate-y-1 transition-transform',
         'bg-white dark:bg-zinc-800',
-        'shadow-sm dark:shadow-md',
+        'shadow-xs dark:shadow-md',
         'hover:shadow-md dark:hover:shadow-lg',
         {
           'w-[calc(33.333333%-1.5rem)] phone:w-full tablet:w-[calc(50%-1.125rem)]':

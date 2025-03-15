@@ -124,7 +124,7 @@ export const GlobalMenu = ({ pathname }: GlobalMenuProps) => {
               drawerHandler.ref(el);
             }}
             className={cn(
-              'fixed top-0 left-0 h-dvh w-full z-30 shadow-sm flex flex-col',
+              'fixed top-0 left-0 h-dvh w-full z-30 shadow-xs flex flex-col',
               'bg-zinc-50 dark:bg-zinc-900',
               'max-w-96 phone:max-w-full',
               'rounded-r-md phone:rounded-none ease-out',

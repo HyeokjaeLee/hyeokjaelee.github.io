@@ -132,7 +132,7 @@ const PostPage = ({
               >
                 <Link
                   className={cn(
-                    'flex justify-center items-center gap-1 transition-colors rounded-full px-4 py-1 shadow-sm text-sm',
+                    'flex justify-center items-center gap-1 transition-colors rounded-full px-4 py-1 shadow-xs text-sm',
                     'bg-white dark:bg-zinc-800',
                     {
                       'bg-zinc-800 text-white dark:bg-white dark:text-zinc-900':
