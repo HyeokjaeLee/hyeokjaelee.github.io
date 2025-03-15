@@ -5,5 +5,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'all',
   printWidth: 80,
-  plugins: ['prettier-plugin-sh'],
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindStylesheet: './src/styles/tailwind.css',
+  tailwindFunctions: ['tw', 'cn', 'cva', 'twMerge', 'clsx'],
 };

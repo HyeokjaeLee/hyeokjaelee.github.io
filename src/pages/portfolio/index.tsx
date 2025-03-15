@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-
 import { AboutHeader } from '@components/AboutHeader';
 import { Meta } from '@components/Meta';
 import { OpensourceSection } from '@components/OpensourceSection';
@@ -7,6 +5,7 @@ import { OtherExperienceSection } from '@components/OtherExperienceSection';
 import { PortfolioNavigation } from '@components/PortfolioNavigation';
 import { WorkExperienceSection } from '@components/WorkExperienceSection';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import React, { useEffect } from 'react';
 
 export const Head = () => <Meta title="Portfolio" />;
 
@@ -27,8 +26,8 @@ const Portfolio = () => {
   }, [setIsNavVisible]);
 
   return (
-    <article className="my-8 flex break-keep p-4 font-nanum-square leading-relaxed md:my-14">
-      <div className="flex-1 phone:hidden tablet:hidden" />
+    <article className="font-nanum-square my-8 flex break-keep p-4 leading-relaxed md:my-14">
+      <div className="phone:hidden tablet:hidden flex-1" />
       <div className="mx-auto flex max-w-3xl flex-col gap-12">
         <AboutHeader />
         <WorkExperienceSection />
