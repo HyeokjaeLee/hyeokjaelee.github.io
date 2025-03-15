@@ -6,10 +6,10 @@ on:
       - main
 
 env:
-  NODE_VERSION: '18.13'
+  NODE_VERSION: '22.11'
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   NPM_REGISTRY_URL: 'https://registry.npmjs.org/'
-  PNPM_VERSION: 8.8
+  PNPM_VERSION: 10.6.3
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
