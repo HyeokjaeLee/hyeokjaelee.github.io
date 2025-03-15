@@ -101,7 +101,7 @@ export const WorkExperienceSection = () => {
             {
               title: 'Wello Web & App 개발 (Flutter → Next.js 전환)',
               content: [
-                'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 통신 방식 구현',
+                'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 브릿지 구현',
                 'Next 14 app directory 기반의 프론트엔드 아키텍쳐 설계',
                 '앱과 웹 모두에서 작동하는 OAuth 2.0 인증 방식 및 (Google, Apple, Naver, Kakao), 본인 인증 구현',
                 'route groups을 활용한 접근 제어 로직 개발',
@@ -124,7 +124,7 @@ export const WorkExperienceSection = () => {
               content: [
                 'PNPM, Turborepo 기반 모노레포 환경 구성',
                 '공유 리소스(assets, components, hooks) 패키지 정의 및 개발',
-                'OAuth 2.0 인증 방식 (Kakao, Google, Apple), Email 인증 방식 구현',
+                'OAuth 2.0 인증 방식 (Kakao, Google), Email 인증 방식 구현',
                 '사용자 권한에 따른 pathname, middleware 기반의 접근 제어 및 문서 암호화/복호화 로직 개발',
               ],
             },
@@ -234,10 +234,11 @@ export const WorkExperienceSection = () => {
               title: 'Wello Biz 실시간 나라장터 정보 제공 기능 개발',
               content: [
                 {
-                  what: 'AWS Lambda 기반 유저 요청에 따른 실시간 headless browser 핸들링 로직 구현',
-                  result: '공식 API, URL을 제공하지 않는 정보 제공',
+                  what: 'AWS Lambda를 활용한 유저 요청에 따른 실시간 headless browser 핸들링 로직 구현',
+                  result:
+                    '최소 비용으로 공식 API, URL을 제공하지 않는 정보 제공',
                 },
-                '데이터 가공 로직 및 인터페이스 개발',
+                '데이터 가공 및 인터페이스 개발',
               ],
             },
           ]}
