@@ -1,4 +1,4 @@
-import { Logo } from '@components/Logo';
+import { Logo } from '@components/atoms/Logo';
 import { IconButton } from '@radix-ui/themes';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';

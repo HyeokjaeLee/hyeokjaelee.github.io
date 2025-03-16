@@ -1,116 +1,49 @@
-import { SCREEN_BREAKPOINTS, SELECTOR, SESSION_STORAGE_KEY } from '@constants';
-import { IconButton } from '@radix-ui/themes';
-import { SCREEN, useGlobalStore } from '@stores/useGlobalStore';
+import { SELECTOR } from '@constants/layout';
 import { cn } from '@utils/cn';
-import { toast } from '@utils/toast';
 import type { PageProps } from 'gatsby';
-import { throttle } from 'lodash-es';
-import { useEffect, useLayoutEffect } from 'react';
-import { X } from 'react-feather';
-import { Slide, ToastContainer } from 'react-toastify';
-import { shallow } from 'zustand/shallow';
 
 import { GlobalMenu } from './_components/GlobalMenu';
 import { GlobalNavigation } from './_components/GlobalNavigation';
-import { GlobalProvider } from './_components/GlobalProvider';
+import { useSyncLayout } from './_hooks/useSyncLayout';
+
+// 스크롤바 안정화를 위한 커스텀 클래스 정의
+const scrollbarStableClass = 'scrollbar-stable';
+
+// 커스텀 CSS 추가
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .scrollbar-stable {
+      scrollbar-gutter: stable;
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 const GlobalLayout = ({ children, location }: PageProps) => {
-  const [screen, setScreen] = useGlobalStore(
-    (state) => [state.screen, state.setScreen],
-    shallow,
-  );
-
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      const { innerWidth } = window;
-
-      if (innerWidth <= SCREEN_BREAKPOINTS.PHONE_MAX)
-        return setScreen(SCREEN.PHONE);
-
-      if (innerWidth <= SCREEN_BREAKPOINTS.TABLET_MAX)
-        return setScreen(SCREEN.TABLET);
-
-      return setScreen(SCREEN.DESKTOP);
-    };
-
-    handleResize();
-
-    const resizeEvent = throttle(handleResize, 1_000 / 120);
-
-    window.addEventListener('resize', resizeEvent);
-
-    return () => window.removeEventListener('resize', resizeEvent);
-  }, [setScreen]);
-
-  const isPhone = screen === SCREEN.PHONE;
-
-  useEffect(() => {
-    if (!screen) return;
-
-    if (sessionStorage.getItem(SESSION_STORAGE_KEY.WELCOME_TOAST)) return;
-
-    sessionStorage.setItem(SESSION_STORAGE_KEY.WELCOME_TOAST, 'true');
-    toast({
-      message: '👋 안녕하세요! 방문해주셔서 감사합니다.',
-    });
-  }, [screen]);
-
-  useEffect(() => {
-    document.getElementById(SELECTOR.MAIN)?.scrollTo({
-      top: 0,
-    });
-  }, [location.pathname, screen]);
+  useSyncLayout();
 
   return (
-    <GlobalProvider>
-      <ToastContainer
-        bodyClassName="p-0 whitespace-pre-line flex gap-1 font-pretendard"
-        className={cn(
-          'relative h-0 w-full max-w-96 p-0',
-          'phone:max-w-[calc(100vw-2rem)] left-[calc(50dvw-0.25rem)] mr-4',
-          'toast-break-point:left-0 toast-break-point:mx-auto toast-break-point:top-2',
-        )}
-        closeButton={({ closeToast }) => (
-          <IconButton
-            className={cn(
-              'h-5 w-5',
-              'text-zinc-900 dark:text-zinc-100',
-              'phone:hidden',
-            )}
-            type="button"
-            variant="ghost"
-            onClick={closeToast}
-          >
-            <X className="size-full" />
-          </IconButton>
-        )}
-        draggable={isPhone}
-        draggableDirection="x"
-        draggablePercent={20}
-        limit={3}
-        position="top-center"
-        stacked={isPhone}
-        theme="colored"
-        toastClassName={cn(
-          'backdrop-blur-xs flex justify-center rounded-lg p-4',
-          'dark:bg-[rgba(0,0,0,0.8)]! dark:text-white',
-          'bg-[rgba(255,255,255,0.8)]! text-black',
-        )}
-        transition={Slide}
-      />
+    <div
+      className={cn(
+        'hide-scrollbar relative size-full overflow-auto',
+        scrollbarStableClass,
+      )}
+      id={SELECTOR.ROOT}
+    >
       <GlobalNavigation search={location.search} />
       <main
+        id={SELECTOR.MAIN}
         className={cn(
-          'size-full flex-1 overflow-auto',
+          'size-full',
           'bg-zinc-100 text-zinc-800',
           'dark:bg-zinc-900 dark:text-zinc-50',
         )}
-        id={SELECTOR.MAIN}
       >
         {children}
       </main>
       <GlobalMenu pathname={location.pathname} />
-    </GlobalProvider>
+    </div>
   );
 };
 

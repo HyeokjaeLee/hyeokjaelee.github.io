@@ -1,14 +1,16 @@
-import { Logo } from '@components/Logo';
+import { Logo } from '@components/atoms/Logo';
 import { PostSmallCard } from '@components/PostSmallCard';
-import { Button, Dialog, IconButton, Kbd, TextField } from '@radix-ui/themes';
-import { useGlobalStore } from '@stores/useGlobalStore';
+import { IS_CLIENT } from '@constants/etc';
+import { SELECTOR } from '@constants/layout';
+import { Button, Dialog, Kbd, TextField } from '@radix-ui/themes';
 import { cn } from '@utils/cn';
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
-import { useEffect, useState } from 'react';
-import { GitHub, Menu, Search } from 'react-feather';
-import type { PostListToSearchQuery } from 'types/graphql-types';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { GitHub, Search } from 'react-feather';
 
+import { Menu } from './Menu';
 interface GlobalHeaderProps {
   search: string;
 }
@@ -34,10 +36,42 @@ const debounceUpdateSearchQueryString = debounce(
   DEBOUNCE_TIME,
 );
 
+interface PostNode {
+  fields?: {
+    slug?: string;
+  };
+  frontmatter?: {
+    title?: string;
+    description?: string;
+    date?: string;
+    titleImage?: string;
+    tags?: string[];
+  };
+}
+
+interface PostListToSearchQuery {
+  allMarkdownRemark: {
+    nodes: PostNode[];
+  };
+}
+
 export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
-  const setIsGlobalMenuOpen = useGlobalStore(
-    (state) => state.setIsGlobalMenuOpen,
-  );
+  const containerRef = useRef<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (IS_CLIENT) {
+      containerRef.current = document.getElementById(SELECTOR.ROOT);
+    }
+  }, []);
+
+  const { scrollY } = useScroll({
+    container: containerRef,
+  });
+
+  // 0-100px 스크롤 범위를 1-0.8 불투명도로 매핑
+  const opacity = useTransform(scrollY, [0, 100], [1, 0.9]);
+  // 블러 효과도 함께 추가
+  const backdropBlur = useTransform(scrollY, [0, 100], [0, 5]);
 
   const {
     allMarkdownRemark: { nodes },
@@ -83,7 +117,7 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
     debounceUpdateSearchQueryString(searchQuery);
   }, [searchQuery]);
 
-  const searchedPosts = nodes.filter((node) => {
+  const searchedPosts = nodes.filter((node: PostNode) => {
     const searchString =
       `${node.frontmatter?.title}${node.frontmatter?.description}`
         .toLowerCase()
@@ -95,22 +129,20 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
   });
 
   return (
-    <nav
+    <motion.nav
+      style={{
+        opacity,
+        backdropFilter: `blur(${backdropBlur.get()}px)`,
+      }}
       className={cn(
-        'flex items-center gap-3 p-3 justify-center',
-        'bg-zinc-100 dark:bg-zinc-900',
+        'sticky top-0 z-10 flex items-center justify-center',
+        'bg-zinc-100/95 dark:bg-zinc-900/95',
+        'transition-colors duration-200',
       )}
     >
-      <div className="flex max-w-7xl flex-1 items-center justify-between gap-3">
+      <div className="flex max-w-7xl flex-1 items-center justify-between gap-3 p-3">
         <div className="flex items-center gap-8">
-          <IconButton
-            color="gray"
-            type="button"
-            variant="ghost"
-            onClick={() => setIsGlobalMenuOpen(true)}
-          >
-            <Menu className="size-6" />
-          </IconButton>
+          <Menu />
           <div className="flex items-center gap-4">
             <Link to="/">
               <Logo className="size-8 text-zinc-700 dark:text-zinc-50" />
@@ -136,11 +168,11 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
           <Dialog.Trigger>
             <Button className="flex text-zinc-400" color="gray" variant="soft">
               <Search className="size-4" />
-              <div className="ml-1 mr-14 phone:mr-8">Search post...</div>
+              <div className="phone:mr-8 ml-1 mr-14">Search post...</div>
               <Kbd className="phone:hidden">Ctrl + K</Kbd>
             </Button>
           </Dialog.Trigger>
-          <Dialog.Content className="flex max-h-[calc(100dvh-10rem)] flex-col phone:max-w-[calc(100dvw-2rem)]">
+          <Dialog.Content className="phone:max-w-[calc(100dvw-2rem)] flex max-h-[calc(100dvh-10rem)] flex-col">
             <div>
               <TextField.Root
                 color="gray"
@@ -163,8 +195,8 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
                 </TextField.Slot>
               </TextField.Root>
             </div>
-            <ul className="mt-4 flex flex-1 flex-col gap-4 overflow-y-auto px-1 hide-scrollbar">
-              {searchedPosts.map(({ fields, frontmatter }, index) => {
+            <ul className="hide-scrollbar mt-4 flex flex-1 flex-col gap-4 overflow-y-auto px-1">
+              {searchedPosts.map(({ fields, frontmatter }, index: number) => {
                 const slug = fields?.slug;
 
                 if (!slug) throw new Error('slug is required');
@@ -189,6 +221,6 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
           </Dialog.Content>
         </Dialog.Root>
       </div>
-    </nav>
+    </motion.nav>
   );
 };

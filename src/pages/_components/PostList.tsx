@@ -112,13 +112,6 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
     <div
       className={`mx-auto min-h-[600px] w-full max-w-6xl flex-1 px-4 ${className} overflow-auto`}
     >
-      {/* 디버깅 정보 */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="absolute right-0 top-0 z-10 bg-white p-2 text-xs dark:bg-zinc-800">
-          <pre>{JSON.stringify(debug, null, 2)}</pre>
-        </div>
-      )}
-
       <FixedSizeGrid
         columnCount={3}
         columnWidth={370}

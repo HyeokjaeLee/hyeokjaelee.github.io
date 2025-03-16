@@ -1,7 +1,5 @@
-'use client';
-
-import { IS_TOUCH_DEVICE } from '@constants';
 import { Slot } from '@radix-ui/react-slot';
+import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
@@ -165,6 +163,8 @@ export const Button = ({
 }: ButtonProps) => {
   const Comp = asChild ? Slot : 'button';
 
+  const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+
   return (
     <Comp
       {...restProps}
@@ -176,7 +176,7 @@ export const Button = ({
           variant,
           size,
           activeScaleDown,
-          isTouchDevice: IS_TOUCH_DEVICE,
+          isTouchDevice,
           onlyIcon,
           shape,
         }),
