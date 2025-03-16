@@ -31,7 +31,13 @@ export const useLayoutStore = create<LayoutStore>((set, get) => {
 
   const getIsTouchDevice = () => {
     if (IS_CLIENT) {
-      return 'ontouchstart' in window || 0 < navigator.maxTouchPoints;
+      const breakpoint =
+        get()?.mediaQueryBreakpoint ?? MEDIA_QUERY_BREAKPOINT.XS;
+
+      return (
+        breakpoint < MEDIA_QUERY_BREAKPOINT.LG &&
+        ('ontouchstart' in window || 0 < navigator.maxTouchPoints)
+      );
     }
 
     return true;

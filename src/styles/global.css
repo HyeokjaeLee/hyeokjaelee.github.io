@@ -28,7 +28,7 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
 
-  --font-pretendard: var(--font-pretendard);
+  --font-pretendard: 'Pretendard', sans-serif;
   --font-firacode: var(--font-firacode);
 }
 
@@ -44,7 +44,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-pretendard;
   }
 }
 
@@ -71,6 +71,15 @@
 
   .scroll-stable {
     scrollbar-gutter: stable;
+  }
+
+  .font-all-inherit {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
   }
 }
 

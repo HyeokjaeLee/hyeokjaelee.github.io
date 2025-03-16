@@ -7,6 +7,8 @@ interface PostLargeCardProps {
   description?: string | null;
   slug?: string | null;
   className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 export const PostSmallCard = ({
@@ -14,6 +16,8 @@ export const PostSmallCard = ({
   title,
   description,
   className,
+  style,
+  onClick,
 }: PostLargeCardProps) => {
   return slug ? (
     <Link
@@ -21,7 +25,9 @@ export const PostSmallCard = ({
         'flex items-center gap-4 rounded-md p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800',
         className,
       )}
+      style={style}
       to={slug}
+      onClick={onClick}
     >
       <div>
         <TitleImage

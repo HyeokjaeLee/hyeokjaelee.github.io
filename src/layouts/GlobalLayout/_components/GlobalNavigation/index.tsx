@@ -1,16 +1,15 @@
-import { Logo } from '@components/atoms/Logo';
 import { PostSmallCard } from '@components/PostSmallCard';
-import { IS_CLIENT } from '@constants/etc';
-import { SELECTOR } from '@constants/layout';
+import { useRootRef } from '@hooks/useRootRef';
 import { Button, Dialog, Kbd, TextField } from '@radix-ui/themes';
 import { cn } from '@utils/cn';
-import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { GitHub, Search } from 'react-feather';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { useEffect, useState } from 'react';
 
-import { Menu } from './Menu';
+import { HomeLogo } from './_components/HomeLogo';
+import { Menu } from './_components/Menu';
+import { Search } from './_components/Search';
 interface GlobalHeaderProps {
   search: string;
 }
@@ -56,108 +55,42 @@ interface PostListToSearchQuery {
 }
 
 export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
-  const containerRef = useRef<HTMLElement | null>(null);
+  const container = useRootRef();
 
-  useLayoutEffect(() => {
-    if (IS_CLIENT) {
-      containerRef.current = document.getElementById(SELECTOR.ROOT);
-    }
-  }, []);
-
-  const { scrollY } = useScroll({
-    container: containerRef,
+  const { scrollYProgress } = useScroll({
+    container,
   });
 
-  // 0-100px 스크롤 범위를 1-0.8 불투명도로 매핑
-  const opacity = useTransform(scrollY, [0, 100], [1, 0.9]);
-  // 블러 효과도 함께 추가
-  const backdropBlur = useTransform(scrollY, [0, 100], [0, 5]);
-
-  const {
-    allMarkdownRemark: { nodes },
-  } = useStaticQuery<PostListToSearchQuery>(graphql`
-    query PostListToSearch {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YY/MM/DD")
-            title
-            titleImage
-            tags
-            description
-          }
-        }
-      }
-    }
-  `);
-
-  const urlSearchQuery = new URLSearchParams(search).get('q') || '';
-
-  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
-
-  const [isSearchModalOpened, setIsSearchModalOpened] = useState(!!searchQuery);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'k' && e.ctrlKey) {
-        e.preventDefault();
-        setIsSearchModalOpened(true);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  useEffect(() => {
-    debounceUpdateSearchQueryString(searchQuery);
-  }, [searchQuery]);
-
-  const searchedPosts = nodes.filter((node: PostNode) => {
-    const searchString =
-      `${node.frontmatter?.title}${node.frontmatter?.description}`
-        .toLowerCase()
-        .replaceAll(' ', '');
-
-    return searchString.includes(
-      urlSearchQuery.toLowerCase().replaceAll(' ', ''),
-    );
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
   });
 
   return (
-    <motion.nav
-      style={{
-        opacity,
-        backdropFilter: `blur(${backdropBlur.get()}px)`,
-      }}
+    <nav
       className={cn(
-        'sticky top-0 z-10 flex items-center justify-center',
-        'bg-zinc-100/95 dark:bg-zinc-900/95',
+        'bg-background sticky top-0 z-10 flex items-center justify-center',
         'transition-colors duration-200',
       )}
     >
-      <div className="flex max-w-7xl flex-1 items-center justify-between gap-3 p-3">
+      <div className="relative flex max-w-7xl flex-1 items-center justify-between gap-3 px-3 py-1">
         <div className="flex items-center gap-8">
           <Menu />
-          <div className="flex items-center gap-4">
-            <Link to="/">
-              <Logo className="size-8 text-zinc-700 dark:text-zinc-50" />
-            </Link>
-            <div className="h-7 w-px rotate-[30deg] bg-zinc-300 dark:bg-zinc-700" />
-            <a
-              href="https://github.com/HyeokjaeLee"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <GitHub className="size-6 text-zinc-600 dark:text-zinc-300" />
-            </a>
-          </div>
+          <HomeLogo />
         </div>
-        <Dialog.Root
+        <Search />
+        <motion.div
+          className="bg-primary border-border absolute bottom-0 box-border h-1 w-full rounded-full border"
+          style={{ scaleX }}
+        />
+      </div>
+    </nav>
+  );
+};
+
+/**
+ *      <Dialog.Root
           open={isSearchModalOpened}
           onOpenChange={(value) => {
             setIsSearchModalOpened(value);
@@ -220,7 +153,4 @@ export const GlobalNavigation = ({ search }: GlobalHeaderProps) => {
             </ul>
           </Dialog.Content>
         </Dialog.Root>
-      </div>
-    </motion.nav>
-  );
-};
+ */
