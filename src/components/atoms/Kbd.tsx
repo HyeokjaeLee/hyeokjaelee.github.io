@@ -15,8 +15,8 @@ export const Kbd = ({
         'text-[0.7rem] font-medium leading-[1.7em]',
         'select-none whitespace-nowrap align-text-top',
         'tracking-tight transition-shadow duration-100',
-        'border border-slate-200 bg-slate-50 text-slate-500',
-        'dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400',
+        'border border-zinc-200 bg-zinc-50 text-zinc-500',
+        'dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400',
         className,
       )}
     >

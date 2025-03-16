@@ -7,7 +7,6 @@ import { PostSmallCard } from '@components/PostSmallCard';
 import { graphql, useStaticQuery } from 'gatsby';
 import { debounce } from 'lodash-es';
 import { SearchIcon } from 'lucide-react';
-import { motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { VariableSizeList } from 'react-window';
 import type { PostListToSearchQuery } from 'types/graphql-types';

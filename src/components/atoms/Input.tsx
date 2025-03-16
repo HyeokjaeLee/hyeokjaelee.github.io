@@ -33,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           'rounded-xl',
           'h-14 w-full px-4',
           'bg-transparent',
-          'has-[input:disabled]:bg-slate-50',
+          'has-[input:disabled]:bg-zinc-50',
           "[&_svg:not([class*='size-'])]:size-5",
           'text-lg font-medium',
 

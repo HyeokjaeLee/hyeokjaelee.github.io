@@ -1,5 +1,6 @@
 import { IS_CLIENT, IS_DEV } from '@constants/etc';
 import { MEDIA_QUERY_BREAKPOINT, type MediaQuery } from '@constants/layout';
+import { LOCAL_STORAGE } from '@constants/storage';
 import { create } from 'zustand';
 
 interface LayoutStore {
@@ -8,6 +9,8 @@ interface LayoutStore {
   resetMediaQuery: () => void;
   isTouchDevice: boolean;
   resetIsTouchDevice: () => void;
+  isDarkMode: boolean;
+  setIsDarkMode: (isDarkMode: boolean) => void;
 }
 
 export const useLayoutStore = create<LayoutStore>((set, get) => {
@@ -43,6 +46,24 @@ export const useLayoutStore = create<LayoutStore>((set, get) => {
     return true;
   };
 
+  const resetIsDarkMode = () => {
+    if (IS_CLIENT) {
+      let isDarkMode = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
+
+      const darkModeString = localStorage.getItem(LOCAL_STORAGE.DARK_MODE);
+
+      if (darkModeString) isDarkMode = darkModeString === 'true';
+
+      document.documentElement.classList.toggle('dark', isDarkMode);
+
+      return isDarkMode;
+    }
+
+    return false;
+  };
+
   return {
     ...getMediaQuery(),
     resetMediaQuery: () => {
@@ -70,6 +91,15 @@ export const useLayoutStore = create<LayoutStore>((set, get) => {
       }
 
       return set({ isTouchDevice: newIsTouchDevice });
+    },
+
+    isDarkMode: resetIsDarkMode(),
+    setIsDarkMode: (isDarkMode) => {
+      localStorage.setItem(LOCAL_STORAGE.DARK_MODE, String(isDarkMode));
+
+      document.documentElement.classList.toggle('dark', isDarkMode);
+
+      return set({ isDarkMode });
     },
   };
 });
