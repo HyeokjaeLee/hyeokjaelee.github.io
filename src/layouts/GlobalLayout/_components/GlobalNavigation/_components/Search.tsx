@@ -138,6 +138,7 @@ export const Search = () => {
         placeholder="검색어를 입력해주세요."
         leftContent={<SearchIcon />}
         type="search"
+        rightContent={<Kbd className="xs:block hidden">Esc</Kbd>}
         onChange={(e) => {
           debouncedSetSearchKeyword(e.target.value);
         }}

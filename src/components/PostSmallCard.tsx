@@ -38,7 +38,9 @@ export const PostSmallCard = ({
         />
       </div>
       <section className="flex-1 overflow-hidden">
-        <strong className="block truncate text-base">{title}</strong>
+        <strong className="block truncate text-base text-sm font-semibold">
+          {title}
+        </strong>
         <p className="truncate text-sm text-zinc-600 dark:text-zinc-400">
           {description}
         </p>

@@ -13,11 +13,12 @@ import { MEDIA_QUERY_BREAKPOINT } from '@constants/layout';
 import { ROUTES } from '@constants/routes';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
-import { Link } from 'gatsby';
 import { MenuIcon, X } from 'lucide-react';
 
 import { DarkModeSwitch } from './_components/DarkModeSwitch';
 import { LastPostList } from './_components/LastPostList';
+import { LikePostList } from './_components/LikePostList';
+import { NavigationList } from './_components/NavigationList';
 
 export const Menu = () => {
   const isXsmall = useLayoutStore(
@@ -53,24 +54,15 @@ export const Menu = () => {
             </Button>
           </DrawerClose>
         </DrawerHeader>
-        <section className="mt-4 flex flex-col gap-8">
-          <ul className="mx-4 flex flex-col text-center font-bold">
-            <li>
-              <DrawerClose asChild>
-                <Button variant="ghost" asChild className="w-full">
-                  <Link to={ROUTES.HOME}>Post</Link>
-                </Button>
-              </DrawerClose>
-            </li>
-            <li>
-              <DrawerClose asChild>
-                <Button variant="ghost" asChild className="w-full">
-                  <Link to={ROUTES.ABOUT}>About Me</Link>
-                </Button>
-              </DrawerClose>
-            </li>
-          </ul>
+        <section className="mt-4 flex flex-col gap-2 overflow-auto">
+          <NavigationList
+            items={[
+              { label: 'Post', href: ROUTES.HOME },
+              { label: 'About Me', href: ROUTES.ABOUT },
+            ]}
+          />
           <LastPostList />
+          <LikePostList />
         </section>
         <DrawerFooter className="flex flex-row items-center justify-between">
           <small className="text-zinc-500">

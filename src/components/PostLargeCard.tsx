@@ -1,5 +1,6 @@
 import { TitleImage } from '@generated/TitleImage';
 import { IconButton } from '@radix-ui/themes';
+import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import { Link } from 'gatsby';
 import { Calendar, Heart, Tag } from 'react-feather';
@@ -27,15 +28,18 @@ export const PostLargeCard = ({
   dynamicWidth = true,
   className,
 }: PostLargeCardProps) => {
+  const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+
   return (
     <Link
       className={cn(
-        'block rounded-md transition-transform hover:-translate-y-1',
+        'block rounded-md border transition-transform',
         'bg-white dark:bg-zinc-800',
-        'shadow-xs dark:shadow-md',
-        'hover:shadow-md dark:hover:shadow-lg',
+        'shadow-sm dark:shadow-md',
+        'w-70 h-75',
         {
-          'w-full lg:w-1/3': dynamicWidth,
+          'hover:-translate-y-1 hover:shadow-md dark:hover:shadow-lg':
+            !isTouchDevice,
         },
         className,
       )}
@@ -64,7 +68,7 @@ export const PostLargeCard = ({
           </ul>
           <Tag className="mt-1 size-3 text-zinc-400" />
         </section>
-        <section className="flex items-center justify-between border-t border-zinc-200 px-3 py-2 dark:border-zinc-700">
+        <section className="border-border flex items-center justify-between border-t px-3 py-2">
           <div className="flex items-center gap-2 text-zinc-400">
             <Calendar className="size-3" />
             <time className="text-xs">{date}</time>
