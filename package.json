@@ -55,6 +55,7 @@
     "react-toastify": "^10.0.6",
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.25",
+    "react-virtuoso": "^4.12.5",
     "react-window": "^1.8.11",
     "swiper": "^11.2.5",
     "tailwind-merge": "^2.6.0",

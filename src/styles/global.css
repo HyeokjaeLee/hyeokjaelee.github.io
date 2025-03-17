@@ -8,8 +8,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @import './post-layout.css';
-@import 'react-toastify/dist/ReactToastify.css';
-@import 'swiper/css';
 
 @layer base {
   *,
@@ -49,6 +47,9 @@
 }
 
 @layer components {
+  @import 'react-toastify/dist/ReactToastify.css';
+  @import 'swiper/css';
+
   input,
   textarea {
     @apply font-pretendard;
