@@ -4,10 +4,12 @@ import type { PageProps } from 'gatsby';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { GlobalNavigation } from './_components/GlobalNavigation';
+import { useInitScroll } from './_hooks/useInitScroll';
 import { useSyncLayout } from './_hooks/useSyncLayout';
 
 const GlobalLayout = ({ children, location }: PageProps) => {
   useSyncLayout();
+  useInitScroll();
 
   return (
     <div
