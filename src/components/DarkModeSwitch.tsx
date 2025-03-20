@@ -1,8 +1,7 @@
-import React from 'react';
-import { Sun, Moon } from 'react-feather';
-
 import { DARK_MODE_LOCAL_STORAGE_KEY } from '@hooks/useBindDarkMode';
 import { Switch, useDarkMode } from '@hyeokjaelee/pastime-ui';
+import React from 'react';
+import { Moon,Sun } from 'react-feather';
 
 export const DarkModeSwitch = () => {
   const { isDarkMode } = useDarkMode();

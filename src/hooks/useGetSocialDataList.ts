@@ -1,9 +1,7 @@
-import type { SocialDataQuery } from 'types/graphql-types';
-
 import { graphql, useStaticQuery } from 'gatsby';
-
-import { GitHub, Linkedin, Mail } from 'react-feather';
 import type { Icon } from 'react-feather';
+import { GitHub, Linkedin, Mail } from 'react-feather';
+import type { SocialDataQuery } from 'types/graphql-types';
 
 interface SocialData {
   name: string;

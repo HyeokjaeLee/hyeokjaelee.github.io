@@ -1,6 +1,5 @@
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { debounce } from 'lodash-es';
-
 import { useEffect, useRef, useState } from 'react';
 interface ArticleNavigationContainerProps {
   headings?:

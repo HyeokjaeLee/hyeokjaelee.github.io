@@ -1,9 +1,8 @@
-import React from 'react';
-
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
+import React from 'react';
 
-import { Logo } from './Logo';
+import { Logo } from './atoms/Logo';
 
 export const Bio = () => {
   const socialDataList = useGetSocialDataList();

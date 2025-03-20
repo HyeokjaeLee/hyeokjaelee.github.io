@@ -1,7 +1,6 @@
-import type { StackBadgeProps } from './StackBadge';
-
 import React from 'react';
 
+import type { StackBadgeProps } from './StackBadge';
 import { StackBadge } from './StackBadge';
 
 interface LinkProps {

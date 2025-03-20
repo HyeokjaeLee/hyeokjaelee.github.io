@@ -1,8 +1,7 @@
-import type { StackBadgeProps } from './StackBadge';
-
 import React from 'react';
 import { ExternalLink } from 'react-feather';
 
+import type { StackBadgeProps } from './StackBadge';
 import { StackBadge } from './StackBadge';
 
 interface LinkProps {

@@ -1,8 +1,6 @@
-import { debounce } from 'lodash-es';
-
-import { useEffect, useRef, useState } from 'react';
-
 import type { NotNullableMarkdownRemark } from '@components/PostArticle';
+import { debounce } from 'lodash-es';
+import { useEffect, useRef, useState } from 'react';
 
 type UseSelectedPostArticleHeadingParams =
   NotNullableMarkdownRemark['headings'];

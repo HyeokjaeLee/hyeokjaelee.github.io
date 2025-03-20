@@ -1,16 +1,15 @@
-import type { PostLayoutQuery } from 'types/graphql-types';
-
-import { Autoplay, Mousewheel } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { shallow } from 'zustand/shallow';
-
-import { useMemo } from 'react';
-
 import { PostLargeCard } from '@components/PostLargeCard';
 import { useGlobalStore } from '@stores/useGlobalStore';
+import { useMemo } from 'react';
+import { Autoplay, Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import type { PostLayoutQuery } from 'types/graphql-types';
+import { shallow } from 'zustand/shallow';
 
-interface RandomPostSuggestionProps
-  extends Pick<PostLayoutQuery, 'allMarkdownRemark' | 'markdownRemark'> {}
+type RandomPostSuggestionProps = Pick<
+  PostLayoutQuery,
+  'allMarkdownRemark' | 'markdownRemark'
+>;
 
 const RANDOM_POST_COUNT = 8;
 
@@ -50,7 +49,7 @@ export const RandomPostSuggestion = ({
   return (
     <dl className="mx-auto my-6">
       <dt className="mx-4 mb-4 text-lg font-bold">이런 글은 어때요?</dt>
-      <dd className="mx-4 phone:mx-0 tablet:mx-0">
+      <dd className="phone:mx-0 tablet:mx-0 mx-4">
         <Swiper
           loop
           mousewheel
@@ -73,7 +72,6 @@ export const RandomPostSuggestion = ({
                     className="w-72"
                     date={frontmatter?.date}
                     description={frontmatter?.description}
-                    dynamicWidth={false}
                     href={slug}
                     isLiked={likePostMap.get(slug)}
                     tags={frontmatter?.tags ?? []}

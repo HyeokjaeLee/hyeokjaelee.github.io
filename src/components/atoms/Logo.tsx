@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { cn } from '@utils/cn';
+import React from 'react';
 
 interface LogoProps {
   className?: string;

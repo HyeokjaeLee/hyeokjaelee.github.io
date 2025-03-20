@@ -1,10 +1,9 @@
-import { Link } from 'gatsby';
-
-import { Calendar, Heart, Tag } from 'react-feather';
-
 import { TitleImage } from '@generated/TitleImage';
 import { IconButton } from '@radix-ui/themes';
+import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
+import { Link } from 'gatsby';
+import { Calendar, Heart, Tag } from 'react-feather';
 
 interface PostLargeCardProps {
   href: string;
@@ -14,7 +13,6 @@ interface PostLargeCardProps {
   date?: string | null;
   onClickLikeButton?: () => void;
   isLiked?: boolean;
-  dynamicWidth?: boolean;
   className?: string;
 }
 
@@ -26,19 +24,20 @@ export const PostLargeCard = ({
   date,
   onClickLikeButton,
   isLiked,
-  dynamicWidth = true,
   className,
 }: PostLargeCardProps) => {
+  const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+
   return (
     <Link
       className={cn(
-        'block rounded-md hover:-translate-y-1 transition-transform',
+        'block rounded-md border transition-transform',
         'bg-white dark:bg-zinc-800',
         'shadow-sm dark:shadow-md',
-        'hover:shadow-md dark:hover:shadow-lg',
+        'w-70 h-75',
         {
-          'w-[calc(33.333333%-1.5rem)] phone:w-full tablet:w-[calc(50%-1.125rem)]':
-            dynamicWidth,
+          'hover:-translate-y-1 hover:shadow-md dark:hover:shadow-lg':
+            !isTouchDevice,
         },
         className,
       )}
@@ -67,7 +66,7 @@ export const PostLargeCard = ({
           </ul>
           <Tag className="mt-1 size-3 text-zinc-400" />
         </section>
-        <section className="flex items-center justify-between border-t border-zinc-200 px-3 py-2 dark:border-zinc-700">
+        <section className="border-border flex items-center justify-between border-t px-3 py-2">
           <div className="flex items-center gap-2 text-zinc-400">
             <Calendar className="size-3" />
             <time className="text-xs">{date}</time>

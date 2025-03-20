@@ -1,14 +1,11 @@
-import type { PageProps } from 'gatsby';
-import type { PostLayoutQuery } from 'types/graphql-types';
-
-import { graphql } from 'gatsby';
-import parse from 'html-react-parser';
-
-import * as React from 'react';
-
 import { ArticleNavigationContainer } from '@components/ArticleNavigation';
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
+import type { PageProps } from 'gatsby';
+import { graphql } from 'gatsby';
+import parse from 'html-react-parser';
+import * as React from 'react';
+import type { PostLayoutQuery } from 'types/graphql-types';
 
 import { Comment } from './_components/Comment';
 import { PostArticleHeader } from './_components/PostArticleHeader';

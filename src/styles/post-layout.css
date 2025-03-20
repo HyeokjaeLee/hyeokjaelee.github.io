@@ -1,0 +1,62 @@
+@layer utilities {
+  .gatsby-highlight-code-line {
+    @apply block;
+    @apply mx-[-1em];
+    @apply pr-4;
+    @apply pl-3;
+    @apply border-l-4;
+    @apply border-yellow-500;
+  }
+
+  .gatsby-highlight > pre[class*='language-'] {
+    @apply overflow-auto;
+    @apply my-4;
+    @apply rounded-md;
+    @apply p-3;
+    @apply text-sm;
+    @apply leading-4;
+  }
+
+  code[class*='language-'] {
+    @apply font-firacode;
+  }
+
+  :not(pre) > code[class*='language-'] {
+    @apply mx-0.5;
+    @apply px-1.5;
+    @apply py-0.5;
+    @apply rounded-md;
+    @apply text-xs;
+    @apply not-italic;
+  }
+
+  .list-container {
+    @apply m-1.5;
+  }
+
+  .post-body hr {
+    @apply max-w-[calc(100%-10rem)];
+    @apply my-12;
+    @apply mx-auto;
+    @apply border-[0.5px];
+    @apply border-zinc-300;
+    @apply dark:border-zinc-800;
+  }
+
+  .list-container > p {
+    @apply m-0;
+  }
+
+  .post-body .gatsby-resp-image-background-image {
+    @apply rounded-md;
+  }
+
+  .post-body img {
+    @apply rounded-md;
+    @apply border-zinc-300;
+    @apply dark:border-zinc-800;
+    @apply border;
+    @apply max-w-full;
+    @apply mx-auto;
+  }
+}

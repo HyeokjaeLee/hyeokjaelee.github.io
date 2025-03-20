@@ -1,10 +1,8 @@
-import type { NotNullableMarkdownRemark } from './PostArticle';
-
+import { useSelectedPostArticleHeading } from '@hooks/useSelectedPostArticleHeading';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
 import React from 'react';
 
-import { useSelectedPostArticleHeading } from '@hooks/useSelectedPostArticleHeading';
+import type { NotNullableMarkdownRemark } from './PostArticle';
 
 interface PostArticleNavigationProps
   extends Pick<NotNullableMarkdownRemark, 'headings'> {

@@ -4,11 +4,7 @@ export enum SCREEN_BREAKPOINTS {
   TABLET_MAX = 1023,
 }
 
-export enum SELECTOR {
-  MAIN = 'main',
-}
-
-export enum LOCAL_STARGE_KEY {
+export enum LOCAL_STORAGE_KEY {
   DARK_MODE = 'dark-mode',
   LIKE_POST_LIST = 'like-post-list',
 }

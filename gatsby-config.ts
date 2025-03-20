@@ -1,5 +1,4 @@
 import type { GatsbyConfig } from 'gatsby';
-
 import path from 'path';
 
 export const ALIAS = [
@@ -11,6 +10,7 @@ export const ALIAS = [
   'constants',
   'images',
   'generated',
+  'shared',
 ].reduce(
   (alias, aliasName) => {
     alias[`@${aliasName}`] = path.resolve(__dirname, `src/${aliasName}`);
@@ -51,6 +51,7 @@ const POST_ARTICLE_STYLES = {
     'border border-zinc-700 dark:border-zinc-400 px-4 py-2 whitespace-pre-wrap',
   tableRow: 'border border-zinc-700 dark:border-zinc-400 px-4 py-2 text-xs',
   strong: 'font-black',
+  code: 'bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded-sm',
 };
 
 const config: GatsbyConfig = {
@@ -88,7 +89,9 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
+        codegenDelay: 200,
         fileName: `types/graphql-types.d.ts`,
+        watch: false,
       },
     },
     {
@@ -217,7 +220,7 @@ const config: GatsbyConfig = {
         background_color: `#000000`,
         theme_color: `#000000`,
         display: `minimal-ui`,
-        icon: `src/images/robot-turtle.png`,
+        icon: './favicon.png',
       },
     },
   ],
