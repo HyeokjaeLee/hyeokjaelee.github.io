@@ -9,10 +9,14 @@ export const useSyncLayout = () => {
   );
 
   useLayoutEffect(() => {
-    const throttledResetLayout = throttle(() => {
+    const resetLayout = () => {
       resetMediaQuery();
       resetIsTouchDevice();
-    }, 33);
+    };
+
+    resetLayout();
+
+    const throttledResetLayout = throttle(resetLayout, 33);
 
     const observer = new MutationObserver((mutationsList) => {
       mutationsList.forEach((mutation) => {

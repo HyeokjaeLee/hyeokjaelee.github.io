@@ -1,4 +1,4 @@
-import { IS_CLIENT, IS_DEV } from '@constants/etc';
+import { IS_DEV } from '@constants/etc';
 import { MEDIA_QUERY_BREAKPOINT, type MediaQuery } from '@constants/layout';
 import { LOCAL_STORAGE } from '@constants/storage';
 import { create } from 'zustand';
@@ -14,10 +14,12 @@ interface LayoutStore {
 }
 
 export const useLayoutStore = create<LayoutStore>((set, get) => {
-  const getMediaQuery = () => {
-    let mediaQuery: MediaQuery = 'XS';
+  return {
+    mediaQuery: 'XS',
+    mediaQueryBreakpoint: MEDIA_QUERY_BREAKPOINT.XS,
+    resetMediaQuery: () => {
+      let mediaQuery: MediaQuery = 'XS';
 
-    if (IS_CLIENT) {
       for (const [value, key] of Object.entries(MEDIA_QUERY_BREAKPOINT)) {
         const mediaQueryList = window.matchMedia(`(min-width: ${value}px)`);
 
@@ -25,64 +27,29 @@ export const useLayoutStore = create<LayoutStore>((set, get) => {
           mediaQuery = key as MediaQuery;
         } else break;
       }
-    }
 
-    const mediaQueryBreakpoint = MEDIA_QUERY_BREAKPOINT[mediaQuery];
-
-    return { mediaQuery, mediaQueryBreakpoint };
-  };
-
-  const getIsTouchDevice = () => {
-    if (IS_CLIENT) {
-      const breakpoint =
-        get()?.mediaQueryBreakpoint ?? MEDIA_QUERY_BREAKPOINT.XS;
-
-      return (
-        breakpoint < MEDIA_QUERY_BREAKPOINT.LG &&
-        ('ontouchstart' in window || 0 < navigator.maxTouchPoints)
-      );
-    }
-
-    return true;
-  };
-
-  const resetIsDarkMode = () => {
-    if (IS_CLIENT) {
-      let isDarkMode = window.matchMedia(
-        '(prefers-color-scheme: dark)',
-      ).matches;
-
-      const darkModeString = localStorage.getItem(LOCAL_STORAGE.DARK_MODE);
-
-      if (darkModeString) isDarkMode = darkModeString === 'true';
-
-      document.documentElement.classList.toggle('dark', isDarkMode);
-
-      return isDarkMode;
-    }
-
-    return false;
-  };
-
-  return {
-    ...getMediaQuery(),
-    resetMediaQuery: () => {
-      const newMediaQuery = getMediaQuery();
+      const mediaQueryBreakpoint = MEDIA_QUERY_BREAKPOINT[mediaQuery];
 
       const prevState = get();
 
-      if (IS_DEV && prevState.mediaQuery !== newMediaQuery.mediaQuery) {
-        console.info(
-          `mediaQuery: ${newMediaQuery.mediaQuery} / ${newMediaQuery.mediaQueryBreakpoint}px`,
-        );
+      if (IS_DEV && prevState.mediaQuery !== mediaQuery) {
+        console.info(`mediaQuery: ${mediaQuery} / ${mediaQueryBreakpoint}px`);
       }
 
-      return set(newMediaQuery);
+      return set({
+        mediaQuery,
+        mediaQueryBreakpoint,
+      });
     },
 
-    isTouchDevice: getIsTouchDevice(),
+    isTouchDevice: false,
     resetIsTouchDevice: () => {
-      const newIsTouchDevice = getIsTouchDevice();
+      const breakpoint =
+        get()?.mediaQueryBreakpoint ?? MEDIA_QUERY_BREAKPOINT.XS;
+
+      const newIsTouchDevice =
+        breakpoint < MEDIA_QUERY_BREAKPOINT.LG &&
+        ('ontouchstart' in window || 0 < navigator.maxTouchPoints);
 
       const prevState = get();
 
@@ -93,7 +60,7 @@ export const useLayoutStore = create<LayoutStore>((set, get) => {
       return set({ isTouchDevice: newIsTouchDevice });
     },
 
-    isDarkMode: resetIsDarkMode(),
+    isDarkMode: false,
     setIsDarkMode: (isDarkMode) => {
       localStorage.setItem(LOCAL_STORAGE.DARK_MODE, String(isDarkMode));
 

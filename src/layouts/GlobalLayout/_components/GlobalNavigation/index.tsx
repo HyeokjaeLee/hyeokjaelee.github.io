@@ -1,5 +1,4 @@
 import { useRootRef } from '@hooks/useRootRef';
-import { cn } from '@utils/cn';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 import { HomeLogo } from './_components/HomeLogo';
@@ -20,12 +19,7 @@ export const GlobalNavigation = () => {
   });
 
   return (
-    <nav
-      className={cn(
-        'bg-background sticky top-0 z-10 flex items-center justify-center',
-        'transition-colors duration-200',
-      )}
-    >
+    <nav className="bg-background sticky top-0 z-10 flex items-center justify-center">
       <div className="relative flex max-w-7xl flex-1 items-center justify-between gap-3 px-3 py-1">
         <div className="flex items-center gap-8">
           <Menu />
