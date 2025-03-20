@@ -4,6 +4,7 @@
 /* stylelint-disable no-invalid-position-at-import-rule */
 
 @import 'tailwindcss' source('..');
+@source '../../gatsby-config.ts';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -20,6 +21,7 @@
 }
 
 @theme {
+  --breakpoint-xxs: 320px;
   --breakpoint-xs: 480px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;

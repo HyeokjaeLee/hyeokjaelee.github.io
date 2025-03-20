@@ -7,7 +7,7 @@ import { GitHub } from 'react-feather';
 
 export const HomeLogo = () => {
   return (
-    <div className="flex items-center gap-2">
+    <div className="xs:flex hidden items-center gap-2">
       <Button asChild variant="ghost" onlyIcon>
         <Link to={ROUTES.HOME} aria-label="Home">
           <Logo className="size-7 text-zinc-700 dark:text-zinc-50" />

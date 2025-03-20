@@ -117,19 +117,24 @@ export const Search = () => {
       open={isOpen}
       onOpenChange={setIsOpen}
       trigger={
-        <Button
-          variant="outline"
-          size="8"
-          onClick={() => {
-            setIsOpen(true);
-          }}
-          className="text-muted-foreground max-w-60 flex-1 justify-between gap-2 rounded-sm font-medium opacity-50"
-        >
-          <div className="flex items-center gap-2">
-            <SearchIcon /> 포스트 검색...
-          </div>
-          <Kbd className="xs:block hidden">Ctrl + K</Kbd>
-        </Button>
+        <>
+          <Button
+            variant="outline"
+            size="8"
+            onClick={() => {
+              setIsOpen(true);
+            }}
+            className="text-muted-foreground xxs:flex hidden max-w-60 flex-1 justify-between gap-2 rounded-sm font-medium opacity-50"
+          >
+            <div className="flex items-center gap-2">
+              <SearchIcon /> 포스트 검색...
+            </div>
+            <Kbd className="xs:block hidden">Ctrl + K</Kbd>
+          </Button>
+          <Button variant="ghost" size="8" className="xxs:hidden flex" onlyIcon>
+            <SearchIcon />
+          </Button>
+        </>
       }
       header="포스트 검색"
     >
