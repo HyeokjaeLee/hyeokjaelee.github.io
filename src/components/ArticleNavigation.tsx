@@ -77,11 +77,11 @@ export const ArticleNavigationContainer = ({
   }, [headings]);
 
   return (
-    <div className="flex">
-      <div className="phone:hidden tablet:hidden block flex-1" />
+    <div className="relative flex">
+      <div className="hidden flex-1 lg:block" />
       {children}
-      <aside className="phone:hidden tablet:hidden block flex-1">
-        <nav className="sticky top-4 my-4 ml-12 min-w-[15em] max-w-xs px-4 py-1 text-xs">
+      <aside className="hidden flex-1 lg:block">
+        <nav className="sticky top-20 my-4 ml-12 min-w-[15em] max-w-xs px-4 py-1 text-xs">
           <h3 className="mb-2 text-base font-bold">{title}</h3>
           <ul className="ml-4 flex list-disc flex-col gap-1">
             {headings?.map((heading, index) => {

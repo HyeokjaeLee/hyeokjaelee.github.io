@@ -49,7 +49,7 @@ export const RandomPostSuggestion = ({
   return (
     <dl className="mx-auto my-6">
       <dt className="mx-4 mb-4 text-lg font-bold">이런 글은 어때요?</dt>
-      <dd className="phone:mx-0 tablet:mx-0 mx-4">
+      <dd className="mx-0 lg:mx-4">
         <Swiper
           loop
           mousewheel

@@ -25,7 +25,7 @@ const PostLayout = ({
   const { fields, frontmatter, headings, html } = markdownRemark ?? {};
 
   return (
-    <article className="mt-16 break-keep py-4 font-nanum-square leading-relaxed phone:mt-8 tablet:mt-14">
+    <article className="mt-8 break-keep py-4 leading-relaxed sm:mt-14 lg:mt-16">
       <PostArticleHeader
         date={frontmatter?.date}
         slug={fields?.slug}
@@ -43,7 +43,7 @@ const PostLayout = ({
           {html ? parse(html) : null}
         </section>
       </ArticleNavigationContainer>
-      <footer className="mx-auto mt-40 max-w-4xl phone:mt-9">
+      <footer className="mx-auto mt-9 max-w-4xl lg:mt-40">
         <section className="px-4">
           <Bio />
           <hr className="mt-9 border-zinc-300 dark:border-zinc-700" />

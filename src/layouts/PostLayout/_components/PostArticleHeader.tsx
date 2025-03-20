@@ -36,6 +36,14 @@ export const PostArticleHeader = ({
 
   const isLiked = likePostMap.get(slug);
 
+  const handleClickLikeButton = () => {
+    setLikePostMap((likePostMap) => {
+      likePostMap.set(slug, !isLiked);
+
+      return likePostMap;
+    });
+  };
+
   return title && date && tags ? (
     <header className="relative mx-auto mb-7 flex max-w-4xl justify-between overflow-hidden px-4 pb-7">
       <section className="font-pretendard">
@@ -66,19 +74,13 @@ export const PostArticleHeader = ({
           </dd>
         </dl>
       </section>
-      <section className="mt-auto flex flex-col gap-4">
+      <section className="absolute bottom-6 right-4 mt-auto flex gap-4 lg:relative lg:flex-col">
         <Button
           type="button"
           variant="ghost"
           onlyIcon
           size="8"
-          onClick={() => {
-            setLikePostMap((likePostMap) => {
-              likePostMap.set(slug, !isLiked);
-
-              return likePostMap;
-            });
-          }}
+          onClick={handleClickLikeButton}
         >
           <Heart
             className={cn('size-7', {
