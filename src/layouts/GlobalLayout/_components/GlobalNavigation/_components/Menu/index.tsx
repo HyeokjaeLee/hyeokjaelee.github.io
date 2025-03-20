@@ -27,7 +27,7 @@ export const Menu = () => {
 
   return (
     <Drawer direction="left">
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <Button variant="ghost" onlyIcon>
           <MenuIcon />
         </Button>

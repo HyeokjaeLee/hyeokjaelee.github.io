@@ -147,52 +147,58 @@ export interface ButtonProps
   loading?: boolean;
 }
 
-export const Button = ({
-  className,
-  variant,
-  size,
-  asChild,
-  onlyIcon,
-  activeScaleDown,
-  children,
-  type = 'button',
-  disabled,
-  loading,
-  shape,
-  ...restProps
-}: ButtonProps) => {
-  const Comp = asChild ? Slot : 'button';
+export const Button = React.forwardRef(
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild,
+      onlyIcon,
+      activeScaleDown,
+      children,
+      type = 'button',
+      disabled,
+      loading,
+      shape,
+      ...restProps
+    }: ButtonProps,
+    ref: React.Ref<HTMLButtonElement>,
+  ) => {
+    const Comp = asChild ? Slot : 'button';
 
-  const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+    const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
 
-  return (
-    <Comp
-      {...restProps}
-      disabled={disabled || loading}
-      data-slot="button"
-      type={type}
-      className={cn(
-        buttonVariants({
-          variant,
-          size,
-          activeScaleDown,
-          isTouchDevice,
-          onlyIcon,
-          shape,
-        }),
-        className,
-      )}
-    >
-      {loading && !asChild ? (
-        <>
-          <Spinner className="animate-fade absolute size-[1.2em] scale-150" />
-          <span className="invisible contents">{children}</span>
-        </>
-      ) : (
-        children
-      )}
-    </Comp>
-  );
-};
+    return (
+      <Comp
+        {...restProps}
+        ref={ref}
+        disabled={disabled || loading}
+        data-slot="button"
+        type={type}
+        className={cn(
+          buttonVariants({
+            variant,
+            size,
+            activeScaleDown,
+            isTouchDevice,
+            onlyIcon,
+            shape,
+          }),
+          className,
+        )}
+      >
+        {loading && !asChild ? (
+          <>
+            <Spinner className="animate-fade absolute size-[1.2em] scale-150" />
+            <span className="invisible contents">{children}</span>
+          </>
+        ) : (
+          children
+        )}
+      </Comp>
+    );
+  },
+);
 
 Button.displayName = 'Button';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ExternalLink } from 'react-feather';
 
 import type { StackBadgeProps } from './StackBadge';
@@ -161,7 +161,7 @@ const ExperienceContent = ({
         <dl>
           {project.map(({ title, content }, index) => {
             return (
-              <>
+              <Fragment key={index}>
                 <dt className="mb-2 text-lg font-bold">
                   {index + 1}. {title}
                 </dt>
@@ -195,7 +195,7 @@ const ExperienceContent = ({
                     })}
                   </ul>
                 </dd>
-              </>
+              </Fragment>
             );
           })}
         </dl>
@@ -227,7 +227,7 @@ export const Experience = Object.assign(
     stacks,
   }: ExperienceProps) => (
     <dl
-      className={`flex flex-col gap-3 border-zinc-300 dark:border-zinc-700 md:flex-row md:gap-5 ${
+      className={`flex flex-col gap-3 border-zinc-300 md:flex-row md:gap-5 dark:border-zinc-700 ${
         borderBottom ? 'mb-4 border-b' : ''
       }`}
       id={id}
