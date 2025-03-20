@@ -1,10 +1,10 @@
-import { useGlobalStore } from '@stores/useGlobalStore';
+import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import React, { useEffect, useRef, useState } from 'react';
 
 export const Comment = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isDarkMode = useGlobalStore((state) => state.isDarkMode);
+  const isDarkMode = useLayoutStore((state) => state.isDarkMode);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export const Comment = () => {
     <section className="mx-auto flex px-5 py-4">
       <div
         ref={ref}
-        className={cn('w-full min-h-64', {
+        className={cn('min-h-64 w-full', {
           'animate-fade-up animate-duration-700': isMounted,
         })}
       />
