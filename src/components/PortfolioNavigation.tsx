@@ -24,18 +24,13 @@ export const PortfolioNavigation = () => (
         depth: 1,
       },
       {
-        value: 'Opensource',
+        value: 'Side Projects',
         id: ABOUT_TITLE_ID.OPEN_SOURCE,
         depth: 1,
       },
       {
         value: 'Other experience',
         id: ABOUT_TITLE_ID.OTHER_EXPERIENCE,
-        depth: 1,
-      },
-      {
-        value: 'Skill',
-        id: ABOUT_TITLE_ID.SKILL,
         depth: 1,
       },
     ]}

@@ -2,7 +2,6 @@ import { AboutHeader } from '@components/AboutHeader';
 import { Meta } from '@components/Meta';
 import { OpensourceSection } from '@components/OpensourceSection';
 import { OtherExperienceSection } from '@components/OtherExperienceSection';
-import { PortfolioNavigation } from '@components/PortfolioNavigation';
 import { WorkExperienceSection } from '@components/WorkExperienceSection';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import React, { useEffect } from 'react';
@@ -34,7 +33,6 @@ const Portfolio = () => {
         <OpensourceSection />
         <OtherExperienceSection />
       </div>
-      <PortfolioNavigation />
     </article>
   );
 };
