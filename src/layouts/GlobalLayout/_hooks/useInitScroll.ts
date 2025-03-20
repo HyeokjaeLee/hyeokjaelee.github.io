@@ -1,9 +1,9 @@
-import { IS_CLIENT } from '@constants/etc';
 import { SELECTOR } from '@constants/layout';
+import { useLocation } from '@reach/router';
 import { useEffect } from 'react';
 
 export const useInitScroll = () => {
-  const pathname = IS_CLIENT ? window.location.pathname : '';
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const rootElement = document.getElementById(SELECTOR.ROOT);
