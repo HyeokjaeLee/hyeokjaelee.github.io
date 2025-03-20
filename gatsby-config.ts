@@ -220,7 +220,7 @@ const config: GatsbyConfig = {
         background_color: `#000000`,
         theme_color: `#000000`,
         display: `minimal-ui`,
-        icon: `src/images/robot-turtle.png`,
+        icon: './favicon.png',
       },
     },
   ],

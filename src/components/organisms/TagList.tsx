@@ -1,10 +1,6 @@
 import { Button } from '@components/atoms/Button';
-import { Bio } from '@components/Bio';
-import { Meta } from '@components/Meta';
-import { cn } from '@utils/cn';
-import type { PageProps } from 'gatsby';
 import { Link } from 'gatsby';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import type SwiperType from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';

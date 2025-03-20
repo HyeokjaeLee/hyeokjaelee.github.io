@@ -72,7 +72,6 @@ export const RandomPostSuggestion = ({
                     className="w-72"
                     date={frontmatter?.date}
                     description={frontmatter?.description}
-                    dynamicWidth={false}
                     href={slug}
                     isLiked={likePostMap.get(slug)}
                     tags={frontmatter?.tags ?? []}

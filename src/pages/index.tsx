@@ -1,11 +1,10 @@
 import { Bio } from '@components/Bio';
 import { Meta } from '@components/Meta';
+import { PostList } from '@components/organisms/PostList';
+import { TagList } from '@components/organisms/TagList';
 import type { PageProps } from 'gatsby';
 import { graphql } from 'gatsby';
 import type { PostPageQuery } from 'types/graphql-types';
-
-import { PostList } from './_components/PostList';
-import { TagList } from './_components/TagList';
 
 const PostPage = ({
   location,

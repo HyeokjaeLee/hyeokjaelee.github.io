@@ -85,7 +85,6 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
               tags={frontmatter?.tags ?? []}
               className="h-fit w-full"
               title={frontmatter?.title || '무제'}
-              dynamicWidth={false}
               onClickLikeButton={() => {
                 setLikePostMap((prevMap) => {
                   prevMap.set(slug, !prevMap.get(slug));

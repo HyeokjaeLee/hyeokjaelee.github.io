@@ -26,7 +26,6 @@ const Portfolio = () => {
 
   return (
     <article className="font-nanum-square my-8 flex break-keep p-4 leading-relaxed md:my-14">
-      <div className="phone:hidden tablet:hidden flex-1" />
       <div className="mx-auto flex max-w-3xl flex-col gap-12">
         <AboutHeader />
         <WorkExperienceSection />

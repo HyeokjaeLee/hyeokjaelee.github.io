@@ -2,7 +2,7 @@ import { TitleImage } from '@generated/TitleImage';
 import { cn } from '@utils/cn';
 import { Link } from 'gatsby';
 
-interface PostLargeCardProps {
+interface PostSmallCardProps {
   title?: string | null;
   description?: string | null;
   slug?: string | null;
@@ -18,7 +18,7 @@ export const PostSmallCard = ({
   className,
   style,
   onClick,
-}: PostLargeCardProps) => {
+}: PostSmallCardProps) => {
   return slug ? (
     <Link
       className={cn(
@@ -37,11 +37,9 @@ export const PostSmallCard = ({
           slug={slug}
         />
       </div>
-      <section className="flex-1 overflow-hidden">
-        <strong className="block truncate text-base text-sm font-semibold">
-          {title}
-        </strong>
-        <p className="truncate text-sm text-zinc-600 dark:text-zinc-400">
+      <section className="flex-1 overflow-hidden text-sm">
+        <strong className="block truncate font-semibold">{title}</strong>
+        <p className="truncate text-zinc-600 dark:text-zinc-400">
           {description}
         </p>
       </section>

@@ -13,7 +13,6 @@ interface PostLargeCardProps {
   date?: string | null;
   onClickLikeButton?: () => void;
   isLiked?: boolean;
-  dynamicWidth?: boolean;
   className?: string;
 }
 
@@ -25,7 +24,6 @@ export const PostLargeCard = ({
   date,
   onClickLikeButton,
   isLiked,
-  dynamicWidth = true,
   className,
 }: PostLargeCardProps) => {
   const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
