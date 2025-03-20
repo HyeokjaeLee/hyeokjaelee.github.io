@@ -1,5 +1,5 @@
+import { debounce } from 'es-toolkit';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-import { debounce } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 interface ArticleNavigationContainerProps {
   headings?:
@@ -78,9 +78,9 @@ export const ArticleNavigationContainer = ({
 
   return (
     <div className="flex">
-      <div className="block flex-1 phone:hidden tablet:hidden" />
+      <div className="phone:hidden tablet:hidden block flex-1" />
       {children}
-      <aside className="block flex-1 phone:hidden tablet:hidden">
+      <aside className="phone:hidden tablet:hidden block flex-1">
         <nav className="sticky top-4 my-4 ml-12 min-w-[15em] max-w-xs px-4 py-1 text-xs">
           <h3 className="mb-2 text-base font-bold">{title}</h3>
           <ul className="ml-4 flex list-disc flex-col gap-1">

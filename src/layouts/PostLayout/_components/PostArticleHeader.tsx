@@ -1,8 +1,7 @@
-import { IconButton } from '@radix-ui/themes';
+import { Button } from '@components/atoms/Button';
 import { Link } from '@reach/router';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
-import { toast } from '@utils/toast';
 import React from 'react';
 import { Calendar, Heart, Share2, Tag } from 'react-feather';
 import type { PostLayoutQuery } from 'types/graphql-types';
@@ -68,10 +67,11 @@ export const PostArticleHeader = ({
         </dl>
       </section>
       <section className="mt-auto flex flex-col gap-4">
-        <IconButton
-          color="gray"
+        <Button
           type="button"
           variant="ghost"
+          onlyIcon
+          size="8"
           onClick={() => {
             setLikePostMap((likePostMap) => {
               likePostMap.set(slug, !isLiked);
@@ -85,11 +85,12 @@ export const PostArticleHeader = ({
               'fill-red-500 text-red-500': isLiked,
             })}
           />
-        </IconButton>
-        <IconButton
-          color="gray"
+        </Button>
+        <Button
           type="button"
           variant="ghost"
+          onlyIcon
+          size="8"
           onClick={async () => {
             const url = location.href;
 
@@ -100,15 +101,11 @@ export const PostArticleHeader = ({
               });
             } catch {
               await navigator.clipboard.writeText(url);
-
-              toast({
-                message: '주소가 복사되었어요!',
-              });
             }
           }}
         >
           <Share2 className="size-7" />
-        </IconButton>
+        </Button>
       </section>
     </header>
   ) : null;

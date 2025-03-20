@@ -2,10 +2,8 @@ import { Link } from '@reach/router';
 import React from 'react';
 import { GitHub, Linkedin, Mail, PenTool, Phone } from 'react-feather';
 
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
-
 export const AboutHeader = () => (
-  <header className="flex flex-col gap-8" id={ABOUT_TITLE_ID.ABOUT_ME}>
+  <header className="flex flex-col gap-8">
     <section className="flex flex-wrap items-center justify-center gap-5 px-5 md:gap-12">
       <h1 className="flex-1 text-nowrap text-center text-lg">
         👋 안녕하세요!

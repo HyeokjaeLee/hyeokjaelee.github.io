@@ -1,15 +1,8 @@
 import React from 'react';
 
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
-
 export const OtherExperienceSection = () => (
   <section>
-    <h2
-      className="mb-6 text-3xl font-bold"
-      id={ABOUT_TITLE_ID.OTHER_EXPERIENCE}
-    >
-      🗃️ Other Experience
-    </h2>
+    <h2 className="mb-6 text-3xl font-bold">🗃️ Other Experience</h2>
     <ul className="ml-4 list-disc text-lg font-bold leading-8">
       <li>2024년 웰로 우수사원 선정 (2024.12)</li>
       <li>Primitive 개발 동아리 활동 / 취업 멘토링 (2022~ )</li>

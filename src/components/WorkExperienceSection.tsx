@@ -1,17 +1,11 @@
 import React from 'react';
 
 import { Experience } from './Experience';
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const WorkExperienceSection = () => {
   return (
     <section>
-      <h2
-        className="mb-6 text-3xl font-bold"
-        id={ABOUT_TITLE_ID.WORK_EXPERIENCE}
-      >
-        👨‍💻 Work experience
-      </h2>
+      <h2 className="mb-6 text-3xl font-bold">👨‍💻 Work experience</h2>
       <Experience
         borderBottom
         description="개인과 기업에게 맞춤 정책을 추천하는 GovTech 스타트업"

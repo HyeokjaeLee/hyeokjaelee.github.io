@@ -1,7 +1,7 @@
 import type { DotLottieType } from '@components/atoms/DotLottie';
 import { DotLottie } from '@components/atoms/DotLottie';
 import { useLayoutStore } from '@stores/useLayoutStore';
-import { debounce } from 'lodash-es';
+import { debounce } from 'es-toolkit';
 import { useMemo, useRef, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 

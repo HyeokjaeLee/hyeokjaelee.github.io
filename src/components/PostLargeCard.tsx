@@ -1,9 +1,10 @@
 import { TitleImage } from '@generated/TitleImage';
-import { IconButton } from '@radix-ui/themes';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import { Link } from 'gatsby';
 import { Calendar, Heart, Tag } from 'react-feather';
+
+import { Button } from './atoms/Button';
 
 interface PostLargeCardProps {
   href: string;
@@ -71,9 +72,11 @@ export const PostLargeCard = ({
             <Calendar className="size-3" />
             <time className="text-xs">{date}</time>
           </div>
-          <IconButton
+          <Button
             className="size-5"
             variant="ghost"
+            onlyIcon
+            size="8"
             onClick={(e) => {
               e.preventDefault();
 
@@ -85,7 +88,7 @@ export const PostLargeCard = ({
                 'fill-red-500 text-red-500': isLiked,
               })}
             />
-          </IconButton>
+          </Button>
         </section>
       </article>
     </Link>

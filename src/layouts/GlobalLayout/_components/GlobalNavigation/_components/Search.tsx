@@ -4,11 +4,12 @@ import { Input } from '@components/atoms/Input';
 import { Kbd } from '@components/atoms/Kbd';
 import { Modal } from '@components/molecules/Modal';
 import { PostSmallCard } from '@components/PostSmallCard';
+import { debounce } from 'es-toolkit';
 import { graphql, useStaticQuery } from 'gatsby';
-import { debounce } from 'lodash-es';
 import { SearchIcon } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { VariableSizeList } from 'react-window';
+import type { VirtuosoHandle } from 'react-virtuoso';
+import { Virtuoso } from 'react-virtuoso';
 import type { PostListToSearchQuery } from 'types/graphql-types';
 
 export const Search = () => {
@@ -50,19 +51,14 @@ export const Search = () => {
     );
   });
   const [isOpen, setIsOpen] = useState(false);
-  const listRef = useRef<VariableSizeList>(null);
+  const virtuosoRef = useRef<VirtuosoHandle>(null);
 
-  // 아이템 높이 계산 함수
-  const getItemSize = useCallback(
-    (index: number) => {
-      // 설명 길이에 따라 높이 다르게 계산
-      const description = searchedPosts[index]?.frontmatter?.description || '';
-
-      // 기본 높이 + 설명 길이에 따른 추가 높이
-      return description.length > 100 ? 100 : 70;
-    },
-    [searchedPosts],
-  );
+  // 검색어 변경시 리스트 스크롤 초기화
+  useEffect(() => {
+    if (virtuosoRef.current) {
+      virtuosoRef.current.scrollToIndex(0);
+    }
+  }, [searchKeyword]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -77,40 +73,10 @@ export const Search = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // 검색어 변경시 리스트 캐시 초기화
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.resetAfterIndex(0);
-    }
-  }, [searchKeyword]);
-
   const callbackRef = useCallback((node: HTMLInputElement) => {
     if (node) node.focus();
     setSearchKeyword('');
   }, []);
-
-  const Row = useCallback(
-    ({ index, style }: { index: number; style: React.CSSProperties }) => {
-      const { fields, frontmatter } = searchedPosts[index];
-      const slug = fields?.slug;
-
-      if (!slug) return null;
-
-      return (
-        <div style={style} className="py-2">
-          <PostSmallCard
-            description={frontmatter?.description}
-            slug={slug}
-            title={frontmatter?.title}
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          />
-        </div>
-      );
-    },
-    [searchedPosts],
-  );
 
   return (
     <Modal
@@ -150,16 +116,31 @@ export const Search = () => {
       />
       <div className="h-91 flex-1">
         {searchedPosts.length > 0 ? (
-          <VariableSizeList
-            ref={listRef}
+          <Virtuoso
+            ref={virtuosoRef}
             className="hide-scrollbar"
-            height={364}
-            width="100%"
-            itemCount={searchedPosts.length}
-            itemSize={getItemSize}
-          >
-            {Row}
-          </VariableSizeList>
+            style={{ height: 364, width: '100%' }}
+            totalCount={searchedPosts.length}
+            itemContent={(index) => {
+              const { fields, frontmatter } = searchedPosts[index];
+              const slug = fields?.slug;
+
+              if (!slug) return null;
+
+              return (
+                <div className="py-2">
+                  <PostSmallCard
+                    description={frontmatter?.description}
+                    slug={slug}
+                    title={frontmatter?.title}
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
+                  />
+                </div>
+              );
+            }}
+          />
         ) : (
           <div className="flex size-full flex-col items-center justify-center">
             <DotLottie src="/lotties/empty.lottie" className="size-30" />

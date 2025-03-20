@@ -48,7 +48,6 @@
 }
 
 @layer components {
-  @import 'react-toastify/dist/ReactToastify.css';
   @import 'swiper/css';
 
   input,

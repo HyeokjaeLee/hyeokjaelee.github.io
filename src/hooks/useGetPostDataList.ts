@@ -1,5 +1,5 @@
+import { debounce } from 'es-toolkit';
 import type { PageProps } from 'gatsby';
-import { debounce } from 'lodash-es';
 import { useEffect, useMemo, useState } from 'react';
 import type { PostPageQuery } from 'types/graphql-types';
 

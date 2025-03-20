@@ -1,17 +1,14 @@
-import { Button } from '@hyeokjaelee/pastime-ui';
+import { Button } from '@components/atoms/Button';
 import React, { useState } from 'react';
 
 import { OpensourceItem } from './OpensourceItem';
-import { ABOUT_TITLE_ID } from './PortfolioNavigation';
 
 export const OpensourceSection = () => {
   const [isMoreVisible, setIsMoreVisible] = useState(false);
 
   return (
     <section>
-      <h2 className="text-3xl font-bold" id={ABOUT_TITLE_ID.OPEN_SOURCE}>
-        🗂️ Side Projects
-      </h2>
+      <h2 className="text-3xl font-bold">🗂️ Side Projects</h2>
       <p className="mb-6 ml-1 text-sm font-bold text-zinc-400">
         개인 성장과 불편함을 해소하기 위해 개발한 1인 오픈소스 프로젝트입니다.
       </p>
@@ -362,7 +359,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
         <div className="flex w-full justify-center">
           <Button
             className="mx-auto mt-10 text-sm font-bold"
-            theme="ghost"
+            variant="outline"
             onClick={() => setIsMoreVisible(true)}
           >
             더보기
