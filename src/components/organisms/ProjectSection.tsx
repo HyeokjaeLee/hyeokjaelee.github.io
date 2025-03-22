@@ -1,19 +1,24 @@
 import { Button } from '@components/atoms/Button';
+import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
+import { cn } from '@utils/cn';
 import React, { useState } from 'react';
 
-import { OpensourceItem } from './OpensourceItem';
+import { SideProjectItem } from '../molecules/SideProjectItem';
 
-export const OpensourceSection = () => {
+export const ProjectSection = () => {
   const [isMoreVisible, setIsMoreVisible] = useState(false);
+  const displayType = useDisplayType();
+
+  const isPdf = displayType === DISPLAY_TYPE.PDF;
 
   return (
     <section>
       <h2 className="text-3xl font-bold">🗂️ Side Projects</h2>
-      <p className="mb-6 ml-1 text-sm font-bold text-zinc-400">
+      <p className="mb-6 ml-1 text-sm text-zinc-400">
         개인 성장과 불편함을 해소하기 위해 개발한 1인 오픈소스 프로젝트입니다.
       </p>
       <ul>
-        <OpensourceItem
+        <SideProjectItem
           description={`QR 스캔을 통해 양방향 번역을 지원하는 인스턴트 채팅앱입니다.  
 처음엔 개인 컴포넌트 라이브러리와 Next 13 app directory 활용해 개발했고 현재는 Next 15와 shadcn 기반으로 전환했습니다.  
 비용을 줄이기 위해 Indexed DB와 React-Query session cache를 적극 활용해 정보를 저장하고 서버 및 외부 API 호출을 최소화할 수 있도록 설계했습니다.`}
@@ -86,7 +91,7 @@ export const OpensourceSection = () => {
           ]}
           title="Briend"
         />
-        <OpensourceItem
+        <SideProjectItem
           description={`개인 프로젝트에서 사용하기 위해 개발한 React 컴포넌트 라이브러리입니다.  
 Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.  
 사용자의 입력을 받는 컴포넌트들이 외부 상태를 업데이트시키지 않고 유효성 검사 기능을 자체적으로 제공합니다.  
@@ -140,7 +145,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           ]}
           title="Pastime UI"
         />
-        <OpensourceItem
+        <SideProjectItem
           description={`여러 가지 웹툰 플랫폼을 크롤링한 데이터를 정형화하고 제공하는 API입니다.\n지속적으로 트래픽이 발생하고 있어 유지보수 하고 있습니다.`}
           id="korea-webtoon-api"
           links={[
@@ -178,7 +183,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
         />
         {isMoreVisible ? (
           <>
-            <OpensourceItem
+            <SideProjectItem
               description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.`}
               id="blog"
               links={[
@@ -222,7 +227,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
               ]}
               title="블로그"
             />
-            <OpensourceItem
+            <SideProjectItem
               description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
               id="knu-lms-scheduler"
               links={[
@@ -254,7 +259,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
               ]}
               title="KNU LMS scheduler"
             />
-            <OpensourceItem
+            <SideProjectItem
               description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
               id="gititle"
               links={[
@@ -295,7 +300,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
               ]}
               title="Gititle"
             />
-            <OpensourceItem
+            <SideProjectItem
               description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
               id="code-convetion-packages"
               links={[
@@ -322,7 +327,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
               ]}
               title="Code convetion packages"
             />
-            <OpensourceItem
+            <SideProjectItem
               description={`여러 API 또는 웹상에 존재하는 COVID-19 관련 데이터를 정형화해 제공하는 API입니다.\nGraphQL을 이용해 사용자가 원하는 데이터만을 요청할 수 있게 했습니다.`}
               id="korea-covid-19-api"
               links={[
@@ -356,7 +361,11 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
         ) : null}
       </ul>
       {isMoreVisible ? null : (
-        <div className="flex w-full justify-center">
+        <div
+          className={cn('flex w-full justify-center', {
+            hidden: isPdf,
+          })}
+        >
           <Button
             className="mx-auto mt-10 text-sm font-bold"
             variant="outline"

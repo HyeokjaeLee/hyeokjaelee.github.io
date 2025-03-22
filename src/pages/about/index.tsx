@@ -1,6 +1,6 @@
-import { AboutHeader } from '@components/AboutHeader';
-import { Bio } from '@components/Bio';
-import { Meta } from '@components/Meta';
+import { Bio } from '@components/molecules/Bio';
+import { Meta } from '@components/molecules/Meta';
+import { AboutHeader } from '@components/organisms/AboutHeader';
 import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';
 import React, { useEffect } from 'react';
@@ -17,7 +17,7 @@ const About = () => {
   }, [isPortfolio]);
 
   return (
-    <article className="md:mt-14 mt-8 flex break-keep p-4 font-nanum-square leading-relaxed">
+    <article className="font-nanum-square mt-8 flex break-keep p-4 leading-relaxed md:mt-14">
       <div className="mx-auto flex max-w-3xl flex-col gap-12">
         <AboutHeader />
         <footer className="py-12">

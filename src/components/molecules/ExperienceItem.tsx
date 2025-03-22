@@ -1,119 +1,9 @@
+import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
 import React, { Fragment } from 'react';
 import { ExternalLink } from 'react-feather';
 
-import type { StackBadgeProps } from './StackBadge';
-import { StackBadge } from './StackBadge';
-
-interface LinkProps {
-  name: string;
-  href: string;
-  type?: 'github' | 'blog' | 'storybook' | 'product';
-}
-
-interface ExperienceItemProps {
-  title: string;
-  stacks?: StackBadgeProps[];
-  links?: LinkProps[];
-  whatDidIDo?: (string | { what: string; result: string })[];
-  description?: string;
-  borderBottom?: boolean;
-  id?: string;
-}
-
-const ExperienceItem = ({
-  title,
-  stacks,
-  whatDidIDo,
-  description,
-  links,
-  borderBottom,
-  id,
-}: ExperienceItemProps) => (
-  <li
-    className={`border-zinc-300 dark:border-zinc-700 ${
-      borderBottom ? 'mb-4 border-b pb-4' : ''
-    }`}
-  >
-    <h4 className="text-xl font-bold" id={id}>
-      {title}
-    </h4>
-    <dl>
-      {description ? (
-        <>
-          <dt className="mb-1 mt-3 text-lg font-bold">Description</dt>
-          <dd className="whitespace-pre-wrap text-sm">{description}</dd>
-        </>
-      ) : null}
-      {whatDidIDo ? (
-        <>
-          <dt className="mb-1 mt-2 text-lg font-bold">What did I do</dt>
-          <dd>
-            <ul className="ml-4 list-disc text-sm">
-              {whatDidIDo.map((summary, index) => {
-                if (typeof summary === 'object') {
-                  return (
-                    <li key={index}>
-                      {summary.what}
-                      <blockquote className="my-2 border-l-4 border-yellow-400 pl-2 text-zinc-400">
-                        {summary.result}
-                      </blockquote>
-                    </li>
-                  );
-                }
-
-                return <li key={index}>{summary}</li>;
-              })}
-            </ul>
-          </dd>
-        </>
-      ) : null}
-      {stacks ? (
-        <>
-          <dt className="mb-1 mt-3 text-lg font-bold">Tech Stack</dt>
-          <dd>
-            <ul className="flex flex-wrap gap-1">
-              {stacks.map((props) => (
-                <li key={props.name}>
-                  <StackBadge {...props} />
-                </li>
-              ))}
-            </ul>
-          </dd>
-        </>
-      ) : null}
-    </dl>
-    {links ? (
-      <>
-        <dt className="mt-3 text-lg font-bold">Link</dt>
-        <dd>
-          <ul className="border-gray-500 text-xs">
-            {links.map(({ name, href, type = 'blog' }) => (
-              <li key={name}>
-                <a
-                  className="text-blue-500 hover:underline"
-                  href={href}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {name} (
-                  {
-                    {
-                      github: 'Github repo',
-                      blog: 'Blog post',
-                      storybook: 'Storybook',
-                      product: 'Product',
-                    }[type]
-                  }
-                  )
-                </a>
-              </li>
-            ))}
-          </ul>
-        </dd>
-      </>
-    ) : null}
-  </li>
-);
+import type { StackBadgeProps } from '../atoms/StackBadge';
+import { StackBadge } from '../atoms/StackBadge';
 
 interface ExperienceContentProps {
   description: string[];
@@ -134,6 +24,8 @@ const ExperienceContent = ({
   description,
   project,
 }: ExperienceContentProps) => {
+  const isPdf = useDisplayType() === DISPLAY_TYPE.PDF;
+
   return (
     <ul className="flex flex-col gap-6 leading-6">
       <li>
@@ -173,14 +65,23 @@ const ExperienceContent = ({
                           <li key={index}>
                             {value.what}
                             {value.link ? (
-                              <a
-                                className="ml-1 inline-block"
-                                href={value.link}
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                <ExternalLink className="size-3 text-blue-500" />
-                              </a>
+                              isPdf ? (
+                                <a
+                                  href={value.link}
+                                  className="block text-blue-500 underline"
+                                >
+                                  바로가기
+                                </a>
+                              ) : (
+                                <a
+                                  className="ml-1 inline-block"
+                                  href={value.link}
+                                  rel="noreferrer"
+                                  target="_blank"
+                                >
+                                  <ExternalLink className="size-3 text-blue-500" />
+                                </a>
+                              )
                             ) : null}
                             {value.result ? (
                               <blockquote className="my-2 border-l-4 border-yellow-400 pl-2 text-zinc-400">
@@ -250,5 +151,5 @@ export const Experience = Object.assign(
       <dd className="mb-4 flex-1">{children}</dd>
     </dl>
   ),
-  { Item: ExperienceItem, Content: ExperienceContent },
+  { Content: ExperienceContent },
 );

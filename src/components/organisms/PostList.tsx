@@ -1,4 +1,4 @@
-import { PostLargeCard } from '@components/PostLargeCard';
+import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { SELECTOR } from '@constants/layout';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { useLayoutEffect, useRef, useState } from 'react';

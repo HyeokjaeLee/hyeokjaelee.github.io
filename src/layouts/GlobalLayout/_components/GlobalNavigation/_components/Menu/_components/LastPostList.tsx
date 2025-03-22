@@ -1,5 +1,5 @@
 import { DrawerClose } from '@components/molecules/Drawer';
-import { PostSmallCard } from '@components/PostSmallCard';
+import { PostSmallCard } from '@components/molecules/PostSmallCard';
 import { graphql, useStaticQuery } from 'gatsby';
 import type { LastPostListQuery } from 'types/graphql-types';
 

@@ -1,5 +1,5 @@
-import { Bio } from '@components/Bio';
-import { Meta } from '@components/Meta';
+import { Bio } from '@components/molecules/Bio';
+import { Meta } from '@components/molecules/Meta';
 import { PostList } from '@components/organisms/PostList';
 import { TagList } from '@components/organisms/TagList';
 import type { PageProps } from 'gatsby';

@@ -1,4 +1,4 @@
-import { PostLargeCard } from '@components/PostLargeCard';
+import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { useMemo } from 'react';
 import { Autoplay, Mousewheel } from 'swiper/modules';

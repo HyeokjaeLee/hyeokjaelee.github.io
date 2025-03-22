@@ -4,7 +4,7 @@ import { cn } from '@utils/cn';
 import { Link } from 'gatsby';
 import { Calendar, Heart, Tag } from 'react-feather';
 
-import { Button } from './atoms/Button';
+import { Button } from '../atoms/Button';
 
 interface PostLargeCardProps {
   href: string;

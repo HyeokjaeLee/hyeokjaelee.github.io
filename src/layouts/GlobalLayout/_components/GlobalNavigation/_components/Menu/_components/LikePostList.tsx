@@ -1,6 +1,6 @@
 import { DotLottie } from '@components/atoms/DotLottie';
 import { DrawerClose } from '@components/molecules/Drawer';
-import { PostSmallCard } from '@components/PostSmallCard';
+import { PostSmallCard } from '@components/molecules/PostSmallCard';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { graphql, useStaticQuery } from 'gatsby';
 import type { LikePostListQuery } from 'types/graphql-types';

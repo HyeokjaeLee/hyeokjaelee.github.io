@@ -1,7 +1,6 @@
 import React from 'react';
 
-import type { StackBadgeProps } from './StackBadge';
-import { StackBadge } from './StackBadge';
+import { StackBadge, type StackBadgeProps } from '../atoms/StackBadge';
 
 interface LinkProps {
   name: string;
@@ -9,7 +8,7 @@ interface LinkProps {
   type?: 'github' | 'blog' | 'storybook' | 'product';
 }
 
-interface OpensourceItemProps {
+interface SideProjectItemProps {
   title: string;
   stacks: StackBadgeProps[];
   links: LinkProps[];
@@ -18,14 +17,14 @@ interface OpensourceItemProps {
   list?: string[];
 }
 
-export const OpensourceItem = ({
+export const SideProjectItem = ({
   title,
   stacks,
   description,
   links,
   id,
   list,
-}: OpensourceItemProps) => (
+}: SideProjectItemProps) => (
   <li className="mb-4 flex flex-col gap-3 border-b border-zinc-800 pb-4 last:mb-0 last:border-none last:pb-0 md:flex-row">
     <header className="md:w-56">
       <h4 className="text-xl font-bold" id={id}>

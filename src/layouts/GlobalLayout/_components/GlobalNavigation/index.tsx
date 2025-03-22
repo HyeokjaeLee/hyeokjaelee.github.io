@@ -1,3 +1,4 @@
+import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
 import { useRootRef } from '@hooks/useRootRef';
 import { motion, useScroll, useSpring } from 'motion/react';
 
@@ -17,6 +18,10 @@ export const GlobalNavigation = () => {
     damping: 30,
     restDelta: 0.001,
   });
+
+  const displayType = useDisplayType();
+
+  if (displayType === DISPLAY_TYPE.PDF) return null;
 
   return (
     <nav className="bg-background sticky top-0 z-10 flex items-center justify-center">

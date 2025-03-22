@@ -3,7 +3,7 @@ import { DotLottie } from '@components/atoms/DotLottie';
 import { Input } from '@components/atoms/Input';
 import { Kbd } from '@components/atoms/Kbd';
 import { Modal } from '@components/molecules/Modal';
-import { PostSmallCard } from '@components/PostSmallCard';
+import { PostSmallCard } from '@components/molecules/PostSmallCard';
 import { debounce } from 'es-toolkit';
 import { graphql, useStaticQuery } from 'gatsby';
 import { SearchIcon } from 'lucide-react';

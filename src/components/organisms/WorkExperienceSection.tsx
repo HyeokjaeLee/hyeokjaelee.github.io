@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Experience } from './Experience';
+import { Experience } from '../molecules/ExperienceItem';
 
 export const WorkExperienceSection = () => {
   return (
@@ -324,8 +324,8 @@ export const WorkExperienceSection = () => {
       >
         <Experience.Content
           description={[
-            '개발 프로세스를 개선하기 위해 팀원들과 함께 여러 가지 에자일 프레임워크 시도',
-            '주니어 개발자로서 신규 개발 스택 도입, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
+            '***개발 프로세스를 개선***하기 위해 팀원들과 함께 여러 가지 에자일 프레임워크 시도',
+            '주니어 개발자로서 ***신규 개발 스택 도입***, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
           ]}
           project={[
             {

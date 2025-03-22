@@ -1,6 +1,6 @@
-import { ArticleNavigationContainer } from '@components/ArticleNavigation';
-import { Bio } from '@components/Bio';
-import { Meta } from '@components/Meta';
+import { Bio } from '@components/molecules/Bio';
+import { Meta } from '@components/molecules/Meta';
+import { ArticleNavigationContainer } from '@components/organisms/ArticleNavigation';
 import type { PageProps } from 'gatsby';
 import { graphql } from 'gatsby';
 import parse from 'html-react-parser';

@@ -1,4 +1,5 @@
 import { SELECTOR } from '@constants/layout';
+import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
 import { cn } from '@utils/cn';
 import type { PageProps } from 'gatsby';
 import { AnimatePresence, motion } from 'motion/react';
@@ -13,9 +14,13 @@ const GlobalLayout = ({ children, location }: PageProps) => {
   useInitScroll();
   useInitDarkMode();
 
+  const displayType = useDisplayType();
+
   return (
     <div
-      className={cn('hide-scrollbar relative size-full overflow-auto')}
+      className={cn('relative size-full overflow-auto', {
+        'hide-scrollbar overflow-auto': displayType === DISPLAY_TYPE.WEB,
+      })}
       id={SELECTOR.ROOT}
     >
       <GlobalNavigation />
