@@ -18,7 +18,7 @@ const GlobalLayout = ({ children, location }: PageProps) => {
 
   return (
     <div
-      className={cn('relative size-full overflow-auto', {
+      className={cn('relative size-full', {
         'hide-scrollbar overflow-auto': displayType === DISPLAY_TYPE.WEB,
       })}
       id={SELECTOR.ROOT}
