@@ -45,11 +45,11 @@ export const PostArticleHeader = ({
   };
 
   return title && date && tags ? (
-    <header className="relative mx-auto mb-7 flex max-w-4xl justify-between overflow-hidden px-4 pb-7">
-      <section className="font-pretendard">
-        <h1 className="mb-7 text-4xl font-extrabold leading-normal tracking-tight">
-          {title}
-        </h1>
+    <header className="relative mx-auto mb-7 flex w-full max-w-4xl flex-col justify-between overflow-hidden px-4 pb-7">
+      <h1 className="mb-7 text-4xl font-extrabold leading-normal tracking-tight">
+        {title}
+      </h1>
+      <div className="flex flex-wrap items-center justify-between gap-8">
         <dl className="flex flex-wrap items-center">
           <dt className="mr-2">
             <Calendar className={ICON_SIZE} />
@@ -73,42 +73,42 @@ export const PostArticleHeader = ({
             </ul>
           </dd>
         </dl>
-      </section>
-      <section className="absolute bottom-6 right-4 mt-auto flex gap-4 lg:relative lg:flex-col">
-        <Button
-          type="button"
-          variant="ghost"
-          onlyIcon
-          size="8"
-          onClick={handleClickLikeButton}
-        >
-          <Heart
-            className={cn('size-7', {
-              'fill-red-500 text-red-500': isLiked,
-            })}
-          />
-        </Button>
-        <Button
-          type="button"
-          variant="ghost"
-          onlyIcon
-          size="8"
-          onClick={async () => {
-            const url = location.href;
+        <section className="ml-auto">
+          <Button
+            type="button"
+            variant="ghost"
+            onlyIcon
+            size="8"
+            onClick={handleClickLikeButton}
+          >
+            <Heart
+              className={cn({
+                'fill-red-500 text-red-500': isLiked,
+              })}
+            />
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            onlyIcon
+            size="8"
+            onClick={async () => {
+              const url = location.href;
 
-            try {
-              await navigator.share({
-                title: title,
-                url: url,
-              });
-            } catch {
-              await navigator.clipboard.writeText(url);
-            }
-          }}
-        >
-          <Share2 className="size-7" />
-        </Button>
-      </section>
+              try {
+                await navigator.share({
+                  title: title,
+                  url: url,
+                });
+              } catch {
+                await navigator.clipboard.writeText(url);
+              }
+            }}
+          >
+            <Share2 />
+          </Button>
+        </section>
+      </div>
     </header>
   ) : null;
 };

@@ -1,6 +1,5 @@
 import { Bio } from '@components/molecules/Bio';
 import { Meta } from '@components/molecules/Meta';
-import { ArticleNavigationContainer } from '@components/organisms/ArticleNavigation';
 import type { PageProps } from 'gatsby';
 import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
@@ -22,7 +21,7 @@ export const Head = ({ data: { markdownRemark } }: PostLayoutProps) => {
 const PostLayout = ({
   data: { markdownRemark, allMarkdownRemark },
 }: PostLayoutProps) => {
-  const { fields, frontmatter, headings, html } = markdownRemark ?? {};
+  const { fields, frontmatter, html } = markdownRemark ?? {};
 
   return (
     <article className="mt-8 break-keep py-4 leading-relaxed sm:mt-14 lg:mt-16">
@@ -32,17 +31,12 @@ const PostLayout = ({
         tags={frontmatter?.tags}
         title={frontmatter?.title}
       />
-      <ArticleNavigationContainer
-        headings={headings}
-        title={frontmatter?.title}
+      <section
+        className="post-body mx-auto w-full max-w-4xl px-4"
+        itemProp="post-article-body"
       >
-        <section
-          className="post-body mx-auto w-full max-w-3xl px-4"
-          itemProp="post-article-body"
-        >
-          {html ? parse(html) : null}
-        </section>
-      </ArticleNavigationContainer>
+        {html ? parse(html) : null}
+      </section>
       <footer className="mx-auto mt-9 max-w-4xl lg:mt-40">
         <section className="px-4">
           <Bio />
