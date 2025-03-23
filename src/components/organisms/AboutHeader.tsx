@@ -37,7 +37,7 @@ export const AboutHeader = () => {
       <section className="flex flex-wrap items-center justify-center gap-5 px-5 md:gap-12">
         <div className="flex flex-1 flex-col items-center justify-center">
           <h1 className="text-nowrap text-center text-lg">
-            👋 안녕하세요!
+            안녕하세요!
             <br />
             덕업일치 개발자, <span className="font-bold">이혁재</span>
             입니다.
@@ -51,7 +51,7 @@ export const AboutHeader = () => {
             )}
           >
             <strong className="block">
-              ⚠️ 웹에서 더 많은 정보를 확인할 수 있습니다.
+              웹에서 더 많은 정보를 확인할 수 있습니다.
             </strong>
             <a href={portfolioUrl} className="text-blue-500 underline">
               {portfolioUrl}

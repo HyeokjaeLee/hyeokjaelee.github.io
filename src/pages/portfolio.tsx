@@ -2,6 +2,7 @@ import { Meta } from '@components/molecules/Meta';
 import { AboutHeader } from '@components/organisms/AboutHeader';
 import { OtherExperienceSection } from '@components/organisms/OtherExperienceSection';
 import { ProjectSection } from '@components/organisms/ProjectSection';
+import { SkillSection } from '@components/organisms/SkillSection';
 import { WorkExperienceSection } from '@components/organisms/WorkExperienceSection';
 import React from 'react';
 
@@ -15,6 +16,7 @@ const Portfolio = () => {
         <WorkExperienceSection />
         <ProjectSection />
         <OtherExperienceSection />
+        <SkillSection />
       </div>
     </article>
   );

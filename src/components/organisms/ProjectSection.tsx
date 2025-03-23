@@ -13,7 +13,7 @@ export const ProjectSection = () => {
 
   return (
     <section>
-      <h2 className="text-3xl font-bold">🗂️ Side Projects</h2>
+      <h2 className="text-3xl font-bold">Side Projects.</h2>
       <p className="mb-6 ml-1 text-sm text-zinc-400">
         개인 성장과 불편함을 해소하기 위해 개발한 1인 오픈소스 프로젝트입니다.
       </p>

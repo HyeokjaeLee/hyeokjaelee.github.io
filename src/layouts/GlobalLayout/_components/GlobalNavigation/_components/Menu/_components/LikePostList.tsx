@@ -33,7 +33,7 @@ export const LikePostList = () => {
   return (
     <dl className="mx-4">
       <dt className="mb-2 ml-3 flex w-full items-center gap-4 font-bold">
-        Last post
+        Liked post
         <hr className="flex-1" />
       </dt>
       <dd>

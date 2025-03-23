@@ -69,6 +69,8 @@ const ExperienceContent = ({
                                 <a
                                   href={value.link}
                                   className="block text-blue-500 underline"
+                                  target="_blank"
+                                  rel="noreferrer"
                                 >
                                   바로가기
                                 </a>
