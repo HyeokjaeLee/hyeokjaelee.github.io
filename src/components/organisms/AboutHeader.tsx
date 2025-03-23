@@ -28,8 +28,8 @@ export const AboutHeader = () => {
     ContactLinks.push({
       icon: Phone,
       label: 'phone',
-      to: 'tel:+821039646067',
-      text: '+82 1039646067',
+      to: 'tel:+821093906067',
+      text: '+82 1093906067',
     });
   }
 

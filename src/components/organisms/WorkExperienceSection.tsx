@@ -81,7 +81,11 @@ export const WorkExperienceSection = () => {
             name: 'ChakraUI',
             backgroundColor: '#319795',
           },
-          { name: 'Framer', backgroundColor: '#0055FF' },
+          { name: 'Motion', backgroundColor: '#0055FF', logo: 'Framer' },
+          {
+            name: 'Figma',
+            backgroundColor: '#F24E1E',
+          },
         ]}
         title="주식회사 웰로"
       >
@@ -95,13 +99,16 @@ export const WorkExperienceSection = () => {
             {
               title: 'Wello Web & App 개발 (Flutter → Next.js 전환)',
               content: [
+                'iOS/Android WebView, 웹 브라우저 환경 차이를 고려한 크로스 플랫폼 호환성 최적화',
                 'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 브릿지 구현',
                 'Next 14 app directory 기반의 프론트엔드 아키텍쳐 설계',
                 '앱과 웹 모두에서 작동하는 OAuth 2.0 인증 방식 및 (Google, Apple, Naver, Kakao), 본인 인증 구현',
                 'route groups을 활용한 접근 제어 로직 개발',
-                'iOS/Android WebView, 웹 브라우저 환경 차이를 고려한 크로스 플랫폼 호환성 최적화',
                 'browser history를 앱과 웹 환경에서 일괄되게 관리하기 위한 history stack 및 router, link 컴포넌트 개발',
-                '개인화 맞춤 정책 추천 및 기존 앱 기능 개발',
+                {
+                  what: '개인화 맞춤 정책 추천 및 기존 앱 기능 개발',
+                  link: 'https://www.welfarehello.com',
+                },
               ],
             },
             {
@@ -125,11 +132,11 @@ export const WorkExperienceSection = () => {
             {
               title: 'Wello Voucher, 응급실 찾기 서비스 개발',
               content: [
-                'Naver Map API 연동',
                 {
                   what: '지도 Pin Grouping 로직 개발',
                   link: 'https://www.welfarehello.com/recommend-policy/situation/emergency/map?selectedRegion=%7B%22mainRegionCode%22%3A%22C01-01%22%2C%22subRegionCode%22%3A%22C01-01-23%22%7D&emergencyRoomParams=%7B%22latitude%22%3A37.517305%2C%22longitude%22%3A127.047502%2C%22emergencyRoomYn%22%3Atrue%2C%22emergencyRoomCodeList%22%3A%5B%5D%2C%22isRealDistance%22%3Afalse%7D&firstHospitalLatitude=37.506800025850865&firstHospitalLongitude=127.03466865188074&latitude=37.5069596&longitude=127.0489702&zoom=12',
                 },
+                'Naver Map API 연동',
                 {
                   what: '디바이스 Viewport 사이즈와 지도의 축척을 통해 조회 리소스 최적화',
                   result: 'API 응답 시간 80% 이상 단축',
@@ -150,13 +157,16 @@ export const WorkExperienceSection = () => {
                   what: 'fake sitemap과 주기적으로 경로가 변경되는 난독화된 sitemap 생성 로직 개발',
                   result: '경쟁사 크롤링 봇 차단',
                 },
-                'Streaming Rendering 방식과 Server Component를 적극 활용하도록 리펙토링',
+                '색인된 작동하지 않는 페이지 redirect 처리',
                 {
-                  what: '색인된 작동하지 않는 페이지 redirect 처리',
-                  result: '웹사이트 방문 유입 1,000% 증가',
+                  what: 'Streaming Rendering 방식과 Server Component를 적극 활용하도록 리펙토링',
+                  result: '웹사이트 방문 유입 1,000% 이상 증가',
                 },
                 '코드 스플리팅 및 레이지 로딩 적용',
-                '미사용 코드 및 비정상적 번들사이즈 원인 식별 & 제거',
+                {
+                  what: 'Webpack Bundle Analyzer, Next Unused를 활용해 번들 사이즈 최적화',
+                  result: '미사용 코드 및 비정상적 번들사이즈 원인 식별 & 제거',
+                },
                 {
                   what: 'Next.js Tree shaking 버그 수정',
                   result: '번들링 사이즈 40% 이상 감소',
@@ -195,7 +205,7 @@ export const WorkExperienceSection = () => {
               title: 'DX 개선',
               content: [
                 'Backend Request, Frontend Error 커스텀 코드 기반 정형화 및 클래스 설계',
-                '정형화된 코드 기반 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
+                'Custom Error Code와 제출한 Source Map을 활용해 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
                 {
                   what: '디자인팀 figma assets → react components 변환 도구 개발',
                   result: '중복 assets 생성 방지',
@@ -213,7 +223,7 @@ export const WorkExperienceSection = () => {
               ],
             },
             {
-              title: '백오피스 기술 스택 통일',
+              title: '백오피스 기술 스택 제품과 통일',
               content: [
                 {
                   what: 'Vue기반 백오피스를 Next.js 기반 환경에 임베디드',
@@ -308,6 +318,10 @@ export const WorkExperienceSection = () => {
             backgroundColor: '#EC4A3F',
           },
           {
+            name: 'Vite',
+            backgroundColor: '#646CFF',
+          },
+          {
             name: 'ChakraUI',
             backgroundColor: '#319795',
           },
@@ -318,6 +332,10 @@ export const WorkExperienceSection = () => {
           {
             name: 'Docker',
             backgroundColor: '#2496ED',
+          },
+          {
+            name: 'Figma',
+            backgroundColor: '#F24E1E',
           },
         ]}
         title="코드스테이츠"
@@ -334,12 +352,12 @@ export const WorkExperienceSection = () => {
                 '후불결제 백오피스, B2B 제품 개발',
                 '스토리북을 활용한 컴포넌트 기반 개발 도입',
                 {
-                  what: '랜더링 최적화를 위한 사용자 입력 관리 로직 및 컴포넌트 개발',
-                  result: '페이지 단위 렌더링 횟수 평균 5회 미만으로 감소',
+                  what: '랜더링 최적화를 위한 사용자 입력 관리 로직 및 컴포넌트 개발 (state localize)',
+                  result: '설문 관련 기능 페이지 단위 렌더링 5회 미만으로 감소',
                 },
-                '사용자 입력 페이지 단위 렌더링 → 컴포넌트 단위 렌더링으로 변경',
+                '사용자 입력 관련 컴포넌트 렌더링 최적화 & 프로젝트 전역 적용',
                 '성공적인 스프린트 목표 달성을 위한 개발 시간 추정 방식 개선',
-                '스토리포인트 기반 업무 프로세스 경험',
+                '스토리포인트 기반 업무 추정, 프로세스 경험',
               ],
             },
             {
@@ -350,7 +368,11 @@ export const WorkExperienceSection = () => {
                 '기존 MVP 유저 이탈을 방지하기 위한 마이그레이션 프로세스 개발',
                 {
                   what: 'Lighthouse를 활용한 제품 최적화',
-                  result: '초기 랜더링 성능 약 20% 개선',
+                  result: 'FCP 개선 3.3초 → 2.6초 (20%)',
+                },
+                {
+                  what: 'vite + polyfill 기반 번들링 환경 구축',
+                  result: 'IE 11 환경 지원',
                 },
                 {
                   what: 'OpenAPI-generator 도입',

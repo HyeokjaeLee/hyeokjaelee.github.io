@@ -25,7 +25,7 @@ export const SideProjectItem = ({
   id,
   list,
 }: SideProjectItemProps) => (
-  <li className="mb-4 flex flex-col gap-3 border-b border-zinc-800 pb-4 last:mb-0 last:border-none last:pb-0 md:flex-row">
+  <li className="border-border mb-4 flex flex-col gap-3 border-b pb-4 last:mb-0 last:border-none last:pb-0 md:flex-row">
     <header className="md:w-56">
       <h4 className="text-xl font-bold" id={id}>
         {title}
