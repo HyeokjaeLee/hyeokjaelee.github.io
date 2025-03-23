@@ -49,7 +49,7 @@ const ExperienceContent = ({
         </ul>
       </li>
       <li>
-        <h4 className="mb-3 text-xl font-bold">프로젝트</h4>
+        <h4 className="mb-3 text-xl font-bold">Project</h4>
         <dl>
           {project.map(({ title, content }, index) => {
             return (
