@@ -3,12 +3,15 @@ import { HeaderLinkList } from '@components/molecules/HeaderLinkList';
 import { BASE_URL } from '@constants/etc';
 import { ROUTES } from '@constants/routes';
 import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
+import { useLocation } from '@reach/router';
 import { cn } from '@utils/cn';
 import React from 'react';
 import { GitHub, Linkedin, Mail, PenTool, Phone } from 'react-feather';
 
 export const AboutHeader = () => {
   const displayType = useDisplayType();
+  const { search } = useLocation();
+  const hiddenContact = search.includes('hiddenContact');
 
   const isPdf = displayType === DISPLAY_TYPE.PDF;
 
@@ -59,7 +62,9 @@ export const AboutHeader = () => {
           </section>
         </div>
         <div className="flex flex-1 shrink flex-wrap justify-center gap-4">
-          <HeaderLinkList title="Contact." links={ContactLinks} />
+          {hiddenContact ? null : (
+            <HeaderLinkList title="Contact." links={ContactLinks} />
+          )}
           <HeaderLinkList
             title="Channel."
             links={[
