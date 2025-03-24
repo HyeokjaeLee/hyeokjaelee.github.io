@@ -26,6 +26,10 @@ export const WorkExperienceSection = () => {
             backgroundColor: '#000000',
           },
           {
+            name: 'Vue.js',
+            backgroundColor: '#42B883',
+          },
+          {
             name: 'Swagger',
             backgroundColor: '#85EA2D',
             blackLogo: true,
@@ -58,6 +62,10 @@ export const WorkExperienceSection = () => {
           {
             name: 'Vercel',
             backgroundColor: '#000000',
+          },
+          {
+            name: 'pnpm',
+            backgroundColor: '#F69220',
           },
           {
             name: 'Jenkins',
@@ -102,7 +110,11 @@ export const WorkExperienceSection = () => {
                 'iOS/Android WebView, 웹 브라우저 환경 차이를 고려한 크로스 플랫폼 호환성 최적화',
                 'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 브릿지 구현',
                 'Next 14 app directory 기반의 프론트엔드 아키텍쳐 설계',
-                '앱과 웹 모두에서 작동하는 OAuth 2.0 인증 방식 및 (Google, Apple, Naver, Kakao), 본인 인증 구현',
+                {
+                  what: '앱과 웹 환경을 고려한 외부 API 연동',
+                  result:
+                    'OAuth 2.0 (Google, Apple, Naver, Kakao), 본인 인증 API',
+                },
                 'route groups을 활용한 접근 제어 로직 개발',
                 'browser history를 앱과 웹 환경에서 일괄되게 관리하기 위한 history stack 및 router, link 컴포넌트 개발',
                 {
@@ -114,19 +126,40 @@ export const WorkExperienceSection = () => {
             {
               title: 'KB Pay 앱내에 Wello 웹 임베디드',
               content: [
-                '동일 코드베이스에서 구동 환경에 따라 기존 앱의 동작을 변경하는 모듈식 컨트롤러 설계',
                 '자사 앱, 웹, KB Pay 환경 간 클라이언트 정보 공유 방식 설계',
-                'KB Pay 앱을 통한 인증 로직 개발',
+                {
+                  what: '동작 환경에 따라 기존 앱의 동작을 변경하는 모듈식 컨트롤러 설계',
+                  result:
+                    '여러 환경에서 동작하는 제품을 하나의 코드베이스로 관리함으로써 개발 효율성 유지',
+                },
+
+                {
+                  what: 'KB Pay 앱을 통한 인증 로직 개발',
+                  result:
+                    '타사 앱 스펙에 맞춰 최소한의 백엔드 리소스로 인증 로직 개발',
+                },
                 '폐쇄망 환경에서의 문제 해결',
               ],
             },
             {
-              title: 'Wello Biz 개발 (Nuxt → Next.js 전환)',
+              title: 'DX 개선',
               content: [
-                'PNPM, Turborepo 기반 모노레포 환경 구성',
-                '공유 리소스(assets, components, hooks) 패키지 정의 및 개발',
-                'OAuth 2.0 인증 방식 (Kakao, Google), Email 인증 방식 구현',
-                '사용자 권한에 따른 pathname, middleware 기반의 접근 제어 및 문서 암호화/복호화 로직 개발',
+                'Backend Request, Frontend Error 커스텀 코드 기반 정형화 및 클래스 설계',
+                'Custom Error Code와 제출한 Source Map을 활용해 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
+                {
+                  what: '디자인팀 figma assets → react components 변환 도구 개발',
+                  result: '중복 assets 생성 방지',
+                },
+                'Error boundary 세분화',
+                'Docker 컨테이너 환경 구축',
+                'Prettier, ESLint rule 협의 및 추가, ESLint 9 버전 적용',
+                'Secret Manager 기반 환경변수 관리 도입',
+                'API 명세를 기반 endpoint로 접근 가능한 react query options 및 요청 메소드 생성 스크립트 개발',
+                '모든 제품의 스타일링 방식을 tailwind로 통일',
+                {
+                  what: 'Lambda 기반 동적 Image 최적화 컴포넌트 개발',
+                  result: '이미지 로드 시간 30% 이상 단축',
+                },
               ],
             },
             {
@@ -139,7 +172,7 @@ export const WorkExperienceSection = () => {
                 'Naver Map API 연동',
                 {
                   what: '디바이스 Viewport 사이즈와 지도의 축척을 통해 조회 리소스 최적화',
-                  result: 'API 응답 시간 80% 이상 단축',
+                  result: 'API 응답 시간 개선, 평균 11초 → 2초 (80% 이상)',
                 },
                 '범용 옵티미스틱 업데이트 로직 개발',
                 {
@@ -148,6 +181,18 @@ export const WorkExperienceSection = () => {
                     '브라우저 스크롤 활용이 불가능한 환경에서 스크롤 인터렉션 제공',
                   link: 'https://www.welfarehello.com/voucher/map?category=15&latitude=37.5250455&longitude=127.030106&zoom=17',
                 },
+              ],
+            },
+            {
+              title: 'Wello Biz 개발 (Nuxt → Next.js 전환)',
+              content: [
+                'PNPM, Turborepo 기반 모노레포 환경 구성',
+                '공유 리소스(assets, components, hooks) 패키지 정의 및 개발',
+                {
+                  what: 'Email 로그인 로직 개발 및 외부 API 연동',
+                  result: 'OAuth 2.0 인증 방식 (Kakao, Google), PG사 연동',
+                },
+                '사용자 권한에 따른 pathname, middleware 기반의 접근 제어 및 문서 암호화/복호화 로직 개발',
               ],
             },
             {
@@ -198,30 +243,13 @@ export const WorkExperienceSection = () => {
               content: [
                 'Wello 정책 요약 서비스 개발',
                 'Wello biz 문서, 사업 요약 서비스 개발',
-                'Next API Route 기반 Streaming API 정크 단위 캐싱 로직 개발',
-              ],
-            },
-            {
-              title: 'DX 개선',
-              content: [
-                'Backend Request, Frontend Error 커스텀 코드 기반 정형화 및 클래스 설계',
-                'Custom Error Code와 제출한 Source Map을 활용해 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
                 {
-                  what: '디자인팀 figma assets → react components 변환 도구 개발',
-                  result: '중복 assets 생성 방지',
-                },
-                'Error boundary 세분화',
-                'Docker 컨테이너 환경 구축',
-                'Prettier, ESLint rule 협의 및 추가',
-                'Secret Manager 기반 환경변수 관리 도입',
-                'API 명세를 기반 endpoint로 접근 가능한 react query options 및 요청 메소드 생성 스크립트 개발',
-                '모든 제품의 스타일링 방식을 tailwind로 통일',
-                {
-                  what: 'Lambda 기반 동적 Image 최적화 컴포넌트 개발',
-                  result: '이미지 로드 시간 30% 이상 단축',
+                  what: 'Next API Route 기반 Streaming API 정크 단위 캐싱 로직 개발',
+                  result: '평균 응답 속도 개선 및 비용 절감',
                 },
               ],
             },
+
             {
               title: '백오피스 기술 스택 제품과 통일',
               content: [
@@ -326,6 +354,15 @@ export const WorkExperienceSection = () => {
             backgroundColor: '#319795',
           },
           {
+            name: 'Yarn Berry',
+            logo: 'Yarn',
+            backgroundColor: '#2C8EBB',
+          },
+          {
+            name: 'pnpm',
+            backgroundColor: '#F69220',
+          },
+          {
             name: 'Netlify',
             backgroundColor: '#00C7B7',
           },
@@ -342,8 +379,8 @@ export const WorkExperienceSection = () => {
       >
         <Experience.Content
           description={[
-            '***개발 프로세스를 개선***하기 위해 팀원들과 함께 여러 가지 에자일 프레임워크 시도',
-            '주니어 개발자로서 ***신규 개발 스택 도입***, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
+            '***개발 프로세스를 개선***하기 위해 동료들과 함께 여러 가지 에자일 프레임워크 시도\n(칸반 → 스크럼반 → 스크럼)',
+            '주니어 개발자로서 ***신규 개발 스택 제안***, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
           ]}
           project={[
             {
@@ -368,10 +405,10 @@ export const WorkExperienceSection = () => {
                 '기존 MVP 유저 이탈을 방지하기 위한 마이그레이션 프로세스 개발',
                 {
                   what: 'Lighthouse를 활용한 제품 최적화',
-                  result: 'FCP 개선 3.3초 → 2.6초 (20%)',
+                  result: 'FCP 개선, 3.3초 → 2.6초 (약 20%)',
                 },
                 {
-                  what: 'vite + polyfill 기반 번들링 환경 구축',
+                  what: 'vite + polyfill 기반 번들링 설정',
                   result: 'IE 11 환경 지원',
                 },
                 {

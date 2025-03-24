@@ -34,7 +34,7 @@ const ExperienceContent = ({
             const splittedItem = item.split('***');
 
             return (
-              <li key={index}>
+              <li key={index} className="whitespace-pre-wrap">
                 {splittedItem.map((part, partIndex) => {
                   // 짝수 인덱스는 일반 텍스트, 홀수 인덱스는 강조할 텍스트
                   return partIndex % 2 === 0 ? (

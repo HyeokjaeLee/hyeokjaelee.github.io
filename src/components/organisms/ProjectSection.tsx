@@ -1,5 +1,6 @@
 import { Button } from '@components/atoms/Button';
 import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
+import { useLocation } from '@reach/router';
 import { cn } from '@utils/cn';
 import React, { useState } from 'react';
 
@@ -7,9 +8,12 @@ import { SideProjectItem } from '../molecules/SideProjectItem';
 
 export const ProjectSection = () => {
   const [isMoreVisible, setIsMoreVisible] = useState(false);
+
   const displayType = useDisplayType();
 
   const isPdf = displayType === DISPLAY_TYPE.PDF;
+
+  const isFull = useLocation().search.includes('full');
 
   return (
     <section>
@@ -40,12 +44,10 @@ export const ProjectSection = () => {
             },
           ]}
           list={[
-            'i18n 구현 (영어, 태국어, 일본어, 중국어, 한국어, 베트남어)',
+            'Next.15, Tailwind v4, Bun 트러블 슈팅',
+            'i18n (영어, 태국어, 일본어, 중국어, 한국어, 베트남어)',
             'API 호출 비용 최적화',
-            'P2P 기반 실시간 채팅 로직 개발',
             'firebase 기반 실시간 채팅 로직 개발',
-            '최신 기술 스택 기반으로 리팩토링',
-            'on-device AI 기반 번역 로직 구현',
             '나라별 시간 formatting 로직 개발',
             'Anonymous 인증 및 SNS 로그인 & 계정 통합 로직 개발',
           ]}
@@ -56,7 +58,7 @@ export const ProjectSection = () => {
             },
 
             {
-              name: 'Next.js v15',
+              name: 'Next.js',
               logo: 'Next.js',
               backgroundColor: '#000000',
             },
@@ -66,7 +68,7 @@ export const ProjectSection = () => {
             },
             { name: 'tRPC', backgroundColor: '#2596BE' },
             {
-              name: 'Tailwind v4',
+              name: 'Tailwind',
               logo: 'TailwindCSS',
               backgroundColor: '#06B6D4',
             },
@@ -150,13 +152,13 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           id="korea-webtoon-api"
           links={[
             {
-              name: 'Webtoon API 개발',
-              href: '/korea-webtoon-api-update',
-            },
-            {
               name: 'korea-webtoon-api',
               href: 'https://github.com/HyeokjaeLee/korea-webtoon-api',
               type: 'github',
+            },
+            {
+              name: 'Webtoon API 개발',
+              href: '/korea-webtoon-api-update',
             },
           ]}
           list={[
@@ -181,7 +183,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           ]}
           title="Korea webtoon API"
         />
-        {isMoreVisible ? (
+        {isMoreVisible || isFull ? (
           <>
             <SideProjectItem
               description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.`}
