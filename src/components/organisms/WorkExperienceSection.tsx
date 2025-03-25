@@ -1,5 +1,7 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import KbPayImage from '../../images/portfolio/kb-pay.webp';
 import { Experience } from '../molecules/ExperienceItem';
 
 export const WorkExperienceSection = () => {
@@ -137,6 +139,14 @@ export const WorkExperienceSection = () => {
                   what: 'KB Pay 앱을 통한 인증 로직 개발',
                   result:
                     '타사 앱 스펙에 맞춰 최소한의 백엔드 리소스로 인증 로직 개발',
+                  render: (
+                    <img
+                      src={KbPayImage}
+                      alt="wello"
+                      width={300}
+                      height={615}
+                    />
+                  ),
                 },
                 '폐쇄망 환경에서의 문제 해결',
               ],
@@ -206,6 +216,15 @@ export const WorkExperienceSection = () => {
                 {
                   what: 'Streaming Rendering 방식과 Server Component를 적극 활용하도록 리펙토링',
                   result: '웹사이트 방문 유입 1,000% 이상 증가',
+                  render: (
+                    <StaticImage
+                      src="../../images/portfolio/SEO.png"
+                      className="border-border mx-auto my-2 rounded-sm border"
+                      alt="wello"
+                      width={500}
+                      height={308}
+                    />
+                  ),
                 },
                 '코드 스플리팅 및 레이지 로딩 적용',
                 {

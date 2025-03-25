@@ -15,6 +15,7 @@ interface SideProjectItemProps {
   description?: string;
   id?: string;
   list?: string[];
+  render?: React.ReactNode;
 }
 
 export const SideProjectItem = ({
@@ -24,6 +25,7 @@ export const SideProjectItem = ({
   links,
   id,
   list,
+  render,
 }: SideProjectItemProps) => (
   <li className="border-border mb-4 flex flex-col gap-3 border-b pb-4 last:mb-0 last:border-none last:pb-0 md:flex-row">
     <header className="md:w-56">
@@ -45,6 +47,7 @@ export const SideProjectItem = ({
           <dd className="whitespace-pre-wrap text-sm">{description}</dd>
         </>
       ) : null}
+      {render ? render : null}
       {list ? (
         <ul className="my-4 ml-4 list-disc">
           {list.map((item) => (

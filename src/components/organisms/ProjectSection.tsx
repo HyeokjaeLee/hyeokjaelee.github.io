@@ -1,20 +1,9 @@
-import { Button } from '@components/atoms/Button';
-import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
-import { useLocation } from '@reach/router';
-import { cn } from '@utils/cn';
-import React, { useState } from 'react';
+import React from 'react';
 
+import BriendImage from '../../images/portfolio/briend.webp';
 import { SideProjectItem } from '../molecules/SideProjectItem';
 
 export const ProjectSection = () => {
-  const [isMoreVisible, setIsMoreVisible] = useState(false);
-
-  const displayType = useDisplayType();
-
-  const isPdf = displayType === DISPLAY_TYPE.PDF;
-
-  const isFull = useLocation().search.includes('full');
-
   return (
     <section>
       <h2 className="text-3xl font-bold">Side Projects.</h2>
@@ -27,6 +16,16 @@ export const ProjectSection = () => {
 처음엔 개인 컴포넌트 라이브러리와 Next 13 app directory 활용해 개발했고 현재는 Next 15와 shadcn 기반으로 전환했습니다.  
 비용을 줄이기 위해 Indexed DB와 React-Query session cache를 적극 활용해 정보를 저장하고 서버 및 외부 API 호출을 최소화할 수 있도록 설계했습니다.`}
           id="briend"
+          render={
+            <img
+              src={BriendImage}
+              alt="briend"
+              width={520}
+              height={524.55}
+              loading="lazy"
+              className="border-border mx-auto my-4 rounded-sm border"
+            />
+          }
           links={[
             {
               name: 'briend',
@@ -183,200 +182,181 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           ]}
           title="Korea webtoon API"
         />
-        {isMoreVisible || isFull ? (
-          <>
-            <SideProjectItem
-              description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.`}
-              id="blog"
-              links={[
-                {
-                  name: 'Gatsby 블로그를 개발하면서',
-                  href: '/blog-remake-review2',
-                },
-                {
-                  name: 'Next.js 블로그를 떠나는 이유',
-                  href: '/blog-remake-review1',
-                },
-                {
-                  name: 'hyeokjaelee.github.io',
-                  href: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io',
-                  type: 'github',
-                },
-                {
-                  name: '덕업일치 개발자',
-                  href: 'https://hyeokjaelee.github.io',
-                  type: 'product',
-                },
-              ]}
-              stacks={[
-                {
-                  name: 'TypeScript',
-                  backgroundColor: '#3178C6',
-                },
-                {
-                  name: 'Gatsby',
-                  backgroundColor: '#663399',
-                },
-                {
-                  name: 'GraphQL',
-                  backgroundColor: '#E10098',
-                },
-                {
-                  name: 'Tailwind',
-                  logo: 'TailwindCSS',
-                  backgroundColor: '#06B6D4',
-                },
-              ]}
-              title="블로그"
-            />
-            <SideProjectItem
-              description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
-              id="knu-lms-scheduler"
-              links={[
-                {
-                  name: 'KNU LMS Scheduler 프로젝트',
-                  href: '/knu-lms-scheduler',
-                },
-                {
-                  name: 'knu-lms-scheduler',
-                  href: 'https://github.com/HyeokjaeLee/knu-lms-scheduler',
-                  type: 'github',
-                },
-              ]}
-              stacks={[
-                {
-                  name: 'Javascript',
-                  backgroundColor: '#F7DF1E',
-                  blackLogo: true,
-                },
-                {
-                  name: 'React',
-                  backgroundColor: '#61DAFB',
-                  blackLogo: true,
-                },
-                {
-                  name: 'Electron',
-                  backgroundColor: '#47848F',
-                },
-              ]}
-              title="KNU LMS scheduler"
-            />
-            <SideProjectItem
-              description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
-              id="gititle"
-              links={[
-                {
-                  name: 'Gititle 프로젝트',
-                  href: '/gititle-project',
-                },
-                {
-                  name: 'gititle',
-                  href: 'https://github.com/HyeokjaeLee/gititle',
-                  type: 'github',
-                },
-                {
-                  name: 'Gititle',
-                  href: 'https://hyeokjaelee.github.io/gititle',
-                  type: 'product',
-                },
-              ]}
-              stacks={[
-                {
-                  name: 'Javascript',
-                  backgroundColor: '#F7DF1E',
-                  blackLogo: true,
-                },
-                {
-                  name: 'Vue.js',
-                  backgroundColor: '#4FC08D',
-                },
-                {
-                  name: 'SCSS',
-                  logo: 'Sass',
-                  backgroundColor: '#CD6799',
-                },
-                {
-                  name: 'PWA',
-                  backgroundColor: '#5A0FC8',
-                },
-              ]}
-              title="Gititle"
-            />
-            <SideProjectItem
-              description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
-              id="code-convetion-packages"
-              links={[
-                {
-                  name: 'code-convetion-packages',
-                  href: 'https://github.com/HyeokjaeLee/code-convetion-packages',
-                  type: 'github',
-                },
-              ]}
-              stacks={[
-                {
-                  name: 'Prettier',
-                  backgroundColor: '#F7B93E',
-                  blackLogo: true,
-                },
-                {
-                  name: 'ESLint',
-                  backgroundColor: '#4B32C3',
-                },
-                {
-                  name: 'Stylelint',
-                  backgroundColor: '#263238',
-                },
-              ]}
-              title="Code convetion packages"
-            />
-            <SideProjectItem
-              description={`여러 API 또는 웹상에 존재하는 COVID-19 관련 데이터를 정형화해 제공하는 API입니다.\nGraphQL을 이용해 사용자가 원하는 데이터만을 요청할 수 있게 했습니다.`}
-              id="korea-covid-19-api"
-              links={[
-                {
-                  name: 'COVID-19 API 업데이트',
-                  href: '/covid-19-api-update',
-                },
-                {
-                  name: 'code-convetion-packages',
-                  href: 'https://github.com/HyeokjaeLee/code-convetion-packages',
-                  type: 'github',
-                },
-              ]}
-              stacks={[
-                {
-                  name: 'TypeScript',
-                  backgroundColor: '#3178C6',
-                },
-                {
-                  name: 'Express',
-                  backgroundColor: '#000000',
-                },
-                {
-                  name: 'GraphQL',
-                  backgroundColor: '#E10098',
-                },
-              ]}
-              title="Korea COVID-19 API"
-            />
-          </>
-        ) : null}
+        <SideProjectItem
+          description={`Gatsby와 개인 컴포넌트 라이브러리를 활용해 개발한 블로그입니다.\nMarkdown을 활용해 글을 작성하고 Github action을 통해 자동으로 배포할 수 있게 구성했습니다.`}
+          id="blog"
+          links={[
+            {
+              name: 'Gatsby 블로그를 개발하면서',
+              href: '/blog-remake-review2',
+            },
+            {
+              name: 'Next.js 블로그를 떠나는 이유',
+              href: '/blog-remake-review1',
+            },
+            {
+              name: 'hyeokjaelee.github.io',
+              href: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io',
+              type: 'github',
+            },
+            {
+              name: '덕업일치 개발자',
+              href: 'https://hyeokjaelee.github.io',
+              type: 'product',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'TypeScript',
+              backgroundColor: '#3178C6',
+            },
+            {
+              name: 'Gatsby',
+              backgroundColor: '#663399',
+            },
+            {
+              name: 'GraphQL',
+              backgroundColor: '#E10098',
+            },
+            {
+              name: 'Tailwind',
+              logo: 'TailwindCSS',
+              backgroundColor: '#06B6D4',
+            },
+          ]}
+          title="블로그"
+        />
+        <SideProjectItem
+          description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
+          id="knu-lms-scheduler"
+          links={[
+            {
+              name: 'KNU LMS Scheduler 프로젝트',
+              href: '/knu-lms-scheduler',
+            },
+            {
+              name: 'knu-lms-scheduler',
+              href: 'https://github.com/HyeokjaeLee/knu-lms-scheduler',
+              type: 'github',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'Javascript',
+              backgroundColor: '#F7DF1E',
+              blackLogo: true,
+            },
+            {
+              name: 'React',
+              backgroundColor: '#61DAFB',
+              blackLogo: true,
+            },
+            {
+              name: 'Electron',
+              backgroundColor: '#47848F',
+            },
+          ]}
+          title="KNU LMS scheduler"
+        />
+        <SideProjectItem
+          description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
+          id="gititle"
+          links={[
+            {
+              name: 'Gititle 프로젝트',
+              href: '/gititle-project',
+            },
+            {
+              name: 'gititle',
+              href: 'https://github.com/HyeokjaeLee/gititle',
+              type: 'github',
+            },
+            {
+              name: 'Gititle',
+              href: 'https://hyeokjaelee.github.io/gititle',
+              type: 'product',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'Javascript',
+              backgroundColor: '#F7DF1E',
+              blackLogo: true,
+            },
+            {
+              name: 'Vue.js',
+              backgroundColor: '#4FC08D',
+            },
+            {
+              name: 'SCSS',
+              logo: 'Sass',
+              backgroundColor: '#CD6799',
+            },
+            {
+              name: 'PWA',
+              backgroundColor: '#5A0FC8',
+            },
+          ]}
+          title="Gititle"
+        />
+        <SideProjectItem
+          description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
+          id="code-convetion-packages"
+          links={[
+            {
+              name: 'code-convetion-packages',
+              href: 'https://github.com/HyeokjaeLee/code-convetion-packages',
+              type: 'github',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'Prettier',
+              backgroundColor: '#F7B93E',
+              blackLogo: true,
+            },
+            {
+              name: 'ESLint',
+              backgroundColor: '#4B32C3',
+            },
+            {
+              name: 'Stylelint',
+              backgroundColor: '#263238',
+            },
+          ]}
+          title="Code convetion packages"
+        />
+        <SideProjectItem
+          description={`여러 API 또는 웹상에 존재하는 COVID-19 관련 데이터를 정형화해 제공하는 API입니다.\nGraphQL을 이용해 사용자가 원하는 데이터만을 요청할 수 있게 했습니다.`}
+          id="korea-covid-19-api"
+          links={[
+            {
+              name: 'COVID-19 API 업데이트',
+              href: '/covid-19-api-update',
+            },
+            {
+              name: 'code-convetion-packages',
+              href: 'https://github.com/HyeokjaeLee/code-convetion-packages',
+              type: 'github',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'TypeScript',
+              backgroundColor: '#3178C6',
+            },
+            {
+              name: 'Express',
+              backgroundColor: '#000000',
+            },
+            {
+              name: 'GraphQL',
+              backgroundColor: '#E10098',
+            },
+          ]}
+          title="Korea COVID-19 API"
+        />
       </ul>
-      {isMoreVisible ? null : (
-        <div
-          className={cn('flex w-full justify-center', {
-            hidden: isPdf,
-          })}
-        >
-          <Button
-            className="mx-auto mt-10 text-sm font-bold"
-            variant="outline"
-            onClick={() => setIsMoreVisible(true)}
-          >
-            더보기
-          </Button>
-        </div>
-      )}
     </section>
   );
 };

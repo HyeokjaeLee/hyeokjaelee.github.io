@@ -14,6 +14,7 @@ interface ExperienceContentProps {
       | {
           what: string;
           result?: string;
+          render?: React.ReactNode;
           link?: string;
         }
     )[];
@@ -90,6 +91,7 @@ const ExperienceContent = ({
                                 {value.result}
                               </blockquote>
                             ) : null}
+                            {value.render ? value.render : null}
                           </li>
                         );
                       }
