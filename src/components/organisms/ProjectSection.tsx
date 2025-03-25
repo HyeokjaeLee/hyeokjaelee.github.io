@@ -1,9 +1,12 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import BriendImage from '../../images/portfolio/briend.webp';
 import { SideProjectItem } from '../molecules/SideProjectItem';
 
 export const ProjectSection = () => {
+  const imageClassName = 'border-border mx-auto my-4 rounded-sm border';
+
   return (
     <section>
       <h2 className="text-3xl font-bold">Side Projects.</h2>
@@ -23,7 +26,7 @@ export const ProjectSection = () => {
               width={520}
               height={524.55}
               loading="lazy"
-              className="border-border mx-auto my-4 rounded-sm border"
+              className={imageClassName}
             />
           }
           links={[
@@ -227,40 +230,18 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           title="블로그"
         />
         <SideProjectItem
-          description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
-          id="knu-lms-scheduler"
-          links={[
-            {
-              name: 'KNU LMS Scheduler 프로젝트',
-              href: '/knu-lms-scheduler',
-            },
-            {
-              name: 'knu-lms-scheduler',
-              href: 'https://github.com/HyeokjaeLee/knu-lms-scheduler',
-              type: 'github',
-            },
-          ]}
-          stacks={[
-            {
-              name: 'Javascript',
-              backgroundColor: '#F7DF1E',
-              blackLogo: true,
-            },
-            {
-              name: 'React',
-              backgroundColor: '#61DAFB',
-              blackLogo: true,
-            },
-            {
-              name: 'Electron',
-              backgroundColor: '#47848F',
-            },
-          ]}
-          title="KNU LMS scheduler"
-        />
-        <SideProjectItem
           description={`커밋 메시지에 이모지를 활용하고 정해진 규칙에 맞춰 작성할 수 있게 도와주는 앱입니다.\nvue.js CDN 환경에서 개발했습니다.`}
           id="gititle"
+          render={
+            <StaticImage
+              src="../../images/portfolio/gititle.png"
+              alt="gititle"
+              className={imageClassName}
+              width={520}
+              height={310}
+              loading="lazy"
+            />
+          }
           links={[
             {
               name: 'Gititle 프로젝트',
@@ -299,6 +280,49 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
           ]}
           title="Gititle"
         />
+        <SideProjectItem
+          description={`실시간으로 개인 강의 페이지들을 크롤링하고 출석, 과제, 시험 등의 마감 기한을 알려주는 프로그램입니다.\nElectron 데스크탑 앱으로 만들어 대학생 커뮤니티에 공유하고 좋은 호응을 얻었습니다.`}
+          id="knu-lms-scheduler"
+          render={
+            <StaticImage
+              src="../../images/portfolio/knu.png"
+              alt="knu-lms-scheduler"
+              width={520}
+              height={326}
+              className={imageClassName}
+              loading="lazy"
+            />
+          }
+          links={[
+            {
+              name: 'KNU LMS Scheduler 프로젝트',
+              href: '/knu-lms-scheduler',
+            },
+            {
+              name: 'knu-lms-scheduler',
+              href: 'https://github.com/HyeokjaeLee/knu-lms-scheduler',
+              type: 'github',
+            },
+          ]}
+          stacks={[
+            {
+              name: 'Javascript',
+              backgroundColor: '#F7DF1E',
+              blackLogo: true,
+            },
+            {
+              name: 'React',
+              backgroundColor: '#61DAFB',
+              blackLogo: true,
+            },
+            {
+              name: 'Electron',
+              backgroundColor: '#47848F',
+            },
+          ]}
+          title="KNU LMS scheduler"
+        />
+
         <SideProjectItem
           description={`프론트엔드 코드 컨벤션을 설정하는 패키지들입니다.\nPNPM 모노레포 형식으로 ESLint, Prettier, Stylelint 설정이 독립적으로 배포되고 설치할 수 있게 했습니다.`}
           id="code-convetion-packages"
