@@ -11,7 +11,7 @@ export const ProjectSection = () => {
     <section>
       <h2 className="text-3xl font-bold">Side Projects.</h2>
       <p className="mb-6 ml-1 text-sm text-zinc-400">
-        개인 성장과 불편함을 해소하기 위해 개발한 1인 오픈소스 프로젝트입니다.
+        개인 성장과 불편함을 해소하기 위해 개발한 1인 사이드 프로젝트입니다.
       </p>
       <ul>
         <SideProjectItem
@@ -164,7 +164,7 @@ Storybook을 이용해 문서화하고 Github action을 통해 자동으로 배�
             },
           ]}
           list={[
-            'Nest.js 기반 웹 서버 구축',
+            'Nest + MongoDB → Express + SQLite 마이그레이션',
             'OpenAPI 스펙 swagger 문서 제공',
             'Naver, Kakao Page, 다음 웹툰 페이지 및 API 응답 분석 및 크롤링 로직 개발',
             '각 웹툰 공급자 데이터 정형화',

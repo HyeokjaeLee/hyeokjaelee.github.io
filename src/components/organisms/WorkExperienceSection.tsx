@@ -105,7 +105,7 @@ export const WorkExperienceSection = () => {
       >
         <Experience.Content
           description={[
-            '프론트엔드 개발자가 없는 상태에서 합류하여 ***B2C, B2B, 백오피스 등 다양한 프로젝트를 설계 및 개발***',
+            '프론트엔드 개발자가 없는 상태에서 합류하여 ***B2C, B2B, 백오피스 등 다양한 프로젝트 설계 및 개발***',
             '프론트엔드 조직 ***확장 및 채용*** 기여',
             '***빠른 제품 개발***을 통해 시리즈 ***A 투자 유치***에 기여',
           ]}
@@ -117,9 +117,9 @@ export const WorkExperienceSection = () => {
                 'WebView 기반 앱 제품 설계 및 Tanstack Query를 모방한 네이티브와 웹 간의 브릿지 구현',
                 'Next 14 app directory 기반의 프론트엔드 아키텍쳐 설계',
                 {
-                  what: '앱과 웹 환경을 고려한 외부 API 연동',
+                  what: '앱과 웹 환경을 고려한 사용자 인증 플로우 개발',
                   result:
-                    'OAuth 2.0 (Google, Apple, Naver, Kakao), 본인 인증 API',
+                    'OAuth 2.0 (Google, Apple, Naver, Kakao), 본인 인증 API 연동',
                 },
                 'route groups을 활용한 접근 제어 로직 개발',
                 'browser history를 앱과 웹 환경에서 일괄되게 관리하기 위한 history stack 및 router, link 컴포넌트 개발',
@@ -132,7 +132,7 @@ export const WorkExperienceSection = () => {
             {
               title: 'KB Pay 앱내에 Wello 웹 임베디드',
               content: [
-                '자사 앱, 웹, KB Pay 환경 간 클라이언트 정보 공유 방식 설계',
+                '서로 다른 환경과 서브도메인(자사 앱, 웹, KB Pay) 간 클라이언트 데이터 공유 방식 설계',
                 {
                   what: '동작 환경에 따라 기존 앱의 동작을 변경하는 모듈식 컨트롤러 설계',
                   result:
@@ -142,7 +142,7 @@ export const WorkExperienceSection = () => {
                 {
                   what: 'KB Pay 앱을 통한 인증 로직 개발',
                   result:
-                    '타사 앱 스펙에 맞춰 최소한의 백엔드 리소스로 인증 로직 개발',
+                    '타사 앱 스펙에 맞춰 최소 백엔드 리소스로 인증 로직 개발',
                   render: (
                     <img
                       src={KbPayImage}
@@ -159,14 +159,18 @@ export const WorkExperienceSection = () => {
             {
               title: 'DX 개선',
               content: [
-                'Backend Request, Frontend Error 커스텀 코드 기반 정형화 및 클래스 설계',
-                'Custom Error Code와 제출한 Source Map을 활용해 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
+                '백엔드 응답 에러, 프론트엔드 에러 통합 커스텀 코드 체계 설계',
+                '커스텀 코드와 제출한 Source Map을 활용해 Sentry 라벨링 및 사용자 리포트 기반 이슈 추적 환경 구축',
                 {
                   what: '디자인팀 figma assets → react components 변환 도구 개발',
                   result: '중복 assets 생성 방지',
                 },
                 'Error boundary 세분화',
-                'Docker 컨테이너 환경 구축',
+                {
+                  what: 'Docker 컨테이너 환경 구축',
+                  result:
+                    '일반 기업용 제품(EC2), 공공 기관용 제품(Naver Cloud) 배포 환경 통일',
+                },
                 'Prettier, ESLint rule 협의 및 추가, ESLint 9 버전 적용',
                 'Secret Manager 기반 환경변수 관리 도입',
                 'API 명세를 기반 endpoint로 접근 가능한 react query options 및 요청 메소드 생성 스크립트 개발',
@@ -221,8 +225,9 @@ export const WorkExperienceSection = () => {
                 'PNPM, Turborepo 기반 모노레포 환경 구성',
                 '공유 리소스(assets, components, hooks) 패키지 정의 및 개발',
                 {
-                  what: 'Email 로그인 로직 개발 및 외부 API 연동',
-                  result: 'OAuth 2.0 인증 방식 (Kakao, Google), PG사 연동',
+                  what: '사용자 인증, 결제 플로우 개발',
+                  result:
+                    'Email, OAuth 2.0 인증 방식 (Kakao, Google), PG사 연동',
                 },
                 '사용자 권한에 따른 pathname, middleware 기반의 접근 제어 및 문서 암호화/복호화 로직 개발',
               ],
@@ -263,10 +268,11 @@ export const WorkExperienceSection = () => {
               title: '보안 인증 (ISMS-P, ISO27701, ISO27001) 대응',
               content: [
                 {
-                  what: 'Github, Vercel 배포환경에서 on-promise GitLab, Jenkins 환경으로 전환 & CI/CD 배포 파이프 라인 구축',
+                  what: 'Github, Vercel 배포환경에서 On-Premise GitLab, Jenkins 환경으로 전환 & CI/CD 배포 파이프 라인 구축',
                   result:
                     'Backend, Frontend 인프라 통일 & 자산 관리 편의성 증가',
                 },
+                'B2B 서비스 2차 인증 로직 개발',
                 {
                   what: '인스턴스 환경을 고려한 Turborepo 배포 최적화',
                   result: 'Vercel 환경과 유사한 배포 시간 확보',
@@ -276,7 +282,6 @@ export const WorkExperienceSection = () => {
                   what: 'AWS Load Balancer와 PM2를 결합한 하이브리드 부하 분산 & 무중단 배포 시스템 구축',
                   result: 'Vercel 환경에서 겪은 트래픽으로 인한 장애 재발 방지',
                 },
-                'B2B 서비스 2차 인증 로직 개발',
               ],
             },
             {
@@ -312,6 +317,14 @@ export const WorkExperienceSection = () => {
                     '최소 비용으로 공식 API, URL을 제공하지 않는 정보 제공',
                 },
                 '데이터 가공 및 인터페이스 개발',
+              ],
+            },
+            {
+              title: 'Wello 커뮤니티 개발',
+              content: [
+                'Wello Editor 개발 (tiptap 기반)',
+                '포인트 적립 및 출금 기능 개발',
+                '커뮤니티 기능 개발 및 SEO',
               ],
             },
           ]}
@@ -421,7 +434,7 @@ export const WorkExperienceSection = () => {
         <Experience.Content
           description={[
             '***개발 프로세스를 개선***하기 위해 동료들과 함께 여러 가지 에자일 프레임워크 시도\n(칸반 → 스크럼반 → 스크럼)',
-            '주니어 개발자로서 ***신규 개발 스택 제안***, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
+            '***신규 개발 스택 제안***, 기술스택 다양성을 유지하며 팀의 기술 발전 유도',
           ]}
           project={[
             {
@@ -429,13 +442,14 @@ export const WorkExperienceSection = () => {
               content: [
                 '후불결제 백오피스, B2B 제품 개발',
                 '스토리북을 활용한 컴포넌트 기반 개발 도입',
+                '전자 서명 API 연동',
                 {
-                  what: '랜더링 최적화를 위한 사용자 입력 관리 로직 및 컴포넌트 개발 (state localize)',
+                  what: '랜더링 최적화를 위한 사용자 입력, 유효성 검사 로직 및 컴포넌트 개발 (state localize)',
                   result: '설문 관련 기능 페이지 단위 렌더링 5회 미만으로 감소',
                 },
-                '사용자 입력 관련 컴포넌트 렌더링 최적화 & 프로젝트 전역 적용',
                 '성공적인 스프린트 목표 달성을 위한 개발 시간 추정 방식 개선',
                 '스토리포인트 기반 업무 추정, 프로세스 경험',
+                'PR AI 코드 리뷰 도입 (GPT 3.5)',
               ],
             },
             {
