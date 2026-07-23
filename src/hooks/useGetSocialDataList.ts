@@ -1,7 +1,6 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { SITE_META } from '@constants/site';
 import type { Icon } from 'react-feather';
 import { GitHub, Linkedin, Mail } from 'react-feather';
-import type { SocialDataQuery } from 'types/graphql-types';
 
 interface SocialData {
   name: string;
@@ -11,24 +10,11 @@ interface SocialData {
 }
 
 export const useGetSocialDataList = (): SocialData[] => {
-  const { site } = useStaticQuery<SocialDataQuery>(graphql`
-    query SocialData {
-      site {
-        siteMetadata {
-          social {
-            github
-            linkedin
-            email
-          }
-        }
-      }
-    }
-  `);
+  const { github, linkedin, email } = SITE_META.social;
 
-  const { github, linkedin, email } = site?.siteMetadata?.social ?? {};
-
-  if (!github || !linkedin || !email)
+  if (!github || !linkedin || !email) {
     throw new Error('Social 정보가 없습니다.');
+  }
 
   return [
     {

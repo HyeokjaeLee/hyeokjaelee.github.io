@@ -1,5 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
+import { StaticImage } from '@shared/StaticImage';
 
 import BriendImage from '../../images/portfolio/briend.webp';
 import { SideProjectItem } from '../molecules/SideProjectItem';
@@ -21,7 +20,7 @@ export const ProjectSection = () => {
           id="briend"
           render={
             <img
-              src={BriendImage}
+              src={BriendImage.src}
               alt="briend"
               width={520}
               height={524.55}

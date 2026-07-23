@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SkillItem } from '../molecules/SkillItem';
 
 export const SkillSection = () => (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const OtherExperienceSection = () => (
   <section>
     <h2 className="mb-6 text-3xl font-bold">Other Experience.</h2>

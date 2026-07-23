@@ -1,5 +1,5 @@
 import { Button } from '@components/atoms/Button';
-import { Link } from 'gatsby';
+import { Link } from '@shared/Link';
 import { useEffect, useRef } from 'react';
 import type SwiperType from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
@@ -24,7 +24,7 @@ export const TagList = ({ currentTag }: TagListProps) => {
   const slideRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
-    const swiperIndex = POST_TAGS.findIndex((value) => value === currentTag);
+    const swiperIndex = POST_TAGS.indexOf(currentTag);
     if (slideRef.current) {
       slideRef.current.slideTo(swiperIndex);
     }

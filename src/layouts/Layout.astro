@@ -1,0 +1,84 @@
+---
+import '@fontsource/pretendard/300.css';
+import '@fontsource/pretendard/400.css';
+import '@fontsource/pretendard/500.css';
+import '@fontsource/pretendard/700.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import '../styles/global.css';
+
+import { ClientRouter } from 'astro:transitions';
+
+import { SITE_META } from '../constants/site';
+import { GlobalNavigation } from './GlobalLayout/_components/GlobalNavigation/index.tsx';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE_META.description } = Astro.props;
+const pageTitle = title ? `${SITE_META.title} | ${title}` : SITE_META.title;
+---
+
+<!doctype html>
+<html class="font-pretendard h-full w-full" lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>{pageTitle}</title>
+    <meta content={description} name="description" />
+    <meta
+      content="6KHb8V0fAsVjI-k0fZfovmdLDrfikkgwpVMCsfSmvrw"
+      name="google-site-verification"
+    />
+    <meta content={pageTitle} property="og:title" />
+    <meta content={description} property="og:description" />
+    <meta content="website" property="og:type" />
+    <meta content="summary" name="twitter:card" />
+    <meta content={pageTitle} name="twitter:title" />
+    <meta content={description} name="twitter:description" />
+    <meta content="#000000" name="theme-color" />
+    <link href="/favicon.png" rel="icon" type="image/png" />
+    <link href="/manifest.webmanifest" rel="manifest" />
+    <link
+      href="/rss.xml"
+      rel="alternate"
+      title={SITE_META.title}
+      type="application/rss+xml"
+    />
+
+    <!-- Google Analytics (G-DEXMW0T0W6) -->
+    <script
+      async
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-DEXMW0T0W6"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-DEXMW0T0W6');
+    </script>
+
+    <!-- Set theme before first paint to avoid FOUC -->
+    <script is:inline>
+      const stored = localStorage.getItem('dark-mode');
+      const dark = stored
+        ? stored === 'true'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) document.documentElement.classList.add('dark');
+    </script>
+
+    <ClientRouter />
+  </head>
+  <body class="size-full bg-background font-pretendard text-foreground">
+    <div class="hide-scrollbar relative size-full overflow-auto" id="root">
+      <GlobalNavigation client:load />
+      <main class="size-full bg-background text-primary" id="main">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

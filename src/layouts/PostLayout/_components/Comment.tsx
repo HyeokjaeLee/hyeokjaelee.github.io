@@ -1,6 +1,6 @@
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const Comment = () => {
   const ref = useRef<HTMLDivElement>(null);

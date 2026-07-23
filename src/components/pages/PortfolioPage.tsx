@@ -1,14 +1,10 @@
-import { Meta } from '@components/molecules/Meta';
 import { AboutHeader } from '@components/organisms/AboutHeader';
 import { OtherExperienceSection } from '@components/organisms/OtherExperienceSection';
 import { ProjectSection } from '@components/organisms/ProjectSection';
 import { SkillSection } from '@components/organisms/SkillSection';
 import { WorkExperienceSection } from '@components/organisms/WorkExperienceSection';
-import React from 'react';
 
-export const Head = () => <Meta title="Portfolio" />;
-
-const Portfolio = () => {
+export const PortfolioPage = () => {
   return (
     <article className="mt-8 flex break-keep p-4 pb-20 leading-relaxed md:my-14">
       <div className="mx-auto flex max-w-3xl flex-col gap-12">
@@ -21,5 +17,3 @@ const Portfolio = () => {
     </article>
   );
 };
-
-export default Portfolio;

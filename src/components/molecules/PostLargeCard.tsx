@@ -1,10 +1,9 @@
+import { Button } from '@components/atoms/Button';
 import { TitleImage } from '@generated/TitleImage';
+import { Link } from '@shared/Link';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
-import { Link } from 'gatsby';
 import { Calendar, Heart, Tag } from 'react-feather';
-
-import { Button } from '../atoms/Button';
 
 interface PostLargeCardProps {
   href: string;
@@ -12,6 +11,7 @@ interface PostLargeCardProps {
   description?: string | null;
   tags?: (string | null)[];
   date?: string | null;
+  titleImage?: string;
   onClickLikeButton?: () => void;
   isLiked?: boolean;
   className?: string;
@@ -23,6 +23,7 @@ export const PostLargeCard = ({
   description,
   tags,
   date,
+  titleImage,
   onClickLikeButton,
   isLiked,
   className,
@@ -48,7 +49,7 @@ export const PostLargeCard = ({
         className="relative h-0 w-full overflow-hidden rounded-t-md pb-[50%]"
         imgClassName="absolute w-full object-cover rounded-b-none"
         size={600}
-        slug={href}
+        src={titleImage}
       />
       <article>
         <strong className="mb-1 mt-4 block truncate px-4 text-base font-semibold">
@@ -60,7 +61,7 @@ export const PostLargeCard = ({
         <section className="mx-4 mb-2 mt-4 flex gap-2">
           <ul className="flex flex-1 flex-wrap justify-end gap-2">
             {tags?.map((tag) => (
-              <li key={tag} className="text-xs text-zinc-400">
+              <li className="text-xs text-zinc-400" key={tag}>
                 #{tag}
               </li>
             ))}
@@ -74,14 +75,14 @@ export const PostLargeCard = ({
           </div>
           <Button
             className="size-5"
-            variant="ghost"
-            onlyIcon
-            size="8"
             onClick={(e) => {
               e.preventDefault();
 
               onClickLikeButton?.();
             }}
+            onlyIcon
+            size="8"
+            variant="ghost"
           >
             <Heart
               className={cn('size-3 text-zinc-400', {

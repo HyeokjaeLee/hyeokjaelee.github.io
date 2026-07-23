@@ -1,0 +1,14 @@
+---
+import { AboutPage } from '../components/pages/AboutPage.tsx';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <!-- Preserve the original client-side behavior: /about?portfolio -> /portfolio -->
+  <script is:inline>
+    if (new URLSearchParams(location.search).get('portfolio') !== null) {
+      location.replace('/portfolio/');
+    }
+  </script>
+  <AboutPage client:visible />
+</Layout>

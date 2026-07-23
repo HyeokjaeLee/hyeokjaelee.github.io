@@ -1,33 +1,15 @@
 import { DotLottie } from '@components/atoms/DotLottie';
 import { DrawerClose } from '@components/molecules/Drawer';
 import { PostSmallCard } from '@components/molecules/PostSmallCard';
+import { useAllPosts } from '@hooks/useAllPosts';
 import { useGlobalStore } from '@stores/useGlobalStore';
-import { graphql, useStaticQuery } from 'gatsby';
-import type { LikePostListQuery } from 'types/graphql-types';
 
 export const LikePostList = () => {
-  const {
-    allMarkdownRemark: { nodes },
-  } = useStaticQuery<LikePostListQuery>(graphql`
-    query LikePostList {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            description
-          }
-        }
-      }
-    }
-  `);
-
+  const posts = useAllPosts();
   const likePostMap = useGlobalStore((state) => state.likePostMap);
 
-  const likePostList = nodes.filter(({ fields }) =>
-    fields?.slug ? likePostMap.get(fields.slug) : false,
+  const likePostList = (posts ?? []).filter((post) =>
+    post.slug ? likePostMap.get(post.slug) : false,
   );
 
   return (
@@ -39,13 +21,14 @@ export const LikePostList = () => {
       <dd>
         {likePostList.length ? (
           <ul>
-            {likePostList.map(({ fields, frontmatter }, index) => (
-              <li key={index}>
+            {likePostList.map((post) => (
+              <li key={post.slug}>
                 <DrawerClose asChild>
                   <PostSmallCard
-                    description={frontmatter?.description}
-                    slug={fields?.slug}
-                    title={frontmatter?.title}
+                    description={post.description}
+                    slug={post.slug}
+                    title={post.title}
+                    titleImage={post.titleImage}
                   />
                 </DrawerClose>
               </li>
@@ -53,7 +36,7 @@ export const LikePostList = () => {
           </ul>
         ) : (
           <div className="flex flex-1 flex-col items-center justify-center break-keep text-center">
-            <DotLottie src="/lotties/empty.lottie" className="size-30" />
+            <DotLottie className="size-30" src="/lotties/empty.lottie" />
             <p className="text-muted-foreground">
               아직 마음에 드는 글이 없나요?
             </p>

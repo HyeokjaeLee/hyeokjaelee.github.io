@@ -149,7 +149,9 @@ export const Experience = Object.assign(
           <span className="mt-3 text-xs">{description}</span>
         ) : null}
         <section className="mt-4 flex flex-wrap gap-1">
-          {stacks?.map((stack) => <StackBadge key={stack.name} {...stack} />)}
+          {stacks?.map((stack) => (
+            <StackBadge key={stack.name} {...stack} />
+          ))}
         </section>
       </dt>
       <dd className="mb-4 flex-1">{children}</dd>

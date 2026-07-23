@@ -1,6 +1,6 @@
 import { Button } from '@components/atoms/Button';
 import { DrawerClose } from '@components/molecules/Drawer';
-import { Link } from 'gatsby';
+import { Link } from '@shared/Link';
 
 interface NavigationListProps {
   items: {

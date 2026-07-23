@@ -2,7 +2,7 @@ import { Button } from '@components/atoms/Button';
 import { Logo } from '@components/atoms/Logo';
 import { EXTERNAL_LINKS } from '@constants/etc';
 import { ROUTES } from '@constants/routes';
-import { Link } from 'gatsby';
+import { Link } from '@shared/Link';
 import { GitHub } from 'react-feather';
 
 export const HomeLogo = () => {

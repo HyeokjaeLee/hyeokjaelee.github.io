@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+
+import { Bio } from '../components/molecules/Bio.tsx';
+import Layout from '../layouts/Layout.astro';
+import { Comment } from '../layouts/PostLayout/_components/Comment.tsx';
+import { PostArticleHeader } from '../layouts/PostLayout/_components/PostArticleHeader.tsx';
+import { RandomPostSuggestion } from '../layouts/PostLayout/_components/RandomPostSuggestion.tsx';
+
+import { getAllPosts } from '../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const allPosts = await getAllPosts();
+const { Content } = await render(post);
+const { title, description, date, tags } = post.data;
+
+const yy = date.getFullYear().toString().slice(2);
+const mm = String(date.getMonth() + 1).padStart(2, '0');
+const dd = String(date.getDate()).padStart(2, '0');
+const dateLabel = `${yy}년 ${mm}월 ${dd}일`;
+---
+
+<Layout description={description} title={title}>
+  <article class="mt-8 break-keep py-4 leading-relaxed sm:mt-14 lg:mt-16">
+    <PostArticleHeader
+      client:visible
+      date={dateLabel}
+      slug={`/${post.id}/`}
+      tags={tags}
+      title={title}
+    />
+    <section
+      class="post-body mx-auto w-full max-w-4xl px-4"
+      itemprop="post-article-body"
+    >
+      <Content />
+    </section>
+    <footer class="mx-auto mt-9 max-w-4xl lg:mt-40">
+      <section class="px-4">
+        <Bio />
+        <hr class="mt-9 border-zinc-300 dark:border-zinc-700" />
+      </section>
+      <RandomPostSuggestion client:visible posts={allPosts} slug={`/${post.id}/`} />
+      <Comment client:visible />
+    </footer>
+  </article>
+</Layout>

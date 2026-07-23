@@ -1,0 +1,12 @@
+---
+import { HomePage } from '../components/pages/HomePage.tsx';
+import Layout from '../layouts/Layout.astro';
+
+import { getAllPosts } from '../utils/posts';
+
+const posts = await getAllPosts();
+---
+
+<Layout>
+  <HomePage client:load posts={posts} />
+</Layout>

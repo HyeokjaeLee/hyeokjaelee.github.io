@@ -1,7 +1,7 @@
 import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
+import { Link } from '@shared/Link';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
-import { Link } from 'gatsby';
 import { Fragment } from 'react';
 import type { Icon } from 'react-feather';
 

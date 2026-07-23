@@ -3,15 +3,14 @@ import { HeaderLinkList } from '@components/molecules/HeaderLinkList';
 import { BASE_URL } from '@constants/etc';
 import { ROUTES } from '@constants/routes';
 import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
-import { useLocation } from '@reach/router';
+import { useSearchParams } from '@hooks/useSearchParams';
 import { cn } from '@utils/cn';
-import React from 'react';
 import { GitHub, Linkedin, Mail, PenTool, Phone } from 'react-feather';
 
 export const AboutHeader = () => {
   const displayType = useDisplayType();
-  const { search } = useLocation();
-  const hiddenContact = search.includes('hiddenContact');
+  const searchParams = useSearchParams();
+  const hiddenContact = searchParams.get('hiddenContact') !== null;
 
   const isPdf = displayType === DISPLAY_TYPE.PDF;
 

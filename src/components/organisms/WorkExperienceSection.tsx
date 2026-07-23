@@ -1,5 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
+import { StaticImage } from '@shared/StaticImage';
 
 import GroupingImage from '../../images/portfolio/grouping.webp';
 import KbPayImage from '../../images/portfolio/kb-pay.webp';
@@ -145,7 +144,7 @@ export const WorkExperienceSection = () => {
                     '타사 앱 스펙에 맞춰 최소 백엔드 리소스로 인증 로직 개발',
                   render: (
                     <img
-                      src={KbPayImage}
+                      src={KbPayImage.src}
                       className={imageClassName}
                       alt="kp-pay"
                       width={300}
@@ -189,7 +188,7 @@ export const WorkExperienceSection = () => {
                   link: 'https://www.welfarehello.com/recommend-policy/situation/emergency/map?selectedRegion=%7B%22mainRegionCode%22%3A%22C01-01%22%2C%22subRegionCode%22%3A%22C01-01-23%22%7D&emergencyRoomParams=%7B%22latitude%22%3A37.517305%2C%22longitude%22%3A127.047502%2C%22emergencyRoomYn%22%3Atrue%2C%22emergencyRoomCodeList%22%3A%5B%5D%2C%22isRealDistance%22%3Afalse%7D&firstHospitalLatitude=37.506800025850865&firstHospitalLongitude=127.03466865188074&latitude=37.5069596&longitude=127.0489702&zoom=12',
                   render: (
                     <img
-                      src={GroupingImage}
+                      src={GroupingImage.src}
                       alt="grouping"
                       className={imageClassName}
                     />
@@ -208,7 +207,7 @@ export const WorkExperienceSection = () => {
                   link: 'https://www.welfarehello.com/voucher/map?category=15&latitude=37.5250455&longitude=127.030106&zoom=17',
                   render: (
                     <img
-                      src={ScrollImage}
+                      src={ScrollImage.src}
                       alt="scroll"
                       className={imageClassName}
                       width={300}

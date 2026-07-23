@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  type DotLottie as DotLottieType,
   DotLottieReact,
   type DotLottieReactProps,
+  type DotLottie as DotLottieType,
 } from '@lottiefiles/dotlottie-react';
 import { memo } from 'react';
 

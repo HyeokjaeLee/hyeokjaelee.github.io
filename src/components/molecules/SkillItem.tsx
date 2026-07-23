@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface SkillItemProps {
   title: string;
   whatCanIDo: string[];

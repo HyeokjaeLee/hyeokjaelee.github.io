@@ -1,26 +1,10 @@
 import { DrawerClose } from '@components/molecules/Drawer';
 import { PostSmallCard } from '@components/molecules/PostSmallCard';
-import { graphql, useStaticQuery } from 'gatsby';
-import type { LastPostListQuery } from 'types/graphql-types';
+import { useAllPosts } from '@hooks/useAllPosts';
 
 export const LastPostList = () => {
-  const {
-    allMarkdownRemark: { nodes },
-  } = useStaticQuery<LastPostListQuery>(graphql`
-    query LastPostList {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 5) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            description
-          }
-        }
-      }
-    }
-  `);
+  const posts = useAllPosts();
+  const nodes = (posts ?? []).slice(0, 5);
 
   return (
     <dl className="mx-4">
@@ -30,13 +14,14 @@ export const LastPostList = () => {
       </dt>
       <dd>
         <ul>
-          {nodes.map(({ fields, frontmatter }, index) => (
-            <li key={index}>
+          {nodes.map((post) => (
+            <li key={post.slug}>
               <DrawerClose asChild>
                 <PostSmallCard
-                  description={frontmatter?.description}
-                  slug={fields?.slug}
-                  title={frontmatter?.title}
+                  description={post.description}
+                  slug={post.slug}
+                  title={post.title}
+                  titleImage={post.titleImage}
                 />
               </DrawerClose>
             </li>

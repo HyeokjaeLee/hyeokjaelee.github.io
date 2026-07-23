@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface StackBadgeProps {
   name: string;
   logo?: string;

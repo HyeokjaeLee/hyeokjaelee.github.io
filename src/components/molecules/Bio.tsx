@@ -1,6 +1,5 @@
 import { useGetSiteMetaData } from '@hooks/useGetSiteMetaData';
 import { useGetSocialDataList } from '@hooks/useGetSocialDataList';
-import React from 'react';
 
 import { Logo } from '../atoms/Logo';
 

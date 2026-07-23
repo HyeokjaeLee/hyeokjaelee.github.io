@@ -1,13 +1,29 @@
-import { useLocation } from '@reach/router';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
-let searchParams: URLSearchParams | undefined;
+/**
+ * Returns the current URL search params and keeps them in sync with the browser
+ * location, including Astro view-transition swaps.
+ */
+export const useSearchParams = () => {
+  const [searchParams, setSearchParams] = useState<URLSearchParams>(
+    () =>
+      new URLSearchParams(
+        typeof window === 'undefined' ? '' : window.location.search,
+      ),
+  );
 
-export const useSearchParams = searchParams
-  ? () => searchParams
-  : () => {
-      const { search } = useLocation();
-      const searchParams = useMemo(() => new URLSearchParams(search), [search]);
+  useEffect(() => {
+    const update = () =>
+      setSearchParams(new URLSearchParams(window.location.search));
 
-      return searchParams;
+    window.addEventListener('popstate', update);
+    window.addEventListener('astro:after-swap', update);
+
+    return () => {
+      window.removeEventListener('popstate', update);
+      window.removeEventListener('astro:after-swap', update);
     };
+  }, []);
+
+  return searchParams;
+};

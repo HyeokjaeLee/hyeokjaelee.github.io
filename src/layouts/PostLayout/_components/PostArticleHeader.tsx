@@ -1,24 +1,16 @@
 import { Button } from '@components/atoms/Button';
-import { Link } from '@reach/router';
+import { Link } from '@shared/Link';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
-import React from 'react';
 import { Calendar, Heart, Share2, Tag } from 'react-feather';
-import type { PostLayoutQuery } from 'types/graphql-types';
 
-interface PostArticleHeaderProps
-  extends Pick<
-    Exclude<
-      Exclude<
-        PostLayoutQuery['markdownRemark'],
-        undefined | null
-      >['frontmatter'],
-      undefined | null
-    >,
-    'date' | 'tags' | 'title'
-  > {
-  slug?: string | null;
+interface PostArticleHeaderProps {
+  title?: string;
+  date?: string;
+  tags?: string[];
+  slug?: string;
 }
+
 const ICON_SIZE = 'w-4 h-4';
 
 export const PostArticleHeader = ({
@@ -64,8 +56,8 @@ export const PostArticleHeader = ({
             <ul className="mt-[0.15rem] flex gap-1">
               {tags.map((tag) => (
                 <li
-                  key={tag}
                   className="rounded-md bg-zinc-200 px-2 py-1 text-xs font-semibold text-zinc-600 transition-colors hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600"
+                  key={tag}
                 >
                   <Link to={`/?tag=${tag}`}>#{tag}</Link>
                 </li>
@@ -75,11 +67,11 @@ export const PostArticleHeader = ({
         </dl>
         <section className="ml-auto">
           <Button
-            type="button"
-            variant="ghost"
+            onClick={handleClickLikeButton}
             onlyIcon
             size="8"
-            onClick={handleClickLikeButton}
+            type="button"
+            variant="ghost"
           >
             <Heart
               className={cn({
@@ -88,12 +80,8 @@ export const PostArticleHeader = ({
             />
           </Button>
           <Button
-            type="button"
-            variant="ghost"
-            onlyIcon
-            size="8"
             onClick={async () => {
-              const url = location.href;
+              const url = window.location.href;
 
               try {
                 await navigator.share({
@@ -104,6 +92,10 @@ export const PostArticleHeader = ({
                 await navigator.clipboard.writeText(url);
               }
             }}
+            onlyIcon
+            size="8"
+            type="button"
+            variant="ghost"
           >
             <Share2 />
           </Button>

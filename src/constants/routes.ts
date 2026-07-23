@@ -1,5 +1,5 @@
 export enum ROUTES {
   HOME = '/',
-  ABOUT = '/about',
-  PORTFOLIO = '/portfolio',
+  ABOUT = '/about/',
+  PORTFOLIO = '/portfolio/',
 }

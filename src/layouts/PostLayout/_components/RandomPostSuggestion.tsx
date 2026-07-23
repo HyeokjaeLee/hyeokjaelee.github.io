@@ -1,45 +1,43 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
+import type { PostData } from '@shared/types';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { useMemo } from 'react';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import type { PostLayoutQuery } from 'types/graphql-types';
 import { shallow } from 'zustand/shallow';
 
-type RandomPostSuggestionProps = Pick<
-  PostLayoutQuery,
-  'allMarkdownRemark' | 'markdownRemark'
->;
+interface RandomPostSuggestionProps {
+  posts: PostData[];
+  slug: string;
+}
 
 const RANDOM_POST_COUNT = 8;
 
 export const RandomPostSuggestion = ({
-  allMarkdownRemark: { nodes },
-  markdownRemark,
+  posts,
+  slug,
 }: RandomPostSuggestionProps) => {
-  const postCount = nodes.length;
-  const currentPostIndex = nodes.findIndex(
-    (node) => node.fields?.slug === markdownRemark?.fields?.slug,
-  );
-
-  const randomPostCount =
-    postCount < RANDOM_POST_COUNT ? postCount : RANDOM_POST_COUNT;
+  const postCount = posts.length;
+  const randomPostCount = Math.min(postCount, RANDOM_POST_COUNT);
 
   const randomPostList = useMemo(() => {
-    const randomIndexList: number[] = [];
-
-    while (randomIndexList.length < randomPostCount) {
-      const randomIndex = Math.floor(Math.random() * postCount);
-
-      if (
-        !randomIndexList.includes(randomIndex) &&
-        randomIndex !== currentPostIndex
-      )
-        randomIndexList.push(randomIndex);
+    if (postCount === 0) {
+      return [];
     }
 
-    return randomIndexList.map((index) => nodes[index]);
-  }, [currentPostIndex, nodes, postCount, randomPostCount]);
+    const indices: number[] = [];
+    let guard = 0;
+
+    while (indices.length < randomPostCount && guard++ < 500) {
+      const randomIndex = Math.floor(Math.random() * postCount);
+
+      if (!indices.includes(randomIndex) && posts[randomIndex].slug !== slug) {
+        indices.push(randomIndex);
+      }
+    }
+
+    return indices.map((index) => posts[index]);
+  }, [posts, postCount, randomPostCount, slug]);
 
   const [likePostMap, setLikePostMap] = useGlobalStore(
     (state) => [state.likePostMap, state.setLikePostMap],
@@ -51,38 +49,36 @@ export const RandomPostSuggestion = ({
       <dt className="mx-4 mb-4 text-lg font-bold">이런 글은 어때요?</dt>
       <dd className="mx-0 lg:mx-4">
         <Swiper
-          loop
-          mousewheel
           autoplay={{
             delay: 3_000,
             disableOnInteraction: true,
           }}
+          loop
           modules={[Mousewheel, Autoplay]}
+          mousewheel
           slidesPerView="auto"
           spaceBetween={10}
         >
-          {randomPostList.map(({ fields, frontmatter }) => {
-            const { slug } = fields ?? {};
-
-            return slug ? (
-              <SwiperSlide key={slug} className="w-fit py-2">
+          {randomPostList.map((post) => {
+            return post.slug ? (
+              <SwiperSlide className="w-fit py-2" key={post.slug}>
                 <div>
                   <PostLargeCard
-                    key={slug}
                     className="w-72"
-                    date={frontmatter?.date}
-                    description={frontmatter?.description}
-                    href={slug}
-                    isLiked={likePostMap.get(slug)}
-                    tags={frontmatter?.tags ?? []}
-                    title={frontmatter?.title || '무제'}
+                    date={post.dateLabel}
+                    description={post.description}
+                    href={post.slug}
+                    isLiked={likePostMap.get(post.slug)}
                     onClickLikeButton={() => {
                       setLikePostMap((likePostMap) => {
-                        likePostMap.set(slug, !likePostMap.get(slug));
+                        likePostMap.set(post.slug, !likePostMap.get(post.slug));
 
                         return likePostMap;
                       });
                     }}
+                    tags={post.tags}
+                    title={post.title || '무제'}
+                    titleImage={post.titleImage}
                   />
                 </div>
               </SwiperSlide>

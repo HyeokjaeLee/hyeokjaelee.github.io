@@ -4,35 +4,15 @@ import { Input } from '@components/atoms/Input';
 import { Kbd } from '@components/atoms/Kbd';
 import { Modal } from '@components/molecules/Modal';
 import { PostSmallCard } from '@components/molecules/PostSmallCard';
+import { useAllPosts } from '@hooks/useAllPosts';
 import { debounce } from 'es-toolkit';
-import { graphql, useStaticQuery } from 'gatsby';
 import { SearchIcon } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { VirtuosoHandle } from 'react-virtuoso';
 import { Virtuoso } from 'react-virtuoso';
-import type { PostListToSearchQuery } from 'types/graphql-types';
 
 export const Search = () => {
-  const {
-    allMarkdownRemark: { nodes },
-  } = useStaticQuery<PostListToSearchQuery>(graphql`
-    query PostListToSearch {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YY/MM/DD")
-            title
-            titleImage
-            tags
-            description
-          }
-        }
-      }
-    }
-  `);
+  const posts = useAllPosts();
 
   const [searchKeyword, setSearchKeyword] = useState('');
   const debouncedSetSearchKeyword = useMemo(
@@ -40,20 +20,20 @@ export const Search = () => {
     [],
   );
 
-  const searchedPosts = nodes.filter((node) => {
-    const searchString =
-      `${node.frontmatter?.title}${node.frontmatter?.description}`
-        .toLowerCase()
-        .replaceAll(' ', '');
+  const searchedPosts = (posts ?? []).filter((node) => {
+    const searchString = `${node.title}${node.description}`
+      .toLowerCase()
+      .replaceAll(' ', '');
 
     return searchString.includes(
       searchKeyword.toLowerCase().replaceAll(' ', ''),
     );
   });
+
   const [isOpen, setIsOpen] = useState(false);
   const virtuosoRef = useRef<VirtuosoHandle>(null);
 
-  // 검색어 변경시 리스트 스크롤 초기화
+  // biome-ignore lint/correctness/useExhaustiveDependencies: re-run on keyword change to reset the result scroll (parity with original)
   useEffect(() => {
     if (virtuosoRef.current) {
       virtuosoRef.current.scrollToIndex(0);
@@ -74,76 +54,81 @@ export const Search = () => {
   }, []);
 
   const callbackRef = useCallback((node: HTMLInputElement) => {
-    if (node) node.focus();
+    if (node) {
+      node.focus();
+    }
+
     setSearchKeyword('');
   }, []);
 
   return (
     <Modal
-      open={isOpen}
+      header="포스트 검색"
       onOpenChange={setIsOpen}
+      open={isOpen}
       trigger={
         <>
           <Button
-            variant="outline"
-            size="8"
+            className="text-muted-foreground xxs:flex hidden max-w-60 flex-1 justify-between gap-2 rounded-sm font-medium opacity-50"
             onClick={() => {
               setIsOpen(true);
             }}
-            className="text-muted-foreground xxs:flex hidden max-w-60 flex-1 justify-between gap-2 rounded-sm font-medium opacity-50"
+            size="8"
+            variant="outline"
           >
             <div className="flex items-center gap-2">
               <SearchIcon /> 포스트 검색...
             </div>
             <Kbd className="xs:block hidden">Ctrl + K</Kbd>
           </Button>
-          <Button variant="ghost" size="8" className="xxs:hidden flex" onlyIcon>
+          <Button className="xxs:hidden flex" onlyIcon size="8" variant="ghost">
             <SearchIcon />
           </Button>
         </>
       }
-      header="포스트 검색"
     >
       <Input
-        ref={callbackRef}
-        placeholder="검색어를 입력해주세요."
         leftContent={<SearchIcon />}
-        type="search"
-        rightContent={<Kbd className="xs:block hidden">Esc</Kbd>}
         onChange={(e) => {
           debouncedSetSearchKeyword(e.target.value);
         }}
+        placeholder="검색어를 입력해주세요."
+        ref={callbackRef}
+        rightContent={<Kbd className="xs:block hidden">Esc</Kbd>}
+        type="search"
       />
       <div className="h-91 flex-1">
         {searchedPosts.length > 0 ? (
           <Virtuoso
-            ref={virtuosoRef}
             className="hide-scrollbar"
-            style={{ height: 364, width: '100%' }}
-            totalCount={searchedPosts.length}
             itemContent={(index) => {
-              const { fields, frontmatter } = searchedPosts[index];
-              const slug = fields?.slug;
+              const post = searchedPosts[index];
 
-              if (!slug) return null;
+              if (!post?.slug) {
+                return null;
+              }
 
               return (
                 <div className="py-2">
                   <PostSmallCard
-                    description={frontmatter?.description}
-                    slug={slug}
-                    title={frontmatter?.title}
+                    description={post.description}
                     onClick={() => {
                       setIsOpen(false);
                     }}
+                    slug={post.slug}
+                    title={post.title}
+                    titleImage={post.titleImage}
                   />
                 </div>
               );
             }}
+            ref={virtuosoRef}
+            style={{ height: 364, width: '100%' }}
+            totalCount={searchedPosts.length}
           />
         ) : (
           <div className="flex size-full flex-col items-center justify-center">
-            <DotLottie src="/lotties/empty.lottie" className="size-30" />
+            <DotLottie className="size-30" src="/lotties/empty.lottie" />
             <p className="text-muted-foreground">검색 결과가 없습니다.</p>
           </div>
         )}

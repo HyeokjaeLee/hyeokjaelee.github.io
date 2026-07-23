@@ -2,11 +2,19 @@ import { DISPLAY_TYPE, useDisplayType } from '@hooks/useDisplayType';
 import { useRootRef } from '@hooks/useRootRef';
 import { motion, useScroll, useSpring } from 'motion/react';
 
+import { useInitDarkMode } from '../../_hooks/useInitDarkMode';
+import { useInitScroll } from '../../_hooks/useInitScroll';
+import { useSyncLayout } from '../../_hooks/useSyncLayout';
+
 import { HomeLogo } from './_components/HomeLogo';
 import { Menu } from './_components/Menu';
 import { Search } from './_components/Search';
 
 export const GlobalNavigation = () => {
+  useSyncLayout();
+  useInitScroll();
+  useInitDarkMode();
+
   const container = useRootRef();
 
   const { scrollYProgress } = useScroll({
