@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhyeokjaelee_github_io=self.webpackChunkhyeokjaelee_github_io||[]).push([[453],{9847:function(e,l,t){t.r(l);var a=t(6070);l.default=()=>(0,a.jsxs)("article",{className:"m-auto flex h-full flex-col items-center justify-center gap-4",children:[(0,a.jsx)("h1",{className:"text-7xl font-black",children:"404 :("}),(0,a.jsx)("p",{className:"text-lg font-bold",children:"페이지를 찾을 수 없어요!"}),(0,a.jsx)("div",{className:"mt-6 animate-bounce text-9xl",children:"🤖"})]})}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-580a2602191ca8018944.js.map
