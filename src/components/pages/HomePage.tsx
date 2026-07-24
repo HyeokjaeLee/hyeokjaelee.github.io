@@ -17,17 +17,37 @@ const readTag = () => {
 };
 
 export const HomePage = ({ posts }: HomePageProps) => {
-  // Local state keeps the tag reactive on click. Astro's ClientRouter does not
-  // fire astro:after-swap for query-only navigations, so reading the URL via an
-  // effect would not update on tag click — manage it here instead.
-  const [tag, setTag] = useState(readTag);
+  // Initialize to 'all' so the first client render matches the server-rendered
+  // HTML (the server cannot read the query string). The real tag from the URL is
+  // applied in the effect below, which avoids a hydration mismatch that would
+  // otherwise keep the stale 'all' DOM in place.
+  const [tag, setTag] = useState('all');
 
   useEffect(() => {
-    const onPop = () => setTag(readTag());
+    // Only re-sync while actually on the home page — ClientRouter fires these
+    // events on every navigation (including navigating AWAY to a post), and
+    // syncing there would overwrite the tag with the wrong value.
+    const sync = () => {
+      if (window.location.pathname !== '/') {
+        return;
+      }
 
-    window.addEventListener('popstate', onPop);
+      setTag(readTag());
+    };
 
-    return () => window.removeEventListener('popstate', onPop);
+    sync();
+    const raf = requestAnimationFrame(sync);
+
+    document.addEventListener('astro:page-load', sync);
+    document.addEventListener('astro:after-swap', sync);
+    window.addEventListener('popstate', sync);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener('astro:page-load', sync);
+      document.removeEventListener('astro:after-swap', sync);
+      window.removeEventListener('popstate', sync);
+    };
   }, []);
 
   const handleTagChange = (value: string) => {
