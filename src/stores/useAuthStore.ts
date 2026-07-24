@@ -18,16 +18,20 @@ export const useAuthStore = createWithEqualityFn<AuthStore>((set) => ({
   token: IS_CLIENT
     ? localStorage.getItem(LOCAL_STORAGE.GITHUB_LIKE_TOKEN)
     : null,
-  login: null,
+  login: IS_CLIENT
+    ? localStorage.getItem(LOCAL_STORAGE.GITHUB_LIKE_LOGIN)
+    : null,
   loginModalOpen: false,
   pendingSlug: null,
   setAuth: (token, login) => {
     localStorage.setItem(LOCAL_STORAGE.GITHUB_LIKE_TOKEN, token);
+    localStorage.setItem(LOCAL_STORAGE.GITHUB_LIKE_LOGIN, login);
 
     return set({ token, login });
   },
   clearAuth: () => {
     localStorage.removeItem(LOCAL_STORAGE.GITHUB_LIKE_TOKEN);
+    localStorage.removeItem(LOCAL_STORAGE.GITHUB_LIKE_LOGIN);
 
     return set({ token: null, login: null });
   },

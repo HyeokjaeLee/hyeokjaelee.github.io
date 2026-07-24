@@ -10,11 +10,20 @@ interface GlobalStore {
 }
 
 export const useGlobalStore = createWithEqualityFn<GlobalStore>((set, get) => ({
-  likePostMap: IS_CLIENT
-    ? new Map(
+  likePostMap: (() => {
+    if (!IS_CLIENT) {
+      return new Map();
+    }
+
+    try {
+      return new Map(
         JSON.parse(localStorage.getItem(LOCAL_STORAGE.LIKE_POST_LIST) ?? '[]'),
-      )
-    : new Map(),
+      );
+    } catch {
+      // Corrupt localStorage must not crash hydration.
+      return new Map();
+    }
+  })(),
   setLikePostMap: (callback) => {
     const likePostMap = callback(get().likePostMap);
 

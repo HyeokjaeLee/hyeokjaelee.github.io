@@ -67,7 +67,21 @@ export function useLike(slug: string, options?: UseLikeOptions): UseLikeResult {
         setCount(reactions.length);
 
         if (login) {
-          setLiked(reactions.some((r) => r.user.login === login));
+          const remoteLiked = reactions.some((r) => r.user.login === login);
+
+          setLiked(remoteLiked);
+
+          // Sync a GitHub-confirmed like into the local map so cards (which
+          // read likePostMap) reflect cross-device likes.
+          if (remoteLiked) {
+            setLikePostMap((prev) => {
+              const next = new Map(prev);
+
+              next.set(slug, true);
+
+              return next;
+            });
+          }
         }
       } catch {
         // Network errors must not crash the page — leave local state.
@@ -77,7 +91,7 @@ export function useLike(slug: string, options?: UseLikeOptions): UseLikeResult {
     return () => {
       active = false;
     };
-  }, [fetchRemote, slug, token, login]);
+  }, [fetchRemote, slug, token, login, setLikePostMap]);
 
   // Pending-like: apply the like once authentication completes.
   useEffect(() => {
