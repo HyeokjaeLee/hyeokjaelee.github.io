@@ -1,42 +1,108 @@
+import { GISCUS_CONFIG } from '@constants/giscus';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import { useEffect, useRef, useState } from 'react';
+
+const REPO = 'Hyeokjaelee/hyeokjaelee.github.io';
+const giscusTheme = (dark: boolean) => (dark ? 'github-dark' : 'github-light');
+const utterancesTheme = (dark: boolean) =>
+  dark ? 'dark-blue' : 'github-light';
+
+const clearWidgets = () => {
+  document
+    .querySelectorAll('.utterances, .giscus, iframe.giscus-frame')
+    .forEach((node) => node.remove());
+};
+
+const appendWidget = (container: HTMLElement, dark: boolean) => {
+  const script = document.createElement('script');
+
+  if (GISCUS_CONFIG.isEnabled) {
+    const attrs: Record<string, string> = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': REPO,
+      'data-repo-id': GISCUS_CONFIG.repoId,
+      'data-category': GISCUS_CONFIG.category,
+      'data-category-id': GISCUS_CONFIG.categoryId,
+      'data-mapping': GISCUS_CONFIG.mapping,
+      'data-strict': '0',
+      'data-reactions-enabled': GISCUS_CONFIG.reactionsEnabled,
+      'data-emit-metadata': '0',
+      'data-input-position': GISCUS_CONFIG.inputPosition,
+      'data-theme': giscusTheme(dark),
+      'data-lang': GISCUS_CONFIG.lang,
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: 'true',
+    };
+    Object.entries(attrs).forEach(([key, value]) =>
+      script.setAttribute(key, value),
+    );
+  } else {
+    // Fallback: utterances until the giscus category is configured.
+    const attrs: Record<string, string> = {
+      src: 'https://utteranc.es/client.js',
+      repo: REPO,
+      'issue-term': 'url',
+      label: 'comment',
+      crossorigin: 'anonymous',
+      async: 'true',
+      theme: utterancesTheme(dark),
+    };
+    Object.entries(attrs).forEach(([key, value]) =>
+      script.setAttribute(key, value),
+    );
+  }
+
+  container.appendChild(script);
+};
 
 export const Comment = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isDarkMode = useLayoutStore((state) => state.isDarkMode);
   const [isMounted, setIsMounted] = useState(false);
+  const initialDark = useRef(isDarkMode);
 
+  // Mount the widget once.
   useEffect(() => {
     setIsMounted(false);
 
     const timer = setTimeout(() => {
       if (!ref.current) return;
-      const utterances = document.createElement('script');
-      const attributes = {
-        src: 'https://utteranc.es/client.js',
-        repo: 'HyeokjaeLee/hyeokjaelee.github.io',
-        'issue-term': 'url',
-        label: 'comment',
-        crossorigin: 'anonymous',
-        async: 'true',
-        theme: isDarkMode ? 'dark-blue' : 'github-light',
-      };
 
-      Object.entries(attributes).forEach(([key, value]) => {
-        utterances.setAttribute(key, value);
-      });
-
-      ref.current.appendChild(utterances);
-
+      appendWidget(ref.current, initialDark.current);
       setIsMounted(true);
     }, 1_000);
 
     return () => {
       clearTimeout(timer);
-      document.querySelectorAll('.utterances').forEach((node) => node.remove());
+      clearWidgets();
     };
-  }, [isDarkMode]);
+  }, []);
+
+  // Sync theme on dark-mode toggle without reloading the whole widget.
+  useEffect(() => {
+    if (!isMounted) return;
+
+    if (GISCUS_CONFIG.isEnabled) {
+      // giscus: switch theme in place via postMessage.
+      const iframe = document.querySelector<HTMLIFrameElement>(
+        'iframe.giscus-frame',
+      );
+
+      iframe?.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme(isDarkMode) } } },
+        'https://giscus.app',
+      );
+    } else {
+      // utterances: theme is fixed at load, so reload the widget.
+      clearWidgets();
+
+      if (ref.current) {
+        appendWidget(ref.current, isDarkMode);
+      }
+    }
+  }, [isDarkMode, isMounted]);
 
   return (
     <section className="mx-auto flex px-5 py-4">

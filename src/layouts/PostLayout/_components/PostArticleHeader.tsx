@@ -1,6 +1,6 @@
 import { Button } from '@components/atoms/Button';
-import { useLike } from '@hooks/useLike';
 import { Link } from '@shared/Link';
+import { useGlobalStore } from '@stores/useGlobalStore';
 import { cn } from '@utils/cn';
 import { Calendar, Heart, Share2, Tag } from 'react-feather';
 
@@ -19,11 +19,22 @@ export const PostArticleHeader = ({
   tags,
   slug,
 }: PostArticleHeaderProps) => {
-  const { liked, count, toggleLike } = useLike(slug ?? '', {
-    fetchRemote: true,
-  });
+  const [likePostMap, setLikePostMap] = useGlobalStore((state) => [
+    state.likePostMap,
+    state.setLikePostMap,
+  ]);
 
   if (!slug) throw new Error('slug is required');
+
+  const isLiked = likePostMap.get(slug);
+
+  const handleClickLikeButton = () => {
+    setLikePostMap((likePostMap) => {
+      likePostMap.set(slug, !isLiked);
+
+      return likePostMap;
+    });
+  };
 
   return title && date && tags ? (
     <header className="relative mx-auto mb-7 flex w-full max-w-4xl flex-col justify-between overflow-hidden px-4 pb-7">
@@ -55,26 +66,19 @@ export const PostArticleHeader = ({
           </dd>
         </dl>
         <section className="ml-auto">
-          <div className="inline-flex items-center">
-            <Button
-              onClick={toggleLike}
-              onlyIcon
-              size="8"
-              type="button"
-              variant="ghost"
-            >
-              <Heart
-                className={cn({
-                  'fill-red-500 text-red-500': liked,
-                })}
-              />
-            </Button>
-            {count > 0 ? (
-              <span className="ml-1 text-sm text-zinc-400 dark:text-zinc-500">
-                {count}
-              </span>
-            ) : null}
-          </div>
+          <Button
+            onClick={handleClickLikeButton}
+            onlyIcon
+            size="8"
+            type="button"
+            variant="ghost"
+          >
+            <Heart
+              className={cn({
+                'fill-red-500 text-red-500': isLiked,
+              })}
+            />
+          </Button>
           <Button
             onClick={async () => {
               const url = window.location.href;

@@ -7,7 +7,7 @@ import 'prismjs/themes/prism-tomorrow.css';
 import '../styles/global.css';
 
 import { ClientRouter } from 'astro:transitions';
-import { LoginModal } from '../components/molecules/LoginModal';
+
 import { SITE_META } from '../constants/site';
 import { GlobalNavigation } from './GlobalLayout/_components/GlobalNavigation/index.tsx';
 
@@ -76,7 +76,6 @@ const pageTitle = title ? `${SITE_META.title} | ${title}` : SITE_META.title;
   <body class="size-full bg-background font-pretendard text-foreground">
     <div class="hide-scrollbar relative size-full overflow-auto" id="root">
       <GlobalNavigation client:load />
-      <LoginModal client:load />
       <main class="size-full bg-background text-primary" id="main">
         <slot />
       </main>

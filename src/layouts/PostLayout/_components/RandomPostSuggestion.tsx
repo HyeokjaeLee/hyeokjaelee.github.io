@@ -1,8 +1,10 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import type { PostData } from '@shared/types';
+import { useGlobalStore } from '@stores/useGlobalStore';
 import { useMemo } from 'react';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { shallow } from 'zustand/shallow';
 
 interface RandomPostSuggestionProps {
   posts: PostData[];
@@ -37,6 +39,11 @@ export const RandomPostSuggestion = ({
     return indices.map((index) => posts[index]);
   }, [posts, postCount, randomPostCount, slug]);
 
+  const [likePostMap, setLikePostMap] = useGlobalStore(
+    (state) => [state.likePostMap, state.setLikePostMap],
+    shallow,
+  );
+
   return (
     <dl className="mx-auto my-6">
       <dt className="mx-4 mb-4 text-lg font-bold">이런 글은 어때요?</dt>
@@ -61,6 +68,14 @@ export const RandomPostSuggestion = ({
                     date={post.dateLabel}
                     description={post.description}
                     href={post.slug}
+                    isLiked={likePostMap.get(post.slug)}
+                    onClickLikeButton={() => {
+                      setLikePostMap((likePostMap) => {
+                        likePostMap.set(post.slug, !likePostMap.get(post.slug));
+
+                        return likePostMap;
+                      });
+                    }}
                     tags={post.tags}
                     title={post.title || '무제'}
                     titleImage={post.titleImage}
