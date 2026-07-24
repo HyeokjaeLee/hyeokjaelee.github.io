@@ -18,13 +18,15 @@ const POST_TAGS = [
 
 interface TagListProps {
   currentTag: string;
+  onTagChange: (tag: string) => void;
 }
 
-export const TagList = ({ currentTag }: TagListProps) => {
+export const TagList = ({ currentTag, onTagChange }: TagListProps) => {
   const slideRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     const swiperIndex = POST_TAGS.indexOf(currentTag);
+
     if (slideRef.current) {
       slideRef.current.slideTo(swiperIndex);
     }
@@ -33,13 +35,13 @@ export const TagList = ({ currentTag }: TagListProps) => {
   return (
     <nav className="mx-auto flex w-full justify-center py-4">
       <Swiper
-        mousewheel
         autoplay={{
           delay: 3_000,
           disableOnInteraction: true,
         }}
         className="mx-auto w-auto px-4"
         modules={[Mousewheel, Autoplay]}
+        mousewheel
         slidesPerView="auto"
         spaceBetween={4}
         onSwiper={(swiper) => (slideRef.current = swiper)}
@@ -48,13 +50,24 @@ export const TagList = ({ currentTag }: TagListProps) => {
           const isCurrentTag = value === currentTag;
 
           return (
-            <SwiperSlide key={value} className="my-2 w-auto">
+            <SwiperSlide className="my-2 w-auto" key={value}>
               <Button
                 asChild
                 size="8"
                 variant={isCurrentTag ? 'primary' : 'ghost'}
               >
-                <Link to={`?tag=${value}`}>{value}</Link>
+                <Link
+                  onClick={(event) => {
+                    // Prevent ClientRouter navigation; update locally so the
+                    // active state stays reactive. The href stays for SEO and
+                    // open-in-new-tab.
+                    event.preventDefault();
+                    onTagChange(value);
+                  }}
+                  to={`?tag=${value}`}
+                >
+                  {value}
+                </Link>
               </Button>
             </SwiperSlide>
           );

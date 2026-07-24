@@ -34,7 +34,7 @@ export const PostSmallCard = ({
       <div>
         <TitleImage
           className="relative h-0 w-10 rounded-md border border-zinc-200 pb-10 dark:border-zinc-700"
-          imgClassName="absolute w-full object-cover"
+          imgClassName="absolute h-full w-full object-cover"
           size={100}
           src={titleImage}
         />

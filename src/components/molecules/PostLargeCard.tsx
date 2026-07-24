@@ -47,7 +47,7 @@ export const PostLargeCard = ({
     >
       <TitleImage
         className="relative h-0 w-full overflow-hidden rounded-t-md pb-[50%]"
-        imgClassName="absolute w-full object-cover rounded-b-none"
+        imgClassName="absolute h-full w-full object-cover rounded-b-none"
         size={600}
         src={titleImage}
       />
