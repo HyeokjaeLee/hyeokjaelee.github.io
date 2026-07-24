@@ -1,0 +1,1 @@
+import{t as e}from"./traditional.BhqW-x96.js";import{a as t,u as n}from"./cn.WNK5_uc3.js";var r=e((e,r)=>({likePostMap:n?new Map(JSON.parse(localStorage.getItem(t.LIKE_POST_LIST)??`[]`)):new Map,setLikePostMap:n=>{let i=n(r().likePostMap);return localStorage.setItem(t.LIKE_POST_LIST,JSON.stringify(Array.from(i.entries()))),e({likePostMap:new Map(i)})}}));export{r as t};
