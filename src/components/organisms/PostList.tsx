@@ -1,10 +1,8 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { SELECTOR } from '@constants/layout';
 import type { PostData } from '@shared/types';
-import { useGlobalStore } from '@stores/useGlobalStore';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { VirtuosoGrid } from 'react-virtuoso';
-import { useShallow } from 'zustand/shallow';
 
 interface PostListProps {
   postList: PostData[];
@@ -12,10 +10,6 @@ interface PostListProps {
 }
 
 export const PostList = ({ postList, className = '' }: PostListProps) => {
-  const [likePostMap, setLikePostMap] = useGlobalStore(
-    useShallow((state) => [state.likePostMap, state.setLikePostMap]),
-  );
-
   const [gridHeight, setGridHeight] = useState(600);
   const rootRef = useRef<HTMLElement | null>(null);
 
@@ -68,15 +62,7 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
               date={post.dateLabel}
               description={post.description}
               href={post.slug}
-              isLiked={likePostMap.get(post.slug)}
               key={post.slug}
-              onClickLikeButton={() => {
-                setLikePostMap((prevMap) => {
-                  prevMap.set(post.slug, !prevMap.get(post.slug));
-
-                  return prevMap;
-                });
-              }}
               tags={post.tags}
               title={post.title || '무제'}
               titleImage={post.titleImage}

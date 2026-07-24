@@ -28,6 +28,9 @@ jobs:
 
       - name: Build
         run: bun run build
+        env:
+          PUBLIC_GH_LIKE_CLIENT_ID: ${{ secrets.PUBLIC_GH_LIKE_CLIENT_ID }}
+          PUBLIC_GH_LIKE_PROXY_URL: ${{ secrets.PUBLIC_GH_LIKE_PROXY_URL }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

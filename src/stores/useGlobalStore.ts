@@ -1,3 +1,4 @@
+import { IS_CLIENT } from '@constants/etc';
 import { LOCAL_STORAGE } from '@constants/storage';
 import { createWithEqualityFn } from 'zustand/traditional';
 
@@ -9,7 +10,11 @@ interface GlobalStore {
 }
 
 export const useGlobalStore = createWithEqualityFn<GlobalStore>((set, get) => ({
-  likePostMap: new Map(),
+  likePostMap: IS_CLIENT
+    ? new Map(
+        JSON.parse(localStorage.getItem(LOCAL_STORAGE.LIKE_POST_LIST) ?? '[]'),
+      )
+    : new Map(),
   setLikePostMap: (callback) => {
     const likePostMap = callback(get().likePostMap);
 

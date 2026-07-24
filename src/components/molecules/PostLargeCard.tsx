@@ -1,5 +1,6 @@
 import { Button } from '@components/atoms/Button';
 import { TitleImage } from '@generated/TitleImage';
+import { useLike } from '@hooks/useLike';
 import { Link } from '@shared/Link';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
@@ -12,8 +13,6 @@ interface PostLargeCardProps {
   tags?: (string | null)[];
   date?: string | null;
   titleImage?: string;
-  onClickLikeButton?: () => void;
-  isLiked?: boolean;
   className?: string;
 }
 
@@ -24,11 +23,10 @@ export const PostLargeCard = ({
   tags,
   date,
   titleImage,
-  onClickLikeButton,
-  isLiked,
   className,
 }: PostLargeCardProps) => {
   const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+  const { liked, toggleLike } = useLike(href);
 
   return (
     <Link
@@ -77,8 +75,7 @@ export const PostLargeCard = ({
             className="size-5"
             onClick={(e) => {
               e.preventDefault();
-
-              onClickLikeButton?.();
+              toggleLike();
             }}
             onlyIcon
             size="8"
@@ -86,7 +83,7 @@ export const PostLargeCard = ({
           >
             <Heart
               className={cn('size-3 text-zinc-400', {
-                'fill-red-500 text-red-500': isLiked,
+                'fill-red-500 text-red-500': liked,
               })}
             />
           </Button>
