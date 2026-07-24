@@ -1,1 +1,0 @@
-var e={title:`덕업일치 개발자`,description:`덕업일치 개발자의 블로그입니다.`,siteUrl:`https://hyeokjaelee.github.io/`,author:{name:`HyeokjaeLee`,summary:`Front-end Engineer`},social:{github:`HyeokjaeLee`,linkedin:`hyeokjae-lee-844042225`,email:`leehyeokjae97@gmail.com`}};export{e as t};
