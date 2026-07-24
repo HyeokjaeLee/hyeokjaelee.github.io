@@ -1,5 +1,5 @@
-import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import type { APIRoute } from 'astro';
 
 import { SITE_META } from '../constants/site';
 
@@ -11,12 +11,7 @@ export const GET: APIRoute = async () => {
   );
   const base = SITE_META.siteUrl.replace(/\/$/, '');
 
-  const parts = [
-    `# ${SITE_META.title}`,
-    '',
-    `> ${SITE_META.description}`,
-    '',
-  ];
+  const parts = [`# ${SITE_META.title}`, '', `> ${SITE_META.description}`, ''];
 
   for (const post of sorted) {
     parts.push(
