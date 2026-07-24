@@ -101,6 +101,13 @@ export const LoginModal = () => {
                 setPhase('error');
 
                 break;
+              default:
+                setErrorMessage(
+                  '알 수 없는 오류가 발생했습니다. 다시 시도해 주세요.',
+                );
+                setPhase('error');
+
+                break;
             }
           })();
         }, interval * 1000);

@@ -30,6 +30,10 @@ export async function requestDeviceCode(): Promise<DeviceCodeResponse> {
     body: JSON.stringify({ client_id: clientId, scope }),
   });
 
+  if (!response.ok) {
+    throw new Error(`Failed to request device code: ${response.status}`);
+  }
+
   return (await response.json()) as DeviceCodeResponse;
 }
 

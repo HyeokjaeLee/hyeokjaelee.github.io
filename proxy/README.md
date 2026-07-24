@@ -47,6 +47,8 @@ PUBLIC_GH_LIKE_PROXY_URL=<2에서 발급된 Worker URL>
 
 두 값 중 하나라도 비어 있으면 블로그 좋아요 기능은 localStorage 폴백 모드로 동작한다(서버 동기화 없이 로컬에만 저장).
 
+> 프로덕션(GitHub Pages)에서는 로컬 `.env` 대신 GitHub 리포지토리의 **Settings → Secrets and variables → Actions**에 같은 이름(`PUBLIC_GH_LIKE_CLIENT_ID`, `PUBLIC_GH_LIKE_PROXY_URL`)으로 등록한다. 배포 워크플로우(`.github/workflows/deploy.yml`)가 빌드 시 이 값을 주입한다. 두 시크릿을 등록하기 전까지 배포되는 사이트는 폴백 모드로 동작한다.
+
 ## 5. 보안 노트
 
 - 프록시는 client_secret이나 액세스 토큰을 저장하지 않는다. 모든 민감 정보는 브라우저 메모리에만 존재한다.
