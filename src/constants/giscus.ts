@@ -16,8 +16,8 @@ export const GISCUS_CONFIG = {
   repo: 'Hyeokjaelee/hyeokjaelee.github.io',
   repoId: 'MDEwOlJlcG9zaXRvcnkzNTA4NDE3Nzg=',
   // Fill after creating the Announcements category:
-  category: '',
-  categoryId: '',
+  category: 'Comments',
+  categoryId: 'DIC_kwDOFOlrss4DCUFZ',
   mapping: 'url', // matches utterances issue-term:'url' (title = full page URL)
   reactionsEnabled: '1', // enables the reaction bar; the discussion's +1 is the "like"
   inputPosition: 'bottom',
