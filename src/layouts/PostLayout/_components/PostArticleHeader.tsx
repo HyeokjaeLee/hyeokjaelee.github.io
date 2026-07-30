@@ -1,14 +1,11 @@
 import { Button } from '@components/atoms/Button';
 import { Link } from '@shared/Link';
-import { useGlobalStore } from '@stores/useGlobalStore';
-import { cn } from '@utils/cn';
 import { Calendar, Heart, Share2, Tag } from 'react-feather';
 
 interface PostArticleHeaderProps {
   title?: string;
   date?: string;
   tags?: string[];
-  slug?: string;
 }
 
 const ICON_SIZE = 'w-4 h-4';
@@ -17,23 +14,31 @@ export const PostArticleHeader = ({
   title,
   date,
   tags,
-  slug,
 }: PostArticleHeaderProps) => {
-  const [likePostMap, setLikePostMap] = useGlobalStore((state) => [
-    state.likePostMap,
-    state.setLikePostMap,
-  ]);
+  const handleScrollToComments = () => {
+    const comments = document.getElementById('comments');
 
-  if (!slug) throw new Error('slug is required');
+    if (!comments) return;
 
-  const isLiked = likePostMap.get(slug);
+    comments.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  const handleClickLikeButton = () => {
-    setLikePostMap((likePostMap) => {
-      likePostMap.set(slug, !isLiked);
+    comments.classList.add(
+      'ring-2',
+      'ring-red-400/60',
+      'ring-offset-4',
+      'rounded-lg',
+      'transition-shadow',
+    );
 
-      return likePostMap;
-    });
+    setTimeout(() => {
+      comments.classList.remove(
+        'ring-2',
+        'ring-red-400/60',
+        'ring-offset-4',
+        'rounded-lg',
+        'transition-shadow',
+      );
+    }, 2500);
   };
 
   return title && date && tags ? (
@@ -67,17 +72,13 @@ export const PostArticleHeader = ({
         </dl>
         <section className="ml-auto">
           <Button
-            onClick={handleClickLikeButton}
+            onClick={handleScrollToComments}
             onlyIcon
             size="8"
             type="button"
             variant="ghost"
           >
-            <Heart
-              className={cn({
-                'fill-red-500 text-red-500': isLiked,
-              })}
-            />
+            <Heart className={ICON_SIZE} />
           </Button>
           <Button
             onClick={async () => {

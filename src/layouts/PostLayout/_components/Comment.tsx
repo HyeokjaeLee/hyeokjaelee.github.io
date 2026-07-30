@@ -105,7 +105,7 @@ export const Comment = () => {
   }, [isDarkMode, isMounted]);
 
   return (
-    <section className="mx-auto flex px-5 py-4">
+    <section id="comments" className="mx-auto flex scroll-mt-20 px-5 py-4">
       <div
         ref={ref}
         className={cn('min-h-64 w-full', {
