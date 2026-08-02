@@ -1,6 +1,6 @@
 ---
 title: '대학생 개발자 취업 회고 (2)'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709'
+titleImage: '../images/contents/employment-memoirs2/employment-memoirs2-01.jpg'
 description: '평범한 대학생 개발자가 2022년 상반기 취업하면서 느낀점'
 date: '2022-02-16'
 tags: [etc]

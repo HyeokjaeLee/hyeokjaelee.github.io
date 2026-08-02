@@ -1,6 +1,6 @@
 ---
 title: 'Gititle 프로젝트'
-titleImage: 'https://user-images.githubusercontent.com/71566740/135963287-e5c18f62-da16-4dda-98cb-1dd4a7c2b720.png'
+titleImage: '../images/contents/gititle-project/gititle-project-01.png'
 description: '좋은 커밋 메시지를 작성하기 위한 프로젝트'
 date: '2021-09-14'
 tags: [project, frontend]
@@ -26,7 +26,7 @@ AngularJS commit conventions의 Type만으로 설명이 부족한 부분을 Emoj
 
 React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.
 
-> ![react-vue](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/116b4b96-f807-456f-b08e-62151aba89ea)
+> ![react-vue](../images/contents/gititle-project/gititle-project-02.png)
 > 보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.
 
 예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.
@@ -59,12 +59,18 @@ Vue.js의 개발자 도구가 매우 편리하다고 하는데 아쉽게도 이�
 
 딱히 Backend에서 데이터를 받아올 만한 프로젝트가 아니기 때문에 앱 자체에 보이고 싶은 값들을 담아 클라이언트 쪽에서 검색 기능을 구현했다.
 
-> ![gititle](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/8116a194-4deb-4c4b-a05d-4f657fe195d4)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="gititle" width="1420" height="898" style="aspect-ratio: 1420 / 898;">
+>   <source src="/videos/gititle-project/gititle-project-03.webm" type="video/webm" />
+>   <source src="/videos/gititle-project/gititle-project-03.mp4" type="video/mp4" />
+> </video>
 > Commit Message 구성요소 검색
 
 대략적인 커밋 예시를 제공하고 각 커밋 메시지 영억을 클릭하면 해당 영역에 들어갈 수 있는 선택지를 제공하고 있으며 각 선택지들을 어떤 상황에 쓰이게 되는지 혹은 예시 내용을 보여줄 수 있는 UI를 제공하고 있다.
 
-> ![gititle2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cb16eb52-5376-475d-9221-fee51e3af1d9)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="gititle2" width="1420" height="898" style="aspect-ratio: 1420 / 898;">
+>   <source src="/videos/gititle-project/gititle-project-04.webm" type="video/webm" />
+>   <source src="/videos/gititle-project/gititle-project-04.mp4" type="video/mp4" />
+> </video>
 > Commit Message 구성요소 아이템에 대한 선택지를 제공
 
 추가적으로 복사한 커밋 메시지들은 history를 남기고 추후에 필요할때 복사할 수 있게 하였고 PWA 설치 UI가 브라우저 자체에서 지원하긴 하지만 Gititle이 설치되어있지 않으면 앱 내에

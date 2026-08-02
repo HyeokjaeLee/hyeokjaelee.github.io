@@ -1,6 +1,6 @@
 ---
 title: 'Atomic Design Pattern 적용기'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3'
+titleImage: '../images/contents/react-atomic/react-atomic-01.png'
 description: 'React 제품 개발, Atomic Design Pattern 녹여내기'
 date: '2022-10-30'
 tags: [frontend]
@@ -68,7 +68,7 @@ React 기반 제품을 개발하면서 컴포넌트 수가 많아지게 되면�
 
 ### 제품 디렉토리 구조
 
-> ![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f9ecca03-a654-4bf4-9976-0cf669f9c130)![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/846dea6f-cb4f-45db-8f38-634e5e5703b3)
+> ![image](../images/contents/react-atomic/react-atomic-02.png)![image](../images/contents/react-atomic/react-atomic-01.png)
 > components, pages 디렉토리 구조
 
 components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.

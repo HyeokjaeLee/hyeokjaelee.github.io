@@ -1,6 +1,6 @@
 ---
 title: 'React 기반 제품을 개발할 때 고려해 볼 만한 디자인 패턴'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b'
+titleImage: '../images/contents/react-design-pattern/react-design-pattern-01.png'
 description: 'React 제품 개발, 유용한 몇 가지 디자인 패턴'
 date: '2022-10-29'
 tags: [frontend]
@@ -32,7 +32,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.
 
-> ![mvc](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/852b8e8d-4c28-4455-b80a-7ccaf9a4ee18)
+> ![mvc](../images/contents/react-design-pattern/react-design-pattern-02.png)
 > 소프트웨어를 Model - View - Controller 요소로 구분함
 
 **역할**
@@ -45,7 +45,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.
 
-> ![mvvm](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/3ed6ea82-eae0-4595-9292-db24fbefc7ec)
+> ![mvvm](../images/contents/react-design-pattern/react-design-pattern-03.png)
 > MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨
 
 **역할**
@@ -58,7 +58,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.
 
-> ![flux](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dd2ed5bc-5395-4b8a-a59b-1bd95dc40a7f)
+> ![flux](../images/contents/react-design-pattern/react-design-pattern-04.png)
 > MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함
 
 **역할**
@@ -74,7 +74,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 > 이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.
 
-> ![pcc](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/6901ba00-9c57-462e-a74d-b396de46f605)
+> ![pcc](../images/contents/react-design-pattern/react-design-pattern-05.png)
 > 앱을 Container Component와 Presentational Component로 나누어 개발한다.
 
 **역할**
@@ -94,7 +94,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.
 
-> ![atomic](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/b82b158f-c4b1-4147-83ff-0f79b50645cb)
+> ![atomic](../images/contents/react-design-pattern/react-design-pattern-06.png)
 > 여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.
 
 **역할**
@@ -110,7 +110,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 ## 디자인 패턴, 중요한 건 알겠는데...
 
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/93a45880-52dd-4aff-ad4e-9f1e47f5fe4b)
+![image](../images/contents/react-design-pattern/react-design-pattern-01.png)
 
 ### 디자인 패턴 중요한 건 알겠는데 왜 써야 하지?
 

@@ -1,6 +1,5 @@
 export enum SELECTOR {
   ROOT = 'root',
-  MAIN = 'main',
 }
 
 //! global.css와 동일한 값 유지

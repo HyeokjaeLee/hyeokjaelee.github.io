@@ -1,6 +1,6 @@
 ---
 title: 'Live Sass Compiler 사용하기'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f3841a12-33f5-4994-b147-b38b5a3f5e23'
+titleImage: '../images/contents/sass-compiler/sass-compiler-01.png'
 description: '편리한 Sass 사용을 위한 visual studio code 익스텐션'
 date: '2021-09-01'
 tags: [frontend]
@@ -70,6 +70,6 @@ min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한�
 ```
 
 설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a9616878-13e1-4d9a-a56c-52820b54d377)
+![image](../images/contents/sass-compiler/sass-compiler-02.png)
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6ae0829-8fff-4537-9c5f-dff53fc22559)
+![image](../images/contents/sass-compiler/sass-compiler-03.png)

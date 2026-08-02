@@ -50,7 +50,10 @@ Gatsby는 이런 상황에서 Next.js의 훌륭한 대안이었다.
 
 하지만 유니크한 개인 블로그 겸 포트폴리오 페이지를 가지고 싶어서 템플릿 없이 만들게 되었다.
 
-![블로그 디자인](../images/contents/blog-remake-review2/blog-design.gif)
+<video autoplay muted loop playsinline preload="metadata" aria-label="블로그 디자인" width="640" height="458" style="aspect-ratio: 640 / 458;">
+  <source src="/videos/blog-remake-review2/blog-design.webm" type="video/webm" />
+  <source src="/videos/blog-remake-review2/blog-design.mp4" type="video/mp4" />
+</video>
 
 ### 블로그 디자인에 고려했던 부분
 

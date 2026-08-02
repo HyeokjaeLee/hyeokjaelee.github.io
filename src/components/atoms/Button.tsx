@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import { Spinner } from './Spinner';
 
-export const buttonVariants = cva(
+const buttonVariants = cva(
   [
     // Focus and state related styles
     'focus-visible:border-ring focus-visible:ring-ring/50',

@@ -27,7 +27,10 @@ tags: [project, frontend, backend]
 
 채팅에 필요한 최소한의 정보를 받되 모든 정보는 초대 하는 사람이 입력하도록 했다.
 
-![상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림](../images/contents/briend/briend2.gif)
+<video autoplay muted loop playsinline preload="metadata" aria-label="상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림" width="600" height="981" style="aspect-ratio: 600 / 981;">
+  <source src="/videos/briend/briend2.webm" type="video/webm" />
+  <source src="/videos/briend/briend2.mp4" type="video/mp4" />
+</video>
 
 QR을 스캔하면 바로 브라우저에서 사용할 수 있는 웹앱 형식을 생각했다.
 

@@ -1,17 +1,26 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { SELECTOR } from '@constants/layout';
 import { useReactionCounts } from '@hooks/useReactionCounts';
-import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import type { PostData } from '@shared/types';
+import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { VirtuosoGrid } from 'react-virtuoso';
 
 interface PostListProps {
   postList: PostData[];
   className?: string;
+  onLoadMore?: () => void;
+  hasMore?: boolean;
+  loading?: boolean;
 }
 
-export const PostList = ({ postList, className = '' }: PostListProps) => {
+export const PostList = ({
+  postList,
+  className = '',
+  onLoadMore,
+  hasMore = false,
+  loading = false,
+}: PostListProps) => {
   const reactionCounts = useReactionCounts();
   const openCommentDrawer = useCommentDrawerStore(
     (state) => state.openCommentDrawer,
@@ -56,6 +65,11 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
     >
       <VirtuosoGrid
         customScrollParent={rootRef.current || undefined}
+        endReached={() => {
+          if (hasMore && !loading) {
+            onLoadMore?.();
+          }
+        }}
         itemContent={(index) => {
           const post = postList[index];
 
@@ -88,6 +102,11 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
         style={{ height: gridHeight }}
         totalCount={postList.length}
       />
+      {loading && (
+        <div className="flex justify-center py-4">
+          <span className="text-sm text-zinc-500">불러오는 중…</span>
+        </div>
+      )}
     </div>
   );
 };

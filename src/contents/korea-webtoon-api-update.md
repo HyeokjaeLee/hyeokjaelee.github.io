@@ -1,6 +1,6 @@
 ---
 title: 'Webtoon API 개발'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/99b6a086-1283-4088-81cc-4cb857c3ccdb'
+titleImage: '../images/contents/korea-webtoon-api-update/korea-webtoon-api-update-01.png'
 description: '비공식 한국 웹툰 서비스 통합 API 개발'
 date: '2021-11-17'
 tags: [project, backend]
@@ -72,7 +72,7 @@ Proxy를 사용해 IP를 변경했다.
 
 현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.
 
-> ![google-search](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/079d3499-6fd0-4f60-b26c-460f46619ce0)
+> ![google-search](../images/contents/korea-webtoon-api-update/korea-webtoon-api-update-02.png)
 > 내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.
 
 로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.

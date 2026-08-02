@@ -1,9 +1,9 @@
 import { DrawerClose } from '@components/molecules/Drawer';
 import { PostSmallCard } from '@components/molecules/PostSmallCard';
-import { useAllPosts } from '@hooks/useAllPosts';
+import { useRecentPosts } from '@hooks/useRecentPosts';
 
 export const LastPostList = () => {
-  const posts = useAllPosts();
+  const posts = useRecentPosts();
   const nodes = (posts ?? []).slice(0, 5);
 
   return (

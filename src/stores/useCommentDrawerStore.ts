@@ -1,6 +1,6 @@
 import { createWithEqualityFn } from 'zustand/traditional';
 
-export type CommentTarget = {
+type CommentTarget = {
   /** Post pathname, e.g. "/briend/". Converted to the giscus `term` (canonical URL). */
   pathname: string;
   title?: string;
@@ -24,6 +24,6 @@ export const useCommentDrawerStore = createWithEqualityFn<CommentDrawerStore>(
     isOpen: false,
     target: null,
     openCommentDrawer: (target) => set({ isOpen: true, target }),
-    closeCommentDrawer: () => set({ isOpen: false }),
+    closeCommentDrawer: () => set({ isOpen: false, target: null }),
   }),
 );

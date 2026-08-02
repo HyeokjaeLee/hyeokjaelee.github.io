@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 import { PostArticleHeader } from '../layouts/PostLayout/_components/PostArticleHeader.tsx';
 import { RandomPostSuggestion } from '../layouts/PostLayout/_components/RandomPostSuggestion.tsx';
 
-import { getAllPosts } from '../utils/posts';
+import { getAllPosts, resolveTitleImage } from '../utils/posts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -20,7 +20,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const allPosts = await getAllPosts();
 const { Content } = await render(post);
-const { title, description, date, tags } = post.data;
+const { title, description, date, tags, titleImage } = post.data;
+const resolvedTitleImage = resolveTitleImage(titleImage);
 
 const yy = date.getFullYear().toString().slice(2);
 const mm = String(date.getMonth() + 1).padStart(2, '0');
@@ -29,7 +30,7 @@ const dateLabel = `${yy}년 ${mm}월 ${dd}일`;
 ---
 
 <Layout description={description} title={title}>
-  <article class="mt-8 break-keep py-4 leading-relaxed sm:mt-14 lg:mt-16">
+  <article class="mt-8 break-keep py-4 leading-relaxed sm:mt-14 lg:mt-16" data-pagefind-meta={`title:${title}`}>
     <PostArticleHeader
       client:visible
       date={dateLabel}
@@ -40,11 +41,13 @@ const dateLabel = `${yy}년 ${mm}월 ${dd}일`;
     />
     <section
       class="post-body mx-auto w-full max-w-4xl px-4"
+      data-pagefind-body
+      data-pagefind-meta={`description:${description}`}
       itemprop="post-article-body"
     >
       <Content />
     </section>
-    <footer class="mx-auto mt-9 max-w-4xl lg:mt-40">
+    <footer class="mx-auto mt-9 max-w-4xl lg:mt-40" data-pagefind-meta={`titleImage:${resolvedTitleImage}`}>
       <section class="px-4">
         <Bio />
         <hr class="mt-9 border-zinc-300 dark:border-zinc-700" />

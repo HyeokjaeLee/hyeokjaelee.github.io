@@ -1,9 +1,3 @@
-export function assert(value: unknown): asserts value {
-  if (!value) {
-    throw new Error(`Assertion failed: ${value}`);
-  }
-}
-
 export function assertEnum<T extends string>(
   enumType: Record<string, T>,
   value: unknown,

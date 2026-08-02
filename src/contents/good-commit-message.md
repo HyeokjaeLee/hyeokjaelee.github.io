@@ -1,6 +1,6 @@
 ---
 title: 'Git Commit Message Convention'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0c061905-eb53-4a8c-a277-6519e1ce2a49'
+titleImage: '../images/contents/good-commit-message/good-commit-message-01.png'
 description: 'Git Commit Message 작성을 위한 나와의 약속'
 date: '2021-07-03'
 tags: [devOps]

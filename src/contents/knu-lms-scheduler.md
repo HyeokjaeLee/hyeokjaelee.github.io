@@ -1,6 +1,6 @@
 ---
 title: 'KNU LMS Scheduler 프로젝트'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6'
+titleImage: '../images/contents/knu-lms-scheduler/knu-lms-scheduler-01.png'
 description: '공주대학교 비대면 강의 시스템 편의성 개선 프로젝트'
 date: '2021-10-14'
 tags: [project, data, frontend]
@@ -105,7 +105,7 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 배포
 
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/5ce48afd-9e2c-47c0-82ed-f9deac8556f6)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-01.png)
 
 이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.
 
@@ -133,11 +133,11 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 반응
 
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/96290eb2-8a91-42c8-ae10-ebb4df7a4620)
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/51a6cdd1-2df4-47da-b326-e092a875db20)
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/d4efefe7-22a1-45fe-b802-8acbceab2c4b)
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/69a65672-bdad-4667-91b0-9070bc55ed62)
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/60ee484b-28e1-4ac8-825b-8ecdfc79865a)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-02.png)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-03.png)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-04.png)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-05.png)
+![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-06.png)
 
 올린지 몇분만에 HOT 게시물과 실시간 인기 검색 게시물이 되었다.
 

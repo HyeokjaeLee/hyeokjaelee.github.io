@@ -1,6 +1,6 @@
 ---
 title: '리액트 컴포넌트, 어떤 컨셉으로 개발할까?'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3'
+titleImage: '../images/contents/react-component-concept/react-component-concept-01.png'
 description: '리렌더링을 최소화한 React 기반 컴포넌트 라이브러리를 개발하면서 고민했던 내용'
 date: '2022-11-16'
 tags: [frontend]
@@ -16,7 +16,10 @@ tags: [frontend]
 
 하지만 state를 외부에서 전달받아 사용하게 되면 state를 지니고 있는 상위 컴포넌트 하위에 있는 모든 컴포넌트들에 재렌더링이 발생한다.
 
-> ![bad-render](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/da87d333-6dae-4c2d-92f0-390aa57baf50)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="bad-render" width="1364" height="898" style="aspect-ratio: 1364 / 898;">
+>   <source src="/videos/react-component-concept/react-component-concept-02.webm" type="video/webm" />
+>   <source src="/videos/react-component-concept/react-component-concept-02.mp4" type="video/mp4" />
+> </video>
 > 불필요한 재렌더링 발생
 
 이런 문제점을 해결하기 위해 react-hook-form과 같은 라이브러리가 있지만 해당 라이브러리가 제시한 구조가 번거롭고 Validation 자유도 역시 그렇게 좋지 못하다고 생각해서 입력을 받는 모든 컴포넌트들이 자체적으로 state를 가지게 함으로써 이 문제를 해결했다.
@@ -39,7 +42,10 @@ tags: [frontend]
 
 이렇게 설계된 컴포넌트들로 페이지를 구성하면 다음과 같이 실제로 값이 수정되는 컴포넌트에서만 재렌더링이 발생하도록 할 수 있다.
 
-> ![good-render](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/df938800-02a9-407c-a4d9-814ba1356ae0)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="good-render" width="1312" height="502" style="aspect-ratio: 1312 / 502;">
+>   <source src="/videos/react-component-concept/react-component-concept-03.webm" type="video/webm" />
+>   <source src="/videos/react-component-concept/react-component-concept-03.mp4" type="video/mp4" />
+> </video>
 > 실제 값이 수정되는 컴포넌트만 재렌더링이 발생
 
 이렇게 컴포넌트 자체적으로 state를 관리하면서 Input 컴포넌트들에 공통적으로 적용되어야 할 Validation 등을 고차 컴포넌트(Higher-Order-Components)를 표방한 함수에 분리해 두었다.
@@ -65,7 +71,10 @@ ComplexTextbox에서 제공하고 있는 대부분의 Props는 attachCommonProps
 />
 ```
 
-![good-render2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/215722ac-103e-4d90-a916-5f5e27d7f201)
+<video autoplay muted loop playsinline preload="metadata" aria-label="good-render2" width="494" height="314" style="aspect-ratio: 494 / 314;">
+  <source src="/videos/react-component-concept/react-component-concept-04.webm" type="video/webm" />
+  <source src="/videos/react-component-concept/react-component-concept-04.mp4" type="video/mp4" />
+</video>
 
 ## 타입 추론
 
@@ -101,17 +110,20 @@ export interface SearchboxProps<T extends OptionHint> {
 
 options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.
 
-> ![type](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fe6c2b69-9e2e-4724-8204-858b30eef7a3)
+> ![type](../images/contents/react-component-concept/react-component-concept-01.png)
 > options을 자유로운 형식의 array로 입력받을 수 있음
 
-> ![type2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/fa5409b9-7431-437c-bef1-5e4e48d5d3c6)
+> ![type2](../images/contents/react-component-concept/react-component-concept-05.png)
 > options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨
 
 또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.
 
 물론 이것 역시 value, onChange 매개변수 등의 타입은 정확하게 추론할 수 있어야 한다.
 
-> ![storybook](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/530c7918-0f6d-4301-be52-cffa9dee64d6)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="storybook" width="992" height="732" style="aspect-ratio: 992 / 732;">
+>   <source src="/videos/react-component-concept/react-component-concept-06.webm" type="video/webm" />
+>   <source src="/videos/react-component-concept/react-component-concept-06.mp4" type="video/mp4" />
+> </video>
 > type에 따라 입력받을 수 있는 값이 달라짐
 
 이런 타입 추론은 추후 validation 로직에서도 유용하다.
@@ -131,7 +143,10 @@ options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 �
 />
 ```
 
-> ![good-render3](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/4087d06f-6607-4190-956e-e8d7363d4dd4)
+> <video autoplay muted loop playsinline preload="metadata" aria-label="good-render3" width="1100" height="314" style="aspect-ratio: 1100 / 314;">
+>   <source src="/videos/react-component-concept/react-component-concept-07.webm" type="video/webm" />
+>   <source src="/videos/react-component-concept/react-component-concept-07.mp4" type="video/mp4" />
+> </video>
 > validation을 체크하는 로직 역시 컴포넌트 내부에서 관리되고 있으므로 컴포넌트 외부 렌더링에 영향을 주지 않는다.
 
 이런 validation들을 모두 통과해야 요청을 보낼 수 있게 하는 로직은 useValidationStore라는 커스텀 hook을 만들어뒀다.

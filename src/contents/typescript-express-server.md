@@ -1,6 +1,6 @@
 ---
 title: 'Typescript + Express 서버 구축하기'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/85477ff3-413d-4615-9976-ed0c0cbd9fdc'
+titleImage: '../images/contents/typescript-express-server/typescript-express-server-01.png'
 description: 'Typescript를 이용한 Express 서버 구축'
 date: '2021-08-12'
 tags: [backend]

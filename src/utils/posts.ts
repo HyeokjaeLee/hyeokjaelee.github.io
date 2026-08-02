@@ -2,6 +2,8 @@ import { getCollection } from 'astro:content';
 
 import type { PostData } from '@shared/types';
 
+export const POST_PER_PAGE = 20;
+
 // Eagerly resolve every image under src/images to its built asset URL so that
 // frontmatter `titleImage` relative paths (e.g. "../images/contents/...") and
 // markdown body images can be served as optimized assets.
@@ -11,7 +13,7 @@ const imageUrls = import.meta.glob('../images/**/*', {
   import: 'default',
 }) as Record<string, string>;
 
-function resolveTitleImage(titleImage?: string): string {
+export function resolveTitleImage(titleImage?: string): string {
   if (!titleImage) {
     return '';
   }

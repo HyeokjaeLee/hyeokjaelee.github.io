@@ -1,6 +1,6 @@
 ---
 title: '대학생 개발자 취업 회고 (1)'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c8375f1e-6bda-4de3-ab2c-55db8719e709'
+titleImage: '../images/contents/employment-memoirs/employment-memoirs-01.jpg'
 description: '평범한 대학생 개발자가 2022년 상반기 취업하면서 느낀점'
 date: '2022-02-16'
 tags: [etc]
@@ -35,7 +35,7 @@ tags: [etc]
 ### 전역
 
 그렇게 2학년까지 보내고 군대에 갔고 군대에서도 포병으로 갔다가 컴퓨터를 잘한다는 이유로 중간에 행정병으로 보직이 바뀌었다.
-![baby](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97400455-fcf2-489d-8386-cf27caa47940)
+![baby](../images/contents/employment-memoirs/employment-memoirs-02.jpg)
 
 내가 할 일들을 한셀(엑셀)과 자바스크립트를 통해 자동화해서 편하게 보냈었고 덕분에 휴가도 많이 나와서 남들보다 편한 군생활을 했다.
 
@@ -59,7 +59,7 @@ tags: [etc]
 
 > 덕분에 학점은 말아먹고 Github엔 잔디밭이 생겼다.
 
-![commit log](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/2b5e1740-b44d-44d2-8fc0-016f0200d302)
+![commit log](../images/contents/employment-memoirs/employment-memoirs-03.png)
 
 실제 프로그램을 설계할 때 이론의 중요성은 매우 크다고 느끼지만 그걸 단순히 텍스트로 공부하는 것보다 직접 불편함도 느껴보고 여러 가지 패턴이나 개발 방법론들의 중요성을 깨닫는 게 더 즐거웠을 뿐 CS 지식이 중요하지 않다는 건 아니다.
 
@@ -102,7 +102,7 @@ tags: [etc]
 
 #### 당근마켓 (Frontend Engineer / 경력 무관)
 
-![당근마켓](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f65e133a-651c-48c1-bd11-898ccec71945)
+![당근마켓](../images/contents/employment-memoirs/employment-memoirs-04.png)
 가장 먼저 이력서를 제출했고 처음 보게 된 인터뷰였다.
 
 개발자 두 분과 진행했고 편안한 분위기를 유도해 주셨지만 너무 준비를 안 했던 것 같다.
@@ -115,14 +115,14 @@ tags: [etc]
 
 #### 인프런 (Frontend Engineer / 경력 3년 이상)
 
-![인프런](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/0b1f7598-da0e-4323-aea6-263cb001e138)
+![인프런](../images/contents/employment-memoirs/employment-memoirs-05.png)
 과제형 코딩 테스트가 기억에 남는데 node.js express 서버를 이용해 요구사항에 맞는 웹페이지를 만드는 과제였다.
 
 오랜만에 프레임워크나 라이브러리 없이 자바스크립트만으로 개발을 했고 코드에 대한 피드백을 줬던 부분이 기억에 남는다.
 
 #### 버킷플레이스 / 오늘의집 (Data Engineer / 경력 무관)
 
-![오늘의집](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/72b4198b-b819-476c-906d-8c74c3ef8f45)
+![오늘의집](../images/contents/employment-memoirs/employment-memoirs-06.png)
 오늘의집이라는 회사에 관심도 있었고 Data를 다루는 것에 살짝 흥미가 있었기 때문에 지원해봤다.
 
 SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행했고 난이도는 매우 쉬운 편이었다.
@@ -133,10 +133,10 @@ SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행�
 
 #### 넥슨 (Backend Engineer / 경력 무관)
 
-![넥슨](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/f6785d69-85b9-4bc3-9429-a5849f673980)
+![넥슨](../images/contents/employment-memoirs/employment-memoirs-07.png)
 요런 내용이 있어서 이메일을 받은 메일을 올리진 못했다.
 
-![넥슨2](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/cd27ce8d-8d9f-4ddf-b44e-5cfa561caf61)
+![넥슨2](../images/contents/employment-memoirs/employment-memoirs-08.png)
 학창 시절 넥슨의 게임을 즐겨했기 때문에 유일하게 지원했던 대기업이었다.
 
 결과 통보까지 좀 오랜 시간이 걸리긴 했지만 합격 관련 내용들은 담당자에게 직접 유선으로 안내받았다.
@@ -147,7 +147,7 @@ SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행�
 
 #### OPGG (Backend Engineer / 경력 2년 이상)
 
-![OPGG](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/984cb135-a59a-4f69-bbf6-8accf36a7a79)
+![OPGG](../images/contents/employment-memoirs/employment-memoirs-09.png)
 
 유일하게 하는 게임인 리그 오브 레전드의 전적 검색 사이트인데 해당 서비스를 자주 이용하는 나는 해당 공고를 보고 홀린 듯이 지원했다.
 
@@ -161,7 +161,7 @@ OPGG는 코딩이 아닌 아키텍처 설계를 통해 과제를 진행했는데
 
 #### 힐링페이퍼 (Frontend Engineer / 경력 3년 이상)
 
-![힐링페이퍼](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/25e3fa11-afba-4bd5-a79f-b0ea49f207eb)
+![힐링페이퍼](../images/contents/employment-memoirs/employment-memoirs-10.png)
 Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지고 있는 것 같아서 지원했다.
 
 > 나중에 동료 개발자 분들을 통해 알게 된 사실이지만 현재 재직 중인 회사에서 같이 일하신 적이 있으시다고 한다.
@@ -176,7 +176,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 
 #### 워시스왓 / 세탁특공대 (Backend Engineer / 경력 무관)
 
-![워시스왓](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/97bcba71-5ea0-4b2f-85c5-ea3536f80b1d)
+![워시스왓](../images/contents/employment-memoirs/employment-memoirs-11.png)
 클라이언트의 요청을 처리하는 단순한 Backend 서버를 만드는 과제형 코딩 테스트를 진행했다.
 
 express 베이스였고 토큰 생성, 계정 생성 등 기본적인 기능들은 MVC 패턴 기반으로 구현되어 있었다.
@@ -189,7 +189,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 야놀자 (Backend Engineer / 경력 3년 이상)
 
-![야놀자](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/790dd79e-901b-4720-8046-39f27049cf95)
+![야놀자](../images/contents/employment-memoirs/employment-memoirs-12.png)
 처음 보는 플랫폼에서 코딩 테스트가 진행되었다.
 
 난이도는 어렵지 않았지만 지문이 모두 영어였다.
@@ -204,7 +204,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 비바 퍼블리카 / Toss (Frontend Engineer / 경력 2년 이하)
 
-![토스](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/330a014d-9d03-465e-b294-fe17d9fd9c20)
+![토스](../images/contents/employment-memoirs/employment-memoirs-13.png)
 특이하게 경력 몇 년 이상이 아니라 이하인 채용공고였다.
 
 코딩 테스트도 일반적인 플랫폼에서 진행하는 것이 아닌 정해진 시간에 Github repository에 초대되어 문제를 풀고 제출하는 방식이었고 인터뷰 전 보안 서약서도 작성한다.
@@ -215,7 +215,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 굿닥 (Frontend Engineer / 경력 3년 이상)
 
-![굿닥](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/7e359ff9-b026-43d7-a4ba-873af2ef64a2)
+![굿닥](../images/contents/employment-memoirs/employment-memoirs-14.png)
 긴 인터뷰 시간 동안 테크 리드 분과 1:1로 대화를 나누었다.
 
 FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨는데 그런 부분들덕에 Frontend 뿐만아니라 여러가지 주재를 오가면서 대화를 나눴다.
@@ -226,7 +226,7 @@ FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨
 
 #### 슈가힐 / 네모 (Frontend Engineer / 경력 1년 이상)
 
-![슈가힐](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/a2f7d760-7410-4d7e-90b6-f8fdaba99be3)
+![슈가힐](../images/contents/employment-memoirs/employment-memoirs-15.png)
 개발자 두 분과 인터뷰를 진행했다.
 
 두분 모두 자신이 만들고 있는 프로덕트의 퍼포먼스를 최적화하신 부분에 대해 자부심이 있으신 것 같았고 나 역시 그 부분에 관심이 있었기 때문에 대화가 즐거웠다.
@@ -239,7 +239,7 @@ FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨
 
 #### 코드스테이츠 (Frontend Engineer / 경력 2년 이상)
 
-![코드스테이츠](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/18c83f74-7750-4a8e-b0f4-30ccdf137130)
+![코드스테이츠](../images/contents/employment-memoirs/employment-memoirs-16.png)
 총 3시간의 온라인 인터뷰와 라이브 코딩 테스트를 진행했고 함께 일할 사람을 신중하게 선택함을 느낄 수 있었다.
 
 짧지 않은 인터뷰 시간이었기 때문에 정말 많은 대화들을 나눌 수 있었다.

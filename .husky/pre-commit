@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+bunx lint-staged
+
+# Full build verification when content markdown changed
+if git diff --cached --name-only --diff-filter=ACM | grep -q '^src/contents/.*\.md$'; then
+  echo "▸ content changed — running full astro build check…"
+  bun run build || { echo "✖ astro build failed, commit aborted"; exit 1; }
+fi

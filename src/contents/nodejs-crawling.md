@@ -1,6 +1,6 @@
 ---
 title: '크롤링을 통한 데이터 수집하기'
-titleImage: 'https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a'
+titleImage: '../images/contents/nodejs-crawling/nodejs-crawling-01.png'
 description: 'Node.js 크롤링을 통한 데이터 수집'
 date: '2021-08-31'
 tags: [data]
@@ -51,7 +51,7 @@ cheerio는 이러한 데이터를 jquery와 유사한 문법을 통해 파싱 �
 우리는 이 태그의 selector를 복사해야 한다.
 
 거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보자
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/c9cd8b87-f909-475c-80fe-4f63fb05ad2a)
+![image](../images/contents/nodejs-crawling/nodejs-crawling-01.png)
 
 ### 첫 번째 값의 Selector
 
@@ -96,4 +96,4 @@ node index
 ```
 
 실행하면 다음과 같은 수집한 정보들이 출력됨을 확인할 수 있다.
-![image](https://github.com/HyeokjaeLee/hyeokjaelee.github.io/assets/71566740/dc8fc27f-9dcc-4cfc-b0b2-14ff72dab37b)
+![image](../images/contents/nodejs-crawling/nodejs-crawling-02.png)

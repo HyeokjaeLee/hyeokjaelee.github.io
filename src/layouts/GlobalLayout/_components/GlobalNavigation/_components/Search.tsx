@@ -4,31 +4,80 @@ import { Input } from '@components/atoms/Input';
 import { Kbd } from '@components/atoms/Kbd';
 import { Modal } from '@components/molecules/Modal';
 import { PostSmallCard } from '@components/molecules/PostSmallCard';
-import { useAllPosts } from '@hooks/useAllPosts';
+import type { PostData } from '@shared/types';
 import { debounce } from 'es-toolkit';
 import { SearchIcon } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { VirtuosoHandle } from 'react-virtuoso';
 import { Virtuoso } from 'react-virtuoso';
 
+interface SearchResultItem {
+  url: string;
+  title?: string;
+  description?: string;
+  titleImage?: string;
+}
+
+interface PagefindResultData {
+  url: string;
+  excerpt?: string;
+  meta?: Record<string, string>;
+}
+
+interface PagefindInstance {
+  search: (query: string) => Promise<{
+    results: {
+      id: string;
+      data: () => Promise<PagefindResultData>;
+    }[];
+  }>;
+}
+
+interface ManifestResponse {
+  posts?: PostData[];
+}
+
+const RECENT_POST_ENDPOINTS = ['/posts/page/1.json'];
+const RECENT_POST_COUNT = 8;
+const SEARCH_RESULT_LIMIT = 20;
+
+const normalizeManifest = (data: unknown): PostData[] => {
+  if (Array.isArray(data)) {
+    return data as PostData[];
+  }
+  if (data !== null && typeof data === 'object' && 'posts' in data) {
+    const { posts } = data as ManifestResponse;
+    if (Array.isArray(posts)) {
+      return posts;
+    }
+  }
+  return [];
+};
+
+/**
+ * Loads the Pagefind index generated at build time into /pagefind/pagefind.js.
+ * Returns null in dev (the artifact does not exist) or if the dynamic import
+ * fails, so callers can degrade to an empty result instead of crashing.
+ */
+const loadPagefind = async (): Promise<PagefindInstance | null> => {
+  try {
+    // @ts-expect-error - /pagefind/pagefind.js is a build-time artifact with no type declarations
+    const imported = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+    return imported as PagefindInstance;
+  } catch {
+    return null;
+  }
+};
+
 export const Search = () => {
-  const posts = useAllPosts();
+  const [results, setResults] = useState<SearchResultItem[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const [searchKeyword, setSearchKeyword] = useState('');
   const debouncedSetSearchKeyword = useMemo(
     () => debounce(setSearchKeyword, 300),
     [],
   );
-
-  const searchedPosts = (posts ?? []).filter((node) => {
-    const searchString = `${node.title}${node.description}`
-      .toLowerCase()
-      .replaceAll(' ', '');
-
-    return searchString.includes(
-      searchKeyword.toLowerCase().replaceAll(' ', ''),
-    );
-  });
 
   const [isOpen, setIsOpen] = useState(false);
   const virtuosoRef = useRef<VirtuosoHandle>(null);
@@ -38,6 +87,78 @@ export const Search = () => {
     if (virtuosoRef.current) {
       virtuosoRef.current.scrollToIndex(0);
     }
+  }, [searchKeyword]);
+
+  useEffect(() => {
+    let active = true;
+
+    const runSearch = async () => {
+      if (!searchKeyword.trim()) {
+        setLoading(true);
+        try {
+          let recentPosts: PostData[] = [];
+          for (const endpoint of RECENT_POST_ENDPOINTS) {
+            try {
+              const res = await fetch(endpoint);
+              if (res.ok) {
+                recentPosts = normalizeManifest(await res.json());
+                break;
+              }
+            } catch {
+              // endpoint unavailable, try the next fallback
+            }
+          }
+          if (active) {
+            setResults(
+              recentPosts.slice(0, RECENT_POST_COUNT).map((post) => ({
+                url: post.slug,
+                title: post.title,
+                description: post.description,
+                titleImage: post.titleImage,
+              })),
+            );
+          }
+        } finally {
+          if (active) setLoading(false);
+        }
+        return;
+      }
+
+      setLoading(true);
+      try {
+        const pf = await loadPagefind();
+        if (!pf) {
+          if (active) setResults([]);
+          return;
+        }
+        const search = await pf.search(searchKeyword);
+        const data = await Promise.all(
+          search.results
+            .slice(0, SEARCH_RESULT_LIMIT)
+            .map((result) => result.data()),
+        );
+        if (active) {
+          setResults(
+            data.map((item) => ({
+              url: item.url,
+              title: item.meta?.title,
+              description: item.meta?.description ?? item.excerpt,
+              titleImage: item.meta?.titleImage,
+            })),
+          );
+        }
+      } catch {
+        if (active) setResults([]);
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+
+    runSearch();
+
+    return () => {
+      active = false;
+    };
   }, [searchKeyword]);
 
   useEffect(() => {
@@ -98,13 +219,13 @@ export const Search = () => {
         type="search"
       />
       <div className="h-91 flex-1">
-        {searchedPosts.length > 0 ? (
+        {results.length > 0 ? (
           <Virtuoso
             className="hide-scrollbar"
             itemContent={(index) => {
-              const post = searchedPosts[index];
+              const post = results[index];
 
-              if (!post?.slug) {
+              if (!post?.url) {
                 return null;
               }
 
@@ -115,7 +236,7 @@ export const Search = () => {
                     onClick={() => {
                       setIsOpen(false);
                     }}
-                    slug={post.slug}
+                    slug={post.url}
                     title={post.title}
                     titleImage={post.titleImage}
                   />
@@ -124,9 +245,9 @@ export const Search = () => {
             }}
             ref={virtuosoRef}
             style={{ height: 364, width: '100%' }}
-            totalCount={searchedPosts.length}
+            totalCount={results.length}
           />
-        ) : (
+        ) : loading ? null : (
           <div className="flex size-full flex-col items-center justify-center">
             <DotLottie className="size-30" src="/lotties/empty.lottie" />
             <p className="text-muted-foreground">검색 결과가 없습니다.</p>

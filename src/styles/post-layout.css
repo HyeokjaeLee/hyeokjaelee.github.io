@@ -128,6 +128,14 @@
   @apply mx-auto my-12 max-w-[calc(100%-10rem)] border-[0.5px] border-zinc-300 dark:border-zinc-800;
 }
 
-.post-body img {
-  @apply mx-auto max-w-full rounded-md border border-zinc-300 dark:border-zinc-800;
+/* Loading skeleton: subtle theme-aware placeholder shown behind body media
+   until it loads. Opaque images/videos cover it once decoded. */
+.post-body img,
+.post-body video {
+  @apply mx-auto max-w-full rounded-md border border-zinc-300 bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-800;
+}
+
+.post-body video {
+  display: block;
+  height: auto;
 }
