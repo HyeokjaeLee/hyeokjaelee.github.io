@@ -30,8 +30,8 @@
 채팅에 필요한 최소한의 정보를 받되 모든 정보는 초대 하는 사람이 입력하도록 했다.
 
 <video autoplay muted loop playsinline preload="metadata" aria-label="상대방이 QR을 스캔하고 채팅을 수락하면 채팅방이 열림" width="600" height="981" style="aspect-ratio: 600 / 981;">
-  <source src="/videos/briend/briend2.webm" type="video/webm" />
-  <source src="/videos/briend/briend2.mp4" type="video/mp4" />
+  <source src="/briend/briend2.webm" type="video/webm" />
+  <source src="/briend/briend2.mp4" type="video/mp4" />
 </video>
 
 QR을 스캔하면 바로 브라우저에서 사용할 수 있는 웹앱 형식을 생각했다.
@@ -95,7 +95,7 @@ DB는 따로 두지 않고 모든 채팅 정보들은 `Indexed DB`를 통해 브
 
 모든 개발이 완료된 후엔 일본을 여행했을때 사귀었던 한국말을 잘하는 일본 친구에게 테스트를 부탁했다.
 
-![일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면](../images/contents/briend/briend.jpg)
+![일본인 친구는 일본어로 대화하고 나는 한국어로 대화했을때 내 화면](assets/briend.jpg)
 
 생각보다 대화가 굉장히 자연스러워서 놀랐다.
 
@@ -121,42 +121,48 @@ DB는 따로 두지 않고 모든 채팅 정보들은 `Indexed DB`를 통해 브
 
 비행기 탄김에 한달정도 제주도에서 살아볼 생각으로 노트북을 챙겨서 제주도로 날아왔다.
 
-![비행기 타는날 아침에 공항 라운지로 출근해서 일하고 값 싼 밤 비행기를 탓다.](../images/contents/digital-nomad-in-jeju/sky.jpeg)
+![비행기 타는날 아침에 공항 라운지로 출근해서 일하고 값 싼 밤 비행기를 탓다.](assets/sky.jpeg)
 
 ## 업무 환경
 
 산책하는 취미가 있어서 산책로와 카페가 많은 애월에 숙소를 잡았다.
 
-![숙소 풍경](../images/contents/digital-nomad-in-jeju/jeju1.jpeg)
+![숙소 풍경](assets/jeju1.jpeg)
 
 처음에는 예쁜 카페들을 찾아 다니면서 일할 생각이었지만 하루 일해보니 그런 카페들은 대부분 소규모 카페들이라 하루종일 일하는 내 입장에서는 조금 부담 스러웠다.
 
-![애월 투썸플레이스](../images/contents/digital-nomad-in-jeju/jeju2.jpeg) ![결국 숙소 앞에 투썸플레이스에서 대부분 일했던것 같다.](../images/contents/digital-nomad-in-jeju/jeju3.jpeg)
+:::gallery{cols="2"}
+![애월 투썸플레이스](assets/jeju2.jpeg)
+![결국 숙소 앞에 투썸플레이스에서 대부분 일했던것 같다.](assets/jeju3.jpeg)
+:::
 
 인터페이스 작업할때 맥북만으로는 화면이 작아 불편한 부분들이 있어서 항상 아이패드를 챙겨다니며 보조 모니터로 활용했다.
 
 > 처음엔 바다를 보는게 일하는게 좋아서 통창앞에 항상 자리를 잡았었는데 날씨가 아직 쌀쌀했음에도 낮에는 너무 더웠다..
 
-![카페에서 탁 트인 바다를 보면서 일하니 일할 맛이 났다.](../images/contents/digital-nomad-in-jeju/jeju4.jpeg)
-
-![출근길](../images/contents/digital-nomad-in-jeju/jeju5.jpeg)
+:::gallery{cols="2"}
+![카페에서 탁 트인 바다를 보면서 일하니 일할 맛이 났다.](assets/jeju4.jpeg)
+![출근길](assets/jeju5.jpeg)
+:::
 
 제주도에 있는 동안 숙소와 카페가 거리가 조금 있어서 매일 걸었던 출근길은 사무실이나 집에서 일할때 보다 상쾌하게 하루를 시작할 수 있게 해주었다.
 
-![숙소 루프탑 풍경](../images/contents/digital-nomad-in-jeju/jeju6.jpeg) ![숙소에 루프탑이 있었는데 해질녘에 너무 예뻐서 바람이 많이 불지 않는 날엔 종종 루프탑에서 일할 때도 있었다.](../images/contents/digital-nomad-in-jeju/jeju7.jpeg)
-
-![숙소에서 조금 거리가 있던 카페](../images/contents/digital-nomad-in-jeju/jeju-cafe.jpeg)
+:::gallery{cols="3"}
+![숙소 루프탑 풍경](assets/jeju6.jpeg)
+![숙소에 루프탑이 있었는데 해질녘에 너무 예뻐서 바람이 많이 불지 않는 날엔 종종 루프탑에서 일할 때도 있었다.](assets/jeju7.jpeg)
+![숙소에서 조금 거리가 있던 카페](assets/jeju-cafe.jpeg)
+:::
 중간에 치앙마이에 있을때도 중간에 놀러왔던 다른 회사 개발자 친구가 와서 함께 카페에 가서 일했다.
 
 사람 만나는걸 좋아하는 나는 역시 혼자 있는것 보단 누구 한명 옆에 있으니 좋았다.
 
 ## 퇴근 후
 
-![퇴근 후엔 주로 산책을 다녔다.](../images/contents/digital-nomad-in-jeju/jeju8.jpeg)
+![퇴근 후엔 주로 산책을 다녔다.](assets/jeju8.jpeg)
 
 애월에 숙소를 잡은 가장 큰이유는 산책로였는데, 바닷소리를 들으며 걸으니 평소 산책다닐때와는 또 다른 느낌이었다.
 
-![보통 코스를 다돌고 나면 완전히 캄캄해졌다.](../images/contents/digital-nomad-in-jeju/jeju9.jpeg)
+![보통 코스를 다돌고 나면 완전히 캄캄해졌다.](assets/jeju9.jpeg)
 
 육지에 있을때도 퇴근하면 산책을 매일 가는 편인데 고민하던 내용이 산책중에 해결되거나 새로운 아이디어가 떠오르는 경우가 많아서 산책을 좋아하는 편이다.
 
@@ -232,7 +238,10 @@ npmScopes:
 
 하지만 사람이 몰리는 시간에 인터넷이 느려지는 경우가 있었다.
 
-![숙소 앞 스타벅스 테라스](../images/contents/digital-nomad-in-chiang-mai/startbucks.jpeg) ![스타벅스2](../images/contents/digital-nomad-in-chiang-mai/starbucks2.jpeg)
+:::gallery{cols="2"}
+![숙소 앞 스타벅스 테라스](assets/startbucks.jpeg)
+![스타벅스2](assets/starbucks2.jpeg)
+:::
 
 나는 현지에서 데이터 무제한 유심을 개통해서 테더링해 사용했기 때문에 큰 문제가 되진 않았다.
 
@@ -242,19 +251,25 @@ npmScopes:
 
 업무 장소는 그날 일어나서 기분에 따라 움직였는데 가끔 정말 나가기 싫은 날은 그냥 숙소에서 일하는 경우도 있었고 숙소 내에 있는 카페에서 일하는 경우도 있었다.
 
-![숙소 카페](../images/contents/digital-nomad-in-chiang-mai/cafe.jpeg) ![숙소에 놀러온 다른 회사 개발자 친구](../images/contents/digital-nomad-in-chiang-mai/home.jpeg)
+:::gallery{cols="2"}
+![숙소 카페](assets/cafe.jpeg)
+![숙소에 놀러온 다른 회사 개발자 친구](assets/home.jpeg)
+:::
 
 인터넷이 빠르고 크게 이야기해도 주변사람들에게 피해줄 일이 없어서 화상 미팅이 많은 날은 숙소에서 일하는 경우가 많았다.
 
 카페 중에 스타벅스 말고도 캠프라는 카페도 자주 갔었는데 나처럼 일하러 온 사람들도 많았지만 현지 대학생들도 많았다.
 
-![마야몰 캠프](../images/contents/digital-nomad-in-chiang-mai/camp.jpeg)
+![마야몰 캠프](assets/camp.jpeg)
 
 가장 자주 갔었던 곳은 코워킹 스페이스 Yellow라는 곳이었는데 한국 공유 오피스와 비슷한 느낌이었다.
 
 2층을 임대해서 사용하는 회사들도 있었고 1층에는 여러 나라에서 온 개발자, 디자이너등이 있었고 카페처럼 공부를 위해 찾는 사람은 없었다.
 
-![코워킹 스페이스 Yellow](../images/contents/digital-nomad-in-chiang-mai/yellow.jpg) ![코워킹 스페이스에서 일하고 있는 사람들](../images/contents/digital-nomad-in-chiang-mai/yellow2.jpg)
+:::gallery{cols="2"}
+![코워킹 스페이스 Yellow](assets/yellow.jpg)
+![코워킹 스페이스에서 일하고 있는 사람들](assets/yellow2.jpg)
+:::
 
 원데이 패스도 있었지만 한 달 이상 결제하면 가격도 싸고 지문인식으로 출입이 가능해서 더 늦은 시간까지 이용할 수 있었다.
 
@@ -264,7 +279,7 @@ npmScopes:
 
 배달비도 500원 수준이고 음식 가격 역시 현지 음식들로 먹으면 2000원 정도면 해결되었다.
 
-![모르는 고양이](../images/contents/digital-nomad-in-chiang-mai/cat.jpg)
+![모르는 고양이](assets/cat.jpg)
 
 야외 자리에 앉아서 일하고 있을 때는 가끔 고양이에게 간택당하는 경우도 있었다.
 
@@ -276,11 +291,14 @@ npmScopes:
 
 현지 시간으로 일찍 출근하긴 했지만 퇴근 후 개인적으로 사용할 수 있는 시간이 길었던 게 가장 좋았다.
 
-![퇴근해도 낮](../images/contents/digital-nomad-in-chiang-mai/water.jpeg)
+![퇴근해도 낮](assets/water.jpeg)
 
 한국에 있을 때는 퇴근 시간이 되어도 성격상 퇴근하지 않는 경우가 많았지만 퇴근후 하고 싶은 일들이 많았기 때문에 태국에서는 최대한 칼퇴근하려고 노력했다.
 
-![현지에서 사귄 친구들과 갔던 시장](../images/contents/digital-nomad-in-chiang-mai/market.jpeg) ![현지에서 사귄 친구들과 갔던 술집](../images/contents/digital-nomad-in-chiang-mai/concert.jpeg)
+:::gallery{cols="2"}
+![현지에서 사귄 친구들과 갔던 시장](assets/market.jpeg)
+![현지에서 사귄 친구들과 갔던 술집](assets/concert.jpeg)
+:::
 
 사실 치앙마이를 처음 와본 것은 아니고 5년 전쯤에 가족여행으로 오긴 했지만 워케이션으로 온 치앙마이는 또 다른 느낌이었다.
 
@@ -309,8 +327,8 @@ npmScopes:
 하지만 state를 외부에서 전달받아 사용하게 되면 state를 지니고 있는 상위 컴포넌트 하위에 있는 모든 컴포넌트들에 재렌더링이 발생한다.
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="bad-render" width="1364" height="898" style="aspect-ratio: 1364 / 898;">
->   <source src="/videos/react-component-concept/react-component-concept-02.webm" type="video/webm" />
->   <source src="/videos/react-component-concept/react-component-concept-02.mp4" type="video/mp4" />
+>   <source src="/react-component-concept/react-component-concept-02.webm" type="video/webm" />
+>   <source src="/react-component-concept/react-component-concept-02.mp4" type="video/mp4" />
 > </video>
 > 불필요한 재렌더링 발생
 
@@ -335,8 +353,8 @@ npmScopes:
 이렇게 설계된 컴포넌트들로 페이지를 구성하면 다음과 같이 실제로 값이 수정되는 컴포넌트에서만 재렌더링이 발생하도록 할 수 있다.
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="good-render" width="1312" height="502" style="aspect-ratio: 1312 / 502;">
->   <source src="/videos/react-component-concept/react-component-concept-03.webm" type="video/webm" />
->   <source src="/videos/react-component-concept/react-component-concept-03.mp4" type="video/mp4" />
+>   <source src="/react-component-concept/react-component-concept-03.webm" type="video/webm" />
+>   <source src="/react-component-concept/react-component-concept-03.mp4" type="video/mp4" />
 > </video>
 > 실제 값이 수정되는 컴포넌트만 재렌더링이 발생
 
@@ -364,8 +382,8 @@ ComplexTextbox에서 제공하고 있는 대부분의 Props는 attachCommonProps
 ```
 
 <video autoplay muted loop playsinline preload="metadata" aria-label="good-render2" width="494" height="314" style="aspect-ratio: 494 / 314;">
-  <source src="/videos/react-component-concept/react-component-concept-04.webm" type="video/webm" />
-  <source src="/videos/react-component-concept/react-component-concept-04.mp4" type="video/mp4" />
+  <source src="/react-component-concept/react-component-concept-04.webm" type="video/webm" />
+  <source src="/react-component-concept/react-component-concept-04.mp4" type="video/mp4" />
 </video>
 
 ## 타입 추론
@@ -402,10 +420,10 @@ export interface SearchboxProps<T extends OptionHint> {
 
 options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.
 
-> ![type](../images/contents/react-component-concept/react-component-concept-01.png)
+> ![type](assets/react-component-concept-01.png)
 > options을 자유로운 형식의 array로 입력받을 수 있음
 
-> ![type2](../images/contents/react-component-concept/react-component-concept-05.png)
+> ![type2](assets/react-component-concept-05.png)
 > options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨
 
 또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.
@@ -413,8 +431,8 @@ options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 �
 물론 이것 역시 value, onChange 매개변수 등의 타입은 정확하게 추론할 수 있어야 한다.
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="storybook" width="992" height="732" style="aspect-ratio: 992 / 732;">
->   <source src="/videos/react-component-concept/react-component-concept-06.webm" type="video/webm" />
->   <source src="/videos/react-component-concept/react-component-concept-06.mp4" type="video/mp4" />
+>   <source src="/react-component-concept/react-component-concept-06.webm" type="video/webm" />
+>   <source src="/react-component-concept/react-component-concept-06.mp4" type="video/mp4" />
 > </video>
 > type에 따라 입력받을 수 있는 값이 달라짐
 
@@ -436,8 +454,8 @@ options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 �
 ```
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="good-render3" width="1100" height="314" style="aspect-ratio: 1100 / 314;">
->   <source src="/videos/react-component-concept/react-component-concept-07.webm" type="video/webm" />
->   <source src="/videos/react-component-concept/react-component-concept-07.mp4" type="video/mp4" />
+>   <source src="/react-component-concept/react-component-concept-07.webm" type="video/webm" />
+>   <source src="/react-component-concept/react-component-concept-07.mp4" type="video/mp4" />
 > </video>
 > validation을 체크하는 로직 역시 컴포넌트 내부에서 관리되고 있으므로 컴포넌트 외부 렌더링에 영향을 주지 않는다.
 
@@ -525,7 +543,7 @@ React 기반 제품을 개발하면서 컴포넌트 수가 많아지게 되면�
 
 ### 제품 디렉토리 구조
 
-> ![image](../images/contents/react-atomic/react-atomic-02.png)![image](../images/contents/react-atomic/react-atomic-01.png)
+> ![image](assets/react-atomic-02.png)![image](assets/react-atomic-01.png)
 > components, pages 디렉토리 구조
 
 components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.
@@ -759,7 +777,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.
 
-> ![mvc](../images/contents/react-design-pattern/react-design-pattern-02.png)
+> ![mvc](assets/react-design-pattern-02.png)
 > 소프트웨어를 Model - View - Controller 요소로 구분함
 
 **역할**
@@ -772,7 +790,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.
 
-> ![mvvm](../images/contents/react-design-pattern/react-design-pattern-03.png)
+> ![mvvm](assets/react-design-pattern-03.png)
 > MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨
 
 **역할**
@@ -785,7 +803,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.
 
-> ![flux](../images/contents/react-design-pattern/react-design-pattern-04.png)
+> ![flux](assets/react-design-pattern-04.png)
 > MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함
 
 **역할**
@@ -801,7 +819,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 > 이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.
 
-> ![pcc](../images/contents/react-design-pattern/react-design-pattern-05.png)
+> ![pcc](assets/react-design-pattern-05.png)
 > 앱을 Container Component와 Presentational Component로 나누어 개발한다.
 
 **역할**
@@ -821,7 +839,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.
 
-> ![atomic](../images/contents/react-design-pattern/react-design-pattern-06.png)
+> ![atomic](assets/react-design-pattern-06.png)
 > 여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.
 
 **역할**
@@ -837,7 +855,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 ## 디자인 패턴, 중요한 건 알겠는데...
 
-![image](../images/contents/react-design-pattern/react-design-pattern-01.png)
+![image](assets/react-design-pattern-01.png)
 
 ### 디자인 패턴 중요한 건 알겠는데 왜 써야 하지?
 
@@ -1099,7 +1117,7 @@ B2C 페이지에 Next.js 도입을 고려하는 상황에서 CSS-Modules을 사�
 ### 전역
 
 그렇게 2학년까지 보내고 군대에 갔고 군대에서도 포병으로 갔다가 컴퓨터를 잘한다는 이유로 중간에 행정병으로 보직이 바뀌었다.
-![baby](../images/contents/employment-memoirs/employment-memoirs-02.jpg)
+![baby](assets/employment-memoirs-02.jpg)
 
 내가 할 일들을 한셀(엑셀)과 자바스크립트를 통해 자동화해서 편하게 보냈었고 덕분에 휴가도 많이 나와서 남들보다 편한 군생활을 했다.
 
@@ -1123,7 +1141,7 @@ B2C 페이지에 Next.js 도입을 고려하는 상황에서 CSS-Modules을 사�
 
 > 덕분에 학점은 말아먹고 Github엔 잔디밭이 생겼다.
 
-![commit log](../images/contents/employment-memoirs/employment-memoirs-03.png)
+![commit log](assets/employment-memoirs-03.png)
 
 실제 프로그램을 설계할 때 이론의 중요성은 매우 크다고 느끼지만 그걸 단순히 텍스트로 공부하는 것보다 직접 불편함도 느껴보고 여러 가지 패턴이나 개발 방법론들의 중요성을 깨닫는 게 더 즐거웠을 뿐 CS 지식이 중요하지 않다는 건 아니다.
 
@@ -1166,7 +1184,7 @@ B2C 페이지에 Next.js 도입을 고려하는 상황에서 CSS-Modules을 사�
 
 #### 당근마켓 (Frontend Engineer / 경력 무관)
 
-![당근마켓](../images/contents/employment-memoirs/employment-memoirs-04.png)
+![당근마켓](assets/employment-memoirs-04.png)
 가장 먼저 이력서를 제출했고 처음 보게 된 인터뷰였다.
 
 개발자 두 분과 진행했고 편안한 분위기를 유도해 주셨지만 너무 준비를 안 했던 것 같다.
@@ -1179,14 +1197,14 @@ B2C 페이지에 Next.js 도입을 고려하는 상황에서 CSS-Modules을 사�
 
 #### 인프런 (Frontend Engineer / 경력 3년 이상)
 
-![인프런](../images/contents/employment-memoirs/employment-memoirs-05.png)
+![인프런](assets/employment-memoirs-05.png)
 과제형 코딩 테스트가 기억에 남는데 node.js express 서버를 이용해 요구사항에 맞는 웹페이지를 만드는 과제였다.
 
 오랜만에 프레임워크나 라이브러리 없이 자바스크립트만으로 개발을 했고 코드에 대한 피드백을 줬던 부분이 기억에 남는다.
 
 #### 버킷플레이스 / 오늘의집 (Data Engineer / 경력 무관)
 
-![오늘의집](../images/contents/employment-memoirs/employment-memoirs-06.png)
+![오늘의집](assets/employment-memoirs-06.png)
 오늘의집이라는 회사에 관심도 있었고 Data를 다루는 것에 살짝 흥미가 있었기 때문에 지원해봤다.
 
 SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행했고 난이도는 매우 쉬운 편이었다.
@@ -1197,10 +1215,10 @@ SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행�
 
 #### 넥슨 (Backend Engineer / 경력 무관)
 
-![넥슨](../images/contents/employment-memoirs/employment-memoirs-07.png)
+![넥슨](assets/employment-memoirs-07.png)
 요런 내용이 있어서 이메일을 받은 메일을 올리진 못했다.
 
-![넥슨2](../images/contents/employment-memoirs/employment-memoirs-08.png)
+![넥슨2](assets/employment-memoirs-08.png)
 학창 시절 넥슨의 게임을 즐겨했기 때문에 유일하게 지원했던 대기업이었다.
 
 결과 통보까지 좀 오랜 시간이 걸리긴 했지만 합격 관련 내용들은 담당자에게 직접 유선으로 안내받았다.
@@ -1211,7 +1229,7 @@ SQL과 프로그래밍 언어 하나를 선택해서 코딩 테스트를 진행�
 
 #### OPGG (Backend Engineer / 경력 2년 이상)
 
-![OPGG](../images/contents/employment-memoirs/employment-memoirs-09.png)
+![OPGG](assets/employment-memoirs-09.png)
 
 유일하게 하는 게임인 리그 오브 레전드의 전적 검색 사이트인데 해당 서비스를 자주 이용하는 나는 해당 공고를 보고 홀린 듯이 지원했다.
 
@@ -1225,7 +1243,7 @@ OPGG는 코딩이 아닌 아키텍처 설계를 통해 과제를 진행했는데
 
 #### 힐링페이퍼 (Frontend Engineer / 경력 3년 이상)
 
-![힐링페이퍼](../images/contents/employment-memoirs/employment-memoirs-10.png)
+![힐링페이퍼](assets/employment-memoirs-10.png)
 Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지고 있는 것 같아서 지원했다.
 
 > 나중에 동료 개발자 분들을 통해 알게 된 사실이지만 현재 재직 중인 회사에서 같이 일하신 적이 있으시다고 한다.
@@ -1240,7 +1258,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 
 #### 워시스왓 / 세탁특공대 (Backend Engineer / 경력 무관)
 
-![워시스왓](../images/contents/employment-memoirs/employment-memoirs-11.png)
+![워시스왓](assets/employment-memoirs-11.png)
 클라이언트의 요청을 처리하는 단순한 Backend 서버를 만드는 과제형 코딩 테스트를 진행했다.
 
 express 베이스였고 토큰 생성, 계정 생성 등 기본적인 기능들은 MVC 패턴 기반으로 구현되어 있었다.
@@ -1253,7 +1271,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 야놀자 (Backend Engineer / 경력 3년 이상)
 
-![야놀자](../images/contents/employment-memoirs/employment-memoirs-12.png)
+![야놀자](assets/employment-memoirs-12.png)
 처음 보는 플랫폼에서 코딩 테스트가 진행되었다.
 
 난이도는 어렵지 않았지만 지문이 모두 영어였다.
@@ -1268,7 +1286,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 비바 퍼블리카 / Toss (Frontend Engineer / 경력 2년 이하)
 
-![토스](../images/contents/employment-memoirs/employment-memoirs-13.png)
+![토스](assets/employment-memoirs-13.png)
 특이하게 경력 몇 년 이상이 아니라 이하인 채용공고였다.
 
 코딩 테스트도 일반적인 플랫폼에서 진행하는 것이 아닌 정해진 시간에 Github repository에 초대되어 문제를 풀고 제출하는 방식이었고 인터뷰 전 보안 서약서도 작성한다.
@@ -1279,7 +1297,7 @@ DAO나 Service 코드를 얼마나 효율적으로 작성하는지 보고 싶었
 
 #### 굿닥 (Frontend Engineer / 경력 3년 이상)
 
-![굿닥](../images/contents/employment-memoirs/employment-memoirs-14.png)
+![굿닥](assets/employment-memoirs-14.png)
 긴 인터뷰 시간 동안 테크 리드 분과 1:1로 대화를 나누었다.
 
 FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨는데 그런 부분들덕에 Frontend 뿐만아니라 여러가지 주재를 오가면서 대화를 나눴다.
@@ -1290,7 +1308,7 @@ FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨
 
 #### 슈가힐 / 네모 (Frontend Engineer / 경력 1년 이상)
 
-![슈가힐](../images/contents/employment-memoirs/employment-memoirs-15.png)
+![슈가힐](assets/employment-memoirs-15.png)
 개발자 두 분과 인터뷰를 진행했다.
 
 두분 모두 자신이 만들고 있는 프로덕트의 퍼포먼스를 최적화하신 부분에 대해 자부심이 있으신 것 같았고 나 역시 그 부분에 관심이 있었기 때문에 대화가 즐거웠다.
@@ -1303,7 +1321,7 @@ FE 스택 외에도 여러 가지 기술 스택들에 관심을 가지고 계셨
 
 #### 코드스테이츠 (Frontend Engineer / 경력 2년 이상)
 
-![코드스테이츠](../images/contents/employment-memoirs/employment-memoirs-16.png)
+![코드스테이츠](assets/employment-memoirs-16.png)
 총 3시간의 온라인 인터뷰와 라이브 코딩 테스트를 진행했고 함께 일할 사람을 신중하게 선택함을 느낄 수 있었다.
 
 짧지 않은 인터뷰 시간이었기 때문에 정말 많은 대화들을 나눌 수 있었다.
@@ -1475,8 +1493,8 @@ Gatsby는 이런 상황에서 Next.js의 훌륭한 대안이었다.
 하지만 유니크한 개인 블로그 겸 포트폴리오 페이지를 가지고 싶어서 템플릿 없이 만들게 되었다.
 
 <video autoplay muted loop playsinline preload="metadata" aria-label="블로그 디자인" width="640" height="458" style="aspect-ratio: 640 / 458;">
-  <source src="/videos/blog-remake-review2/blog-design.webm" type="video/webm" />
-  <source src="/videos/blog-remake-review2/blog-design.mp4" type="video/mp4" />
+  <source src="/blog-remake-review2/blog-design.webm" type="video/webm" />
+  <source src="/blog-remake-review2/blog-design.mp4" type="video/mp4" />
 </video>
 
 ### 블로그 디자인에 고려했던 부분
@@ -1561,7 +1579,7 @@ Gatsby는 이런 상황에서 Next.js의 훌륭한 대안이었다.
 
 ## COVID-19 API
 
-![외부 API를 사용할때 가장 받기 싫은 메일인듯..](../images/contents/covid-19-api-update/covid-19-api.png)
+![외부 API를 사용할때 가장 받기 싫은 메일인듯..](assets/covid-19-api.png)
 
 이전에 Toyproject용으로 COVID-19의 여러 외부 정보들을 종합해 새로운 데이터를 추가하고 이상치를 제거해 GraphQL로 데이터를 제공하는 서버를 호스팅 해두었다.
 
@@ -1676,7 +1694,7 @@ Proxy를 사용해 IP를 변경했다.
 
 현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.
 
-> ![google-search](../images/contents/korea-webtoon-api-update/korea-webtoon-api-update-02.png)
+> ![google-search](assets/korea-webtoon-api-update-02.png)
 > 내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.
 
 로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.
@@ -1775,7 +1793,7 @@ npm run start
 ```
 
 생성된 프로젝트의 구조는 다음과 같다.
-![프로젝트 구조](../images/contents/nest-js/project-dir.png)
+![프로젝트 구조](assets/project-dir.png)
 
 - **app.controller.spc.ts**: 유닛 테스트를 위한 파일
 - **app.controller.ts**: 기본 컨트롤러
@@ -2079,7 +2097,7 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 배포
 
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-01.png)
+![image](assets/knu-lms-scheduler-01.png)
 
 이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.
 
@@ -2107,11 +2125,13 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 반응
 
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-02.png)
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-03.png)
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-04.png)
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-05.png)
-![image](../images/contents/knu-lms-scheduler/knu-lms-scheduler-06.png)
+:::gallery{cols="4"}
+![image](assets/knu-lms-scheduler-02.png)
+![image](assets/knu-lms-scheduler-03.png)
+![image](assets/knu-lms-scheduler-04.png)
+![image](assets/knu-lms-scheduler-05.png)
+![image](assets/knu-lms-scheduler-06.png)
+:::
 
 올린지 몇분만에 HOT 게시물과 실시간 인기 검색 게시물이 되었다.
 
@@ -2147,7 +2167,7 @@ AngularJS commit conventions의 Type만으로 설명이 부족한 부분을 Emoj
 
 React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.
 
-> ![react-vue](../images/contents/gititle-project/gititle-project-02.png)
+> ![react-vue](assets/gititle-project-02.png)
 > 보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.
 
 예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.
@@ -2181,16 +2201,16 @@ Vue.js의 개발자 도구가 매우 편리하다고 하는데 아쉽게도 이�
 딱히 Backend에서 데이터를 받아올 만한 프로젝트가 아니기 때문에 앱 자체에 보이고 싶은 값들을 담아 클라이언트 쪽에서 검색 기능을 구현했다.
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="gititle" width="1420" height="898" style="aspect-ratio: 1420 / 898;">
->   <source src="/videos/gititle-project/gititle-project-03.webm" type="video/webm" />
->   <source src="/videos/gititle-project/gititle-project-03.mp4" type="video/mp4" />
+>   <source src="/gititle-project/gititle-project-03.webm" type="video/webm" />
+>   <source src="/gititle-project/gititle-project-03.mp4" type="video/mp4" />
 > </video>
 > Commit Message 구성요소 검색
 
 대략적인 커밋 예시를 제공하고 각 커밋 메시지 영억을 클릭하면 해당 영역에 들어갈 수 있는 선택지를 제공하고 있으며 각 선택지들을 어떤 상황에 쓰이게 되는지 혹은 예시 내용을 보여줄 수 있는 UI를 제공하고 있다.
 
 > <video autoplay muted loop playsinline preload="metadata" aria-label="gititle2" width="1420" height="898" style="aspect-ratio: 1420 / 898;">
->   <source src="/videos/gititle-project/gititle-project-04.webm" type="video/webm" />
->   <source src="/videos/gititle-project/gititle-project-04.mp4" type="video/mp4" />
+>   <source src="/gititle-project/gititle-project-04.webm" type="video/webm" />
+>   <source src="/gititle-project/gititle-project-04.mp4" type="video/mp4" />
 > </video>
 > Commit Message 구성요소 아이템에 대한 선택지를 제공
 
@@ -2270,9 +2290,9 @@ min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한�
 ```
 
 설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-![image](../images/contents/sass-compiler/sass-compiler-02.png)
+![image](assets/sass-compiler-02.png)
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-![image](../images/contents/sass-compiler/sass-compiler-03.png)
+![image](assets/sass-compiler-03.png)
 
 ---
 
@@ -2327,7 +2347,7 @@ cheerio는 이러한 데이터를 jquery와 유사한 문법을 통해 파싱 �
 우리는 이 태그의 selector를 복사해야 한다.
 
 거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보자
-![image](../images/contents/nodejs-crawling/nodejs-crawling-01.png)
+![image](assets/nodejs-crawling-01.png)
 
 ### 첫 번째 값의 Selector
 
@@ -2372,7 +2392,7 @@ node index
 ```
 
 실행하면 다음과 같은 수집한 정보들이 출력됨을 확인할 수 있다.
-![image](../images/contents/nodejs-crawling/nodejs-crawling-02.png)
+![image](assets/nodejs-crawling-02.png)
 
 ---
 
@@ -2390,7 +2410,7 @@ Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들�
 
 Github에서 얼마 전 [Copilot Technical Preview](https://copilot.github.com/)를 공개했고 바로 다운로드해서 사용하지는 못하고 위 링크에서 신청한 후에 초대장을 받아야 사용 가능했다.
 
-![Copilot 초대장](../images/contents/copilot-review/copilot-invite.png)
+![Copilot 초대장](assets/copilot-invite.png)
 
 Github 활동량이 많을수록 빠르게 수락된다고 하던데 내 기준으로 7월 초쯤에 신청하고 일주일 정도 후에 초대장을 받은 것 같다.
 
