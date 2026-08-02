@@ -202,21 +202,21 @@
 .dms {
   position: relative;
   flex-shrink: 0;
-  width: 90px;
-  height: 46px;
+  width: 52px;
+  height: 28px;
   padding: 0;
   border: none;
   border-radius: 9999px;
   overflow: hidden;
   cursor: pointer;
   background: linear-gradient(180deg, #8ec9f2 0%, #c4e6ff 100%);
-  box-shadow: inset 0 2px 5px rgba(8, 24, 60, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(8, 24, 60, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
   transition: background 700ms ease, box-shadow 700ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 .dms.is-dark {
   background: linear-gradient(180deg, #0b1026 0%, #1c2a55 100%);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 .dms:focus-visible {
   outline: 2px solid var(--ring);
@@ -238,15 +238,15 @@
   position: absolute;
   border-radius: 9999px;
   background: #fff;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
   animation: dms-twinkle 2.4s ease-in-out infinite;
 }
 
 /* clouds (day) */
 .dms__cloud {
   position: absolute;
-  width: 20px;
-  height: 7px;
+  width: 12px;
+  height: 4px;
   background: #fff;
   border-radius: 9999px;
   opacity: 0.95;
@@ -261,15 +261,15 @@
   border-radius: 9999px;
 }
 .dms__cloud::before {
-  width: 9px;
-  height: 9px;
-  left: 2px;
-  top: -4px;
+  width: 5px;
+  height: 5px;
+  left: 1px;
+  top: -3px;
 }
 .dms__cloud::after {
-  width: 6px;
-  height: 6px;
-  right: 3px;
+  width: 4px;
+  height: 4px;
+  right: 2px;
   top: -2px;
 }
 .dms.is-dark .dms__cloud {
@@ -279,14 +279,14 @@
 /* knob — the celestial body */
 .dms__knob {
   position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 34px;
-  height: 34px;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
   transition: left 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .dms.is-dark .dms__knob {
-  left: calc(100% - 40px);
+  left: calc(100% - 24px);
 }
 
 /* sun rays */
@@ -299,18 +299,18 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px;
-  height: 8px;
-  margin-left: -1.5px;
-  margin-top: -4px;
+  width: 2px;
+  height: 6px;
+  margin-left: -1px;
+  margin-top: -3px;
   border-radius: 9999px;
   background: #ffd24d;
-  transform: rotate(var(--a, 0deg)) translateY(-18px) scale(1);
+  transform: rotate(var(--a, 0deg)) translateY(-9px) scale(1);
   transform-origin: center;
   transition: transform 500ms ease, opacity 400ms ease;
 }
 .dms.is-dark .dms__ray {
-  transform: rotate(var(--a, 0deg)) translateY(-18px) scale(0);
+  transform: rotate(var(--a, 0deg)) translateY(-9px) scale(0);
   opacity: 0;
 }
 
@@ -320,7 +320,7 @@
   inset: 0;
   border-radius: 9999px;
   background: radial-gradient(circle at 34% 32%, #fff0a8 0%, #ffd24d 45%, #f7b500 100%);
-  box-shadow: 0 0 10px rgba(255, 196, 60, 0.55);
+  box-shadow: 0 0 6px rgba(255, 196, 60, 0.55);
   transition: opacity 500ms ease;
 }
 .dms.is-dark .dms__sun {
@@ -333,7 +333,7 @@
   inset: 0;
   border-radius: 9999px;
   background: radial-gradient(circle at 34% 32%, #fff7e2 0%, #efe3c4 60%, #d8c79c 100%);
-  box-shadow: 0 0 8px rgba(255, 246, 214, 0.35);
+  box-shadow: 0 0 5px rgba(255, 246, 214, 0.35);
   opacity: 0;
   overflow: hidden;
   transition: opacity 500ms ease;
@@ -352,8 +352,8 @@
   50% { opacity: 1; transform: scale(1); }
 }
 @keyframes dms-drift {
-  from { transform: translateX(-22px); }
-  to { transform: translateX(112px); }
+  from { transform: translateX(-14px); }
+  to { transform: translateX(66px); }
 }
 @keyframes dms-spin {
   from { transform: rotate(0deg); }

@@ -1,4 +1,4 @@
 {
   "*.{ts,tsx,js,jsx,mjs,cjs,astro}": "biome check --write",
-  "src/contents/**/*.md": "bun run scripts/validate-post.ts"
+  "contents/**/content.md": "bun run scripts/validate-post.ts"
 }

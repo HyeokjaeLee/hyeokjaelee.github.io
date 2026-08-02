@@ -4,16 +4,17 @@ import type { PostData } from '@shared/types';
 
 export const POST_PER_PAGE = 20;
 
-// Eagerly resolve every image under src/images to its built asset URL so that
-// frontmatter `titleImage` relative paths (e.g. "../images/contents/...") and
-// markdown body images can be served as optimized assets.
-const imageUrls = import.meta.glob('../images/**/*', {
+// Eagerly resolve every content asset under contents/ to its built asset URL so
+// frontmatter `titleImage` paths (e.g. "assets/<file>") resolve to optimized
+// assets. Body images are handled separately by Astro's markdown pipeline.
+// posts.ts lives in src/utils/, so root contents/ is two levels up.
+const imageUrls = import.meta.glob('../../contents/**/assets/*', {
   eager: true,
   query: '?url',
   import: 'default',
 }) as Record<string, string>;
 
-export function resolveTitleImage(titleImage?: string): string {
+export function resolveTitleImage(slug: string, titleImage?: string): string {
   if (!titleImage) {
     return '';
   }
@@ -23,7 +24,7 @@ export function resolveTitleImage(titleImage?: string): string {
     return titleImage;
   }
 
-  return imageUrls[titleImage] ?? '';
+  return imageUrls[`../../contents/${slug}/${titleImage}`] ?? '';
 }
 
 function formatDate(date: Date): string {
@@ -45,7 +46,7 @@ export async function getAllPosts(): Promise<PostData[]> {
       return {
         slug: `/${post.id}/`,
         title,
-        titleImage: resolveTitleImage(titleImage),
+        titleImage: resolveTitleImage(post.id, titleImage),
         tags,
         description,
         date: date.toISOString(),

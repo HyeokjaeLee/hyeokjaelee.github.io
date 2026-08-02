@@ -9,7 +9,7 @@ import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
 import { X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 const GISCUS_ORIGIN = 'https://giscus.app';
 
@@ -73,6 +73,12 @@ export const CommentModal = () => {
   const [containerEl, setContainerEl] = useState<HTMLDivElement | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Reset loading synchronously on open so the modal never flashes its ready
+  // state before the spinner paints — isLoading would otherwise stay stale
+  // from the previous open cycle (this component stays mounted while closed).
+  useLayoutEffect(() => {
+    if (target) setIsLoading(true);
+  }, [target]);
   // Load giscus for the target; reveal only once its height stabilises.
   useEffect(() => {
     if (!isOpen || !target || !containerEl) return;

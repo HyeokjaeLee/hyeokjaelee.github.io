@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import remarkDirective from 'remark-directive';
+import { rehypeGallery } from './src/plugins/rehype-gallery';
+import { remarkGallery } from './src/plugins/remark-gallery';
 import { remarkImageOptimize } from './src/plugins/remark-image-optimize.js';
 
 // GitHub "link" octicon used by gatsby-remark-autolink-headers permalink anchors.
@@ -43,8 +46,9 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   markdown: {
     syntaxHighlight: 'prism',
-    remarkPlugins: [remarkImageOptimize],
+    remarkPlugins: [remarkDirective, remarkImageOptimize, remarkGallery],
     rehypePlugins: [
+      rehypeGallery,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
