@@ -4,7 +4,7 @@ import { cn } from '@utils/cn';
 import { useEffect, useRef, useState } from 'react';
 
 const REPO = 'Hyeokjaelee/hyeokjaelee.github.io';
-const giscusTheme = (dark: boolean) => (dark ? 'github-dark' : 'github-light');
+const giscusTheme = (dark: boolean) => (dark ? 'noborder_dark' : 'noborder_light');
 const utterancesTheme = (dark: boolean) =>
   dark ? 'dark-blue' : 'github-light';
 
@@ -31,7 +31,6 @@ const appendWidget = (container: HTMLElement, dark: boolean) => {
       'data-input-position': GISCUS_CONFIG.inputPosition,
       'data-theme': giscusTheme(dark),
       'data-lang': GISCUS_CONFIG.lang,
-      'data-loading': 'lazy',
       crossorigin: 'anonymous',
       async: 'true',
     };
@@ -61,8 +60,6 @@ export const Comment = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isDarkMode = useLayoutStore((state) => state.isDarkMode);
   const [isMounted, setIsMounted] = useState(false);
-  const initialDark = useRef(isDarkMode);
-
   // Mount the widget once.
   useEffect(() => {
     setIsMounted(false);
@@ -70,7 +67,7 @@ export const Comment = () => {
     const timer = setTimeout(() => {
       if (!ref.current) return;
 
-      appendWidget(ref.current, initialDark.current);
+      appendWidget(ref.current, document.documentElement.classList.contains('dark'));
       setIsMounted(true);
     }, 1_000);
 

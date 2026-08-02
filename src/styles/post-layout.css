@@ -90,6 +90,11 @@
 
 .post-body table {
   @apply my-4 table-auto;
+  /* scroll wide tables internally; width:max-content preserves shrink-to-fit for narrow ones */
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .post-body td {

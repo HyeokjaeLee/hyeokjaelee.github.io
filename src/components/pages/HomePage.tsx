@@ -66,7 +66,7 @@ export const HomePage = ({ posts }: HomePageProps) => {
   );
 
   return (
-    <article className="flex size-full flex-col items-center justify-start">
+    <article className="flex min-h-full w-full flex-col items-center justify-start pb-16">
       <header className="py-7">
         <Bio />
       </header>

@@ -49,7 +49,7 @@ const dateLabel = `${yy}년 ${mm}월 ${dd}일`;
         <hr class="mt-9 border-zinc-300 dark:border-zinc-700" />
       </section>
       <RandomPostSuggestion client:visible posts={allPosts} slug={`/${post.id}/`} />
-      <Comment client:visible />
+      <Comment client:load />
     </footer>
   </article>
 </Layout>
