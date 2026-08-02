@@ -17,7 +17,6 @@ import { MenuIcon, X } from 'lucide-react';
 
 import { DarkModeSwitch } from './_components/DarkModeSwitch';
 import { LastPostList } from './_components/LastPostList';
-import { LikePostList } from './_components/LikePostList';
 import { NavigationList } from './_components/NavigationList';
 
 export const Menu = () => {
@@ -62,7 +61,6 @@ export const Menu = () => {
             ]}
           />
           <LastPostList />
-          <LikePostList />
         </section>
         <DrawerFooter className="flex flex-row items-center justify-between">
           <small className="text-zinc-500">

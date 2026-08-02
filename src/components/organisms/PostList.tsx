@@ -1,11 +1,10 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { SELECTOR } from '@constants/layout';
 import { useReactionCounts } from '@hooks/useReactionCounts';
+import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import type { PostData } from '@shared/types';
-import { useGlobalStore } from '@stores/useGlobalStore';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { VirtuosoGrid } from 'react-virtuoso';
-import { useShallow } from 'zustand/shallow';
 
 interface PostListProps {
   postList: PostData[];
@@ -14,8 +13,8 @@ interface PostListProps {
 
 export const PostList = ({ postList, className = '' }: PostListProps) => {
   const reactionCounts = useReactionCounts();
-  const [likePostMap, setLikePostMap] = useGlobalStore(
-    useShallow((state) => [state.likePostMap, state.setLikePostMap]),
+  const openCommentDrawer = useCommentDrawerStore(
+    (state) => state.openCommentDrawer,
   );
 
   const [gridHeight, setGridHeight] = useState(600);
@@ -70,16 +69,14 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
               date={post.dateLabel}
               description={post.description}
               href={post.slug}
-              isLiked={likePostMap.get(post.slug)}
               key={post.slug}
               likeCount={reactionCounts[post.slug]}
-              onClickLikeButton={() => {
-                setLikePostMap((prevMap) => {
-                  prevMap.set(post.slug, !prevMap.get(post.slug));
-
-                  return prevMap;
-                });
-              }}
+              onOpenComments={() =>
+                openCommentDrawer({
+                  pathname: post.slug,
+                  title: post.title || '무제',
+                })
+              }
               tags={post.tags}
               title={post.title || '무제'}
               titleImage={post.titleImage}

@@ -1,11 +1,13 @@
 import { Button } from '@components/atoms/Button';
 import { Link } from '@shared/Link';
+import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import { Calendar, Heart, Share2, Tag } from 'react-feather';
 
 interface PostArticleHeaderProps {
   title?: string;
   date?: string;
   tags?: string[];
+  pathname?: string;
 }
 
 const ICON_SIZE = 'w-4 h-4';
@@ -14,32 +16,11 @@ export const PostArticleHeader = ({
   title,
   date,
   tags,
+  pathname,
 }: PostArticleHeaderProps) => {
-  const handleScrollToComments = () => {
-    const comments = document.getElementById('comments');
-
-    if (!comments) return;
-
-    comments.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    comments.classList.add(
-      'ring-2',
-      'ring-red-400/60',
-      'ring-offset-4',
-      'rounded-lg',
-      'transition-shadow',
-    );
-
-    setTimeout(() => {
-      comments.classList.remove(
-        'ring-2',
-        'ring-red-400/60',
-        'ring-offset-4',
-        'rounded-lg',
-        'transition-shadow',
-      );
-    }, 2500);
-  };
+  const openCommentDrawer = useCommentDrawerStore(
+    (state) => state.openCommentDrawer,
+  );
 
   return title && date && tags ? (
     <header className="relative mx-auto mb-7 flex w-full max-w-4xl flex-col justify-between overflow-hidden px-4 pb-7">
@@ -72,7 +53,11 @@ export const PostArticleHeader = ({
         </dl>
         <section className="ml-auto">
           <Button
-            onClick={handleScrollToComments}
+            onClick={() => {
+              if (pathname) {
+                openCommentDrawer({ pathname, title });
+              }
+            }}
             onlyIcon
             size="8"
             type="button"

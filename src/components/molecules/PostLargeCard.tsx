@@ -3,7 +3,7 @@ import { TitleImage } from '@generated/TitleImage';
 import { Link } from '@shared/Link';
 import { useLayoutStore } from '@stores/useLayoutStore';
 import { cn } from '@utils/cn';
-import { Calendar, Heart, Tag } from 'react-feather';
+import { Calendar, Heart, MessageCircle, Tag } from 'react-feather';
 
 interface PostLargeCardProps {
   href: string;
@@ -12,8 +12,8 @@ interface PostLargeCardProps {
   tags?: (string | null)[];
   date?: string | null;
   titleImage?: string;
-  onClickLikeButton?: () => void;
-  isLiked?: boolean;
+  /** Opens the comment/reaction drawer for this post. */
+  onOpenComments?: () => void;
   likeCount?: number;
   className?: string;
 }
@@ -25,12 +25,18 @@ export const PostLargeCard = ({
   tags,
   date,
   titleImage,
-  onClickLikeButton,
-  isLiked,
+  onOpenComments,
   likeCount,
   className,
 }: PostLargeCardProps) => {
   const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
+
+  // Stop the click so the surrounding card link does not navigate.
+  const handleOpenComments = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onOpenComments?.();
+  };
 
   return (
     <Link
@@ -75,27 +81,31 @@ export const PostLargeCard = ({
             <Calendar className="size-3" />
             <time className="text-xs">{date}</time>
           </div>
-          <Button
-            className="h-auto gap-0.5 px-1"
-            onClick={(e) => {
-              e.preventDefault();
-
-              onClickLikeButton?.();
-            }}
-            size="8"
-            variant="ghost"
-          >
-            <Heart
-              className={cn('size-3 text-zinc-400', {
-                'fill-red-500 text-red-500': isLiked,
-              })}
-            />
-            {likeCount ? (
-              <span className="text-xs tabular-nums text-zinc-400">
-                {likeCount}
-              </span>
-            ) : null}
-          </Button>
+          <div className="flex items-center">
+            <Button
+              aria-label="반응 및 댓글"
+              className="h-auto gap-0.5 px-1"
+              onClick={handleOpenComments}
+              size="8"
+              variant="ghost"
+            >
+              <Heart className="size-3 text-zinc-400" />
+              {likeCount ? (
+                <span className="text-xs tabular-nums text-zinc-400">
+                  {likeCount}
+                </span>
+              ) : null}
+            </Button>
+            <Button
+              aria-label="댓글 보기"
+              className="h-auto px-1"
+              onClick={handleOpenComments}
+              size="8"
+              variant="ghost"
+            >
+              <MessageCircle className="size-3 text-zinc-400" />
+            </Button>
+          </div>
         </section>
       </article>
     </Link>
