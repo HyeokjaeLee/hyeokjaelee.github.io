@@ -1,0 +1,1 @@
+var e={repo:`Hyeokjaelee/hyeokjaelee.github.io`,repoId:`MDEwOlJlcG9zaXRvcnkzNTA4NDE3Nzg=`,category:`Comments`,categoryId:`DIC_kwDOFOlrss4DCUFZ`,mapping:`url`,reactionsEnabled:`1`,inputPosition:`bottom`,lang:`ko`,get isEnabled(){return!!(this.category&&this.categoryId)}};export{e as t};
