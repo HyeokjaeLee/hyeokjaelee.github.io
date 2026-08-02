@@ -1,5 +1,6 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
 import { SELECTOR } from '@constants/layout';
+import { useReactionCounts } from '@hooks/useReactionCounts';
 import type { PostData } from '@shared/types';
 import { useGlobalStore } from '@stores/useGlobalStore';
 import { useLayoutEffect, useRef, useState } from 'react';
@@ -12,6 +13,7 @@ interface PostListProps {
 }
 
 export const PostList = ({ postList, className = '' }: PostListProps) => {
+  const reactionCounts = useReactionCounts();
   const [likePostMap, setLikePostMap] = useGlobalStore(
     useShallow((state) => [state.likePostMap, state.setLikePostMap]),
   );
@@ -70,6 +72,7 @@ export const PostList = ({ postList, className = '' }: PostListProps) => {
               href={post.slug}
               isLiked={likePostMap.get(post.slug)}
               key={post.slug}
+              likeCount={reactionCounts[post.slug]}
               onClickLikeButton={() => {
                 setLikePostMap((prevMap) => {
                   prevMap.set(post.slug, !prevMap.get(post.slug));

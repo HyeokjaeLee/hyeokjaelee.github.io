@@ -14,6 +14,7 @@ interface PostLargeCardProps {
   titleImage?: string;
   onClickLikeButton?: () => void;
   isLiked?: boolean;
+  likeCount?: number;
   className?: string;
 }
 
@@ -26,6 +27,7 @@ export const PostLargeCard = ({
   titleImage,
   onClickLikeButton,
   isLiked,
+  likeCount,
   className,
 }: PostLargeCardProps) => {
   const isTouchDevice = useLayoutStore((state) => state.isTouchDevice);
@@ -74,13 +76,12 @@ export const PostLargeCard = ({
             <time className="text-xs">{date}</time>
           </div>
           <Button
-            className="size-5"
+            className="h-auto gap-0.5 px-1"
             onClick={(e) => {
               e.preventDefault();
 
               onClickLikeButton?.();
             }}
-            onlyIcon
             size="8"
             variant="ghost"
           >
@@ -89,6 +90,11 @@ export const PostLargeCard = ({
                 'fill-red-500 text-red-500': isLiked,
               })}
             />
+            {likeCount ? (
+              <span className="text-xs tabular-nums text-zinc-400">
+                {likeCount}
+              </span>
+            ) : null}
           </Button>
         </section>
       </article>
