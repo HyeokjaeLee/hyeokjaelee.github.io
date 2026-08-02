@@ -1,1 +1,0 @@
-import{u as e}from"./cn.BGeb-pLb.js";var t=e(),n=({src:e,className:n,imgClassName:r})=>(0,t.jsx)(`div`,{className:n,children:e?(0,t.jsx)(`img`,{alt:``,className:r,loading:`lazy`,src:e}):null});export{n as t};
