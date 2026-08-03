@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [인쇄 DOM 텔레포트와 Module Federation 공유 캐시](https://hyeokjaelee.github.io/print-dom-teleport-shared-queryclient-module-federation/): 수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다. 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.
 - [두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인](https://hyeokjaelee.github.io/dual-write-wiki-problem-3stage-pipeline/): Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다. 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.
 - [비전 폴백 패턴 일반화와 삭제는 정리가 아니다](https://hyeokjaelee.github.io/vision-fallback-generalize-dangling-ref-cleanup/): 이미지를 읽는 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 일반화했다. 그리고 npm 삭제 후 남은 dangling 참조도 정리했다.
 - [결론이 두 번 뒤집힌 QA와 Vue Query Ref 함정](https://hyeokjaelee.github.io/conclusion-flipped-twice-qa-vue-query-ref-noop/): 재계산 뱃지가 안 사라지는 QA를 조사했다. 프론트 문제인 줄 알았다가 백엔드인 줄 알았다가, 결국 프론트 최적화 업데이트로 해결했다. Vue Query에서 Ref를 키에 넣으면 silent NO-OP가 된다.
