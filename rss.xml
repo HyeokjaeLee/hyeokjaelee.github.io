@@ -245,14 +245,8 @@ export const ComplexTextbox = attachCommonProps(Textbox);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;위 Searchbox의 Props와 같이 각 타입들이 엄격하게 관리되면 특정 값은 자유롭게 입력받을 수 있으면서 해당 값을 참고해야 하는 다른 값들은 엄격하게 관리할 수 있다.&lt;/p&gt;
 &lt;p&gt;options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-component-concept-01.png&quot; alt=&quot;type&quot;&gt;
-options을 자유로운 형식의 array로 입력받을 수 있음&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-component-concept-05.png&quot; alt=&quot;type2&quot;&gt;
-options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-component-concept-01.png&quot; alt=&quot;options을 자유로운 형식의 array로 입력받을 수 있음&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-component-concept-05.png&quot; alt=&quot;options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨&quot;&gt;&lt;/p&gt;
 &lt;p&gt;또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.&lt;/p&gt;
 &lt;p&gt;물론 이것 역시 value, onChange 매개변수 등의 타입은 정확하게 추론할 수 있어야 한다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -337,10 +331,11 @@ validation을 체크하는 로직 역시 컴포넌트 내부에서 관리되고 
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;제품 디렉토리 구조&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-atomic-02.png&quot; alt=&quot;image&quot;&gt;&lt;img src=&quot;assets/react-atomic-01.png&quot; alt=&quot;image&quot;&gt;
-components, pages 디렉토리 구조&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;:::gallery
+&lt;img src=&quot;assets/react-atomic-02.png&quot; alt=&quot;components 디렉토리 구조&quot;&gt;
+&lt;img src=&quot;assets/react-atomic-01.png&quot; alt=&quot;pages 디렉토리 구조&quot;&gt;&lt;/p&gt;
+&lt;p&gt;components, pages 디렉토리 구조
+:::&lt;/p&gt;
 &lt;p&gt;components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.&lt;/p&gt;
 &lt;p&gt;template 컴포넌트는 page 컴포넌트에 종속적이므로 page 컴포넌트 하위 디렉터리에서 관리하고 있다.&lt;/p&gt;
 &lt;p&gt;pages 하위 디렉토리에서의 index.tsx는 일반적인 index의 용도와 다르게 설정했는데 해당 페이지의 로직은 index.tsx 파일에 작성하도록 했다.&lt;/p&gt;
@@ -540,10 +535,7 @@ export function Filters() {
 &lt;p&gt;의식하지 않고 개발한 웹도 Model은 특정 DB 혹은 서버에서 책임을 가지고 있을 테고 앱 제어를 위한 Controller는 HTML/JS, View는 HTML/CSS로 분리해서 작성했을 것이기 때문이다.&lt;/p&gt;
 &lt;p&gt;MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.&lt;/p&gt;
 &lt;p&gt;또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-02.png&quot; alt=&quot;mvc&quot;&gt;
-소프트웨어를 Model - View - Controller 요소로 구분함&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-02.png&quot; alt=&quot;소프트웨어를 Model - View - Controller 요소로 구분함&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;역할&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Model: 데이터 관리&lt;/li&gt;
@@ -552,10 +544,7 @@ export function Filters() {
 &lt;/ul&gt;
 &lt;h3&gt;MVVM&lt;/h3&gt;
 &lt;p&gt;View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-03.png&quot; alt=&quot;mvvm&quot;&gt;
-MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-03.png&quot; alt=&quot;MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;역할&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Model: 데이터 관리&lt;/li&gt;
@@ -564,10 +553,7 @@ MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Flux&lt;/h3&gt;
 &lt;p&gt;기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-04.png&quot; alt=&quot;flux&quot;&gt;
-MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-04.png&quot; alt=&quot;MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;역할&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Action: 이벤트 발생 시 이벤트 정보를 Dispatcher로 전달&lt;/li&gt;
@@ -580,10 +566,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;blockquote&gt;
 &lt;p&gt;이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-05.png&quot; alt=&quot;pcc&quot;&gt;
-앱을 Container Component와 Presentational Component로 나누어 개발한다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-05.png&quot; alt=&quot;앱을 Container Component와 Presentational Component로 나누어 개발한다.&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;역할&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Container Component: 로직&lt;/li&gt;
@@ -595,10 +578,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;p&gt;대충 설명을 봐도 위에서 언급한 다른 패턴과는 살짝 성격이 다르다.&lt;/p&gt;
 &lt;p&gt;위에서 언급한 패턴들은 대부분 로직과 컴포넌트를 어떤 기준으로 분리하고 운용하는지에 대한 패턴이라면 Atomic 디자인 패턴은 그것보단 인터페이스와 재사용성에 중점을 둔 패턴이라는 생각이다.&lt;/p&gt;
 &lt;p&gt;개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-06.png&quot; alt=&quot;atomic&quot;&gt;
-여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-06.png&quot; alt=&quot;여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;역할&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Atoms: 디자인과 기능의 최소 단위&lt;blockquote&gt;
@@ -616,8 +596,8 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;li&gt;Templates: Atoms, Molecules, Organisms을 배치하는데 중점을 둔 컴포넌트&lt;/li&gt;
 &lt;li&gt;Pages: Templates을 배치하여 웹 애플리케이션 페이지 하나에 대응하는 컴포넌트&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;디자인 패턴, 중요한 건 알겠는데...&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-01.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;디자인 패턴, 중요한 건 알겠는데&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;assets/react-design-pattern-01.png&quot; alt=&quot;디자인 패턴을 두고 고민하는 한 장면&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;디자인 패턴 중요한 건 알겠는데 왜 써야 하지?&lt;/h3&gt;
 &lt;p&gt;실제로 내가 학교에서 &amp;#39;고급 소프트웨어 설계&amp;#39; 과목을 수강하면서 했던 생각이다.&lt;/p&gt;
 &lt;ul&gt;
@@ -626,7 +606,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;li&gt;특히 1회성으로 끝나는 프로젝트가 아니라 기대 수명을 길게 잡은 소프트웨어를 개발하게 되면 더욱 유지보수 용이성을 신경 쓰지 않을 수 없다.&lt;/li&gt;
 &lt;li&gt;디자인 패턴은 이런 고민들에 대한 가이드라인이 되어줄 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;우린 그런 거 없어도 잘 개발해 왔다!&lt;/h3&gt;
+&lt;h3&gt;우린 그런 거 없어도 잘 개발해 왔다&lt;/h3&gt;
 &lt;p&gt;이런 생각이 드는 데는 여러 가지 이유가 있을 수 있겠지만 아래 내용 중 해당사항이 있는지 생각해 볼 필요가 있다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;이미 이전의 누군가의 고민이 녹아있는 프로젝트에 참여하고 있는 것이 아닌지&lt;blockquote&gt;
@@ -647,7 +627,7 @@ MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함&lt;/p&g
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다.&lt;/h3&gt;
+&lt;h3&gt;모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다&lt;/h3&gt;
 &lt;p&gt;물론 디자인 패턴이 훌륭한 참고서는 될 수 있다.&lt;/p&gt;
 &lt;p&gt;개발이 필요한 수천수만 가지 제품에서 이러한 디자인 패턴이 몇십 가지가 된다고 해서 이 모든 제품에 대응할 수 있을 거라 생각하지 않는가 때문에 나는 이것이 답안지라고 생각하지는 않는다.&lt;/p&gt;
 &lt;h4&gt;디자인 패턴을 엄격하게 따르기 위해서 비효율을 감수해야 하는가?&lt;/h4&gt;
@@ -1133,10 +1113,7 @@ Frontend 테크 리드의 인터뷰를 보고 괜찮은 개발 문화를 가지�
 &lt;/blockquote&gt;
 &lt;h3&gt;🗓️ 2022-12-01&lt;/h3&gt;
 &lt;p&gt;현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/korea-webtoon-api-update-02.png&quot; alt=&quot;google-search&quot;&gt;
-내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/korea-webtoon-api-update-02.png&quot; alt=&quot;내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.&quot;&gt;&lt;/p&gt;
 &lt;p&gt;로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.&lt;/p&gt;
 &lt;p&gt;Naver의 경우엔 클라이언트 구조가 살짝 바뀌어서 일부 정보만 못 불러오는 상태였고 Kakao Page는 GraphQL 도입으로 인해 기존 REST API Endpoint가 없어졌다.&lt;/p&gt;
 &lt;p&gt;다행히 GraphQL API 자체는 익숙했기 때문에 금방 적용했다.&lt;/p&gt;
@@ -1393,7 +1370,7 @@ export class AppModule implements NestModule {
 &lt;h3&gt;피드백&lt;/h3&gt;
 &lt;p&gt;어느 정도 실사용이 가능해지면서 일종의 클로즈 베타 느낌으로 또 한번 동기들에게 피드백을 요청했고 동기들이 준 피드백을 기반으로 소소한 버그들을 수정했다.&lt;/p&gt;
 &lt;h3&gt;배포&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;assets/knu-lms-scheduler-01.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/knu-lms-scheduler-01.png&quot; alt=&quot;KNU LMS Scheduler 실행 화면 — 과목별 미수강·미제출 과제 현황&quot;&gt;&lt;/p&gt;
 &lt;p&gt;이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.&lt;/p&gt;
 &lt;p&gt;동기가 에브리타임이라는 대학교 커뮤니티를 알려줬는데 학생증이 있어야 계정을 생성할 수 있어서 그냥 친구 아이디를 빌려서 게시물을 작성했다.&lt;/p&gt;
 &lt;p&gt;배포는 &lt;a href=&quot;https://github.com/HyeokjaeLee/knu-lms-scheduler&quot;&gt;해당 프로젝트 Repository&lt;/a&gt;에 릴리즈 탭을 통해 진행했다.&lt;/p&gt;
@@ -1430,10 +1407,7 @@ export class AppModule implements NestModule {
 &lt;/ul&gt;
 &lt;h3&gt;프로젝트를 진행하면서 느낀 Vue.js&lt;/h3&gt;
 &lt;p&gt;React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;assets/gititle-project-02.png&quot; alt=&quot;react-vue&quot;&gt;
-보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;assets/gititle-project-02.png&quot; alt=&quot;보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.&quot;&gt;&lt;/p&gt;
 &lt;p&gt;예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.&lt;/p&gt;
 &lt;p&gt;특히 Node.js 환경 세팅 없이 cdn만으로 개발이 가능했다는 점과 별도의 build 없이 static 페이지로 배포가 가능하다는 점이 매우 편리했다.&lt;/p&gt;
 &lt;p&gt;Vue.js의 개발자 도구가 매우 편리하다고 하는데 아쉽게도 이번 프로젝트에서는 거의 사용해볼 만한 게 없었다.&lt;/p&gt;
@@ -1524,9 +1498,9 @@ Commit Message 구성요소 아이템에 대한 선택지를 제공&lt;/blockquo
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-&lt;img src=&quot;assets/sass-compiler-02.png&quot; alt=&quot;image&quot;&gt;
+&lt;img src=&quot;assets/sass-compiler-02.png&quot; alt=&quot;VSCode 하단의 Watch Sass 버튼&quot;&gt;
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 &lt;code&gt;savePath&lt;/code&gt;부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-&lt;img src=&quot;assets/sass-compiler-03.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;assets/sass-compiler-03.png&quot; alt=&quot;Sass 컴파일이 적용된 디렉토리 구조&quot;&gt;&lt;/p&gt;
 </content:encoded></item><item><title>크롤링을 통한 데이터 수집하기</title><link>https://hyeokjaelee.github.io/nodejs-crawling/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/nodejs-crawling/</guid><description>이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript를 이용한 프로젝트에서 크롤링할 일이 생겨서 관련 내용을 정리해 봤다. 도구 선택 크롤링에 활용 가능한 도구는 언어별로 Jsoup Java , Beau</description><pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이전에 Tensorflow 학습에 사용하는 데이터 수집을 위한 크롤링 코드를 파이썬으로 작성했던 적이 있었는데 이번에 Javascript를 이용한 프로젝트에서 크롤링할 일이 생겨서 관련 내용을 정리해 봤다.&lt;/p&gt;
 &lt;h2&gt;도구 선택&lt;/h2&gt;
 &lt;p&gt;크롤링에 활용 가능한 도구는 언어별로 Jsoup(Java), BeautifulSoup(Python) 등 여러 종류가 있지만 이번 포스트에서는 Node.js 도구들을 이용해 OpenInsider(해외 내부자 거래 정보 사이트)를 크롤링하는 과정을 간단하게 설명해보려 한다.&lt;/p&gt;
@@ -1554,7 +1528,7 @@ yarn add axios cheerio
 &lt;p&gt;원하는 정보를 개발자 도구로 열어보면 해당 정보를 포함하는 html 태그를 확인할 수 있다.&lt;/p&gt;
 &lt;p&gt;우리는 이 태그의 selector를 복사해야 한다.&lt;/p&gt;
 &lt;p&gt;거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보자
-&lt;img src=&quot;assets/nodejs-crawling-01.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;assets/nodejs-crawling-01.png&quot; alt=&quot;개발자 도구에서 거래 날짜와 ticker selector를 복사하는 화면&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;첫 번째 값의 Selector&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;/*거래 날짜*/
 #tablewrapper &amp;gt; table &amp;gt; tbody &amp;gt; tr:nth-child(1) &amp;gt; td:nth-child(3) &amp;gt; div
@@ -1587,7 +1561,7 @@ const axios = require(&amp;#39;axios&amp;#39;);
 &lt;pre&gt;&lt;code&gt;node index
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;실행하면 다음과 같은 수집한 정보들이 출력됨을 확인할 수 있다.
-&lt;img src=&quot;assets/nodejs-crawling-02.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;assets/nodejs-crawling-02.png&quot; alt=&quot;크롤러 실행 결과 수집된 거래 정보가 출력된 터미널&quot;&gt;&lt;/p&gt;
 </content:encoded></item><item><title>Copilot 사용 후기</title><link>https://hyeokjaelee.github.io/copilot-review/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/copilot-review/</guid><description>Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다. Copilot Copilot은 GPT 3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다. Github에서 얼마 전 Copilot Technical Preview</description><pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Copilot 프리뷰 초대장을 받고 한 달 정도 실사용해보면서 느낀 점들을 공유해보려 한다.&lt;/p&gt;
 &lt;h2&gt;Copilot&lt;/h2&gt;
 &lt;p&gt;Copilot은 GPT-3를 기반으로 Github에 올라와 있는 수많은 코드들을 학습해 만든 코딩 AI이다.&lt;/p&gt;

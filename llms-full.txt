@@ -420,11 +420,9 @@ export interface SearchboxProps<T extends OptionHint> {
 
 options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.
 
-> ![type](assets/react-component-concept-01.png)
-> options을 자유로운 형식의 array로 입력받을 수 있음
+![options을 자유로운 형식의 array로 입력받을 수 있음](assets/react-component-concept-01.png)
 
-> ![type2](assets/react-component-concept-05.png)
-> options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨
+![options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨](assets/react-component-concept-05.png)
 
 또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.
 
@@ -543,8 +541,12 @@ React 기반 제품을 개발하면서 컴포넌트 수가 많아지게 되면�
 
 ### 제품 디렉토리 구조
 
-> ![image](assets/react-atomic-02.png)![image](assets/react-atomic-01.png)
-> components, pages 디렉토리 구조
+:::gallery
+![components 디렉토리 구조](assets/react-atomic-02.png)
+![pages 디렉토리 구조](assets/react-atomic-01.png)
+
+components, pages 디렉토리 구조
+:::
 
 components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.
 
@@ -777,8 +779,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.
 
-> ![mvc](assets/react-design-pattern-02.png)
-> 소프트웨어를 Model - View - Controller 요소로 구분함
+![소프트웨어를 Model - View - Controller 요소로 구분함](assets/react-design-pattern-02.png)
 
 **역할**
 
@@ -790,8 +791,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.
 
-> ![mvvm](assets/react-design-pattern-03.png)
-> MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨
+![MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨](assets/react-design-pattern-03.png)
 
 **역할**
 
@@ -803,8 +803,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.
 
-> ![flux](assets/react-design-pattern-04.png)
-> MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함
+![MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함](assets/react-design-pattern-04.png)
 
 **역할**
 
@@ -819,8 +818,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 > 이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.
 
-> ![pcc](assets/react-design-pattern-05.png)
-> 앱을 Container Component와 Presentational Component로 나누어 개발한다.
+![앱을 Container Component와 Presentational Component로 나누어 개발한다.](assets/react-design-pattern-05.png)
 
 **역할**
 
@@ -839,8 +837,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.
 
-> ![atomic](assets/react-design-pattern-06.png)
-> 여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.
+![여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.](assets/react-design-pattern-06.png)
 
 **역할**
 
@@ -853,9 +850,9 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 - Templates: Atoms, Molecules, Organisms을 배치하는데 중점을 둔 컴포넌트
 - Pages: Templates을 배치하여 웹 애플리케이션 페이지 하나에 대응하는 컴포넌트
 
-## 디자인 패턴, 중요한 건 알겠는데...
+## 디자인 패턴, 중요한 건 알겠는데
 
-![image](assets/react-design-pattern-01.png)
+![디자인 패턴을 두고 고민하는 한 장면](assets/react-design-pattern-01.png)
 
 ### 디자인 패턴 중요한 건 알겠는데 왜 써야 하지?
 
@@ -866,7 +863,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 - 특히 1회성으로 끝나는 프로젝트가 아니라 기대 수명을 길게 잡은 소프트웨어를 개발하게 되면 더욱 유지보수 용이성을 신경 쓰지 않을 수 없다.
 - 디자인 패턴은 이런 고민들에 대한 가이드라인이 되어줄 수 있다.
 
-### 우린 그런 거 없어도 잘 개발해 왔다!
+### 우린 그런 거 없어도 잘 개발해 왔다
 
 이런 생각이 드는 데는 여러 가지 이유가 있을 수 있겠지만 아래 내용 중 해당사항이 있는지 생각해 볼 필요가 있다.
 
@@ -880,7 +877,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
   > 성장하는 회사의 소프트웨어 크기는 결국 커지기 마련이다.
   > 위 내용과 마찬가지로 미리미리 준비해 놓자.
 
-### 모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다.
+### 모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다
 
 물론 디자인 패턴이 훌륭한 참고서는 될 수 있다.
 
@@ -1694,8 +1691,7 @@ Proxy를 사용해 IP를 변경했다.
 
 현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.
 
-> ![google-search](assets/korea-webtoon-api-update-02.png)
-> 내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.
+![내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.](assets/korea-webtoon-api-update-02.png)
 
 로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.
 
@@ -1710,7 +1706,7 @@ Naver의 경우엔 클라이언트 구조가 살짝 바뀌어서 일부 정보�
 실제 Kakao Page 클라이언트에서 요청하는 쿼리를 보고 필요한 내용만 추려서 요청하는 식으로 구현했다.
 
 > 개발한 API는 아래 링크에서 확인할 수 있다.
-> https://github.com/HyeokjaeLee/korea-webtoon-api
+> <https://github.com/HyeokjaeLee/korea-webtoon-api>
 
 ---
 
@@ -2097,7 +2093,7 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 배포
 
-![image](assets/knu-lms-scheduler-01.png)
+![KNU LMS Scheduler 실행 화면 — 과목별 미수강·미제출 과제 현황](assets/knu-lms-scheduler-01.png)
 
 이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.
 
@@ -2167,8 +2163,7 @@ AngularJS commit conventions의 Type만으로 설명이 부족한 부분을 Emoj
 
 React 코드를 작성하다 보면 HTML 보다는 javascript에 힘이 실어진 느낌이고 특정 결과물을 만들어 낼 때도 구현 방식 자유도가 매우 높은 편인데 vue는 그보다 HTML의 역할이 크면서 개발 방향이 어느 정도 정형화되어있다는 느낌을 받았다.
 
-> ![react-vue](assets/gititle-project-02.png)
-> 보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.
+![보통 React를 통해 개발을 진행해 왔는데 Vue.js는 HTML 코드 활용이 신선했다.](assets/gititle-project-02.png)
 
 예를 들면 같은 태그를 반복하는 경우에 React는 Javascript의 map, forEach, for문등 여러 가지 반복문들을 이용할 수 있는 반면 Vue에서는 HTML 태그에 v-for을 이용해 태그를 반복한다.
 
@@ -2290,9 +2285,9 @@ min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한�
 ```
 
 설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-![image](assets/sass-compiler-02.png)
+![VSCode 하단의 Watch Sass 버튼](assets/sass-compiler-02.png)
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-![image](assets/sass-compiler-03.png)
+![Sass 컴파일이 적용된 디렉토리 구조](assets/sass-compiler-03.png)
 
 ---
 
@@ -2347,7 +2342,7 @@ cheerio는 이러한 데이터를 jquery와 유사한 문법을 통해 파싱 �
 우리는 이 태그의 selector를 복사해야 한다.
 
 거래 날짜와 해당 주식의 ticker 값을 받아오기 위한 selector를 복사해보자
-![image](assets/nodejs-crawling-01.png)
+![개발자 도구에서 거래 날짜와 ticker selector를 복사하는 화면](assets/nodejs-crawling-01.png)
 
 ### 첫 번째 값의 Selector
 
@@ -2392,7 +2387,7 @@ node index
 ```
 
 실행하면 다음과 같은 수집한 정보들이 출력됨을 확인할 수 있다.
-![image](assets/nodejs-crawling-02.png)
+![크롤러 실행 결과 수집된 거래 정보가 출력된 터미널](assets/nodejs-crawling-02.png)
 
 ---
 
