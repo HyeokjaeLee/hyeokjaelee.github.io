@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [ClawMux LLM 분류기와 QA Agent 첫 배포](https://hyeokjaelee.github.io/clawmux-llm-classifier-qa-agent-first-deploy/): LLM 프록시에 한 글자로 요청을 분류하는 시스템을 붙이고, QA Agent를 처음으로 AWS에 배포해서 통과율 76%까지 올렸다.
 - [QA Agent 실행 모델을 DAG 스케줄러로 바꾼 날](https://hyeokjaelee.github.io/qa-agent-dag-scheduler-rebuild/): 정적 그룹 기반 실행을 의존성 그래프 기반 스케줄링으로 바꿔서, 병렬 실행을 극대화하고 케이스 의존성을 정확히 표현했다.
 - [QA Agent 재시도 성공률 0%를 잡은 날](https://hyeokjaelee.github.io/qa-agent-inspector-zero-retry-fix/): Inspector 에이전트를 배포해서 막힌 케이스의 원인을 분석하고 재시도가 처음부터 실패하던 문제를 해결했다.
 - [QA Agent 단일 함수에서 멀티 에이전트로 전환한 날](https://hyeokjaelee.github.io/qa-agent-monolithic-to-multi-agent/): runQaJob 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다. 틈틈이 세션 로거 플러그인도 만들었다.
