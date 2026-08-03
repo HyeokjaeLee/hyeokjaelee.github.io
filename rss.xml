@@ -69,7 +69,7 @@
 &lt;p&gt;산책하는 취미가 있어서 산책로와 카페가 많은 애월에 숙소를 잡았다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;assets/jeju1.jpeg&quot; alt=&quot;숙소 풍경&quot;&gt;&lt;/p&gt;
 &lt;p&gt;처음에는 예쁜 카페들을 찾아 다니면서 일할 생각이었지만 하루 일해보니 그런 카페들은 대부분 소규모 카페들이라 하루종일 일하는 내 입장에서는 조금 부담 스러웠다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/jeju2.jpeg&quot; alt=&quot;애월 투썸플레이스&quot;&gt;
 &lt;img src=&quot;assets/jeju3.jpeg&quot; alt=&quot;결국 숙소 앞에 투썸플레이스에서 대부분 일했던것 같다.&quot;&gt;
 :::&lt;/p&gt;
@@ -77,12 +77,12 @@
 &lt;blockquote&gt;
 &lt;p&gt;처음엔 바다를 보는게 일하는게 좋아서 통창앞에 항상 자리를 잡았었는데 날씨가 아직 쌀쌀했음에도 낮에는 너무 더웠다..&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/jeju4.jpeg&quot; alt=&quot;카페에서 탁 트인 바다를 보면서 일하니 일할 맛이 났다.&quot;&gt;
 &lt;img src=&quot;assets/jeju5.jpeg&quot; alt=&quot;출근길&quot;&gt;
 :::&lt;/p&gt;
 &lt;p&gt;제주도에 있는 동안 숙소와 카페가 거리가 조금 있어서 매일 걸었던 출근길은 사무실이나 집에서 일할때 보다 상쾌하게 하루를 시작할 수 있게 해주었다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;3&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/jeju6.jpeg&quot; alt=&quot;숙소 루프탑 풍경&quot;&gt;
 &lt;img src=&quot;assets/jeju7.jpeg&quot; alt=&quot;숙소에 루프탑이 있었는데 해질녘에 너무 예뻐서 바람이 많이 불지 않는 날엔 종종 루프탑에서 일할 때도 있었다.&quot;&gt;
 &lt;img src=&quot;assets/jeju-cafe.jpeg&quot; alt=&quot;숙소에서 조금 거리가 있던 카페&quot;&gt;
@@ -129,7 +129,7 @@
 &lt;p&gt;업무를 위한 코워킹 스페이스나 카페는 대부분 무선 인터넷이 잘되어 있었다.&lt;/p&gt;
 &lt;p&gt;다른 카페들은 그래도 대부분 가격이 싼 편이었는데 처음에 자주 갔었던 스타벅스는 현지 물가를 생각하면 꽤 비싼 편이었던 것 같다.&lt;/p&gt;
 &lt;p&gt;하지만 사람이 몰리는 시간에 인터넷이 느려지는 경우가 있었다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/startbucks.jpeg&quot; alt=&quot;숙소 앞 스타벅스 테라스&quot;&gt;
 &lt;img src=&quot;assets/starbucks2.jpeg&quot; alt=&quot;스타벅스2&quot;&gt;
 :::&lt;/p&gt;
@@ -137,7 +137,7 @@
 &lt;p&gt;태국의 준수한 인터넷 환경에는 값싼 데이터 요금 역시 포함된다.&lt;/p&gt;
 &lt;p&gt;한 달 기준 300밧(대략 12000원) 정도면 무제한 인터넷을 사용할 수 있다.&lt;/p&gt;
 &lt;p&gt;업무 장소는 그날 일어나서 기분에 따라 움직였는데 가끔 정말 나가기 싫은 날은 그냥 숙소에서 일하는 경우도 있었고 숙소 내에 있는 카페에서 일하는 경우도 있었다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/cafe.jpeg&quot; alt=&quot;숙소 카페&quot;&gt;
 &lt;img src=&quot;assets/home.jpeg&quot; alt=&quot;숙소에 놀러온 다른 회사 개발자 친구&quot;&gt;
 :::&lt;/p&gt;
@@ -146,7 +146,7 @@
 &lt;p&gt;&lt;img src=&quot;assets/camp.jpeg&quot; alt=&quot;마야몰 캠프&quot;&gt;&lt;/p&gt;
 &lt;p&gt;가장 자주 갔었던 곳은 코워킹 스페이스 Yellow라는 곳이었는데 한국 공유 오피스와 비슷한 느낌이었다.&lt;/p&gt;
 &lt;p&gt;2층을 임대해서 사용하는 회사들도 있었고 1층에는 여러 나라에서 온 개발자, 디자이너등이 있었고 카페처럼 공부를 위해 찾는 사람은 없었다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/yellow.jpg&quot; alt=&quot;코워킹 스페이스 Yellow&quot;&gt;
 &lt;img src=&quot;assets/yellow2.jpg&quot; alt=&quot;코워킹 스페이스에서 일하고 있는 사람들&quot;&gt;
 :::&lt;/p&gt;
@@ -162,7 +162,7 @@
 &lt;p&gt;현지 시간으로 일찍 출근하긴 했지만 퇴근 후 개인적으로 사용할 수 있는 시간이 길었던 게 가장 좋았다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;assets/water.jpeg&quot; alt=&quot;퇴근해도 낮&quot;&gt;&lt;/p&gt;
 &lt;p&gt;한국에 있을 때는 퇴근 시간이 되어도 성격상 퇴근하지 않는 경우가 많았지만 퇴근후 하고 싶은 일들이 많았기 때문에 태국에서는 최대한 칼퇴근하려고 노력했다.&lt;/p&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;2&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/market.jpeg&quot; alt=&quot;현지에서 사귄 친구들과 갔던 시장&quot;&gt;
 &lt;img src=&quot;assets/concert.jpeg&quot; alt=&quot;현지에서 사귄 친구들과 갔던 술집&quot;&gt;
 :::&lt;/p&gt;
@@ -1407,7 +1407,7 @@ export class AppModule implements NestModule {
 &lt;p&gt;학교 온라인 강의 시스템에서 내가 불편하다고 느끼는 부분들을 다른 사람들도 똑같이 공감하고 있다는 것도 신기했고 프로젝트도 그냥 혼자 만들고 끝나는게 아니라 완성후 배포도 해보고 사용자들의 반응도 보고 하는게 더 재미있는 것 같다.&lt;/p&gt;
 &lt;p&gt;해당 프로젝트도 일회성으로 끝나는게 아니라 사용자들이 준 피드백을 기반으로 시간 날 때마다 업데이트를 하는 것도 좋을 것 같다. (물론 졸업 전까지만 ^^)&lt;/p&gt;
 &lt;h3&gt;반응&lt;/h3&gt;
-&lt;p&gt;:::gallery{cols=&amp;quot;4&amp;quot;}
+&lt;p&gt;:::gallery
 &lt;img src=&quot;assets/knu-lms-scheduler-02.png&quot; alt=&quot;image&quot;&gt;
 &lt;img src=&quot;assets/knu-lms-scheduler-03.png&quot; alt=&quot;image&quot;&gt;
 &lt;img src=&quot;assets/knu-lms-scheduler-04.png&quot; alt=&quot;image&quot;&gt;
