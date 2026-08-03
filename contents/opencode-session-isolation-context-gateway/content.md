@@ -76,7 +76,7 @@ macOS arm64/x64, Linux x64/arm64, Windows x64를 지원한다.
 
 ### SDK 기반 설정 조회
 
-설정 파일을 직접 파싱하지 않고 OpenCode SDK를 통해 조회한다.
+설정 파일을 직접 파싱하지 않고 OpenCode SDK로 조회한다.
 
 provider 목록, API 키, 컨텍스트 윈도우 크기를 SDK에서 가져온다.
 
