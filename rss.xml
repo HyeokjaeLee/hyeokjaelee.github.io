@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>QA Agent 병렬 실행과 MSW 마이그레이션</title><link>https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/</guid><description>어제 파이프라인 8단계로 재구성한 뒤라 오늘은 실행 성능을 잡는 날이었다. QA Agent가 테스트케이스를 순차 실행하다 보니 케이스가 늘어나면 실행 시간이 선형적으로 길어지는 게 문제였다. 그리고 테스트 환경 mock도 산통되어 있어서 이것도 같이 정리했다. QA Agent 병렬 실행</description><pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;어제 파이프라인 8단계로 재구성한 뒤라 오늘은 실행 성능을 잡는 날이었다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>QA Agent 병렬 실행과 MSW 마이그레이션</title><link>https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/</guid><description>어제 파이프라인 8단계로 재구성한 뒤라 오늘은 실행 성능을 잡는 날이었다. QA Agent가 테스트케이스를 순차 실행하다 보니 케이스가 늘어나면 실행 시간이 선형적으로 길어지는 게 문제였다. 그리고 테스트 환경 mock도 산재되어 있어서 이것도 같이 정리했다. QA Agent 병렬 실행</description><pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;어제 파이프라인 8단계로 재구성한 뒤라 오늘은 실행 성능을 잡는 날이었다.&lt;/p&gt;
 &lt;p&gt;QA Agent가 테스트케이스를 순차 실행하다 보니 케이스가 늘어나면 실행 시간이 선형적으로 길어지는 게 문제였다.&lt;/p&gt;
-&lt;p&gt;그리고 테스트 환경 mock도 산통되어 있어서 이것도 같이 정리했다.&lt;/p&gt;
+&lt;p&gt;그리고 테스트 환경 mock도 산재되어 있어서 이것도 같이 정리했다.&lt;/p&gt;
 &lt;h2&gt;QA Agent 병렬 실행&lt;/h2&gt;
 &lt;h3&gt;순차에서 lane 병렬로&lt;/h3&gt;
 &lt;p&gt;그 전까지는 테스트케이스를 하나씩 순차 실행했다.&lt;/p&gt;
@@ -24,8 +24,8 @@
 &lt;p&gt;결국 같은 세션에서 재시도하도록 보강해서 해결했다.&lt;/p&gt;
 &lt;p&gt;새 세션을 만드는 게 아니라 기존 세션을 재사용하면서 상태를 유지한 채 재개하는 방식이다.&lt;/p&gt;
 &lt;h2&gt;MSW 마이그레이션&lt;/h2&gt;
-&lt;h3&gt;산통된 mock 환경&lt;/h3&gt;
-&lt;p&gt;테스트 환경에서 API 응답을 mock하는 게 산통되어 있었다.&lt;/p&gt;
+&lt;h3&gt;산재된 mock 환경&lt;/h3&gt;
+&lt;p&gt;테스트 환경에서 API 응답을 mock하는 게 산재되어 있었다.&lt;/p&gt;
 &lt;p&gt;각 테스트마다 따로 mock을 두니까 중복도 많고 API 스펙이 바뀌면 mock을 일일이 찾아서 고쳐야 했다.&lt;/p&gt;
 &lt;p&gt;이걸 Shared API 기반 MSW(Mock Service Worker) worker로 통일했다.&lt;/p&gt;
 &lt;p&gt;API 스펙을 한 곳에서 관리하고 모든 테스트가 같은 worker를 바라보게 만들었다.&lt;/p&gt;
