@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번](https://hyeokjaelee.github.io/asymmetric-event-pair-flag-stuck-language-drift/): 진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍이 두 버그에서 동시에 발견됐다. 그리고 교육 규칙이 함정을 만들고 있었다. 언어 drift 원인도 규명했다.
 - [모델 탓하기 전에 확인해야 할 것: 설정, 경로, 상태 격리](https://hyeokjaelee.github.io/dont-blame-model-config-path-state-isolation/): 여러 에이전트가 동시에 실패하면 모델 탓이 아니라 공유 설정 결함일 수 있다. Playwright 다중 세션 간섭은 상태 격리 문제였다. 그리고 깃 커밋 가드가 사라져 있었다.
 - [역할별 권한 설계와 disabled가 삭제보다 철저한 이유](https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/): 15개 서브에이전트의 도구 접근 권한을 역할별로 정리했다. delegate 에이전트는 재귀 위험으로 disabled 처리했다. 삭제보다 disabled가 더 철저한 이유도 확인했다.
 - [사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다](https://hyeokjaelee.github.io/user-corrects-agent-overdiagnosis-context-mode-open/): piLoop 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다. 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.
