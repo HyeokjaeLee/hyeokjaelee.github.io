@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [3일간의 교훈이 한 커밋에 담긴 날](https://hyeokjaelee.github.io/three-lessons-one-commit-qa-summary-provider-speed/): QA 에이전트가 요약된 값을 받아서 잘못 통과시킨 일로 검증 규칙을 네 번 다듬었다. 같은 모델인데 프로바이더에 따라 60배 느린 것도 확인했다. 며칠의 교훈이 한 커밋에 담겼다.
 - [Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응](https://hyeokjaelee.github.io/zed-tui-rendering-glm52-release-day/): Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다. 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.
 - [강제 마이그레이션과 제약에서 패턴을 만드는 날](https://hyeokjaelee.github.io/forced-migration-constraints-to-patterns/): Claude 계정이 갑자기 revoke돼서 사내 AI 게이트웨이로 마이그레이션했다. 그 제약이 이중 설정 패턴이 됐다. 그리고 수료증 PDF 다운로드와 화상감독 메시지 수정도 끝냈다.
 - [프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계](https://hyeokjaelee.github.io/prompt-injection-cascade-bugs-ghost-crawler-redesign/): 프롬프트 주입 시스템에서 5개의 연쇄 버그를 잡았다. 필터 교차 제외, 전역 상태 오염, Go 코어 단일 파트 제한까지. 그리고 괴담 크롤러 파이프라인을 재설계했다.
