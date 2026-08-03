@@ -5,6 +5,7 @@
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
 - [코스 분기 처리 Phase 여덟 단계를 한 번에 끝내다](https://hyeokjaelee.github.io/course-branch-phase-impl/): 교육 플랫폼에서 한 코스 분류의 분기 처리를 여덟 단계 Phase로 쪼개 구현한 기록. 코스 생성부터 수료, 출석체크까지 정책 한 덩어리를 프론트에 얹고 남은 버그까지 정리했다.
+- [문서 분류 category 단일 필드로 통합](https://hyeokjaelee.github.io/category-field-unification/): 옵시디언 볼트 62개 문서를 category 단일 필드로 재구성하고 20_Projects 199개 파일을 11개 카테고리로 정리한 회고
 - [QA 에이전트 병렬 실행과 mock 환경 통합](https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/): QA 에이전트 순차 실행을 lane 병렬로 전환하고, 산재된 테스트 mock을 Shared API 기반 MSW로 통합.
 - [QA 자동화 에이전트 파이프라인 구조 개편](https://hyeokjaelee.github.io/qa-agent-pipeline-restructure/): 옵시디언 분류 체계 통합과 QA 자동화 에이전트 8단계 파이프라인 재구성으로 디버깅과 smoke 실행 안정화.
 - [Briend 번역 채팅앱 개발](https://hyeokjaelee.github.io/briend/): 유지비 0원에 도전, 짠내나는 번역 채팅앱 개발기
