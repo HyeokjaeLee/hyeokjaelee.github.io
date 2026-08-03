@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [블루투스가 부팅마다 꺼지는 문제, TLP가 숨긴 서비스](https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/): 매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.
 - [역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로](https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/): 역량 진단 리포트 확장을 마무리하고, QA 시트에서 노션 API 의존성을 빼고 두 번째 실행 멈춤 문제를 잡았다.
 - [역량 진단 리포트 전 코스 확장과 볼트 199개 파일 디렉토리 재구성](https://hyeokjaelee.github.io/competency-report-all-courses-vault-restructure/): 국비지원 코스 전용이던 역량 진단 리포트를 모든 코스로 확장하고 평평하게 쌓여 있던 위키 파일 199개를 디렉토리로 재구성했다.
 - [Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트](https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/): Gemini CLI를 격리된 샌드박스에서 에이전트처럼 부르게 만들고 노션과 피그마 문서를 분석하는 서브에이전트를 만들었다.
