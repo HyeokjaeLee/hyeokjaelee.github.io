@@ -4,6 +4,27 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent 플래너를 하나로 합치고 비전 서브에이전트를 얹었다](https://hyeokjaelee.github.io/planner-unification-vision-agent/): 3단계로 쪼개져 있던 planning 파이프라인을 단일 qa-planner로 통합하고, qa-vision 서브에이전트를 붙여 스크린샷을 의무화한 회고
+- [QA 리포트에 토큰과 비용을 올리다](https://hyeokjaelee.github.io/token-cost-display-fix/): 리포트 상단에 토큰/비용을 표시하고, planner가 explore 서브에이전트에 쓴 토큰이 집계에서 빠지던 버그를 잡은 기록.
+- [QA Agent Planner 고치다가 GLM DNS까지 만난 하루](https://hyeokjaelee.github.io/planner-fixture-dns-fix/): planner의 fixture knowledge 참조를 손보다가 glm-5.1 DNS 해석 실패를 만나 proxy URL 오버라이드로 넘긴 기록.
+- [planner가 파일을 직접 읽던 습관을 끊었다](https://hyeokjaelee.github.io/agent-file-access-restriction/): QA Agent의 planner·executor·sheet-writer가 파일을 직접 들여다보던 구조를 버리고, 탐색은 explore 서브에이전트로 몰아넣은 과정을 정리해봤다.
+- [QA Agent에 Langfuse 트레이싱 붙이기](https://hyeokjaelee.github.io/langfuse-llm-tracing/): 모든 LLM 호출을 Langfuse로 추적하도록 langfuse-proxy를 프로젝트에 포함한 과정. provider별 프록시 분리와 ARM64 배포까지.
+- [Chromium 좀비 프로세스를 /proc/cmdline로 잡은 이야기](https://hyeokjaelee.github.io/chromium-zombie-process-fix/): QA 자동화에서 Chromium 프로세스가 좀비로 쌓이던 문제를 /proc/cmdline 직접 읽기로 근본 해결한 기록
+- [ClawMux 분류기를 LLM으로 전환하며](https://hyeokjaelee.github.io/llm-classifier-openclaw-migration/): 로컬 임베딩 기반 분류기의 한계를 느껴 openclaw 연결 저렴한 LLM으로 옮기고, reasoning 비활성화 모듈을 구현한 기록
+- [QA 에이전트 동시 실행 큐와 hard stop](https://hyeokjaelee.github.io/concurrent-queue-hard-stop/): 여러 executor가 동시에 돌아갈 때 실행 순서를 잡고, 멈춘 케이스를 강제로 끊는 큐 시스템을 구현한 기록.
+- [ClawMux API 어댑터와 크로스 프로바이더 라우팅](https://hyeokjaelee.github.io/clawmux-api-adapters/): 6개 API 포맷 어댑터, 크로스 프로바이더 라우팅, 세션 스토어를 구현한 기록
+- [ClawMux 요청 분류기를 LLM으로 갈아엎다](https://hyeokjaelee.github.io/clawmux-llm-classifier/): 로컬 임베딩 기반 요청 분류기를 저렴한 LLM으로 전환하고, reasoning 비활성화와 동적 컨텍스트 창 해석까지 구현한 회고
+- [ClawMux: LLM 프록시 통합 플러그인 첫 구현](https://hyeokjaelee.github.io/clawmux-context-gateway/): Context-Gateway와 openclaw-router를 하나로 합친 ClawMux 플러그인 초기 구현. 크로스 프로바이더 라우팅과 LLM 기반 요청 분류기를 만든 과정
+- [QA 에이전트 실행 모델을 DAG 기반으로 갈아엎다](https://hyeokjaelee.github.io/dag-scheduling-migration/): 그룹 기반 실행 모델을 버리고 위상 정렬 기반 DAG 스케줄러로 전면 재구현한 이유와 과정, 의존성 단순화에서 얻은 교훈
+- [QA 에이전트 inspector 도입과 blocked 재시도 0% 문제](https://hyeokjaelee.github.io/inspector-blocked-retry/): QA 에이전트에 inspector 서브에이전트를 붙여 blocked 케이스를 자동 분석하게 만들고, 재시도 성공률이 0%로 떨어지던 원인을 추적해 해결한 과정
+- [QA Agent — 모노리식에서 멀티 에이전트 구조로 재설계](https://hyeokjaelee.github.io/multi-agent-restructure/): 단일 구조를 역할별 에이전트로 쪼개고, src/shared/를 분리하고, Slack 라우팅 계층을 얹은 재설계 기록이다.
+- [QA Agent — smoke 테스트 통과율 50%에서 61%로](https://hyeokjaelee.github.io/smoke-test-improvement/): blocked 재시도, 그룹 레벨 재시도, 뷰포트 프리셋을 붙여 smoke 테스트 통과율을 끌어올린 과정이다.
+- [QA Agent — executor 실행과 agent-browser 스킬 2차 재검증](https://hyeokjaelee.github.io/executor-agent-browser-validation/): qa-executor가 실제로 agent-browser 스킬을 통해 브라우저를 띄우고 검증을 수행하는지 두 번째로 검증한 기록이다.
+- [QA 에이전트 브라우저 실행 구조를 agent-browser 기반으로 옮겼다](https://hyeokjaelee.github.io/agent-browser-migration/): 브라우저 소유권을 정리하고 의존성을 줄여 런타임을 간소화한 마이그레이션 회고다
+- [browser-use를 QA 에이전트에 도입할지 검토했다](https://hyeokjaelee.github.io/browser-use-evaluation/): OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계한 과정이다
+- [QA 런타임을 opencode server 기반으로 전환하며 격리 설계를 다시 잡았다](https://hyeokjaelee.github.io/qa-runtime-session-isolation/): lane 간 세션 공유를 금지하고 Context-Gateway를 OpenCode 플러그인으로 통합한 과정을 정리했다
+- [QA 에이전트 Slack 스레드 개선과 세션 구조 전환](https://hyeokjaelee.github.io/qa-agent-slack-thread-session-restructure/): QA 에이전트 결과 링크 일관성 확보, 스레드 제목에 시트 이름 노출, opencode 일회성 CLI에서 서버 기반 세션으로 전환, 영구 저장소를 코드 저장소 외부로 분리.
+- [QA 에이전트 lane 동적 선택과 Slack 메시지 정리](https://hyeokjaelee.github.io/qa-agent-lane-and-slack-cleanup/): QA 에이전트 실행 로그 통합, lane 수 동적 선택, Slack 첨부 정책 단순화, 사이드 프로젝트 DEV 검증, 옵시디언 Daily 노트 규칙 정리
 - [QA 에이전트 병렬 실행과 mock 환경 통합](https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/): QA 에이전트 순차 실행을 lane 병렬로 전환하고, 산재된 테스트 mock을 Shared API 기반 MSW로 통합.
 - [QA 자동화 에이전트 파이프라인 구조 개편](https://hyeokjaelee.github.io/qa-agent-pipeline-restructure/): 옵시디언 분류 체계 통합과 QA 자동화 에이전트 8단계 파이프라인 재구성으로 디버깅과 smoke 실행 안정화.
 - [Briend 번역 채팅앱 개발](https://hyeokjaelee.github.io/briend/): 유지비 0원에 도전, 짠내나는 번역 채팅앱 개발기
