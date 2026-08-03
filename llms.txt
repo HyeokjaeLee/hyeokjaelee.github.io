@@ -4,6 +4,10 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [코스 분류 분기 로직과 역량진단리포트 확장](https://hyeokjaelee.github.io/course-classification-branching/): 코스 생성 모달과 기본 정보 관리에 코스 유형 분기 로직 추가. 매니저 권한 제어 계획. 역량진단리포트를 모든 코스로 확장 후 코드리뷰 반영 및 CI 해결.
+- [Linux 블루투스 자동 활성화 문제 해결](https://hyeokjaelee.github.io/linux-bluetooth-tlp-fix/): Linux 부팅 시 블루투스가 자동 활성화되지 않는 문제 해결. 원인은 TLP 설치 시 systemd-rfkill 서비스 자동 비활성화. 서비스 재활성화로 해결.
+- [QA Sheet 타임아웃과 강사 권한 분리](https://hyeokjaelee.github.io/qa-sheet-timeout-permission/): QA Sheet 노션 API 호출 제거, 두 번째 실행 멈춤 원인을 LLM 제공측 장애에서 찾아 실행 시간을 1시간에서 20분으로 축소. 강사 접근 권한 분리 및 Alpha 배포.
+- [Figma 분석 에이전트와 권한 분리 배포](https://hyeokjaelee.github.io/figma-agent-permission-fix/): Figma 분석 도구를 Gemini 서브에이전트에 위임. 파일명 정책과 경로 컨벤션 개정. 강사 접근 권한 수정 PR 머지 및 Alpha 배포. 옵시디언 볼트 재구성.
 - [Gemini CLI를 서브에이전트로 통합](https://hyeokjaelee.github.io/gemini-cli-subagent-integration/): 격리된 Gemini CLI를 opencode 서브에이전트처럼 호출하는 통합 시스템. 샌드박스 격리, npm 캐시 오염 해결, Figma MCP 연동.
 - [플래너 의존성 판정 Q-UI/Q-RUNTIME 모델과 패스율 73%](https://hyeokjaelee.github.io/planner-dependency-q-ui-q-runtime/): 플래너 의존성 판정 로직을 Q-UI/Q-RUNTIME 두 가지 질문 모델로 재설계. cascade block 복원으로 패스율 73.3% 달성.
 - [모델 4개 분산과 스모크 60.6% 달성](https://hyeokjaelee.github.io/model-dispersion-smoke-60/): 5개 에이전트 2개 모델에서 4개 모델로 균등 분산. Serena MCP 평가 후 기존 도구 유지. 13회 반복으로 스모크 합격률 18.2%에서 60.6%로.
@@ -11,8 +15,11 @@
 - [단일 플래너 통합과 Docker 메모리 고갈 해결](https://hyeokjaelee.github.io/single-planner-memory-fix/): 3단계 planning을 단일 qa-planner로 통합, 1200줄 삭제. Docker 메모리 고갈 원인을 Chromium 4인스턴스에서 찾아 해결. 스크린샷 의무화.
 - [3-Phase Planning Pipeline과 스킬 도메인 분리](https://hyeokjaelee.github.io/three-phase-planning-skill-domain/): 28개 케이스 planning 멈춤을 해결하기 위해 3단계 planning 파이프라인 도입. 하드코딩 도메인을 플레이스홀더로 치환하여 24개 스킬을 21개로 통합.
 - [Fixture Knowledge 참조 수정과 DNS 장애 복구](https://hyeokjaelee.github.io/fixture-dns-debug-day/): 플래너 fixture knowledge 참조 수정, GLM DNS 해석 실패를 proxy URL 오버라이드로 복구. ClawMux 요청 파이프라인 7단계 분석.
+- [파일 접근 제거와 스모크 60% 달성](https://hyeokjaelee.github.io/file-access-restriction-smoke-60/): 플래너, 실행자, 시트 작성자의 파일 직접 접근을 제거하고 explore 서브에이전트에만 위임. 스모크 28케이스 중 17개 통과로 60% 달성. Docker 리소스 34GB 정리.
+- [Langfuse 트레이싱 구현과 ARM64 Docker 배포](https://hyeokjaelee.github.io/langfuse-tracing-docker-deploy/): 모든 LLM 호출을 Langfuse로 추적. provider별 프록시 분리, ARM64 멀티 아키텍처 Dockerfile, EC2 4컨테이너 배포. 로컬 Docker 토큰 충돌 해결.
 - [chromium 좀비 프로세스 근본 해결과 Langfuse 설계](https://hyeokjaelee.github.io/zombie-process-langfuse-design/): 좀비 프로세스를 /proc/cmdline 직접 읽기로 근본 해결. 실행 큐 동시성 경합 수정. LLM 호출 추적용 Langfuse 프록시 설계.
 - [로컬 임베딩에서 LLM 분류기로 전환](https://hyeokjaelee.github.io/embedding-to-llm-classifier/): ClawMux 요청 분류기를 로컬 임베딩 모델에서 저렴한 LLM으로 전환. reasoning 비활성화, 크로스 프로바이더 라우팅, 컨텍스트 압축 완료.
+- [QA 에이전트 동시 실행 큐와 Graviton 마이그레이션](https://hyeokjaelee.github.io/concurrent-queue-hard-stop/): DAG 스케줄러 위에 동시 실행 큐와 hard stop 구현. Alpha 환경을 Graviton 인스턴스로 마이그레이션. qa-sheet-writer 판단 기준 정리.
 - [6개 API 어댑터와 크로스 프로바이더 라우팅](https://hyeokjaelee.github.io/api-adapters-cross-provider-routing/): 6개 API 포맷 어댑터 구현, 크로스 프로바이더 라우팅 완성, 시맨틱 분류기 전환. Naive Bayes에서 임베딩 기반 분류로 교체.
 - [ClawMux LLM 분류기와 동적 컨텍스트 창 해석](https://hyeokjaelee.github.io/llm-classifier-dynamic-context-window/): 키워드 기반 요청 분류를 LLM 기반으로 전환. 동적 컨텍스트 창 해석으로 모델별 최적 압축 임계값 적용. qa-sheet-writer 프롬프트 개선.
 - [ClawMux 플러그인과 QA 에이전트 Alpha 배포](https://hyeokjaelee.github.io/clawmux-plugin-qa-alpha-deploy/): ClawMux Context-Gateway 통합 플러그인 개발. QA 에이전트 Alpha 환경 배포, 크래시 방어, passed 비율 55%에서 76% 개선.
