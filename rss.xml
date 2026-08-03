@@ -73,6 +73,34 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>결론이 두 번 뒤집힌 QA와 Vue Query Ref 함정</title><link>https://hyeokjaelee.github.io/conclusion-flipped-twice-qa-vue-query-ref-noop/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/conclusion-flipped-twice-qa-vue-query-ref-noop/</guid><description>이날은 결론이 두 번 뒤집힌 QA를 한 날이다. 재계산 뱃지가 안 사라지는 문제를 조사했다. 처음에는 프론트 문제라고 단정했다가, 백엔드 문제라고 바꿨다가, 결국 다시 프론트로 돌아왔다. 그 과정에서 Vue Query의 함정도 발견했다. 뱃지가 안 사라진다 학생 관리에서 수료 기준을 재</description><pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 결론이 두 번 뒤집힌 QA를 한 날이다. 재계산 뱃지가 안 사라지는 문제를 조사했다. 처음에는 프론트 문제라고 단정했다가, 백엔드 문제라고 바꿨다가, 결국 다시 프론트로 돌아왔다. 그 과정에서 Vue Query의 함정도 발견했다.&lt;/p&gt;
+&lt;h2&gt;뱃지가 안 사라진다&lt;/h2&gt;
+&lt;p&gt;학생 관리에서 수료 기준을 재계산하고 확인을 눌러도, &amp;quot;변경된 수료 기준 미적용&amp;quot; 뱃지가 안 사라졌다.&lt;/p&gt;
+&lt;h3&gt;첫 번째 결론: 프론트 문제 (틀림)&lt;/h3&gt;
+&lt;p&gt;처음에는 티켓 문구만 보고 &amp;quot;프론트에서 뱃지를 숨기면 되겠다&amp;quot;고 단정했다. 근데 사용자가 정정했다. &amp;quot;실제 소스코드를 확인하고 말해야지.&amp;quot;&lt;/p&gt;
+&lt;h3&gt;두 번째 결론: 백엔드 문제 (틀림)&lt;/h3&gt;
+&lt;p&gt;소스코드를 추적했다. 뱃지와 재계산 모달이 서로 다른 앱에 있었다. 뱃지 데이터 소스를 추적하니 API 응답의 필드였다. 그래서 &amp;quot;백엔드에서 플래그를 갱신해야 한다&amp;quot;고 결론을 바꿨다.&lt;/p&gt;
+&lt;h3&gt;세 번째 결론: 백엔드 수정 불필요 (최종)&lt;/h3&gt;
+&lt;p&gt;백엔드 코드를 더 추적했다. 재계산 요청이 오면 202를 즉시 반환한다. 비동기 잡을 큐에 넣는다. 잡이 학생 전원을 처리한 후에야 플래그를 지운다.&lt;/p&gt;
+&lt;p&gt;그러니까 설계가 맞다. 비동기 잡이 끝나기 전에는 뱃지가 남아 있는 게 정상이다. 백엔드를 고칠 필요가 없다.&lt;/p&gt;
+&lt;p&gt;해결은 프론트에서 최적화 업데이트를 하는 거다. 재계산 버튼을 누르면 즉시 캐시를 덮어쓴다. &amp;quot;재계산 필요&amp;quot; 플래그를 false로 바꾼다. 비동기 잡이 끝나면 백엔드에서도 플래그가 풀린다. 양쪽이 만나는 거다.&lt;/p&gt;
+&lt;h3&gt;왜 두 번이나 틀렸나&lt;/h3&gt;
+&lt;p&gt;문구만 보고 단정했기 때문이다. 소스코드를 안 읽고 결론을 내렸다. 두 번째도 데이터 소스까지만 확인하고 결론을 내렸다. 필드 갱신 시점까지 안 확인했다.&lt;/p&gt;
+&lt;p&gt;핵심 교훈은 &amp;quot;데이터 소스만으로는 작업 범위를 확정할 수 없다&amp;quot;는 거다. 필드가 API에서 온다고 해서 백엔드 수정이 필요한 게 아니다. 필드가 언제 갱신되는지까지 확인해야 한다. 동기인지 비동기인지. 그래야 프론트에서 처리할 수 있는지 백엔드를 고쳐야 하는지 결정할 수 있다.&lt;/p&gt;
+&lt;h2&gt;Vue Query Ref 함정&lt;/h2&gt;
+&lt;p&gt;해결 과정에서 또 하나의 함정을 만났다. 캐시를 무효화하려고 했는데 안 됐다.&lt;/p&gt;
+&lt;p&gt;Vue Query에서 캐시를 무효화할 때 키에 Vue &lt;code&gt;Ref&lt;/code&gt;가 들어 있었다. Ref는 객체다. 근데 캐시에 저장된 키는 문자열이다. 객체랑 문자열을 비교하면 매칭이 안 된다. silent NO-OP. 에러도 안 나고 무효화도 안 된다.&lt;/p&gt;
+&lt;p&gt;이건 Vue Query의 설계 특성이다. &lt;code&gt;useQuery&lt;/code&gt; 내부에서는 Ref를 자동으로 언래핑한다. 근데 &lt;code&gt;queryClient&lt;/code&gt;를 직접 호출하면 언래핑이 안 된다. 같은 키인 것 같은데, 호출 경로에 따라 동작이 다르다.&lt;/p&gt;
+&lt;p&gt;해결은 무효화 대신 낙관적 업데이트를 쓰는 거였다. 캐시를 무효화하지 않고 직접 덮어쓴다. 이러면 키 매칭 문제를 피할 수 있다.&lt;/p&gt;
+&lt;h2&gt;지라 이미지 분석을 Playwright 없이&lt;/h2&gt;
+&lt;p&gt;틈틈이 지라 분석 에이전트의 이미지 분석을 개선했다. Playwright를 쓰지 않고 이미지를 가져오는 방법을 찾았다.&lt;/p&gt;
+&lt;p&gt;지라 MCP의 OAuth 토큰을 재사용한다. 토큰이 로컬에 저장되어 있다. 이 토큰으로 보호된 첨부 파일을 직접 다운로드한다. Playwright를 띄울 필요 없이, curl로 바로 받는다.&lt;/p&gt;
+&lt;p&gt;두 마리 토끼를 잡았다. 이미지 분석 능력을 복구하면서 동시에 Playwright 의존을 제거했다. 진짜 목적은 &amp;quot;이미지 분석 포기&amp;quot;가 아니라 &amp;quot;Playwright 의존 제거&amp;quot;였다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 핵심은 &amp;quot;소스코드를 끝까지 추적하라&amp;quot;다.&lt;/p&gt;
+&lt;p&gt;QA에서 문구만 보고 프론트 문제라고 단정했다가 틀렸다. 데이터 소스까지만 확인하고 백엔드 문제라고 단정했다가 또 틀렸다. 필드 갱신 시점까지 추적하고 나서야 정확한 결론이 나왔다.&lt;/p&gt;
+&lt;p&gt;Vue Query에서도 마찬가지다. 캐시 무효화가 안 되는 원인을 추적하니, 키에 들어 있는 타입이 달랐다. &amp;quot;같은 키인 것 같은데 왜 안 되지&amp;quot;에서 멈추지 않고 실제 비교되는 타입까지 추적했더니 원인이 보였다.&lt;/p&gt;
+&lt;p&gt;결론을 서두르지 마라. &amp;quot;틀릴 수 있는 결론&amp;quot;을 내리고 싶으면 빨리 내려라. 근데 그 결론을 검증하려면 소스코드를 끝까지 추적해야 한다. 중간에서 멈추면 틀린 결론을 가고 다니게 된다.&lt;/p&gt;
 </content:encoded></item><item><title>생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급</title><link>https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</guid><description>이날은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다. 생성물 충돌은 합집합에서 재생성 교육 플랫폼에서 머지 충돌이 났다. code</description><pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다.&lt;/p&gt;
 &lt;h2&gt;생성물 충돌은 합집합에서 재생성&lt;/h2&gt;
 &lt;p&gt;교육 플랫폼에서 머지 충돌이 났다. codegen으로 생성된 파일들이 충돌했다. 양쪽이 각각 새 API 엔드포인트를 추가해서 같은 파일에 다른 내용이 들어간 거다.&lt;/p&gt;
