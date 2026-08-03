@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [옵시디언 위키 정리와 QA Agent 파이프라인 재구성](https://hyeokjaelee.github.io/qa-agent-pipeline-restructure/): 옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.
 - [Briend 번역 채팅앱 개발](https://hyeokjaelee.github.io/briend/): 유지비 0원에 도전, 짠내나는 번역 채팅앱 개발기
 - [제주도 디지털 노마드 생활기](https://hyeokjaelee.github.io/digital-nomad-in-jeju/): 3주간 제주도에서 디지털 노마드로 살아보기
 - [Install private packages with yarn berry](https://hyeokjaelee.github.io/install-private-packages-with-yarn-berry/): Spawn node-gyp ENOENT 에러 해결
