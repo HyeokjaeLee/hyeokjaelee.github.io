@@ -73,6 +73,35 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접</title><link>https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/</guid><description>이날은 같은 증상의 4개 독립 원인을 추적한 날이다. 자율 검증 루프가 반복적으로 멈췄다. 원인을 하나씩 추적하니 4개의 독립된 근본 원인이 있었다. 전부 다른 계층에 있었다. 그리고 design reviewer가 핵심 도구를 9번 중 0번 호출한 것도 발견했다. 루프가 멈춘다, 원인은</description><pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 같은 증상의 4개 독립 원인을 추적한 날이다. 자율 검증 루프가 반복적으로 멈췄다. 원인을 하나씩 추적하니 4개의 독립된 근본 원인이 있었다. 전부 다른 계층에 있었다. 그리고 design-reviewer가 핵심 도구를 9번 중 0번 호출한 것도 발견했다.&lt;/p&gt;
+&lt;h2&gt;루프가 멈춘다, 원인은 4개다&lt;/h2&gt;
+&lt;p&gt;자율 검증 루프가 반복적으로 멈췄다. 일시정지 상태로 빠지는 거다. 같은 증상이 반복됐는데, 원인을 추적하니 4개의 독립된 근본 원인이 있었다.&lt;/p&gt;
+&lt;p&gt;첫째, 상태 동기화 문제였다. todo 카운터가 실제 저장소랑 어긋났다. 실패 처리를 하면 카운터만 리셋하고 저장소는 남겨둬서 2차 수정에서 재사용된 todo가 &amp;quot;0개 생성됨&amp;quot;으로 보였다. 그래서 검증자가 안 배정됐다.&lt;/p&gt;
+&lt;p&gt;둘째, 타이머 가드 문제였다. 무활동 가드가 &amp;quot;대기 중인 액션이 발사 못 한 상태&amp;quot;를 &amp;quot;루프 포기&amp;quot;로 오판했다. 코드는 주석과 달리 idle 검사를 안 하고 있었다.&lt;/p&gt;
+&lt;p&gt;셋째, 코어 동시성 문제였다. 체크와 실행 사이에 await 경계가 있어서 그 갭에 외부 트리거가 상태를 뒤집으면 메시지가 잘못 라우팅됐다. 확장 수준에서 완전히 닫을 수 없는 race였다.&lt;/p&gt;
+&lt;p&gt;넷째, 인프라 실패였다. 검증자 중 일부가 429 에러로 결과 파일을 안 만들면, 판단을 못 하고 멈췄다.&lt;/p&gt;
+&lt;h3&gt;같은 증상에 4개의 다른 계층&lt;/h3&gt;
+&lt;p&gt;핵심은 4개가 전부 다른 계층에 있었다는 거다. 상태 동기화, 타이머 가드, 코어 동시성, 인프라. 같은 증상(루프 멈춤)이 4개의 독립된 원인이 있었다.&lt;/p&gt;
+&lt;p&gt;이걸 &amp;quot;원인을 찾았다&amp;quot;고 하나만 고치면 나머지 3개가 남는다. 같은 증상이 반복되면, 같은 원인이 아니라 다른 원인일 수 있다. 하나를 고치고 &amp;quot;해결됐다&amp;quot;고 단정하면 안 된다.&lt;/p&gt;
+&lt;h2&gt;design-reviewer가 도구를 안 부른다&lt;/h2&gt;
+&lt;p&gt;design-reviewer 서브에이전트의 9번의 실행을 전수 분석했다. 핵심 측정 도구를 9번 중 0번 호출했다. 전부 눈대중으로 판단했다.&lt;/p&gt;
+&lt;p&gt;프롬프트에는 &amp;quot;반드시 이 도구를 써라&amp;quot;라고 강제어가 있었다. 근데 강제어가 도구 호출 자체가 아니라 &amp;quot;스킬을 로드하고 루프를 따르라&amp;quot;는 간접 위임에만 붙어 있었다. 모델이 스킬을 얕게 읽고 회피한 거다.&lt;/p&gt;
+&lt;h3&gt;강제성은 행위에 직접&lt;/h3&gt;
+&lt;p&gt;해결은 강제어를 도구 호출 지점에 직접 붙이는 거였다. &amp;quot;호출 없으면 무조건 실패&amp;quot;를 에이전트 정의에 넣었다. 간접 위임이 아니라 직접 행위에 강제성을 붙인 거다.&lt;/p&gt;
+&lt;p&gt;이게 핵심 교훈이다. 강제어는 가능한 한 호출 지점에 가까워야 모델이 회피하지 못한다. &amp;quot;스킬을 읽고 따르라&amp;quot;는 간접 지시로는 충분하지 않다. 모델이 스킬을 안 읽거나 얕게 읽으면 강제성이 무력화된다.&lt;/p&gt;
+&lt;h2&gt;조용한 저하가 가장 위험하다&lt;/h2&gt;
+&lt;p&gt;이날 발견한 여러 문제가 전부 &amp;quot;조용한 저하&amp;quot; 패턴이었다.&lt;/p&gt;
+&lt;p&gt;에이전트 확장 경로가 버전업으로 바뀌면, 서브에이전트가 해당 도구를 조용히 잃는다. 에러 없이 기능이 빠진 채로 실행된다.&lt;/p&gt;
+&lt;p&gt;스킬 디렉토리 이름이 스킬 참조랑 안 맞으면, 스킬이 안 발견된다. 근데 에러가 안 난다. 그냥 &amp;quot;스킬이 없다&amp;quot;로 처리된다.&lt;/p&gt;
+&lt;p&gt;완료 가드가 읽기 전용 에이전트를 오탐한다. 정상적으로 계획을 만들어도 &amp;quot;편집 0건&amp;quot;으로 실패 처리된다. 에이전트는 자기 일을 잘 했는데, 가드가 잘못 판단한 거다.&lt;/p&gt;
+&lt;h3&gt;조용한 저하를 잡으려면&lt;/h3&gt;
+&lt;p&gt;에러가 안 나니까 발견이 늦다. &amp;quot;안 되는 거 같은데&amp;quot;라는 막연한 느낌에서 시작해서 전수 분석으로 0건 호출을 발견한다.&lt;/p&gt;
+&lt;p&gt;조용한 저하를 잡으려면, &amp;quot;실행됐을 것이라고 믿는 것&amp;quot;을 직접 확인해야 한다. 도구를 호출했는지, 스킬이 발견됐는지, 가드가 올바르게 판정했는지. 믿음을 확인으로 바꿔야 한다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 교훈은 세 가지다.&lt;/p&gt;
+&lt;p&gt;첫째, 같은 증상에 여러 원인이 있을 수 있다. 하나를 고치고 &amp;quot;해결&amp;quot;이라고 하지 마라. 다른 원인이 남아있을 수 있다.&lt;/p&gt;
+&lt;p&gt;둘째, 강제성은 행위에 직접 붙여라. 간접 위임으로는 모델이 회피한다. 도구 호출 지점에 강제성을 붙여야 회피할 수 없다.&lt;/p&gt;
+&lt;p&gt;셋째, 조용한 저하가 가장 위험하다. 에러 없이 기능이 빠지면 발견이 늦어진다. &amp;quot;실행됐을 것&amp;quot;이라는 믿음을 직접 확인으로 바꿔야 한다.&lt;/p&gt;
 </content:encoded></item><item><title>한 턴에 하나의 서브에이전트 호출만 허용되는 이유</title><link>https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/</guid><description>이날은 서브에이전트 동시성 제한의 진실을 발견한 날이다. 같은 턴에서 서브에이전트를 4개 호출했는데, 첫 번째만 접수되고 나머지 3개가 전부 거부됐다. 원인은 턴당 1회 호출 가드였다. 그리고 괴담 소설 파이프라인에 품질 게이트도 구현했다. 같은 턴에 여러 서브에이전트를 부르면 거부된다</description><pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 서브에이전트 동시성 제한의 진실을 발견한 날이다. 같은 턴에서 서브에이전트를 4개 호출했는데, 첫 번째만 접수되고 나머지 3개가 전부 거부됐다. 원인은 턴당 1회 호출 가드였다. 그리고 괴담 소설 파이프라인에 품질 게이트도 구현했다.&lt;/p&gt;
 &lt;h2&gt;같은 턴에 여러 서브에이전트를 부르면 거부된다&lt;/h2&gt;
 &lt;p&gt;오케스트레이터가 같은 턴에서 서브에이전트를 4개 호출했다. 탐색, 분석, 검증을 병렬로 돌리려고 했다. 근데 첫 번째만 접수되고 나머지는 전부 &amp;quot;이미 진행 중인 서브에이전트가 있다&amp;quot;며 거부됐다.&lt;/p&gt;
