@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [멈춘 이벤트 루프는 자기 자신을 감시할 수 없다](https://hyeokjaelee.github.io/frozen-event-loop-cannot-self-monitor-mock-tests-mask-scale/): 코드 인덱싱 데몬이 응답하지 않았다. 원인은 onnxruntime 동기 호출이 이벤트 루프를 얼린 거였다. 근데 얼어붙은 루프가 자기 자신을 감시할 수는 없다. 별도 프로세스가 필요했다. 그리고 통과한 테스트가 실제 규모에서는 의미가 없었다.
 - [파이프라인을 코드에 명시해야 까먹지 않는다](https://hyeokjaelee.github.io/pipeline-as-code-forgot-price-step-template-root-cause/): 스케줄러 설정에 파이프라인 순서를 숨겨놓으니까 가격 단계를 깜빡했다. 파이프라인을 코드에 명시하니까 까먹을 수가 없다. 그리고 위키에 적었는데도 반복되는 실수는 템플릿이 원인이었다.
 - [490번 반복한 에이전트, 교체가 아니라 확장으로 고쳤다](https://hyeokjaelee.github.io/490-repetitions-replace-not-expand-fix/): pi-loop가 14시간 동안 490번이나 무의미하게 반복했다. 원인은 검증자 프롬프트를 교체해서 맥락이 날아간 거였다. 교체가 아니라 확장으로 고쳤다. 그리고 orca를 전면 폐기하고 법원경매 에이전트를 3개에서 1개로 통합했다.
 - [확장을 비활성화하는 올바른 방법과 캐시 적중 0%의 진짜 원인](https://hyeokjaelee.github.io/extension-deprecation-method-cache-hit-zero-cause/): 확장 두 개가 쓸모없어져서 폐기했다. 165개 세션에서 0번 발동한 가드를 어떻게 검증하고 폐기했는지 정리했다. 그리고 캐시 적중률이 0%인 원인이 세 가지 가설 전부 틀렸다.
