@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [같은 트리를 다른 커밋 토폴로지로 재현하는 기법](https://hyeokjaelee.github.io/git-byte-identical-rebuild-agent-reach-skip/): 난잡하게 쌓인 26개 커밋을 논리적 6개로 재분할했다. 핵심은 기능을 다시 구현하지 않고 같은 트리를 다른 커밋 구조로 재현하는 것이다. 도구 평가와 금융 분석도 했다.
 - [인쇄 DOM 텔레포트와 Module Federation 공유 캐시](https://hyeokjaelee.github.io/print-dom-teleport-shared-queryclient-module-federation/): 수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다. 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.
 - [두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인](https://hyeokjaelee.github.io/dual-write-wiki-problem-3stage-pipeline/): Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다. 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.
 - [비전 폴백 패턴 일반화와 삭제는 정리가 아니다](https://hyeokjaelee.github.io/vision-fallback-generalize-dangling-ref-cleanup/): 이미지를 읽는 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 일반화했다. 그리고 npm 삭제 후 남은 dangling 참조도 정리했다.
