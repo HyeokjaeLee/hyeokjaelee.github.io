@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent 의존성 판단을 두 질문으로 줄이고 통과율 73% 달성](https://hyeokjaelee.github.io/qa-agent-two-question-dependency-73-percent/): 여러 의존성 타입을 두 질문으로 줄이고 실패 연쇄 차단을 복구하니 통과율이 60%에서 73%로 올랐다.
 - [QA Agent smoke 통과율 18%에서 60%로 세 배 뛴 날](https://hyeokjaelee.github.io/qa-agent-smoke-18-to-60-percent-tripled/): 시트 품질을 올리고 에이전트 모델을 분산하고 탐색 에이전트를 붙이니 smoke 통과율이 18%에서 60%로 세 배 뛰었다.
 - [당연한 원인이 틀렸을 때 - GPT-5.4 403와 크론잡 폴백 연쇄](https://hyeokjaelee.github.io/clawmux-gpt54-403-cron-fallback-diversity/): GPT-5.4가 403을 뱉을 때 Cloudflare 탓이라고 생각했는데 필수 필드 누락이었고, 크론잡 실패는 용량 부족인 줄 알았는데 폴백 다양성 부족이었다.
 - [QA Agent planning 단일화와 도커 메모리 5GB 문제](https://hyeokjaelee.github.io/qa-agent-planner-merge-docker-memory-5gb/): 3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다. 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.
