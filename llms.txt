@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [한 턴에 하나의 서브에이전트 호출만 허용되는 이유](https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/): 같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다. 원인은 턴당 1회 호출 가드였다. 해결은 tasks 배열이었다. 그리고 괴담 소설 품질 게이트도 구현했다.
 - [주말에 주가를 보는 법과 헤드리스 서버 스크래핑](https://hyeokjaelee.github.io/weekend-stock-estimates-headless-scraping-fallback/): 한국 정규장은 주말에 안 돈다. GDR 추정가랑 야간선물로 방향을 가늠할 수 있다. 그리고 헤드리스 서버에서 브라우저 없이 웹 스크래핑하는 fallback 체인도 정리했다.
 - [MCP 프로젝트 단위 스코핑과 괴담 소설 파이프라인 개편](https://hyeokjaelee.github.io/mcp-project-scoping-ghost-novel-pipeline-overhaul/): MCP 서버를 프로젝트마다 다르게 로드하는 구조를 설계했다. 그리고 괴담 소설 생성 파이프라인을 4개 에이전트로 개편했다.
 - [한국만 폭락한 날, 89% 반도체 노출을 발견하다](https://hyeokjaelee.github.io/korea-only-crash-89percent-semiconductor-exposure/): KOSPI가 -7.89%로 서킷브레이커가 걸린 날, 8개 에이전트 투표로 SELL을 내렸다. 포트폴리오를 분석해보니 현금이 0.19%였고 분산된 줄 알았던 ETF가 전부 반도체였다.
