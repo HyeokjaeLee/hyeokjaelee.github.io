@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent 재시도 성공률 0%를 잡은 날](https://hyeokjaelee.github.io/qa-agent-inspector-zero-retry-fix/): Inspector 에이전트를 배포해서 막힌 케이스의 원인을 분석하고 재시도가 처음부터 실패하던 문제를 해결했다.
 - [QA Agent 단일 함수에서 멀티 에이전트로 전환한 날](https://hyeokjaelee.github.io/qa-agent-monolithic-to-multi-agent/): runQaJob 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다. 틈틈이 세션 로거 플러그인도 만들었다.
 - [QA Agent 통과율 50%에서 61%로 끌어올린 날](https://hyeokjaelee.github.io/qa-agent-smoke-pass-rate-50-to-61/): 블록된 케이스만 다시 돌리는 2단계 재시도와 뷰포트 프리셋, Zod 검증을 붙여서 QA 통과율을 올렸다.
 - [QA Agent 마스터 위임 루프와 executionDraft 설계](https://hyeokjaelee.github.io/qa-agent-delegation-loop-execution-draft/): 브라우저 격리를 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.
