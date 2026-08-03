@@ -1,6 +1,6 @@
 import { PostLargeCard } from '@components/molecules/PostLargeCard';
-import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import type { PostData } from '@shared/types';
+import { useCommentDrawerStore } from '@stores/useCommentDrawerStore';
 import { useMemo } from 'react';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -61,21 +61,21 @@ export const RandomPostSuggestion = ({
             return post.slug ? (
               <SwiperSlide className="w-fit py-2" key={post.slug}>
                 <div>
-                <PostLargeCard
-                  className="w-72"
-                  date={post.dateLabel}
-                  description={post.description}
-                  href={post.slug}
-                  onOpenComments={() =>
-                    openCommentDrawer({
-                      pathname: post.slug,
-                      title: post.title || '무제',
-                    })
-                  }
-                  tags={post.tags}
-                  title={post.title || '무제'}
-                  titleImage={post.titleImage}
-                />
+                  <PostLargeCard
+                    className="w-72"
+                    date={post.dateLabel}
+                    description={post.description}
+                    href={post.slug}
+                    onOpenComments={() =>
+                      openCommentDrawer({
+                        pathname: post.slug,
+                        title: post.title || '무제',
+                      })
+                    }
+                    tags={post.tags}
+                    title={post.title || '무제'}
+                    titleImage={post.titleImage}
+                  />
                 </div>
               </SwiperSlide>
             ) : null;
