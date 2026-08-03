@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [역할 고정 LLM은 약한 힌트로 안 바뀐다, 정체성을 바꿔야 한다](https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/): 투자 분석 에이전트에게 가격 예측을 물어도 자꾸 매매 추천을 했다. 시스템 프롬프트의 정체성이 매매 추론을 강제하고 있었다. 정체성 자체를 바꿔야 했다. 그리고 에이전트들이 토론하는 투자 데스크도 만들었다.
 - [스스로 거짓말을 잡는 투자 분석 에이전트](https://hyeokjaelee.github.io/investment-agent-self-verification-git-dot-traps/): 투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다. PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다. 그리고 깃 세 점과 두 점의 함정도 겪었다.
 - [올바른 질문이 최적화보다 낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다. "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다. 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.
 - [같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접](https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/): 자율 검증 루프가 멈추는 현상을 추적했더니 4개의 독립된 근본 원인이 있었다. design-reviewer는 핵심 도구를 9번 중 0번 호출했다. 강제성은 간접 위임이 아니라 직접 행위에 붙여야 한다.
