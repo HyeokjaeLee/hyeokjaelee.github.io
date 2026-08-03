@@ -8,6 +8,10 @@ export const POST_PER_PAGE = 20;
 // frontmatter `titleImage` paths (e.g. "assets/<file>") resolve to optimized
 // assets. Body images are handled separately by Astro's markdown pipeline.
 // posts.ts lives in src/utils/, so root contents/ is two levels up.
+//
+// The `contents/_shared/assets/` directory holds common images reusable across
+// posts. Reference them with the `@shared/` prefix in frontmatter:
+//   titleImage: '@shared/assets/dev-diary.png'
 const imageUrls = import.meta.glob('../../contents/**/assets/*', {
   eager: true,
   query: '?url',
@@ -22,6 +26,15 @@ export function resolveTitleImage(slug: string, titleImage?: string): string {
   // Remote image (e.g. GitHub user-content URL) — use as-is.
   if (/^https?:\/\//.test(titleImage)) {
     return titleImage;
+  }
+
+  // Shared common asset: @shared/assets/<file> → contents/_shared/assets/<file>
+  if (titleImage.startsWith('@shared/')) {
+    return (
+      imageUrls[
+        `../../contents/_shared/${titleImage.slice('@shared/'.length)}`
+      ] ?? ''
+    );
   }
 
   return imageUrls[`../../contents/${slug}/${titleImage}`] ?? '';
