@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과](https://hyeokjaelee.github.io/agent-self-improvement-bash-timeout-crash-saga/): pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다. 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다. 그리고 토스증권 CLI도 새로 만들었다.
 - [Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정](https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/): footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다. 소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.
 - [설정 한 번으로 영원히 막히는 반응성 버그와 잠재 위험 점화](https://hyeokjaelee.github.io/setup-once-reactivity-trap-latent-risk-ignition/): Vue의 setup 한 번 값이 watchEffect를 영구적으로 막아서 간헐적 버그를 만들었다. 그리고 두 달 전의 변경이 이미지 리빌드로 점화된 MCP 멈춤도 잡았다.
 - [에이전트가 도구를 호출하지 않고 텍스트로 뱉는 현상의 원인 추적](https://hyeokjaelee.github.io/tool-call-as-text-hypothesis-refutation/): AI 에이전트가 도구 호출을 텍스트로 출력하기만 하고 실행하지 않았다. prefill 에러를 원인으로 지목했다가, 같은 현상이 다른 모델에서도 재현되면서 가설이 깨졌다.
