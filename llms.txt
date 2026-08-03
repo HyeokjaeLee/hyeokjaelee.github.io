@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent가 기억하고 병렬로 돌기 시작한 날](https://hyeokjaelee.github.io/qa-agent-server-session-durable-storage/): opencode를 CLI 호출에서 서버 세션으로 바꾸고 학습한 지식을 코드 저장소 밖으로 빼서 슬랙 스레드 제목까지 정리했다.
 - [QA Agent 캐싱 정책과 Slack 리포트 다이어트](https://hyeokjaelee.github.io/qa-agent-caching-policy-slack-report-diet/): QA Agent가 매번 처음부터 계획하던 비용을 시트 단위 캐시로 없애고, Slack 리포트를 사람이 읽기 좋게 줄였다.
 - [QA Agent 병렬 실행 개선과 MSW 마이그레이션 삽질](https://hyeokjaelee.github.io/qa-agent-dynamic-lane-msw-migration/): QA Agent 실행 흐름을 정리하고, 회사 프로젝트의 MSW 마이그레이션 PR 리뷰를 반영하느라 하루가 금방 간 날.
 - [QA Agent 병렬 실행과 MSW 마이그레이션](https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/): QA Agent 순차 실행을 lane 병렬로 전환하고, 테스트 환경 mock을 Shared API 기반 MSW로 통합한 날.
