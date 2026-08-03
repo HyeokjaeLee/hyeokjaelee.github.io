@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [직접 만든 에러 클래스를 227줄 지운 날](https://hyeokjaelee.github.io/agenterror-227-lines-deleted-biome-migration/): 프레임워크가 이미 제공하는 기능을 직접 구현하고 있었다. 에러 클래스 227줄을 지우고 프레임워크 내장 기능으로 교체했다. 그리고 린터도 통합했다.
 - [SVG 사각형 하나 잡으려고 네 번 고친 날](https://hyeokjaelee.github.io/svg-flash-bug-four-fixes-one-day/): SVG 아이콘에 일시적 사각형이 깜빡이는 버그를 잡으려고 하루 종일 네 번 고쳤다. 원인이 바닥에서 바닥으로 바뀌었다.
 - [픽셀 퍼펙트 토큰화와 파일 시스템 루트를 복사할 뻔한 훅](https://hyeokjaelee.github.io/pixel-perfect-tokens-filesystem-root-copy-bug/): 알림 설정 UI를 픽셀 퍼펙트로 맞추고 임의 값을 전부 의미 토큰으로 바꿨다. 그리고 Zed 훅에서 파일 시스템 루트를 복사하려던 치명적 버그를 잡았다.
 - [disk I/O 에러가 사실은 DB 잠금 경합이었던 날](https://hyeokjaelee.github.io/disk-io-error-actually-db-lock-contention/): context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 busy_timeout 설정을 무시하고 있었다. 업그레이드랑 KB 재구축으로 해결했다.
