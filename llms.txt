@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [한 줄에 세 규칙을 넣으면 안 되는 이유와 원샷 소비 함정](https://hyeokjaelee.github.io/one-line-three-rules-oneshot-consumed-before-trigger/): set_line으로 규칙을 고치다가 다른 규칙이 조용히 사라졌다. 세션 타이틀이 첫 요청에서 안 붙는 버그도 찾았다. 원인은 원샷이 트리거 전에 소비되는 거였다.
 - [에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과](https://hyeokjaelee.github.io/agent-self-improvement-bash-timeout-crash-saga/): pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다. 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다. 그리고 토스증권 CLI도 새로 만들었다.
 - [Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정](https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/): footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다. 소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.
 - [설정 한 번으로 영원히 막히는 반응성 버그와 잠재 위험 점화](https://hyeokjaelee.github.io/setup-once-reactivity-trap-latent-risk-ignition/): Vue의 setup 한 번 값이 watchEffect를 영구적으로 막아서 간헐적 버그를 만들었다. 그리고 두 달 전의 변경이 이미지 리빌드로 점화된 MCP 멈춤도 잡았다.
