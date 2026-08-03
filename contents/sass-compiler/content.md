@@ -70,6 +70,6 @@ min.css파일만 필요하기 때문에 다음과 같은 설정으로 사용한�
 ```
 
 설정후 우측 하단에 Watch Sass를 클릭하시면 Sass파일의 수정을 감지해 실시간으로 CSS파일을 만들어준다.
-![image](assets/sass-compiler-02.png)
+![VSCode 하단의 Watch Sass 버튼](assets/sass-compiler-02.png)
 나는 다음과 같은 구조를 주로 사용하기 때문에 이렇게 설정했지만 다른 설정을 원하시면 `savePath`부분에 원하는 컴파일 위치를 작성해서 사용하면 된다.
-![image](assets/sass-compiler-03.png)
+![Sass 컴파일이 적용된 디렉토리 구조](assets/sass-compiler-03.png)

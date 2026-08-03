@@ -25,7 +25,24 @@ export function rehypeGallery() {
       visit(node, (child: HastNode) => {
         if (child.tagName === 'img') images.push(child);
       });
-      node.children = images;
+      // Preserve an optional shared caption: rehypeFigure wraps gallery images in
+      // nested <figure> elements, so the caption survives as the only direct child
+      // <p>/<figcaption> without an image. Galleries without one keep bare <img> cells.
+      const caption = (node.children ?? []).find(
+        (child) =>
+          (child.tagName === 'p' || child.tagName === 'figcaption') &&
+          !(child.children ?? []).some((c) => c.tagName === 'img'),
+      );
+      const children: HastNode[] = images;
+      if (caption) {
+        children.push({
+          type: 'element',
+          tagName: 'figcaption',
+          properties: {},
+          children: caption.children ?? [],
+        });
+      }
+      node.children = children;
     });
   };
 }

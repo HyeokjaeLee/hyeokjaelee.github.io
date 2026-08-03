@@ -2,6 +2,7 @@
 
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import rehypeFigure from '@microflash/rehype-figure';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -48,6 +49,10 @@ export default defineConfig({
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkDirective, remarkImageOptimize, remarkGallery],
     rehypePlugins: [
+      // Order matters: rehypeFigure must precede rehypeGallery. rehypeGallery flattens
+      // <figure class=\"gallery\"> to bare <img> cells, which also discards the nested
+      // figure wrappers rehypeFigure creates for images inside a gallery.
+      rehypeFigure,
       rehypeGallery,
       rehypeSlug,
       [

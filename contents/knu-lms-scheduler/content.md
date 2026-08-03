@@ -105,7 +105,7 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 배포
 
-![image](assets/knu-lms-scheduler-01.png)
+![KNU LMS Scheduler 실행 화면 — 과목별 미수강·미제출 과제 현황](assets/knu-lms-scheduler-01.png)
 
 이 부분은 Electron을 사용한 가장 큰 이유기도 한데 편리하게 실행파일로 빌드해서 배포할 수 있었다.
 

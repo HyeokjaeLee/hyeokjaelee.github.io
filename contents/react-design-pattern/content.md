@@ -32,8 +32,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 또한 가장 기본적인 패턴이기도 해서 다른 패턴의 베이스가 되는 경우가 많다.
 
-> ![mvc](assets/react-design-pattern-02.png)
-> 소프트웨어를 Model - View - Controller 요소로 구분함
+![소프트웨어를 Model - View - Controller 요소로 구분함](assets/react-design-pattern-02.png)
 
 **역할**
 
@@ -45,8 +44,7 @@ MVC 패턴은 이러한 구분을 더 엄격하게 따르도록 한다.
 
 View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작업할 수 있고 ViewModel이 View와 Model의 어댑터로써 변경 사항을 쉽게 반영할 수 있다.
 
-> ![mvvm](assets/react-design-pattern-03.png)
-> MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨
+![MVC 패턴에서 Controller를 제외하고 VIewModel을 추가됨](assets/react-design-pattern-03.png)
 
 **역할**
 
@@ -58,8 +56,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 기존 MVC 패턴으로 개발한 앱의 덩치가 커지면서 Model과 View가 늘어남에 따라 데이터 흐름의 복잡도가 늘어났을 때 개발자가 예상하지 못하는 버그를 방지하기 위해 2014년에 Facebook에서 고안한 패턴이다.
 
-> ![flux](assets/react-design-pattern-04.png)
-> MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함
+![MVC 패턴의 양방향 데이터 바인딩을 단방향으로 대체함](assets/react-design-pattern-04.png)
 
 **역할**
 
@@ -74,8 +71,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 > 이미 Hook이라는 개념이 있는 현재, 로직과 인터페이스를 위한 코드를 분리하기 위한 구조를 위해 참고했다.
 
-> ![pcc](assets/react-design-pattern-05.png)
-> 앱을 Container Component와 Presentational Component로 나누어 개발한다.
+![앱을 Container Component와 Presentational Component로 나누어 개발한다.](assets/react-design-pattern-05.png)
 
 **역할**
 
@@ -94,8 +90,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 
 개발을 진행할 때 백엔드 로직에 의존하지 않고 개발이 가능하지만 컴포넌트가 분리되어 있기 때문에 컨테이너 컴포넌트의 사이즈를 경정할 수 없을 경우, 미디어 쿼리를 사용하기 까다롭다.
 
-> ![atomic](assets/react-design-pattern-06.png)
-> 여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.
+![여러가지 컴포넌트 단위를 조합해서 앱을 완성한다.](assets/react-design-pattern-06.png)
 
 **역할**
 
@@ -108,9 +103,9 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 - Templates: Atoms, Molecules, Organisms을 배치하는데 중점을 둔 컴포넌트
 - Pages: Templates을 배치하여 웹 애플리케이션 페이지 하나에 대응하는 컴포넌트
 
-## 디자인 패턴, 중요한 건 알겠는데...
+## 디자인 패턴, 중요한 건 알겠는데
 
-![image](assets/react-design-pattern-01.png)
+![디자인 패턴을 두고 고민하는 한 장면](assets/react-design-pattern-01.png)
 
 ### 디자인 패턴 중요한 건 알겠는데 왜 써야 하지?
 
@@ -121,7 +116,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
 - 특히 1회성으로 끝나는 프로젝트가 아니라 기대 수명을 길게 잡은 소프트웨어를 개발하게 되면 더욱 유지보수 용이성을 신경 쓰지 않을 수 없다.
 - 디자인 패턴은 이런 고민들에 대한 가이드라인이 되어줄 수 있다.
 
-### 우린 그런 거 없어도 잘 개발해 왔다!
+### 우린 그런 거 없어도 잘 개발해 왔다
 
 이런 생각이 드는 데는 여러 가지 이유가 있을 수 있겠지만 아래 내용 중 해당사항이 있는지 생각해 볼 필요가 있다.
 
@@ -135,7 +130,7 @@ View, ViewModel, Model이 각각 독립적이기 때문에 병력적으로 작�
   > 성장하는 회사의 소프트웨어 크기는 결국 커지기 마련이다.
   > 위 내용과 마찬가지로 미리미리 준비해 놓자.
 
-### 모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다.
+### 모든 상황에서 디자인 패턴을 그대로 따르는 것은 정답이 아닐 수 있다
 
 물론 디자인 패턴이 훌륭한 참고서는 될 수 있다.
 

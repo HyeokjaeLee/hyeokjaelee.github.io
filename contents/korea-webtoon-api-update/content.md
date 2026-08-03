@@ -72,8 +72,7 @@ Proxy를 사용해 IP를 변경했다.
 
 현생이 바빠서 API에 신경을 못쓰고 있었는데 API가 정상적으로 작동하지 않는다는 메일을 받았다.
 
-> ![google-search](assets/korea-webtoon-api-update-02.png)
-> 내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.
+![내가 만든 API를 쓰는 사람이 있긴하구나 생각했는데 알고보니 구글 검색 상단에 노출되고 있어서 간간히 트래픽이 발생하고 있었다.](assets/korea-webtoon-api-update-02.png)
 
 로그를 보니 Naver와 Kakao Page의 봇들이 정상적으로 작동하지 않고 있었다.
 
@@ -88,4 +87,4 @@ Naver의 경우엔 클라이언트 구조가 살짝 바뀌어서 일부 정보�
 실제 Kakao Page 클라이언트에서 요청하는 쿼리를 보고 필요한 내용만 추려서 요청하는 식으로 구현했다.
 
 > 개발한 API는 아래 링크에서 확인할 수 있다.
-> https://github.com/HyeokjaeLee/korea-webtoon-api
+> <https://github.com/HyeokjaeLee/korea-webtoon-api>

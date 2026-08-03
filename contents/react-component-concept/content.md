@@ -110,11 +110,9 @@ export interface SearchboxProps<T extends OptionHint> {
 
 options에 제공한 값에 따라 onChange 매개변수나 value의 타입을 엄격하게 관리하거나 반대로 value에 따라 options의 타입을 관리할 수 있다.
 
-> ![type](assets/react-component-concept-01.png)
-> options을 자유로운 형식의 array로 입력받을 수 있음
+![options을 자유로운 형식의 array로 입력받을 수 있음](assets/react-component-concept-01.png)
 
-> ![type2](assets/react-component-concept-05.png)
-> options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨
+![options에 제공한 값에 따라 onChnage 매개변수, value는 엄격하게 관리됨](assets/react-component-concept-05.png)
 
 또는 특정 prop에 따라 내부 로직을 재활용하는 새로운 컴포넌트를 표시하는 것도 가능하다.
 

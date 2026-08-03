@@ -68,8 +68,12 @@ React 기반 제품을 개발하면서 컴포넌트 수가 많아지게 되면�
 
 ### 제품 디렉토리 구조
 
-> ![image](assets/react-atomic-02.png)![image](assets/react-atomic-01.png)
-> components, pages 디렉토리 구조
+:::gallery
+![components 디렉토리 구조](assets/react-atomic-02.png)
+![pages 디렉토리 구조](assets/react-atomic-01.png)
+
+components, pages 디렉토리 구조
+:::
 
 components 디렉터리에서는 organisms까지만 관리하는 것으로 했다.
 
