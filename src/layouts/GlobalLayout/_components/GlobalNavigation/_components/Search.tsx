@@ -59,10 +59,14 @@ const normalizeManifest = (data: unknown): PostData[] => {
  * Returns null in dev (the artifact does not exist) or if the dynamic import
  * fails, so callers can degrade to an empty result instead of crashing.
  */
+const PAGEFIND_SCRIPT_URL = '/pagefind/pagefind.js';
+
 const loadPagefind = async (): Promise<PagefindInstance | null> => {
   try {
-    // @ts-expect-error - /pagefind/pagefind.js is a build-time artifact with no type declarations
-    const imported = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+    // Non-literal specifier (+ @vite-ignore) keeps this a runtime-only import.
+    // pagefind.js is a build artifact (only in dist/ after `pagefind --site dist`),
+    // so a static literal makes Vite fail to resolve it at transform time in dev.
+    const imported = await import(/* @vite-ignore */ PAGEFIND_SCRIPT_URL);
     return imported as PagefindInstance;
   } catch {
     return null;
