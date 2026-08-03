@@ -4,6 +4,16 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [auto-fallback 개발 과정 기록 정리](https://hyeokjaelee.github.io/auto-fallback-dev-history/): auto-fallback 플러그인 v0.2.38~v0.3.12 전체 개발 과정을 정리. 버전별 변경사항과 설계 결정을 문서화.
+- [코스 분류 정책 반영과 콜드 캐시 문제](https://hyeokjaelee.github.io/course-policy-cold-cache-fix/): 코스 생성 모달, 기본 정보, 강의 수정에 분류 정책 반영. 모델 해석 콜드 캐시 원인 분석. auto-fallback SSE 무한 재시도 해결.
+- [OpenCode auto-fallback 플러그인 대폭 개선](https://hyeokjaelee.github.io/auto-fallback-plugin-major-upgrade/): 에러 분류 고도화, 모델 단위 장애 추적, 설정 구조 단순화, npm 자동 업데이트. 테스트 23개에서 65개로 확장. v0.0.5~v0.0.11 연속 배포.
+- [코스 분류 1주차 구현과 서브에이전트 설계](https://hyeokjaelee.github.io/course-classification-week1-subagents/): 코스 분류 옵션, 기본값, 커리큘럼 타입 바인딩, 제품유형 필터링 구현. Notion/Figma 분석 서브에이전트 워크플로우 설계.
+- [코스 분류 분기와 역량진단리포트 확장](https://hyeokjaelee.github.io/course-classification-branching/): 코스 생성 모달과 기본 정보 관리에 분기 로직 추가. 역량진단리포트를 모든 코스로 확장 후 코드리뷰 반영 및 CI 해결.
+- [Linux 블루투스 자동 활성화 문제 해결](https://hyeokjaelee.github.io/linux-bluetooth-tlp-fix/): Linux 부팅 시 블루투스가 자동 활성화되지 않는 문제 해결. 원인은 TLP 설치 시 systemd-rfkill 서비스 자동 비활성화.
+- [QA Sheet 타임아웃과 권한 분리](https://hyeokjaelee.github.io/qa-sheet-timeout-permission/): QA Sheet 노션 API 호출 제거, 두 번째 실행 멈춤 원인을 LLM 제공측 장애에서 찾아 실행 시간 1시간에서 20분으로 축소. 강사 접근 권한 분리.
+- [Figma 분석 에이전트와 권한 수정](https://hyeokjaelee.github.io/figma-agent-permission-fix/): Figma 분석 도구를 Gemini 서브에이전트에 위임. 강사 권한 수정 PR 배포. 옵시디언 볼트 재구성.
+- [Gemini CLI를 서브에이전트로 통합](https://hyeokjaelee.github.io/gemini-cli-subagent-integration/): 격리된 Gemini CLI를 opencode 서브에이전트처럼 호출하는 통합 시스템. 샌드박스 격리, npm 캐시 오염 해결, Figma MCP 연동.
+- [플래너 의존성 판정 Q-UI/Q-RUNTIME 모델과 패스율 73%](https://hyeokjaelee.github.io/planner-dependency-q-ui-q-runtime/): 플래너 의존성 판정 로직을 Q-UI/Q-RUNTIME 두 가지 질문 모델로 재설계. cascade block 복원으로 패스율 73.3% 달성.
 - [모델 4개 분산과 스모크 60.6% 달성](https://hyeokjaelee.github.io/model-dispersion-smoke-60/): 5개 에이전트 2개 모델에서 4개 모델로 균등 분산. Serena MCP 평가 후 기존 도구 유지. 13회 반복으로 스모크 합격률 18.2%에서 60.6%로.
 - [Inspector 상태 보존과 한국투자증권 CLI 제작](https://hyeokjaelee.github.io/inspector-state-korea-investment-cli/): Inspector가 executor 상태를 보존하도록 수정. GPT-5.4 Responses API 필드 누락 수정. 한국투자증권 CLI 제작 후 npm 게시.
 - [단일 플래너 통합과 Docker 메모리 고갈 해결](https://hyeokjaelee.github.io/single-planner-memory-fix/): 3단계 planning을 단일 qa-planner로 통합, 1200줄 삭제. Docker 메모리 고갈 원인을 Chromium 4인스턴스에서 찾아 해결. 스크린샷 의무화.
