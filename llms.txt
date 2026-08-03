@@ -4,12 +4,14 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [코스 분류 정책을 생성 모달부터 강의 수정까지 흘려보내기](https://hyeokjaelee.github.io/course-classification-policy/): 교육 플랫폼에서 코스 분류 정책을 코스 생성 모달과 기본 정보, 강의 수정 화면에 차례로 반영한 기록. 2주차 계획까지 정리했다.
 - [순차수강 옵션을 코스 분류로 묶어내기](https://hyeokjaelee.github.io/sequential-learning-option/): 교육 플랫폼에서 코스 분류 옵션을 설계하고, 커리큘럼 타입 바인딩과 제품유형 필터링까지 한 단계씩 구현한 기록.
 - [TLP가 블루투스를 죽였다](https://hyeokjaelee.github.io/linux-bluetooth-autostart-fix/): Linux 노트북에서 블루투스가 부팅 시 자동으로 켜지지 않던 문제를 잡은 기록이다. 원인은 TLP 설치 시 함께 mask된 systemd-rfkill 서비스였다.
 - [teacher 역할 권한 정리와 진단 태그 링크 조건부](https://hyeokjaelee.github.io/teacher-role-tag-refinement/): teacher 역할에서 접근 권한을 제외하고, 진단 태그 설정 링크를 조건부로 숨기는 작업을 정리했다.
 - [Gemini CLI를 OpenCode 서브에이전트로 통합하기](https://hyeokjaelee.github.io/gemini-cli-opencode-integration/): 격리된 Gemini CLI를 OpenCode 서브에이전트처럼 호출하는 통합 시스템을 구축한 과정을 정리해봤다. 샌드박스 분리, npm 캐시 오염 해결, 프리셋 시스템까지.
 - [QA 에이전트 planner 의존성 판정을 두 개의 질문으로 줄였다](https://hyeokjaelee.github.io/planner-dependency-model-redesign/): planner가 케이스 의존성을 판정하던 로직을 Q-UI/Q-RUNTIME 두 가지 질문 모델로 재설계하고 cascade block을 복원해 패스율 73.3%까지 올린 과정
 - [QA 에이전트: 18%에서 61%까지 — 한 주간의 품질 캠페인](https://hyeokjaelee.github.io/planner-memo-skipagenttest/): QA 에이전트 시트 품질을 개선하고 모델을 분산시키고 도구를 평가한 2026년 4월 19일 작업 회고
+- [QA Agent inspector stop 시 executor 상태 보존](https://hyeokjaelee.github.io/inspector-state-preservation/): QA 자동화에서 inspector가 중간에 멈춰도 executor가 판정한 passed/failed를 존중하는 상태 보존 로직을 넣은 회고
 - [QA Agent 플래너를 하나로 합치고 비전 서브에이전트를 얹었다](https://hyeokjaelee.github.io/planner-unification-vision-agent/): 3단계로 쪼개져 있던 planning 파이프라인을 단일 qa-planner로 통합하고, qa-vision 서브에이전트를 붙여 스크린샷을 의무화한 회고
 - [QA 리포트에 토큰과 비용을 올리다](https://hyeokjaelee.github.io/token-cost-display-fix/): 리포트 상단에 토큰/비용을 표시하고, planner가 explore 서브에이전트에 쓴 토큰이 집계에서 빠지던 버그를 잡은 기록.
 - [QA Agent Planner 고치다가 GLM DNS까지 만난 하루](https://hyeokjaelee.github.io/planner-fixture-dns-fix/): planner의 fixture knowledge 참조를 손보다가 glm-5.1 DNS 해석 실패를 만나 proxy URL 오버라이드로 넘긴 기록.
