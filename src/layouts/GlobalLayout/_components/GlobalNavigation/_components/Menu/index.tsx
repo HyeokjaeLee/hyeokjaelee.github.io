@@ -64,7 +64,7 @@ export const Menu = () => {
         </section>
         <DrawerFooter className="flex flex-row items-center justify-between">
           <small className="text-zinc-500">
-            © 2023. Hyeokjae all rights reserved.
+            © 2021-{new Date().getFullYear()}. Hyeokjae all rights reserved.
           </small>
           <DarkModeSwitch />
         </DrawerFooter>
