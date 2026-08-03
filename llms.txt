@@ -4,6 +4,19 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [터미널 엔진 xterm.js에서 Rust VT로 교체](https://hyeokjaelee.github.io/terminal-engine-rust-vt/): xterm.js를 Rust VT 파서 + Canvas2D 렌더러로 완전 교체. Ghostty VT 파싱 라이브러리 활용. 한글 IME 입력 깨짐 수정.
+- [사이드바 평면 카드 재설계](https://hyeokjaelee.github.io/sidebar-card-redesign/): 사이드바를 드롭다운에서 평면 카드 형태로 재설계. 워크트리/브랜치 분리, 브랜치 전환은 BranchSwitcher에서 처리.
+- [Loop 프롬프트 개선과 Work Logger 재작성](https://hyeokjaelee.github.io/loop-prompt-work-logger/): Loop 프롬프트 XML 태그 분리, 사용자 질문 차단 로직 수정. Work Logger 전면 재작성으로 옵시디언 Inbox 한국어 구조화 로그 생성.
+- [ci-pass 스킬 확장과 Pi 서브에이전트 시스템](https://hyeokjaelee.github.io/cipass-pi-subagent-system/): ci-pass 스킬 트리거 확장. Pi 에이전트 서브에이전트 시스템 구축 — 탐색·수정·검증·리뷰 역할별 에이전트 프롬프트, 병렬 비동기 작업 패턴.
+- [잠금 모달 Figma 일치와 레코드 누락 버그](https://hyeokjaelee.github.io/lock-modal-record-missing-bug/): 순차수강 잠금 모달을 Figma와 픽셀 일치. 기존 계정 초대 시 K-Digital 정보 레코드 누락으로 NoMethodError 해결.
+- [순차수강 잠금 UI Figma 픽셀 단위 일치](https://hyeokjaelee.github.io/sequential-lock-ui-pixel-match/): Notion·Figma·코드 3방향 교차 검증으로 순차수강 잠금 UI를 Figma 픽셀 단위로 일치. Playwright E2E 검증 완료.
+- [코스 분류 버그 수정과 3방향 교차 검증](https://hyeokjaelee.github.io/course-bugfix-cross-validation/): 권한 대소문자 불일치 버그 수정, 탭 노출 문제 해결. Notion·Figma·코드베이스 3방향 교차 검증으로 설정 95% 완료.
+- [강의잠금 툴팁과 Obsidian CLI 래퍼](https://hyeokjaelee.github.io/lecture-lock-tooltip-obsidian-cli/): BaseTooltip 컴포넌트로 강의잠금 툴팁 구현. Figma 원본과 스타일 일치. Linux Obsidian CLI GPU 래퍼 보강.
+- [rtk CLI 토큰 절감과 옵시디언 볼트 재구성](https://hyeokjaelee.github.io/rtk-token-saving-vault-restructure/): rtk CLI로 grep 44%, ls 99%, git 64% 토큰 절감 확인. 옵시디언 문서 62개 분류를 category 단일 필드로 통합, 199개 파일을 11개 카테고리로 재구성.
+- [학생 화면 잠금 UI와 auto-fallback 스키마 통합](https://hyeokjaelee.github.io/student-lock-ui-fallback-schema/): Phase 3 학생 화면 잠금 파트 UI 구현. 완료율 표시, 잠금 라벨, 콘텐츠 디밍, 아코디언 접힘. auto-fallback 설정 스키마 통합 리팩토링.
+- [코스 분류 추가 구현 계획과 빌드 인프라 개선](https://hyeokjaelee.github.io/course-plan-build-infra/): 코스 생성 모달 분류 추가 구현 계획 수립. Figma 대비 누락 분기 반영. ESLint 빌드 경로 별칭 문제를 tsup 번들링으로 해결.
+- [InstanceBootstrap 회귀 버그와 ESLint 강화](https://hyeokjaelee.github.io/instance-bootstrap-eslint/): 리팩토링 중 init 파라미터 제거로 레거시 라우트 초기화가 누락된 회귀 버그 파악. ESLint v9 flat config + 80개 이상 엄격 규칙 적용.
+- [OpenCode 컨텍스트 압축 버그 수정 연속 작업](https://hyeokjaelee.github.io/opencode-compression-bugfixes/): 중복 변수 선언 치명적 오류 해결. 컨텍스트 압축 타이밍, 비동기 블로킹, 이중 압축 경쟁 조건 수정. 자식 에이전트 조기 복귀 현상 해결.
 - [auto-fallback 개발 과정 기록 정리](https://hyeokjaelee.github.io/auto-fallback-dev-history/): auto-fallback 플러그인 v0.2.38~v0.3.12 전체 개발 과정을 정리. 버전별 변경사항과 설계 결정을 문서화.
 - [코스 분류 정책 반영과 콜드 캐시 문제](https://hyeokjaelee.github.io/course-policy-cold-cache-fix/): 코스 생성 모달, 기본 정보, 강의 수정에 분류 정책 반영. 모델 해석 콜드 캐시 원인 분석. auto-fallback SSE 무한 재시도 해결.
 - [OpenCode auto-fallback 플러그인 대폭 개선](https://hyeokjaelee.github.io/auto-fallback-plugin-major-upgrade/): 에러 분류 고도화, 모델 단위 장애 추적, 설정 구조 단순화, npm 자동 업데이트. 테스트 23개에서 65개로 확장. v0.0.5~v0.0.11 연속 배포.
