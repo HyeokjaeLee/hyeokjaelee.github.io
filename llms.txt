@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로](https://hyeokjaelee.github.io/css-has-scroll-lock-simplification-to-robustness/): 모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다. 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.
 - [과도한 배포를 막으려다 배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다. 문제를 고치려다 새 문제를 만든 셈이다.
 - [한 글자 차이로 배열이 nil이 되는 Rails 버그와 압축 무한 루프](https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/): Rails Strong Parameters에서 배열을 스칼라로 permit해서 부분 선택이 잘못되는 버그를 잡았다. 그리고 컨텍스트 압축이 무한 루프에 빠지는 문제도 해결했다.
 - [공통 패키지 하나 바꿨더니 21개 앱이 배포되는 문제](https://hyeokjaelee.github.io/common-package-21-apps-deploy-fanout-fix/): 공통 패키지 파일 하나를 바꿨더니 배포 추론이 21개 앱을 잡았다. 실제로는 5개만 배포하면 됐다. 추론 정확도를 올리고 명시적 허용 목록도 추가했다.
