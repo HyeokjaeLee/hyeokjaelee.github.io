@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [OpenCode 세션 격리와 Context-Gateway 플러그인 설계](https://hyeokjaelee.github.io/opencode-session-isolation-context-gateway/): QA 런타임을 opencode server 기반 세션으로 전환하고 lane 간 세션 공유를 금지. Context-Gateway를 플러그인 사이드카로 통합 설계.
 - [QA 에이전트 세션 구조 전환과 영구 저장소 분리](https://hyeokjaelee.github.io/qa-session-and-storage-restructure/): opencode 일회성 CLI에서 서버 기반 세션으로 전환, planning과 실행 세션 분리, fixture·스킬·캐시를 코드 저장소 외부로 통합.
 - [QA 에이전트 캐싱 정책과 모델 preset 분리](https://hyeokjaelee.github.io/qa-caching-and-model-preset/): QA 에이전트 Slack 출력 개선, 시트 단위 캐싱으로 반복 실행 비용 절감, 런타임 모델 설정을 preset으로 분리.
 - [QA 에이전트 lane 동적 선택과 Slack 메시지 정리](https://hyeokjaelee.github.io/qa-agent-lane-and-slack-cleanup/): QA 에이전트 실행 로그 통합, lane 수 동적 선택, Slack 첨부 정책 단순화. 사이드 프로젝트 DEV 검증과 옵시디언 노트 규칙 정리.
