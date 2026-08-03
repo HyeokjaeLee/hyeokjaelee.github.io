@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [LLM 실패를 감지하고 폴백하는 플러그인 하루 만에 만들기](https://hyeokjaelee.github.io/llm-fallback-plugin-one-day-build/): 에이전트 세션이 LLM 에러로 죽는 문제를 막기 위해, 에러를 분류하고 백업 모델로 전환하는 플러그인을 하루 만에 만들었다.
 - [노션에서 옵시디언 계획 노트로 가는 흐름 단순화와 분석 에이전트](https://hyeokjaelee.github.io/notion-obsidian-flow-simplify-analyzer-agents/): 노션 기획서를 옵시디언 구현 계획으로 바꾸는 흐름을 4단계에서 2단계로 줄이고, 노션과 피그마 분석을 전문 에이전트로 분리했다.
 - [한 기능을 닫으며 더 큰 일반화 작업을 시작한 날](https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/): 특정 코스 전용이던 기능을 전 코스로 확장해 배포를 마무리하고 같은 패턴으로 코스 분류 체계 전체를 재설계하는 작업을 시작했다.
 - [블루투스가 부팅마다 꺼지는 문제, TLP가 숨긴 서비스](https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/): 매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.
