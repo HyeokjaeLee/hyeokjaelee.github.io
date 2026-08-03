@@ -73,6 +73,36 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>비전 폴백 패턴 일반화와 삭제는 정리가 아니다</title><link>https://hyeokjaelee.github.io/vision-fallback-generalize-dangling-ref-cleanup/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/vision-fallback-generalize-dangling-ref-cleanup/</guid><description>이날은 패턴을 일반화한 날이다. 이미지 읽기 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 뽑아냈다. 그리고 npm 삭제 후 남은 dangling 참조를 정리했다. 비전 폴백 패턴을 일반화하다 비전 폴백은 이런 문제를 푼다. 텍스트 전용 모델은 이미지를 못 본다. 근데 </description><pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 패턴을 일반화한 날이다. 이미지 읽기 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 뽑아냈다. 그리고 npm 삭제 후 남은 dangling 참조를 정리했다.&lt;/p&gt;
+&lt;h2&gt;비전 폴백 패턴을 일반화하다&lt;/h2&gt;
+&lt;p&gt;비전 폴백은 이런 문제를 푼다. 텍스트 전용 모델은 이미지를 못 본다. 근데 에이전트가 이미지 파일을 읽어야 할 때가 있다. 이때 비전 모델한테 조용히 넘겨서 텍스트 설명을 받아오는 거다.&lt;/p&gt;
+&lt;p&gt;이 패턴을 처음엔 &lt;code&gt;read&lt;/code&gt; 도구에만 구현했다. read로 이미지를 읽으면, 비전 모델이 대신 보고 텍스트를 반환한다. 호출하는 쪽은 비전 모델을 거친 줄도 모른다. 투명한 라우팅이다.&lt;/p&gt;
+&lt;p&gt;근데 두 번째 이미지 입력 도구가 생겼다. 지라 첨부 이미지를 읽는 도구다. 같은 패턴이 필요했다. 비전 모델한테 넘기고 텍스트를 받아오는 거다.&lt;/p&gt;
+&lt;h3&gt;헬퍼로 뽑아내다&lt;/h3&gt;
+&lt;p&gt;그래서 패턴을 헬퍼로 뽑아냈다. &lt;code&gt;describeImageWithVision&lt;/code&gt;이라는 함수를 만들었다. 프로바이더 분기랑 인증 처리를 안에 넣었다. 새 이미지 도구는 이 함수를 부르기만 하면 된다.&lt;/p&gt;
+&lt;p&gt;이게 &amp;quot;일회용 구현에서 의도적 추상화로&amp;quot; 가는 과정이다. 처음에는 read에만 필요해서 거기에 짰다. 두 번째가 생기니까 공통으로 빼야 한다는 걸 깨달았다. 세 번째가 생기면 헬퍼를 부르기만 하면 된다.&lt;/p&gt;
+&lt;h3&gt;3단계 상태 모델&lt;/h3&gt;
+&lt;p&gt;그리고 결과를 3단계로 만들었다. 첫째, 비전 가능 모델은 원본 이미지를 그대로 받는다. 둘째, 비전 폴백이 성공하면 설명 텍스트를 받는다. 셋째, 폴백 자체가 실패하면 파일로 저장하고 경로를 반환한다.&lt;/p&gt;
+&lt;p&gt;모든 실패 경로가 정의된 상태로 끝난다. 에러를 뱉지 않는다. 호출하는 쪽은 항상 무언가를 받는다. 이미지이거나, 설명이거나, 파일 경로거나.&lt;/p&gt;
+&lt;p&gt;이게 &amp;quot;우아한 축소&amp;quot; 설계다. 실패해도 정의된 상태로 떨어진다. 호출하는 쪽이 비전 시도가 있었다는 걸 몰라도 된다.&lt;/p&gt;
+&lt;h2&gt;삭제는 정리가 아니다&lt;/h2&gt;
+&lt;p&gt;두 번째 작업은 dangling 참조 정리였다.&lt;/p&gt;
+&lt;p&gt;OpenClaw를 npm에서 삭제했다. 패키지 디렉토리가 사라졌다. 근데 셸 시작할 때마다 에러가 났다. &amp;quot;그런 파일이나 디렉터리가 없습니다.&amp;quot;&lt;/p&gt;
+&lt;p&gt;원인은 삭제 후 남은 참조였다. 설치할 때 zshrc에 추가했던 참조가 남아 있었다. systemd 유닛 파일도 남아 있었다. 패키지는 없는데 패키지를 참조하는 설정은 남아 있는 거다.&lt;/p&gt;
+&lt;h3&gt;npm 삭제는 설정을 안 지운다&lt;/h3&gt;
+&lt;p&gt;핵심 교훈은 &amp;quot;패키지 매니저 삭제는 패키지만 지운다&amp;quot;는 거다. 설치할 때 추가한 설정은 안 지운다. zshrc 참조, systemd 유닛, 환경변수. 이런 건 수동으로 지워야 한다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;삭제했으니까 깨끗하겠지&amp;quot;라고 가정하면 안 된다. 삭제 후에는 참조가 남아 있는지 확인해야 한다. 특히 설치 스크립트가 자동으로 설정을 수정하는 패키지는 더 그렇다.&lt;/p&gt;
+&lt;h2&gt;SSH 세션 지속성&lt;/h2&gt;
+&lt;p&gt;마지막으로 SSH 세션 지속성도 확인했다. 아이패드에서 SSH로 접속해서 에이전트를 돌릴 때 연결을 끊으면 어떻게 되는가.&lt;/p&gt;
+&lt;p&gt;결론은 안 된다. 에이전트는 포어그라운드 TUI 프로세스다. SSH 세션의 TTY에 묶여 있다. 연결이 끊기면 SIGHUP이 와서 즉시 죽는다. 진행 중인 작업이 날아간다.&lt;/p&gt;
+&lt;p&gt;클라이언트 도구로는 못 막는다. 모시(Mosh)는 연결 복구에만 도움된다. 프로세스 생존은 못 보장한다. 서버 측 멀티플렉서가 필요하다. tmux나 screen을 쓰면 SSH 연결이 끊겨도 서버에서 프로세스가 살아 있다.&lt;/p&gt;
+&lt;h3&gt;에이전트한테 시키면 안 되는 일&lt;/h3&gt;
+&lt;p&gt;여기서 함정이 있다. 에이전트한테 &amp;quot;screen 세션을 만들어&amp;quot;라고 하면 안 된다. 에이전트의 bash 도구는 TTY가 없다. screen은 TTY가 있어야만 실행된다. 멀티플렉서 명령은 사용자가 직접 터미널에서 쳐야 한다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 교훈은 세 가지다.&lt;/p&gt;
+&lt;p&gt;첫째, 일회용 구현을 재사용 가능한 추상화로 뽑아내는 시점을 알아차려라. 두 번째 인스턴스가 나오면 공통으로 빼야 한다. 세 번째 인스턴스가 나오기 전에 뽑아내면 세 번째는 헬퍼를 부르기만 하면 된다.&lt;/p&gt;
+&lt;p&gt;둘째, 삭제는 정리가 아니다. 패키지 매니저는 패키지만 지운다. 설치할 때 추가한 설정은 수동으로 지워야 한다. 삭제 후에는 참조가 남아 있는지 확인해야 한다.&lt;/p&gt;
+&lt;p&gt;셋째, 클라이언트 도구로 서버 문제를 못 푼다. SSH 세션 지속성은 서버 측 멀티플렉서가 필요하다. 클라이언트가 아무리 똑똑해도 SIGHUP은 못 막는다.&lt;/p&gt;
 </content:encoded></item><item><title>결론이 두 번 뒤집힌 QA와 Vue Query Ref 함정</title><link>https://hyeokjaelee.github.io/conclusion-flipped-twice-qa-vue-query-ref-noop/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/conclusion-flipped-twice-qa-vue-query-ref-noop/</guid><description>이날은 결론이 두 번 뒤집힌 QA를 한 날이다. 재계산 뱃지가 안 사라지는 문제를 조사했다. 처음에는 프론트 문제라고 단정했다가, 백엔드 문제라고 바꿨다가, 결국 다시 프론트로 돌아왔다. 그 과정에서 Vue Query의 함정도 발견했다. 뱃지가 안 사라진다 학생 관리에서 수료 기준을 재</description><pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 결론이 두 번 뒤집힌 QA를 한 날이다. 재계산 뱃지가 안 사라지는 문제를 조사했다. 처음에는 프론트 문제라고 단정했다가, 백엔드 문제라고 바꿨다가, 결국 다시 프론트로 돌아왔다. 그 과정에서 Vue Query의 함정도 발견했다.&lt;/p&gt;
 &lt;h2&gt;뱃지가 안 사라진다&lt;/h2&gt;
 &lt;p&gt;학생 관리에서 수료 기준을 재계산하고 확인을 눌러도, &amp;quot;변경된 수료 기준 미적용&amp;quot; 뱃지가 안 사라졌다.&lt;/p&gt;
