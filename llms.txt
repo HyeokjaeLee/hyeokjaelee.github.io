@@ -5,6 +5,7 @@
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
 - [QA 에이전트 동시 실행 큐와 Graviton 마이그레이션](https://hyeokjaelee.github.io/concurrent-queue-hard-stop/): DAG 스케줄러 위에 동시 실행 큐와 hard stop 구현. Alpha 환경을 Graviton 인스턴스로 마이그레이션. qa-sheet-writer 판단 기준 정리.
+- [DAG 기반 의존성 스케줄링으로 전면 재구현](https://hyeokjaelee.github.io/dag-scheduler-reimplementation/): 그룹 기반 실행 모델을 DAG 기반으로 전면 재구현. 위상 정렬 기반 병렬 실행 스케줄러 도입. 중요 버그 4개 수정, 실제 QA 시트로 검증 완료.
 - [Inspector 서브에이전트와 재시도 성공률 0% 해결](https://hyeokjaelee.github.io/inspector-blocked-retry-fix/): qa-inspector 서브에이전트 배포로 blocked 케이스 재시도 성공률 0% 문제 해결. 스킬 주입 race condition 수정, 스크린샷 생성 누락 버그 진단.
 - [멀티 에이전트 재설계와 2-Phase Retry 도입](https://hyeokjaelee.github.io/multi-agent-redesign-2phase-retry/): 모노리식 구조를 멀티 에이전트 디렉토리로 재설계. 2-Phase Retry로 blocked 케이스만 병렬 재시도. Managed Skills 파이프라인과 session-logger 플러그인 구현.
 - [스모크 통과율 50%에서 61%, Zod 스키마 도입](https://hyeokjaelee.github.io/smoke-50-to-61-zod-schema/): blocked 재시도와 그룹 레벨 재시도로 스모크 통과율 향상. Zod 스키마로 실행 계획 사전 검증. 모바일·태블릿·데스크톱 뷰포트 프리셋 도입.
