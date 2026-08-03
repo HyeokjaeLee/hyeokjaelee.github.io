@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent 브라우저 추상화와 에이전트 카탈로그 자체 구현](https://hyeokjaelee.github.io/qa-agent-agent-browser-oh-my-opencode-removal/): 브라우저 제어를 agent-browser로 옮기고 oh-my-opencode 의존성을 걷어내면서 런타임 복잡도를 줄였다.
 - [QA Agent 멀티 에이전트 전환 계획과 browser-use 검토](https://hyeokjaelee.github.io/qa-agent-subagent-plan-browser-use-review/): 브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.
 - [QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계](https://hyeokjaelee.github.io/qa-agent-lane-isolation-context-gateway-plugin/): 병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.
 - [QA Agent가 기억하고 병렬로 돌기 시작한 날](https://hyeokjaelee.github.io/qa-agent-server-session-durable-storage/): opencode를 CLI 호출에서 서버 세션으로 바꾸고 학습한 지식을 코드 저장소 밖으로 빼서 슬랙 스레드 제목까지 정리했다.
