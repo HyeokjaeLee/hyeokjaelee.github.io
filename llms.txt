@@ -4,20 +4,6 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
-- [QA 에이전트 동시 실행 큐와 Graviton 마이그레이션](https://hyeokjaelee.github.io/concurrent-queue-hard-stop/): DAG 스케줄러 위에 동시 실행 큐와 hard stop 구현. Alpha 환경을 Graviton 인스턴스로 마이그레이션. qa-sheet-writer 판단 기준 정리.
-- [ClawMux LLM 분류기와 동적 컨텍스트 창 해석](https://hyeokjaelee.github.io/llm-classifier-dynamic-context-window/): ClawMux에 LLM 기반 요청 분류기와 동적 컨텍스트 창 해석 구현. qa-sheet-writer 프롬프트의 skipAgentTest 판단 기준과 메모 작성 지침 개선.
-- [ClawMux 플러그인과 QA 에이전트 Alpha 배포](https://hyeokjaelee.github.io/clawmux-plugin-qa-alpha-deploy/): ClawMux Context-Gateway 통합 플러그인 개발. QA 에이전트 Alpha 환경 배포, 큐 동시 실행 버그 수정, 크래시 3중 방어, passed 비율 55%에서 76% 개선.
-- [DAG 기반 의존성 스케줄링으로 전면 재구현](https://hyeokjaelee.github.io/dag-scheduler-reimplementation/): 그룹 기반 실행 모델을 DAG 기반으로 전면 재구현. 위상 정렬 기반 병렬 실행 스케줄러 도입. 중요 버그 4개 수정, 실제 QA 시트로 검증 완료.
-- [Inspector 서브에이전트와 재시도 성공률 0% 해결](https://hyeokjaelee.github.io/inspector-blocked-retry-fix/): qa-inspector 서브에이전트 배포로 blocked 케이스 재시도 성공률 0% 문제 해결. 스킬 주입 race condition 수정, 스크린샷 생성 누락 버그 진단.
-- [멀티 에이전트 재설계와 2-Phase Retry 도입](https://hyeokjaelee.github.io/multi-agent-redesign-2phase-retry/): 모노리식 구조를 멀티 에이전트 디렉토리로 재설계. 2-Phase Retry로 blocked 케이스만 병렬 재시도. Managed Skills 파이프라인과 session-logger 플러그인 구현.
-- [스모크 통과율 50%에서 61%, Zod 스키마 도입](https://hyeokjaelee.github.io/smoke-50-to-61-zod-schema/): blocked 재시도와 그룹 레벨 재시도로 스모크 통과율 향상. Zod 스키마로 실행 계획 사전 검증. 모바일·태블릿·데스크톱 뷰포트 프리셋 도입.
-- [QA 에이전트 delegation 루프와 executionDraft 도입](https://hyeokjaelee.github.io/qa-delegation-loop-executiondraft/): agent-browser 스킬 2차 검증, thinking 이벤트 로깅, executionDraft 필드 도입, fixture knowledge 정상화, delegation 루프로 task 기반 실행 전환.
-- [agent-browser 전환과 런타임 에이전트 카탈로그 도입](https://hyeokjaelee.github.io/agent-browser-and-runtime-catalog/): 브라우저 실행 구조를 agent-browser 기반으로 전환. 마스터만 브라우저 준비, 실행 에이전트는 준비된 브라우저만 사용. oh-my-opencode 의존성 제거하고 6개 역할 카탈로그 도입.
-- [browser-use 검토와 런타임 복잡도 감소 설계](https://hyeokjaelee.github.io/browser-use-evaluation-runtime-design/): QA 에이전트 브라우저 자동화 구조 재검토. browser-use 도입을 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 낮추는 방향 설계.
-- [OpenCode 세션 격리와 Context-Gateway 플러그인 설계](https://hyeokjaelee.github.io/opencode-session-isolation-context-gateway/): QA 런타임을 opencode server 기반 세션으로 전환하고 lane 간 세션 공유를 금지. Context-Gateway를 OpenCode 플러그인 사이드카로 통합 설계.
-- [QA 에이전트 세션 구조 전환과 영구 저장소 분리](https://hyeokjaelee.github.io/qa-session-and-storage-restructure/): opencode 일회성 CLI에서 서버 기반 세션으로 전환, planning과 실행 세션 분리, fixture·스킬·캐시를 코드 저장소 외부로 통합.
-- [QA 에이전트 캐싱 정책과 모델 preset 분리](https://hyeokjaelee.github.io/qa-caching-and-model-preset/): QA 에이전트 Slack 출력 개선, 시트 단위 캐싱으로 반복 실행 비용 절감, 런타임 모델 설정을 provider별 preset으로 분리.
-- [QA 에이전트 lane 동적 선택과 Slack 메시지 정리](https://hyeokjaelee.github.io/qa-agent-lane-and-slack-cleanup/): QA 에이전트 실행 로그 통합, lane 수 동적 선택, Slack 첨부 정책 단순화. 사이드 프로젝트 DEV 검증과 옵시디언 노트 규칙 정리.
 - [QA Agent 병렬 실행과 MSW 마이그레이션](https://hyeokjaelee.github.io/qa-agent-lane-parallel-msw/): QA Agent 순차 실행을 lane 병렬로 전환하고, 테스트 환경 mock을 Shared API 기반 MSW로 통합한 날.
 - [옵시디언 위키 정리와 QA Agent 파이프라인 재구성](https://hyeokjaelee.github.io/qa-agent-pipeline-restructure/): 옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.
 - [Briend 번역 채팅앱 개발](https://hyeokjaelee.github.io/briend/): 유지비 0원에 도전, 짠내나는 번역 채팅앱 개발기
