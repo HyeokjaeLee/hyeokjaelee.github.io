@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [존재하지 않는 버그를 고치려다 과도하게 만든 토큰 예산 시스템](https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/): 프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다. 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다. 간단한 해결로 되돌렸다.
 - [멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제](https://hyeokjaelee.github.io/multi-agent-team-prompt-junk-data-30-percent/): PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다. 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다. 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.
 - [싸고 빠른 모델이 큰 스키마에서 자꾸 실패하는 패턴](https://hyeokjaelee.github.io/deepseek-large-schema-failure-pattern/): DeepSeek 모델이 큰 JSON 스키마를 처리하지 못해서 계획 에이전트가 60% 실패하고 상태 추출이 전부 빈 값이 나왔다. 해결은 호출을 작게 쪼개는 거였다.
 - [NVIDIA 모델에서 json_schema가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 json_schema를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다. OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
