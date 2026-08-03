@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제와 SSE 무한 재시도](https://hyeokjaelee.github.io/cold-cache-wrong-model-sse-infinite-retry/): 에이전트가 처음 실행될 때 캐시가 비어서 엉뚱한 모델을 할당받는 문제를 잡고, 폴백 플러그인의 SSE 무한 재시도 루프도 고쳤다.
 - [LLM 실패를 감지하고 폴백하는 플러그인 하루 만에 만들기](https://hyeokjaelee.github.io/llm-fallback-plugin-one-day-build/): 에이전트 세션이 LLM 에러로 죽는 문제를 막기 위해, 에러를 분류하고 백업 모델로 전환하는 플러그인을 하루 만에 만들었다.
 - [노션에서 옵시디언 계획 노트로 가는 흐름 단순화와 분석 에이전트](https://hyeokjaelee.github.io/notion-obsidian-flow-simplify-analyzer-agents/): 노션 기획서를 옵시디언 구현 계획으로 바꾸는 흐름을 4단계에서 2단계로 줄이고, 노션과 피그마 분석을 전문 에이전트로 분리했다.
 - [한 기능을 닫으며 더 큰 일반화 작업을 시작한 날](https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/): 특정 코스 전용이던 기능을 전 코스로 확장해 배포를 마무리하고 같은 패턴으로 코스 분류 체계 전체를 재설계하는 작업을 시작했다.
