@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [스스로 거짓말을 잡는 투자 분석 에이전트](https://hyeokjaelee.github.io/investment-agent-self-verification-git-dot-traps/): 투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다. PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다. 그리고 깃 세 점과 두 점의 함정도 겪었다.
 - [올바른 질문이 최적화보다 낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다. "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다. 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.
 - [같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접](https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/): 자율 검증 루프가 멈추는 현상을 추적했더니 4개의 독립된 근본 원인이 있었다. design-reviewer는 핵심 도구를 9번 중 0번 호출했다. 강제성은 간접 위임이 아니라 직접 행위에 붙여야 한다.
 - [한 턴에 하나의 서브에이전트 호출만 허용되는 이유](https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/): 같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다. 원인은 턴당 1회 호출 가드였다. 해결은 tasks 배열이었다. 그리고 괴담 소설 품질 게이트도 구현했다.
