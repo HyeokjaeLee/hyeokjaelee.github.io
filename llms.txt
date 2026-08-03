@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [설정 한 번으로 영원히 막히는 반응성 버그와 잠재 위험 점화](https://hyeokjaelee.github.io/setup-once-reactivity-trap-latent-risk-ignition/): Vue의 setup 한 번 값이 watchEffect를 영구적으로 막아서 간헐적 버그를 만들었다. 그리고 두 달 전의 변경이 이미지 리빌드로 점화된 MCP 멈춤도 잡았다.
 - [에이전트가 도구를 호출하지 않고 텍스트로 뱉는 현상의 원인 추적](https://hyeokjaelee.github.io/tool-call-as-text-hypothesis-refutation/): AI 에이전트가 도구 호출을 텍스트로 출력하기만 하고 실행하지 않았다. prefill 에러를 원인으로 지목했다가, 같은 현상이 다른 모델에서도 재현되면서 가설이 깨졌다.
 - [3일간의 교훈이 한 커밋에 담긴 날](https://hyeokjaelee.github.io/three-lessons-one-commit-qa-summary-provider-speed/): QA 에이전트가 요약된 값을 받아서 잘못 통과시킨 일로 검증 규칙을 네 번 다듬었다. 같은 모델인데 프로바이더에 따라 60배 느린 것도 확인했다. 며칠의 교훈이 한 커밋에 담겼다.
 - [Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응](https://hyeokjaelee.github.io/zed-tui-rendering-glm52-release-day/): Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다. 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.
