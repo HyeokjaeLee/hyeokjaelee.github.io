@@ -32,6 +32,8 @@
 - [멀티 에이전트 재설계와 2-Phase Retry](https://hyeokjaelee.github.io/multi-agent-redesign-2phase-retry/): 모노리식 구조에서 멀티 에이전트 디렉토리로 재설계. 2-Phase Retry로 blocked 케이스만 병렬 재시도. Managed Skills 파이프라인과 session-logger 플러그인 구현.
 - [스모크 통과율 50%에서 61%로, Zod 스키마 도입](https://hyeokjaelee.github.io/smoke-test-50-to-61-zod-schema/): blocked 재시도와 그룹 레벨 재시도로 스모크 통과율 향상. Zod 스키마로 실행 계획 사전 검증. 뷰포트 프리셋으로 모바일·태블릿·데스크톱 대응.
 - [QA 에이전트 2차 검증과 delegation 루프 도입](https://hyeokjaelee.github.io/qa-second-validation-delegation-loop/): agent-browser 스킬 사용 2차 재검증, thinking 이벤트 로깅, executionDraft 도입, fixture knowledge 정상화, delegation 루프 구현.
+- [agent-browser 전환과 런타임 에이전트 카탈로그 도입](https://hyeokjaelee.github.io/agent-browser-and-runtime-catalog/): 브라우저 실행 구조를 agent-browser 기반으로 전환. 마스터만 브라우저 준비, 실행 에이전트는 준비된 브라우저만 사용. oh-my-opencode 의존성 제거하고 6개 역할 카탈로그 도입.
+- [browser-use 검토와 런타임 복잡도 감소 설계](https://hyeokjaelee.github.io/browser-use-evaluation-runtime-design/): QA 에이전트 브라우저 자동화 구조 재검토. browser-use 도입을 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 낮추는 방향 설계.
 - [OpenCode 세션 격리와 Context-Gateway 플러그인 설계](https://hyeokjaelee.github.io/opencode-session-isolation-context-gateway/): QA 런타임을 opencode server 기반 세션으로 전환하고 lane 간 세션 공유를 금지. Context-Gateway를 플러그인 사이드카로 통합 설계.
 - [QA 에이전트 세션 구조 전환과 영구 저장소 분리](https://hyeokjaelee.github.io/qa-session-and-storage-restructure/): opencode 일회성 CLI에서 서버 기반 세션으로 전환, planning과 실행 세션 분리, fixture·스킬·캐시를 코드 저장소 외부로 통합.
 - [QA 에이전트 캐싱 정책과 모델 preset 분리](https://hyeokjaelee.github.io/qa-caching-and-model-preset/): QA 에이전트 Slack 출력 개선, 시트 단위 캐싱으로 반복 실행 비용 절감, 런타임 모델 설정을 preset으로 분리.
