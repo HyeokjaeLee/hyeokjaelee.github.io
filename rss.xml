@@ -73,6 +73,36 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>QA Agent planning 단일화와 도커 메모리 5GB 문제</title><link>https://hyeokjaelee.github.io/qa-agent-planner-merge-docker-memory-5gb/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-planner-merge-docker-memory-5gb/</guid><description>이틀 전에 planning을 3단계로 쪼갰다. 근데 쪼갤 필요가 없어졌다. 다시 단일 Planner로 합치면서 1,200줄을 지웠다. 그리고 도커 메모리 5GB를 잡아먹던 문제도 잡았다. 스크린샷 의무화도 같이 진행했다. planning 다시 단일화 이틀 전에 planning을 3단계로</description><pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이틀 전에 planning을 3단계로 쪼갰다. 근데 쪼갤 필요가 없어졌다. 다시 단일 Planner로 합치면서 1,200줄을 지웠다. 그리고 도커 메모리 5GB를 잡아먹던 문제도 잡았다. 스크린샷 의무화도 같이 진행했다.&lt;/p&gt;
+&lt;h2&gt;planning 다시 단일화&lt;/h2&gt;
+&lt;p&gt;이틀 전에 planning을 3단계로 쪼갰다. 28개 케이스를 한 번에 처리하니까 멈추는 문제를, 뼈대, 그룹별 상세, 조립으로 나눠서 풀었다.&lt;/p&gt;
+&lt;p&gt;근데 며칠 돌려보니까 3단계가 필요 없어졌다. 하위 에이전트 tier랑 별도 코드 뷰어 도구, 뼈대 코드가 쌓이면서 복잡도만 늘고 이득은 적었다. 그래서 다시 단일 Planner로 합쳤다.&lt;/p&gt;
+&lt;p&gt;단일 Planner가 전체 계획을 다 만드는 구조로 돌아갔다. 시각 처리를 담당하는 비전 서브에이전트만 새로 만들었다. 이전에 하위 tier가 하던 시각 관련 일을 이 비전 에이전트가 맡는다.&lt;/p&gt;
+&lt;p&gt;결과적으로 36개 파일, 약 1,200줄을 지웠다. 며칠 전에 만든 3단계 구조를 다시 단일로 합치면서 지운 거다.&lt;/p&gt;
+&lt;h3&gt;복잡도는 빼는 게 더 나을 때가 있다&lt;/h3&gt;
+&lt;p&gt;이틀 전에 3단계로 쪼갤 때는 분할 정복이 답이라고 생각했다. 근데 돌려보니까 그 복잡도가 필요 없었다. 단일 호출로도 충분히 처리되는 거였다.&lt;/p&gt;
+&lt;p&gt;3단계로 쪼갤 때 해결했던 28개 케이스 멈춤 문제는, 다른 근본 원인이었을 수 있다. 이틀 전에 인증이랑 환경변수를 잡으면서 planning 시간이 30분에서 6초로 준 게 진짜 해결이었을 수 있다. 구조를 쪼갤 필요가 없어진 거다.&lt;/p&gt;
+&lt;h2&gt;도커 메모리 5GB 문제&lt;/h2&gt;
+&lt;p&gt;두 번째는 도커 메모리 문제였다. 호스트 메모리가 8기가인데, QA Agent가 5기가 이상을 잡아먹고 있었다.&lt;/p&gt;
+&lt;p&gt;원인을 추적해보니 4개의 Chromium 인스턴스가 동시에 돌고 있었다. 병렬 실행 에이전트가 4개라서 각각 Chromium을 하나씩 띄우고 있었다. 그러니까 4개의 브라우저가 메모리를 잡아먹고 있었다.&lt;/p&gt;
+&lt;p&gt;그리고 SIGKILL 연쇄가 있었다. 브라우저 디버그 통신 지연이 발생하면 강제 종료를 하는데, 이게 연쇄적으로 퍼지면서 프로세스들이 줄줄이 죽었다.&lt;/p&gt;
+&lt;p&gt;해결은 Chromium 환경변수를 런타임에 통합하고 도커파일에서 중복 설정을 정리하는 거였다. 환경변수가 여러 군데에 흩어져 있어서 충돌이 났던 거다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이 메모리 문제는 이틀 전 좀비 프로세스 수정이랑 이어진다. 프로세스를 확실히 죽이는 것도 중요하지만 애초에 4개의 Chromium이 동시에 돌아가는 구조 자체가 무거운 거다. 병렬 실행은 빠르지만 메모리 비용이 크다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;스크린샷 의무화&lt;/h2&gt;
+&lt;p&gt;세 번째는 스크린샷을 의무화한 거다.&lt;/p&gt;
+&lt;p&gt;QA 결과에서 스크린샷은 증거다. 테스트가 실패했을 때 화면을 봐야 원인을 파악할 수 있다. 근데 에이전트가 가끔 스크린샷을 빠뜨렸다. 증거 없는 결과가 나오는 거다.&lt;/p&gt;
+&lt;p&gt;그래서 모든 케이스 결과에 스크린샷이 포함되도록 만들었다. 스크린샷을 첨부하거나, 아니면 왜 스크린샷을 못 찍었는지 명시적인 사유를 남겨야 한다. 둘 중 하나는 반드시 있어야 한다.&lt;/p&gt;
+&lt;h3&gt;에러 플래그가 없는 환경에서의 가드&lt;/h3&gt;
+&lt;p&gt;여기서 기술적인 어려움이 하나 있었다. 내가 쓰는 SDK의 도구 결과 타입에는 에러 플래그가 없다. 도구가 &amp;quot;에러입니다&amp;quot;라고 명시적으로 반환할 수가 없다. 타입 자체에 그 필드가 없다.&lt;/p&gt;
+&lt;p&gt;그래서 다른 방식으로 가드를 만들었다. 스크린샷이 없으면 결과 상태 파일을 아예 안 쓴다. 그러면 에이전트가 &amp;quot;목표를 달성하지 못했다&amp;quot;고 판단해서 같은 케이스를 다시 실행한다.&lt;/p&gt;
+&lt;p&gt;그리고 스크린샷을 못 찍는 상황을 대비해서 탈출구를 만들었다. 스크린샷 사유를 명시하면, 재시도 없이 다음으로 넘어간다. 스크린샷이 물리적으로 불가능한 케이스를 무한 재시도에 빠뜨리지 않으려면 이 탈출구가 필요했다.&lt;/p&gt;
+&lt;p&gt;이건 일반적인 원칙이 된다. 에러 플래그가 없는 에이전트 프레임워크에서는, 성공 산출물을 보류하는 방식으로 가드를 만든다. 그리고 탈출구를 반드시 둔다. 그래야 재시도 루프에 빠지지 않는다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;planning을 다시 단일로 합치면서 1,200줄을 지운 게 가장 뿌듯했다. 이틀 전에 만든 구조를 다시 없앤 건데, 복잡도를 빼는 게 더 나은 설계라는 걸 깨달았기 때문이다.&lt;/p&gt;
+&lt;p&gt;도커 메모리 문제도 중요했다. 4개의 Chromium이 동시에 돌아가는 구조는 메모리 비용이 크다. 병렬 실행의 이점을 누리면서도 메모리를 관리하려면, 브라우저 환경변수를 깔끔하게 정리하는 게 필수였다.&lt;/p&gt;
+&lt;p&gt;스크린샷 의무화는 기술적 제약을 우회해서 가드를 만든 사례다. 에러 플래그가 없으면 성공 산출물을 보류하는 방식으로 가드를 만들 수 있다. 그리고 탈출구를 두면 무한 재시도도 막을 수 있다. 이 원칙은 다른 에이전트 시스템에서도 쓸 수 있을 거다.&lt;/p&gt;
 </content:encoded></item><item><title>QA Agent 3단계 Planning 파이프라인과 스킬 도메인 독립화</title><link>https://hyeokjaelee.github.io/qa-agent-3phase-planning-skill-domain-independent/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-3phase-planning-skill-domain-independent/</guid><description>QA Agent planning 파이프라인을 갈아없은 날이었다. 케이스가 많아지면 planning이 멈추는 문제를 3단계로 쪼개서 해결했다. 그리고 스킬이 특정 도메인에 종속되지 않게 만들어서, 환경을 옮겨도 지식이 따라가게 만들었다. 28개 케이스에서 planning이 멈춘다 문제는 </description><pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;QA Agent planning 파이프라인을 갈아없은 날이었다. 케이스가 많아지면 planning이 멈추는 문제를 3단계로 쪼개서 해결했다. 그리고 스킬이 특정 도메인에 종속되지 않게 만들어서, 환경을 옮겨도 지식이 따라가게 만들었다.&lt;/p&gt;
 &lt;h2&gt;28개 케이스에서 planning이 멈춘다&lt;/h2&gt;
 &lt;p&gt;문제는 명확했다. 케이스 28개를 한 번에 planning하면 멈췄다. planning은 8단계 파이프라인의 세 번째 단계다. 이 단계가 멈추면 뒤에 아무것도 못 돌린다.&lt;/p&gt;

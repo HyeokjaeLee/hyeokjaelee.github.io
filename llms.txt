@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent planning 단일화와 도커 메모리 5GB 문제](https://hyeokjaelee.github.io/qa-agent-planner-merge-docker-memory-5gb/): 3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다. 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.
 - [QA Agent 3단계 Planning 파이프라인과 스킬 도메인 독립화](https://hyeokjaelee.github.io/qa-agent-3phase-planning-skill-domain-independent/): 28개 케이스를 한 번에 planning하다 멈추는 문제를 3단계로 쪼개서 해결하고, 스킬을 특정 도메인에 종속되지 않게 만들었다.
 - [QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백](https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/): Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 reasoning_content에 담아 보내는 빈 응답 문제를 잡았다.
 - [QA Agent 파일 접근 권한 분리와 첫 60% 통과율 달성](https://hyeokjaelee.github.io/qa-agent-read-deny-first-60-percent/): 추론 에이전트에서 파일 접근을 빼고 탐색 전용 에이전트로 몰아넣었고, 슬랙 명령을 모달로 바꾸고, 스킬도 직접 쌓아서 첫 60% 통과율을 찍었다.
