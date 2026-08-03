@@ -73,6 +73,32 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급</title><link>https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</guid><description>이날은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다. 생성물 충돌은 합집합에서 재생성 교육 플랫폼에서 머지 충돌이 났다. code</description><pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다.&lt;/p&gt;
+&lt;h2&gt;생성물 충돌은 합집합에서 재생성&lt;/h2&gt;
+&lt;p&gt;교육 플랫폼에서 머지 충돌이 났다. codegen으로 생성된 파일들이 충돌했다. 양쪽이 각각 새 API 엔드포인트를 추가해서 같은 파일에 다른 내용이 들어간 거다.&lt;/p&gt;
+&lt;p&gt;이런 충돌은 &lt;code&gt;ours&lt;/code&gt;나 &lt;code&gt;theirs&lt;/code&gt;로 통째로 선택하면 안 된다. 한쪽을 선택하면 다른 쪽의 API가 사라진다.&lt;/p&gt;
+&lt;p&gt;올바른 해결은 합집합 소스에서 재생성하는 거다. 양쪽의 소스 코드를 깨끗하게 머지한다. 그리고 codegen을 다시 돌린다. codegen이 권위 있는 원천이니까, 소스가 맞으면 결과도 맞다.&lt;/p&gt;
+&lt;p&gt;같은 날 두 번 같은 패턴으로 풀었다. codegen 파일이든 lockfile이든, &amp;quot;권위 있는 재생성 명령으로 푼다&amp;quot;는 원칙이 일관됐다.&lt;/p&gt;
+&lt;h2&gt;같은 버그가 세 번 재발했다&lt;/h2&gt;
+&lt;p&gt;vee-validate 버그가 하루에 세 번 재발했다. 코스 설정 페이지에서 수료 설정 하위 필드가 통째로 안 보이는 버그였다.&lt;/p&gt;
+&lt;p&gt;원인은 vee-validate의 폼 값 객체를 직접 변이하는 거였다. 폼 값 객체는 읽기 전용이다. 근데 거기에 직접 값을 할당했다. 조용히 실패한다. 에러도 안 나고 값이 안 바뀐다.&lt;/p&gt;
+&lt;p&gt;값이 안 바뀌니까 게이트가 false로 남는다. 게이트가 false면 하위 필드가 숨겨진다. 사용자는 &amp;quot;수료 설정이 안 보인다&amp;quot;고 느낀다.&lt;/p&gt;
+&lt;p&gt;해결은 직접 할당 대신 &lt;code&gt;setFieldValue&lt;/code&gt; 함수를 쓰는 거다. 읽기 전용 객체를 직접 건드리지 않고 공식 API를 쓰는 거다.&lt;/p&gt;
+&lt;p&gt;근데 같은 패턴이 다른 watcher에도 남아 있었다. 한 번 고치고, 다른 곳에서 또 나오고, 또 고치고. 세 번이나 같은 결함을 만난 거다. &amp;quot;상주 회귀원&amp;quot;이다. 이 패턴이 여러 곳에 퍼져 있으니까, 전수조사해서 한 번에 전환해야 한다.&lt;/p&gt;
+&lt;h2&gt;단일 실패 지점이 파이프라인을 무효화했다&lt;/h2&gt;
+&lt;p&gt;세 번째는 init-deep 명령의 버그였다. 루트 경로를 무시하고 현재 디렉토리에서 시작했다. 설정되지 않은 환경변수를 참조해서 항상 기본값으로 떨어진 거다.&lt;/p&gt;
+&lt;p&gt;이 단일 실패 지점이 잡은 잘못된 스코프가 파이프라인 전체에 주입됐다. 뒤의 단계들은 점수가 정상이었다. 근데 스코프가 틀렸으니까, 점수가 정상이어도 전부 무효다.&lt;/p&gt;
+&lt;p&gt;이게 무서운 점이다. 파이프라인 앞단이 틀리면, 뒤가 제대로 돌아도 결과가 틀린다. &amp;quot;점수가 정상이다&amp;quot;가 &amp;quot;결과가 맞다&amp;quot;를 보장하지 않는다. 입력이 틀리면 출력도 틀린다.&lt;/p&gt;
+&lt;p&gt;수정은 단일 지점 하나를 고치는 거였다. 경로 추출 로직을 고치니까, 전체 침범이 해소됐다. 하나를 고쳐서 전체가 맞는 건 좋은 거다. 근데 하나가 틀려서 전체가 틀린 게 핵심이다. 단일 실패 지점의 영향력이 크다는 걸 보여준다.&lt;/p&gt;
+&lt;h2&gt;토큰 소모 가속 원인 진단&lt;/h2&gt;
+&lt;p&gt;마지막으로 토큰 소모가 빠른 원인을 진단했다. 다섯 가지 원인이 있었다.&lt;/p&gt;
+&lt;p&gt;추론 수준이 high로 설정되어 있었다. 이게 가장 큰 단일 소모원이었다. MCP 도구 스키마가 155개였다. 시스템 프롬프트가 거대했다. 루프랑 재시도가 반복됐다. context-mode가 설정되어 있지만 안 쓰이고 있었다.&lt;/p&gt;
+&lt;p&gt;즉시 실행한 건 스킬 12개를 숨기는 거였다. 삭제가 아니라 숨김이다. 비파괴적 최적화다. 시스템 프롬프트에서 설명이 빠지니까, 매 턴 보내는 토큰이 줄었다. 기능 손실은 없다. 수동으로 부르면 여전히 쓸 수 있다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 교훈은 세 가지다.&lt;/p&gt;
+&lt;p&gt;첫째, 생성물 충돌은 합집합에서 재생성한다. codegen이든 lockfile이든, 권위 있는 재생성 명령으로 푼다. ours/theirs로 통째로 선택하면 데이터가 사라진다.&lt;/p&gt;
+&lt;p&gt;둘째, 같은 패턴의 버그가 여러 곳에 퍼져 있으면 전수조사한다. 한 곳 고치고 넘어가면, 다른 곳에서 또 나온다. 근본 패턴을 찾아서 전부 전환해야 한다.&lt;/p&gt;
+&lt;p&gt;셋째, 단일 실패 지점의 영향력은 크다. 앞단이 틀리면 뒤가 맞아도 전체가 틀리다. 스코어링이 정상이어도, 스코프가 틀리면 무효다. 입력이 맞는지를 먼저 확인해야 한다.&lt;/p&gt;
 </content:encoded></item><item><title>비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번</title><link>https://hyeokjaelee.github.io/asymmetric-event-pair-flag-stuck-language-drift/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/asymmetric-event-pair-flag-stuck-language-drift/</guid><description>이날은 같은 결함 패턴이 하루에 두 번 나타난 날이다. 진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍. 이게 플래그를 영구 고착시켰다. 그리고 교육 규칙이 함정을 만들고 있었다는 것도 발견했다. 중지하라고 했는데 왜 안 멈추는가 첫 번째 버그는 검증 루프에서 일어났다. 판정자가 &quot;</description><pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 같은 결함 패턴이 하루에 두 번 나타난 날이다. 진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍. 이게 플래그를 영구 고착시켰다. 그리고 교육 규칙이 함정을 만들고 있었다는 것도 발견했다.&lt;/p&gt;
 &lt;h2&gt;중지하라고 했는데 왜 안 멈추는가&lt;/h2&gt;
 &lt;p&gt;첫 번째 버그는 검증 루프에서 일어났다. 판정자가 &amp;quot;중지 승인&amp;quot;을 반환했는데, 루프가 계속 돌았다.&lt;/p&gt;
