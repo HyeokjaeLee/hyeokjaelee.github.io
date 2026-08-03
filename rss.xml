@@ -73,6 +73,35 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>데이터 소스가 단위에 대해 거짓말을 할 때</title><link>https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</guid><description>이날은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가 자기 스킬을 차단하는 아이러니도 </description><pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가 자기 스킬을 차단하는 아이러니도 겪었다.&lt;/p&gt;
+&lt;h2&gt;시가총액이 1,547조 달러?&lt;/h2&gt;
+&lt;p&gt;투자 분석 에이전트로 SK하이닉스를 분석하고 있었다. 근데 시가총액이 1,547조 달러로 나왔다. 전 세계 GDP를 합쳐도 안 나오는 숫자다. 뭔가 잘못됐다는 걸 즉시 알 수 있었다.&lt;/p&gt;
+&lt;p&gt;원인을 추적했다. yfinance가 한국 주식의 시가총액과 매출액을 원화 원래 값으로 반환하면서 달러로 라벨링하고 있었다. SK하이닉스 시가총액은 1,547조 원인데, 이걸 달러라고 표기한 거다. 1,547조 원은 약 1.03조 달러다.&lt;/p&gt;
+&lt;p&gt;배당률도 완전히 잘못이었다. SK하이닉스 배당률이 14%로 나왔다. 실제로는 1&lt;del&gt;2%다. TSMC는 87%로 나왔다. 실제로는 1.5%다. PBR도 98배로 나왔다. 실제로는 7&lt;/del&gt;8배다.&lt;/p&gt;
+&lt;h3&gt;가격은 맞다&lt;/h3&gt;
+&lt;p&gt;근데 가격 자체는 정확했다. 주가, OHLCV, 거래량은 정상이었다. 잘못된 건 시가총액, 매출액, 배당률, PBR뿐이었다.&lt;/p&gt;
+&lt;p&gt;이게 더 위험하다. 가격이 맞으니까 &amp;quot;이 데이터 소스는 믿을 수 있다&amp;quot;고 가정하게 된다. 근데 다른 필드는 완전히 잘못이다. &amp;quot;일부가 맞다고 전체를 믿으면&amp;quot; 안 된다.&lt;/p&gt;
+&lt;h3&gt;해결&lt;/h3&gt;
+&lt;p&gt;시가총액과 매출액은 원화 원래 값으로 받아서 수동으로 환율을 변환했다. 배당률이랑 PBR은 yfinance를 아예 안 믿고 네이버 증권에서 직접 가져왔다.&lt;/p&gt;
+&lt;p&gt;교차 검증을 위해 미국 주식(Micron)도 확인했다. Micron은 정상이었다. 903억 달러 매출액. 한국과 대만 주식에서만 이 버그가 나타났다.&lt;/p&gt;
+&lt;h2&gt;보안 필터가 자기 스킬을 차단했다&lt;/h2&gt;
+&lt;p&gt;두 번째는 아이러니한 사건이었다. 크론잡이 &amp;quot;보안 위협 패턴에 매칭됐다&amp;quot;며 차단됐다.&lt;/p&gt;
+&lt;p&gt;원인을 추적해보니, 투자 분석 스킬 본문에 &amp;quot;system prompt override&amp;quot;라는 문자열이 7곳에 들어 있었다. 프롬프트 커스터마이징 문서에서 쓴 용어였다.&lt;/p&gt;
+&lt;p&gt;보안 필터는 이걸 정규식으로 스캔한다. &amp;quot;system prompt override&amp;quot;가 &amp;quot;시스템 프롬프트 덮어쓰기 공격&amp;quot;으로 감지된 거다. 근데 실제로는 스킬 문서가 프롬프트 커스터마이징을 설명하고 있었을 뿐이다.&lt;/p&gt;
+&lt;h3&gt;맥락을 모르는 정규식&lt;/h3&gt;
+&lt;p&gt;정규식은 맥락을 모른다. &amp;quot;system prompt override&amp;quot;가 공격 지시인지, 설명 문서인지 구분하지 못한다. 그냥 문자열 매칭만 한다.&lt;/p&gt;
+&lt;p&gt;해결은 용어를 바꾸는 거였다. &amp;quot;system prompt override&amp;quot;를 &amp;quot;PM prompt customization&amp;quot;으로 7곳 전부 바꿨다. 그러니까 필터가 통과됐다.&lt;/p&gt;
+&lt;p&gt;교훈은 보안 키워드를 스킬 본문에 쓰면 안 된다는 거다. &amp;quot;system prompt override&amp;quot;, &amp;quot;ignore previous instructions&amp;quot; 같은 보안 위협 용어를 설명 목적으로 써도, 필터가 차단한다. 매칭은 맥락을 안 본다.&lt;/p&gt;
+&lt;h2&gt;휘발성 기반 회복 분석&lt;/h2&gt;
+&lt;p&gt;틈틈이 투자 분석 에이전트의 회복 예측도 점검했다. 에이전트가 삼성전자랑 SK하이닉스의 손익분기 회복을 3~6개월로 예측했다. 추세 기반 선형 예측이었다.&lt;/p&gt;
+&lt;p&gt;근데 이 주식들의 일간 변동성이 5%가 넘는다. 추세 기반 선형 예측은 고변동성 주식에 안 맞는다. 하루 좋은 날이면 손실의 절반을 회복할 수 있다.&lt;/p&gt;
+&lt;p&gt;실제로 그날 삼성전자가 5.85% 반등했고 하이닉스가 3.11% 올랐다. 하루 만에 손실의 절반을 회복했다. 3~6개월이 아니라 하루였다.&lt;/p&gt;
+&lt;p&gt;추세 외삽은 변동성이 낮을 때만 유효하다. 변동성이 높으면 정규분포 기반 회복 확률을 써야 한다. &amp;quot;하루에 몇 퍼센트 움직이는가&amp;quot;가 &amp;quot;몇 달 걸리는가&amp;quot;보다 더 중요하다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 교훈은 &amp;quot;믿을 수 있는 것과 믿을 수 없는 것을 구분하라&amp;quot;였다.&lt;/p&gt;
+&lt;p&gt;데이터 소스에서 가격은 맞는데 시가총액은 틀렸다. &amp;quot;일부가 맞다고 전체를 믿으면&amp;quot; 안 된다. 각 필드를 독립적으로 검증해야 한다.&lt;/p&gt;
+&lt;p&gt;보안 필터는 문자열은 보는데 맥락은 못 본다. 스킬 문서에 보안 용어를 쓰면, 설명 목적이어도 차단된다. &amp;quot;매칭은 맥락을 안 본다&amp;quot;는 걸 항상 염두에 둬야 한다.&lt;/p&gt;
+&lt;p&gt;추세 예측은 변동성이 낮을 때만 유효하다. 변동성이 높으면 다른 방법이 필요하다. &amp;quot;이 방법이 언제 유효한가&amp;quot;를 먼저 물어야, 잘못된 예측을 피할 수 있다.&lt;/p&gt;
 </content:encoded></item><item><title>역할 고정 LLM은 약한 힌트로 안 바뀐다, 정체성을 바꿔야 한다</title><link>https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/</guid><description>이날은 다중 에이전트 투자 분석 데스크를 만든 날이다. 분석 에이전트들이 서로 토론하게 만들었다. 근데 가장 큰 교훈은 따로 있었다. LLM의 역할이 고정되어 있으면, 약한 힌트로는 행동을 바꿀 수 없다. 정체성 자체를 바꿔야 한다. 역할이 고정되면 질문이 무시된다 투자 분석 데스크에 </description><pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 다중 에이전트 투자 분석 데스크를 만든 날이다. 분석 에이전트들이 서로 토론하게 만들었다. 근데 가장 큰 교훈은 따로 있었다. LLM의 역할이 고정되어 있으면, 약한 힌트로는 행동을 바꿀 수 없다. 정체성 자체를 바꿔야 한다.&lt;/p&gt;
 &lt;h2&gt;역할이 고정되면 질문이 무시된다&lt;/h2&gt;
 &lt;p&gt;투자 분석 데스크에 &amp;quot;삼성전자 내일 가격 예측해줘&amp;quot;라고 물었다. 근데 자꾸 매매 추천을 내놓았다. &amp;quot;매수&amp;quot; &amp;quot;비중 축소&amp;quot; 같은 포트폴리오 관리 답변이 나온 거다.&lt;/p&gt;
