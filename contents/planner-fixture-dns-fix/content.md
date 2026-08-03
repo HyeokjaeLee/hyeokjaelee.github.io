@@ -1,8 +1,9 @@
 ---
 title: 'QA Agent Planner 고치다가 GLM DNS까지 만난 하루'
 description: 'planner의 fixture knowledge 참조를 손보다가 glm-5.1 DNS 해석 실패를 만나 proxy URL 오버라이드로 넘긴 기록.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-14'
-tags: [qa-agent, debugging, llm]
+tags: [journal]
 ---
 
 하루 종일 qa-agent Planner 쪽을 만졌다.

@@ -1,8 +1,9 @@
 ---
 title: '순차수강 옵션을 코스 분류로 묶어내기'
 description: '교육 플랫폼에서 코스 분류 옵션을 설계하고, 커리큘럼 타입 바인딩과 제품유형 필터링까지 한 단계씩 구현한 기록.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-28'
-tags: [frontend, project]
+tags: [journal]
 ---
 
 교육 플랫폼 화면 하나를 고치려다 보면 그 뒤의 정책 전체가 손에 잡혀야 하는 경우가 있다.

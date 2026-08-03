@@ -2,7 +2,7 @@
 title: 'ClawMux 요청 분류기를 LLM으로 갈아엎다'
 description: '로컬 임베딩 기반 요청 분류기를 저렴한 LLM으로 전환하고, reasoning 비활성화와 동적 컨텍스트 창 해석까지 구현한 회고'
 date: '2026-04-03'
-tags: [dev-diary, clawmux, llm, classifier]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

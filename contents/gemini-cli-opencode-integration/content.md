@@ -2,7 +2,7 @@
 title: 'Gemini CLI를 OpenCode 서브에이전트로 통합하기'
 description: '격리된 Gemini CLI를 OpenCode 서브에이전트처럼 호출하는 통합 시스템을 구축한 과정을 정리해봤다. 샌드박스 분리, npm 캐시 오염 해결, 프리셋 시스템까지.'
 date: '2026-04-21'
-tags: [dev-diary, opencode, gemini-cli, subagent, integration]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

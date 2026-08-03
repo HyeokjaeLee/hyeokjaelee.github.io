@@ -2,7 +2,7 @@
 title: 'TLP가 블루투스를 죽였다'
 description: 'Linux 노트북에서 블루투스가 부팅 시 자동으로 켜지지 않던 문제를 잡은 기록이다. 원인은 TLP 설치 시 함께 mask된 systemd-rfkill 서비스였다.'
 date: '2026-04-24'
-tags: [journal, linux, bluetooth, system-admin]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 
@@ -39,8 +39,3 @@ TLP 입장에서는 자기가 전원 상태를 관리하겠다는 건데, 결과
 TLP 자체가 나쁜 건 아니다.
 다만 rfkill 제어를 TLP에 맡길 건지, systemd에 맡길 건지 명확히 정해야 한다.
 둘이 같이 두면 어느 쪽이 우선인지 매번 헷갈린다.
-
-## 참고 자료
-
-- [systemd-rfkill 문서](https://www.freedesktop.org/software/systemd/man/systemd-rfkill.service.html)
-- [TLP FAQ — rfkill](https://linrunner.de/tlp/faq/)

@@ -1,8 +1,9 @@
 ---
 title: 'QA Agent에 Langfuse 트레이싱 붙이기'
 description: '모든 LLM 호출을 Langfuse로 추적하도록 langfuse-proxy를 프로젝트에 포함한 과정. provider별 프록시 분리와 ARM64 배포까지.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-10'
-tags: [qa-agent, langfuse, observability]
+tags: [journal]
 ---
 
 QA Agent를 돌리다 보면 가장 답답한 게 "이 LLM 호출이 왜 저런 결과를 냈는지" 모른다는 거다.
@@ -82,8 +83,3 @@ QA Agent는 ARM 기반 EC2에서 돌아간다.
 그리고 프롬프트 품질을 trace와 연결해서 보는 것도 해보려 한다.
 
 trace가 있으니 이제 뭘 개선할지가 보인다.
-
-## 참고 자료
-
-- [Langfuse 공식 문서](https://langfuse.com/docs)
-- [Docker 멀티 아키텍처 빌드](https://docs.docker.com/build/building/multi-platform/)

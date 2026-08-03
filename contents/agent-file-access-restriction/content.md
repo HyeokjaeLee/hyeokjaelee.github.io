@@ -1,8 +1,9 @@
 ---
 title: '에이전트에게 파일 접근을 빼앗다'
 description: 'planner와 executor가 파일을 직접 만지던 구조를 버리고, 탐색은 explore 서브에이전트로 몰아넣은 날의 회고다.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-13'
-tags: [agent, architecture, refactor]
+tags: [journal]
 ---
 
 어느 날 사내 QA 에이전트를 돌리다가 이상한 점을 발견했다.

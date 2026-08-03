@@ -2,7 +2,7 @@
 title: 'ClawMux 분류기를 LLM으로 전환하며'
 description: '로컬 임베딩 기반 분류기의 한계를 느껴 openclaw 연결 저렴한 LLM으로 옮기고, reasoning 비활성화 모듈을 구현한 기록'
 date: '2026-04-07'
-tags: [journal, clawmux, llm, classifier, reasoning-disable]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

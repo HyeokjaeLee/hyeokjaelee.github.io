@@ -1,8 +1,9 @@
 ---
 title: 'QA 리포트에 토큰과 비용을 올리다'
 description: '리포트 상단에 토큰/비용을 표시하고, planner가 explore 서브에이전트에 쓴 토큰이 집계에서 빠지던 버그를 잡은 기록.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-15'
-tags: [devlog, qa-agent, debugging]
+tags: [journal]
 ---
 
 에이전트를 돌리다 보면 어디서 토큰이 새는지 종종 의심하게 된다.

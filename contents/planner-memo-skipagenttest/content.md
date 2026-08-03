@@ -1,8 +1,9 @@
 ---
 title: 'QA 에이전트: 18%에서 61%까지 — 한 주간의 품질 캠페인'
 description: 'QA 에이전트 시트 품질을 개선하고 모델을 분산시키고 도구를 평가한 2026년 4월 19일 작업 회고'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-19'
-tags: [qa-agent, llm, mcp, retrospective]
+tags: [journal]
 ---
 
 어느 날 QA 시트를 펼쳤다가 막막해졌다.
@@ -78,8 +79,3 @@ explore 에이전트에는 task 권한에 explore를 허용하는 한 줄만 추
 여전히 절반 가까이 실패한다는 건 남은 문제가 단순한 설정 실수가 아니라는 뜻이다.
 케이스별로 패턴이 다르고 모델별로 약점이 다르다.
 다음 주는 실패 케이스를 카테고리로 묶어보려 한다.
-
-## 참고 자료
-
-- [Serena MCP](https://github.com/oraios/serena)
-- [ast-grep](https://ast-grep.github.io/)

@@ -2,7 +2,7 @@
 title: 'ClawMux API 어댑터와 크로스 프로바이더 라우팅'
 description: '6개 API 포맷 어댑터, 크로스 프로바이더 라우팅, 세션 스토어를 구현한 기록'
 date: '2026-04-04'
-tags: [journal, project, clawmux, llm-routing]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

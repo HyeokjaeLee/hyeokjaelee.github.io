@@ -2,7 +2,7 @@
 title: 'QA Agent 플래너를 하나로 합치고 비전 서브에이전트를 얹었다'
 description: '3단계로 쪼개져 있던 planning 파이프라인을 단일 qa-planner로 통합하고, qa-vision 서브에이전트를 붙여 스크린샷을 의무화한 회고'
 date: '2026-04-17'
-tags: [journal, qa-agent, refactor]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

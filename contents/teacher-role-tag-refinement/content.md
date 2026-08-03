@@ -1,8 +1,9 @@
 ---
 title: 'teacher 역할 권한 정리와 진단 태그 링크 조건부'
 description: 'teacher 역할에서 접근 권한을 제외하고, 진단 태그 설정 링크를 조건부로 숨기는 작업을 정리했다.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-23'
-tags: [work, bugfix]
+tags: [journal]
 ---
 
 오늘은 한동안 붙잡고 있던 권한 관련 이슈를 정리했다.

@@ -2,7 +2,7 @@
 title: 'QA Agent inspector stop 시 executor 상태 보존'
 description: 'QA 자동화에서 inspector가 중간에 멈춰도 executor가 판정한 passed/failed를 존중하는 상태 보존 로직을 넣은 회고'
 date: '2026-04-18'
-tags: [qa-agent, automation, journal]
+tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
 

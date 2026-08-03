@@ -1,8 +1,9 @@
 ---
 title: 'QA 에이전트 동시 실행 큐와 hard stop'
 description: '여러 executor가 동시에 돌아갈 때 실행 순서를 잡고, 멈춘 케이스를 강제로 끊는 큐 시스템을 구현한 기록.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-05'
-tags: [qa-agent, architecture, concurrency]
+tags: [journal]
 ---
 
 QA 에이전트를 멀티 에이전트 구조로 전환하면서 가장 먼저 마주한 문제는 실행 순서였다.

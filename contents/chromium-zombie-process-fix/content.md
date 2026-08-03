@@ -1,8 +1,9 @@
 ---
 title: 'Chromium 좀비 프로세스를 /proc/cmdline로 잡은 이야기'
 description: 'QA 자동화에서 Chromium 프로세스가 좀비로 쌓이던 문제를 /proc/cmdline 직접 읽기로 근본 해결한 기록'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-09'
-tags: [devops, debugging, linux]
+tags: [journal]
 ---
 
 QA Agent를 알파 환경에 올리고 며칠 돌리니 이상한 징후가 보였다.

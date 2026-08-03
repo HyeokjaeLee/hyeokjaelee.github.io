@@ -1,8 +1,9 @@
 ---
 title: '코스 분류 정책을 생성 모달부터 강의 수정까지 흘려보내기'
 description: '교육 플랫폼에서 코스 분류 정책을 코스 생성 모달과 기본 정보, 강의 수정 화면에 차례로 반영한 기록. 2주차 계획까지 정리했다.'
+titleImage: '@shared/assets/dev-diary.png'
 date: '2026-04-30'
-tags: [frontend, project]
+tags: [journal]
 ---
 
 며칠 전에 순차수강 옵션을 코스 분류로 묶는 작업을 정리했다.
