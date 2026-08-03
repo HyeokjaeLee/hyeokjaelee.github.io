@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백](https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/): Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 reasoning_content에 담아 보내는 빈 응답 문제를 잡았다.
 - [QA Agent 파일 접근 권한 분리와 첫 60% 통과율 달성](https://hyeokjaelee.github.io/qa-agent-read-deny-first-60-percent/): 추론 에이전트에서 파일 접근을 빼고 탐색 전용 에이전트로 몰아넣었고, 슬랙 명령을 모달로 바꾸고, 스킬도 직접 쌓아서 첫 60% 통과율을 찍었다.
 - [QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건](https://hyeokjaelee.github.io/qa-agent-langfuse-done-slack-token-hijack/): LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.
 - [QA Agent 좀비 프로세스 근본 수정과 관측성 설계](https://hyeokjaelee.github.io/qa-agent-zombie-process-fix-langfuse-design/): Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.
