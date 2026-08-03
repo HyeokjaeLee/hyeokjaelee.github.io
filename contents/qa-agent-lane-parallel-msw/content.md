@@ -1,6 +1,6 @@
 ---
-title: 'QA Agent 병렬 실행과 MSW 마이그레이션'
-description: 'QA Agent 순차 실행을 lane 병렬로 전환하고, 테스트 환경 mock을 Shared API 기반 MSW로 통합한 날.'
+title: 'QA 에이전트 병렬 실행과 mock 환경 통합'
+description: 'QA 에이전트 순차 실행을 lane 병렬로 전환하고, 산재된 테스트 mock을 Shared API 기반 MSW로 통합.'
 date: '2026-03-17'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -8,13 +8,13 @@ titleImage: '@shared/assets/dev-diary.png'
 
 어제 파이프라인 8단계로 재구성한 뒤라 오늘은 실행 성능을 잡는 날이었다.
 
-QA Agent가 테스트케이스를 순차 실행하다 보니 케이스가 늘어나면 실행 시간이 선형적으로 길어지는 게 문제였다.
+테스트케이스를 순차 실행하다 보니 케이스가 늘어나면 실행 시간이 선형적으로 길어지는 게 문제였다.
 
-그리고 테스트 환경 mock도 산재되어 있어서 이것도 같이 정리했다.
+그리고 테스트 mock 환경도 산재되어 있어서 이것도 같이 정리했다.
 
-## QA Agent 병렬 실행
+## lane 병렬 실행
 
-### 순차에서 lane 병렬로
+### 순차에서 병렬로
 
 그 전까지는 테스트케이스를 하나씩 순차 실행했다.
 
@@ -46,7 +46,9 @@ Planner가 케이스 수와 의존성을 보고 1~5개 범위에서 lane 수를 
 
 어떤 케이스가 실패하면 그 케이스에 의존하는 하위 케이스들을 자동으로 blocked 처리하는 건데, 실패한 케이스 때문에 의존 케이스들이 무의미하게 실행되는 걸 막기 위해서다.
 
-### 무로그 멈춤
+> 나중에 이 병렬 구조는 멀티 에이전트 전환으로 이어진다. Planner, Executor, Sub-executor, Inspector로 역할을 분리해서 각각 독립적인 프롬프트 최적화가 가능해진다.
+
+### 무로그 멈추
 
 병렬 실행을 돌리다 보니 간헐적으로 로그 없이 멈추는 현상이 있었다.
 
