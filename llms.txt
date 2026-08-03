@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [Agentree 터미널 엔진을 xterm에서 Rust 네이티브로 바꾸고 한글 입력 고치기](https://hyeokjaelee.github.io/agentree-terminal-engine-xterm-to-rust/): xterm.js를 Rust 네이티브 VT 파서랑 Canvas2D 렌더러로 교체했다. 그리고 새 엔진에서 깨진 한글 입력을 고쳤다.
 - [Agentree 사이드바 플랫 카드 개편과 프롬프트 인젝션 플러그인](https://hyeokjaelee.github.io/agentree-flat-cards-prompt-injection-plugin/): 사이드바를 드롭다운에서 플랫 카드로 바꾸고 세션 상태에 따라 다른 프롬프트를 주입하는 플러그인을 만들었다.
 - [Pi 에이전트 루프 프롬프트 개선과 워크 로거 구현](https://hyeokjaelee.github.io/pi-loop-prompt-work-logger-playwright/): 자율 루프가 자꾸 질문으로 끊기는 문제를 3중 차단으로 막고 세션 작업 기록을 자동으로 옵시디언에 남기게 만들었다.
 - [진행률을 목표 대비로 바꾸고 서브에이전트 시스템을 구축한 날](https://hyeokjaelee.github.io/progress-to-threshold-subagent-system-build/): 프로그레스바를 절대 진행량이 아니라 완료 기준 대비 비율로 바꿨다. 그리고 역할별 서브에이전트 시스템을 구축했다.
