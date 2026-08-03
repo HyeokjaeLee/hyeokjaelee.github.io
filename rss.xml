@@ -73,6 +73,37 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>Kimi K3가 반도체에 나쁜가, 로그인 성공이 접근 권한은 아니다</title><link>https://hyeokjaelee.github.io/kimi-k3-chip-demand-aws-login-not-access/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/kimi-k3-chip-demand-aws-login-not-access/</guid><description>이날은 두 가지 &quot;직관과 반대되는&quot; 발견이 있던 날이다. 하나는 중국 AI 모델 발표가 반도체에 나쁜 것 같지만 사실 수요 확대라는 거였다. 다른 하나는 로그인은 성공했는데 접근은 거부당했다는 거였다. 인증과 권한은 다르다. Kimi K3, 반도체에 나쁜가 중국에서 Kimi K3라는 모</description><pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 두 가지 &amp;quot;직관과 반대되는&amp;quot; 발견이 있던 날이다. 하나는 중국 AI 모델 발표가 반도체에 나쁜 것 같지만 사실 수요 확대라는 거였다. 다른 하나는 로그인은 성공했는데 접근은 거부당했다는 거였다. 인증과 권한은 다르다.&lt;/p&gt;
+&lt;h2&gt;Kimi K3, 반도체에 나쁜가&lt;/h2&gt;
+&lt;p&gt;중국에서 Kimi K3라는 모델이 발표됐다. 세계 최대 오픈웨이트 모델이다. 프론트엔드 코드 벤치마크 1위다.&lt;/p&gt;
+&lt;p&gt;직관적으로는 반도체에 나쁜 것 같다. &amp;quot;중국이 엔비디아 없이도 AI를 한다&amp;quot;는 내러티브가 확산되면, 한국 반도체 수요가 줄지 않을까. 단기에 실제로 심리 악재로 작용했다.&lt;/p&gt;
+&lt;p&gt;근데 중장기를 보면 정반대다.&lt;/p&gt;
+&lt;h3&gt;세계 최대 모델 = 칩을 엄청나게 쓴다&lt;/h3&gt;
+&lt;p&gt;&amp;quot;세계 최대 모델&amp;quot;이라는 건 훈련하고 추론하는 데 칩을 엄청나게 쓴다는 뜻이다. 게다가 오픈웨이트다. 누구나 다운로드해서 로컬에서 추론을 돌릴 수 있다. 추론을 돌리려면 메모리가 필요하다. HBM 메모리. 삼성전자랑 하이닉스가 만드는 거다.&lt;/p&gt;
+&lt;p&gt;모델이 클수록 더 많은 메모리가 필요하다. 세계 최대 모델이 나왔으니, 메모리 수요가 폭발한다.&lt;/p&gt;
+&lt;h3&gt;중국이 따라잡으면 파이가 커진다&lt;/h3&gt;
+&lt;p&gt;&amp;quot;중국 AI가 따라잡으면 위험하지 않나?&amp;quot;라고 물을 수 있다. 근데 따라잡으면 훈련용 칩 수요가 줄어드는 게 아니라 늘어난다. 중국도 AI 모델을 훈련하려면 칩이 필요하다. 한국은 양쪽에 공급하는 입장이다.&lt;/p&gt;
+&lt;p&gt;AI 양강 구도가 되면 전체 파이가 확장된다. 양쪽 다 더 많은 투자를 한다. 한국 메모리는 어느 쪽이 이기든 수혜를 본다.&lt;/p&gt;
+&lt;h3&gt;진짜 리스크&lt;/h3&gt;
+&lt;p&gt;진짜 리스크는 &amp;quot;중국이 칩 없이도 AI 한다&amp;quot;는 인식이 확산되는 거다. 이게 시장 심리를 지배하면, 실제 수요와 관계없이 주가가 떨어진다. 근데 이건 심리 문제지, 펀더멘털 문제가 아니다.&lt;/p&gt;
+&lt;h2&gt;로그인 성공이 접근 권한은 아니다&lt;/h2&gt;
+&lt;p&gt;AWS에서 ECR에 접근하려고 했다. 근데 접근이 거부됐다. &lt;code&gt;aws sso login&lt;/code&gt;은 성공했다. STS도 된다. 근데 ECR은 안 된다.&lt;/p&gt;
+&lt;h3&gt;인증과 권한은 다르다&lt;/h3&gt;
+&lt;p&gt;&amp;quot;로그인이 성공했는데 왜 안 되지?&amp;quot;라고 했다. 근데 인증과 권한은 다르다.&lt;/p&gt;
+&lt;p&gt;인증은 &amp;quot;너가 누구인지 확인&amp;quot;이다. 로그인이 성공하면 &amp;quot;너는 맞다&amp;quot;고 확인한 거다. 근데 &amp;quot;맞다&amp;quot;고 해서 &amp;quot;모든 곳에 접근할 수 있다&amp;quot;는 아니다.&lt;/p&gt;
+&lt;p&gt;권한은 &amp;quot;너가 뭘 할 수 있는지&amp;quot;다. ECR 접근 권한이 SSO 권한 세트와 분리되어 있었다. 조직이 ECR 접근을 별도 게이트로 관리한 거다.&lt;/p&gt;
+&lt;h3&gt;명시적 거부&lt;/h3&gt;
+&lt;p&gt;원인은 명시적 거부였다. SSO 권한 세트에서 ECR 접근을 명시적으로 거부하고 있었다. &amp;quot;허용하지 않는다&amp;quot;가 아니라 &amp;quot;금지한다&amp;quot;다. 재로그인해도 같다. 권한 정책에 거부가 적혀 있으니까.&lt;/p&gt;
+&lt;p&gt;핵심 교훈은 &amp;quot;403 Forbidden은 미인증이 아니라 금지&amp;quot;라는 거다. &lt;code&gt;docker login&lt;/code&gt;을 다시 시도하는 건 무의미하다. 인증이 안 된 게 아니라, 권한이 없는 거다.&lt;/p&gt;
+&lt;h2&gt;뉴스 수집 아키텍처 재설계&lt;/h2&gt;
+&lt;p&gt;틈틈이 뉴스 수집 아키텍처도 개선했다. 기존에는 browser-use 하나로 전부 처리했다. 근데 RSS나 정적 HTML에 browser-use를 쓰는 건 과잉이었다.&lt;/p&gt;
+&lt;p&gt;fetch-first 방식으로 바꿨다. Google News RSS에서 먼저 가져오고 3건 미만일 때만 browser-use를 폴백으로 쓴다. 수집이랑 분석을 분리했다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;단순한 건 fetch로, 복잡한 건 브라우저로.&amp;quot; 도구를 용도에 맞게 쓴다. 전부 같은 도구로 처리하면, 단순한 작업도 무거워진다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 핵심은 &amp;quot;직관과 반대되는 두 가지&amp;quot;였다.&lt;/p&gt;
+&lt;p&gt;Kimi K3가 발표됐을 때, 직관적으로는 반도체에 나쁜 것 같다. 근데 세계 최대 모델은 더 많은 칩을 쓴다. 오픈웨이트라 누구나 추론을 돌린다. 수요가 늘어난다. &amp;quot;위험해 보이는 게 수혜&amp;quot;인 경우가 있다.&lt;/p&gt;
+&lt;p&gt;AWS에서 로그인이 성공했을 때, 직관적으로는 &amp;quot;됐다&amp;quot;고 생각한다. 근데 인증과 권한은 다르다. 로그인은 됐는데 ECR 접근은 금지될 수 있다. &amp;quot;된 것 같은 게 안 되는&amp;quot; 경우가 있다.&lt;/p&gt;
+&lt;p&gt;직관은 빠르지만 틀릴 수 있다. &amp;quot;나쁜 것 같은 게 좋다&amp;quot;거나 &amp;quot;된 것 같은 게 안 된다&amp;quot;는, 직관만으로는 잡을 수 없다. 데이터를 보고 권한 정책을 읽어야 한다.&lt;/p&gt;
 </content:encoded></item><item><title>AI 에이전트가 16번이나 팔라고 한 날, 기계적 권고를 고쳤다</title><link>https://hyeokjaelee.github.io/agent-16-consecutive-trims-mechanical-guideline-fix/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/agent-16-consecutive-trims-mechanical-guideline-fix/</guid><description>이날은 투자 분석 에이전트의 기계적 행동을 고친 날이다. 에이전트가 삼성전자랑 하이닉스를 16번 연속으로 팔라고 했다. 근데 한 번도 안 팔았다. 그리고 같은 에이전트한테 직접 물어보면 &quot;들고 있어라&quot;고 했다. 모순이었다. 원인을 찾아서 고쳤다. 16번 팔라고 했다, 한 번도 안 팔았다</description><pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 투자 분석 에이전트의 기계적 행동을 고친 날이다. 에이전트가 삼성전자랑 하이닉스를 16번 연속으로 팔라고 했다. 근데 한 번도 안 팔았다. 그리고 같은 에이전트한테 직접 물어보면 &amp;quot;들고 있어라&amp;quot;고 했다. 모순이었다. 원인을 찾아서 고쳤다.&lt;/p&gt;
 &lt;h2&gt;16번 팔라고 했다, 한 번도 안 팔았다&lt;/h2&gt;
 &lt;p&gt;투자 분석 에이전트의 리스크 관리 에이전트가 삼성전자랑 하이닉스 비중이 높다고 계속 팔라고 했다. 16번 연속이었다. 근데 나는 한 번도 안 팔았다.&lt;/p&gt;
