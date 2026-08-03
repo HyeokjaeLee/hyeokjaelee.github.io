@@ -4,6 +4,8 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [강의잠금 라벨에 툴팁 붙이기](https://hyeokjaelee.github.io/lecture-lock-label-tooltip/): Figma 원본과 11개 속성을 하나하나 맞추며 툴팁 컴포넌트를 붙인 과정을 정리했다.
+- [학생 화면 잠금 UI 완료율 표시](https://hyeokjaelee.github.io/student-lock-ui-completion-rate/): 온라인 클래스의 순차 수강 정책을 화면에 어떻게 드러낼지 고민한 회고. 완료율 표시, 잠금 라벨, 콘텐츠 디밍, 아코디언 접힘을 한 세트로 묶어 구현한 이야기.
 - [InstanceBootstrap 회귀 버그를 잡으며](https://hyeokjaelee.github.io/instance-bootstrap-regression/): OpenCode 리팩토링 중에 뭉개진 초기화 한 줄을 추적해서 PR로 돌려놓기까지. 그리고 opencode-auto-fallback에 ESLint v9 flat config를 올리며 벌어진 일들.
 - [OpenCode 치명적 버그 해결과 컨텍스트 압축 경쟁 조건](https://hyeokjaelee.github.io/duplicate-variable-handler-bug/): opencode-auto-fallback v0.3.16~v0.3.24 사이 터진 핵심 버그들을 잡은 하루. 중복 변수 선언으로 이벤트 핸들러가 통째로 멈추던 치명적 오류부터, 컨텍스트 압축 경쟁 조건까지.
 - [코스 분류 정책을 생성 모달부터 강의 수정까지 흘려보내기](https://hyeokjaelee.github.io/course-classification-policy/): 교육 플랫폼에서 코스 분류 정책을 코스 생성 모달과 기본 정보, 강의 수정 화면에 차례로 반영한 기록. 2주차 계획까지 정리했다.
