@@ -103,65 +103,53 @@ TLP 자체가 나쁜 건 아니다.
 &lt;li&gt;&lt;a href=&quot;https://www.freedesktop.org/software/systemd/man/systemd-rfkill.service.html&quot;&gt;systemd-rfkill 문서&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://linrunner.de/tlp/faq/&quot;&gt;TLP FAQ — rfkill&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded></item><item><title>Gemini CLI를 opencode 서브에이전트로 통합했다</title><link>https://hyeokjaelee.github.io/gemini-cli-opencode-integration/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/gemini-cli-opencode-integration/</guid><description>왜 Gemini CLI를 또 띄웠나 opencode를 메인 에디터로 쓰고 있는데, 가끔 Gemini 쪽에 물어보고 싶은 게 생긴다. 모델이 다르면 보는 각도도 달라서, 같은 프롬프트를 두 군데에 던져보면 답이 갈리는 경우가 꽤 있다. 단순히 터미널을 하나 더 열어서 gemini 를 치면</description><pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;왜 Gemini CLI를 또 띄웠나&lt;/h2&gt;
-&lt;p&gt;opencode를 메인 에디터로 쓰고 있는데, 가끔 Gemini 쪽에 물어보고 싶은 게 생긴다.
-모델이 다르면 보는 각도도 달라서, 같은 프롬프트를 두 군데에 던져보면 답이 갈리는 경우가 꽤 있다.
-단순히 터미널을 하나 더 열어서 &lt;code&gt;gemini&lt;/code&gt;를 치면 된다.
-그렇게 하면 opencode 컨텍스트가 안 남고, 매번 프롬프트를 다시 써야 해서 귀찮다.
-그래서 opencode 안에서 Gemini CLI를 서브에이전트처럼 호출할 수 있게 만들어봤다.&lt;/p&gt;
-&lt;h2&gt;샌드박스로 각 잡기&lt;/h2&gt;
-&lt;p&gt;처음에는 Gemini CLI를 설치하고 opencode 플러그인에서 감싸기만 하면 끝이라고 생각했다.
-실제로는 그렇게 단순하지 않았다.&lt;/p&gt;
-&lt;p&gt;가장 큰 문제는 설정 파일 경로였다.
-Gemini CLI가 &lt;code&gt;GEMINI_CONFIG_DIR&lt;/code&gt; 환경변수를 무시하고, 홈 디렉토리 &lt;code&gt;~/.gemini/&lt;/code&gt;를 하드코딩해서 쓴다.
-그러니까 opencode 설정과 Gemini 설정이 섞여 버린다.
-인증 정보도 꼬이고, history도 겹친다.&lt;/p&gt;
-&lt;p&gt;그래서 opencode 아래에 전용 샌드박스 디렉토리를 팠다.
-거기에 &lt;code&gt;.gemini/&lt;/code&gt;와 &lt;code&gt;.npm-cache/&lt;/code&gt;를 따로 둬서 opencode랑 완전히 분리했다.
-bridge 모듈(mjs)로 경로를 강제로 바꿔치기하는 구조다.&lt;/p&gt;
-&lt;p&gt;여기서 npm 캐시 오염 버그가 하나 터졌다.
-&lt;code&gt;HOME&lt;/code&gt; 환경변수만 바꿔놓고 안심했는데, npm은 &lt;code&gt;npm_config_cache&lt;/code&gt;가 없으면 전역 캐시 디렉토리를 그대로 쓴다.
-결국 샌드박스를 만들어놓고도 전역 npm 캐시를 건드리고 있었다.
-&lt;code&gt;npm_config_cache&lt;/code&gt;까지 명시적으로 주입하고 나서야 격리가 됐다.&lt;/p&gt;
-&lt;p&gt;작은 디테일 같은데, 이런 걸 한 번 놓치면 &amp;quot;샌드박스가 있는데 왜 오염되지?&amp;quot; 같은 미스터리 버그가 된다.&lt;/p&gt;
+</content:encoded></item><item><title>Gemini CLI를 OpenCode 서브에이전트로 통합하기</title><link>https://hyeokjaelee.github.io/gemini-cli-opencode-integration/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/gemini-cli-opencode-integration/</guid><description>journal 왜 Gemini CLI를 통합했나 요즘 OpenCode를 메인 코딩 에이전트로 쓰고 있다. OpenCode 자체가 Claude, GPT 같은 상용 모델을 잘 지원하지만, Gemini는 따로 챙겨야 하는 일이 잦았다. 컨텍스트가 길 때, 코드 분석이 필요할 때 Gemini를</description><pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;[journal]&lt;/p&gt;
+&lt;h2&gt;왜 Gemini CLI를 통합했나&lt;/h2&gt;
+&lt;p&gt;요즘 OpenCode를 메인 코딩 에이전트로 쓰고 있다.&lt;/p&gt;
+&lt;p&gt;OpenCode 자체가 Claude, GPT 같은 상용 모델을 잘 지원하지만, Gemini는 따로 챙겨야 하는 일이 잦았다.&lt;/p&gt;
+&lt;p&gt;컨텍스트가 길 때, 코드 분석이 필요할 때 Gemini를 한 번 거쳐가면 유리한 케이스가 꽤 있다.&lt;/p&gt;
+&lt;p&gt;그래서 격리된 Gemini CLI를 OpenCode 서브에이전트처럼 호출하는 통합 시스템을 구축해봤다.&lt;/p&gt;
+&lt;p&gt;단순히 CLI를 한 번 부르는 수준이 아니라 샌드박스 분리부터 프리셋 시스템, 백그라운드 실행까지 한 덩어리로 만드는 게 목표였다.&lt;/p&gt;
+&lt;h2&gt;샌드박스로 완전 분리하기&lt;/h2&gt;
+&lt;p&gt;가장 먼저 신경 쓴 건 OpenCode 설정을 오염시키지 않는 거였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@google/gemini-cli@0.38.2&lt;/code&gt;를 로컬에 설치하고, mjs 기반 bridge 모듈(bridge.mjs, bin.mjs, paths.mjs)로 샌드박스를 만들었다.&lt;/p&gt;
+&lt;p&gt;Gemini CLI가 참조하는 디렉토리를 통째로 분리해서 OpenCode 쪽 설정이랑 섞이지 않게 했다.&lt;/p&gt;
+&lt;p&gt;MCP는 OpenCode와 독립적으로 관리한다.&lt;/p&gt;
+&lt;p&gt;호출 인터페이스는 &lt;code&gt;gemini_consult&lt;/code&gt;, &lt;code&gt;gemini_status&lt;/code&gt; 같은 OpenCode 플러그인 툴로 노출했다.&lt;/p&gt;
+&lt;h2&gt;npm 캐시 오염 버그&lt;/h2&gt;
+&lt;p&gt;여기서 가장 짠났던 부분이 npm 캐시였다.&lt;/p&gt;
+&lt;p&gt;초기 구현은 &lt;code&gt;HOME&lt;/code&gt;만 바꿔치기하는 수준이었는데 Gemini CLI가 npm 캐시를 공유 디렉토리에 쓰는 바람에 메인 환경이 꼬였다.&lt;/p&gt;
+&lt;p&gt;해결책은 단순했다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm_config_cache&lt;/code&gt;를 명시적으로 주입해서 샌드박스 안쪽으로 캐시를 강제하는 거다.&lt;/p&gt;
+&lt;p&gt;비슷한 이유로 &lt;code&gt;getStatus()&lt;/code&gt;에서 인증 오류가 났던 것도 paths.mjs에 올바른 경로 상수를 추가해서 잡았다.&lt;/p&gt;
+&lt;p&gt;Gemini CLI가 &lt;code&gt;GEMINI_CONFIG_DIR&lt;/code&gt;를 지원하지 않고 &lt;code&gt;/Users/nagle/.gemini/&lt;/code&gt;를 하드코딩하는 것도 삽질 거리였다.&lt;/p&gt;
 &lt;h2&gt;프리셋 시스템&lt;/h2&gt;
-&lt;p&gt;격리가 됐으니 이제 Gemini를 어떤 역할로 부를지가 문제다.
-코드 리뷰를 맡길 때도 있고, 문서 요약을 시킬 때도 있고, 단순히 다른 시각으로 코드를 읽어달라고 할 때도 있다.
-그래서 프리셋 디렉토리에 &lt;code&gt;.md&lt;/code&gt; 파일로 프리셋을 정의했다.&lt;/p&gt;
-&lt;p&gt;opencode가 실행될 때 이 디렉토리를 스캔해서 각 &lt;code&gt;.md&lt;/code&gt; 파일을 동적 툴(&lt;code&gt;gemini_&amp;lt;파일명&amp;gt;&lt;/code&gt;)로 자동 등록한다.
-플러그인을 재시작할 필요 없이, &lt;code&gt;.md&lt;/code&gt; 파일 하나 추가하면 바로 새 프리셋이 등록된다.
-이게 의외로 편하다.
-프리셋 추가 사이클이 짧아지니까 계속 다듬게 된다.&lt;/p&gt;
-&lt;h2&gt;백그라운드 서브에이전트&lt;/h2&gt;
-&lt;p&gt;여기까지 하고 나니, Gemini 호출이 메인 에디터를 블로킹하는 게 거슬렸다.
-긴 응답을 기다리는 동안 다른 작업을 못 하는 건 비효율적이라 백그라운드로 돌렸다.&lt;/p&gt;
-&lt;p&gt;여기서도 버그가 있었다.
-&lt;code&gt;process.execPath&lt;/code&gt;가 잘못 잡히거나, wrapper 에러 파일이 안 생기거나, elapsed 시간이 로케일 때문에 깨지거나.
-하나하나는 다 작은 건데, 다 고쳐야 백그라운드가 안정적으로 돌아간다.
-orphan 프로세스도 3개나 남아 있어서 정리했다.&lt;/p&gt;
-&lt;p&gt;끝나고 보니 &amp;quot;이렇게까지 해서 Gemini를 부르냐&amp;quot; 싶은 생각도 들었다.
-하지만 한 번 만들어두면 프리셋만 바꿔서 여러 용도로 쓸 수 있으니, 미래의 나한테는 이득이라는 계산이다.
-아마도.&lt;/p&gt;
-&lt;h2&gt;그날의 다른 일들&lt;/h2&gt;
-&lt;p&gt;이게 메인은 아니었다.
-같은 날에 Notion 문서 분석 스킬도 손 봤다.
-기획 문서에 텍스트뿐 아니라 이미지도 같이 들어있는 경우가 많은데, 그 이미지가 본문 어디에 위치하는지까지 메타데이터로 분석하도록 보강했다.&lt;/p&gt;
-&lt;p&gt;Figma MCP도 연동했다.
-디자인 분석을 하고 싶으면 Figma 쪽에서 데이터를 가져오게 만든 건데, 이건 다음 날로 이어진다.&lt;/p&gt;
-&lt;p&gt;그리고 oh-my-openagent에서 VERIFIED 상태의 무한루프 이슈가 하나 터져서 그 대응도 끼어들었다.
-prompt-async-gate-reservation-leak라는, 이름부터 안 좋은 버그다.&lt;/p&gt;
-&lt;h2&gt;남는 생각&lt;/h2&gt;
-&lt;p&gt;하루에 통합, 스킬, MCP, 버그 대응이 한꺼번에 들어오니 머릿속이 꽤 분산됐다.
-그래도 Gemini CLI 통합은 그날의 메인 테마로 잡고 끝까지 밀어붙인 게 다행이었다.
-일지를 보니 다음 날로 넘어가기 전에 백그라운드까지 안정화시켜 놨더라.&lt;/p&gt;
-&lt;p&gt;나중에 다른 외부 도구를 또 통합할 일이 생기면, 이 샌드박스 + 프리셋 조합을 거의 그대로 가져가도 될 것 같다.
-Gemini 말고 다른 CLI 에이전트가 또 나오면 그때.&lt;/p&gt;
-&lt;h2&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Gemini CLI 저장소: &lt;a href=&quot;https://github.com/google-gemini/gemini-cli&quot;&gt;https://github.com/google-gemini/gemini-cli&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;opencode: &lt;a href=&quot;https://github.com/sst/opencode&quot;&gt;https://github.com/sst/opencode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MCP 규격: &lt;a href=&quot;https://modelcontextprotocol.io&quot;&gt;https://modelcontextprotocol.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;여기까지 하면 &amp;quot;부르기는 부른다&amp;quot; 정도인데, 실제로 쓰려면 용도별 프리셋이 필요하다.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;code&gt;agents-gemini/&lt;/code&gt; 디렉토리에 &lt;code&gt;.md&lt;/code&gt; 파일로 프리셋을 정의하는 구조를 만들었다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.md&lt;/code&gt; 파일을 하나 추가하면 OpenCode가 &lt;code&gt;gemini_&amp;lt;파일명&amp;gt;&lt;/code&gt; 형태의 동적 툴로 자동 등록한다.&lt;/p&gt;
+&lt;p&gt;플러그인을 재시작할 필요 없이 파일 하나 추가만으로 새 프리셋이 바로 먹힌다.&lt;/p&gt;
+&lt;p&gt;이게 생각보다 편하다.&lt;/p&gt;
+&lt;p&gt;코드 수정이나 설정 리로드 없이 프리셋을 쌓을 수 있으니까.&lt;/p&gt;
+&lt;h2&gt;백그라운드로 돌리기&lt;/h2&gt;
+&lt;p&gt;서브에이전트가 동기로만 도는 건 실용성이 떨어진다.&lt;/p&gt;
+&lt;p&gt;긴 작업은 백그라운드로 맡겨두고 OpenCode 쪽에서는 다른 일을 하는 게 자연스럽다.&lt;/p&gt;
+&lt;p&gt;백그라운드 동작까지 확인하는 데 수정이 4개쯤 더 들어갔다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;process.execPath&lt;/code&gt;, wrapper의 &lt;code&gt;err&lt;/code&gt; 처리, &lt;code&gt;elapsed_ms&lt;/code&gt; 측정, 로케일 설정 정도.&lt;/p&gt;
+&lt;p&gt;마지막엔 orphan 프로세스가 3개 남아 있어서 그것도 정리했다.&lt;/p&gt;
+&lt;p&gt;정리하고 나니 백그라운드 서브에이전트가 안정적으로 돈다.&lt;/p&gt;
+&lt;h2&gt;모델 선택&lt;/h2&gt;
+&lt;p&gt;처음엔 기본 모델을 &lt;code&gt;gemini-3-flash-preview&lt;/code&gt;로 잡았다.&lt;/p&gt;
+&lt;p&gt;쓰다 보니 품질보다는 속도가 필요한 자리가 많아서 &lt;code&gt;gemini-2.5-flash&lt;/code&gt;로 기본을 바꿨다.&lt;/p&gt;
+&lt;p&gt;모델마다 용도, 금지 상황, 특성을 정리한 가이드도 같이 붙였다.&lt;/p&gt;
+&lt;p&gt;동적 프리셋 설명이 자동으로 반영되니까 프리셋별로 어느 모델이 어울리는지 툴 설명만 봐도 알 수 있다.&lt;/p&gt;
+&lt;h2&gt;느낀 점&lt;/h2&gt;
+&lt;p&gt;기대보다 공이 많이 들었다.&lt;/p&gt;
+&lt;p&gt;단순히 CLI를 subprocess로 부르는 거라면 금방 끝날 줄 알았는데 샌드박스 격리와 npm 캐시 관리가 본질이었다.&lt;/p&gt;
+&lt;p&gt;일단 한 번 틀을 잡아두면 프리셋 추가 비용이 거의 없다는 게 큰 장점이다.&lt;/p&gt;
+&lt;p&gt;앞으로 다른 외부 도구를 연동할 때도 비슷한 패턴으로 가려 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;관련 페이지: OpenCode 프로젝트 정리는 위키 쪽에 따로 뒀다.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content:encoded></item><item><title>QA 에이전트 planner 의존성 판정을 두 개의 질문으로 줄였다</title><link>https://hyeokjaelee.github.io/planner-dependency-model-redesign/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/planner-dependency-model-redesign/</guid><description>의존성 판정이 자꾸 흔들리더라 QA 에이전트에서 테스트 케이스 사이의 의존성을 판정하는 건 계속 골치였다. 앞선 케이스가 실패하면 뒤따르는 케이스를 어떻게 처리할지, 어디까지 묶어서 막을지를 planner가 매번 판단해야 한다. 그런데 판정 기준이 모호하니까 같은 상황에서 결과가 자꾸 </description><pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;의존성 판정이 자꾸 흔들리더라&lt;/h2&gt;
 &lt;p&gt;QA 에이전트에서 테스트 케이스 사이의 의존성을 판정하는 건 계속 골치였다.&lt;/p&gt;
 &lt;p&gt;앞선 케이스가 실패하면 뒤따르는 케이스를 어떻게 처리할지, 어디까지 묶어서 막을지를 planner가 매번 판단해야 한다.&lt;/p&gt;
