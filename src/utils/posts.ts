@@ -68,3 +68,17 @@ export async function getAllPosts(): Promise<PostData[]> {
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }
+
+/** Unique, sorted list of every tag used across all posts (build-time). */
+export async function getAllTags(): Promise<string[]> {
+  const posts = await getAllPosts();
+  const tagSet = new Set<string>();
+
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      tagSet.add(tag);
+    }
+  }
+
+  return Array.from(tagSet).sort();
+}

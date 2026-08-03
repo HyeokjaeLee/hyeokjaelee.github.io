@@ -1,36 +1,27 @@
 import { Button } from '@components/atoms/Button';
 import { Link } from '@shared/Link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type SwiperType from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const POST_TAGS = [
-  'all',
-  'issues',
-  'frontend',
-  'backend',
-  'devOps',
-  'etc',
-  'project',
-  'data',
-];
-
 interface TagListProps {
   currentTag: string;
+  tags: string[];
   onTagChange: (tag: string) => void;
 }
 
-export const TagList = ({ currentTag, onTagChange }: TagListProps) => {
+export const TagList = ({ currentTag, tags, onTagChange }: TagListProps) => {
+  const allTags = useMemo(() => ['all', ...tags], [tags]);
   const slideRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
-    const swiperIndex = POST_TAGS.indexOf(currentTag);
+    const swiperIndex = allTags.indexOf(currentTag);
 
     if (slideRef.current) {
       slideRef.current.slideTo(swiperIndex);
     }
-  }, [currentTag]);
+  }, [currentTag, allTags]);
 
   return (
     <nav className="mx-auto flex w-full justify-center py-4">
@@ -46,7 +37,7 @@ export const TagList = ({ currentTag, onTagChange }: TagListProps) => {
         spaceBetween={4}
         onSwiper={(swiper) => (slideRef.current = swiper)}
       >
-        {POST_TAGS.map((value) => {
+        {allTags.map((value) => {
           const isCurrentTag = value === currentTag;
 
           return (

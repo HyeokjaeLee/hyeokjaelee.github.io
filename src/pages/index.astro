@@ -2,14 +2,14 @@
 import { HomePage } from '../components/pages/HomePage.tsx';
 import Layout from '../layouts/Layout.astro';
 
-import { getAllPosts, POST_PER_PAGE } from '../utils/posts';
+import { getAllPosts, getAllTags, POST_PER_PAGE } from '../utils/posts';
 
-const allPosts = await getAllPosts();
+const [allPosts, tags] = await Promise.all([getAllPosts(), getAllTags()]);
 const total = allPosts.length;
 const totalPages = Math.max(1, Math.ceil(total / POST_PER_PAGE));
 const firstPage = allPosts.slice(0, POST_PER_PAGE);
 ---
 
 <Layout>
-  <HomePage client:load initialPosts={firstPage} perPage={POST_PER_PAGE} total={total} totalPages={totalPages} />
+  <HomePage client:load initialPosts={firstPage} perPage={POST_PER_PAGE} total={total} totalPages={totalPages} tags={tags} />
 </Layout>
