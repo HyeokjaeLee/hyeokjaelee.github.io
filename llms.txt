@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [새 코스 종류 전면 도입, 8단계 25개 파일 변경 마무리](https://hyeokjaelee.github.io/new-course-type-full-integration-8phases/): 며칠간 설계해온 새 코스 분류를 플랫폼 전체에 걸쳐 구현했다. 코스 생성부터 수료, 출석체크, 약관까지 8단계 25개 파일을 건드렸다.
 - [볼트 재구성 완료와 잠금 UI 픽셀 퍼펙트 달성](https://hyeokjaelee.github.io/vault-restructure-done-lock-ui-pixel-perfect/): 며칠간 진행한 옵시디언 볼트 재구성을 마무리하고 잠금 화면의 피그마 픽셀 일치를 끝까지 밀어붙였다.
 - [잠금 툴팁 패딩 버그와 토큰 절감 CLI 도입](https://hyeokjaelee.github.io/lock-tooltip-padding-rtk-token-reduction/): 잠금 툴팁에서 패딩이 반대로 들어가 있던 걸 잡고 셸 명령 출력을 압축하는 CLI를 도입해서 토큰을 크게 줄였다.
 - [잠금 파트 UI 구현과 폴백 플러그인 설정 스키마 통합](https://hyeokjaelee.github.io/lock-part-ui-fallback-config-schema-unify/): 순차 수강 잠금 화면을 만들고 요구사항 검증으로 빠진 걸 잡았다. 그리고 폴백 플러그인의 흩어진 설정을 하나로 통합했다.
