@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [매몰 비용에 속지 않기, 투자에서도 도구 선택에서도](https://hyeokjaelee.github.io/sunk-cost-fallacy-investing-and-tool-selection/): 오라클이 투자등급 최하단으로 강등됐다. 근데 이게 AI 거품의 증거가 아니라 뒤처진 기업의 실패였다. 그리고 위키 도구를 바꿀까 말까 고민하다가, 32개 스킬이 투자한 노력이지 우월성이 아니라는 걸 깨달았다.
 - [공공데이터에 경매 API는 38개지만 부동산 경매는 0개](https://hyeokjaelee.github.io/court-auction-api-zero-llm-cost-200x/): 법원경매 AI 분석 서비스를 기획했다. 공공데이터를 뒤졌더니 부동산 경매 API는 없었다. 근데 LLM 비용은 모델 선택에 따라 200배 차이가 났다. 기획 하나로 하루가 끝났다.
 - [데이터 소스가 단위에 대해 거짓말을 할 때](https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/): yfinance가 한국 주식 시가총액을 원화인데 달러로 표기했다. SK하이닉스가 1,547조 달러가 됐다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가 자기 스킬을 차단하는 일도 있었다.
 - [역할 고정 LLM은 약한 힌트로 안 바뀐다, 정체성을 바꿔야 한다](https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/): 투자 분석 에이전트에게 가격 예측을 물어도 자꾸 매매 추천을 했다. 시스템 프롬프트의 정체성이 매매 추론을 강제하고 있었다. 정체성 자체를 바꿔야 했다. 그리고 에이전트들이 토론하는 투자 데스크도 만들었다.
