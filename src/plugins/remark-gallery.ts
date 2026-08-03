@@ -19,9 +19,10 @@ interface DirectiveNode {
 }
 
 /**
- * Preserve a `:::gallery{cols="N"}` container directive as
- * `<figure class="gallery" data-cols="N">`. Images stay real mdast `image`
- * nodes, so Astro's image optimization is untouched.
+ * Preserve a `:::gallery` container directive as `<figure class="gallery">`.
+ * Layout is always two images per row (CSS-driven); any `cols` attribute is
+ * ignored. Images stay real mdast `image` nodes, so Astro's optimization is
+ * untouched.
  */
 export function remarkGallery() {
   return (tree: MdastRoot) => {
@@ -33,13 +34,9 @@ export function remarkGallery() {
       ) {
         return;
       }
-      const cols = String(directive.attributes?.cols ?? '2');
       directive.data = directive.data ?? {};
       directive.data.hName = 'figure';
-      directive.data.hProperties = {
-        className: ['gallery'],
-        'data-cols': cols,
-      };
+      directive.data.hProperties = { className: ['gallery'] };
     });
   };
 }

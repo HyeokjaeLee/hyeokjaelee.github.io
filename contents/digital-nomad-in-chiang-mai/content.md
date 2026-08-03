@@ -22,7 +22,7 @@ tags: [etc]
 
 하지만 사람이 몰리는 시간에 인터넷이 느려지는 경우가 있었다.
 
-:::gallery{cols="2"}
+:::gallery
 ![숙소 앞 스타벅스 테라스](assets/startbucks.jpeg)
 ![스타벅스2](assets/starbucks2.jpeg)
 :::
@@ -35,7 +35,7 @@ tags: [etc]
 
 업무 장소는 그날 일어나서 기분에 따라 움직였는데 가끔 정말 나가기 싫은 날은 그냥 숙소에서 일하는 경우도 있었고 숙소 내에 있는 카페에서 일하는 경우도 있었다.
 
-:::gallery{cols="2"}
+:::gallery
 ![숙소 카페](assets/cafe.jpeg)
 ![숙소에 놀러온 다른 회사 개발자 친구](assets/home.jpeg)
 :::
@@ -50,7 +50,7 @@ tags: [etc]
 
 2층을 임대해서 사용하는 회사들도 있었고 1층에는 여러 나라에서 온 개발자, 디자이너등이 있었고 카페처럼 공부를 위해 찾는 사람은 없었다.
 
-:::gallery{cols="2"}
+:::gallery
 ![코워킹 스페이스 Yellow](assets/yellow.jpg)
 ![코워킹 스페이스에서 일하고 있는 사람들](assets/yellow2.jpg)
 :::
@@ -79,7 +79,7 @@ tags: [etc]
 
 한국에 있을 때는 퇴근 시간이 되어도 성격상 퇴근하지 않는 경우가 많았지만 퇴근후 하고 싶은 일들이 많았기 때문에 태국에서는 최대한 칼퇴근하려고 노력했다.
 
-:::gallery{cols="2"}
+:::gallery
 ![현지에서 사귄 친구들과 갔던 시장](assets/market.jpeg)
 ![현지에서 사귄 친구들과 갔던 술집](assets/concert.jpeg)
 :::

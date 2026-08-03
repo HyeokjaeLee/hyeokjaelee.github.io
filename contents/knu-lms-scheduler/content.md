@@ -133,7 +133,7 @@ Electron back-end에서 작성한 내용들은 로그인 정보와 크롤링한 
 
 ### 반응
 
-:::gallery{cols="4"}
+:::gallery
 ![image](assets/knu-lms-scheduler-02.png)
 ![image](assets/knu-lms-scheduler-03.png)
 ![image](assets/knu-lms-scheduler-04.png)
