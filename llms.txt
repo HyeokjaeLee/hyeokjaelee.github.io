@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [NVIDIA 모델에서 json_schema가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 json_schema를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다. OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
 - [LLM 캐시 적중률 0%를 발견한 날](https://hyeokjaelee.github.io/llm-cache-zero-percent-git-secret-exposure/): 소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다. 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다. 그리고 깃 시크릿 노출 사고도 겪었다.
 - [CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로](https://hyeokjaelee.github.io/css-has-scroll-lock-simplification-to-robustness/): 모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다. 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.
 - [과도한 배포를 막으려다 배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다. 문제를 고치려다 새 문제를 만든 셈이다.
