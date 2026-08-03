@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [오픈소스에 기여한 날, 그리고 ESLint 코드 품질 게이트 도입](https://hyeokjaelee.github.io/upstream-pr-contribution-eslint-quality-gate/): 리팩터링 중 사라진 파라미터가 레거시 경로 초기화를 건너뛰게 한 회귀 버그를 잡아 상위 프로젝트에 PR을 올리고, 폴백 플러그인에 엄격한 린트 규칙을 도입했다.
 - [변수 중복 선언이 모든 핸들러를 죽인 날, 컨텍스트 압축 경쟁 조건](https://hyeokjaelee.github.io/duplicate-variable-compaction-race-condition/): 폴백 플러그인에서 변수 중복 선언이 모든 이벤트 핸들러를 멈추게 한 치명적 버그를 잡고, 컨텍스트 압축 경쟁 조건도 해결했다.
 - [폴백 플러그인 안정화와 에러 분류 6단계 분류기 완성](https://hyeokjaelee.github.io/fallback-plugin-stabilization-6step-error-classifier/): 며칠간 만든 폴백 플러그인을 안정화했다. 쿨다운 인식 폴백, 세션 에러 처리, 구조화된 로깅을 갖추고 에러 분류를 6단계로 정리했다.
 - [콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제와 SSE 무한 재시도](https://hyeokjaelee.github.io/cold-cache-wrong-model-sse-infinite-retry/): 에이전트가 처음 실행될 때 캐시가 비어서 엉뚱한 모델을 할당받는 문제를 잡고, 폴백 플러그인의 SSE 무한 재시도 루프도 고쳤다.
