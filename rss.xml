@@ -73,6 +73,33 @@ AI가 지어낸 내용을 걸러내는 기준이 필요했고, 그 기준 자체
 catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 수 없는 종류다.
 블로그 CSS 함정 두 개도 Playwright로 DOM을 직접 찍어보기 전까지는 원인 추측만 반복할 뻔했다.
 눈이 아닌 실측이라는 원칙이 이번 작업 전체를 관통한다.&lt;/p&gt;
+</content:encoded></item><item><title>공공데이터에 경매 API는 38개지만 부동산 경매는 0개</title><link>https://hyeokjaelee.github.io/court-auction-api-zero-llm-cost-200x/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/court-auction-api-zero-llm-cost-200x/</guid><description>이날은 법원경매 AI 분석 서비스를 처음부터 끝까지 기획한 날이다. 시장 조사, 데이터 수집 가능성, 법적 리스크, LLM 비용까지 전부 검토했다. 가장 인상적인 발견은 공공데이터에 부동산 경매 API가 단 하나도 없다는 거였다. 공공데이터에 경매 API는 38개다 공공데이터포털에서 &quot;</description><pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 법원경매 AI 분석 서비스를 처음부터 끝까지 기획한 날이다. 시장 조사, 데이터 수집 가능성, 법적 리스크, LLM 비용까지 전부 검토했다. 가장 인상적인 발견은 공공데이터에 부동산 경매 API가 단 하나도 없다는 거였다.&lt;/p&gt;
+&lt;h2&gt;공공데이터에 경매 API는 38개다&lt;/h2&gt;
+&lt;p&gt;공공데이터포털에서 &amp;quot;경매&amp;quot;를 검색했다. 38개 API가 나왔다. &amp;quot;이 정도면 데이터를 가져올 수 있겠다&amp;quot;고 생각했다.&lt;/p&gt;
+&lt;p&gt;근데 전부 농수산물 경매랑 경마용 말 경매였다. 부동산 경매 API는 단 하나도 없었다. 전국에 진행 중인 경매 물건이 12만 건이 넘는데, 공공 API로는 접근할 수가 없다.&lt;/p&gt;
+&lt;p&gt;대법원 경매 사이트를 확인했다. 공식 API가 없다. SPA 기반이라 정적 HTTP로는 안 된다. Playwright로 브라우저를 띄워서 크롤링하는 게 유일한 방법이었다.&lt;/p&gt;
+&lt;h3&gt;실거래가 API는 있다&lt;/h3&gt;
+&lt;p&gt;근데 실거래가 API는 있었다. 국토교통부에서 제공하는 무료 API다. 상업 이용도 명시적으로 허용되어 있다. 경매 물건의 시세를 비교하는 보조 데이터로 쓸 수 있었다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;공공데이터에 경매 API는 없지만, 시세 비교용 데이터는 있다.&amp;quot; 이 조합으로 서비스를 만들 수 있었다.&lt;/p&gt;
+&lt;h2&gt;판단을 준다, 정보만 주는 게 아니라&lt;/h2&gt;
+&lt;p&gt;기존 경매 서비스의 한계는 명확했다. 데이터를 줄 뿐, 판단을 안 해준다. 등기부등본, 임차인 대항력, 선순위 채권을 전부 보여주지만 &amp;quot;이 물건 사도 되나?&amp;quot;라는 질문에는 답을 안 해준다.&lt;/p&gt;
+&lt;p&gt;그래서 차별화를 &amp;quot;판단&amp;quot;에 뒀다. LLM으로 권리분석을 자동화한다. &amp;quot;이 물건 낙찰 시 추가 비용 0원, 선순위 임차인 없음, 리스크 등급 A.&amp;quot; 10초 안에 이런 판단을 내놓는다.&lt;/p&gt;
+&lt;h2&gt;LLM 비용이 200배 차이가 난다&lt;/h2&gt;
+&lt;p&gt;일일 340건을 분석하려면 하루에 170만 토큰이 필요하다. 모델에 따라 비용이 어마어마하게 달라진다.&lt;/p&gt;
+&lt;p&gt;GPT-4o로 하면 월 8,700만 원이 든다. DeepSeek로 하면 485만 원이다. GLM이나 Qwen으로 하면 36만 원이다. 200배 차이다.&lt;/p&gt;
+&lt;p&gt;GLM은 MIT 오픈웨이트다. 환각률이 낮고 에이전트 작업에 강하다. 가성비가 압도적이다. 법원경매 권리분석은 정확성이 중요하니까, 저렴하면서 정확한 모델이 필요했다. GLM이 그 조건을 만족했다.&lt;/p&gt;
+&lt;h3&gt;비용 구조가 사업 모델을 결정한다&lt;/h3&gt;
+&lt;p&gt;LLM 비용이 월 8,700만 원이면 구독료를 월 3~5만 원으로는 못 한다. 근데 36만 원이면 가능하다. 손익분기가 구독자 600명이다. 월 5만 원으로 600명이면 월 3,000만 원 매출이다. LLM 36만 원 빼면 2,964만 원이 남는다.&lt;/p&gt;
+&lt;p&gt;모델 선택이 사업 가능성을 결정한다. &amp;quot;GPT-4o로 하면 안 된다&amp;quot;가 아니라, &amp;quot;이 비즈니스에서 GPT-4o는 비용 구조가 안 맞다&amp;quot;다. 용도에 맞는 모델을 선택해야 한다.&lt;/p&gt;
+&lt;h2&gt;법적 리스크는 관리 가능하다&lt;/h2&gt;
+&lt;p&gt;크롤링의 법적 리스크도 검토했다. 핵심은 &amp;quot;관리 가능, 실행 방식이 중요&amp;quot;였다.&lt;/p&gt;
+&lt;p&gt;저작권은 팩트가 보호 안 되니까 낮다. 개인정보는 소유자명을 비식별화하면 된다. 업무방해는 서버 부하가 미미하면 성립 안 한다. 대법원 판례가 있다.&lt;/p&gt;
+&lt;p&gt;그리고 대법원 경매 사이트에 robots.txt가 없다. 명시적 크롤링 금지 의사가 없다는 거다. 2~3초 딜레이를 주고 서버 부하를 최소화하면, 법적 리스크는 관리 가능하다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이날의 핵심은 &amp;quot;데이터가 없으면 만들면 되고, 비용이 높으면 모델을 바꾸면 된다&amp;quot;였다.&lt;/p&gt;
+&lt;p&gt;부동산 경매 공공 API는 없었다. 근데 크롤링으로 데이터를 가져올 수 있었다. &amp;quot;공공 API가 없다&amp;quot;고 해서 &amp;quot;불가능하다&amp;quot;가 아니다. 다른 방법이 있을 뿐이다.&lt;/p&gt;
+&lt;p&gt;LLM 비용은 200배 차이가 났다. 근데 용도에 맞는 모델을 선택하면 비용 구조가 바뀐다. &amp;quot;비싼 모델이 무조건 좋다&amp;quot;가 아니라, &amp;quot;이 용도에 맞는 모델이 뭐냐&amp;quot;를 물어야 한다.&lt;/p&gt;
+&lt;p&gt;그리고 &amp;quot;판단을 준다&amp;quot;는 차별화가 핵심이었다. 기존 서비스가 정보를 주는 데 그친다면, 우리는 판단을 준다. &amp;quot;이 물건 사도 되나?&amp;quot;에 답하는 거다. 정보 제공을 넘어 판단 제공으로 넘어가는 게 가치 창출의 핵심이었다.&lt;/p&gt;
 </content:encoded></item><item><title>데이터 소스가 단위에 대해 거짓말을 할 때</title><link>https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</guid><description>이날은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가 자기 스킬을 차단하는 아이러니도 </description><pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이날은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가 자기 스킬을 차단하는 아이러니도 겪었다.&lt;/p&gt;
 &lt;h2&gt;시가총액이 1,547조 달러?&lt;/h2&gt;
 &lt;p&gt;투자 분석 에이전트로 SK하이닉스를 분석하고 있었다. 근데 시가총액이 1,547조 달러로 나왔다. 전 세계 GDP를 합쳐도 안 나오는 숫자다. 뭔가 잘못됐다는 걸 즉시 알 수 있었다.&lt;/p&gt;
