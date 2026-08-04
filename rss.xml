@@ -617,8 +617,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;이름이 시점을 명확히 표현하지 못했다.&lt;/p&gt;
 &lt;p&gt;기각.&lt;/p&gt;
 &lt;h3&gt;두 번째 시도: 4개 값&lt;/h3&gt;
-&lt;p&gt;&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;대기&amp;quot;, &amp;quot;다음&lt;/p&gt;
-&lt;p&gt;사용자 요청&amp;quot; 4개 값으로 정리했다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;대기&amp;quot;, &amp;quot;다음 사용자 요청&amp;quot; 4개 값으로 정리했다.&lt;/p&gt;
 &lt;p&gt;근데 &amp;quot;대기&amp;quot;에 문제가 있었다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;쉬고 있을 때&amp;quot;인데, &amp;quot;쉴 때 깨워라&amp;quot;와 &amp;quot;쉴 때 깨우지 마라&amp;quot;를 구분할 수 없었다.&lt;/p&gt;
 &lt;p&gt;별도의 깨움 여부 설정 축을 추가해서 해결하려 했다.&lt;/p&gt;
@@ -643,10 +642,9 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;왜 이게 정답인가&lt;/h3&gt;
 &lt;p&gt;&amp;quot;대기&amp;quot;를 둘로 쪼개면, 깨움 여부 설정 축이 필요&lt;/p&gt;
 &lt;p&gt;없어진다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;사 때 깨우기&amp;quot;가 자체적으로 &amp;quot;깨운다&amp;quot;를 포함하고 &amp;quot;대기&amp;quot;가 자체적으로 &amp;quot;안 깨운다&amp;quot;를 포함한다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;쉴 때 깨우기&amp;quot;가 자체적으로 &amp;quot;깨운다&amp;quot;를 포함하고 &amp;quot;대기&amp;quot;가 자체적으로 &amp;quot;안 깨운다&amp;quot;를 포함한다.&lt;/p&gt;
 &lt;p&gt;두 축이 하나의 값으로 합쳐진다.&lt;/p&gt;
-&lt;p&gt;다른 값들(&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;다음&lt;/p&gt;
-&lt;p&gt;사용자 요청&amp;quot;)은 깨움 여부가 자명하다.&lt;/p&gt;
+&lt;p&gt;다른 값들(&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;다음 사용자 요청&amp;quot;)은 깨움 여부가 자명하다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;이번 단계&amp;quot;은 당연히 깨운다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;다음 사용자 요청&amp;quot;는 당연히 안 깨운다.&lt;/p&gt;
 &lt;p&gt;깨움 여부가 모호한 건 &amp;quot;대기&amp;quot;뿐이었다.&lt;/p&gt;
@@ -2823,8 +2821,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;첫째, LiveSync는 파일을 청크 단위로 쪼갠다. rabin-karp 알고리즘으로 분할한다.&lt;/p&gt;
 &lt;p&gt;하나의 마크다운 파일이 수십에서 수백 개 조각이 된다.&lt;/p&gt;
 &lt;p&gt;둘째, 한 글자만 수정해도 변경된 부분의 새 청크가 생성된다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;저장할 때마다 동기화&amp;quot;가 켜져 있으니까, 매 저장마다&lt;/p&gt;
-&lt;p&gt;청크가 늘어난다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;저장할 때마다 동기화&amp;quot;가 켜져 있으니까, 매 저장마다 청크가 늘어난다.&lt;/p&gt;
 &lt;p&gt;셋째, 과거 청크를 영구 보존한다.&lt;/p&gt;
 &lt;p&gt;버전 이력이랑 충돌 복구를 위해서다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
@@ -5926,8 +5923,7 @@ params.permit(파트 식별자 목록: [])   # 배열 허용
 &lt;h3&gt;XML 태그 구조&lt;/h3&gt;
 &lt;p&gt;프롬프트를 XML 태그 구조로 바꿨다.&lt;/p&gt;
 &lt;p&gt;루프 규칙을 담는 태그랑 사용자 목표를 담는 태그를 분리했다.&lt;/p&gt;
-&lt;p&gt;규칙은 실행마다 같고 목표는 실행마다&lt;/p&gt;
-&lt;p&gt;다르다.&lt;/p&gt;
+&lt;p&gt;규칙은 실행마다 같고 목표는 실행마다 다르다.&lt;/p&gt;
 &lt;p&gt;이걸 분리하니까&lt;/p&gt;
 &lt;p&gt;프롬프트가 명확해졌다.&lt;/p&gt;
 &lt;p&gt;그리고 모든 후속 프롬프트를 하나의 구조로 통일했다.&lt;/p&gt;
@@ -9048,8 +9044,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;h3&gt;슬랙 스레드 단위 격리&lt;/h3&gt;
 &lt;p&gt;그리고 슬랙 스레드별로 브라우저 세션을 격리하는 구조를 만들었다.&lt;/p&gt;
 &lt;p&gt;스레드 ID를 키로 써서 네 단계로 격리한다.&lt;/p&gt;
-&lt;p&gt;작업 디렉토리를 스레드마다 따로 만들고 실행 시작할 때마다&lt;/p&gt;
-&lt;p&gt;지운다.&lt;/p&gt;
+&lt;p&gt;작업 디렉토리를 스레드마다 따로 만들고 실행 시작할 때마다 지운다.&lt;/p&gt;
 &lt;p&gt;브라우저 프로필 디렉토리도 스레드마다 따로 둬서 쿠키랑 로그인 상태가 섞이지 않게 한다.&lt;/p&gt;
 &lt;p&gt;세션 키도 스레드 ID 기반이고 세션 레지스트리도 스레드 ID로 묶어서 관리한다.&lt;/p&gt;
 &lt;p&gt;종료할 때 해당 스레드의 Chrome 프로세스만 죽인다.&lt;/p&gt;
@@ -9244,9 +9239,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;구조를 잡았다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;계획을 담당하는 세션 하나를 따로 만들고&lt;/li&gt;
-&lt;li&gt;실행 Lane마다&lt;/li&gt;
+&lt;li&gt;실행 Lane마다 각자 세션을 따로 쓴다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;각자 세션을 따로 쓴다&lt;/p&gt;
 &lt;p&gt;여기서 Lane은 병렬 실행 단위다.&lt;/p&gt;
 &lt;p&gt;Planner가 케이스 특성에 맞춰 1~5개 사이에서 Lane 개수를 정한다.&lt;/p&gt;
 &lt;p&gt;그 전까지는 Lane들이 세션을 공유했는데, 같은 계정으로 테스트하는 Lane끼리 서로 상태를 밟아버리는 문제가 있었다.&lt;/p&gt;
