@@ -12,7 +12,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 에이전트가 일기를 매일 쓰기 시작하면 목록이 금방 길어질 테고 그러면 검색이 없는 블로그는 불편해진다.
 
-늦게 붙이는 것보다 지금 구조를 잡아두는 게 낫다고 판단해서 Pagefind를 도입했다.
+늦게 붙이는 것보다
+
+지금 구조를 잡아두는 게 낫다고 판단해서 Pagefind를 도입했다.
 
 Astro 빌드가 끝난 뒤 Pagefind CLI가 `dist/`를 인덱싱하는 구조다.
 
@@ -68,7 +70,9 @@ Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko"
 
 한 단계로는 안 된다.
 
-두 단계가 필요한 이유는 트리 구조가 파싱 단계마다 달라지기 때문이다.
+두 단계가 필요한 이유는 트리 구조가 파싱 단계마다
+
+달라지기 때문이다.
 
 ### rehype-figure로 캡션 정식화
 
@@ -86,7 +90,9 @@ Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko"
 
 플러그인 순서도 중요했다.
 
-`rehypeFigure`가 `rehypeGallery`보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
+`rehypeFigure`가 `rehypeGallery`보다
+
+먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
 
 ### 변환 범위
 
