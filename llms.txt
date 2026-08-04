@@ -45,7 +45,7 @@
 - [비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번](https://hyeokjaelee.github.io/asymmetric-event-pair-flag-stuck-language-drift/): 진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍이 두 버그에서 동시에 발견됐다 그리고 교육 규칙이 함정을 만들고 있었다 언어 drift 원인도 규명했다.
 - [모델 탓하기 전에 확인해야 할 것: 설정, 경로, 상태 격리](https://hyeokjaelee.github.io/dont-blame-model-config-path-state-isolation/): 여러 에이전트가 동시에 실패하면 모델 탓이 아니라 공유 설정 결함일 수 있다 Playwright 다중 세션 간섭은 상태 격리 문제였다 그리고 깃 커밋 가드가 사라져 있었다.
 - [역할별 권한 설계와 disabled가 삭제보다  철저한 이유](https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/): 15개 서브에이전트의 도구 접근 권한을 역할별로 정리했다. delegate 에이전트는 재귀 위험으로 disabled 처리했다 삭제보다 disabled가 더 철저한 이유도 확인했다.
-- [사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다](https://hyeokjaelee.github.io/user-corrects-agent-overdiagnosis-context-mode-open/): piLoop 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.
+- [사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다](https://hyeokjaelee.github.io/user-corrects-agent-overdiagnosis-context-mode-open/): 검증 루프 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.
 - [한 줄에 세 규칙을 넣으면 안 되는 이유와 원샷 소비 함정](https://hyeokjaelee.github.io/one-line-three-rules-oneshot-consumed-before-trigger/): set_line으로 규칙을 고치다가 다른 규칙이 조용히 사라졌다 세션 타이틀이 첫 요청에서 안 붙는 버그도 찾았다 원인은 원샷이 트리거 전에 소비되는 거였다.
 - [에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과](https://hyeokjaelee.github.io/agent-self-improvement-bash-timeout-crash-saga/): pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다 그리고 토스증권 CLI도 새로 만들었다.
 - [Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정](https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/): footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다 소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.
@@ -58,7 +58,7 @@
 - [존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템](https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/): 프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.
 - [멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제](https://hyeokjaelee.github.io/multi-agent-team-prompt-junk-data-30-percent/): PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.
 - [싸고 빠른 모델이 큰 스키마에서 자꾸 실패하는 패턴](https://hyeokjaelee.github.io/deepseek-large-schema-failure-pattern/): DeepSeek 모델이 큰 JSON 스키마를 처리하지 못해서 계획 에이전트가 60% 실패하고 상태 추출이 전부 빈 값이 나왔다 해결은 호출을 작게 쪼개는 거였다.
-- [NVIDIA 모델에서 json_schema가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 json_schema를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
+- [NVIDIA 모델에서 JSON 스키마가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 JSON 스키마를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
 - [LLM 캐시 적중률 0%를 발견한 날](https://hyeokjaelee.github.io/llm-cache-zero-percent-git-secret-exposure/): 소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다 그리고 깃 시크릿 노출 사고도 겪었다.
 - [CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로](https://hyeokjaelee.github.io/css-has-scroll-lock-simplification-to-robustness/): 모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.
 - [과도한 배포를 막으려다  배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.
@@ -69,7 +69,7 @@
 - [직접 만든 에러 클래스를 227줄 지운 날](https://hyeokjaelee.github.io/agenterror-227-lines-deleted-biome-migration/): 프레임워크가 이미 제공하는 기능을 직접 구현하고 있었다 에러 클래스 227줄을 지우고 프레임워크 내장 기능으로 교체했다 그리고 린터도 통합했다.
 - [SVG 사각형 하나 잡으려고 네 번 고친 날](https://hyeokjaelee.github.io/svg-flash-bug-four-fixes-one-day/): SVG 아이콘에 일시적 사각형이 깜빡이는 버그를 잡으려고 하루 종일 네 번 고쳤다 원인이 바닥에서 바닥으로 바뀌었다.
 - [픽셀 퍼펙트 토큰화와 파일 시스템 루트를 복사할 뻔한 훅](https://hyeokjaelee.github.io/pixel-perfect-tokens-filesystem-root-copy-bug/): 알림 설정 UI를 픽셀 퍼펙트로 맞추고 임의 값을 전부 의미 토큰으로 바꿨다 그리고 Zed 훅에서 파일 시스템 루트를 복사하려던 치명적 버그를 잡았다.
-- [disk I/O 에러가 사실은 DB 잠금 경합이었던 날](https://hyeokjaelee.github.io/disk-io-error-actually-db-lock-contention/): context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 busy_timeout 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.
+- [disk I/O 에러가 사실은 DB 잠금 경합이었던 날](https://hyeokjaelee.github.io/disk-io-error-actually-db-lock-contention/): context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 대기 시간 설정 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.
 - [Agentree 터미널 엔진을 xterm에서 Rust 네이티브로 바꾸고 한글 입력 고치기](https://hyeokjaelee.github.io/agentree-terminal-engine-xterm-to-rust/): xterm.js를 Rust 네이티브 VT 파서랑 Canvas2D 렌더러로 교체했다 그리고 새 엔진에서 깨진 한글 입력을 고쳤다.
 - [Agentree 사이드바 플랫 카드 개편과 프롬프트 인젝션 플러그인](https://hyeokjaelee.github.io/agentree-flat-cards-prompt-injection-plugin/): 사이드바를 드롭다운에서 플랫 카드로 바꾸고 세션 상태에 따라 다른 프롬프트를 주입하는 플러그인을 만들었다.
 - [Pi 에이전트 루프 프롬프트 개선과 워크 로거 구현](https://hyeokjaelee.github.io/pi-loop-prompt-work-logger-playwright/): 자율 루프가 자꾸 질문으로 끊기는 문제를 3중 차단으로 막고 세션 작업 기록을 자동으로 옵시디언에 남기게 만들었다.
@@ -98,7 +98,7 @@
 - [당연한 원인이 틀렸을 때 - GPT-5.4 403와 크론잡 폴백 연쇄](https://hyeokjaelee.github.io/clawmux-gpt54-403-cron-fallback-diversity/): GPT-5.4가 403을 뱉을 때 Cloudflare 탓이라고 생각했는데 필수 필드 누락이었고, 크론잡 실패는 용량 부족인 줄 알았는데 폴백 다양성 부족이었다.
 - [QA Agent planning 단일화와 도커 메모리 5GB 문제](https://hyeokjaelee.github.io/qa-agent-planner-merge-docker-memory-5gb/): 3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.
 - [QA Agent 3단계 Planning 파이프라인과 스킬 도메인 독립화](https://hyeokjaelee.github.io/qa-agent-3phase-planning-skill-domain-independent/): 28개 케이스를 한 번에 planning하다 멈추는 문제를 3단계로 쪼개서 해결하고, 스킬을 특정 도메인에 종속되지 않게 만들었다.
-- [QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백](https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/): Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 reasoning_content에 담아 보내는 빈 응답 문제를 잡았다.
+- [QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백](https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/): Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 추론 내용 필드에 담아 보내는 빈 응답 문제를 잡았다.
 - [QA Agent 파일 접근 권한 분리와 첫 60% 통과율 달성](https://hyeokjaelee.github.io/qa-agent-read-deny-first-60-percent/): 추론 에이전트에서 파일 접근을 빼고 탐색 전용 에이전트로 몰아넣었고, 슬랙 명령을 모달로 바꾸고, 스킬도 직접 쌓아서 첫 60% 통과율을 찍었다.
 - [QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건](https://hyeokjaelee.github.io/qa-agent-langfuse-done-slack-token-hijack/): LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.
 - [QA Agent 좀비 프로세스 근본 수정과 관측성 설계](https://hyeokjaelee.github.io/qa-agent-zombie-process-fix-langfuse-design/): Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.
@@ -109,9 +109,9 @@
 - [ClawMux LLM 분류기와 QA Agent 첫 배포](https://hyeokjaelee.github.io/clawmux-llm-classifier-qa-agent-first-deploy/): LLM 프록시에 한 글자로 요청을 분류하는 시스템을 붙이고, QA Agent를 처음으로 AWS에 배포해서 통과율 76%까지 올렸다.
 - [QA Agent 실행 모델을 DAG 스케줄러로 바꾼 날](https://hyeokjaelee.github.io/qa-agent-dag-scheduler-rebuild/): 정적 그룹 기반 실행을 의존성 그래프 기반 스케줄링으로 바꿔서, 병렬 실행을 극대화하고 케이스 의존성을 정확히 표현했다.
 - [QA Agent 재시도 성공률 0%를 잡은 날](https://hyeokjaelee.github.io/qa-agent-inspector-zero-retry-fix/): Inspector 에이전트를 배포해서 막힌 케이스의 원인을 분석하고 재시도가 처음부터 실패하던 문제를 해결했다.
-- [QA Agent 단일 함수에서 멀티 에이전트로 전환한 날](https://hyeokjaelee.github.io/qa-agent-monolithic-to-multi-agent/): runQaJob 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다 틈틈이 세션 로거 플러그인도 만들었다.
+- [QA Agent 단일 함수에서 멀티 에이전트로 전환한 날](https://hyeokjaelee.github.io/qa-agent-monolithic-to-multi-agent/): QA 실행 함수 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다 틈틈이 세션 로거 플러그인도 만들었다.
 - [QA Agent 통과율 50%에서 61%로 끌어올린 날](https://hyeokjaelee.github.io/qa-agent-smoke-pass-rate-50-to-61/): 블록된 케이스만 다시 돌리는 2단계 재시도와 뷰포트 프리셋, Zod 검증을 붙여서 QA 통과율을 올렸다.
-- [QA Agent 마스터 위임 루프와 executionDraft 설계](https://hyeokjaelee.github.io/qa-agent-delegation-loop-execution-draft/): 브라우저 격리를 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.
+- [QA Agent 마스터 위임 루프와 실행 초안 설계](https://hyeokjaelee.github.io/qa-agent-delegation-loop-execution-draft/): 브라우저 격리를 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.
 - [QA Agent 브라우저 추상화와 에이전트 카탈로그 자체 구현](https://hyeokjaelee.github.io/qa-agent-agent-browser-oh-my-opencode-removal/): 브라우저 제어를 agent-browser로 옮기고 oh-my-opencode 의존성을 걷어내면서 런타임 복잡도를 줄였다.
 - [QA Agent 멀티 에이전트 전환 계획과 browser-use 검토](https://hyeokjaelee.github.io/qa-agent-subagent-plan-browser-use-review/): 브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.
 - [QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계](https://hyeokjaelee.github.io/qa-agent-lane-isolation-context-gateway-plugin/): 병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.
