@@ -43,7 +43,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 네이버 증권에서 외국인이랑 기관의 매매 동향을 직접 확인하기로 했다.
 
-네이버 증권의 외국인 매매 동향 페이지를 크롤링했다. euc-kr 디코딩이랑 User-Agent 헤더가 필요했다.
+네이버 증권의 외국인 매매 동향 페이지를 크롤링했다.
+
+euc-kr 디코딩이랑 User-Agent 헤더가 필요했다.
 
 근데 어렵지 않았다.
 

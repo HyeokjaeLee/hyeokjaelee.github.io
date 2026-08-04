@@ -61,7 +61,9 @@ SVG의 display랑 box-sizing이 바뀔 때도 트랜지션이 걸린다.
 
 그래서 속성이 바뀌는 0.2초 동안 사각형이 보이는 거다.
 
-해결은 transition을 fill로만 제한하는 거였다. transition all 대신 transition fill.
+해결은 transition을 fill로만 제한하는 거였다.
+
+transition all 대신 transition fill.
 
 색상만 트랜지션되게, 크기는 바로 바뀌게.
 
@@ -79,7 +81,9 @@ SVG의 display랑 box-sizing이 바뀔 때도 트랜지션이 걸린다.
 
 공유 파일은 못 건드리니까
 
-컴포넌트에서 강제로 우선하게 만든 거다. important를 쓰는 건 별로 안 좋지만 공유 파일을 못 건드리면 어쩔 수 없다.
+컴포넌트에서 강제로 우선하게 만든 거다.
+
+important를 쓰는 건 별로 안 좋지만 공유 파일을 못 건드리면 어쩔 수 없다.
 
 ### 네 번째: 원복하고 검증
 
@@ -117,7 +121,9 @@ SVG의 display랑 box-sizing이 바뀔 때도 트랜지션이 걸린다.
 
 편리하지만 의도하지 않은 속성까지 트랜지션시킨다.
 
-SVG에서 display가 바뀌는 걸 트랜지션시킬 이유가 없다. transition은 필요한 속성만 지정하는 게 안전하다.
+SVG에서 display가 바뀌는 걸 트랜지션시킬 이유가 없다.
+
+transition은 필요한 속성만 지정하는 게 안전하다.
 
 ## 복잡도 36을 4개 헬퍼로 쪼개다
 

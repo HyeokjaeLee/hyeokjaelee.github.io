@@ -1,6 +1,10 @@
 ---
 title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
-description: 'footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다 소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.'
+description: 'footer가 화면 바닥에 안 붙었다.
+
+grid minmax가 대화면에서만 실패했다 소화면에서 PASS라고 믿었다가 거짓 PASS였다.
+
+flexbox로 전환해서 해결했다.'
 
 date: '2026-06-17'
 tags: [journal]
@@ -9,7 +13,11 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## footer가 화면 바닥에 안 붙는다
 
-이날은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.
+이날은 CSS 레이아웃 버그와 5번 싸운 날이다.
+
+footer가 화면 바닥에 안 붙었다.
+
+grid로 잡았는데 대화면에서만 실패했다.
 
 소화면에서는 통과한 줄 알았다가 거짓 PASS였다.
 
@@ -25,11 +33,17 @@ titleImage: '@shared/assets/dev-diary.png'
 
 차지해야 footer가 바닥에 붙는다.
 
-근데 대화면에서 footer 아래에 635픽셀 빈 공간이 생겼다. footer가 바닥에 안 붙고 중간에 떠 있다.
+근데 대화면에서 footer 아래에 635픽셀 빈 공간이 생겼다.
+
+footer가 바닥에 안 붙고 중간에 떠 있다.
 
 ### grid minmax가 안 먹는다
 
-CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차지해야 한다. min이 0이니까, 행이 필요한 만큼 늘어난다. footer 행은 자기 높이만 차지한다.
+CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차지해야 한다.
+
+min이 0이니까, 행이 필요한 만큼 늘어난다.
+
+footer 행은 자기 높이만 차지한다.
 
 이래야 footer가 바닥에 붙는다.
 
@@ -37,11 +51,17 @@ CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차�
 
 고정 높이랑 중첩 grid랑 임베드 컨텍스트가 합쳐지니까, 첫 번째 행을 min-content로 고정해버렸다.
 
-남은 공간을 흡수하지 않는 거다. footer 행에 715픽셀이 배당됐다. footer 엘리먼트는 80픽셀인데.
+남은 공간을 흡수하지 않는 거다.
+
+footer 행에 715픽셀이 배당됐다.
+
+footer 엘리먼트는 80픽셀인데.
 
 overflow:hidden을 추가해봤다.
 
-안 됐다. track sizing이 안 바뀐다.
+안 됐다.
+
+track sizing이 안 바뀐다.
 
 실측으로 확인했다.
 
@@ -49,7 +69,9 @@ overflow:hidden을 추가해봤다.
 
 더 문제는 검증이었다.
 
-소화면에서는 버그가 안 보였다. footer 아래에 빈 공간이 없었다.
+소화면에서는 버그가 안 보였다.
+
+footer 아래에 빈 공간이 없었다.
 
 그래서 "해결됐다"고 판단했다.
 
@@ -75,7 +97,9 @@ overflow:hidden을 추가해봤다.
 
 섹션을 flex column으로 만들었다.
 
-내용 영역에 flex:1이랑 min-height:0을 줬다. footer에 shrink:0을 줬다.
+내용 영역에 flex:1이랑 min-height:0을 줬다.
+
+footer에 shrink:0을 줬다.
 
 flexbox는 이 조합을 신뢰성 있게 존중한다.
 
@@ -87,9 +111,13 @@ Chrome이 grid에서는 track sizing을 안 지켰지만 flexbox에서는 비율
 
 ## 진단 방법
 
-이 버그를 진단하는 결정적 증거를 찾았다. grid 행 높이를 실측한다.
+이 버그를 진단하는 결정적 증거를 찾았다.
 
-getComputedStyle으로 행 높이를 읽는다. footer 행이 footer 엘리먼트 높이보다 크면, grid가 제대로 sizing을 안 한 거다.
+grid 행 높이를 실측한다.
+
+getComputedStyle으로 행 높이를 읽는다.
+
+footer 행이 footer 엘리먼트 높이보다 크면, grid가 제대로 sizing을 안 한 거다.
 
 이 방법이 확실하다.
 
@@ -125,7 +153,9 @@ append-only JSONL 파일이 충돌했다.
 
 fire-and-forget로 실행되는 확장이 있었다.
 
-트리거 조건을 만족하는데 실행 부산물이 전혀 없었다. clientId도 안 바뀌고 콜백 서버도 없고 로그도 없다.
+트리거 조건을 만족하는데 실행 부산물이 전혀 없었다.
+
+clientId도 안 바뀌고 콜백 서버도 없고 로그도 없다.
 
 "조건을 만족하는데 왜 안 되지"라고 생각할 수 있다.
 
@@ -153,7 +183,9 @@ fire-and-forget로 실행되는 확장이 있었다.
 
 빈 공간은 대화면에서 가장 크게 드러난다.
 
-둘째, grid가 안 되면 flexbox로 가라. grid의 `minmax(0,1fr)`은 스펙상 맞지만 Chrome이 특정 컨텍스트에서 안 지킨다.
+둘째, grid가 안 되면 flexbox로 가라.
+
+grid의 `minmax(0,1fr)`은 스펙상 맞지만 Chrome이 특정 컨텍스트에서 안 지킨다.
 
 실측으로 track sizing이 안 바뀌면 flexbox로 전환하는 게 빠르다.
 

@@ -1,6 +1,9 @@
 ---
 title: '에이전트가 도구를 호출하지 않고 텍스트로 뱉는 현상의 원인 추적'
-description: 'AI 에이전트가 도구 호출을 텍스트로 출력하기만 하고 실행하지 않았다. prefill 에러를 원인으로 지목했다가, 같은 현상이 다른 모델에서도 재현되면서 가설이 깨졌다.'
+description: 'AI 에이전트가 도구 호출을 텍스트로 출력하기만 하고 실행하지 않았다.
+
+prefill 에러를 원인으로 지목했다가, 같은 현상이 다른 모델에서도 재현되면서 가설이 깨졌다.'
+
 date: '2026-06-15'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -62,7 +65,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 두 번째 가설: prefill 에러
 
-진짜 원인을 찾은 줄 알았다. assistant message prefill 에러였다.
+진짜 원인을 찾은 줄 알았다.
+
+assistant message prefill 에러였다.
 
 대화가 assistant 메시지로 끝나면, 일부 모델이 거부한다.
 
@@ -104,11 +109,15 @@ titleImage: '@shared/assets/dev-diary.png'
 
 같은 현상이 GLM-5.2에서도 재현됐다.
 
-GLM은 Anthropic API를 안 쓴다. prefill 에러가 날 수 없는 환경이다.
+GLM은 Anthropic API를 안 쓴다.
+
+prefill 에러가 날 수 없는 환경이다.
 
 근데 같은 증상이 나왔다.
 
-이러면 prefill이 단일 원인일 수 없다. prefill 에러는 진짜지만 Anthropic 환경에서만 발생하는 거다.
+이러면 prefill이 단일 원인일 수 없다.
+
+prefill 에러는 진짜지만 Anthropic 환경에서만 발생하는 거다.
 
 더 넓은 범위의 현상은 다른 원인이 있다.
 
@@ -168,13 +177,17 @@ prefill 에러 가설은 명확했다.
 
 프레임워크 소스에서 원인을 찾았다.
 
-근데 GLM에서 같은 현상이 재현되면서 가설이 깨졌다. prefill이 단일 원인일 수 없다는 증거가 나온 거다.
+근데 GLM에서 같은 현상이 재현되면서 가설이 깨졌다.
+
+prefill이 단일 원인일 수 없다는 증거가 나온 거다.
 
 가설이 깨지면 당황할 수 있다.
 
 근데 깨진 가설은 더 정확한 이해로 이끈다.
 
-단일 원인이라고 생각했던 게, 사실은 다중 원인이었다. prefill은 진짜 원인이지만 전체 그림의 일부일 뿐이었다.
+단일 원인이라고 생각했던 게, 사실은 다중 원인이었다.
+
+prefill은 진짜 원인이지만 전체 그림의 일부일 뿐이었다.
 
 과학이 이렇게 발전한다.
 

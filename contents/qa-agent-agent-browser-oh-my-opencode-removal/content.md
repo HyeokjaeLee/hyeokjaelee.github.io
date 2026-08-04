@@ -22,7 +22,9 @@ Playwright MCP는 OpenCode 런타임이 관리하는 외부 도구라, QA Agent�
 
 이제 브라우저 조작은 전부 `파일 실행 함수("agent-browser", [action, ...args])` 형태로 agent-browser를 호출한다.
 
-QA Agent 코드베이스에는 Playwright import가 하나도 없다. agent-browser가 내부적으로 Playwright와 Chromium을 쓰는 거지, QA Agent는 그냥 CLI 호출만 한다.
+QA Agent 코드베이스에는 Playwright import가 하나도 없다.
+
+agent-browser가 내부적으로 Playwright와 Chromium을 쓰는 거지, QA Agent는 그냥 CLI 호출만 한다.
 
 이렇게 하니까
 
@@ -66,7 +68,9 @@ agent-browser를 도입하면서 브라우저 소유권 규칙도 같이 세웠�
 
 ## oh-my-opencode 의존성 걷어내기
 
-브라우저 외에도 런타임 의존성을 하나 걷어냈다. oh-my-opencode라는 플러그인이 있었는데, 이게 에이전트 카탈로그를 제공하는 역할이었다.
+브라우저 외에도 런타임 의존성을 하나 걷어냈다.
+
+oh-my-opencode라는 플러그인이 있었는데, 이게 에이전트 카탈로그를 제공하는 역할이었다.
 
 각 역할의 에이전트 정의를 들고 있었다.
 
@@ -114,7 +118,9 @@ Checker가 부족한 점을 찾으면 다시 실행하는 루프가 돈다.
 
 리소스 낭비가 줄었다.
 
-그리고 macOS Keychain 팝업 문제도 잡았다. macOS에서 브라우저 자동화를 돌리면 OS가 자꾸 Keychain 인증 팝업을 띄워서 무인 실행이 막히는 경우가 있다.
+그리고 macOS Keychain 팝업 문제도 잡았다.
+
+macOS에서 브라우저 자동화를 돌리면 OS가 자꾸 Keychain 인증 팝업을 띄워서 무인 실행이 막히는 경우가 있다.
 
 이걸 우회하는 처리를 넣었다.
 

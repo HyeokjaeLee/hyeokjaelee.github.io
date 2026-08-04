@@ -158,7 +158,10 @@ HUMANIZE-SUMMARY
 - change rate: 0.35% (Levenshtein 6 / 1694) — well under 15% target; source was already natural
 - grade: A
 - key changes (6, all rule C-11: 연결어미 -고 직후 쉼표 제거):
-  1. description: "줄이고, 실패" → "줄이고 실패"
+1.
+
+description: "줄이고, 실패" → "줄이고 실패"
+
 2.
 
 "unreliable했고, 디버깅도" → "unreliable했고 디버깅도"

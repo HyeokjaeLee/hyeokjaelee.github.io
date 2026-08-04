@@ -155,13 +155,17 @@ LLM 응답은 수 초가 걸린다.
 
 ### 진짜 장벽: code-index
 
-Bun에서 code-index 확장이 치명적으로 실패한다. code-index가 node:sqlite를 import하는데, Bun은 이를 지원하지 않는다.
+Bun에서 code-index 확장이 치명적으로 실패한다.
+
+code-index가 node:sqlite를 import하는데, Bun은 이를 지원하지 않는다.
 
 node:sqlite를 bun:sqlite로 포팅할 수는 있지만 그다음 node-llama-cpp라는 네이티브 애드온이 또다시 벽이다.
 
 네이티브 네이티브 애드온 파일 파일은 Bun에서 로드할 수 없다.
 
-Bun으로 마이그레이션하면 code-index를 포기해야 한다. code-index는 코드 의미 검색의 핵심이다.
+Bun으로 마이그레이션하면 code-index를 포기해야 한다.
+
+code-index는 코드 의미 검색의 핵심이다.
 
 포기할 수 없다.
 
@@ -169,7 +173,9 @@ Bun으로 마이그레이션하면 code-index를 포기해야 한다. code-index
 
 측정 데이터가 말해준다.
 
-시작 속도는 빨라지지만 의미 없다. code-index가 안 된다.
+시작 속도는 빨라지지만 의미 없다.
+
+code-index가 안 된다.
 
 Node에 머무른다.
 

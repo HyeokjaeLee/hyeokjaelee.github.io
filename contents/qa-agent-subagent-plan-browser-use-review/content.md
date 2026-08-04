@@ -8,7 +8,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## browser-use를 QA에 도입할까
 
-며칠째 이어지던 QA Agent 구조 개편의 설계를 마무리한 날이었다. browser-use라는 브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 잡았다.
+며칠째 이어지던 QA Agent 구조 개편의 설계를 마무리한 날이었다.
+
+browser-use라는 브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 잡았다.
 
 browser-use는 Python 기반 Playwright 자동화 라이브러리다.
 
@@ -110,7 +112,9 @@ Executor 네 개가 각자 격리된 프로세스로 돌면, 한 Executor가 알
 
 ## 마무리
 
-이날 세 가지 결정이 전부 이어져 있었다. browser-use는 내 프로바이더를 못 쓰니까
+이날 세 가지 결정이 전부 이어져 있었다.
+
+browser-use는 내 프로바이더를 못 쓰니까
 
 Playwright MCP를 유지하고 OpenCode를 플랫폼으로 두고 그 안에서 역할을 나눈 멀티 에이전트 구조로 전환하기로 했다.
 

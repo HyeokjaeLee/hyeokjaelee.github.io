@@ -16,7 +16,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그리고 큐 경합이랑 캐시 갱신 문제도 잡고 LLM 호출을 관측할 수 있게 Langfuse 연동 설계도 시작했다.
 
-며칠 전에 Chromium 종료 신호 처리를 개선했는데, 그래도 좀비 프로세스가 남았다. agent-browser가 띄운 Chromium 자식 프로세스가 깔끔하게 종료되지 않고 고아가 되는 문제였다.
+며칠 전에 Chromium 종료 신호 처리를 개선했는데, 그래도 좀비 프로세스가 남았다.
+
+agent-browser가 띄운 Chromium 자식 프로세스가 깔끔하게 종료되지 않고 고아가 되는 문제였다.
 
 고아 프로세스가 쌓이면 리소스를 잡아먹고 결국 서버가 느려지거나 죽는다.
 

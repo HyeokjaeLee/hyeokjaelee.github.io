@@ -77,7 +77,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 세 번째 발견은 더 흥미로웠다.
 
-백그라운드 실행이 영원히 멈추는 버그가 있었다. toolResult가 한 번도 기록되지 않아서 턴이 대기한 거다.
+백그라운드 실행이 영원히 멈추는 버그가 있었다.
+
+toolResult가 한 번도 기록되지 않아서 턴이 대기한 거다.
 
 원인이 코드 버그가 아니었다.
 
@@ -87,7 +89,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그러니까
 
-에이전트가 timeout 없이 백그라운드로만 실행했다. timeout이 있어야 부분 출력을 반환하는데, 없으니까
+에이전트가 timeout 없이 백그라운드로만 실행했다.
+
+timeout이 있어야 부분 출력을 반환하는데, 없으니까
 
 영원히 대기한 거다.
 

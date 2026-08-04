@@ -29,7 +29,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 원인을 단계별로 추적했다.
 
-첫째, LiveSync는 파일을 청크 단위로 쪼갠다. rabin-karp 알고리즘으로 분할한다.
+첫째, LiveSync는 파일을 청크 단위로 쪼갠다.
+
+rabin-karp 알고리즘으로 분할한다.
 
 하나의 마크다운 파일이 수십에서 수백 개 조각이 된다.
 
@@ -63,7 +65,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 자동으로 삭제된 파일의 메타데이터를 정리하는 설정은 있었다.
 
-근데 기존 파일의 편집 이력을 정리하는 설정은 없었다. retention policy 개념 자체가 소스코드에 없었다.
+근데 기존 파일의 편집 이력을 정리하는 설정은 없었다.
+
+retention policy 개념 자체가 소스코드에 없었다.
 
 LiveSync는 모든 편집 버전을 청크 단위로 영구 보존하는 게 기본 설계였다.
 

@@ -25,7 +25,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 코드는 들어있는데, 화면에 안 나온다.
 
-원인을 추적해보니, 알림을 만드는 함수가 `synthetic: true`를 반환하고 있었다. synthetic은 "가짜"라는 뜻이다.
+원인을 추적해보니, 알림을 만드는 함수가 `synthetic: true`를 반환하고 있었다.
+
+synthetic은 "가짜"라는 뜻이다.
 
 이 플래그가 true면, 시스템이 그 부분을 사용자한테 안 보여준다.
 
@@ -49,7 +51,11 @@ LLM한테만 안 보내는 게 아니라, 사용자한테도 숨기는 거다.
 
 한 줄이다.
 
-둘의 차이가 핵심이다. synthetic은 사용자한테 숨기고 LLM한테도 안 보낸다. ignored는 사용자한테 보여주되 회색으로 표시하고 LLM한테는 안 보낸다.
+둘의 차이가 핵심이다.
+
+synthetic은 사용자한테 숨기고 LLM한테도 안 보낸다.
+
+ignored는 사용자한테 보여주되 회색으로 표시하고 LLM한테는 안 보낸다.
 
 그러니까 ignored가 내가 원하던 거다.
 
@@ -91,7 +97,9 @@ TUI 텍스트를 아예 빼고 토스트 알림만 썼다.
 
 이제 TUI 알림을 다시 쓸 수 있게 됐다.
 
-그런데 이번에는 synthetic 플래그 때문에 알림이 안 보였다. noReply로 LLM 전달은 막았는데, synthetic으로 사용자 표시도 막힌 거다.
+그런데 이번에는 synthetic 플래그 때문에 알림이 안 보였다.
+
+noReply로 LLM 전달은 막았는데, synthetic으로 사용자 표시도 막힌 거다.
 
 그래서 synthetic을 ignored로 바꿨다.
 
@@ -107,9 +115,15 @@ TUI 텍스트를 아예 빼고 토스트 알림만 썼다.
 
 토큰 낭비랑 맥락 오염을 막아야 한다.
 
-이 두 가지를 동시에 만족하는 플래그가 필요한데, 처음에는 그런 게 없었다. synthetic은 둘 다
+이 두 가지를 동시에 만족하는 플래그가 필요한데, 처음에는 그런 게 없었다.
 
-숨긴다. ignored는 호스트가 무시한다. noReply는 새로 발견한 건데, synthetic이 또 문제를 만들었다.
+synthetic은 둘 다
+
+숨긴다.
+
+ignored는 호스트가 무시한다.
+
+noReply는 새로 발견한 건데, synthetic이 또 문제를 만들었다.
 
 결국 noReply랑 ignored를 같이 쓰면 두 목표가 동시에 달성된다.
 

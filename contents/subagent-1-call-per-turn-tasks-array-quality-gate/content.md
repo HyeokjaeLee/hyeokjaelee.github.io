@@ -41,7 +41,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 매 호출 사이에 턴을 종료하는 거다.
 
-근데 이건 거짓된 유일해법이었다. tasks 배열을 쓸 수 없는 특수 상황의 fallback일 뿐이었다.
+근데 이건 거짓된 유일해법이었다.
+
+tasks 배열을 쓸 수 없는 특수 상황의 fallback일 뿐이었다.
 
 ### 시스템 프롬프트가 함정을 만들었다
 

@@ -88,7 +88,9 @@ Context-Gateway 바이너리를 플러그인 안에 같이 묶고 플러그인�
 
 패키지 매니저는 npm, pnpm, bun 어느 쪽이든 지원한다.
 
-플랫폼별 바이너리는 GitHub Releases로 배포하고 postinstall 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다. macOS arm64, x64, Linux x64, arm64, Windows x64를 다
+플랫폼별 바이너리는 GitHub Releases로 배포하고 postinstall 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다.
+
+macOS arm64, x64, Linux x64, arm64, Windows x64를 다
 
 커버한다.
 

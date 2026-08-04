@@ -8,7 +8,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 통과율 50%는 신뢰할 수 없다
 
-이날은 QA Agent 신뢰도를 올리는 데 집중했다. smoke 테스트 통과율이 50%밖에 안 됐다.
+이날은 QA Agent 신뢰도를 올리는 데 집중했다.
+
+smoke 테스트 통과율이 50%밖에 안 됐다.
 
 동전 던지기 수준이다.
 

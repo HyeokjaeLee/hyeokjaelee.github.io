@@ -41,7 +41,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 또 하나 중요한 발견이 있었다.
 
-설정에 bash 차단 설정이라는 키가 있었다. bash 사용을 막는 키인 줄 알았다.
+설정에 bash 차단 설정이라는 키가 있었다.
+
+bash 사용을 막는 키인 줄 알았다.
 
 근데 아무 확장도 이 키를 안 읽고 있었다.
 
@@ -71,7 +73,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그러니까 description에 "언제 쓸지"를 적어야 한다.
 
-본문은 매칭에 안 참여한다. description만 참여한다.
+본문은 매칭에 안 참여한다.
+
+description만 참여한다.
 
 그리고 환경 차이를 매핑해야 한다.
 
