@@ -89,7 +89,7 @@ GIF 압축률이 워낙 나빠서 video 전환만으로 20배 가까이 줄어�
 ### Tailwind size-full 하단 패딩 함정
 
 랜딩 페이지 하단에 여백이 안 생기는 현상도 Playwright로 측정했다.
-`scrollHeight`가 3147px인데 `article`의 `paddingBottom`은 0px, `bottomGap`은 0.5px였다.
+scrollHeight가 3147px인데 `article`의 paddingBottom은 0px, bottomGap은 0.5px였다.
 
 `<article>`이 `size-full`, 즉 `width:100%; height:100%`를 쓰고 있었다.
 고정 높이를 가진 요소는 `padding-bottom`을 줘도 오버플로우된 콘텐츠 아래까지 닿지 않는다.

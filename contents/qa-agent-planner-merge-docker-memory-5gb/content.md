@@ -1,6 +1,9 @@
 ---
 title: 'QA Agent planning 단일화와 도커 메모리 5GB 문제'
-description: '3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다. 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.'
+description: '3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다
+
+그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.'
+
 date: '2026-04-17'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -20,15 +23,21 @@ titleImage: '@shared/assets/dev-diary.png'
 
 이틀 전에 planning을 3단계로 쪼갰다.
 
-28개 케이스를 한 번에 처리하니까 멈추는 문제를, 뼈대, 그룹별 상세, 조립으로 나눠서 풀었다.
+28개 케이스를 한 번에 처리하니까
 
-근데 며칠 돌려보니까 3단계가 필요 없어졌다.
+멈추는 문제를, 뼈대, 그룹별 상세, 조립으로 나눠서 풀었다.
+
+근데 며칠 돌려보니까
+
+3단계가 필요 없어졌다.
 
 하위 에이전트 tier랑 별도 코드 뷰어 도구, 뼈대 코드가 쌓이면서 복잡도만 늘고 이득은 적었다.
 
 그래서 다시 단일 Planner로 합쳤다.
 
-단일 Planner가 전체 계획을 다 만드는 구조로 돌아갔다.
+단일 Planner가 전체 계획을 다
+
+만드는 구조로 돌아갔다.
 
 시각 처리를 담당하는 비전 서브에이전트만 새로 만들었다.
 
@@ -42,7 +51,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 이틀 전에 3단계로 쪼갤 때는 분할 정복이 답이라고 생각했다.
 
-근데 돌려보니까 그 복잡도가 필요 없었다.
+근데 돌려보니까
+
+그 복잡도가 필요 없었다.
 
 단일 호출로도 충분히 처리되는 거였다.
 
@@ -62,7 +73,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 병렬 실행 에이전트가 4개라서 각각 Chromium을 하나씩 띄우고 있었다.
 
-그러니까 4개의 브라우저가 메모리를 잡아먹고 있었다.
+그러니까
+
+4개의 브라우저가 메모리를 잡아먹고 있었다.
 
 그리고 SIGKILL 연쇄가 있었다.
 

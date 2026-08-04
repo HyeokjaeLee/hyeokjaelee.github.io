@@ -90,7 +90,7 @@ Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko"
 
 플러그인 순서도 중요했다.
 
-`rehypeFigure`가 `rehypeGallery`보다
+rehypeFigure가 rehypeGallery보다
 
 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
 

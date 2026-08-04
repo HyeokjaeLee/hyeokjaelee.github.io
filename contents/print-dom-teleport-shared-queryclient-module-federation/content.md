@@ -1,6 +1,9 @@
 ---
 title: '인쇄 DOM 텔레포트와 Module Federation 공유 캐시'
-description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다. 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.'
+description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다
+
+그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.'
+
 date: '2026-06-29'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -8,7 +11,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 인쇄하면 호스트가 같이 나온다
 
-이날은 수료증 기능의 기술적 난관을 해결한 날이다.
+이날 나는 수료증 기능의 기술적 난관을 해결한 날이다.
 
 인쇄할 때 호스트 UI가 같이 나오는 문제를 DOM을 옮기는 것으로 해결했다.
 
@@ -62,7 +65,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 호스트랑 서브앱이 같은 인스턴스를 공유한다.
 
-갱신하면 양쪽이 다 반영된다.
+갱신하면 양쪽이 다
+
+반영된다.
 
 서버 사이드 렌더링 가드도 넣었다.
 
@@ -122,7 +127,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 각 앱이 따로 캐시를 가지면 갱신이 전파 안 된다.
 
-하나로 통합하면 갱신이 양쪽에 다 반영된다.
+하나로 통합하면 갱신이 양쪽에 다
+
+반영된다.
 
 모듈 연합은 앱을 독립적으로 만들지만 동시에 공유해야 하는 것이 생긴다.
 

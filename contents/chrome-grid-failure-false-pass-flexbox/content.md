@@ -1,6 +1,9 @@
 ---
 title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
-description: 'footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다. 소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.'
+description: 'footer가 화면 바닥에 안 붙었다. grid minmax가 대화면에서만 실패했다
+
+소화면에서 PASS라고 믿었다가 거짓 PASS였다. flexbox로 전환해서 해결했다.'
+
 date: '2026-06-17'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -8,7 +11,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## footer가 화면 바닥에 안 붙는다
 
-이날은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.
+이날 나는은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.
 
 소화면에서는 통과한 줄 알았다가 거짓 PASS였다.
 
@@ -20,7 +23,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 첫 번째 행은 내용이고 두 번째 행은 footer다.
 
-첫 번째 행이 남은 공간을 다 차지해야 footer가 바닥에 붙는다.
+첫 번째 행이 남은 공간을 다
+
+차지해야 footer가 바닥에 붙는다.
 
 근데 대화면에서 footer 아래에 635픽셀 빈 공간이 생겼다. footer가 바닥에 안 붙고 중간에 떠 있다.
 
@@ -76,7 +81,9 @@ CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차�
 
 flexbox는 이 조합을 신뢰성 있게 존중한다.
 
-내용이 남은 공간을 다 차지하고 footer가 자기 높이만 유지한다.
+내용이 남은 공간을 다
+
+차지하고 footer가 자기 높이만 유지한다.
 
 Chrome이 grid에서는 track sizing을 안 지켰지만 flexbox에서는 비율을 지킨다.
 
@@ -84,11 +91,15 @@ Chrome이 grid에서는 track sizing을 안 지켰지만 flexbox에서는 비율
 
 이 버그를 진단하는 결정적 증거를 찾았다. grid 행 높이를 실측한다.
 
-`getComputedStyle`으로 행 높이를 읽는다. footer 행이 footer 엘리먼트 높이보다 크면, grid가 제대로 sizing을 안 한 거다.
+getComputedStyle으로 행 높이를 읽는다. footer 행이 footer 엘리먼트 높이보다
+
+크면, grid가 제대로 sizing을 안 한 거다.
 
 이 방법이 확실하다.
 
-"빈 공간이 있나"를 눈으로 보는 것보다 정확하다.
+"빈 공간이 있나"를 눈으로 보는 것보다
+
+정확하다.
 
 왜냐면 눈으로는 grid 행 경계를 못 본다.
 

@@ -1,6 +1,9 @@
 ---
 title: '두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인'
-description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다. 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.'
+description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다
+
+양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.'
+
 date: '2026-06-28'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -8,7 +11,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 두 시스템이 같은 위키에 쓴다
 
-이날은 위키 수집 파이프라인을 재설계한 날이다.
+이날 나는 위키 수집 파이프라인을 재설계한 날이다.
 
 두 시스템이 같은 위키에 직접 쓰고 있었다.
 
@@ -18,7 +21,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 내가 쓰는 코딩 에이전트 Pi랑, 야간 배치 에이전트 Hermes가 있다.
 
-둘 다 옵시디언 위키에 직접 쓴다.
+둘 다
+
+옵시디언 위키에 직접 쓴다.
 
 같은 주제를 다루면 중복 페이지가 생긴다.
 

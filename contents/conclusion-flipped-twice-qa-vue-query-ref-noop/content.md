@@ -1,6 +1,11 @@
 ---
 title: '결론이 두 번 뒤집힌 QA와 Vue Query Ref 함정'
-description: '재계산 뱃지가 안 사라지는 QA를 조사했다. 프론트 문제인 줄 알았다가 백엔드인 줄 알았다가, 결국 프론트 최적화 업데이트로 해결했다. Vue Query에서 Ref를 키에 넣으면 silent NO-OP가 된다.'
+description: '재계산 뱃지가 안 사라지는 QA를 조사했다
+
+프론트 문제인 줄 알았다가 백엔드인 줄 알았다가, 결국 프론트 최적화 업데이트로 해결했다
+
+Vue Query에서 Ref를 키에 넣으면 silent NO-OP가 된다.'
+
 date: '2026-06-26'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -8,7 +13,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 뱃지가 안 사라진다
 
-이날은 결론이 두 번 뒤집힌 QA를 한 날이다.
+이날 나는 결론이 두 번 뒤집힌 QA를 한 날이다.
 
 재계산 뱃지가 안 사라지는 문제를 조사했다.
 
@@ -46,7 +51,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 잡이 학생 전원을 처리한 후에야 플래그를 지운다.
 
-그러니까 설계가 맞다.
+그러니까
+
+설계가 맞다.
 
 비동기 잡이 끝나기 전에는 뱃지가 남아 있는 게 정상이다.
 
@@ -100,9 +107,9 @@ Ref는 객체다.
 
 이건 Vue Query의 설계 특성이다.
 
-`useQuery` 내부에서는 Ref를 자동으로 언래핑한다.
+useQuery 내부에서는 Ref를 자동으로 언래핑한다.
 
-근데 `queryClient`를 직접 호출하면 언래핑이 안 된다.
+근데 queryClient를 직접 호출하면 언래핑이 안 된다.
 
 같은 키인 것 같은데, 호출 경로에 따라 동작이 다르다.
 
