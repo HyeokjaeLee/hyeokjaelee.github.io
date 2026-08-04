@@ -4,18 +4,18 @@
 &lt;p&gt;늦게 붙이는 것보다&lt;/p&gt;
 &lt;p&gt;지금 구조를 잡아두는 게 낫다고 판단해서 Pagefind를 도입했다.&lt;/p&gt;
 &lt;p&gt;Astro 빌드가 끝난 뒤 Pagefind CLI가 &lt;code&gt;dist/&lt;/code&gt;를 인덱싱하는 구조다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;package.json&lt;/code&gt;의 build 스크립트 한 줄만 바꿨다.&lt;/p&gt;
+&lt;p&gt;package.json의 build 스크립트 한 줄만 바꿨다.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&amp;quot;build&amp;quot;: &amp;quot;astro build &amp;amp;&amp;amp; pagefind --site dist&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;설정 파일 없이도 동작해서 유지비가 적다.&lt;/p&gt;
 &lt;p&gt;10,000 페이지까지 인덱스 페이로드가 300KB 이하라는 점도 마음에 들었다.&lt;/p&gt;
 &lt;h3&gt;메타를 세 곳에 나눠 심기&lt;/h3&gt;
-&lt;p&gt;Pagefind는 가장 가까운 &lt;code&gt;data-pagefind-body&lt;/code&gt; 기준으로 인덱싱한다.&lt;/p&gt;
+&lt;p&gt;Pagefind는 가장 가까운 data-pagefind-body 기준으로 인덱싱한다.&lt;/p&gt;
 &lt;p&gt;그런데 내 블로그 상세 페이지는 하나의 글이 여러 HTML 요소에 걸쳐 있다.&lt;/p&gt;
 &lt;p&gt;제목은 &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;에, 본문은 &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;에, 커버 이미지는 &lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;에 각각 메타를 심었다.&lt;/p&gt;
 &lt;p&gt;커버가 본문에 직접 렌더되지 않으니 빌드타임에 에셋 URL을 해석해서 footer 메타로 노출시키는 게 핵심이었다.&lt;/p&gt;
 &lt;h3&gt;한국어 stemming 미지원&lt;/h3&gt;
-&lt;p&gt;Pagefind가 &lt;code&gt;ko&lt;/code&gt; 언어에 대해 &amp;quot;doesn&amp;#39;t support stemming for the language ko&amp;quot; 경고를 뱉는다.&lt;/p&gt;
+&lt;p&gt;Pagefind가 ko 언어에 대해 &amp;quot;doesn&amp;#39;t support stemming for the language ko&amp;quot; 경고를 뱉는다.&lt;/p&gt;
 &lt;p&gt;검색 자체는 동작하지만 어형 변화를 정규화하지 않는다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;하다&lt;/code&gt;/&lt;code&gt;했다&lt;/code&gt;/&lt;code&gt;하는&lt;/code&gt;을 다른 활용형으로 검색하면 누락이 생긴다.&lt;/p&gt;
 &lt;p&gt;정확한 형태 그대로 토큰 매칭된다고 가정하고 UX를 설계했다.&lt;/p&gt;
@@ -30,7 +30,8 @@
 &lt;p&gt;마크다운 파서가 이미지 주변에 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 래퍼를 만들고 줄바꿈 패턴에 따라 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;들이 서로 다른 depth에 흩어지는 게 기술적 걸림돌이었다.&lt;/p&gt;
 &lt;p&gt;결국 mdast 단계에서 figure로 매핑하고 hast 단계에서 자손 img를 평탄화하는 두 개의 remark/rehype 플러그인 쌍으로 해결했다.&lt;/p&gt;
 &lt;p&gt;한 단계로는 안 된다.&lt;/p&gt;
-&lt;p&gt;두 단계가 필요한 이유는 트리 구조가 파싱 단계마다 달라지기 때문이다.&lt;/p&gt;
+&lt;p&gt;두 단계가 필요한 이유는 트리 구조가 파싱 단계마다&lt;/p&gt;
+&lt;p&gt;달라지기 때문이다.&lt;/p&gt;
 &lt;h3&gt;rehype-figure로 캡션 정식화&lt;/h3&gt;
 &lt;p&gt;단독 이미지도 처리했다.&lt;/p&gt;
 &lt;p&gt;기존엔 캡션을 넣을 방법이 없어서 blockquote 안에 이미지와 텍스트를 우회 사용했다.&lt;/p&gt;
@@ -39,21 +40,22 @@
 &lt;p&gt;같은 이름의 패키지가 세 종류 있었고 그중 하나는 unified 11과 호환되지 않았다.&lt;/p&gt;
 &lt;p&gt;결국 unified 11 스택과 의존성이 정확히 일치하는 포크 버전을 골랐다.&lt;/p&gt;
 &lt;p&gt;플러그인 순서도 중요했다.&lt;/p&gt;
-&lt;p&gt;rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.&lt;/p&gt;
+&lt;p&gt;rehypeFigure가 rehypeGallery보다&lt;/p&gt;
+&lt;p&gt;먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.&lt;/p&gt;
 &lt;h3&gt;변환 범위&lt;/h3&gt;
 &lt;p&gt;기존 글에서 blockquote로 우회하던 이미지 9곳을 단독 이미지 + alt 캡션 구조로 바꿨다.&lt;/p&gt;
 &lt;p&gt;2-이미지 blockquote 1곳은 &lt;code&gt;:::gallery&lt;/code&gt; + 공유 캡션으로 변환했다.&lt;/p&gt;
-&lt;p&gt;그 과정에서 기존 &lt;code&gt;image&lt;/code&gt;라고만 적힌 무의미 alt 6곳도 의미 있는 alt로 교체했다.&lt;/p&gt;
+&lt;p&gt;그 과정에서 기존 image라고만 적힌 무의미 alt 6곳도 의미 있는 alt로 교체했다.&lt;/p&gt;
 &lt;p&gt;비디오 blockquote 6곳은 rehype-figure가 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;만 처리하므로 그대로 뒀다.&lt;/p&gt;
 &lt;h2&gt;다크모드 스위치: Lottie 걷어내고 순수 CSS로&lt;/h2&gt;
 &lt;p&gt;다크모드 토글에 Lottie 애니메이션이 들어가 있었다.&lt;/p&gt;
 &lt;p&gt;보이는 건 예쁜데 무겁다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;@lottiefiles/dotlottie-react&lt;/code&gt; 의존성을 통째로 들고 있었고, 애니메이션 파일도 별도였다.&lt;/p&gt;
 &lt;p&gt;그런데 의존성 자체를 삭제하면 안 됐다.&lt;/p&gt;
-&lt;p&gt;검색 결과가 비었을 때 빈 상태를 표시하는 &lt;code&gt;Search.tsx&lt;/code&gt;가 &lt;code&gt;empty.lottie&lt;/code&gt;를 쓰고 있었기 때문이다.&lt;/p&gt;
+&lt;p&gt;검색 결과가 비었을 때 빈 상태를 표시하는 Search.tsx가 empty.lottie를 쓰고 있었기 때문이다.&lt;/p&gt;
 &lt;p&gt;삭제 대상은 딱 두 개로 좁혔다.&lt;/p&gt;
 &lt;p&gt;첫째는 &lt;code&gt;public/lotties/dark-mode-switch.lottie&lt;/code&gt; orphan 에셋이다.&lt;/p&gt;
-&lt;p&gt;둘째는 &lt;code&gt;DarkModeSwitch.tsx&lt;/code&gt; 안의 &lt;code&gt;DotLottieReact&lt;/code&gt; 사용부다.&lt;/p&gt;
+&lt;p&gt;둘째는 DarkModeSwitch.tsx 안의 DotLottieReact 사용부다.&lt;/p&gt;
 &lt;p&gt;컴포넌트를 순수 CSS로 전면 재작성했다.&lt;/p&gt;
 &lt;p&gt;sun/moon/stars/clouds 애니메이션을 CSS 키프레임으로 구현했다.&lt;/p&gt;
 &lt;p&gt;크기도 90×46px에서 52×28px로 줄였다.&lt;/p&gt;
@@ -77,9 +79,9 @@
 &lt;p&gt;이 블로그 일기 변환에도 적용했다.&lt;/p&gt;
 &lt;p&gt;AI가 쓴 초안에서 기계적인 리듬과 상투적 어휘를 걸러내는 용도다.&lt;/p&gt;
 &lt;p&gt;의미, 사실, 수치, 고유명사는 한 글자도 바꾸지 않고 문체만 다듬는다.&lt;/p&gt;
-</content:encoded></item><item><title>pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정</title><link>https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</guid><description>pnpm catalog 범프 비대칭 실측 의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다. catalog는 pnpm workspace.yaml 에 버전을 한 번 적어두고, 각 package.json 에서 catalog: 키워드로 참조하는 방식이다</description><pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;pnpm catalog 범프 비대칭 실측&lt;/h2&gt;
+</content:encoded></item><item><title>pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정</title><link>https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</guid><description>pnpm catalog 범프 비대칭 실측 의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다. catalog는 pnpm workspace.yaml에 버전을 한 번 적어두고, 각 package.json에서 catalog: 키워드로 참조하는 방식이다. </description><pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;pnpm catalog 범프 비대칭 실측&lt;/h2&gt;
 &lt;p&gt;의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다.
-catalog는 &lt;code&gt;pnpm-workspace.yaml&lt;/code&gt;에 버전을 한 번 적어두고, 각 &lt;code&gt;package.json&lt;/code&gt;에서 &lt;code&gt;catalog:&lt;/code&gt; 키워드로 참조하는 방식이다.
+catalog는 pnpm-workspace.yaml에 버전을 한 번 적어두고, 각 package.json에서 catalog: 키워드로 참조하는 방식이다.
 최초 도입은 syncpack을 대체하려는 의도였다.&lt;/p&gt;
 &lt;p&gt;syncpack은 94건의 lint 에러를 뱉었는데, 실제 의존성 드리프트는 4건뿐이었다.
 신호 대 잡음&lt;/p&gt;
@@ -93,13 +95,13 @@ catalog는 &lt;code&gt;pnpm-workspace.yaml&lt;/code&gt;에 버전을 한 번 적
 &lt;p&gt;여기서 핵심 발견이 나온다.
 임시 워크스페이스를 만들어 before/after로 직접 실측했다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;pnpm update &amp;lt;패키지&amp;gt; --latest -r&lt;/code&gt;는 catalog 참조를 그대로 유지한다.
-catalog 항목만 최신으로 범프되고, 각 &lt;code&gt;package.json&lt;/code&gt;의 &lt;code&gt;catalog:&lt;/code&gt; 키워드는 건드리지 않는다.
+catalog 항목만 최신으로 범프되고, 각 package.json의 catalog: 키워드는 건드리지 않는다.
 메이저 버전 횡단도 허용한다.&lt;/p&gt;
 &lt;p&gt;반면 &lt;code&gt;pnpm add -D &amp;lt;패키지&amp;gt;@latest&lt;/code&gt;는 catalog 패턴을 파괴한다.
-&lt;code&gt;package.json&lt;/code&gt;의 &lt;code&gt;catalog:&lt;/code&gt; 참조가 literal 버전 문자열로 치환되고 catalog 항목은 아무도 참조하지 않는 고아가 된다.
+package.json의 catalog: 참조가 literal 버전 문자열로 치환되고 catalog 항목은 아무도 참조하지 않는 고아가 된다.
 더 골치인 건 pnpm이 정상 종료되면서 아무런 경고도 주지 않는다는 점이다.
-&lt;code&gt;git diff&lt;/code&gt;로 &lt;code&gt;package.json&lt;/code&gt;을 확인해야만 깨달을 수 있다.&lt;/p&gt;
-&lt;p&gt;그래서 catalog를 쓰는 워크스페이스에서는 범위 내 갱신은 &lt;code&gt;pnpm update -r&lt;/code&gt;, 메이저 횡단은 &lt;code&gt;pnpm update --latest -r&lt;/code&gt;, 직접 편집은 &lt;code&gt;pnpm-workspace.yaml&lt;/code&gt;의 catalog 항목을 수정한 뒤 &lt;code&gt;pnpm install&lt;/code&gt;로 확정했다.
+&lt;code&gt;git diff&lt;/code&gt;로 package.json을 확인해야만 깨달을 수 있다.&lt;/p&gt;
+&lt;p&gt;그래서 catalog를 쓰는 워크스페이스에서는 범위 내 갱신은 &lt;code&gt;pnpm update -r&lt;/code&gt;, 메이저 횡단은 &lt;code&gt;pnpm update --latest -r&lt;/code&gt;, 직접 편집은 pnpm-workspace.yaml의 catalog 항목을 수정한 뒤 &lt;code&gt;pnpm install&lt;/code&gt;로 확정했다.
 &lt;code&gt;pnpm add&lt;/code&gt;는 catalog 패키지에 절대 쓰지 않는다.&lt;/p&gt;
 &lt;h3&gt;업데이트 스크립트 네 건을 손봤다&lt;/h3&gt;
 &lt;p&gt;이 실측 결과는 곧장 &lt;code&gt;/update-pi&lt;/code&gt; 커맨드 개선으로 이어졌다.
@@ -115,10 +117,10 @@ catalog 참조를 보존하는 &lt;code&gt;pnpm update --latest -r&lt;/code&gt;�
 &lt;p&gt;같은 날 블로그 작업도 대규모로 진행했다.
 GitHub 이슈에 올려둔 이미지 51개를 로컬로 전부 이관했다.
 에셋 종류에 따라 경로 규칙이 갈라진다는 걸 이 과정에서 확정했다.&lt;/p&gt;
-&lt;p&gt;titleImage는 frontmatter에서 상대경로 문자열로 적으면 빌드 시 &lt;code&gt;import.meta.glob&lt;/code&gt;이 URL로 매핑한다.
+&lt;p&gt;titleImage는 frontmatter에서 상대경로 문자열로 적으면 빌드 시 import.meta.glob이 URL로 매핑한다.
 본문 이미지는 마크다운 &lt;code&gt;![]()&lt;/code&gt;로 상대경로를 쓰면 Astro가 빌드타임에 WebP와 srcset을 만든다.
 문제는 GIF를 video로 바꿀 때다.
-마크다운 안에 직접 쓴 raw HTML의 &lt;code&gt;src&lt;/code&gt;는 Astro가 전혀 건드리지 않는다.
+마크다운 안에 직접 쓴 raw HTML의 src는 Astro가 전혀 건드리지 않는다.
 그래서 &lt;code&gt;public/videos/&amp;lt;slug&amp;gt;/&lt;/code&gt;에 파일을 두고 루트 절대경로로 참조해야 한다.&lt;/p&gt;
 &lt;p&gt;GIF를 WebM으로 바꾸니 용량이 약 95% 줄었다.
 3.3MB짜리 GIF가 169KB가 됐다.
@@ -127,20 +129,20 @@ GIF 압축률이 워낙 나빠서 video 전환만으로 20배 가까이 줄어�
 &lt;p&gt;&lt;code&gt;/good-commit-message/&lt;/code&gt; 페이지에서 테이블이 페이지 전체 가로스크롤을 유발하고 있었다.
 원인을 Playwright로 실측했다.
 375px 모바일 뷰포트에서 본문 폭은 343px인데 테이블이 471px까지 밀어내고 있었다.&lt;/p&gt;
-&lt;p&gt;핵심은 브라우저가 &lt;code&gt;display:table&lt;/code&gt; 요소의 &lt;code&gt;overflow&lt;/code&gt;를 무시한다는 점이다.
-테이블에 &lt;code&gt;overflow-x:auto&lt;/code&gt;만 줘봤자 동작하지 않는다.
-반드시 &lt;code&gt;display:block&lt;/code&gt;으로 바꿔야 overflow가 걸린다.
-거기에 &lt;code&gt;width:max-content&lt;/code&gt;, &lt;code&gt;max-width:100%&lt;/code&gt;, &lt;code&gt;overflow-x:auto&lt;/code&gt;를 더한 네 선언으로 테이블 자체가 가로 스크롤되도록 잡았다.&lt;/p&gt;
+&lt;p&gt;핵심은 브라우저가 display:table 요소의 overflow를 무시한다는 점이다.
+테이블에 overflow-x:auto만 줘봤자 동작하지 않는다.
+반드시 display:block으로 바꿔야 overflow가 걸린다.
+거기에 width:max-content, &lt;code&gt;max-width:100%&lt;/code&gt;, overflow-x:auto를 더한 네 선언으로 테이블 자체가 가로 스크롤되도록 잡았다.&lt;/p&gt;
 &lt;p&gt;좁은 토큰이 원인이었다.
 &lt;code&gt;octo-org/octo-repo#100&lt;/code&gt; 같은 형태는 중간에 줄바꿈 포인트가 없어서 셀 너비를 밀어낸다.&lt;/p&gt;
 &lt;h3&gt;Tailwind size-full 하단 패딩 함정&lt;/h3&gt;
 &lt;p&gt;랜딩 페이지 하단에 여백이 안 생기는 현상도 Playwright로 측정했다.
-scrollHeight가 3147px인데 &lt;code&gt;article&lt;/code&gt;의 paddingBottom은 0px, bottomGap은 0.5px였다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;이 &lt;code&gt;size-full&lt;/code&gt;, 즉 &lt;code&gt;width:100%; height:100%&lt;/code&gt;를 쓰고 있었다.
-고정 높이를 가진 요소는 &lt;code&gt;padding-bottom&lt;/code&gt;을 줘도 오버플로우된 콘텐츠 아래까지 닿지 않는다.
+scrollHeight가 3147px인데 article의 paddingBottom은 0px, bottomGap은 0.5px였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;이 size-full, 즉 &lt;code&gt;width:100%; height:100%&lt;/code&gt;를 쓰고 있었다.
+고정 높이를 가진 요소는 padding-bottom을 줘도 오버플로우된 콘텐츠 아래까지 닿지 않는다.
 padding은 요소 높이 내부의 여백으로만 작동한다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;size-full&lt;/code&gt;을 &lt;code&gt;min-h-full w-full&lt;/code&gt;로 바꿔서 고정 높이를 최소 높이로 풀었다.
-그 위에 &lt;code&gt;pb-16&lt;/code&gt;을 주니 하단에 64px 여백이 잡혔다.
+&lt;p&gt;size-full을 &lt;code&gt;min-h-full w-full&lt;/code&gt;로 바꿔서 고정 높이를 최소 높이로 풀었다.
+그 위에 pb-16을 주니 하단에 64px 여백이 잡혔다.
 오버플로우 레이아웃에서 하단 여백은 고정 높이 해제가 선행 조건이다.&lt;/p&gt;
 &lt;h2&gt;위키 저널을 블로그로 옮기는 파이프라인&lt;/h2&gt;
 &lt;p&gt;116개의 위키 저널을 블로그 콘텐츠로 전환하는 작업을 설계하기 시작했다.
@@ -219,7 +221,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;비싼 인프라를 만들 필요가 없다.&lt;/p&gt;
 &lt;p&gt;몇 킬로바이트짜리 요약 파일을 읽고 완료하면 갱신한다.&lt;/p&gt;
 &lt;p&gt;이 스크래치패드가 캐시의 이점의 대부분을 5% 비용으로 잡는다.&lt;/p&gt;
-&lt;p&gt;인프라도, 생명주기 관리도 필요 없다.&lt;/p&gt;
+&lt;p&gt;인프라도, 생명주기 관리도 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
 &lt;h2&gt;도구 비활성화가 서브에이전트에서 안 통한다&lt;/h2&gt;
 &lt;p&gt;도구 비활성화 확장이 있었다.&lt;/p&gt;
 &lt;p&gt;에이전트별로 특정 도구를 차단한다.&lt;/p&gt;
@@ -419,7 +422,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;포트가 열려 있음과 내 서버임은 다르다&lt;/h3&gt;
 &lt;p&gt;포트가 열려 있다는 건 &amp;quot;뭔가 실행 중이다&amp;quot;다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;내 서버가 실행 중이다&amp;quot;가 아니다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;lsof&lt;/code&gt;로 프로세스를 확인하고 작업 디렉토리가 내 작업과 일치하는지 봐야 한다.&lt;/p&gt;
+&lt;p&gt;lsof로 프로세스를 확인하고 작업 디렉토리가 내 작업과 일치하는지 봐야 한다.&lt;/p&gt;
 &lt;h3&gt;가짜 초록&lt;/h3&gt;
 &lt;p&gt;다른 사람 서버에서 테스트하면 &amp;quot;통과&amp;quot;가 나올 수 있다.&lt;/p&gt;
 &lt;p&gt;근데 이건 내 코드를 테스트한 게 아니다.&lt;/p&gt;
@@ -605,15 +608,19 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;다섯 번째에서 정답을 찾았다.&lt;/p&gt;
 &lt;p&gt;그리고 Bun 런타임 마이그레이션을 측정 데이터로 거절한 것도 있었다.&lt;/p&gt;
 &lt;p&gt;메시지 배달 API가 필요했다.&lt;/p&gt;
-&lt;p&gt;확장이 메시지를 보낼 때, &amp;quot;지금 바로&amp;quot;인지 &amp;quot;다음 단계에&amp;quot;인지 &amp;quot;쉬고 있을 때&amp;quot;인지 지정할 수 있어야 했다.&lt;/p&gt;
+&lt;p&gt;확장이 메시지를 보낼 때, &amp;quot;지금 바로&amp;quot;인지 &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;단계에&amp;quot;인지 &amp;quot;쉬고 있을 때&amp;quot;인지 지정할 수 있어야 했다.&lt;/p&gt;
 &lt;p&gt;그리고 &amp;quot;메인 에이전트를 깨울지 말지&amp;quot;도 지정해야 했다.&lt;/p&gt;
 &lt;h3&gt;첫 번째 시도: 이름으로 시점 표현&lt;/h3&gt;
-&lt;p&gt;&amp;quot;실행 중&amp;quot;, &amp;quot;실행 후&amp;quot;, &amp;quot;다음 턴&amp;quot;이라는 이름을 썼다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;실행 중&amp;quot;, &amp;quot;실행 후&amp;quot;, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;턴&amp;quot;이라는 이름을 썼다.&lt;/p&gt;
 &lt;p&gt;근데 &amp;quot;midRun이 정확히 언젠지&amp;quot; 이름만 봐서는 알 수 없었다.&lt;/p&gt;
 &lt;p&gt;이름이 시점을 명확히 표현하지 못했다.&lt;/p&gt;
 &lt;p&gt;기각.&lt;/p&gt;
 &lt;h3&gt;두 번째 시도: 4개 값&lt;/h3&gt;
-&lt;p&gt;&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;대기&amp;quot;, &amp;quot;다음 사용자 요청&amp;quot; 4개 값으로 정리했다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;이번 단계&amp;quot;, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;단계&amp;quot;, &amp;quot;대기&amp;quot;, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;사용자 요청&amp;quot; 4개 값으로 정리했다.&lt;/p&gt;
 &lt;p&gt;근데 &amp;quot;대기&amp;quot;에 문제가 있었다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;쉬고 있을 때&amp;quot;인데, &amp;quot;쉴 때 깨워라&amp;quot;와 &amp;quot;쉴 때 깨우지 마라&amp;quot;를 구분할 수 없었다.&lt;/p&gt;
 &lt;p&gt;별도의 깨움 여부 설정 축을 추가해서 해결하려 했다.&lt;/p&gt;
@@ -636,12 +643,16 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;&amp;quot;대기&amp;quot;은 &amp;quot;쉴 때 깨우지 마라&amp;quot;다.&lt;/p&gt;
 &lt;p&gt;하나의 값이 &amp;quot;언제&amp;quot;와 &amp;quot;깨울지&amp;quot;를 동시에 표현한다.&lt;/p&gt;
 &lt;h3&gt;왜 이게 정답인가&lt;/h3&gt;
-&lt;p&gt;&amp;quot;대기&amp;quot;을 둘로 쪼개면, 깨움 여부 설정 축이 필요 없어진다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;대기&amp;quot;을 둘로 쪼개면, 깨움 여부 설정 축이 필요&lt;/p&gt;
+&lt;p&gt;없어진다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;쉴 때 깨우기&amp;quot;이 자체적으로 &amp;quot;깨운다&amp;quot;를 포함하고 &amp;quot;대기&amp;quot;이 자체적으로 &amp;quot;안 깨운다&amp;quot;를 포함한다.&lt;/p&gt;
 &lt;p&gt;두 축이 하나의 값으로 합쳐진다.&lt;/p&gt;
-&lt;p&gt;다른 값들(&amp;quot;이번 단계&amp;quot;, &amp;quot;다음 단계&amp;quot;, &amp;quot;다음 사용자 요청&amp;quot;)은 깨움 여부가 자명하다.&lt;/p&gt;
+&lt;p&gt;다른 값들(&amp;quot;이번 단계&amp;quot;, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;단계&amp;quot;, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;사용자 요청&amp;quot;)은 깨움 여부가 자명하다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;이번 단계&amp;quot;은 당연히 깨운다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;다음 사용자 요청&amp;quot;는 당연히 안 깨운다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;다음&lt;/p&gt;
+&lt;p&gt;사용자 요청&amp;quot;는 당연히 안 깨운다.&lt;/p&gt;
 &lt;p&gt;깨움 여부가 모호한 건 &amp;quot;대기&amp;quot;뿐이었다.&lt;/p&gt;
 &lt;p&gt;그래서 &amp;quot;대기&amp;quot;만 쪼개면 된다.&lt;/p&gt;
 &lt;h3&gt;설계의 핵심: 모호한 지점만 쪼갠다&lt;/h3&gt;
@@ -652,7 +663,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;&amp;quot;전부 쪼개서 8개 값&amp;quot;이 아니라 &amp;quot;하나만 쪼개서 5개 값&amp;quot;이 더 단순하다.&lt;/p&gt;
 &lt;h2&gt;13개 호출 지점 검증&lt;/h2&gt;
 &lt;p&gt;5개 값으로 확정한 후, 6개 확장의 13개 호출 지점을 전부 매핑했다.&lt;/p&gt;
-&lt;p&gt;기존의 &lt;code&gt;triggerTurn: true&lt;/code&gt;는 &amp;quot;쉴 때 깨우기&amp;quot;으로, &lt;code&gt;triggerTurn: false&lt;/code&gt;는 &amp;quot;대기&amp;quot; 또는 &amp;quot;다음 단계&amp;quot;으로 변환됐다.&lt;/p&gt;
+&lt;p&gt;기존의 &lt;code&gt;triggerTurn: true&lt;/code&gt;는 &amp;quot;쉴 때 깨우기&amp;quot;으로, &lt;code&gt;triggerTurn: false&lt;/code&gt;는 &amp;quot;대기&amp;quot; 또는 &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;단계&amp;quot;으로 변환됐다.&lt;/p&gt;
 &lt;p&gt;100% 호환됐다.&lt;/p&gt;
 &lt;h3&gt;번역 계층으로 구현했다&lt;/h3&gt;
 &lt;p&gt;pi 코어를 수정하지 않았다.&lt;/p&gt;
@@ -671,8 +683,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;LLM 응답은 수 초가 걸린다.&lt;/p&gt;
 &lt;p&gt;시작 속도가 120밀리초 빨라도 전체 실행 시간에는 의미가 없다.&lt;/p&gt;
 &lt;h3&gt;진짜 장벽: code-index&lt;/h3&gt;
-&lt;p&gt;Bun에서 code-index 확장이 치명적으로 실패한다. code-index가 &lt;code&gt;node:sqlite&lt;/code&gt;를 import하는데, Bun은 이를 지원하지 않는다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;node:sqlite&lt;/code&gt;를 &lt;code&gt;bun:sqlite&lt;/code&gt;로 포팅할 수는 있지만 그다음 &lt;code&gt;node-llama-cpp&lt;/code&gt;라는 네이티브 애드온이 또다시 벽이다.&lt;/p&gt;
+&lt;p&gt;Bun에서 code-index 확장이 치명적으로 실패한다. code-index가 node:sqlite를 import하는데, Bun은 이를 지원하지 않는다.&lt;/p&gt;
+&lt;p&gt;node:sqlite를 bun:sqlite로 포팅할 수는 있지만 그다음 node-llama-cpp라는 네이티브 애드온이 또다시 벽이다.&lt;/p&gt;
 &lt;p&gt;네이티브 네이티브 애드온 파일 파일은 Bun에서 로드할 수 없다.&lt;/p&gt;
 &lt;p&gt;Bun으로 마이그레이션하면 code-index를 포기해야 한다. code-index는 코드 의미 검색의 핵심이다.&lt;/p&gt;
 &lt;p&gt;포기할 수 없다.&lt;/p&gt;
@@ -932,7 +944,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;회복 비용은 누락된 조각에 비례한다.&lt;/p&gt;
 &lt;p&gt;전체가 아니라 누락분만 회복하면 된다.&lt;/p&gt;
 &lt;p&gt;인덱서를 다시 살리면 백로그가 증분 회복을 한다.&lt;/p&gt;
-&lt;p&gt;전체 재구축이 필요 없다.&lt;/p&gt;
+&lt;p&gt;전체 재구축이 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
 &lt;h2&gt;깃 충돌 표시도 거짓말이었다&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;git status&lt;/code&gt;가 &lt;code&gt;UU models-store.json&lt;/code&gt;을 보고했다.&lt;/p&gt;
 &lt;p&gt;충돌이라는 거다.&lt;/p&gt;
@@ -950,12 +963,13 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;표시가 있어도 머지 중이 아니면 잔재다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git add&lt;/code&gt;로 정리하면 된다.&lt;/p&gt;
 &lt;h3&gt;타임스탬프 충돌은 기계적으로 처리한다&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;models-store.json&lt;/code&gt;은 매번 타임스탬프를 현재 시각으로 덮어쓴다.&lt;/p&gt;
+&lt;p&gt;models-store.json은 매번 타임스탬프를 현재 시각으로 덮어쓴다.&lt;/p&gt;
 &lt;p&gt;로컬과 원격이 둘 다&lt;/p&gt;
 &lt;p&gt;타임스탬프를 바꾸니까, 매번 필드 수준 충돌이 난다.&lt;/p&gt;
 &lt;p&gt;근데 모델 목록은 동일하다.&lt;/p&gt;
 &lt;p&gt;타임스탬프만 다르다.&lt;/p&gt;
-&lt;p&gt;이건 의미적 판단이 필요 없다.&lt;/p&gt;
+&lt;p&gt;이건 의미적 판단이 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
 &lt;p&gt;더 큰 값(더 최근)을 기계적으로 채택하면 된다.&lt;/p&gt;
 &lt;h2&gt;스왑 77%도 거짓말이다&lt;/h2&gt;
 &lt;p&gt;리눅스 서버에서 스왑이 77% 찼다.&lt;/p&gt;
@@ -1085,7 +1099,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;판단이 빨랐다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;느낌&amp;quot;이 아니라 &amp;quot;규칙&amp;quot;으로 판단했다.&lt;/p&gt;
 &lt;p&gt;검증에서도 &amp;quot;단위 테스트 통과&amp;quot;가 아니라 &amp;quot;유형, 환경, 범위&amp;quot; 3축으로 정확히 보고했다.&lt;/p&gt;
-&lt;p&gt;통과한 범위를 솔직하게 말하니까, 다음 단계가 명확해졌다.&lt;/p&gt;
+&lt;p&gt;통과한 범위를 솔직하게 말하니까, 다음&lt;/p&gt;
+&lt;p&gt;단계가 명확해졌다.&lt;/p&gt;
 &lt;p&gt;명확한 규칙은 빠른 판단을 만든다.&lt;/p&gt;
 &lt;p&gt;모호한 규칙은 주저함을 만든다.&lt;/p&gt;
 &lt;p&gt;규칙을 명확하게 세워라.&lt;/p&gt;
@@ -1113,14 +1128,14 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;에러를 삼키는 패턴도 고쳤다&lt;/h3&gt;
 &lt;p&gt;이날 데이터 손실의 다른 원인도 발견했다.&lt;/p&gt;
 &lt;p&gt;에러를 삼키는 패턴이었다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Promise.all&lt;/code&gt;에서 자식 요청이 실패해도 조용히 무시된다.&lt;/p&gt;
+&lt;p&gt;Promise.all에서 자식 요청이 실패해도 조용히 무시된다.&lt;/p&gt;
 &lt;p&gt;사진 업로드가 실패해도 항상 성공으로 보고된다.&lt;/p&gt;
 &lt;p&gt;전송 실패가 무시된다.&lt;/p&gt;
 &lt;p&gt;에러를 삼키면 &amp;quot;성공했다&amp;quot;는 거짓 보고가 나온다.&lt;/p&gt;
 &lt;p&gt;실제로는 데이터가 누락되었는데, 아무도 모른다.&lt;/p&gt;
 &lt;p&gt;에러는 삼키는 게 아니라 전파해야 한다.&lt;/p&gt;
 &lt;h2&gt;내 결론이 틀렸다: SQLite WAL 복사&lt;/h2&gt;
-&lt;p&gt;이전에 SQLite WAL 모드 데이터베이스를 &lt;code&gt;cp&lt;/code&gt;로 복사하면 위험하다는 결론을 내렸었다.&lt;/p&gt;
+&lt;p&gt;이전에 SQLite WAL 모드 데이터베이스를 cp로 복사하면 위험하다는 결론을 내렸었다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;복사 중에 쓰기가 끼면 데이터가 깨진다.&lt;/p&gt;
 &lt;p&gt;반드시 백업 API를 써야 한다.&amp;quot;&lt;/p&gt;
 &lt;p&gt;틀렸다.&lt;/p&gt;
@@ -1183,10 +1198,10 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;메시지 축: 항상 모델에 도달한다&lt;/h3&gt;
 &lt;p&gt;메시지 축은 모델 컨텍스트에 항상 도달한다.&lt;/p&gt;
 &lt;p&gt;근데 여기에 함정이 있다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;display: false&lt;/code&gt;를 설정하면 TUI에서 박스가 사라진다.&lt;/p&gt;
+&lt;p&gt;화면 숨김 설정를 설정하면 TUI에서 박스가 사라진다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;숨겼다&amp;quot;고 생각한다.&lt;/p&gt;
 &lt;p&gt;근데 모델은 여전히 읽고 있다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;display: false&lt;/code&gt;는 TUI 박스를 지울 뿐, 모델 컨텍스트에서 제외하지 않는다.&lt;/p&gt;
+&lt;p&gt;화면 숨김 설정는 TUI 박스를 지울 뿐, 모델 컨텍스트에서 제외하지 않는다.&lt;/p&gt;
 &lt;p&gt;변환 함수가 여전히 &lt;code&gt;role: user&lt;/code&gt;로 매핑해서 모델에 보낸다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;화면에 안 보이니까&lt;/p&gt;
 &lt;p&gt;모델도 안 보겠지&amp;quot;라는 가정이 틀렸다.&lt;/p&gt;
@@ -1241,7 +1256,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;라벨과 실제 동작을 독립적으로 검증해야 한다.&lt;/p&gt;
 &lt;h2&gt;접근 제어는 발견을 막아야 한다&lt;/h2&gt;
 &lt;p&gt;위키 라이브러리안 스킬을 비공개로 만들었다.&lt;/p&gt;
-&lt;p&gt;기존에는 &lt;code&gt;disable-model-invocation&lt;/code&gt; 플래그로 시스템 프롬프트에서 숨기기만 했다.&lt;/p&gt;
+&lt;p&gt;기존에는 disable-model-invocation 플래그로 시스템 프롬프트에서 숨기기만 했다.&lt;/p&gt;
 &lt;p&gt;근데 디렉토리가 여전히 발견 가능했다.&lt;/p&gt;
 &lt;p&gt;해결은 스킬을 pi의 발견 경로 밖으로 옮기는 거였다.&lt;/p&gt;
 &lt;p&gt;발견 자체를 차단한다.&lt;/p&gt;
@@ -1250,7 +1265,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;접근 제어는 가시성 숨김이 아니라 발견 차단이어야 한다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;이날의 핵심은 &amp;quot;표시와 구조를 구분하라&amp;quot;였다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;display: false&lt;/code&gt;는 표시 제어다.&lt;/p&gt;
+&lt;p&gt;화면 숨김 설정는 표시 제어다.&lt;/p&gt;
 &lt;p&gt;모델 컨텍스트 제외가 아니다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;화면에 안 보인다&amp;quot;와 &amp;quot;모델이 안 본다&amp;quot;는 다르다.&lt;/p&gt;
 &lt;p&gt;구조적으로 제외되는 경로만이 모델 제외를 보장한다.&lt;/p&gt;
@@ -1271,7 +1286,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;그리고 통과한 테스트가 실제 규모에서는 아무 의미가 없었다는 것도 깨달았다.&lt;/p&gt;
 &lt;p&gt;Cursor 에디터의 &lt;code&gt;@codebase&lt;/code&gt; 같은 의미 검색을 pi 에이전트에 추가했다.&lt;/p&gt;
 &lt;p&gt;키워드 검색만으로는 한계가 있다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;인증&amp;quot;이라고 검색해도 &lt;code&gt;authenticate&lt;/code&gt; 함수를 못 찾는다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;인증&amp;quot;이라고 검색해도 authenticate 함수를 못 찾는다.&lt;/p&gt;
 &lt;p&gt;의미가 같은데 단어가 다르니까.&lt;/p&gt;
 &lt;p&gt;해결은 키워드 점수랑 의미 점수를 합치는 거였다.&lt;/p&gt;
 &lt;p&gt;키워드는 BM25로 매칭하고 의미는 임베딩 벡터 코사인 유사도로 매칭한다.&lt;/p&gt;
@@ -1417,7 +1432,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;의미가 없다.&lt;/p&gt;
 &lt;p&gt;근데 템플릿이 전부에 붙이고 있었다.&lt;/p&gt;
 &lt;p&gt;위키에 적어놓는 건 &amp;quot;모델이 알아차리면 고친다&amp;quot;는 거다.&lt;/p&gt;
-&lt;p&gt;근데 템플릿 자체가 원인이면, 모델이 위키를 읽고 고쳐도 다음 세션에서 템플릿이 다시 잘못된 지시를 준다.&lt;/p&gt;
+&lt;p&gt;근데 템플릿 자체가 원인이면, 모델이 위키를 읽고 고쳐도 다음&lt;/p&gt;
+&lt;p&gt;세션에서 템플릿이 다시 잘못된 지시를 준다.&lt;/p&gt;
 &lt;p&gt;해결은 템플릿을 고치는 거다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;읽기 전용 하위 명령에만 --no-pager를 붙여라&amp;quot;로 좁혔다.&lt;/p&gt;
 &lt;p&gt;근본 원인을 고치니까&lt;/p&gt;
@@ -1539,9 +1555,11 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;그리고 165개 세션을 전부 스캔했다.&lt;/p&gt;
 &lt;p&gt;발동 횟수: 0회.&lt;/p&gt;
 &lt;p&gt;67.5메가바이트의 세션 기록에서 한 번도 발동하지 않았다.&lt;/p&gt;
-&lt;p&gt;이건 &amp;quot;가드가 필요 없다&amp;quot;는 증거다.&lt;/p&gt;
+&lt;p&gt;이건 &amp;quot;가드가 필요&lt;/p&gt;
+&lt;p&gt;없다&amp;quot;는 증거다.&lt;/p&gt;
 &lt;p&gt;근데 그냥 지우면 안 된다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;발동 안 했다&amp;quot;가 &amp;quot;필요 없다&amp;quot;는 아니다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;발동 안 했다&amp;quot;가 &amp;quot;필요&lt;/p&gt;
+&lt;p&gt;없다&amp;quot;는 아니다.&lt;/p&gt;
 &lt;p&gt;모델이 업그레이드되면서 루프 자체가 안 생기는 걸 수도 있다.&lt;/p&gt;
 &lt;h3&gt;폐기 4단계 방법&lt;/h3&gt;
 &lt;p&gt;그래서 폐기 방법을 4단계로 정리했다.&lt;/p&gt;
@@ -1553,12 +1571,14 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;에이전트가 자기 소스를 읽으면서 도구 결과에 마커가 나오는 건 실제 발동이 아니다.&lt;/p&gt;
 &lt;p&gt;넷째, 0회 발동에 도구식 이유가 있으면 폐기한다.&lt;/p&gt;
 &lt;p&gt;근데 삭제가 아니라 보관한다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;더 이상 필요 없다&amp;quot;는 판단이 틀릴 수 있으니까, 1~2개월 후 재평가 창을 둔다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;더 이상 필요&lt;/p&gt;
+&lt;p&gt;없다&amp;quot;는 판단이 틀릴 수 있으니까, 1~2개월 후 재평가 창을 둔다.&lt;/p&gt;
 &lt;h3&gt;Pi 확장 비활성화의 올바른 방법&lt;/h3&gt;
 &lt;p&gt;Pi는 파일시스템 자동 발견으로 확장을 찾는다.&lt;/p&gt;
 &lt;p&gt;레지스트리가 없다.&lt;/p&gt;
-&lt;p&gt;확장 디렉토리를 밖으로 옮기면, 컴파일/패키지/런타임 세 단계가 한 번에 끊긴다. disable 플래그가 필요 없다.&lt;/p&gt;
-&lt;p&gt;복구는 한 번의 &lt;code&gt;mv&lt;/code&gt;면 된다.&lt;/p&gt;
+&lt;p&gt;확장 디렉토리를 밖으로 옮기면, 컴파일/패키지/런타임 세 단계가 한 번에 끊긴다. disable 플래그가 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
+&lt;p&gt;복구는 한 번의 mv면 된다.&lt;/p&gt;
 &lt;h2&gt;캐시 적중 0%의 진짜 원인&lt;/h2&gt;
 &lt;p&gt;법원경매 서비스에서 DeepSeek 모델의 캐시 적중률이 0%였다.&lt;/p&gt;
 &lt;p&gt;비용을 5배 더 쓰고 있었다.&lt;/p&gt;
@@ -1595,7 +1615,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;API 문서를 안 읽고 필드 이름으로 추론한 결과였다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;이날의 핵심은 &amp;quot;가설이 틀릴 수 있다&amp;quot;였다.&lt;/p&gt;
-&lt;p&gt;확장 폐기에서 &amp;quot;발동 안 했다&amp;quot;를 &amp;quot;필요 없다&amp;quot;로 단정하면 위험하다.&lt;/p&gt;
+&lt;p&gt;확장 폐기에서 &amp;quot;발동 안 했다&amp;quot;를 &amp;quot;필요&lt;/p&gt;
+&lt;p&gt;없다&amp;quot;로 단정하면 위험하다.&lt;/p&gt;
 &lt;p&gt;실제로 165개 세션을 스캔하고 위양성을 분리하고 도구식 이유를 확인해야 한다.&lt;/p&gt;
 &lt;p&gt;캐시 적중 0%에서 세 가지 가설을 세웠다.&lt;/p&gt;
 &lt;p&gt;전부 틀렸다.&lt;/p&gt;
@@ -1612,7 +1633,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;데이터가 가설을 거부하면, 가설을 버려라.&lt;/p&gt;
 </content:encoded></item><item><title>Kimi K3가 반도체에 나쁜가, 로그인 성공이 접근 권한은 아니다</title><link>https://hyeokjaelee.github.io/kimi-k3-chip-demand-aws-login-not-access/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/kimi-k3-chip-demand-aws-login-not-access/</guid><description>Kimi K3, 반도체에 나쁜가 이날 나는 두 가지 &quot;직관과 반대되는&quot; 발견이 있던 날이다. 하나는 중국 AI 모델 발표가 반도체에 나쁜 것 같지만 사실 수요 확대라는 거였다. 다른 하나는 로그인은 성공했는데 접근은 거부당했다는 거였다. 인증과 권한은 다르다. 중국에서 Kimi K3라는</description><pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Kimi K3, 반도체에 나쁜가&lt;/h2&gt;
 &lt;p&gt;이날 나는 두 가지 &amp;quot;직관과 반대되는&amp;quot; 발견이 있던 날이다.&lt;/p&gt;
-&lt;p&gt;하나는 중국 AI 모델 발표가 반도체에 나쁜 것 같지만 사실 수요 확대라는 거였다.&lt;/p&gt;
+&lt;p&gt;하나는 중국 AI 모델 발표가 반도체에 나쁜 것 같지만 사실 수요&lt;/p&gt;
+&lt;p&gt;확대라는 거였다.&lt;/p&gt;
 &lt;p&gt;다른 하나는 로그인은 성공했는데 접근은 거부당했다는 거였다.&lt;/p&gt;
 &lt;p&gt;인증과 권한은 다르다.&lt;/p&gt;
 &lt;p&gt;중국에서 Kimi K3라는 모델이 발표됐다.&lt;/p&gt;
@@ -1884,11 +1906,13 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;고거래량(평균의 1.3배 이상), 보통, 저거래량(0.8배 이하).&lt;/p&gt;
 &lt;p&gt;다음&lt;/p&gt;
 &lt;p&gt;날 반등했는지를 봤다.&lt;/p&gt;
-&lt;p&gt;삼성전자에서 고거래량 폭락의 다음 날 반등 확률은 71%였다.&lt;/p&gt;
+&lt;p&gt;삼성전자에서 고거래량 폭락의 다음&lt;/p&gt;
+&lt;p&gt;날 반등 확률은 71%였다.&lt;/p&gt;
 &lt;p&gt;보통 거래량은 69%.&lt;/p&gt;
 &lt;p&gt;근데 저거래량은 0%였다.&lt;/p&gt;
 &lt;p&gt;두 번 다&lt;/p&gt;
-&lt;p&gt;다음 날에 더 떨어졌다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;날에 더 떨어졌다.&lt;/p&gt;
 &lt;h3&gt;왜 저거래량이 더 위험한가&lt;/h3&gt;
 &lt;p&gt;고거래량 폭락은 &amp;quot;공포의 정점&amp;quot;이다.&lt;/p&gt;
 &lt;p&gt;매도하려는 사람들이 전부 쏟아져 나온 거다.&lt;/p&gt;
@@ -1939,7 +1963,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;생존 모드 전환&lt;/h3&gt;
 &lt;p&gt;미국 장이 열리자 생존 모드로 전환했다.&lt;/p&gt;
 &lt;p&gt;미국 ETF를 시장가로 매도해서 달러 현금을 확보했다.&lt;/p&gt;
-&lt;p&gt;다음 한국 장에서 레버리지 ETF를 전부 청수했다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;한국 장에서 레버리지 ETF를 전부 청수했다.&lt;/p&gt;
 &lt;p&gt;레버리지는 시간이 갈수록 가치가 녹기 때문에, 더 이상 들고 있으면 안 됐다.&lt;/p&gt;
 &lt;p&gt;목표는 현금 0.01%에서 32.7%로 올리는 거였다.&lt;/p&gt;
 &lt;p&gt;반도체 비중 65.8%에서 43.7%로 줄이는 거였다.&lt;/p&gt;
@@ -2029,7 +2054,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;위험이 적으면서 가치는 비슷하다.&lt;/p&gt;
 &lt;h2&gt;패턴 재사용&lt;/h2&gt;
 &lt;p&gt;법원경매 서비스에 환경 변수 관리 패턴을 적용했다.&lt;/p&gt;
-&lt;p&gt;이전에 다른 프로젝트에서 만든 &lt;code&gt;env:pull&lt;/code&gt; 패턴이다.&lt;/p&gt;
+&lt;p&gt;이전에 다른 프로젝트에서 만든 env:pull 패턴이다.&lt;/p&gt;
 &lt;p&gt;구글 클라우드 시크릿 매니저에서 환경 변수를 가져오는 거다.&lt;/p&gt;
 &lt;p&gt;패턴이 한 프로젝트에서 검증되면, 다른 프로젝트에도 적용할 수 있다.&lt;/p&gt;
 &lt;p&gt;처음부터 다시 만들 필요가 없다.&lt;/p&gt;
@@ -2123,8 +2148,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;기존 서비스가 정보를 주는 데 그친다면, 우리는 판단을 준다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;이 물건 사도 되나?&amp;quot;에 답하는 거다.&lt;/p&gt;
 &lt;p&gt;정보 제공을 넘어 판단 제공으로 넘어가는 게 가치 창출의 핵심이었다.&lt;/p&gt;
-</content:encoded></item><item><title>데이터 소스가 단위에 대해 거짓말을 할 때</title><link>https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</guid><description>시가총액이 1,547조 달러? 이날 나는은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터</description><pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시가총액이 1,547조 달러?&lt;/h2&gt;
-&lt;p&gt;이날 나는은 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다.&lt;/p&gt;
+</content:encoded></item><item><title>데이터 소스가 단위에 대해 거짓말을 할 때</title><link>https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/</guid><description>시가총액이 1,547조 달러? 이날 나는 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다. SK하이닉스 시가총액이 1,547조 달러가 나왔다. 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다. 그리고 보안 필터가</description><pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시가총액이 1,547조 달러?&lt;/h2&gt;
+&lt;p&gt;이날 나는 데이터 소스가 거짓말을 하는 걸 발견한 날이다. yfinance가 한국 주식 시가총액을 원화인데 달러로 표기하고 있었다.&lt;/p&gt;
 &lt;p&gt;SK하이닉스 시가총액이 1,547조 달러가 나왔다.&lt;/p&gt;
 &lt;p&gt;가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다.&lt;/p&gt;
 &lt;p&gt;그리고 보안 필터가 자기 스킬을 차단하는 아이러니도 겪었다.&lt;/p&gt;
@@ -2368,8 +2393,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;독립 검증은 &amp;quot;결론을 낸 주체와 검증하는 주체가 다르다&amp;quot;는 거다.&lt;/p&gt;
 &lt;p&gt;같은 주체가 두 역할을 하면 맹점이 생긴다.&lt;/p&gt;
 &lt;p&gt;다른 주체가 다른 관점에서 검증해야 맹점이 보인다.&lt;/p&gt;
-</content:encoded></item><item><title>올바른 질문이 최적화보다
-낫다, 90% 절감의 순간</title><link>https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/</guid><description>7,568줄을 710줄로 이날 나는 &quot;올바른 질문&quot;이 90% 절감을 만든 날이다. 위키 로거가 30개 스킬을 전부 인라인하고 있었다. 어떻게 줄일지 고민하다가, &quot;실제로 몇 개가 필요한가&quot;를 물으니 2개뿐이었다. 그리고 배포 정밀도랑 매도 원칙도 정립했다. 위키 로거 확장이 세션 종료 </description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;7,568줄을 710줄로&lt;/h2&gt;
+</content:encoded></item><item><title>올바른 질문이 최적화보다  낫다, 90% 절감의 순간</title><link>https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/</guid><description>7,568줄을 710줄로 이날 나는 &quot;올바른 질문&quot;이 90% 절감을 만든 날이다. 위키 로거가 30개 스킬을 전부 인라인하고 있었다. 어떻게 줄일지 고민하다가, &quot;실제로 몇 개가 필요한가&quot;를 물으니 2개뿐이었다. 그리고 배포 정밀도랑 매도 원칙도 정립했다. 위키 로거 확장이 세션 종료 </description><pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;7,568줄을 710줄로&lt;/h2&gt;
 &lt;p&gt;이날 나는 &amp;quot;올바른 질문&amp;quot;이 90% 절감을 만든 날이다.&lt;/p&gt;
 &lt;p&gt;위키 로거가 30개 스킬을 전부 인라인하고 있었다.&lt;/p&gt;
 &lt;p&gt;어떻게 줄일지 고민하다가, &amp;quot;실제로 몇 개가 필요한가&amp;quot;를 물으니 2개뿐이었다.&lt;/p&gt;
@@ -2563,7 +2587,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;핵심 원칙은 &amp;quot;순수 휴리스틱으로 비용 0인 게이트를 먼저 두고 LLM은 모호한 케이스에만&amp;quot;이다.&lt;/p&gt;
 &lt;p&gt;시리즈 완결 감지는 순수 휴리스틱이다.&lt;/p&gt;
 &lt;p&gt;(상)(중)(하) 같은 파트 마커, 2/3 같은 비율 마커, &amp;quot;완결됐다&amp;quot; 같은 완결 마커를 정규식으로 찾는다.&lt;/p&gt;
-&lt;p&gt;LLM이 필요 없다.&lt;/p&gt;
+&lt;p&gt;LLM이 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
 &lt;p&gt;비용이 거의 0이다.&lt;/p&gt;
 &lt;p&gt;TTS 정규화도 순수 TypeScript다.&lt;/p&gt;
 &lt;p&gt;잔존 한자를 검출하면 발행을 차단한다.&lt;/p&gt;
@@ -2582,7 +2607,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;첫째, &amp;quot;여러 번 호출&amp;quot;이 아니라 &amp;quot;한 번 호출 안에서 배열&amp;quot;이다.&lt;/p&gt;
 &lt;p&gt;동시성을 원하면, 호출을 여러 번 하는 게 아니라, 한 호출 내에 배열을 넣는다.&lt;/p&gt;
 &lt;p&gt;이 제약을 모르면 &amp;quot;왜 거부되지&amp;quot;라고 삽질하게 된다.&lt;/p&gt;
-&lt;p&gt;둘째, &amp;quot;순수 휴리스틱으로 비용 0인 게이트를 먼저 둔다.&amp;quot; LLM이 필요 없는 검사는 휴리스틱으로 한다.&lt;/p&gt;
+&lt;p&gt;둘째, &amp;quot;순수 휴리스틱으로 비용 0인 게이트를 먼저 둔다.&amp;quot; LLM이 필요&lt;/p&gt;
+&lt;p&gt;없는 검사는 휴리스틱으로 한다.&lt;/p&gt;
 &lt;p&gt;정규식 매칭, 길이 검사, 한자 감지.&lt;/p&gt;
 &lt;p&gt;이런 건 LLM 없이도 정확하다.&lt;/p&gt;
 &lt;p&gt;LLM은 모호한 케이스에만 쓴다.&lt;/p&gt;
@@ -2601,7 +2627,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;다른 하나는 야간선물이다.&lt;/p&gt;
 &lt;p&gt;코스피200 야간선물이 거래된다.&lt;/p&gt;
 &lt;p&gt;손물 같은 사이트에서 실시간으로 볼 수 있다.&lt;/p&gt;
-&lt;p&gt;야간선물은 다음 날 코스피 시초가의 선행지표로 자주 쓰인다.&lt;/p&gt;
+&lt;p&gt;야간선물은 다음&lt;/p&gt;
+&lt;p&gt;날 코스피 시초가의 선행지표로 자주 쓰인다.&lt;/p&gt;
 &lt;h3&gt;참고지표일 뿐이다&lt;/h3&gt;
 &lt;p&gt;근데 둘 다&lt;/p&gt;
 &lt;p&gt;참고지표일 뿐이다.&lt;/p&gt;
@@ -2615,7 +2642,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;헤드리스 서버에서 브라우저 자동화를 쓸 수 없을 때의 fallback 체인을 정리했다.&lt;/p&gt;
 &lt;h3&gt;1단계: jina.ai reader&lt;/h3&gt;
 &lt;p&gt;브라우저를 안 쓰고 웹페이지를 가져오는 방법이다. jina.ai reader 프록시에 URL을 넘기면, HTML을 마크다운으로 변환해서 준다.&lt;/p&gt;
-&lt;p&gt;브라우저가 필요 없다.&lt;/p&gt;
+&lt;p&gt;브라우저가 필요&lt;/p&gt;
+&lt;p&gt;없다.&lt;/p&gt;
 &lt;h3&gt;2단계: 도메인 확인&lt;/h3&gt;
 &lt;p&gt;근데 400 에러가 났다.&lt;/p&gt;
 &lt;p&gt;원인은 도메인 오타였다.&lt;/p&gt;
@@ -2666,7 +2694,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;잡은 거다.&lt;/p&gt;
 &lt;h3&gt;핵심 발견: 게으른 서버는 한 번 연결되면 영구 캐싱&lt;/h3&gt;
 &lt;p&gt;가장 중요한 발견은 게으른 서버의 캐싱 동작이었다.&lt;/p&gt;
-&lt;p&gt;게으른 서버는 처음 호출될 때 연결된다.&lt;/p&gt;
+&lt;p&gt;게으른 서버는 처음&lt;/p&gt;
+&lt;p&gt;호출될 때 연결된다.&lt;/p&gt;
 &lt;p&gt;근데 한 번 연결되면 캐시에 영구 남는다.&lt;/p&gt;
 &lt;p&gt;이후 세션에서 프로젝트 경로가 달라도 계속 보인다.&lt;/p&gt;
 &lt;p&gt;호출을 막아도 존재를 숨길 수는 없다.&lt;/p&gt;
@@ -2687,7 +2716,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;승인하면 다음으로, 거부하면 충돌 지점부터 다시 쓴다.&lt;/p&gt;
 &lt;h3&gt;작성자랑 검토자가 메모리를 공유한다&lt;/h3&gt;
 &lt;p&gt;작성자랑 검토자가 같은 메모리 세션을 공유한다.&lt;/p&gt;
-&lt;p&gt;검토자의 피드백이 다음 작성자 호출에 자동 포함된다.&lt;/p&gt;
+&lt;p&gt;검토자의 피드백이 다음&lt;/p&gt;
+&lt;p&gt;작성자 호출에 자동 포함된다.&lt;/p&gt;
 &lt;p&gt;이전에는 모든 텍스트랑 피드백을 문자열로 누적 주입했다.&lt;/p&gt;
 &lt;p&gt;메모리 공유가 훨씬 효율적이다.&lt;/p&gt;
 &lt;h3&gt;워크플로 독립 로딩&lt;/h3&gt;
@@ -2740,7 +2770,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;메타가 반도체 수요처에서 경쟁자로 바뀌는 거다.&lt;/p&gt;
 &lt;p&gt;AI 컴퓨팅 수요 thesis가 위협받았다.&lt;/p&gt;
 &lt;p&gt;다른 하나는 OpenAI의 효율성 주장이었다.&lt;/p&gt;
-&lt;p&gt;HBM 수요 감소 우려가 생겼다.&lt;/p&gt;
+&lt;p&gt;HBM 수요&lt;/p&gt;
+&lt;p&gt;감소 우려가 생겼다.&lt;/p&gt;
 &lt;p&gt;외국인 매도가 가속화했다.&lt;/p&gt;
 &lt;p&gt;삼성전자 684만 주, 하이닉스 82만 주 순매도.&lt;/p&gt;
 &lt;p&gt;점점 빨라지고 있었다.&lt;/p&gt;
@@ -2905,7 +2936,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;먼저 기준점을 잡았다.&lt;/p&gt;
 &lt;p&gt;로컬 main이 아니라 &lt;code&gt;origin/main&lt;/code&gt;이다.&lt;/p&gt;
 &lt;p&gt;로컬 main은 stale일 수 있으니까.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;main..HEAD&lt;/code&gt;를 쓰면 이미 머지된 다른 사람의 PR까지 diff에 포함되어 범위가 부풀어진다.&lt;/p&gt;
+&lt;p&gt;main..HEAD를 쓰면 이미 머지된 다른 사람의 PR까지 diff에 포함되어 범위가 부풀어진다.&lt;/p&gt;
 &lt;p&gt;파일 단위로 버킷팅했다. hunk 단위로 분할하면 교차 파일이 많을 때 오류율이 급증한다.&lt;/p&gt;
 &lt;p&gt;그래서 파일 전체를 가장 지배적인 소유자 버킷에 배정했다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git add -A&lt;/code&gt;를 절대 안 썼다.&lt;/p&gt;
@@ -2976,10 +3007,10 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;수료증 노드가 호스트 레이아웃 안에 깊이 중첩되어 있으니까, 호스트 CSS가 인쇄에 반영되는 거다.&lt;/p&gt;
 &lt;h3&gt;DOM 텔레포트&lt;/h3&gt;
 &lt;p&gt;해결은 인쇄 직전에 DOM을 옮기는 거였다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;beforeprint&lt;/code&gt; 이벤트에서 수료증 노드를 body 직계 자식으로 옮긴다.&lt;/p&gt;
+&lt;p&gt;beforeprint 이벤트에서 수료증 노드를 body 직계 자식으로 옮긴다.&lt;/p&gt;
 &lt;p&gt;호스트 레이아웃 밖으로 빼내는 거다.&lt;/p&gt;
 &lt;p&gt;그러면 인쇄할 때 호스트 CSS가 안 먹는다.&lt;/p&gt;
-&lt;p&gt;인쇄가 끝나면 &lt;code&gt;afterprint&lt;/code&gt;에서 원래 위치로 되돌린다.&lt;/p&gt;
+&lt;p&gt;인쇄가 끝나면 afterprint에서 원래 위치로 되돌린다.&lt;/p&gt;
 &lt;p&gt;100밀리초 지연을 줘서 DOM 이동이 확실히 반영된 후에 인쇄가 시작되게 한다.&lt;/p&gt;
 &lt;p&gt;이건 &amp;quot;DOM 텔레포트&amp;quot; 패턴이다.&lt;/p&gt;
 &lt;p&gt;인쇄 컨텍스트에서 노드를 잠시 다른 곳으로 옮겼다가 되돌린다.&lt;/p&gt;
@@ -3001,8 +3032,10 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;개발 서버 오케스트레이터에서도 세 가지 함정을 잡았다.&lt;/p&gt;
 &lt;p&gt;첫째, 고아 프로세스다.&lt;/p&gt;
 &lt;p&gt;오케스트레이터가 강제로 죽으면, 서브앱 프로세스가 좀비로 남는다.&lt;/p&gt;
-&lt;p&gt;포트를 잡고 있어서 다음 실행이 실패한다.&lt;/p&gt;
-&lt;p&gt;다음 실행 시 죽은 앱을 정리하는 로직을 넣었다.&lt;/p&gt;
+&lt;p&gt;포트를 잡고 있어서 다음&lt;/p&gt;
+&lt;p&gt;실행이 실패한다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;실행 시 죽은 앱을 정리하는 로직을 넣었다.&lt;/p&gt;
 &lt;p&gt;둘째, 포트 충돌이다.&lt;/p&gt;
 &lt;p&gt;포트가 각 앱의 웹팩 설정에 하드코딩되어 있다.&lt;/p&gt;
 &lt;p&gt;한 앱만 스캔하면 다른 네임스페이스 앱이랑 충돌한다.&lt;/p&gt;
@@ -3123,7 +3156,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;텍스트 전용 모델은 이미지를 못 본다.&lt;/p&gt;
 &lt;p&gt;근데 에이전트가 이미지 파일을 읽어야 할 때가 있다.&lt;/p&gt;
 &lt;p&gt;이때 비전 모델한테 조용히 넘겨서 텍스트 설명을 받아오는 거다.&lt;/p&gt;
-&lt;p&gt;이 패턴을 처음엔 &lt;code&gt;read&lt;/code&gt; 도구에만 구현했다. read로 이미지를 읽으면, 비전 모델이 대신 보고 텍스트를 반환한다.&lt;/p&gt;
+&lt;p&gt;이 패턴을 처음엔 read 도구에만 구현했다. read로 이미지를 읽으면, 비전 모델이 대신 보고 텍스트를 반환한다.&lt;/p&gt;
 &lt;p&gt;호출하는 쪽은 비전 모델을 거친 줄도 모른다.&lt;/p&gt;
 &lt;p&gt;투명한 라우팅이다.&lt;/p&gt;
 &lt;p&gt;근데 두 번째 이미지 입력 도구가 생겼다.&lt;/p&gt;
@@ -3241,7 +3274,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h2&gt;Vue Query Ref 함정&lt;/h2&gt;
 &lt;p&gt;해결 과정에서 또 하나의 함정을 만났다.&lt;/p&gt;
 &lt;p&gt;캐시를 무효화하려고 했는데 안 됐다.&lt;/p&gt;
-&lt;p&gt;Vue Query에서 캐시를 무효화할 때 키에 Vue &lt;code&gt;Ref&lt;/code&gt;가 들어 있었다.&lt;/p&gt;
+&lt;p&gt;Vue Query에서 캐시를 무효화할 때 키에 Vue Ref가 들어 있었다.&lt;/p&gt;
 &lt;p&gt;Ref는 객체다.&lt;/p&gt;
 &lt;p&gt;근데 캐시에 저장된 키는 문자열이다.&lt;/p&gt;
 &lt;p&gt;객체랑 문자열을 비교하면 매칭이 안 된다. silent NO-OP.&lt;/p&gt;
@@ -3259,7 +3292,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;지라 MCP의 OAuth 토큰을 재사용한다.&lt;/p&gt;
 &lt;p&gt;토큰이 로컬에 저장되어 있다.&lt;/p&gt;
 &lt;p&gt;이 토큰으로 보호된 첨부 파일을 직접 다운로드한다.&lt;/p&gt;
-&lt;p&gt;Playwright를 띄울 필요 없이, curl로 바로 받는다.&lt;/p&gt;
+&lt;p&gt;Playwright를 띄울 필요&lt;/p&gt;
+&lt;p&gt;없이, curl로 바로 받는다.&lt;/p&gt;
 &lt;p&gt;두 마리 토끼를 잡았다.&lt;/p&gt;
 &lt;p&gt;이미지 분석 능력을 복구하면서 동시에 Playwright 의존을 제거했다.&lt;/p&gt;
 &lt;p&gt;진짜 목적은 &amp;quot;이미지 분석 포기&amp;quot;가 아니라 &amp;quot;Playwright 의존 제거&amp;quot;였다.&lt;/p&gt;
@@ -3275,12 +3309,12 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;&amp;quot;틀릴 수 있는 결론&amp;quot;을 내리고 싶으면 빨리 내려라.&lt;/p&gt;
 &lt;p&gt;근데 그 결론을 검증하려면 소스코드를 끝까지 추적해야 한다.&lt;/p&gt;
 &lt;p&gt;중간에서 멈추면 틀린 결론을 가고 다니게 된다.&lt;/p&gt;
-</content:encoded></item><item><title>생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급</title><link>https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</guid><description>생성물 충돌은 합집합에서 재생성 이날 나는은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다. 교육 플랫폼에서 머지 충돌이 났다. c</description><pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;생성물 충돌은 합집합에서 재생성&lt;/h2&gt;
-&lt;p&gt;이날 나는은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다.&lt;/p&gt;
+</content:encoded></item><item><title>생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급</title><link>https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/</guid><description>생성물 충돌은 합집합에서 재생성 이날 나는 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee validate 버그는 하루에 세 번 재발했다. 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다. 교육 플랫폼에서 머지 충돌이 났다. co</description><pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;생성물 충돌은 합집합에서 재생성&lt;/h2&gt;
+&lt;p&gt;이날 나는 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다.&lt;/p&gt;
 &lt;p&gt;그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다.&lt;/p&gt;
 &lt;p&gt;교육 플랫폼에서 머지 충돌이 났다. codegen으로 생성된 파일들이 충돌했다.&lt;/p&gt;
 &lt;p&gt;양쪽이 각각 새 API 엔드포인트를 추가해서 같은 파일에 다른 내용이 들어간 거다.&lt;/p&gt;
-&lt;p&gt;이런 충돌은 &lt;code&gt;ours&lt;/code&gt;나 &lt;code&gt;theirs&lt;/code&gt;로 통째로 선택하면 안 된다.&lt;/p&gt;
+&lt;p&gt;이런 충돌은 ours나 theirs로 통째로 선택하면 안 된다.&lt;/p&gt;
 &lt;p&gt;한쪽을 선택하면 다른 쪽의 API가 사라진다.&lt;/p&gt;
 &lt;p&gt;올바른 해결은 합집합 소스에서 재생성하는 거다.&lt;/p&gt;
 &lt;p&gt;양쪽의 소스 코드를 깨끗하게 머지한다.&lt;/p&gt;
@@ -3516,8 +3550,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;당연히 막혀 있을 거라고 믿은 커밋 가드가 사라져 있었다.&lt;/p&gt;
 &lt;p&gt;당연히 격리되어 있을 거라고 믿은 브라우저가 프로필을 공유하고 있었다.&lt;/p&gt;
 &lt;p&gt;가정을 확인하지 않으면, 안전망이 없는 상태로 돌아가는 거다.&lt;/p&gt;
-</content:encoded></item><item><title>역할별 권한 설계와 disabled가 삭제보다
-철저한 이유</title><link>https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/</guid><description>확장은 스킬이 아니다 이날 나는 서브에이전트 권한을 체계적으로 정리한 날이다. 누가 어떤 도구를 쓸 수 있는지, 왜 그렇게 설계했는지를 하나씩 검토했다. 그러다 재귀 위험이 있는 에이전트를 발견하고 disabled 처리했다. 가장 먼저 정리한 건 확장이랑 스킬의 차이다. research</description><pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;확장은 스킬이 아니다&lt;/h2&gt;
+</content:encoded></item><item><title>역할별 권한 설계와 disabled가 삭제보다  철저한 이유</title><link>https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/</guid><description>확장은 스킬이 아니다 이날 나는 서브에이전트 권한을 체계적으로 정리한 날이다. 누가 어떤 도구를 쓸 수 있는지, 왜 그렇게 설계했는지를 하나씩 검토했다. 그러다 재귀 위험이 있는 에이전트를 발견하고 disabled 처리했다. 가장 먼저 정리한 건 확장이랑 스킬의 차이다. research</description><pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;확장은 스킬이 아니다&lt;/h2&gt;
 &lt;p&gt;이날 나는 서브에이전트 권한을 체계적으로 정리한 날이다.&lt;/p&gt;
 &lt;p&gt;누가 어떤 도구를 쓸 수 있는지, 왜 그렇게 설계했는지를 하나씩 검토했다.&lt;/p&gt;
 &lt;p&gt;그러다&lt;/p&gt;
@@ -3622,7 +3655,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;근데 사용자가 하나씩 물었다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;검증 중이라는 건 아직 일하고 있다는 뜻 아닌가?&amp;quot; &amp;quot;idle이 아니면 멈춘 게 아닌데 왜 문제인가?&amp;quot;&lt;/p&gt;
 &lt;p&gt;이 질문들이 핵심이었다.&lt;/p&gt;
-&lt;p&gt;분석 에이전트는 &amp;quot;검증 중인데 다음 단계로 안 넘어간다&amp;quot;를 버그로 읽었다.&lt;/p&gt;
+&lt;p&gt;분석 에이전트는 &amp;quot;검증 중인데 다음&lt;/p&gt;
+&lt;p&gt;단계로 안 넘어간다&amp;quot;를 버그로 읽었다.&lt;/p&gt;
 &lt;p&gt;근데 검증 중이라는 건 아직 일하고 있다는 뜻이다.&lt;/p&gt;
 &lt;p&gt;일하고 있으면 멈춘 게 아니다.&lt;/p&gt;
 &lt;p&gt;결국 진짜 버그는 1개였다.&lt;/p&gt;
@@ -3802,7 +3836,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;이중 방어다.&lt;/p&gt;
 &lt;h2&gt;설정 키가 있다고 동작하는 건 아니다&lt;/h2&gt;
 &lt;p&gt;또 하나 중요한 발견이 있었다.&lt;/p&gt;
-&lt;p&gt;설정에 bash 차단 설정라는 키가 있었다. bash 사용을 막는 키인 줄 알았다.&lt;/p&gt;
+&lt;p&gt;설정에 bash 차단 설정이라는 키가 있었다. bash 사용을 막는 키인 줄 알았다.&lt;/p&gt;
 &lt;p&gt;근데 아무 확장도 이 키를 안 읽고 있었다.&lt;/p&gt;
 &lt;p&gt;설정 키가 있다고 동작하는 건 아니다.&lt;/p&gt;
 &lt;p&gt;누군가 소비해야 한다.&lt;/p&gt;
@@ -3825,7 +3859,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h2&gt;수료증 4회 크래시&lt;/h2&gt;
 &lt;p&gt;회사 프로젝트에서 수료증 기능을 만들고 있었다.&lt;/p&gt;
 &lt;p&gt;근데 4번이나 크래시가 났다.&lt;/p&gt;
-&lt;p&gt;처음 세 번은 같은 원인이었다.&lt;/p&gt;
+&lt;p&gt;처음&lt;/p&gt;
+&lt;p&gt;세 번은 같은 원인이었다.&lt;/p&gt;
 &lt;p&gt;분석 에이전트 4개를 병렬로 돌리는데, 전부 같은 모델을 썼다.&lt;/p&gt;
 &lt;p&gt;그 모델이 일시적으로 429 에러를 냈다.&lt;/p&gt;
 &lt;p&gt;4개가 동시에 실패한 거다.&lt;/p&gt;
@@ -3860,8 +3895,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;자가 개선은 이런 식으로 일어난다.&lt;/p&gt;
 &lt;p&gt;함정을 발견하고 확장으로 막고 원칙으로 일반화한다.&lt;/p&gt;
 &lt;p&gt;다음에 같은 함정을 만나면, 이미 막혀 있다.&lt;/p&gt;
-</content:encoded></item><item><title>Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정</title><link>https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/</guid><description>footer가 화면 바닥에 안 붙는다 이날 나는은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다. 소화면에서는 통과한 줄 알았다가 거짓 PASS였다. 결국 flexbox로 전환해서 해결했다. 교육 플랫폼에서 f</description><pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;footer가 화면 바닥에 안 붙는다&lt;/h2&gt;
-&lt;p&gt;이날 나는은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.&lt;/p&gt;
+</content:encoded></item><item><title>Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정</title><link>https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/chrome-grid-failure-false-pass-flexbox/</guid><description>footer가 화면 바닥에 안 붙는다 이날 나는 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다. 소화면에서는 통과한 줄 알았다가 거짓 PASS였다. 결국 flexbox로 전환해서 해결했다. 교육 플랫폼에서 fo</description><pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;footer가 화면 바닥에 안 붙는다&lt;/h2&gt;
+&lt;p&gt;이날 나는 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.&lt;/p&gt;
 &lt;p&gt;소화면에서는 통과한 줄 알았다가 거짓 PASS였다.&lt;/p&gt;
 &lt;p&gt;결국 flexbox로 전환해서 해결했다.&lt;/p&gt;
 &lt;p&gt;교육 플랫폼에서 footer 레이아웃 버그가 있었다.&lt;/p&gt;
@@ -3876,7 +3911,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;근데 Chrome이 이걸 안 지켰다.&lt;/p&gt;
 &lt;p&gt;고정 높이랑 중첩 grid랑 임베드 컨텍스트가 합쳐지니까, 첫 번째 행을 min-content로 고정해버렸다.&lt;/p&gt;
 &lt;p&gt;남은 공간을 흡수하지 않는 거다. footer 행에 715픽셀이 배당됐다. footer 엘리먼트는 80픽셀인데.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;overflow:hidden&lt;/code&gt;을 추가해봤다.&lt;/p&gt;
+&lt;p&gt;overflow:hidden을 추가해봤다.&lt;/p&gt;
 &lt;p&gt;안 됐다. track sizing이 안 바뀐다.&lt;/p&gt;
 &lt;p&gt;실측으로 확인했다.&lt;/p&gt;
 &lt;h3&gt;소화면에서는 통과한 줄 알았다&lt;/h3&gt;
@@ -3894,7 +3929,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;flexbox로 전환&lt;/h3&gt;
 &lt;p&gt;결국 grid를 포기하고 flexbox로 전환했다.&lt;/p&gt;
 &lt;p&gt;섹션을 flex column으로 만들었다.&lt;/p&gt;
-&lt;p&gt;내용 영역에 &lt;code&gt;flex:1&lt;/code&gt;이랑 &lt;code&gt;min-height:0&lt;/code&gt;을 줬다. footer에 &lt;code&gt;shrink:0&lt;/code&gt;을 줬다.&lt;/p&gt;
+&lt;p&gt;내용 영역에 flex:1이랑 min-height:0을 줬다. footer에 shrink:0을 줬다.&lt;/p&gt;
 &lt;p&gt;flexbox는 이 조합을 신뢰성 있게 존중한다.&lt;/p&gt;
 &lt;p&gt;내용이 남은 공간을 다&lt;/p&gt;
 &lt;p&gt;차지하고 footer가 자기 높이만 유지한다.&lt;/p&gt;
@@ -3992,7 +4027,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;근데 바로 터지지 않았다.&lt;/p&gt;
 &lt;p&gt;캐시가 있어서 정상 동작했다.&lt;/p&gt;
 &lt;p&gt;이미지를 다시 빌드하면서 캐시가 날아갔다.&lt;/p&gt;
-&lt;p&gt;캐시가 없으니까, 처음 실행할 때 npx가 패키지를 다운로드한다.&lt;/p&gt;
+&lt;p&gt;캐시가 없으니까, 처음&lt;/p&gt;
+&lt;p&gt;실행할 때 npx가 패키지를 다운로드한다.&lt;/p&gt;
 &lt;p&gt;이 과정에서 문제가 생겼다.&lt;/p&gt;
 &lt;h3&gt;잠재 위험의 점화&lt;/h3&gt;
 &lt;p&gt;이게 핵심이다.&lt;/p&gt;
@@ -4261,7 +4297,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;110만 토큰에서 거절됐다.&lt;/p&gt;
 &lt;p&gt;문서의 200K는 틀렸다.&lt;/p&gt;
 &lt;p&gt;실제로는 1M을 지원한다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;[1m]&lt;/code&gt; 접미사도 필요 없었다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[1m]&lt;/code&gt; 접미사도 필요&lt;/p&gt;
+&lt;p&gt;없었다.&lt;/p&gt;
 &lt;p&gt;그냥 기본으로 1M이다.&lt;/p&gt;
 &lt;p&gt;문서를 믿지 말고 직접 검증하라는 교훈이 또 나왔다.&lt;/p&gt;
 &lt;p&gt;문서에 200K라고 돼 있었는데, 실제로는 1M이었다.&lt;/p&gt;
@@ -4314,7 +4351,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;타임아웃이 나면 폴백 모델로 전환한다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;조용히 멈추는&amp;quot; 문제를 &amp;quot;15초 후에 실패하는&amp;quot; 문제로 바꾼 거다.&lt;/p&gt;
 &lt;p&gt;실패하면 폴백으로 간다.&lt;/p&gt;
-&lt;p&gt;조용히 멈추면 아무것도 못 하지만 실패하면 다음 단계로 간다.&lt;/p&gt;
+&lt;p&gt;조용히 멈추면 아무것도 못 하지만 실패하면 다음&lt;/p&gt;
+&lt;p&gt;단계로 간다.&lt;/p&gt;
 &lt;h2&gt;개인이랑 회사 설정 분리&lt;/h2&gt;
 &lt;p&gt;게이트웨이 마이그레이션이 필요하니까, 아예 개인이랑 회사 설정을 분리했다.&lt;/p&gt;
 &lt;p&gt;개인 설정이랑 회사 설정을 따로 둔다.&lt;/p&gt;
@@ -4438,8 +4476,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;그리고 괴담 크롤러 재설계에서 배운 건 &amp;quot;비싼 단계를 나중에&amp;quot;다.&lt;/p&gt;
 &lt;p&gt;싼 걸로 먼저 걸러내면, 비싼 단계에 들어가는 데이터가 줄어든다.&lt;/p&gt;
 &lt;p&gt;이건 비용 최적화의 기본이다.&lt;/p&gt;
-</content:encoded></item><item><title>존재하지 않는 버그를 고치려다
-과도하게 만든 토큰 예산 시스템</title><link>https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/</guid><description>프롬프트가 매번 주입된다? 이날은 에이전트 도구를 많이 만졌다. 그중에서 가장 인상적인 교훈은 &quot;존재하지 않는 버그&quot;를 고치려다 복잡하게 만든 토큰 예산 시스템이었다. 문제가 없는데 문제가 있다고 생각해서 과도하게 해결하려 했다. 결국 간단한 해결로 되돌렸다. 문제는 이렇게 시작했다. </description><pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;프롬프트가 매번 주입된다?&lt;/h2&gt;
+</content:encoded></item><item><title>존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템</title><link>https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/</guid><description>프롬프트가 매번 주입된다? 이날은 에이전트 도구를 많이 만졌다. 그중에서 가장 인상적인 교훈은 &quot;존재하지 않는 버그&quot;를 고치려다 복잡하게 만든 토큰 예산 시스템이었다. 문제가 없는데 문제가 있다고 생각해서 과도하게 해결하려 했다. 결국 간단한 해결로 되돌렸다. 문제는 이렇게 시작했다. </description><pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;프롬프트가 매번 주입된다?&lt;/h2&gt;
 &lt;p&gt;이날은 에이전트 도구를 많이 만졌다.&lt;/p&gt;
 &lt;p&gt;그중에서 가장 인상적인 교훈은 &amp;quot;존재하지 않는 버그&amp;quot;를 고치려다&lt;/p&gt;
 &lt;p&gt;복잡하게 만든 토큰 예산 시스템이었다.&lt;/p&gt;
@@ -4469,7 +4506,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;실제로는 프롬프트가 매번 주입되는 게 아니었다.&lt;/p&gt;
 &lt;p&gt;한 번 주입되고 컨텍스트에 남아 있을 뿐이었다.&lt;/p&gt;
 &lt;p&gt;에이전트는 첫 요청에 프롬프트를 받는다.&lt;/p&gt;
-&lt;p&gt;그 다음 요청에서는 프롬프트가 다시 주입되지 않는다.&lt;/p&gt;
+&lt;p&gt;그 다음&lt;/p&gt;
+&lt;p&gt;요청에서는 프롬프트가 다시 주입되지 않는다.&lt;/p&gt;
 &lt;p&gt;근데 에이전트가 &amp;quot;아직 프롬프트가 보인다&amp;quot;고 한다.&lt;/p&gt;
 &lt;p&gt;이게 &amp;quot;다시 주입된 것&amp;quot;이 아니라, &amp;quot;컨텍스트에 남아 있는 것&amp;quot;이었다.&lt;/p&gt;
 &lt;p&gt;첫 번째 주입이 대화 컨텍스트에 들어간다.&lt;/p&gt;
@@ -4485,7 +4523,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;끝이다.&lt;/p&gt;
 &lt;p&gt;복잡했던 시스템을 다&lt;/p&gt;
 &lt;p&gt;걷어내고 변수 하나로 바꿨다.&lt;/p&gt;
-&lt;p&gt;파일 기반 상태도, 전역 변수도, 복잡한 추적도 전부 필요 없었다.&lt;/p&gt;
+&lt;p&gt;파일 기반 상태도, 전역 변수도, 복잡한 추적도 전부 필요&lt;/p&gt;
+&lt;p&gt;없었다.&lt;/p&gt;
 &lt;h3&gt;과도하게 만든 이유&lt;/h3&gt;
 &lt;p&gt;왜 이렇게 됐을까.&lt;/p&gt;
 &lt;p&gt;증상을 잘못 해석했다.&lt;/p&gt;
@@ -4933,8 +4972,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;모달이 열려 있는데 스크롤 잠금이 풀려버린 거다.&lt;/p&gt;
 &lt;h3&gt;최종 해결&lt;/h3&gt;
 &lt;p&gt;해결은 헤드리스 UI의 실제 상태를 기준으로 잠그는 거였다.&lt;/p&gt;
-&lt;p&gt;모달 요소에 &lt;code&gt;data-headlessui-state&lt;/code&gt; 속성이 있다.&lt;/p&gt;
-&lt;p&gt;열려 있으면 &lt;code&gt;open&lt;/code&gt; 값이 들어간다.&lt;/p&gt;
+&lt;p&gt;모달 요소에 data-headlessui-state 속성이 있다.&lt;/p&gt;
+&lt;p&gt;열려 있으면 open 값이 들어간다.&lt;/p&gt;
 &lt;p&gt;이 속성을 선택자에 넣었다.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;body:has(.edu-base-modal[data-headlessui-state~=&amp;#39;open&amp;#39;]) { overflow: hidden; }
 &lt;/code&gt;&lt;/pre&gt;
@@ -4992,8 +5031,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;기준이 명확해야 결정이 일관된다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;이게 맞나&amp;quot;를 판단하려면 기준이 있어야 한다.&lt;/p&gt;
 &lt;p&gt;기준 없이는 매번 다른 결정이 나온다.&lt;/p&gt;
-</content:encoded></item><item><title>과도한 배포를 막으려다
-배포가 안 되는 문제를 만들다</title><link>https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/</guid><description>알고리즘 앱이 배포가 안 된다 이날은 며칠 전에 만든 배포 필터가 새 문제를 만든 걸 발견한 날이었다. 과도한 배포를 막으려고 허용 목록을 만들었다. 근데 목록에 없는 앱이 조용히 배포에서 제외되었다. 문제를 고치려다 더 큰 문제를 만든 거다. 교육 플랫폼의 알고리즘 문제 출제 앱을 수</description><pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;알고리즘 앱이 배포가 안 된다&lt;/h2&gt;
+</content:encoded></item><item><title>과도한 배포를 막으려다  배포가 안 되는 문제를 만들다</title><link>https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/</guid><description>알고리즘 앱이 배포가 안 된다 이날은 며칠 전에 만든 배포 필터가 새 문제를 만든 걸 발견한 날이었다. 과도한 배포를 막으려고 허용 목록을 만들었다. 근데 목록에 없는 앱이 조용히 배포에서 제외되었다. 문제를 고치려다 더 큰 문제를 만든 거다. 교육 플랫폼의 알고리즘 문제 출제 앱을 수</description><pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;알고리즘 앱이 배포가 안 된다&lt;/h2&gt;
 &lt;p&gt;이날은 며칠 전에 만든 배포 필터가 새 문제를 만든 걸 발견한 날이었다.&lt;/p&gt;
 &lt;p&gt;과도한 배포를 막으려고 허용 목록을 만들었다.&lt;/p&gt;
 &lt;p&gt;근데 목록에 없는 앱이 조용히 배포에서 제외되었다.&lt;/p&gt;
@@ -5086,8 +5124,8 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;고친 문제가 명확하면 좋아서 넘어가기 쉽다.&lt;/p&gt;
 &lt;p&gt;근데 부작용은 항상 있다.&lt;/p&gt;
 &lt;p&gt;부작용까지 생각하는 습관이 필요하다.&lt;/p&gt;
-</content:encoded></item><item><title>한 글자 차이로 배열이 nil이 되는 Rails 버그와 압축 무한 루프</title><link>https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/</guid><description>부분 3, 4를 선택했는데 1, 2가 나온다 이날 나는은 인프라가 조용히 잘못 동작하는 문제를 잡은 날이었다. 한 글자 차이로 배열이 사라지는 Rails 버그, 컨텍스트가 꽉 찰 때마다 무한 루프에 빠지는 압축 문제. 전부 &quot;보이지 않는 곳에서 조용히 실패하는&quot; 버그였다. 교육 플랫폼에</description><pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;부분 3, 4를 선택했는데 1, 2가 나온다&lt;/h2&gt;
-&lt;p&gt;이날 나는은 인프라가 조용히 잘못 동작하는 문제를 잡은 날이었다.&lt;/p&gt;
+</content:encoded></item><item><title>한 글자 차이로 배열이 nil이 되는 Rails 버그와 압축 무한 루프</title><link>https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/</guid><description>부분 3, 4를 선택했는데 1, 2가 나온다 이날 나는 인프라가 조용히 잘못 동작하는 문제를 잡은 날이었다. 한 글자 차이로 배열이 사라지는 Rails 버그, 컨텍스트가 꽉 찰 때마다 무한 루프에 빠지는 압축 문제. 전부 &quot;보이지 않는 곳에서 조용히 실패하는&quot; 버그였다. 교육 플랫폼에서</description><pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;부분 3, 4를 선택했는데 1, 2가 나온다&lt;/h2&gt;
+&lt;p&gt;이날 나는 인프라가 조용히 잘못 동작하는 문제를 잡은 날이었다.&lt;/p&gt;
 &lt;p&gt;한 글자 차이로 배열이 사라지는 Rails 버그, 컨텍스트가 꽉 찰 때마다&lt;/p&gt;
 &lt;p&gt;무한 루프에 빠지는 압축 문제.&lt;/p&gt;
 &lt;p&gt;전부 &amp;quot;보이지 않는 곳에서 조용히 실패하는&amp;quot; 버그였다.&lt;/p&gt;
@@ -5397,7 +5435,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;계획하는 에이전트, 씬을 쓰는 에이전트, 검증하는 에이전트.&lt;/p&gt;
 &lt;p&gt;백만 토큰 컨텍스트 모델을 쓰면 이전 에피소드 전체 텍스트를 한 번에 넣을 수 있다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
-&lt;p&gt;요약 계층이 필요 없다고 생각했다.&lt;/p&gt;
+&lt;p&gt;요약 계층이 필요&lt;/p&gt;
+&lt;p&gt;없다고 생각했다.&lt;/p&gt;
 &lt;p&gt;근데 같은 날 오후에 설계가 바뀌었다.&lt;/p&gt;
 &lt;p&gt;요약 에이전트를 다시 넣었다.&lt;/p&gt;
 &lt;p&gt;요약이 없으면 여러 에피소드에 걸친 일관성이 깨진다.&lt;/p&gt;
@@ -5407,7 +5446,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;계획, 작성, 요약, 검토.&lt;/p&gt;
 &lt;p&gt;요약은 5개 에피소드마다&lt;/p&gt;
 &lt;p&gt;아크 요약을 만들어서 장기 기억으로 쓴다.&lt;/p&gt;
-&lt;p&gt;검토 에이전트는 충돌이랑 누락을 찾아서 다음 계획 에이전트한테 피드백을 준다.&lt;/p&gt;
+&lt;p&gt;검토 에이전트는 충돌이랑 누락을 찾아서 다음&lt;/p&gt;
+&lt;p&gt;계획 에이전트한테 피드백을 준다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이 구조는 이후에 계속 진화했다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5423,7 +5463,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;도입해보고 안 좋으면 빼는 게 맞다.&lt;/p&gt;
 &lt;p&gt;둘째, 설계는 진화한다.&lt;/p&gt;
 &lt;p&gt;소설 생성 에이전트를 처음에 3개로 설계했다가 같은 날 4개로 바꿨다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;요약이 필요 없다&amp;quot;고 생각했는데, 몇 시간 만에 &amp;quot;필요하다&amp;quot;로 바뀌었다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;요약이 필요&lt;/p&gt;
+&lt;p&gt;없다&amp;quot;고 생각했는데, 몇 시간 만에 &amp;quot;필요하다&amp;quot;로 바뀌었다.&lt;/p&gt;
 &lt;p&gt;설계를 고정하지 말고 한계가 보이면 바로 수정해야 한다.&lt;/p&gt;
 </content:encoded></item><item><title>직접 만든 에러 클래스를 227줄 지운 날</title><link>https://hyeokjaelee.github.io/agenterror-227-lines-deleted-biome-migration/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/agenterror-227-lines-deleted-biome-migration/</guid><description>에러 클래스를 왜 지웠는가 이날은 &quot;직접 만든 걸 프레임워크 내장으로 바꾸는&quot; 날이었다. 227줄짜리 에러 클래스를 지우고 프레임워크가 제공하는 기능으로 교체했다. 린터 여러 개를 하나로 통합했다. 그리고 CI에서 또 한바탕했다. 내가 만드는 소설 생성 프로젝트에 에러 처리 클래스가 있</description><pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;에러 클래스를 왜 지웠는가&lt;/h2&gt;
 &lt;p&gt;이날은 &amp;quot;직접 만든 걸 프레임워크 내장으로 바꾸는&amp;quot; 날이었다.&lt;/p&gt;
@@ -6124,7 +6165,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;캐시를 무효화하는 호출을 추가해서 해결했다.&lt;/p&gt;
 &lt;h3&gt;잠금 모달 경로 누락&lt;/h3&gt;
 &lt;p&gt;잠금 모달이 모든 진입 경로에서 떠야 하는데, 일부 경로에서 안 떴다.&lt;/p&gt;
-&lt;p&gt;사이드바, 이전이나 다음 버튼, 직접 URL, 대시보드 이렇게 네 경로가 있다.&lt;/p&gt;
+&lt;p&gt;사이드바, 이전이나 다음&lt;/p&gt;
+&lt;p&gt;버튼, 직접 URL, 대시보드 이렇게 네 경로가 있다.&lt;/p&gt;
 &lt;p&gt;이 중 일부 경로에서 잠금이 안 먹혔다.&lt;/p&gt;
 &lt;p&gt;모든 경로를 찾아내서 각 경로에서 잠금 모달이 뜨게 만들었다.&lt;/p&gt;
 &lt;p&gt;한 경로라도 빠지면 잠긴 파트로 들어갈 수 있다.&lt;/p&gt;
@@ -6270,7 +6312,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;근데 대시보드 API에는 빠져 있었다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
 &lt;p&gt;대시보드에서는 잠금 상태를 모른다.&lt;/p&gt;
-&lt;p&gt;잠금 상태를 모르니까, &amp;quot;다음 강의&amp;quot; 버튼이 잠긴 파트로 그냥 넘어가버린다.&lt;/p&gt;
+&lt;p&gt;잠금 상태를 모르니까, &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;강의&amp;quot; 버튼이 잠긴 파트로 그냥 넘어가버린다.&lt;/p&gt;
 &lt;p&gt;잠금 모달이 안 뜬다.&lt;/p&gt;
 &lt;p&gt;이건 프론트엔드 버그가 아니다.&lt;/p&gt;
 &lt;p&gt;API 응답에 필드가 없으면, 프론트엔드에서 아무리 처리해도 소용없다.&lt;/p&gt;
@@ -6308,7 +6351,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;blockquote&gt;
 &lt;p&gt;이 정리는 다음 날로 이어진다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;다음 날에 타입스크립트 결과물 290개를 더 쓸어냈다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;날에 타입스크립트 결과물 290개를 더 쓸어냈다.&lt;/p&gt;
 &lt;p&gt;설정 불일치로 쌓인 결과물이 그만큼 있었던 거다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;3-way 교차 검증이 이날의 핵심이었다.&lt;/p&gt;
@@ -6449,7 +6493,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;순차 수강 잠금 필드가 커리큘럼 API에는 있었는데, 대시보드 API에는 빠져 있었다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
 &lt;p&gt;대시보드에서는 잠금 상태를 모른다.&lt;/p&gt;
-&lt;p&gt;그래서 &amp;quot;다음 강의&amp;quot; 버튼이 잠긴 파트로 그냥 넘어가버린다.&lt;/p&gt;
+&lt;p&gt;그래서 &amp;quot;다음&lt;/p&gt;
+&lt;p&gt;강의&amp;quot; 버튼이 잠긴 파트로 그냥 넘어가버린다.&lt;/p&gt;
 &lt;p&gt;잠금 모달이 안 뜬다.&lt;/p&gt;
 &lt;p&gt;이건 프론트엔드 버그가 아니라 백엔드 계약의 누락이었다.&lt;/p&gt;
 &lt;p&gt;형제 API에서도 잠금 필드를 반환하게 수정했다.&lt;/p&gt;
@@ -6551,7 +6596,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;개인 도구에서는 폴백 플러그인 설정을 하나로 통합했다.&lt;/p&gt;
 &lt;p&gt;두 작업 모두 &amp;quot;암묵적인 걸 명시적으로 만드는&amp;quot; 방향이었다.&lt;/p&gt;
 &lt;p&gt;회사 교육 플랫폼에서 순차 수강 잠금 화면을 구현했다.&lt;/p&gt;
-&lt;p&gt;새 코스 종류에서 이전 파트를 완료해야 다음 파트가 열리는 기능이다.&lt;/p&gt;
+&lt;p&gt;새 코스 종류에서 이전 파트를 완료해야 다음&lt;/p&gt;
+&lt;p&gt;파트가 열리는 기능이다.&lt;/p&gt;
 &lt;p&gt;잠긴 파트 화면에서 보여줄 게 네 가지 있었다.&lt;/p&gt;
 &lt;p&gt;완료율 표시, 잠금 라벨이랑 부제목, 잠긴 콘텐츠 어둡게 처리, 잠긴 섹션 아코디언 접기.&lt;/p&gt;
 &lt;p&gt;완료율은 학생이 이 파트를 얼마나 했는지 보여주는 거다.&lt;/p&gt;
@@ -6573,7 +6619,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;h3&gt;잠금 UI가 까다로운 이유&lt;/h3&gt;
 &lt;p&gt;잠금 UI가 생각보다&lt;/p&gt;
 &lt;p&gt;까다로운 이유는, 파트에 도달하는 경로가 여러 개라서다.&lt;/p&gt;
-&lt;p&gt;사이드바에서 클릭해서 들어올 수도 있고 이전이나 다음 버튼으로 넘어올 수도 있고 URL을 직접 입력해서 들어올 수도 있다.&lt;/p&gt;
+&lt;p&gt;사이드바에서 클릭해서 들어올 수도 있고 이전이나 다음&lt;/p&gt;
+&lt;p&gt;버튼으로 넘어올 수도 있고 URL을 직접 입력해서 들어올 수도 있다.&lt;/p&gt;
 &lt;p&gt;이 모든 경로에서 잠금이 제대로 동작해야 한다.&lt;/p&gt;
 &lt;p&gt;하나라도 빠지면 잠긴 파트가 열려버린다.&lt;/p&gt;
 &lt;p&gt;그래서 백엔드에서 오는 잠금 필드를 프론트엔드에서 하나로 계산해서 모든 경로에서 같은 값을 쓰게 만든다.&lt;/p&gt;
@@ -6692,7 +6739,7 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;내가 쓰는 AI 에이전트 워크플로 시스템에서 이상한 동작을 발견했다.&lt;/p&gt;
 &lt;p&gt;레거시 경로가 초기화되지 않는 문제였다.&lt;/p&gt;
 &lt;p&gt;원인을 추적해보니 리팩터링 과정에서 파라미터가 사라진 거였다.&lt;/p&gt;
-&lt;p&gt;누군가 리팩터링을 하면서 &lt;code&gt;init&lt;/code&gt; 파라미터를 제거했다.&lt;/p&gt;
+&lt;p&gt;누군가 리팩터링을 하면서 init 파라미터를 제거했다.&lt;/p&gt;
 &lt;p&gt;그랬더니 레거시 경로 초기화가 조용히 건너뛰었다.&lt;/p&gt;
 &lt;p&gt;에러도 안 나고 그냥 안 돌아가는 거다.&lt;/p&gt;
 &lt;p&gt;이런 버그를 &amp;quot;회귀&amp;quot;라고 부른다.&lt;/p&gt;
@@ -6935,13 +6982,16 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;상태를 정확히 반영하는 게 안정성의 기반이다.&lt;/p&gt;
 </content:encoded></item><item><title>콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제와 SSE 무한 재시도</title><link>https://hyeokjaelee.github.io/cold-cache-wrong-model-sse-infinite-retry/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/cold-cache-wrong-model-sse-infinite-retry/</guid><description>콜드 캐시 모델 해석 버그 나는 회사 작업이랑 에이전트 도구 작업을 같이 한 날이었다. 회사에서는 새 코스 분류 도입의 진행 상황을 점검하고 다음 주 계획을 잡았다. 에이전트 도구에서는 두 가지 버그를 잡았다. 콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제랑 폴백 플러그인의 SSE </description><pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;콜드 캐시 모델 해석 버그&lt;/h2&gt;
 &lt;p&gt;나는 회사 작업이랑 에이전트 도구 작업을 같이 한 날이었다.&lt;/p&gt;
-&lt;p&gt;회사에서는 새 코스 분류 도입의 진행 상황을 점검하고 다음 주 계획을 잡았다.&lt;/p&gt;
+&lt;p&gt;회사에서는 새 코스 분류 도입의 진행 상황을 점검하고 다음&lt;/p&gt;
+&lt;p&gt;주 계획을 잡았다.&lt;/p&gt;
 &lt;p&gt;에이전트 도구에서는 두 가지 버그를 잡았다.&lt;/p&gt;
 &lt;p&gt;콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제랑 폴백 플러그인의 SSE 무한 재시도 루프다.&lt;/p&gt;
 &lt;p&gt;첫 번째 버그는 미묘했다.&lt;/p&gt;
-&lt;p&gt;에이전트가 처음 실행될 때, 설정한 모델과 다른 모델을 할당받는 문제였다.&lt;/p&gt;
+&lt;p&gt;에이전트가 처음&lt;/p&gt;
+&lt;p&gt;실행될 때, 설정한 모델과 다른 모델을 할당받는 문제였다.&lt;/p&gt;
 &lt;p&gt;원인은 콜드 캐시였다.&lt;/p&gt;
-&lt;p&gt;처음 실행할 때는 모델 목록 캐시가 비어 있다.&lt;/p&gt;
+&lt;p&gt;처음&lt;/p&gt;
+&lt;p&gt;실행할 때는 모델 목록 캐시가 비어 있다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
 &lt;p&gt;모델 ID를 해석하는 코드가 다른 경로로 빠진다.&lt;/p&gt;
 &lt;p&gt;그 경로는 디폴트 모델로 떨어지고 설정한 모델이랑 실제로 할당되는 모델이 어긋난다.&lt;/p&gt;
@@ -6987,17 +7037,20 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;이번주에는 2주차 범위를 정리했다.&lt;/p&gt;
 &lt;p&gt;파트 완료율, 순차 수강 잠금, 수료 정책 분기.&lt;/p&gt;
 &lt;p&gt;이게 다음에 구현할 단계다.&lt;/p&gt;
-&lt;p&gt;순차 수강은 학생이 이전 파트를 완료해야 다음 파트가 열리는 기능이다.&lt;/p&gt;
+&lt;p&gt;순차 수강은 학생이 이전 파트를 완료해야 다음&lt;/p&gt;
+&lt;p&gt;파트가 열리는 기능이다.&lt;/p&gt;
 &lt;p&gt;새 코스 종류에 이 기능을 확장하는 게 핵심이다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이 작업은 전체 8개 단계로 나뉘어 있다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;지금은 그중 앞부분을 하고 있다.&lt;/p&gt;
 &lt;p&gt;코스 분류 추가로 시작해서, 수강 설정, 학생 화면, 수료 기준, 약관 분기까지 이어진다.&lt;/p&gt;
-&lt;p&gt;이날은 진행 상황을 점검하고 다음 계획을 잡은 단계였다.&lt;/p&gt;
+&lt;p&gt;이날은 진행 상황을 점검하고 다음&lt;/p&gt;
+&lt;p&gt;계획을 잡은 단계였다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;콜드 캐시 버그가 흥미로웠다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;처음 실행할 때만&amp;quot; 발생하는 버그는 잡기 어렵다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;처음&lt;/p&gt;
+&lt;p&gt;실행할 때만&amp;quot; 발생하는 버그는 잡기 어렵다.&lt;/p&gt;
 &lt;p&gt;두 번째 실행부터는 캐시가 있으니까&lt;/p&gt;
 &lt;p&gt;정상 동작한다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
@@ -7073,7 +7126,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;컨텍스트가 차면 큰 모델로 넘어가고 압축되면 돌아온다.&lt;/p&gt;
 &lt;h2&gt;설정 없이 바로 쓰게&lt;/h2&gt;
 &lt;p&gt;사용자 경험도 신경 썼다.&lt;/p&gt;
-&lt;p&gt;처음 실행하면 설정 파일을 자동으로 만든다.&lt;/p&gt;
+&lt;p&gt;처음&lt;/p&gt;
+&lt;p&gt;실행하면 설정 파일을 자동으로 만든다.&lt;/p&gt;
 &lt;p&gt;JSON 스키마 참조까지 넣어서 에디터에서 자동 완성이랑 검증이 된다.&lt;/p&gt;
 &lt;p&gt;설정도 단축형을 지원한다.&lt;/p&gt;
 &lt;p&gt;프로바이더랑 모델을 객체로 쓰는 대신, 문자열 하나로 쓸 수 있다.&lt;/p&gt;
@@ -7116,7 +7170,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;첫 단계는 코스 분류 옵션 추가, 기본값 설정, 커리큘럼 타입 바인딩, 제품 유형 필터링이었다.&lt;/p&gt;
 &lt;p&gt;새 코스 종류를 선택할 수 있게 만들고, 기본값을 잡고, 커리큘럼 화면이 코스 타입에 따라 달라지게 묶고, 코스를 제품 유형으로 필터링하는 거다.&lt;/p&gt;
 &lt;p&gt;전체 작업이 8개 단계로 나뉘어 있다.&lt;/p&gt;
-&lt;p&gt;이 첫 단계가 끝나야 다음 단계로 갈 수 있다.&lt;/p&gt;
+&lt;p&gt;이 첫 단계가 끝나야 다음&lt;/p&gt;
+&lt;p&gt;단계로 갈 수 있다.&lt;/p&gt;
 &lt;p&gt;기초를 잡는 단계라서 여기가 틀리면 뒤가 다&lt;/p&gt;
 &lt;p&gt;틀린다.&lt;/p&gt;
 &lt;p&gt;검증은 빡세게 했다.&lt;/p&gt;
@@ -7192,8 +7247,8 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;메인 에이전트가 다&lt;/p&gt;
 &lt;p&gt;하면 편할 것 같지만 실제로는 컨텍스트가 무거워지고 품질이 떨어진다.&lt;/p&gt;
 &lt;p&gt;책임을 나누고 각자 전문화하면 전체가 더 똑똑해진다.&lt;/p&gt;
-</content:encoded></item><item><title>한 기능을 닫으며 더 큰 일반화 작업을 시작한 날</title><link>https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/</guid><description>역량 진단 리포트 확장 마무리 이날 나는은 한 기능을 닫으면서 더 큰 작업을 연 날이었다. 특정 코스 전용이던 역량 진단 리포트를 전 코스로 확장하는 작업을 마무리했다. 그리고 같은 날, 코스 분류 체계 전체를 재설계하는 더 큰 작업을 시작했다. 며칠 전에 역량 진단 리포트를 국비지원 </description><pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;역량 진단 리포트 확장 마무리&lt;/h2&gt;
-&lt;p&gt;이날 나는은 한 기능을 닫으면서 더 큰 작업을 연 날이었다.&lt;/p&gt;
+</content:encoded></item><item><title>한 기능을 닫으며 더 큰 일반화 작업을 시작한 날</title><link>https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/</guid><description>역량 진단 리포트 확장 마무리 이날 나는 한 기능을 닫으면서 더 큰 작업을 연 날이었다. 특정 코스 전용이던 역량 진단 리포트를 전 코스로 확장하는 작업을 마무리했다. 그리고 같은 날, 코스 분류 체계 전체를 재설계하는 더 큰 작업을 시작했다. 며칠 전에 역량 진단 리포트를 국비지원 코</description><pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;역량 진단 리포트 확장 마무리&lt;/h2&gt;
+&lt;p&gt;이날 나는 한 기능을 닫으면서 더 큰 작업을 연 날이었다.&lt;/p&gt;
 &lt;p&gt;특정 코스 전용이던 역량 진단 리포트를 전 코스로 확장하는 작업을 마무리했다.&lt;/p&gt;
 &lt;p&gt;그리고 같은 날, 코스 분류 체계 전체를 재설계하는 더 큰 작업을 시작했다.&lt;/p&gt;
 &lt;p&gt;며칠 전에 역량 진단 리포트를 국비지원 코스 전용에서 전 코스로 확장했다.&lt;/p&gt;
@@ -7265,8 +7320,7 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;큰 작업을 처음부터 새로운 패턴으로 하면 검증이 안 된 상태로 들어가니까&lt;/p&gt;
 &lt;p&gt;위험하다.&lt;/p&gt;
 &lt;p&gt;작은 곳에서 검증하고 큰 곳으로 가는 게 안전하다.&lt;/p&gt;
-</content:encoded></item><item><title>블루투스가 부팅마다
-꺼지는 문제, TLP가 숨긴 서비스</title><link>https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/</guid><description>매번 부팅하면 블루투스가 꺼진다 이날은 코드를 안 짜고 시스템 문제를 잡은 날이었다. 매번 부팅할 때마다 블루투스가 꺼져 있어서 수동으로 다시 켜야 하는 문제가 있었다. 귀찮은 일이었는데, 드디어 원인을 찾아서 고쳤다. 증상은 단순했다. 컴퓨터를 켤 때마다 블루투스가 꺼져 있었다. 어제</description><pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;매번 부팅하면 블루투스가 꺼진다&lt;/h2&gt;
+</content:encoded></item><item><title>블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스</title><link>https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/</guid><description>매번 부팅하면 블루투스가 꺼진다 이날은 코드를 안 짜고 시스템 문제를 잡은 날이었다. 매번 부팅할 때마다 블루투스가 꺼져 있어서 수동으로 다시 켜야 하는 문제가 있었다. 귀찮은 일이었는데, 드디어 원인을 찾아서 고쳤다. 증상은 단순했다. 컴퓨터를 켤 때마다 블루투스가 꺼져 있었다. 어제</description><pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;매번 부팅하면 블루투스가 꺼진다&lt;/h2&gt;
 &lt;p&gt;이날은 코드를 안 짜고 시스템 문제를 잡은 날이었다.&lt;/p&gt;
 &lt;p&gt;매번 부팅할 때마다&lt;/p&gt;
 &lt;p&gt;블루투스가 꺼져 있어서 수동으로 다시 켜야 하는 문제가 있었다.&lt;/p&gt;
@@ -7280,9 +7334,10 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;서버를 안정적으로 운영하려면 잡다한 수동 작업을 없애야 한다.&lt;/p&gt;
 &lt;p&gt;블루투스 매번 켜는 것도 그중 하나였다.&lt;/p&gt;
 &lt;h2&gt;원인은 서비스가 숨겨져 있었다&lt;/h2&gt;
-&lt;p&gt;원인을 추적해보니 &lt;code&gt;systemd-rfkill&lt;/code&gt; 서비스가 숨겨져 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;systemd-rfkill&lt;/code&gt;은 재부팅해도 무선 장치 상태를 기억하는 서비스다.&lt;/p&gt;
-&lt;p&gt;블루투스랑 와이파이 켜기 상태를 저장했다가, 다음 부팅 때 그 상태로 복원한다.&lt;/p&gt;
+&lt;p&gt;원인을 추적해보니 systemd-rfkill 서비스가 숨겨져 있었다.&lt;/p&gt;
+&lt;p&gt;systemd-rfkill은 재부팅해도 무선 장치 상태를 기억하는 서비스다.&lt;/p&gt;
+&lt;p&gt;블루투스랑 와이파이 켜기 상태를 저장했다가, 다음&lt;/p&gt;
+&lt;p&gt;부팅 때 그 상태로 복원한다.&lt;/p&gt;
 &lt;p&gt;이 서비스가 정상이면 블루투스를 켜놓고 재부팅해도 켜진 채로 돌아온다.&lt;/p&gt;
 &lt;p&gt;근데 이 서비스가 비활성화된 게 아니라 아예 숨겨져 있었다.&lt;/p&gt;
 &lt;p&gt;숨겨지면 서비스가 아예 동작을 안 한다.&lt;/p&gt;
@@ -7292,10 +7347,10 @@ params.permit(part_ids: [])   # 배열 허용
 &lt;p&gt;그럼 왜 이 서비스가 숨겨져 있었을까.&lt;/p&gt;
 &lt;p&gt;범인은 TLP라는 절전 패키지였다.&lt;/p&gt;
 &lt;p&gt;두 달 전쯤에 노트북 배터리 최적화를 위해서 설치했던 거다.&lt;/p&gt;
-&lt;p&gt;근데 TLP가 설치될 때 &lt;code&gt;systemd-rfkill&lt;/code&gt;을 자동으로 숨긴다는 걸 몰랐다.&lt;/p&gt;
+&lt;p&gt;근데 TLP가 설치될 때 systemd-rfkill을 자동으로 숨긴다는 걸 몰랐다.&lt;/p&gt;
 &lt;p&gt;TLP가 이렇게 하는 이유가 있다.&lt;/p&gt;
 &lt;p&gt;TLP가 자기가 직접 블루투스랑 와이파이 전원 상태를 관리하고 싶어서다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;systemd-rfkill&lt;/code&gt;이 같은 일을 하니까, 충돌을 피하려고 경쟁 서비스를 숨겨버리는 거다.&lt;/p&gt;
+&lt;p&gt;systemd-rfkill이 같은 일을 하니까, 충돌을 피하려고 경쟁 서비스를 숨겨버리는 거다.&lt;/p&gt;
 &lt;p&gt;TLP 입장에서는 합리적인 선택이다.&lt;/p&gt;
 &lt;p&gt;근데 문제는 이 부작용이 설치한 날 바로 안 보인다는 거다.&lt;/p&gt;
 &lt;p&gt;TLP를 설치한 날에는 블루투스가 정상일 수 있다.&lt;/p&gt;
@@ -7318,12 +7373,12 @@ sudo systemctl start systemd-rfkill.service
 &lt;p&gt;더 이상 매번 수동으로 켤 필요가 없어졌다.&lt;/p&gt;
 &lt;h2&gt;남는 질문&lt;/h2&gt;
 &lt;p&gt;하나 남는 질문이 있다.&lt;/p&gt;
-&lt;p&gt;TLP랑 &lt;code&gt;systemd-rfkill&lt;/code&gt;을 같이 쓸 수 있는가.&lt;/p&gt;
+&lt;p&gt;TLP랑 systemd-rfkill을 같이 쓸 수 있는가.&lt;/p&gt;
 &lt;p&gt;두 가지 방향이 있다.&lt;/p&gt;
 &lt;p&gt;하나는 TLP 설정에서 상태 복원 옵션을 켜서, TLP가 직접 상태를 복원하게 만드는 거다.&lt;/p&gt;
-&lt;p&gt;다른 하나는 TLP의 블루투스 관리를 끄고 &lt;code&gt;systemd-rfkill&lt;/code&gt;한테 맡기는 거다.&lt;/p&gt;
+&lt;p&gt;다른 하나는 TLP의 블루투스 관리를 끄고 systemd-rfkill한테 맡기는 거다.&lt;/p&gt;
 &lt;p&gt;둘 중 어느 쪽이 더 나은지는 아직 못 정했다.&lt;/p&gt;
-&lt;p&gt;당장은 &lt;code&gt;systemd-rfkill&lt;/code&gt;을 복원하는 걸로 문제를 해결했다.&lt;/p&gt;
+&lt;p&gt;당장은 systemd-rfkill을 복원하는 걸로 문제를 해결했다.&lt;/p&gt;
 &lt;p&gt;TLP가 다른 절전 기능은 여전히 쓰고 있으니까, 두 서비스가 충돌하는지는 좀 더 지켜봐야 한다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;이런 디버깅이 재밌는 이유는, 원인이랑 증상이 멀리 떨어져 있기 때문이다.&lt;/p&gt;
@@ -7335,8 +7390,8 @@ sudo systemctl start systemd-rfkill.service
 &lt;p&gt;그리고 항상 켜두는 서버를 운영하려면, 이런 작은 짜증도 하나씩 없애야 한다.&lt;/p&gt;
 &lt;p&gt;매번 수동으로 블루투스를 켜는 건 10초짜리 일이지만 매일 하면 귀찮다.&lt;/p&gt;
 &lt;p&gt;자동화하거나 고쳐놓으면 그 귀찮음이 영원히 사라진다.&lt;/p&gt;
-</content:encoded></item><item><title>역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로</title><link>https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/</guid><description>역량 진단 리포트 마무리 이날 나는은 제품 기능 마무리랑 테스트 인프라 안정화를 같이 한 날이었다. 역량 진단 리포트 확장의 마지막 정리를 하고 QA 시트에서 불필요한 API 의존성을 빼고 멈춤 문제의 타임아웃을 줄였다. 어제 역량 진단 리포트를 국비지원 코스 전용에서 전 코스로 확장했</description><pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;역량 진단 리포트 마무리&lt;/h2&gt;
-&lt;p&gt;이날 나는은 제품 기능 마무리랑 테스트 인프라 안정화를 같이 한 날이었다.&lt;/p&gt;
+</content:encoded></item><item><title>역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로</title><link>https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/</guid><description>역량 진단 리포트 마무리 이날 나는 제품 기능 마무리랑 테스트 인프라 안정화를 같이 한 날이었다. 역량 진단 리포트 확장의 마지막 정리를 하고 QA 시트에서 불필요한 API 의존성을 빼고 멈춤 문제의 타임아웃을 줄였다. 어제 역량 진단 리포트를 국비지원 코스 전용에서 전 코스로 확장했다</description><pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;역량 진단 리포트 마무리&lt;/h2&gt;
+&lt;p&gt;이날 나는 제품 기능 마무리랑 테스트 인프라 안정화를 같이 한 날이었다.&lt;/p&gt;
 &lt;p&gt;역량 진단 리포트 확장의 마지막 정리를 하고 QA 시트에서 불필요한 API 의존성을 빼고 멈춤 문제의 타임아웃을 줄였다.&lt;/p&gt;
 &lt;p&gt;어제 역량 진단 리포트를 국비지원 코스 전용에서 전 코스로 확장했다.&lt;/p&gt;
 &lt;p&gt;오늘은 그 뒷마무리를 했다.&lt;/p&gt;
@@ -7365,7 +7420,8 @@ sudo systemctl start systemd-rfkill.service
 &lt;p&gt;이걸로 시트 생성 파이프라인이 안정적으로 완성됐다.&lt;/p&gt;
 &lt;h2&gt;두 번째 실행이 멈추는 문제&lt;/h2&gt;
 &lt;p&gt;QA 시트에서 두 번째 실행이 멈추는 증상이 있었다.&lt;/p&gt;
-&lt;p&gt;처음 실행은 잘 되는데, 두 번째부터 멈추는 거다.&lt;/p&gt;
+&lt;p&gt;처음&lt;/p&gt;
+&lt;p&gt;실행은 잘 되는데, 두 번째부터 멈추는 거다.&lt;/p&gt;
 &lt;p&gt;원인을 추적해보니 LLM 프로바이더 쪽 장애였다.&lt;/p&gt;
 &lt;p&gt;에이전트 코드 자체의 버그가 아니라, 외부 LLM이 응답하지 않는 상황이었다.&lt;/p&gt;
 &lt;p&gt;그런데 타임아웃이 1시간으로 잡혀 있으니까, 장애가 나면 1시간 동안 아무것도 안 하고 기다린 거다.&lt;/p&gt;
@@ -7465,8 +7521,8 @@ sudo systemctl start systemd-rfkill.service
 &lt;p&gt;그리고 볼트 재구성에서 병렬 에이전트가 제 역할을 한 것도 인상적이었다.&lt;/p&gt;
 &lt;p&gt;199개 파일 이동을 에이전트 4개가 병렬로 처리하고 링크 무결성까지 자동 유지했다.&lt;/p&gt;
 &lt;p&gt;이런 반복 작업은 에이전트에게 맡기는 게 효율적이다.&lt;/p&gt;
-</content:encoded></item><item><title>Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트</title><link>https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/</guid><description>Gemini CLI 샌드박스 통합 이날 나는은 에이전트 생태계를 더 똑똑하게 만든 날이었다. 더 싼 모델인 Gemini를 에이전트처럼 부를 수 있게 통합했고 노션 문서랑 피그마 디자인을 분석하는 에이전트도 만들었다. 그리고 자율 루프가 멈추는 버그도 잡았다. 가장 큰 작업은 Gemini</description><pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Gemini CLI 샌드박스 통합&lt;/h2&gt;
-&lt;p&gt;이날 나는은 에이전트 생태계를 더 똑똑하게 만든 날이었다.&lt;/p&gt;
+</content:encoded></item><item><title>Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트</title><link>https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/</guid><description>Gemini CLI 샌드박스 통합 이날 나는 에이전트 생태계를 더 똑똑하게 만든 날이었다. 더 싼 모델인 Gemini를 에이전트처럼 부를 수 있게 통합했고 노션 문서랑 피그마 디자인을 분석하는 에이전트도 만들었다. 그리고 자율 루프가 멈추는 버그도 잡았다. 가장 큰 작업은 Gemini </description><pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Gemini CLI 샌드박스 통합&lt;/h2&gt;
+&lt;p&gt;이날 나는 에이전트 생태계를 더 똑똑하게 만든 날이었다.&lt;/p&gt;
 &lt;p&gt;더 싼 모델인 Gemini를 에이전트처럼 부를 수 있게 통합했고 노션 문서랑 피그마 디자인을 분석하는 에이전트도 만들었다.&lt;/p&gt;
 &lt;p&gt;그리고 자율 루프가 멈추는 버그도 잡았다.&lt;/p&gt;
 &lt;p&gt;가장 큰 작업은 Gemini CLI를 통합한 거다.&lt;/p&gt;
@@ -7481,7 +7537,8 @@ sudo systemctl start systemd-rfkill.service
 &lt;h3&gt;프리셋 시스템&lt;/h3&gt;
 &lt;p&gt;프리셋 시스템도 만들었다.&lt;/p&gt;
 &lt;p&gt;에이전트 디렉토리에 마크다운 파일을 하나 넣으면, 그게 자동으로 도구로 등록된다.&lt;/p&gt;
-&lt;p&gt;플러그인을 다시 시작할 필요 없이 프리셋을 추가할 수 있다.&lt;/p&gt;
+&lt;p&gt;플러그인을 다시 시작할 필요&lt;/p&gt;
+&lt;p&gt;없이 프리셋을 추가할 수 있다.&lt;/p&gt;
 &lt;p&gt;용도별로 다른 프리셋을 만들어두면, 그때그때 맞는 프리셋을 부르면 된다.&lt;/p&gt;
 &lt;p&gt;디폴트 모델도 처음엔 프리뷰 모델로 잡았다가, 안정 버전으로 바꿨다.&lt;/p&gt;
 &lt;p&gt;그리고 모델별로 용도, 금지 사항, 특징을 정리한 사용 가이드도 붙였다.&lt;/p&gt;
@@ -7719,7 +7776,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;세 가지를 다&lt;/p&gt;
 &lt;p&gt;잡으니까&lt;/p&gt;
 &lt;p&gt;18%에서 60%로 뛰었다.&lt;/p&gt;
-&lt;p&gt;그리고 &amp;quot;한 모델에 의존하지 마라&amp;quot;는 원칙이 이때 처음 나왔다.&lt;/p&gt;
+&lt;p&gt;그리고 &amp;quot;한 모델에 의존하지 마라&amp;quot;는 원칙이 이때 처음&lt;/p&gt;
+&lt;p&gt;나왔다.&lt;/p&gt;
 &lt;p&gt;이 원칙은 이후에 더 단단해져서 크로스 프로바이더 재시도까지 이어진다.&lt;/p&gt;
 &lt;p&gt;한 모델을 신뢰의 단일 지점으로 두는 건 위험하다.&lt;/p&gt;
 &lt;p&gt;분산해야 한다.&lt;/p&gt;
@@ -7818,7 +7876,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;28개 케이스를 한 번에 처리하니까&lt;/p&gt;
 &lt;p&gt;멈추는 문제를, 뼈대, 그룹별 상세, 조립으로 나눠서 풀었다.&lt;/p&gt;
 &lt;p&gt;근데 며칠 돌려보니까&lt;/p&gt;
-&lt;p&gt;3단계가 필요 없어졌다.&lt;/p&gt;
+&lt;p&gt;3단계가 필요&lt;/p&gt;
+&lt;p&gt;없어졌다.&lt;/p&gt;
 &lt;p&gt;하위 에이전트 tier랑 별도 코드 뷰어 도구, 뼈대 코드가 쌓이면서 복잡도만 늘고 이득은 적었다.&lt;/p&gt;
 &lt;p&gt;그래서 다시 단일 Planner로 합쳤다.&lt;/p&gt;
 &lt;p&gt;단일 Planner가 전체 계획을 다&lt;/p&gt;
@@ -7830,7 +7889,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;h3&gt;복잡도는 빼는 게 더 나을 때가 있다&lt;/h3&gt;
 &lt;p&gt;이틀 전에 3단계로 쪼갤 때는 분할 정복이 답이라고 생각했다.&lt;/p&gt;
 &lt;p&gt;근데 돌려보니까&lt;/p&gt;
-&lt;p&gt;그 복잡도가 필요 없었다.&lt;/p&gt;
+&lt;p&gt;그 복잡도가 필요&lt;/p&gt;
+&lt;p&gt;없었다.&lt;/p&gt;
 &lt;p&gt;단일 호출로도 충분히 처리되는 거였다.&lt;/p&gt;
 &lt;p&gt;3단계로 쪼갤 때 해결했던 28개 케이스 멈춤 문제는, 다른 근본 원인이었을 수 있다.&lt;/p&gt;
 &lt;p&gt;이틀 전에 인증이랑 환경변수를 잡으면서 planning 시간이 30분에서 6초로 준 게 진짜 해결이었을 수 있다.&lt;/p&gt;
@@ -7981,8 +8041,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;스킬 라이브러리가 진짜 재사용 가능한 자산이 됐다.&lt;/p&gt;
 &lt;p&gt;이 두 가지 결정 모두 &amp;quot;이식성&amp;quot;에 대한 것이었다. planning은 케이스 수에 이식 가능하게, 스킬은 환경에 이식 가능하게.&lt;/p&gt;
 &lt;p&gt;규모가 커져도, 환경이 바뀌어도 깨지지 않는 구조를 만든 거다.&lt;/p&gt;
-</content:encoded></item><item><title>QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백</title><link>https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/</guid><description>planning 시간 30분에서 6초 이날 나는은 숨겨진 근본 원인을 찾아서 해결한 날이었다. 가장 극적인 건 QA Agent의 planning 시간을 30분에서 6초로 줄인 거다. 그리고 ClawMux에서 ZAI GLM이 빈 응답을 보내는 문제도 잡았다. 여러 프로젝트의 숨은 버그를 </description><pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;planning 시간 30분에서 6초&lt;/h2&gt;
-&lt;p&gt;이날 나는은 숨겨진 근본 원인을 찾아서 해결한 날이었다.&lt;/p&gt;
+</content:encoded></item><item><title>QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백</title><link>https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-planning-30min-to-6sec-glm-fallback/</guid><description>planning 시간 30분에서 6초 이날 나는 숨겨진 근본 원인을 찾아서 해결한 날이었다. 가장 극적인 건 QA Agent의 planning 시간을 30분에서 6초로 줄인 거다. 그리고 ClawMux에서 ZAI GLM이 빈 응답을 보내는 문제도 잡았다. 여러 프로젝트의 숨은 버그를 하</description><pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;planning 시간 30분에서 6초&lt;/h2&gt;
+&lt;p&gt;이날 나는 숨겨진 근본 원인을 찾아서 해결한 날이었다.&lt;/p&gt;
 &lt;p&gt;가장 극적인 건 QA Agent의 planning 시간을 30분에서 6초로 줄인 거다.&lt;/p&gt;
 &lt;p&gt;그리고 ClawMux에서 ZAI GLM이 빈 응답을 보내는 문제도 잡았다.&lt;/p&gt;
 &lt;p&gt;여러 프로젝트의 숨은 버그를 하나씩 뽑아낸 날이었다.&lt;/p&gt;
@@ -8025,10 +8085,10 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;ClawMux는 정상적으로 돌아가고 있었는데, 라우팅 결과가 누락되는 거다.&lt;/p&gt;
 &lt;p&gt;응답이 비어서 돌아왔다.&lt;/p&gt;
 &lt;p&gt;원인을 찾아보니 ZAI GLM이 텍스트를 예상한 필드가 아닌 다른 필드에 담아 보내고 있었다.&lt;/p&gt;
-&lt;p&gt;응답 본문은 &lt;code&gt;content&lt;/code&gt;가 아니라 reasoning_content 필드에 들어 있었다.&lt;/p&gt;
-&lt;p&gt;기존 파서는 &lt;code&gt;content&lt;/code&gt;만 보니까, 응답이 비어 있다고 판단한 거다.&lt;/p&gt;
+&lt;p&gt;응답 본문은 content가 아니라 reasoning_content 필드에 들어 있었다.&lt;/p&gt;
+&lt;p&gt;기존 파서는 content만 보니까, 응답이 비어 있다고 판단한 거다.&lt;/p&gt;
 &lt;p&gt;해결은 reasoning_content 폴백을 추가하는 거다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;content&lt;/code&gt;가 비어 있으면 reasoning_content를 확인하는 식이다.&lt;/p&gt;
+&lt;p&gt;content가 비어 있으면 reasoning_content를 확인하는 식이다.&lt;/p&gt;
 &lt;p&gt;그리고 명시적으로 빈 값인지 확인하도록 로직을 고쳤다.&lt;/p&gt;
 &lt;p&gt;단순히 거짓 같은 값인지 보는 게 아니라, 정확히 비어 있는지 검사하는 거다.&lt;/p&gt;
 &lt;p&gt;스트리밍 응답도 같이 고쳤다.&lt;/p&gt;
@@ -8379,7 +8439,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;띄우면 리소스가 부족해지고, 순서를 잘못 잡으면 의존성이 꼬인다.&lt;/p&gt;
 &lt;p&gt;그래서 동시 실행 큐 시스템을 만들었다.&lt;/p&gt;
 &lt;p&gt;큐가 케이스를 받아서 병렬로 실행 가능한 만큼만 꺼내서 돌린다.&lt;/p&gt;
-&lt;p&gt;한 Executor가 끝나면 다음 케이스를 꺼내서 할당한다.&lt;/p&gt;
+&lt;p&gt;한 Executor가 끝나면 다음&lt;/p&gt;
+&lt;p&gt;케이스를 꺼내서 할당한다.&lt;/p&gt;
 &lt;p&gt;동시에 너무 많이 돌지 않게 제어하는 게 핵심이다.&lt;/p&gt;
 &lt;p&gt;이 큐는 DAG 스케줄러랑 맞물려서 돌아간다.&lt;/p&gt;
 &lt;p&gt;Planner가 의존성 그래프를 짜면, 큐가 의존성을 만족하면서 최대한 병렬로 돌릴 수 있는 케이스를 찾아서 실행한다.&lt;/p&gt;
@@ -8415,7 +8476,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;blockquote&gt;
 &lt;p&gt;이 마이그레이션에서 드러난 버그 중 일부는 다음 날로 이어졌다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;특히 Chromium 좀비 프로세스 문제가 있었는데, 프로세스 종료 신호 처리를 개선해서 근본적으로 잡는 작업이 다음 날 이어졌다.&lt;/p&gt;
+&lt;p&gt;특히 Chromium 좀비 프로세스 문제가 있었는데, 프로세스 종료 신호 처리를 개선해서 근본적으로 잡는 작업이 다음&lt;/p&gt;
+&lt;p&gt;날 이어졌다.&lt;/p&gt;
 &lt;p&gt;마이그레이션하면서 드러난 문제를 그날 다&lt;/p&gt;
 &lt;p&gt;잡지 못하고 며칠에 걸쳐 정리한 셈이다.&lt;/p&gt;
 &lt;h2&gt;qa-sheet-writer 프롬프트 개선&lt;/h2&gt;
@@ -8456,7 +8518,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;h2&gt;7단계 파이프라인&lt;/h2&gt;
 &lt;p&gt;요청이 ClawMux를 통과하는 흐름은 7단계로 정리됐다.&lt;/p&gt;
 &lt;p&gt;요청이 들어오면 먼저 복잡도를 분류한다.&lt;/p&gt;
-&lt;p&gt;그 다음 분류 결과에 따라 어느 프로바이더의 어느 모델로 보낼지 정한다.&lt;/p&gt;
+&lt;p&gt;그 다음&lt;/p&gt;
+&lt;p&gt;분류 결과에 따라 어느 프로바이더의 어느 모델로 보낼지 정한다.&lt;/p&gt;
 &lt;p&gt;포맷이 다르면 변환 플래그를 세운다.&lt;/p&gt;
 &lt;p&gt;Anthropic 포맷을 OpenAI 포맷으로 바꾸고 업스트림을 호출하고 응답을 다시 Anthropic 포맷으로 역변환해서 반환한다.&lt;/p&gt;
 &lt;p&gt;여기서 핵심은 이중 변환이 선택이 아니라는 거다.&lt;/p&gt;
@@ -8521,7 +8584,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;ClawMux가 제 구실을 하기 시작했다.&lt;/p&gt;
 &lt;p&gt;들어온 요청을 분류하고 포맷을 변환하고 업스트림으로 보내고 응답을 다시 변환해서 돌려주는 전체 흐름이 하나로 이어졌다.&lt;/p&gt;
 </content:encoded></item><item><title>ClawMux 임베딩 분류기와 자동화 불가 케이스 표시</title><link>https://hyeokjaelee.github.io/clawmux-embedding-classifier-skip-agent-test/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/clawmux-embedding-classifier-skip-agent-test/</guid><description>키워드에서 임베딩으로 나는 어제 ClawMux에 LLM 분류기를 붙이고 QA Agent를 처음 배포했다. 오늘은 두 시스템을 더 다듬는 날이었다. ClawMux는 분류기를 한 단계 더 발전시켰고, QA Agent는 &quot;자동화할 수 없는 케이스&quot;를 명시적으로 표시하는 체계를 만들기 시작했다</description><pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;키워드에서 임베딩으로&lt;/h2&gt;
-&lt;p&gt;나는 어제 ClawMux에 LLM 분류기를 붙이고 QA Agent를 처음 배포했다.&lt;/p&gt;
+&lt;p&gt;나는 어제 ClawMux에 LLM 분류기를 붙이고 QA Agent를 처음&lt;/p&gt;
+&lt;p&gt;배포했다.&lt;/p&gt;
 &lt;p&gt;오늘은 두 시스템을 더 다듬는 날이었다.&lt;/p&gt;
 &lt;p&gt;ClawMux는 분류기를 한 단계 더 발전시켰고, QA Agent는 &amp;quot;자동화할 수 없는 케이스&amp;quot;를 명시적으로 표시하는 체계를 만들기 시작했다.&lt;/p&gt;
 &lt;p&gt;어제는 ClawMux 요청 분류기를 14차원 키워드 점수 계산기에서 LLM 한 글자 분류기로 바꿨다.&lt;/p&gt;
@@ -8624,7 +8688,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;이 분류기는 세 번에 걸쳐 진화했다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;처음엔 키워드 점수 계산기였고 이날 LLM 분류기로 바꿨다.&lt;/p&gt;
-&lt;p&gt;다음 날에는 로컬 임베딩 분류기를 시도했다가 한계에 부딪혀서 결국 다시 싼 LLM 한 글자 방식으로 돌아왔다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;날에는 로컬 임베딩 분류기를 시도했다가 한계에 부딪혀서 결국 다시 싼 LLM 한 글자 방식으로 돌아왔다.&lt;/p&gt;
 &lt;p&gt;가벼운 LLM이 내놓는 한 글자가 키워드 규칙이랑 로컬 임베딩 둘 다&lt;/p&gt;
 &lt;p&gt;이겼다.&lt;/p&gt;
 &lt;h2&gt;QA Agent 첫 배포&lt;/h2&gt;
@@ -8729,10 +8794,10 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;막힌 케이스만 다시 돌리되, 그 케이스가 의존하는 케이스가 통과한 상태인지 확인하고 돌린다.&lt;/p&gt;
 &lt;h2&gt;버그 4개 수정&lt;/h2&gt;
 &lt;p&gt;구조를 바꾸면서 남아 있던 버그도 같이 잡았다.&lt;/p&gt;
-&lt;p&gt;executionGroups에서 &lt;code&gt;cases&lt;/code&gt;로 바꾸는 과정에서 남은 잔재를 정리했다.&lt;/p&gt;
+&lt;p&gt;executionGroups에서 cases로 바꾸는 과정에서 남은 잔재를 정리했다.&lt;/p&gt;
 &lt;p&gt;Executor 타임아웃 구조를 다듬었다.&lt;/p&gt;
 &lt;p&gt;막힌 케이스 원인 분석 로직을 보강했다.&lt;/p&gt;
-&lt;p&gt;그리고 &lt;code&gt;source-lookups&lt;/code&gt;라는 기능을 완전히 걷어냈다.&lt;/p&gt;
+&lt;p&gt;그리고 source-lookups라는 기능을 완전히 걷어냈다.&lt;/p&gt;
 &lt;p&gt;구조 전환할 때 옛날 코드 잔재가 남으면 이상한 곳에서 버그가 터진다.&lt;/p&gt;
 &lt;p&gt;그래서 새 구조로 옮기면서 옛날 코드를 확실히 지우는 게 중요했다.&lt;/p&gt;
 &lt;h2&gt;실제 시트로 검증&lt;/h2&gt;
@@ -8805,7 +8870,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;그래서 외부에서 체크리스트로 검증하는 게 필요했다.&lt;/p&gt;
 &lt;h2&gt;브라우저 안정성&lt;/h2&gt;
 &lt;p&gt;자잘한 브라우저 문제도 같이 잡았다.&lt;/p&gt;
-&lt;p&gt;하나는 &lt;code&gt;beforeunload&lt;/code&gt; 다이얼로그 때문에 브라우저가 멈추는 문제였다.&lt;/p&gt;
+&lt;p&gt;하나는 beforeunload 다이얼로그 때문에 브라우저가 멈추는 문제였다.&lt;/p&gt;
 &lt;p&gt;페이지를 벗어날 때 &amp;quot;정말 나가시겠습니까&amp;quot; 같은 확인 창이 뜨면, 자동화가 거기서 막힌다.&lt;/p&gt;
 &lt;p&gt;이걸 우회하는 처리를 넣었다.&lt;/p&gt;
 &lt;p&gt;다른 하나는 Chrome 메모리 최적화였다.&lt;/p&gt;
@@ -8870,7 +8935,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;그리고 검증이 끝나면 도메인 범용 스킬로 승격시킨다.&lt;/p&gt;
 &lt;p&gt;예를 들어 &amp;quot;수강 코스 찾기&amp;quot;나 &amp;quot;관리자 로그인&amp;quot; 같은 패턴만 스킬로 올린다.&lt;/p&gt;
 &lt;p&gt;원본 스킬이랑 수정된 스킬을 구분하려고 디렉토리도 둘로 나눴다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;source-skills&lt;/code&gt;는 원본, &lt;code&gt;skills&lt;/code&gt;는 런타임에 수정된 버전.&lt;/p&gt;
+&lt;p&gt;source-skills는 원본, skills는 런타임에 수정된 버전.&lt;/p&gt;
 &lt;p&gt;이렇게 분리하니까&lt;/p&gt;
 &lt;p&gt;원본을 잃어버리지 않으면서 런타임 수정을 할 수 있었다.&lt;/p&gt;
 &lt;h2&gt;세션 로거 플러그인&lt;/h2&gt;
@@ -8878,7 +8943,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;목표는 에이전트가 작업한 내용을 자동으로 옵시디언에 기록하는 거다.&lt;/p&gt;
 &lt;p&gt;그 전까지는 수동으로 작업 로그를 남겨야 했는데, 이게 병목이었다.&lt;/p&gt;
 &lt;p&gt;에이전트가 일하면 자동으로 기록되고 밤에 그 기록이 구조화된 위키 문서로 정리되는 파이프라인을 만들고 싶었다.&lt;/p&gt;
-&lt;p&gt;session-logger는 &lt;code&gt;session.idle&lt;/code&gt; 이벤트를 감지한다.&lt;/p&gt;
+&lt;p&gt;session-logger는 session.idle 이벤트를 감지한다.&lt;/p&gt;
 &lt;p&gt;세션이 쉴 때, 숨겨진 work-logger 서브에이전트를 fire-and-forget으로 실행한다.&lt;/p&gt;
 &lt;p&gt;이 에이전트가 세션 기록을 분석해서 의미 있는 작업이 있으면 한국어 작업 로그를 옵시디언 &lt;code&gt;00_Inbox/&lt;/code&gt;에 쓴다.&lt;/p&gt;
 &lt;h3&gt;디바운스랑 CREATE 모드&lt;/h3&gt;
@@ -8905,7 +8970,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;스킬 시스템에서 가짜 스킬을 만드는 함수를 지운 게 특히 뿌듯했다.&lt;/p&gt;
 &lt;p&gt;케이스 로그를 감싸기만 한 스킬은 노이즈일 뿐이었는데, 진짜 재사용 가능한 패턴만 추출하는 파이프라인으로 바꾸니까&lt;/p&gt;
 &lt;p&gt;시스템이 더 똑똑해졌다.&lt;/p&gt;
-&lt;p&gt;다음 날에 Inspector를 배포하면서 막힌 케이스 재시도 성공률이 0%였던 문제를 잡았다.&lt;/p&gt;
+&lt;p&gt;다음&lt;/p&gt;
+&lt;p&gt;날에 Inspector를 배포하면서 막힌 케이스 재시도 성공률이 0%였던 문제를 잡았다.&lt;/p&gt;
 &lt;p&gt;오늘 만든 구조가 그 작업의 기반이 됐다.&lt;/p&gt;
 </content:encoded></item><item><title>QA Agent 통과율 50%에서 61%로 끌어올린 날</title><link>https://hyeokjaelee.github.io/qa-agent-smoke-pass-rate-50-to-61/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-smoke-pass-rate-50-to-61/</guid><description>통과율 50%는 신뢰할 수 없다 이날은 QA Agent 신뢰도를 올리는 데 집중했다. smoke 테스트 통과율이 50%밖에 안 됐다. 동전 던지기 수준이다. 이걸 61%까지 끌어올렸다. 처음으로 &quot;쓸 만하다&quot;고 느낀 구간이었다. QA Agent가 테스트를 돌리고 통과, 실패를 판정하는데</description><pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;통과율 50%는 신뢰할 수 없다&lt;/h2&gt;
 &lt;p&gt;이날은 QA Agent 신뢰도를 올리는 데 집중했다. smoke 테스트 통과율이 50%밖에 안 됐다.&lt;/p&gt;
@@ -8973,7 +9039,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;2단계 재시도가 가장 효과가 컸다.&lt;/p&gt;
 &lt;p&gt;같은 이유로 반복 실패하던 케이스들이 원인 분석과 새 브라우저 세션으로 통과하기 시작했다.&lt;/p&gt;
 &lt;p&gt;이날은 구조를 크게 바꾼 게 아니라, 있는 구조를 믿을 수 있게 만든 날이었다.&lt;/p&gt;
-&lt;p&gt;그리고 다음 날부터 멀티 에이전트 아키텍처 전환이 들어갔는데, 오늘 올려놓은 재시도 구조랑 Zod 검증이 그 전환의 기반이 됐다.&lt;/p&gt;
+&lt;p&gt;그리고 다음&lt;/p&gt;
+&lt;p&gt;날부터 멀티 에이전트 아키텍처 전환이 들어갔는데, 오늘 올려놓은 재시도 구조랑 Zod 검증이 그 전환의 기반이 됐다.&lt;/p&gt;
 </content:encoded></item><item><title>QA Agent 마스터 위임 루프와 executionDraft 설계</title><link>https://hyeokjaelee.github.io/qa-agent-delegation-loop-execution-draft/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-delegation-loop-execution-draft/</guid><description>agent browser 경로 재검증 이틀 전에 세운 멀티 에이전트 전환 계획을 안정화하는 날이었다. 브라우저 격리를 다시 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다. 자잘한 품질 개선도 같이 진행했다. 그저께 Playwrig</description><pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;agent-browser 경로 재검증&lt;/h2&gt;
 &lt;p&gt;이틀 전에 세운 멀티 에이전트 전환 계획을 안정화하는 날이었다.&lt;/p&gt;
 &lt;p&gt;브라우저 격리를 다시 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.&lt;/p&gt;
@@ -8993,10 +9060,13 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;그 전까지는 실행 그룹을 정적으로 할당했다.&lt;/p&gt;
 &lt;p&gt;Planner가 실행 계획을 세우면, 거기에 맞춰서 에이전트들이 정해진 역할을 수행했다.&lt;/p&gt;
 &lt;p&gt;근데 이 방식은 유연하지 않았다.&lt;/p&gt;
-&lt;p&gt;한 Executor가 빨리 끝나도 다음 작업을 자동으로 받아오지 못했다.&lt;/p&gt;
+&lt;p&gt;한 Executor가 빨리 끝나도 다음&lt;/p&gt;
+&lt;p&gt;작업을 자동으로 받아오지 못했다.&lt;/p&gt;
 &lt;p&gt;그래서 마스터 에이전트가 작업을 동적으로 위임하는 루프를 만들었다.&lt;/p&gt;
-&lt;p&gt;마스터가 실행 주기를 관리하고 Executor가 일을 끝내면 다음 실행 그룹을 할당한다.&lt;/p&gt;
-&lt;p&gt;최대 3개의 Executor를 동시에 돌리면서 빠르게 끝나는 Executor부터 다음 작업을 받아간다.&lt;/p&gt;
+&lt;p&gt;마스터가 실행 주기를 관리하고 Executor가 일을 끝내면 다음&lt;/p&gt;
+&lt;p&gt;실행 그룹을 할당한다.&lt;/p&gt;
+&lt;p&gt;최대 3개의 Executor를 동시에 돌리면서 빠르게 끝나는 Executor부터 다음&lt;/p&gt;
+&lt;p&gt;작업을 받아간다.&lt;/p&gt;
 &lt;h3&gt;완료는 Checker가 판정한다&lt;/h3&gt;
 &lt;p&gt;여기서 중요한 원칙이 하나 있다.&lt;/p&gt;
 &lt;p&gt;완료 판정은 마스터가 자기 선언으로 하는 게 아니라, Checker라는 독립적인 에이전트가 한다.&lt;/p&gt;
@@ -9029,9 +9099,11 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;그래서 스키마를 정규화하고 Executor가 Fixture를 조회하는 흐름을 개선했다.&lt;/p&gt;
 &lt;p&gt;현재 URL이랑 역할, 컨텍스트를 기반으로 관련 Fixture를 찾아오는 도구도 다듬었다.&lt;/p&gt;
 &lt;p&gt;이 시스템의 핵심은 돌릴수록 똑똑해진다는 거다.&lt;/p&gt;
-&lt;p&gt;처음 특정 URL을 테스트할 때는 비싸다.&lt;/p&gt;
+&lt;p&gt;처음&lt;/p&gt;
+&lt;p&gt;특정 URL을 테스트할 때는 비싸다.&lt;/p&gt;
 &lt;p&gt;LLM이 페이지 구조를 새로 학습해야 하니까.&lt;/p&gt;
-&lt;p&gt;근데 한 번 학습한 걸 Fixture에 저장해두면, 다음 실행 때는 그걸 그대로 가져다&lt;/p&gt;
+&lt;p&gt;근데 한 번 학습한 걸 Fixture에 저장해두면, 다음&lt;/p&gt;
+&lt;p&gt;실행 때는 그걸 그대로 가져다&lt;/p&gt;
 &lt;p&gt;쓴다.&lt;/p&gt;
 &lt;p&gt;비용도 줄고 신뢰성도 올라간다.&lt;/p&gt;
 &lt;h2&gt;thinking 이벤트 로깅&lt;/h2&gt;
@@ -9048,7 +9120,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;마스터 위임 루프, executionDraft, Fixture 정규화까지 전부 같은 방향이다.&lt;/p&gt;
 &lt;p&gt;에이전트들이 역할을 나눠서 협력하되, 그 협력이 부드럽게 돌아가도록 매끄럽게 만드는 작업이었다.&lt;/p&gt;
 &lt;p&gt;마스터 위임 루프는 특히 잘 먹혔다.&lt;/p&gt;
-&lt;p&gt;정적 할당에서 동적 위임으로 바꾸니까, Executor가 빨리 끝나면 바로 다음 작업을 받아서 전체 실행 시간이 줄었다.&lt;/p&gt;
+&lt;p&gt;정적 할당에서 동적 위임으로 바꾸니까, Executor가 빨리 끝나면 바로 다음&lt;/p&gt;
+&lt;p&gt;작업을 받아서 전체 실행 시간이 줄었다.&lt;/p&gt;
 &lt;p&gt;그리고 Checker가 완료를 판정하는 구조는 에이전트의 자기 과대평가 문제를 잡아줬다.&lt;/p&gt;
 &lt;p&gt;이틀 뒤에 전체 멀티 에이전트 디렉토리 구조 전환이 들어갔는데, 오늘 만든 위임 루프랑 Checker 검증 모델이 그 전환의 뼈대가 됐다.&lt;/p&gt;
 </content:encoded></item><item><title>QA Agent 브라우저 추상화와 에이전트 카탈로그 자체 구현</title><link>https://hyeokjaelee.github.io/qa-agent-agent-browser-oh-my-opencode-removal/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-agent-browser-oh-my-opencode-removal/</guid><description>Playwright MCP에서 agent browser로 어제 설계한 멀티 에이전트 전환 계획을 실행에 옮긴 날이었다. 브라우저 제어 방식을 바꾸고 외부 플러그인 의존성을 걷어내고 에이전트 역할을 코드로 직접 정의했다. 런타임 복잡도를 줄이겠다고 어제 세운 계획을 실제로 구현한 셈이다.</description><pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Playwright MCP에서 agent-browser로&lt;/h2&gt;
@@ -9232,14 +9305,14 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;Context-Gateway 바이너리를 플러그인 안에 같이 묶고 플러그인이 로드될 때 자동으로 실행되게 만들었다.&lt;/p&gt;
 &lt;p&gt;런타임은 TypeScript에 Bun을 쓴다.&lt;/p&gt;
 &lt;p&gt;패키지 매니저는 npm, pnpm, bun 어느 쪽이든 지원한다.&lt;/p&gt;
-&lt;p&gt;플랫폼별 바이너리는 GitHub Releases로 배포하고 &lt;code&gt;postinstall&lt;/code&gt; 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다. macOS arm64, x64, Linux x64, arm64, Windows x64를 다&lt;/p&gt;
+&lt;p&gt;플랫폼별 바이너리는 GitHub Releases로 배포하고 postinstall 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다. macOS arm64, x64, Linux x64, arm64, Windows x64를 다&lt;/p&gt;
 &lt;p&gt;커버한다.&lt;/p&gt;
 &lt;p&gt;설정 조회도 SDK 기반으로 했다.&lt;/p&gt;
 &lt;p&gt;설정 파일을 직접 파싱하는 게 아니라, SDK의 &lt;code&gt;client.provider.list()&lt;/code&gt;를 호출해서 프로바이더 정보랑 모델 메타데이터를 가져온다.&lt;/p&gt;
 &lt;p&gt;API 키도 여기서 재사용하고 컨텍스트 윈도우 크기도 모델 메타데이터에서 계산한다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
 &lt;p&gt;사용자가 설정할 게 거의 없다.&lt;/p&gt;
-&lt;p&gt;디폴트로 대부분 커버되고 세부 조정이 필요하면 &lt;code&gt;context-gateway.json&lt;/code&gt;으로 잡는다.&lt;/p&gt;
+&lt;p&gt;디폴트로 대부분 커버되고 세부 조정이 필요하면 context-gateway.json으로 잡는다.&lt;/p&gt;
 &lt;h2&gt;opencode 세션 저장소가 바뀐 배경&lt;/h2&gt;
 &lt;p&gt;이 작업을 하면서 opencode 자체의 세션 저장소 마이그레이션도 확인했다.&lt;/p&gt;
 &lt;p&gt;opencode는 원래 세션을 파일 기반 JSON으로 저장하고 있었다.&lt;/p&gt;
@@ -9312,7 +9385,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;h3&gt;에이전트 스킬&lt;/h3&gt;
 &lt;p&gt;에이전트 스킬은 성공한 실행 결과에서 패턴을 뽑아내서 도메인 범용으로 승격시킨 거다.&lt;/p&gt;
 &lt;p&gt;어제 이 수명주기를 정의했었다.&lt;/p&gt;
-&lt;p&gt;성공 케이스의 실행 지식을 스킬로 쌓고 다음 실행 때 Planner가 조회해서 쓰는 구조다.&lt;/p&gt;
+&lt;p&gt;성공 케이스의 실행 지식을 스킬로 쌓고 다음&lt;/p&gt;
+&lt;p&gt;실행 때 Planner가 조회해서 쓰는 구조다.&lt;/p&gt;
 &lt;h3&gt;Planning 캐시&lt;/h3&gt;
 &lt;p&gt;Planning 캐시는 어제 만든 시트 단위 캐시다.&lt;/p&gt;
 &lt;p&gt;같은 시트를 다시 실행하면 전체 플래닝을 생략하고 바뀐 케이스만 부분 재계획한다.&lt;/p&gt;
@@ -9326,8 +9400,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;오늘 그 기반을 깔아둔 셈이다.&lt;/p&gt;
 &lt;p&gt;그리고 학습한 지식이 깃 클론에 날아가지 않게 된 것도 크다.&lt;/p&gt;
 &lt;p&gt;돌릴수록 똑똑해지는 구조인데, 저장소를 다시 받으면 초기화되면 말이 안 되니까.&lt;/p&gt;
-</content:encoded></item><item><title>QA Agent 캐싱 정책과 Slack 리포트 다이어트</title><link>https://hyeokjaelee.github.io/qa-agent-caching-policy-slack-report-diet/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-caching-policy-slack-report-diet/</guid><description>Slack 리포트가 너무 시끄러웠다 이날 나는은 하루 종일 QA Agent만 파고 있었다. 딱 세 가지. Slack 리포트 다이어트, 캐싱 정책 짜기, 프리셋 기능 붙이기. 전부 같은 맥락에서 나온 작업이다. QA 에이전트가 커지면서 눈에 띄기 시작한 비효율을 하나씩 잡아낸 날이었다. </description><pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Slack 리포트가 너무 시끄러웠다&lt;/h2&gt;
-&lt;p&gt;이날 나는은 하루 종일 QA Agent만 파고 있었다.&lt;/p&gt;
+</content:encoded></item><item><title>QA Agent 캐싱 정책과 Slack 리포트 다이어트</title><link>https://hyeokjaelee.github.io/qa-agent-caching-policy-slack-report-diet/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/qa-agent-caching-policy-slack-report-diet/</guid><description>Slack 리포트가 너무 시끄러웠다 이날 나는 하루 종일 QA Agent만 파고 있었다. 딱 세 가지. Slack 리포트 다이어트, 캐싱 정책 짜기, 프리셋 기능 붙이기. 전부 같은 맥락에서 나온 작업이다. QA 에이전트가 커지면서 눈에 띄기 시작한 비효율을 하나씩 잡아낸 날이었다. 그</description><pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Slack 리포트가 너무 시끄러웠다&lt;/h2&gt;
+&lt;p&gt;이날 나는 하루 종일 QA Agent만 파고 있었다.&lt;/p&gt;
 &lt;p&gt;딱 세 가지.&lt;/p&gt;
 &lt;p&gt;Slack 리포트 다이어트, 캐싱 정책 짜기, 프리셋 기능 붙이기.&lt;/p&gt;
 &lt;p&gt;전부 같은 맥락에서 나온 작업이다.&lt;/p&gt;
@@ -9366,7 +9440,8 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;캐싱만 한 게 아니라, 성공한 케이스에서 얻은 실행 지식을 스킬로 승격시키는 수명주기도 정의했다.&lt;/p&gt;
 &lt;p&gt;Executor가 케이스를 실행하면서 단계를 기록하고 실행이 끝나면 그 기록에서 패턴을 추출한다.&lt;/p&gt;
 &lt;p&gt;범용성이 있다고 판단된 패턴은 스킬 디렉토리로 올린다.&lt;/p&gt;
-&lt;p&gt;그러면 다음 실행 때 Planner가 관련 스킬을 조회해서 활용한다.&lt;/p&gt;
+&lt;p&gt;그러면 다음&lt;/p&gt;
+&lt;p&gt;실행 때 Planner가 관련 스킬을 조회해서 활용한다.&lt;/p&gt;
 &lt;p&gt;케이스 특화 지식은 SQLite에, 도메인 범용 패턴은 스킬 디렉토리로 분리했다.&lt;/p&gt;
 &lt;p&gt;무엇이 한 케이스에만 통하는 지식이고 무엇이 여러 케이스에 재사용할 수 있는 지식인지 경계를 명확히 한 게 핵심이다.&lt;/p&gt;
 &lt;p&gt;자가 학습 루프가 만들어진 셈이다.&lt;/p&gt;
@@ -9418,7 +9493,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;이걸 공통 API 클라이언트 기반으로 통합하는 작업이었다.&lt;/p&gt;
 &lt;p&gt;각 앱에 흩어진 MSW 핸들러를 공통 스펙 기반으로 다시 쓰고 Worker 인스턴스도 하나로 통일했다.&lt;/p&gt;
 &lt;p&gt;이 패턴이 나중에 다른 앱 추가할 때 표준이 됐다.&lt;/p&gt;
-&lt;p&gt;이날은 리뷰 피드백을 반영하고 &lt;code&gt;main&lt;/code&gt; 브랜치 머지 과정에서 생긴 충돌을 풀고 CI 타입체크 에러를 잡았다.&lt;/p&gt;
+&lt;p&gt;이날은 리뷰 피드백을 반영하고 main 브랜치 머지 과정에서 생긴 충돌을 풀고 CI 타입체크 에러를 잡았다.&lt;/p&gt;
 &lt;p&gt;마이그레이션 PR을 랜딩시키려면 거쳐야 할 뒷정리 작업이었다.&lt;/p&gt;
 &lt;p&gt;MSW는 &lt;code&gt;MSW=true&lt;/code&gt; 환경변수로 토글된다.&lt;/p&gt;
 &lt;p&gt;디폴트 개발 서버는 MSW가 켜져 있고 실제 백엔드를 잡아서 검증하려면 &lt;code&gt;MSW=false&lt;/code&gt;로 끄면 된다.&lt;/p&gt;
@@ -9437,7 +9512,7 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;사라졌다.&lt;/p&gt;
 &lt;h2&gt;위키 스킬 정리&lt;/h2&gt;
 &lt;p&gt;하루 동안 배운 걸 위키 스킬로 정리하는 작업도 했다.&lt;/p&gt;
-&lt;p&gt;하나는 Daily 노트 작성 규칙이었다. frontmatter는 &lt;code&gt;date&lt;/code&gt;만 남기고 본문은 프로젝트 카테고리 헤딩부터 바로 시작한다.&lt;/p&gt;
+&lt;p&gt;하나는 Daily 노트 작성 규칙이었다. frontmatter는 date만 남기고 본문은 프로젝트 카테고리 헤딩부터 바로 시작한다.&lt;/p&gt;
 &lt;p&gt;기술 용어는 쉬운 한국어로 풀어쓰고 끝까지 존댓말을 유지한다.&lt;/p&gt;
 &lt;p&gt;내부 링크는 실제로 존재하는 노트만 건다.&lt;/p&gt;
 &lt;p&gt;안 그러면 링크가 점점 쌓이면서 깨진 링크 투성이가 된다.&lt;/p&gt;
@@ -9474,12 +9549,15 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;Planner가 케이스 수와 의존성을 보고 1~5개 범위에서 lane 수를 동적으로 선택한다.&lt;/p&gt;
 &lt;p&gt;여기서 핵심은 같은 lane 안에 있는 케이스들은 세션과 페이지 상태를 공유한다는 점이다.&lt;/p&gt;
 &lt;p&gt;그러니까&lt;/p&gt;
-&lt;p&gt;같은 브라우저 세션으로 로그인해둔 상태를 다음 케이스가 이어받아 쓸 수 있다.&lt;/p&gt;
+&lt;p&gt;같은 브라우저 세션으로 로그인해둔 상태를 다음&lt;/p&gt;
+&lt;p&gt;케이스가 이어받아 쓸 수 있다.&lt;/p&gt;
 &lt;p&gt;이게 되면 로그인 같은 공통 선행 작업을 매번 반복하지 않아도 된다.&lt;/p&gt;
 &lt;h3&gt;의존성 처리&lt;/h3&gt;
-&lt;p&gt;병렬로 돌리려면 어떤 케이스가 먼저 끝나야 다음 케이스를 실행할 수 있는지, 그 의존 관계를 정확히 알아야 한다.&lt;/p&gt;
+&lt;p&gt;병렬로 돌리려면 어떤 케이스가 먼저 끝나야 다음&lt;/p&gt;
+&lt;p&gt;케이스를 실행할 수 있는지, 그 의존 관계를 정확히 알아야 한다.&lt;/p&gt;
 &lt;p&gt;처음에는 여러 의존성 유형이 있었는데 너무 복잡해서 하드 의존성만 남겼다.&lt;/p&gt;
-&lt;p&gt;선행 케이스가 반드시 성공해야만 다음 케이스를 실행할 수 있는 관계만 남기고, &amp;quot;순서상 도움은 되지만 필수는 아닌&amp;quot; 소프트 의존성은 제거했다.&lt;/p&gt;
+&lt;p&gt;선행 케이스가 반드시 성공해야만 다음&lt;/p&gt;
+&lt;p&gt;케이스를 실행할 수 있는 관계만 남기고, &amp;quot;순서상 도움은 되지만 필수는 아닌&amp;quot; 소프트 의존성은 제거했다.&lt;/p&gt;
 &lt;p&gt;그리고 hardBlockDownstream이라는 플래그를 만들었다.&lt;/p&gt;
 &lt;p&gt;어떤 케이스가 실패하면 그 케이스에 의존하는 하위 케이스들을 자동으로 blocked 처리하는 건데, 실패한 케이스 때문에 의존 케이스들이 무의미하게 실행되는 걸 막기 위해서다.&lt;/p&gt;
 &lt;h3&gt;무로그 멈춤&lt;/h3&gt;
@@ -9518,14 +9596,14 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;둘 다&lt;/p&gt;
 &lt;p&gt;별개 작업인데 하루에 몰아서 하느라 꽤 빡셌다.&lt;/p&gt;
 &lt;p&gt;그 전까지 옵시디언 노트에 frontmatter를 두 개 필드로 나눠 쓰고 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;type&lt;/code&gt;이랑 &lt;code&gt;area&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;type이랑 area.&lt;/p&gt;
 &lt;p&gt;근데 노트가 쌓이다&lt;/p&gt;
 &lt;p&gt;보니까&lt;/p&gt;
 &lt;p&gt;이분법이 잘 안 먹힌다.&lt;/p&gt;
 &lt;p&gt;하나의 노트가 프로젝트 기록이면서 동시에 journal 성격도 띄고 그러면 type에 뭘 넣어야 할지 애매해진다.&lt;/p&gt;
-&lt;p&gt;결국 &lt;code&gt;category&lt;/code&gt; 단일 필드 하나로 합쳤다.&lt;/p&gt;
+&lt;p&gt;결국 category 단일 필드 하나로 합쳤다.&lt;/p&gt;
 &lt;p&gt;하나만 쓰는 게 분류하거나 검색할 때 훨씬 직관적이더라.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.&lt;/p&gt;
+&lt;p&gt;type 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.&lt;/p&gt;
 &lt;p&gt;그리고 같은 날 Linux 서버에 옵시디언 LiveSync 환경을 구축했다.&lt;/p&gt;
 &lt;p&gt;CouchDB를 올리고 Cloudflare Tunnel로 외부에서 접근 가능하게 만들었다.&lt;/p&gt;
 &lt;p&gt;이걸로 집 데스크탑이랑 노트북이랑 폰이랑 노트가 실시간으로 동기화된다.&lt;/p&gt;
@@ -9567,30 +9645,31 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;같은 URL이면 이전 케이스에서 축적한 fixture knowledge를 그대로 가져다&lt;/p&gt;
 &lt;p&gt;쓸 수 있다.&lt;/p&gt;
 &lt;p&gt;qa_lookup_fixture_knowledge라는 도구를 만들어서 Executor가 실행 전에 이전 지식을 조회하도록 했다.&lt;/p&gt;
-&lt;p&gt;그리고 케이스별 진실 소스(source of truth)는 &lt;code&gt;status.json&lt;/code&gt;으로 유지하면서 세션 단위 집계는 &lt;code&gt;fixtures.json&lt;/code&gt;으로 분리했다.&lt;/p&gt;
+&lt;p&gt;그리고 케이스별 진실 소스(source of truth)는 status.json으로 유지하면서 세션 단위 집계는 fixtures.json으로 분리했다.&lt;/p&gt;
 &lt;p&gt;무엇이 durable knowledge고 무엇이 임시 기록인지 경계를 명확히 한 게 핵심이다.&lt;/p&gt;
 &lt;h2&gt;마무리&lt;/h2&gt;
 &lt;p&gt;하루에 위키 정리까지, 파이프라인 재구성까지 하려니까&lt;/p&gt;
 &lt;p&gt;빡세긴 했다.&lt;/p&gt;
 &lt;p&gt;근데 둘 다&lt;/p&gt;
 &lt;p&gt;결과적으로 잘한 선택이었다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;category&lt;/code&gt; 단일 필드는 이후 노트 관리가 확실히 편해졌고 QA Agent 파이프라인도 8단계 분리 이후로 디버깅과 smoke 실행이 훨씬 나아졌다.&lt;/p&gt;
+&lt;p&gt;category 단일 필드는 이후 노트 관리가 확실히 편해졌고 QA Agent 파이프라인도 8단계 분리 이후로 디버깅과 smoke 실행이 훨씬 나아졌다.&lt;/p&gt;
 &lt;p&gt;Fixture Knowledge의 SQLite 전환은 특히 체감이 크다.&lt;/p&gt;
 &lt;p&gt;같은 페이지에 대한 QA를 반복할 때, 이전에 알아낸 걸 매번 다시 학습하지 않아도 되니까&lt;/p&gt;
 &lt;p&gt;실행 시간도 줄고 토큰도 아낄 수 있었다.&lt;/p&gt;
-</content:encoded></item><item><title>옵시디언 볼트 분류 감사와 개발 환경 삽질</title><link>https://hyeokjaelee.github.io/obsidian-vault-audit-dev-env-debug/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/obsidian-vault-audit-dev-env-debug/</guid><description>옵시디언 볼트 분류 감사 하루 종일 옵시디언 볼트 분류 감사랑 개발 환경 디버깅 하느라 삽질한 날이었다. 둘 다 별개 작업인데 하루에 몰아서 하느라 꽤 빡섰다. 볼트가 점점 커지니까 문서들이 분류 없이 쌓이기 시작했다. Inbox 랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데,</description><pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;옵시디언 볼트 분류 감사&lt;/h2&gt;
+</content:encoded></item><item><title>옵시디언 볼트 분류 감사와 개발 환경 삽질</title><link>https://hyeokjaelee.github.io/obsidian-vault-audit-dev-env-debug/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/obsidian-vault-audit-dev-env-debug/</guid><description>옵시디언 볼트 분류 감사 하루 종일 옵시디언 볼트 분류 감사랑 개발 환경 디버깅 하느라 삽질한 날이었다. 둘 다 별개 작업인데 하루에 몰아서 하느라 꽤 빡섰다. 볼트가 점점 커지니까 문서들이 분류 없이 쌓이기 시작했다. Inbox랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데, </description><pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;옵시디언 볼트 분류 감사&lt;/h2&gt;
 &lt;p&gt;하루 종일 옵시디언 볼트 분류 감사랑 개발 환경 디버깅 하느라 삽질한 날이었다.&lt;/p&gt;
 &lt;p&gt;둘 다&lt;/p&gt;
 &lt;p&gt;별개 작업인데 하루에 몰아서 하느라 꽤 빡섰다.&lt;/p&gt;
 &lt;p&gt;볼트가 점점 커지니까&lt;/p&gt;
 &lt;p&gt;문서들이 분류 없이 쌓이기 시작했다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Inbox&lt;/code&gt;랑 &lt;code&gt;Daily&lt;/code&gt; 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다&lt;/p&gt;
+&lt;p&gt;Inbox랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다&lt;/p&gt;
 &lt;p&gt;문제가 꽤 많았다.&lt;/p&gt;
-&lt;p&gt;기존 볼트는 &lt;code&gt;type&lt;/code&gt;이랑 &lt;code&gt;area&lt;/code&gt; 두 가지 필드로 문서를 분류하고 있었다.&lt;/p&gt;
+&lt;p&gt;기존 볼트는 type이랑 area 두 가지 필드로 문서를 분류하고 있었다.&lt;/p&gt;
 &lt;p&gt;근데 이 체계가 잘 안 먹혔다.&lt;/p&gt;
 &lt;p&gt;하나의 문서가 프로젝트 기록이면서 동시에 journal 성격도 띄고 그러면, type에 뭘 넣어야 할지 애매해진다.&lt;/p&gt;
 &lt;p&gt;그래서 아예 분류를 안 한 문서도 꽤 있었다.&lt;/p&gt;
-&lt;p&gt;이 감사는 다음 날 분류 체계를 단일 &lt;code&gt;category&lt;/code&gt; 필드로 통합하려고 미리 해둔 조사였다.&lt;/p&gt;
+&lt;p&gt;이 감사는 다음&lt;/p&gt;
+&lt;p&gt;날 분류 체계를 단일 category 필드로 통합하려고 미리 해둔 조사였다.&lt;/p&gt;
 &lt;p&gt;전체 상태를 파악하고, 문제 있는 문서 목록을 만들었다.&lt;/p&gt;
 &lt;p&gt;기존 분류 체계를 보고 재분류 제안도 정리했다.&lt;/p&gt;
 &lt;p&gt;분류 감사는 자칫 사소해 보이지만, 볼트 장기 유지보수에는 큰 영향이 있다.&lt;/p&gt;
@@ -9598,25 +9677,25 @@ Forcing further edits would risk over-editing and typos.
 &lt;p&gt;제자리에 없는 문서는 나중에 찾기도 어렵고, 연결도 끊긴다.&lt;/p&gt;
 &lt;h2&gt;개발 환경 디버깅&lt;/h2&gt;
 &lt;p&gt;볼트 감사랑 별개로, 개발 환경도 점검해야 했다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;env:pull&lt;/code&gt;이랑 &lt;code&gt;gen:supabase&lt;/code&gt; 두 가지 명령이 동시에 실패하고 있었다.&lt;/p&gt;
+&lt;p&gt;env:pull이랑 gen:supabase 두 가지 명령이 동시에 실패하고 있었다.&lt;/p&gt;
 &lt;p&gt;두 문제가 동시에 터졌지만, 원인은 각각 달랐다.&lt;/p&gt;
 &lt;p&gt;그래서 하나씩 원인을 분리해서 확인했다.&lt;/p&gt;
 &lt;h3&gt;Doppler 키체인 잠김&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;env:pull&lt;/code&gt;이 실패하는 원인은 Doppler 키체인이 잠겨 있었기 때문이다.&lt;/p&gt;
-&lt;p&gt;Doppler는 운영체제 키체인에 시크릿을 저장하는데, 리눅스에서 키체인이 잠긴 상태면 — 예를 들어 재부팅 후 데스크톱 로그인을 하지 않은 경우 — &lt;code&gt;env:pull&lt;/code&gt;이 오류를 내거나 조용히 실패한다.&lt;/p&gt;
+&lt;p&gt;env:pull이 실패하는 원인은 Doppler 키체인이 잠겨 있었기 때문이다.&lt;/p&gt;
+&lt;p&gt;Doppler는 운영체제 키체인에 시크릿을 저장하는데, 리눅스에서 키체인이 잠긴 상태면 — 예를 들어 재부팅 후 데스크톱 로그인을 하지 않은 경우 — env:pull이 오류를 내거나 조용히 실패한다.&lt;/p&gt;
 &lt;p&gt;해결 방법은 간단했다.&lt;/p&gt;
 &lt;p&gt;키체인을 잠금 해제하면 됐다.&lt;/p&gt;
 &lt;p&gt;근데 문제는 이 사실을 알아차리는 데 있었다.&lt;/p&gt;
 &lt;p&gt;에러 메시지만 보면 키체인과 관련된 내용이 명확하지 않다.&lt;/p&gt;
 &lt;h3&gt;Supabase CLI 미설치&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;gen:supabase&lt;/code&gt;가 실패하는 원인은 Supabase CLI가 설치되어 있지 않았기 때문이다.&lt;/p&gt;
+&lt;p&gt;gen:supabase가 실패하는 원인은 Supabase CLI가 설치되어 있지 않았기 때문이다.&lt;/p&gt;
 &lt;p&gt;이 명령은 npm 스크립트로, 내부에서 Supabase CLI 바이너리를 호출한다.&lt;/p&gt;
 &lt;p&gt;새로운 개발 환경이거나 도구 체인이 완전히 세팅되지 않은 경우 흔히 발생하는 문제다.&lt;/p&gt;
 &lt;p&gt;Supabase CLI를 설치하고 나서야 이 명령이 정상 동작했다.&lt;/p&gt;
 &lt;h3&gt;격리 기법이 잘 맞았던 이유&lt;/h3&gt;
 &lt;p&gt;두 문제가 겹쳐서 발생했을 때, 나는 한 번에 해결하려 하지 않았다.&lt;/p&gt;
 &lt;p&gt;대신 각 문제의 원인을 개별적으로 확인했다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;env:pull&lt;/code&gt;이 왜 실패하는지, &lt;code&gt;gen:supabase&lt;/code&gt;가 왜 실패하는지 따로따로 추적했다.&lt;/p&gt;
+&lt;p&gt;env:pull이 왜 실패하는지, gen:supabase가 왜 실패하는지 따로따로 추적했다.&lt;/p&gt;
 &lt;p&gt;이렇게 하니까&lt;/p&gt;
 &lt;p&gt;잘 됐다.&lt;/p&gt;
 &lt;p&gt;하나의 큰 문제처럼 보였지만, 실제로는 서로 무관한 두 가지 문제였기 때문이다.&lt;/p&gt;

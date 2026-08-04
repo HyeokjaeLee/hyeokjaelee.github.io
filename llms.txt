@@ -29,8 +29,7 @@
 - [데이터 소스가 단위에 대해 거짓말을 할 때](https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/): yfinance가 한국 주식 시가총액을 원화인데 달러로 표기했다 SK하이닉스가 1,547조 달러가 됐다 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다 그리고 보안 필터가 자기 스킬을 차단하는 일도 있었다.
 - [역할 고정 LLM은 약한 힌트로 안 바뀐다, 정체성을 바꿔야 한다](https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/): 투자 분석 에이전트에게 가격 예측을 물어도 자꾸 매매 추천을 했다 시스템 프롬프트의 정체성이 매매 추론을 강제하고 있었다 정체성 자체를 바꿔야 했다 그리고 에이전트들이 토론하는 투자 데스크도 만들었다.
 - [스스로 거짓말을 잡는 투자 분석 에이전트](https://hyeokjaelee.github.io/investment-agent-self-verification-git-dot-traps/): 투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다 PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다 그리고 깃 세 점과 두 점의 함정도 겪었다.
-- [올바른 질문이 최적화보다
-낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다 "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.
+- [올바른 질문이 최적화보다  낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다 "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.
 - [같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접](https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/): 자율 검증 루프가 멈추는 현상을 추적했더니 4개의 독립된 근본 원인이 있었다. design-reviewer는 핵심 도구를 9번 중 0번 호출했다 강제성은 간접 위임이 아니라 직접 행위에 붙여야 한다.
 - [한 턴에 하나의 서브에이전트 호출만 허용되는 이유](https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/): 같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다 원인은 턴당 1회 호출 가드였다 해결은 tasks 배열이었다 그리고 괴담 소설 품질 게이트도 구현했다.
 - [주말에 주가를 보는 법과 헤드리스 서버 스크래핑](https://hyeokjaelee.github.io/weekend-stock-estimates-headless-scraping-fallback/): 한국 정규장은 주말에 안 돈다 GDR 추정가랑 야간선물로 방향을 가늠할 수 있다 그리고 헤드리스 서버에서 브라우저 없이 웹 스크래핑하는 fallback 체인도 정리했다.
@@ -45,8 +44,7 @@
 - [생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급](https://hyeokjaelee.github.io/codegen-union-regenerate-single-failure-spread/): codegen 충돌은 양쪽을 합쳐서 재생성한다. init-deep의 단일 실패 지점이 파이프라인 전체를 무효화했다 그리고 같은 버그가 하루에 세 번 재발했다.
 - [비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번](https://hyeokjaelee.github.io/asymmetric-event-pair-flag-stuck-language-drift/): 진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍이 두 버그에서 동시에 발견됐다 그리고 교육 규칙이 함정을 만들고 있었다 언어 drift 원인도 규명했다.
 - [모델 탓하기 전에 확인해야 할 것: 설정, 경로, 상태 격리](https://hyeokjaelee.github.io/dont-blame-model-config-path-state-isolation/): 여러 에이전트가 동시에 실패하면 모델 탓이 아니라 공유 설정 결함일 수 있다 Playwright 다중 세션 간섭은 상태 격리 문제였다 그리고 깃 커밋 가드가 사라져 있었다.
-- [역할별 권한 설계와 disabled가 삭제보다
-철저한 이유](https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/): 15개 서브에이전트의 도구 접근 권한을 역할별로 정리했다. delegate 에이전트는 재귀 위험으로 disabled 처리했다 삭제보다 disabled가 더 철저한 이유도 확인했다.
+- [역할별 권한 설계와 disabled가 삭제보다  철저한 이유](https://hyeokjaelee.github.io/role-based-permissions-disabled-not-deleted/): 15개 서브에이전트의 도구 접근 권한을 역할별로 정리했다. delegate 에이전트는 재귀 위험으로 disabled 처리했다 삭제보다 disabled가 더 철저한 이유도 확인했다.
 - [사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다](https://hyeokjaelee.github.io/user-corrects-agent-overdiagnosis-context-mode-open/): piLoop 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.
 - [한 줄에 세 규칙을 넣으면 안 되는 이유와 원샷 소비 함정](https://hyeokjaelee.github.io/one-line-three-rules-oneshot-consumed-before-trigger/): set_line으로 규칙을 고치다가 다른 규칙이 조용히 사라졌다 세션 타이틀이 첫 요청에서 안 붙는 버그도 찾았다 원인은 원샷이 트리거 전에 소비되는 거였다.
 - [에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과](https://hyeokjaelee.github.io/agent-self-improvement-bash-timeout-crash-saga/): pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다 그리고 토스증권 CLI도 새로 만들었다.
@@ -57,15 +55,13 @@
 - [Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응](https://hyeokjaelee.github.io/zed-tui-rendering-glm52-release-day/): Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.
 - [강제 마이그레이션과 제약에서 패턴을 만드는 날](https://hyeokjaelee.github.io/forced-migration-constraints-to-patterns/): Claude 계정이 갑자기 revoke돼서 사내 AI 게이트웨이로 마이그레이션했다 그 제약이 이중 설정 패턴이 됐다 그리고 수료증 PDF 다운로드와 화상감독 메시지 수정도 끝냈다.
 - [프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계](https://hyeokjaelee.github.io/prompt-injection-cascade-bugs-ghost-crawler-redesign/): 프롬프트 주입 시스템에서 5개의 연쇄 버그를 잡았다 필터 교차 제외, 전역 상태 오염, Go 코어 단일 파트 제한까지. 그리고 괴담 크롤러 파이프라인을 재설계했다.
-- [존재하지 않는 버그를 고치려다
-과도하게 만든 토큰 예산 시스템](https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/): 프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.
+- [존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템](https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/): 프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.
 - [멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제](https://hyeokjaelee.github.io/multi-agent-team-prompt-junk-data-30-percent/): PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.
 - [싸고 빠른 모델이 큰 스키마에서 자꾸 실패하는 패턴](https://hyeokjaelee.github.io/deepseek-large-schema-failure-pattern/): DeepSeek 모델이 큰 JSON 스키마를 처리하지 못해서 계획 에이전트가 60% 실패하고 상태 추출이 전부 빈 값이 나왔다 해결은 호출을 작게 쪼개는 거였다.
 - [NVIDIA 모델에서 json_schema가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 json_schema를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
 - [LLM 캐시 적중률 0%를 발견한 날](https://hyeokjaelee.github.io/llm-cache-zero-percent-git-secret-exposure/): 소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다 그리고 깃 시크릿 노출 사고도 겪었다.
 - [CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로](https://hyeokjaelee.github.io/css-has-scroll-lock-simplification-to-robustness/): 모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.
-- [과도한 배포를 막으려다
-배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.
+- [과도한 배포를 막으려다  배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.
 - [한 글자 차이로 배열이 nil이 되는 Rails 버그와 압축 무한 루프](https://hyeokjaelee.github.io/rails-strong-params-nil-array-compaction-loop/): Rails Strong Parameters에서 배열을 스칼라로 permit해서 부분 선택이 잘못되는 버그를 잡았다 그리고 컨텍스트 압축이 무한 루프에 빠지는 문제도 해결했다.
 - [공통 패키지 하나 바꿨더니 21개 앱이 배포되는 문제](https://hyeokjaelee.github.io/common-package-21-apps-deploy-fanout-fix/): 공통 패키지 파일 하나를 바꿨더니 배포 추론이 21개 앱을 잡았다 실제로는 5개만 배포하면 됐다 추론 정확도를 올리고 명시적 허용 목록도 추가했다.
 - [synthetic와 ignored, 알림 하나 보이게 하려고 9일 걸린 이야기](https://hyeokjaelee.github.io/synthetic-ignored-notification-9day-saga/): 폴백 알림을 사용자한테 보여주면서 LLM 컨텍스트에는 안 들어가게 만드려고 9일 동안 네 번 전략을 바꿨다 결국 한 줄 바꿔서 해결했다.
@@ -93,8 +89,7 @@
 - [LLM 실패를 감지하고 폴백하는 플러그인 하루 만에 만들기](https://hyeokjaelee.github.io/llm-fallback-plugin-one-day-build/): 에이전트 세션이 LLM 에러로 죽는 문제를 막기 위해, 에러를 분류하고 백업 모델로 전환하는 플러그인을 하루 만에 만들었다.
 - [노션에서 옵시디언 계획 노트로 가는 흐름 단순화와 분석 에이전트](https://hyeokjaelee.github.io/notion-obsidian-flow-simplify-analyzer-agents/): 노션 기획서를 옵시디언 구현 계획으로 바꾸는 흐름을 4단계에서 2단계로 줄이고, 노션과 피그마 분석을 전문 에이전트로 분리했다.
 - [한 기능을 닫으며 더 큰 일반화 작업을 시작한 날](https://hyeokjaelee.github.io/feature-close-bigger-generalization-start/): 특정 코스 전용이던 기능을 전 코스로 확장해 배포를 마무리하고 같은 패턴으로 코스 분류 체계 전체를 재설계하는 작업을 시작했다.
-- [블루투스가 부팅마다
-꺼지는 문제, TLP가 숨긴 서비스](https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/): 매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.
+- [블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스](https://hyeokjaelee.github.io/bluetooth-boot-tlp-masked-rfkill/): 매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.
 - [역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로](https://hyeokjaelee.github.io/competency-report-cleanup-qa-sheet-timeout-20min/): 역량 진단 리포트 확장을 마무리하고, QA 시트에서 노션 API 의존성을 빼고 두 번째 실행 멈춤 문제를 잡았다.
 - [역량 진단 리포트 전 코스 확장과 볼트 199개 파일 디렉토리 재구성](https://hyeokjaelee.github.io/competency-report-all-courses-vault-restructure/): 국비지원 코스 전용이던 역량 진단 리포트를 모든 코스로 확장하고 평평하게 쌓여 있던 위키 파일 199개를 디렉토리로 재구성했다.
 - [Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트](https://hyeokjaelee.github.io/gemini-cli-sandbox-notion-figma-analyzers/): Gemini CLI를 격리된 샌드박스에서 에이전트처럼 부르게 만들고 노션과 피그마 문서를 분석하는 서브에이전트를 만들었다.
