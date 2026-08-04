@@ -949,7 +949,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;전체 재구축이 필요&lt;/p&gt;
 &lt;p&gt;없다.&lt;/p&gt;
 &lt;h2&gt;깃 충돌 표시도 거짓말이었다&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;git status&lt;/code&gt;가 &lt;code&gt;UU models-store.json&lt;/code&gt;을 보고했다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git status&lt;/code&gt;가 &lt;code&gt;UU 모델 설정 파일&lt;/code&gt;을 보고했다.&lt;/p&gt;
 &lt;p&gt;충돌이라는 거다.&lt;/p&gt;
 &lt;p&gt;근데 충돌 표시가 없었다.&lt;/p&gt;
 &lt;p&gt;머지 표시도 없었다.&lt;/p&gt;
@@ -965,7 +965,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;표시가 있어도 머지 중이 아니면 잔재다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git add&lt;/code&gt;로 정리하면 된다.&lt;/p&gt;
 &lt;h3&gt;타임스탬프 충돌은 기계적으로 처리한다&lt;/h3&gt;
-&lt;p&gt;models-store.json은 매번 타임스탬프를 현재 시각으로 덮어쓴다.&lt;/p&gt;
+&lt;p&gt;모델 설정 파일은 매번 타임스탬프를 현재 시각으로 덮어쓴다.&lt;/p&gt;
 &lt;p&gt;로컬과 원격이 둘 다&lt;/p&gt;
 &lt;p&gt;타임스탬프를 바꾸니까, 매번 필드 수준 충돌이 난다.&lt;/p&gt;
 &lt;p&gt;근데 모델 목록은 동일하다.&lt;/p&gt;
