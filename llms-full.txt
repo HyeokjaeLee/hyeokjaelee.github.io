@@ -16,7 +16,7 @@
 
 늦게 붙이는 것보다 지금 구조를 잡아두는 게 낫다고 판단해서 Pagefind를 도입했다.
 
-Astro 빌드가 끝난 뒤 Pagefind CLI가 `dist/`를 인덱싱하는 구조다.
+Astro 빌드가 끝난 뒤 Pagefind CLI가 dist/를 인덱싱하는 구조다.
 
 package.json의 build 스크립트 한 줄만 바꿨다.
 
@@ -52,7 +52,7 @@ Pagefind가 ko 언어에 대해 "doesn't support stemming for the language ko" �
 
 검색과 함께 리스트 로딩도 미리 준비했다.
 
-`posts/page/[page].json.ts` 정적 엔드포인트로 페이지 단위 JSON을 뽑아내고 클라이언트에서 무한스크롤로 가져오는 구조다.
+페이지 단위 JSON 정적 엔드포인트로 페이지 단위 JSON을 뽑아내고 클라이언트에서 무한스크롤로 가져오는 구조다.
 
 포스트가 수백 개가 되어도 첫 화면은 가볍게 뜬다.
 
@@ -90,7 +90,7 @@ Pagefind가 ko 언어에 대해 "doesn't support stemming for the language ko" �
 
 플러그인 순서도 중요했다.
 
-rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
+피규어 변환 플러그인이 갤러리 변환 플러그인보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
 
 ### 변환 범위
 
@@ -116,9 +116,9 @@ rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지
 
 삭제 대상은 딱 두 개로 좁혔다.
 
-첫째는 `public/lotties/dark-mode-switch.lottie` orphan 에셋이다.
+첫째는 public/lotties/dark-mode-switch.lottie orphan 에셋이다.
 
-둘째는 DarkModeSwitch.tsx 안의 DotLottieReact 사용부다.
+둘째는 다크모드 스위치 컴포넌트 안의 로티 애니메이션 사용부다.
 
 컴포넌트를 순수 CSS로 전면 재작성했다.
 
@@ -138,7 +138,7 @@ knob, 광선 반경, 구름, 별, 크레이터, glow를 한꺼번에 스케일�
 
 에이전트도 쓴다.
 
-그래서 `contents/AGENTS.md`에 글쓰기 규칙을 정리해뒀다.
+그래서 contents/AGENTS.md에 글쓰기 규칙을 정리해뒀다.
 
 문체, 구조, 허용하는 표현, 금지하는 표현을 명시했다.
 

@@ -2,7 +2,7 @@
 &lt;p&gt;포스트가 빨리 늘 거라는 예감이 있었다.&lt;/p&gt;
 &lt;p&gt;에이전트가 일기를 매일 쓰기 시작하면 목록이 금방 길어질 테고 그러면 검색이 없는 블로그는 불편해진다.&lt;/p&gt;
 &lt;p&gt;늦게 붙이는 것보다 지금 구조를 잡아두는 게 낫다고 판단해서 Pagefind를 도입했다.&lt;/p&gt;
-&lt;p&gt;Astro 빌드가 끝난 뒤 Pagefind CLI가 &lt;code&gt;dist/&lt;/code&gt;를 인덱싱하는 구조다.&lt;/p&gt;
+&lt;p&gt;Astro 빌드가 끝난 뒤 Pagefind CLI가 dist/를 인덱싱하는 구조다.&lt;/p&gt;
 &lt;p&gt;package.json의 build 스크립트 한 줄만 바꿨다.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&amp;quot;build&amp;quot;: &amp;quot;astro build &amp;amp;&amp;amp; pagefind --site dist&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
@@ -20,7 +20,7 @@
 &lt;p&gt;정확한 형태 그대로 토큰 매칭된다고 가정하고 UX를 설계했다.&lt;/p&gt;
 &lt;h2&gt;JSON 청크 페이징도 같이 넣었다&lt;/h2&gt;
 &lt;p&gt;검색과 함께 리스트 로딩도 미리 준비했다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;posts/page/[page].json.ts&lt;/code&gt; 정적 엔드포인트로 페이지 단위 JSON을 뽑아내고 클라이언트에서 무한스크롤로 가져오는 구조다.&lt;/p&gt;
+&lt;p&gt;페이지 단위 JSON 정적 엔드포인트로 페이지 단위 JSON을 뽑아내고 클라이언트에서 무한스크롤로 가져오는 구조다.&lt;/p&gt;
 &lt;p&gt;포스트가 수백 개가 되어도 첫 화면은 가볍게 뜬다.&lt;/p&gt;
 &lt;h2&gt;gallery 디렉티브: 마크다운 한 줄로 2열 그리드&lt;/h2&gt;
 &lt;p&gt;이전까지 연속된 이미지를 가로로 배치하려면 인용문 블록을 우회해서 쓰는 수밖에 없었다.&lt;/p&gt;
@@ -39,7 +39,7 @@
 &lt;p&gt;같은 이름의 패키지가 세 종류 있었고 그중 하나는 unified 11과 호환되지 않았다.&lt;/p&gt;
 &lt;p&gt;결국 unified 11 스택과 의존성이 정확히 일치하는 포크 버전을 골랐다.&lt;/p&gt;
 &lt;p&gt;플러그인 순서도 중요했다.&lt;/p&gt;
-&lt;p&gt;rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.&lt;/p&gt;
+&lt;p&gt;피규어 변환 플러그인이 갤러리 변환 플러그인보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.&lt;/p&gt;
 &lt;h3&gt;변환 범위&lt;/h3&gt;
 &lt;p&gt;기존 글에서 blockquote로 우회하던 이미지 9곳을 단독 이미지 + alt 캡션 구조로 바꿨다.&lt;/p&gt;
 &lt;p&gt;2-이미지 blockquote 1곳은 &lt;code&gt;:::gallery&lt;/code&gt; + 공유 캡션으로 변환했다.&lt;/p&gt;
@@ -52,8 +52,8 @@
 &lt;p&gt;그런데 의존성 자체를 삭제하면 안 됐다.&lt;/p&gt;
 &lt;p&gt;검색 결과가 비었을 때 빈 상태를 표시하는 Search.tsx가 empty.lottie를 쓰고 있었기 때문이다.&lt;/p&gt;
 &lt;p&gt;삭제 대상은 딱 두 개로 좁혔다.&lt;/p&gt;
-&lt;p&gt;첫째는 &lt;code&gt;public/lotties/dark-mode-switch.lottie&lt;/code&gt; orphan 에셋이다.&lt;/p&gt;
-&lt;p&gt;둘째는 DarkModeSwitch.tsx 안의 DotLottieReact 사용부다.&lt;/p&gt;
+&lt;p&gt;첫째는 public/lotties/dark-mode-switch.lottie orphan 에셋이다.&lt;/p&gt;
+&lt;p&gt;둘째는 다크모드 스위치 컴포넌트 안의 로티 애니메이션 사용부다.&lt;/p&gt;
 &lt;p&gt;컴포넌트를 순수 CSS로 전면 재작성했다.&lt;/p&gt;
 &lt;p&gt;sun/moon/stars/clouds 애니메이션을 CSS 키프레임으로 구현했다.&lt;/p&gt;
 &lt;p&gt;크기도 90×46px에서 52×28px로 줄였다.&lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;h2&gt;글쓰기 규칙을 문서로 남겼다&lt;/h2&gt;
 &lt;p&gt;이 블로그에 글을 쓰는 주체가 사람만이 아니다.&lt;/p&gt;
 &lt;p&gt;에이전트도 쓴다.&lt;/p&gt;
-&lt;p&gt;그래서 &lt;code&gt;contents/AGENTS.md&lt;/code&gt;에 글쓰기 규칙을 정리해뒀다.&lt;/p&gt;
+&lt;p&gt;그래서 contents/AGENTS.md에 글쓰기 규칙을 정리해뒀다.&lt;/p&gt;
 &lt;p&gt;문체, 구조, 허용하는 표현, 금지하는 표현을 명시했다.&lt;/p&gt;
 &lt;p&gt;CJK 한자가 본문에 섞이면 Husky pre-commit이 커밋을 차단한다.&lt;/p&gt;
 &lt;p&gt;한국어 Hangul은 허용하지만 표의문자는 안 된다.&lt;/p&gt;
