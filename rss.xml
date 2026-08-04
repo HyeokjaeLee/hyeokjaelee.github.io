@@ -29,8 +29,7 @@
 &lt;p&gt;마크다운 파서가 이미지 주변에 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 래퍼를 만들고 줄바꿈 패턴에 따라 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;들이 서로 다른 depth에 흩어지는 게 기술적 걸림돌이었다.&lt;/p&gt;
 &lt;p&gt;결국 mdast 단계에서 figure로 매핑하고 hast 단계에서 자손 img를 평탄화하는 두 개의 remark/rehype 플러그인 쌍으로 해결했다.&lt;/p&gt;
 &lt;p&gt;한 단계로는 안 된다.&lt;/p&gt;
-&lt;p&gt;두 단계가 필요한 이유는 트리 구조가 파싱 단계마다&lt;/p&gt;
-&lt;p&gt;달라지기 때문이다.&lt;/p&gt;
+&lt;p&gt;두 단계가 필요한 이유는 트리 구조가 파싱 단계마다 달라지기 때문이다.&lt;/p&gt;
 &lt;h3&gt;rehype-figure로 캡션 정식화&lt;/h3&gt;
 &lt;p&gt;단독 이미지도 처리했다.&lt;/p&gt;
 &lt;p&gt;기존엔 캡션을 넣을 방법이 없어서 blockquote 안에 이미지와 텍스트를 우회 사용했다.&lt;/p&gt;
@@ -1207,7 +1206,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;h3&gt;메시지 축: 항상 모델에 도달한다&lt;/h3&gt;
 &lt;p&gt;메시지 축은 모델 컨텍스트에 항상 도달한다.&lt;/p&gt;
 &lt;p&gt;근데 여기에 함정이 있다.&lt;/p&gt;
-&lt;p&gt;화면 숨김 설정을 설정하면 TUI에서 박스가 사라진다.&lt;/p&gt;
+&lt;p&gt;화면 숨김을 설정하면 TUI에서 박스가 사라진다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;숨겼다&amp;quot;고 생각한다.&lt;/p&gt;
 &lt;p&gt;근데 모델은 여전히 읽고 있다.&lt;/p&gt;
 &lt;p&gt;화면 숨김 설정은 TUI 박스를 지울 뿐, 모델 컨텍스트에서 제외하지 않는다.&lt;/p&gt;
@@ -4741,11 +4740,12 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;세 번째 버그는 프로세스가 종료되지 않는 거였다.&lt;/p&gt;
 &lt;p&gt;배치가 끝났는데 프로세스가 안 끝났다.&lt;/p&gt;
 &lt;p&gt;1920초 이상 돌고 있었다.&lt;/p&gt;
-&lt;p&gt;원인은 단순했다. main 함수에 process.exit가 없었다.&lt;/p&gt;
+&lt;p&gt;원인은 단순했다.&lt;/p&gt;
+&lt;p&gt;메인 함수에 프로세스 종료 함수가 없었다.&lt;/p&gt;
 &lt;p&gt;데이터베이스 연결, HTTP 클라이언트, 타이머 같은 핸들이 이벤트 루프를 잡고 있었다.&lt;/p&gt;
 &lt;p&gt;명시적으로 종료하지 않으니까&lt;/p&gt;
 &lt;p&gt;이벤트 루프가 계속 살아 있었다.&lt;/p&gt;
-&lt;p&gt;해결은 끝에 process.exit(0)를 넣는 거였다.&lt;/p&gt;
+&lt;p&gt;해결은 끝에 프로세스 종료 함수(0)를 넣는 거였다.&lt;/p&gt;
 &lt;p&gt;한 줄이다.&lt;/p&gt;
 &lt;p&gt;근데 이게 없으면 클라우드 런 타임아웃에 걸린다.&lt;/p&gt;
 &lt;p&gt;성공인지 실패인지도 ambiguous 해진다.&lt;/p&gt;
