@@ -68,9 +68,7 @@ Pagefind가 ko 언어에 대해 "doesn't support stemming for the language ko" �
 
 한 단계로는 안 된다.
 
-두 단계가 필요한 이유는 트리 구조가 파싱 단계마다
-
-달라지기 때문이다.
+두 단계가 필요한 이유는 트리 구조가 파싱 단계마다 달라지기 때문이다.
 
 ### rehype-figure로 캡션 정식화
 
