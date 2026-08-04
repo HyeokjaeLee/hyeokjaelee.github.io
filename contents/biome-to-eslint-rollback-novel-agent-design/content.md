@@ -1,8 +1,6 @@
 ---
 title: 'Biome를 도입했다가 ESLint로 돌아온 날'
-description: '린터를 Biome로 통합했다가, 성능 차이가 미미하고 에디터 통합이 안 좋아서 ESLint랑 Prettier로 롤백했다
-
-그리고 소설 생성 에이전트 구조도 설계했다.'
+description: '린터를 Biome로 통합했다가, 성능 차이가 미미하고 에디터 통합이 안 좋아서 ESLint랑 Prettier로 롤백했다 그리고 소설 생성 에이전트 구조도 설계했다.'
 
 date: '2026-05-29'
 tags: [journal]

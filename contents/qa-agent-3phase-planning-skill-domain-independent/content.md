@@ -1,8 +1,6 @@
 ---
 title: 'QA Agent 3단계 Planning 파이프라인과 스킬 도메인 독립화'
-description: '28개 케이스를 한 번에 planning하다
-
-멈추는 문제를 3단계로 쪼개서 해결하고, 스킬을 특정 도메인에 종속되지 않게 만들었다.'
+description: '28개 케이스를 한 번에 planning하다 멈추는 문제를 3단계로 쪼개서 해결하고, 스킬을 특정 도메인에 종속되지 않게 만들었다.'
 
 date: '2026-04-15'
 tags: [journal]

@@ -1,8 +1,6 @@
 ---
 title: 'Agentree 터미널 엔진을 xterm에서 Rust 네이티브로 바꾸고 한글 입력 고치기'
-description: 'xterm.js를 Rust 네이티브 VT 파서랑 Canvas2D 렌더러로 교체했다
-
-그리고 새 엔진에서 깨진 한글 입력을 고쳤다.'
+description: 'xterm.js를 Rust 네이티브 VT 파서랑 Canvas2D 렌더러로 교체했다 그리고 새 엔진에서 깨진 한글 입력을 고쳤다.'
 
 date: '2026-05-22'
 tags: [journal]

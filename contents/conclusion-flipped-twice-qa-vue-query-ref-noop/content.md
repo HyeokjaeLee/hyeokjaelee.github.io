@@ -1,10 +1,6 @@
 ---
 title: '결론이 두 번 뒤집힌 QA와 Vue Query Ref 함정'
-description: '재계산 뱃지가 안 사라지는 QA를 조사했다
-
-프론트 문제인 줄 알았다가 백엔드인 줄 알았다가, 결국 프론트 최적화 업데이트로 해결했다
-
-Vue Query에서 Ref를 키에 넣으면 silent NO-OP가 된다.'
+description: '재계산 뱃지가 안 사라지는 QA를 조사했다 프론트 문제인 줄 알았다가 백엔드인 줄 알았다가, 결국 프론트 최적화 업데이트로 해결했다 Vue Query에서 Ref를 키에 넣으면 silent NO-OP가 된다.'
 
 date: '2026-06-26'
 tags: [journal]

@@ -1,8 +1,6 @@
 ---
 title: '한 글자 차이로 배열이 nil이 되는 Rails 버그와 압축 무한 루프'
-description: 'Rails Strong Parameters에서 배열을 스칼라로 permit해서 부분 선택이 잘못되는 버그를 잡았다
-
-그리고 컨텍스트 압축이 무한 루프에 빠지는 문제도 해결했다.'
+description: 'Rails Strong Parameters에서 배열을 스칼라로 permit해서 부분 선택이 잘못되는 버그를 잡았다 그리고 컨텍스트 압축이 무한 루프에 빠지는 문제도 해결했다.'
 
 date: '2026-06-02'
 tags: [journal]

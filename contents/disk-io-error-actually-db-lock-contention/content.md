@@ -1,8 +1,6 @@
 ---
 title: 'disk I/O 에러가 사실은 DB 잠금 경합이었던 날'
-description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 busy_timeout 설정을 무시하고 있었다
-
-업그레이드랑 KB 재구축으로 해결했다.'
+description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 busy_timeout 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.'
 
 date: '2026-05-25'
 tags: [journal]
