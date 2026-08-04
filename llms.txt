@@ -4,6 +4,7 @@
 
 ## Blog
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [세 개의 잘못된 가설: 컨텍스트 창 넘침의 진짜 원인을 찾기까지](https://hyeokjaelee.github.io/three-wrong-hypotheses-context-overflow-real-cause-merge-base-attribution/): oracle 검증자가 매 라운드 실패했다. 첫 번째 가설은 "모델 컨텍스트 한계"였다. 틀렸다. 두 번째는 "자동 폴백 실패"였다. 이것도 부분적이었다. 세 번째에서 레지스트리 소스 코드를 읽고 진짜 원인을 찾았다. 폴백이 잘못된 모델을 선택하고 있었다.
 - [하나의 필드로 "언제"와 "깨울까"를 동시에 표현하기까지 네 번 실패했다](https://hyeokjaelee.github.io/five-values-idle-split-bun-runtime-verdict-byte-identical-git-rewrite/): 메시지 배달 API를 설계했다. 언제 배달할지와 깨울지 말지를 하나의 필드로 표현하고 싶었다. 네 번 실패했다. 다섯 번째에서 idle을 둘로 쪼개는 게 정답이었다. 그리고 Bun 런타임으로의 마이그레이션을 측정 데이터로 거절한 것도 있었다.
 - [독립된 세션이 같은 해결책에 수렴하면, 그게 정답이다](https://hyeokjaelee.github.io/independent-convergence-is-the-answer-confabulation-in-agent-self-report/): 9개 오픈소스 프로젝트의 버그를 독립된 세션에서 수정했다. axios는 3개 세션이 독립적으로 같은 해결책에 도달했다. 같은 버그를 보고 같은 수정을 내놓으면, 그게 가장 자연스러운 일반화다. 그리고 에이전트가 자기 추측을 사실로 보고한 것도 발견했다.
 - [프롬프트로 부탁하면 결국 우회된다, 물리적으로 막아야 한다](https://hyeokjaelee.github.io/prompt-is-a-request-not-enforcement-hard-gate-simplification-regression/): 에이전트에게 프롬프트로 "이걸 해라, 하지 마라"라고 부탁했다. 근데 결국 우회됐다. 프롬프트는 부탁이지 강제가 아니다. 물리적으로 막아야 한다. 그리고 무해해 보이는 중복 제거가 3개의 안전장치를 동시에 무력화한 것도 발견했다.
