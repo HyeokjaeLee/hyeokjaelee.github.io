@@ -3,8 +3,8 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
-- [블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다](https://hyeokjaelee.github.io/blog-search-gallery-darkmode/): Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날
-- [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다](https://hyeokjaelee.github.io/blog-search-gallery-darkmode/): Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날.
+- [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록.
 - [리뷰어가 매번 실패를 반환하면 무한 루프에 빠진다](https://hyeokjaelee.github.io/reviewer-fail-infinite-loop-cache-hit-break-even-disabled-tools-unreliable/): 검증 루프에 무한 루프가 있었다 스톨 카운터가 "평결 없음"만 세고 "실패" 평결은 세지 않았다 리뷰어가 매번 실패를 반환하면 영원히 멈추지 않았다 그리고 캐시 적중이 절약이라는 믿음도 깨졌다 캐시 적중은 손익분기점이었다.
 - [모델이 없는 메시지를 지어내고, 스스로 대답했다](https://hyeokjaelee.github.io/model-fabricated-message-it-answered-cron-works-interactive-fails/): 사용자가 보내지 않은 메시지가 세션에 나타났다 보안 조사를 했다 외부 공격이 아니었다 GLM-5.2 모델이 시스템 프롬프트의 마커를 흉내 내서 가짜 사용자 메시지를 만들고, 스스로에게 대답한 거였다 그리고 크론은 되는데 대화형은 실패하는 경쟁 조건도 발견했다.
 - [확인해야 하는 것과 가정해도 되는 것을 구분하라](https://hyeokjaelee.github.io/verify-dont-assume-can-destroy-flag-port-not-your-server-stale-lock/): 이날은 확인과 가정을 구분한 날이었다 삭제 가능 플래그를 믿었는데 실제 환경에서 거짓이었다 포트가 열려 있으면 내 서버라고 가정했는데 다른 작업자의 서버였다 잠금 파일이 오래되면 데몬이 영원히 안 떴다 그리고 컨텍스트 이벤트 주입이 구조적으로 1턴 늦는다는 것도 깨달았다.
@@ -18,7 +18,7 @@
 - [화면에서 숨겼다고 모델이 안 보는 게 아니다](https://hyeokjaelee.github.io/display-false-not-model-invisible-three-axis-message-injection/): 확장 메시지를 화면에서 숨겼다 근데 모델은 여전히 읽고 있었다. display false는 TUI 박스를 지울 뿐, 모델 컨텍스트에서는 제외되지 않는다 이걸 깨닫고 메시지 주입 3축을 정리했다 그리고 같은 날 두 세션이 같은 프롬프트를 반대 방향으로 수정한 것도 발견했다.
 - [멈춘 이벤트 루프는 자기 자신을 감시할 수 없다](https://hyeokjaelee.github.io/frozen-event-loop-cannot-self-monitor-mock-tests-mask-scale/): 코드 인덱싱 데몬이 응답하지 않았다 원인은 onnxruntime 동기 호출이 이벤트 루프를 얼린 거였다 근데 얼어붙은 루프가 자기 자신을 감시할 수는 없다 별도 프로세스가 필요했다 그리고 통과한 테스트가 실제 규모에서는 의미가 없었다.
 - [파이프라인을 코드에 명시해야 까먹지 않는다](https://hyeokjaelee.github.io/pipeline-as-code-forgot-price-step-template-root-cause/): 스케줄러 설정에 파이프라인 순서를 숨겨놓으니까 가격 단계를 깜빡했다 파이프라인을 코드에 명시하니까 까먹을 수가 없다 그리고 위키에 적었는데도 반복되는 실수는 템플릿이 원인이었다.
-- [490번 반복한 에이전트, 교체가 아니라 확장으로 고쳤다](https://hyeokjaelee.github.io/490-repetitions-replace-not-expand-fix/): pi-loop가 14시간 동안 490번이나 무의미하게 반복했다 원인은 검증자 프롬프트를 교체해서 맥락이 날아간 거였다 교체가 아니라 확장으로 고쳤다 그리고 orca를 전면 폐기하고 법원경매 에이전트를 3개에서 1개로 통합했다.
+- [490번 반복한 에이전트, 교체가 아니라 확장으로 고쳤다](https://hyeokjaelee.github.io/490-repetitions-replace-not-expand-fix/): 검증 루프가 14시간 동안 490번이나 무의미하게 반복했다 원인은 검증자 프롬프트를 교체해서 맥락이 날아간 거였다 교체가 아니라 확장으로 고쳤다 그리고 orca를 전면 폐기하고 법원경매 에이전트를 3개에서 1개로 통합했다.
 - [확장을 비활성화하는 올바른 방법과 캐시 적중 0%의 진짜 원인](https://hyeokjaelee.github.io/extension-deprecation-method-cache-hit-zero-cause/): 확장 두 개가 쓸모없어져서 폐기했다 165개 세션에서 0번 발동한 가드를 어떻게 검증하고 폐기했는지 정리했다 그리고 캐시 적중률이 0%인 원인이 세 가지 가설 전부 틀렸다.
 - [Kimi K3가 반도체에 나쁜가, 로그인 성공이 접근 권한은 아니다](https://hyeokjaelee.github.io/kimi-k3-chip-demand-aws-login-not-access/): 중국에서 세계 최대 AI 모델이 나왔다 반도체에 안 좋은 것 같지만 사실 더 많은 칩을 쓴다 그리고 AWS 로그인은 성공했는데 ECR은 접근 거부당했다 권한과 인증은 다르다.
 - [AI 에이전트가 16번이나 팔라고 한 날, 기계적 권고를 고쳤다](https://hyeokjaelee.github.io/agent-16-consecutive-trims-mechanical-guideline-fix/): 투자 분석 에이전트가 삼성전자랑 하이닉스를 16번 연속으로 팔라고 했다 근데 한 번도 안 팔았다 직접 물어보면 "들고 있어라"고 한다 모순이었다 원인은 프롬프트의 기계적 비중 제한이었다.
