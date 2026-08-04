@@ -1,14 +1,10 @@
----
-title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
+--- title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
 description: 'footer가 화면 바닥에 안 붙었다.
 
 grid minmax가 대화면에서만 실패했다 소화면에서 PASS라고 믿었다가 거짓 PASS였다.
 
-flexbox로 전환해서 해결했다.'
-
-date: '2026-06-17'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+flexbox로 전환해서 해결했다.' date: '2026-06-17'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## footer가 화면 바닥에 안 붙는다
@@ -55,9 +51,7 @@ footer 행은 자기 높이만 차지한다.
 
 footer 행에 715픽셀이 배당됐다.
 
-footer 엘리먼트는 80픽셀인데.
-
-overflow:hidden을 추가해봤다.
+footer 엘리먼트는 80픽셀인데. overflow:hidden을 추가해봤다.
 
 안 됐다.
 
@@ -147,9 +141,7 @@ append-only JSONL 파일이 충돌했다.
 
 ## 부재도 증거다
 
-마지막으로 하나 더.
-
-확장이 실행됐는지 확인할 때, 부재도 증거라는 걸 배웠다.
+마지막으로 하나 더. 확장이 실행됐는지 확인할 때, 부재도 증거라는 걸 배웠다.
 
 fire-and-forget로 실행되는 확장이 있었다.
 
@@ -183,9 +175,7 @@ clientId도 안 바뀌고 콜백 서버도 없고 로그도 없다.
 
 빈 공간은 대화면에서 가장 크게 드러난다.
 
-둘째, grid가 안 되면 flexbox로 가라.
-
-grid의 `minmax(0,1fr)`은 스펙상 맞지만 Chrome이 특정 컨텍스트에서 안 지킨다.
+둘째, grid가 안 되면 flexbox로 가라. grid의 `minmax(0,1fr)`은 스펙상 맞지만 Chrome이 특정 컨텍스트에서 안 지킨다.
 
 실측으로 track sizing이 안 바뀌면 flexbox로 전환하는 게 빠르다.
 

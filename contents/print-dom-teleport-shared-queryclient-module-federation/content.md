@@ -1,10 +1,6 @@
----
-title: '인쇄 DOM 텔레포트와 Module Federation 공유 캐시'
-description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.'
-
-date: '2026-06-29'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: '인쇄 DOM 텔레포트와 Module Federation 공유 캐시'
+description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.' date: '2026-06-29'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 인쇄하면 호스트가 같이 나온다
@@ -135,7 +131,5 @@ diff 기준이 `origin/main`이면 머지 커밋의 변경까지 섞여서 배�
 
 모듈 연합은 앱을 독립적으로 만들지만 동시에 공유해야 하는 것이 생긴다.
 
-DOM, 캐시, 포트.
-
-이걸 언제 독립시키고 언제 공유할지 결정하는 게 모듈 연합 환경의 핵심 과제다.
+DOM, 캐시, 포트. 이걸 언제 독립시키고 언제 공유할지 결정하는 게 모듈 연합 환경의 핵심 과제다.
 

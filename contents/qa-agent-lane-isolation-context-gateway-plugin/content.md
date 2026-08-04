@@ -1,9 +1,6 @@
----
-title: 'QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계'
-description: '병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.'
-date: '2026-03-21'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계'
+description: '병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.' date: '2026-03-21'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Lane은 세션을 공유하면 안 된다
@@ -40,9 +37,7 @@ Planner가 케이스 특성에 맞춰 1~5개 사이에서 Lane 개수를 정하�
 
 오늘 세션 분리 원칙을 굳혀둔 게 그 기반이 됐다.
 
-> 세션 분리를 하면 컨텍스트가 단절된다는 단점이 있다.
-
-한 Lane이 알아낸 라우팅 정보를 다른 Lane이 못 쓴다거나.
+> 세션 분리를 하면 컨텍스트가 단절된다는 단점이 있다. 한 Lane이 알아낸 라우팅 정보를 다른 Lane이 못 쓴다거나.
 
 이건 Fixture Knowledge라는 외부 저장소로 보완한다.
 
@@ -62,15 +57,11 @@ LLM 에이전트가 대화를 이어가다
 
 그 전까지는 이걸 독립된 도구로 따로 설치해서 썼다.
 
-근데 독립 도구로 두니까
-
-설정이 귀찮았다.
+근데 독립 도구로 두니까 설정이 귀찮았다.
 
 API 키도 따로 발급받아야 하고 세팅도 따로 해야 했다.
 
-이미 opencode 설정에 API 키가 있는데, Context-Gateway용으로 또 하나 만들어야 하니까
-
-비효율적이었다.
+이미 opencode 설정에 API 키가 있는데, Context-Gateway용으로 또 하나 만들어야 하니까 비효율적이었다.
 
 그래서 opencode 플러그인으로 옮기기로 했다.
 
@@ -100,9 +91,7 @@ macOS arm64, x64, Linux x64, arm64, Windows x64를 다
 
 API 키도 여기서 재사용하고 컨텍스트 윈도우 크기도 모델 메타데이터에서 계산한다.
 
-그러니까
-
-사용자가 설정할 게 거의 없다.
+그러니까 사용자가 설정할 게 거의 없다.
 
 디폴트로 대부분 커버되고 세부 조정이 필요하면 context-gateway.json으로 잡는다.
 

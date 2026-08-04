@@ -1,9 +1,6 @@
----
-title: 'QA Agent 멀티 에이전트 전환 계획과 browser-use 검토'
-description: '브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.'
-date: '2026-03-22'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'QA Agent 멀티 에이전트 전환 계획과 browser-use 검토'
+description: '브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.' date: '2026-03-22'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## browser-use를 QA에 도입할까
@@ -14,9 +11,7 @@ browser-use라는 브라우저 자동화 도구를 검토하고 OpenCode를 오�
 
 browser-use는 Python 기반 Playwright 자동화 라이브러리다.
 
-브라우저를 제어하는 데 특화되어 있어서 QA Agent 브라우저 자동화를 이걸로 바꿀까
-
-검토했다.
+브라우저를 제어하는 데 특화되어 있어서 QA Agent 브라우저 자동화를 이걸로 바꿀까 검토했다.
 
 그 전까지 QA Agent는 Playwright MCP로 브라우저를 제어하고 있었다.
 
@@ -30,9 +25,7 @@ QA 용도로는 Playwright MCP가 더 맞았다.
 
 그래서 browser-use는 도입하지 않기로 했다.
 
-> browser-use는 나중에 다른 프로젝트에서 다시 검토하게 됐다.
-
-뉴스 수집 파이프라인에서는 자체 LLM 레이어가 있어도 크게 문제가 없었기 때문이다.
+> browser-use는 나중에 다른 프로젝트에서 다시 검토하게 됐다. 뉴스 수집 파이프라인에서는 자체 LLM 레이어가 있어도 크게 문제가 없었기 때문이다.
 
 그때 CDP 연동 관련 함정들을 꽤 많이 만났는데, 그건 다른 이야기다.
 
@@ -114,9 +107,7 @@ Executor 네 개가 각자 격리된 프로세스로 돌면, 한 Executor가 알
 
 이날 세 가지 결정이 전부 이어져 있었다.
 
-browser-use는 내 프로바이더를 못 쓰니까
-
-Playwright MCP를 유지하고 OpenCode를 플랫폼으로 두고 그 안에서 역할을 나눈 멀티 에이전트 구조로 전환하기로 했다.
+browser-use는 내 프로바이더를 못 쓰니까 Playwright MCP를 유지하고 OpenCode를 플랫폼으로 두고 그 안에서 역할을 나눈 멀티 에이전트 구조로 전환하기로 했다.
 
 멀티 에이전트 구조는 병렬 속도 이점을 가져다줬다.
 

@@ -1,9 +1,6 @@
----
-title: 'QA Agent 의존성 판단을 두 질문으로 줄이고 통과율 73% 달성'
-description: '여러 의존성 타입을 두 질문으로 줄이고 실패 연쇄 차단을 복구하니 통과율이 60%에서 73%로 올랐다.'
-date: '2026-04-20'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'QA Agent 의존성 판단을 두 질문으로 줄이고 통과율 73% 달성'
+description: '여러 의존성 타입을 두 질문으로 줄이고 실패 연쇄 차단을 복구하니 통과율이 60%에서 73%로 올랐다.' date: '2026-04-20'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 의존성 판단이 흐릿했다
@@ -20,9 +17,7 @@ Planner가 케이스 의존성을 판단하는 방식을 두 질문으로 줄였
 
 그 전까지는 여러 의존성 타입이 있었다.
 
-필수 선행 관계, 도움이 되는 선행 관계, 부드러운 의존성.
-
-Planner는 이 여러 관계를 다
+필수 선행 관계, 도움이 되는 선행 관계, 부드러운 의존성. Planner는 이 여러 관계를 다
 
 추론해야 했다.
 
@@ -38,17 +33,13 @@ Planner는 이제 케이스 쌍마다 딱 두 질문에 답한다.
 
 ### 첫 번째 질문: UI 상태
 
-이 케이스가 선행 케이스가 만든 UI 상태를 필요로 하는가.
-
-예를 들어 선행 케이스가 모달을 열어뒀거나, 목록을 필터링해뒀거나, 폼을 채워놓은 상태.
+이 케이스가 선행 케이스가 만든 UI 상태를 필요로 하는가. 예를 들어 선행 케이스가 모달을 열어뒀거나, 목록을 필터링해뒀거나, 폼을 채워놓은 상태.
 
 이런 UI 상태가 필요하면 의존성이 있다.
 
 ### 두 번째 질문: 런타임 상태
 
-이 케이스가 선행 케이스가 만든 런타임 상태를 필요로 하는가.
-
-예를 들어 로그인 세션이 열려 있거나, 데이터베이스에 엔티티가 생성되어 있거나, 레코드가 존재해야 하는 상태.
+이 케이스가 선행 케이스가 만든 런타임 상태를 필요로 하는가. 예를 들어 로그인 세션이 열려 있거나, 데이터베이스에 엔티티가 생성되어 있거나, 레코드가 존재해야 하는 상태.
 
 이런 서버 상태가 필요하면 의존성이 있다.
 
@@ -62,9 +53,7 @@ Planner는 이제 케이스 쌍마다 딱 두 질문에 답한다.
 
 ### 왜 두 질문이 나은가
 
-이렇게 하니까
-
-판단이 일관되고 재현 가능해졌다.
+이렇게 하니까 판단이 일관되고 재현 가능해졌다.
 
 흐릿한 어휘로 추론하는 게 아니라, 명확한 이진 질문 두 개에 답하는 거다.
 
@@ -82,9 +71,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 선행 케이스가 실패하면, 그 케이스에 의존하는 하위 케이스를 자동으로 막아야 한다.
 
-선행이 실패했는데 하위를 돌리면 무조건 실패하니까.
-
-그러니까
+선행이 실패했는데 하위를 돌리면 무조건 실패하니까. 그러니까
 
 실패가 감지되면 하위는 재시도하지 않고 바로 차단 표시를 한다.
 
@@ -92,9 +79,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 실패한 케이스의 하위가 제대로 막히지 않았다.
 
-그러니까
-
-하위 케이스들이 돌아가다가 실패했다.
+그러니까 하위 케이스들이 돌아가다가 실패했다.
 
 실행 시간이랑 토큰을 날리고 통과율 측정도 왜곡됐다.
 
@@ -106,13 +91,9 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 ## 통과율 73% 달성
 
-두 가지 변화를 합치니까
+두 가지 변화를 합치니까 통과율이 올라갔다.
 
-통과율이 올라갔다.
-
-30개 케이스 중 22개 통과.
-
-73.3%.
+30개 케이스 중 22개 통과. 73.3%.
 
 의존성이 정확해지니까, 올바른 순서로 케이스가 돌아갔다.
 
@@ -122,9 +103,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 차단으로 깔끔하게 표시되니까, 통과율이 정확해졌다.
 
-> 이날로 며칠간의 안정화 스프린트가 마무리됐다.
-
-며칠 전 통과율이 18%였다.
+> 이날로 며칠간의 안정화 스프린트가 마무리됐다. 며칠 전 통과율이 18%였다.
 
 시트 품질 개선, 모델 분산, 탐색 에이전트 통합을 거쳐 60%까지 올렸고 이날 의존성 단순화로 73%까지 올랐다.
 
@@ -140,9 +119,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 흐릿한 관계를 추론하는 것보다, 명확한 이진 질문에 답하는 게 더 정확했다.
 
-복잡도를 빼니까
-
-성능도 올라가고 디버깅도 쉬워졌다.
+복잡도를 빼니까 성능도 올라가고 디버깅도 쉬워졌다.
 
 소프트 의존성을 없애고, 도구를 걷어내고, 질문을 줄이는 결정들이 전부 같은 방향이었다.
 
@@ -150,45 +127,24 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 이 원칙이 이 스프린트 내내 증명됐다.
 
-<!--
-HUMANIZE-SUMMARY
-- genre: blog (dev journal)
-- 실행 식별자: 2026-04-20-001
-- original chars (non-ws): 1694 | polished chars (non-ws): 1688
-- change rate: 0.35% (Levenshtein 6 / 1694) — well under 15% target; source was already natural
-- grade: A
-- key changes (6, all rule C-11: 연결어미 -고 직후 쉼표 제거):
-1.
+<!-- HUMANIZE-SUMMARY
+- genre: blog (dev journal) - 실행 식별자: 2026-04-20-001
+- original chars (non-ws): 1694 | polished chars (non-ws): 1688 - change rate: 0.35% (Levenshtein 6 / 1694) — well under 15% target; source was already natural
+- grade: A - key changes (6, all rule C-11: 연결어미 -고 직후 쉼표 제거):
+1. description: "줄이고, 실패" → "줄이고 실패"
 
-description: "줄이고, 실패" → "줄이고 실패"
+2. "unreliable했고, 디버깅도" → "unreliable했고 디버깅도"
 
-2.
+3. "쉽고, 결과도" → "쉽고 결과도"
 
-"unreliable했고, 디버깅도" → "unreliable했고 디버깅도"
+4. "날리고, 통과율 측정도" → "날리고 통과율 측정도"
 
-3.
+5. "기다리고, 독립적인" → "기다리고 독립적인"
 
-"쉽고, 결과도" → "쉽고 결과도"
+6. "올렸고, 이날" → "올렸고 이날"
 
-4.
+- preserved 100%: facts/numbers (60% 73% 18% 30개 22개 73.3% 네 배 일주일), date (2026-04-20), tech terms (QA Agent, Planner, LLM, DAG, 하위 단계 차단 설정, unreliable, UI, 탐색 에이전트),
+  casual register (근데/그래서/그러니까/날리고), sentence endings (-다/-했다/-거다), blockquote. - intentionally NOT touched: L65 list "없애고, 도구를 걷어내고," — legitimate 3-item list enumeration, not connective join.
+- self-check (6/6 passed): names/numbers/quotes 100% preserved; rate <30%; no genre drift; register preserved; 0 S1 residual (all 6 C-11 removed); no new rhetoric added. - note: change rate below 10% band because the input was already human-quality blog prose; the only AI-feel signal was the systematic connective-comma.
 
-"날리고, 통과율 측정도" → "날리고 통과율 측정도"
-
-5.
-
-"기다리고, 독립적인" → "기다리고 독립적인"
-
-6.
-
-"올렸고, 이날" → "올렸고 이날"
-
-- preserved 100%: facts/numbers (60% 73% 18% 30개 22개 73.3% 네 배 일주일), date (2026-04-20),
-  tech terms (QA Agent, Planner, LLM, DAG, 하위 단계 차단 설정, unreliable, UI, 탐색 에이전트),
-  casual register (근데/그래서/그러니까/날리고), sentence endings (-다/-했다/-거다), blockquote.
-- intentionally NOT touched: L65 list "없애고, 도구를 걷어내고," — legitimate 3-item list enumeration, not connective join.
-- self-check (6/6 passed): names/numbers/quotes 100% preserved; rate <30%; no genre drift; register preserved; 0 S1 residual (all 6 C-11 removed); no new rhetoric added.
-- note: change rate below 10% band because the input was already human-quality blog prose; the only AI-feel signal was the systematic connective-comma.
-
-Forcing further edits would risk over-editing and typos.
-
--->
+Forcing further edits would risk over-editing and typos. -->

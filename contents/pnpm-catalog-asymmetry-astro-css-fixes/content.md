@@ -1,9 +1,6 @@
----
-title: 'pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정'
-description: 'pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록.'
-date: '2026-08-02'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정'
+description: 'pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록.' date: '2026-08-02'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## pnpm catalog 범프 비대칭 실측
@@ -13,9 +10,7 @@ catalog는 pnpm-workspace.yaml에 버전을 한 번 적어두고, 각 package.js
 최초 도입은 syncpack을 대체하려는 의도였다.
 
 syncpack은 94건의 lint 에러를 뱉었는데, 실제 의존성 드리프트는 4건뿐이었다.
-신호 대 잡음
-
-비가 4%라는 뜻이다.
+신호 대 잡음 비가 4%라는 뜻이다.
 
 syncpack의 fix 명령은 루트 devDependencies를 `*`로 바꿔버리는 파괴적 동작이라 사용을 포기했다.
 네이티브 기능이고 의존성이 없는 catalog 쪽이 더 가벼웠다.

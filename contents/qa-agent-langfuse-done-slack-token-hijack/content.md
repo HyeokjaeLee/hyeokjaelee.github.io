@@ -1,9 +1,6 @@
----
-title: 'QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건'
-description: 'LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.'
-date: '2026-04-10'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건'
+description: 'LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.' date: '2026-04-10'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Langfuse 연동 완료
@@ -106,9 +103,7 @@ VPN이랑 AWS SSO가 전제 조건이다.
 
 그래서 운영 봇이 이상하게 동작한 거다.
 
-"내 컴퓨터에서 돌아가는 게 왜 운영에 영향을 주지"라고 생각하면 답이 안 나오지만 같은 토큰을 공유하고 있으니까
-
-당연히 영향을 줬다.
+"내 컴퓨터에서 돌아가는 게 왜 운영에 영향을 주지"라고 생각하면 답이 안 나오지만 같은 토큰을 공유하고 있으니까 당연히 영향을 줬다.
 
 ## 마무리
 
@@ -120,9 +115,7 @@ Langfuse 연동으로 LLM 호출이 드디어 보이기 시작했다.
 
 ARM64 네이티브 빌드도 안정적으로 배포됐다.
 
-크로스 빌드의 호환성 문제를 피하니까
-
-배포가 더 단순해졌다.
+크로스 빌드의 호환성 문제를 피하니까 배포가 더 단순해졌다.
 
 그리고 Slack 토큰 가로채기는 교훈이 컸다.
 

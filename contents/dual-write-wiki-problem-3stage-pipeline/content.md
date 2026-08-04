@@ -1,10 +1,6 @@
----
-title: '두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인'
-description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.'
-
-date: '2026-06-28'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: '두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인'
+description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.' date: '2026-06-28'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 두 시스템이 같은 위키에 쓴다
@@ -175,9 +171,7 @@ Pi에서 왔든 Hermes에서 왔든, 같은 방식으로 처리한다.
 
 이 딜레마를 인정하고 필터링 쪽을 택하는 게 맞았다.
 
-마지막으로 "fire-and-forget은 실패를 숨긴다"는 교훈.
-
-결과를 안 기다리면, 실패해도 조용하다.
+마지막으로 "fire-and-forget은 실패를 숨긴다"는 교훈. 결과를 안 기다리면, 실패해도 조용하다.
 
 조용한 실패는 발견이 늦어진다.
 

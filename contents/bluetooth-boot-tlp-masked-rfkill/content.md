@@ -1,11 +1,7 @@
----
-title: '블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스'
+--- title: '블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스'
 
-description: '매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.'
-
-date: '2026-04-24'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+description: '매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.' date: '2026-04-24'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 매번 부팅하면 블루투스가 꺼진다
@@ -44,15 +40,11 @@ systemd-rfkill은 재부팅해도 무선 장치 상태를 기억하는 서비스
 
 숨겨지면 서비스가 아예 동작을 안 한다.
 
-그러니까
-
-재부팅할 때 상태 복원이 안 되고 블루투스는 기본값인 꺼짐으로 돌아간다.
+그러니까 재부팅할 때 상태 복원이 안 되고 블루투스는 기본값인 꺼짐으로 돌아간다.
 
 ## 범인은 한참 전에 설치한 TLP
 
-그럼 왜 이 서비스가 숨겨져 있었을까.
-
-범인은 TLP라는 절전 패키지였다.
+그럼 왜 이 서비스가 숨겨져 있었을까. 범인은 TLP라는 절전 패키지였다.
 
 두 달 전쯤에 노트북 배터리 최적화를 위해서 설치했던 거다.
 
@@ -70,13 +62,9 @@ TLP 입장에서는 합리적인 선택이다.
 
 TLP를 설치한 날에는 블루투스가 정상일 수 있다.
 
-왜냐하면 그 세션 안에서는 상태가 유지되니까.
+왜냐하면 그 세션 안에서는 상태가 유지되니까. 문제는 재부팅하고 나서야 드러난다.
 
-문제는 재부팅하고 나서야 드러난다.
-
-그러니까
-
-원인이 TLP 설치라는 걸 알아채리가 어렵다.
+그러니까 원인이 TLP 설치라는 걸 알아채리가 어렵다.
 
 원인이랑 증상이 한참 떨어져 있는 거다.
 
@@ -87,16 +75,13 @@ TLP를 설치한 날에는 블루투스가 정상일 수 있다.
 해결은 세 단계다.
 
 ```
-sudo systemctl unmask systemd-rfkill.service
-sudo systemctl enable systemd-rfkill.service
+sudo systemctl unmask systemd-rfkill.service sudo systemctl enable systemd-rfkill.service
 sudo systemctl start systemd-rfkill.service
 ```
 
 숨김을 풀고, 활성화하고, 시작한다.
 
-이렇게 하니까
-
-재부팅해도 블루투스가 켜진 채로 유지됐다.
+이렇게 하니까 재부팅해도 블루투스가 켜진 채로 유지됐다.
 
 시스템 로그랑 서비스 상태를 직접 확인해서 정상 동작을 검증했다.
 
@@ -106,9 +91,7 @@ sudo systemctl start systemd-rfkill.service
 
 하나 남는 질문이 있다.
 
-TLP랑 systemd-rfkill을 같이 쓸 수 있는가.
-
-두 가지 방향이 있다.
+TLP랑 systemd-rfkill을 같이 쓸 수 있는가. 두 가지 방향이 있다.
 
 하나는 TLP 설정에서 상태 복원 옵션을 켜서, TLP가 직접 상태를 복원하게 만드는 거다.
 

@@ -1,9 +1,6 @@
----
-title: 'QA Agent 좀비 프로세스 근본 수정과 관측성 설계'
-description: 'Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.'
-date: '2026-04-09'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'QA Agent 좀비 프로세스 근본 수정과 관측성 설계'
+description: 'Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.' date: '2026-04-09'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 좀비 프로세스 근본 수정
@@ -44,9 +41,7 @@ agent-browser가 띄운 Chromium 자식 프로세스가 깔끔하게 종료되�
 
 작업 디렉토리, 브라우저 프로필, 세션 키, 레지스트리 전부 스레드 ID로 묶여 있다.
 
-그러니까
-
-종료할 때 해당 스레드의 Chrome만 죽여야 한다.
+그러니까 종료할 때 해당 스레드의 Chrome만 죽여야 한다.
 
 다른 스레드의 Chrome을 잘못 죽이면 안 된다.
 
@@ -58,9 +53,7 @@ agent-browser가 띄운 Chromium 자식 프로세스가 깔끔하게 종료되�
 
 여러 QA 실행이 큐를 공유하다
 
-보니까
-
-스케줄링에서 경합이 생겼다.
+보니까 스케줄링에서 경합이 생겼다.
 
 동시에 실행되는 실행들이 큐를 서로 잡아당기면서 꼬이는 문제였다.
 
@@ -80,9 +73,7 @@ agent-browser가 띄운 Chromium 자식 프로세스가 깔끔하게 종료되�
 
 대상 URL이 바뀌었는데도 캐시가 갱신되지 않았다.
 
-그러니까
-
-옛날 URL에 대한 계획을 그대로 쓰고 있었다.
+그러니까 옛날 URL에 대한 계획을 그대로 쓰고 있었다.
 
 URL이 바뀌면 캐시를 무효화하고 다시 플래닝해야 하는데, 그게 안 됐다.
 

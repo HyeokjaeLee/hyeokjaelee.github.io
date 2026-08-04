@@ -1,9 +1,6 @@
----
-title: '옵시디언 위키 정리와 QA Agent 파이프라인 재구성'
-description: '옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.'
-date: '2026-03-16'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: '옵시디언 위키 정리와 QA Agent 파이프라인 재구성'
+description: '옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.' date: '2026-03-16'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 옵시디언 위키, 분류 체계 통합
@@ -20,21 +17,15 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그 전까지 옵시디언 노트에 frontmatter를 두 개 필드로 나눠 쓰고 있었다.
 
-type이랑 area.
+type이랑 area. 근데 노트가 쌓이다
 
-근데 노트가 쌓이다
-
-보니까
-
-이분법이 잘 안 먹힌다.
+보니까 이분법이 잘 안 먹힌다.
 
 하나의 노트가 프로젝트 기록이면서 동시에 journal 성격도 띄고 그러면 type에 뭘 넣어야 할지 애매해진다.
 
 결국 category 단일 필드 하나로 합쳤다.
 
-하나만 쓰는 게 분류하거나 검색할 때 훨씬 직관적이더라.
-
-type 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.
+하나만 쓰는 게 분류하거나 검색할 때 훨씬 직관적이더라. type 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.
 
 그리고 같은 날 Linux 서버에 옵시디언 LiveSync 환경을 구축했다.
 
@@ -44,9 +35,7 @@ CouchDB를 올리고 Cloudflare Tunnel로 외부에서 접근 가능하게 만�
 
 공식 Obsidian 동기화 서비스가 있긴 한데 유료라서 self-hosted로 해결했다.
 
-> 공식 CLI가 자꾸 비정상 종료돼서 결국 파일 직접 편집으로 fallback했다.
-
-이건 추후에 다시 봐야 할 문제다.
+> 공식 CLI가 자꾸 비정상 종료돼서 결국 파일 직접 편집으로 fallback했다. 이건 추후에 다시 봐야 할 문제다.
 
 ## QA Agent 파이프라인 재구성
 
@@ -62,34 +51,24 @@ QA Agent는 Slack에서 테스트 대상 URL이랑 시트 정보를 받아서 �
 
 실행 흐름을 8단계로 재배치했다.
 
-- `0_intake` — Slack 메시지에서 테스트 대상 URL, 시트 정보 수집
-- `1_normalize` — 테스트케이스를 공통 형식으로 변환
-- `2_bootstrap` — 브라우저 프로필, 런타임 준비
-- `3_planning` — Planner가 실행 계획 수립
-- `4_execution` — Executor가 실제 테스트 실행
-- `5_inspection` — blocked 케이스 원인 분석
-- `6_reporting` — 결과 취합, Slack 업데이트
-- `7_cleanup` — 브라우저 세션 정리
+- `0_intake` — Slack 메시지에서 테스트 대상 URL, 시트 정보 수집 - `1_normalize` — 테스트케이스를 공통 형식으로 변환
+- `2_bootstrap` — 브라우저 프로필, 런타임 준비 - `3_planning` — Planner가 실행 계획 수립
+- `4_execution` — Executor가 실제 테스트 실행 - `5_inspection` — blocked 케이스 원인 분석
+- `6_reporting` — 결과 취합, Slack 업데이트 - `7_cleanup` — 브라우저 세션 정리
 
 각 단계마다 명확한 입력과 출력을 정의해뒀다.
 
-이렇게 하니까
-
-특정 단계에서 실패했을 때 어디서 끊겼는지 바로 알 수 있었다.
+이렇게 하니까 특정 단계에서 실패했을 때 어디서 끊겼는지 바로 알 수 있었다.
 
 그리고 smoke 실행 — 전체 파이프라인 한 번 가볍게 돌려보는 검증 — 이 훨씬 안정적으로 돌아갔다.
 
 ### Fixture Knowledge를 SQLite로
 
-이날 두 번째 큰 작업.
-
-QA Agent가 테스트 돌리면서 얻은 지식 — 예를 들면 특정 URL의 fixture 데이터, 역할, 시트 맥락 — 을 저장하는 시스템을 JSON에서 SQLite로 전환했다.
+이날 두 번째 큰 작업. QA Agent가 테스트 돌리면서 얻은 지식 — 예를 들면 특정 URL의 fixture 데이터, 역할, 시트 맥락 — 을 저장하는 시스템을 JSON에서 SQLite로 전환했다.
 
 기존 JSON 구조는 케이스 번호 기준이었다.
 
-그러니까
-
-똑같은 URL이 다른 케이스에서 등장해도, 이전에 학습한 fixture를 재사용할 수가 없다.
+그러니까 똑같은 URL이 다른 케이스에서 등장해도, 이전에 학습한 fixture를 재사용할 수가 없다.
 
 매번 새로 학습하는 게 비용이 꽤 컸다.
 
@@ -107,9 +86,7 @@ qa_lookup_fixture_knowledge라는 도구를 만들어서 Executor가 실행 전�
 
 ## 마무리
 
-하루에 위키 정리까지, 파이프라인 재구성까지 하려니까
-
-빡세긴 했다.
+하루에 위키 정리까지, 파이프라인 재구성까지 하려니까 빡세긴 했다.
 
 근데 둘 다
 
@@ -119,7 +96,5 @@ category 단일 필드는 이후 노트 관리가 확실히 편해졌고 QA Agen
 
 Fixture Knowledge의 SQLite 전환은 특히 체감이 크다.
 
-같은 페이지에 대한 QA를 반복할 때, 이전에 알아낸 걸 매번 다시 학습하지 않아도 되니까
-
-실행 시간도 줄고 토큰도 아낄 수 있었다.
+같은 페이지에 대한 QA를 반복할 때, 이전에 알아낸 걸 매번 다시 학습하지 않아도 되니까 실행 시간도 줄고 토큰도 아낄 수 있었다.
 

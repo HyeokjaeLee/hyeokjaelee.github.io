@@ -1,10 +1,6 @@
----
-title: 'disk I/O 에러가 사실은 DB 잠금 경합이었던 날'
-description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 대기 시간 설정 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.'
-
-date: '2026-05-25'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: 'disk I/O 에러가 사실은 DB 잠금 경합이었던 날'
+description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 대기 시간 설정 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.' date: '2026-05-25'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## disk I/O error의 진짜 원인
@@ -25,9 +21,7 @@ HTTP 요청은 200으로 성공하는데, 인덱스 쓰기에서 실패하는 �
 
 에러 메시지를 보면 디스크 문제 같다.
 
-"disk I/O error"니까.
-
-근데 원인을 추적해보니 전혀 달랐다.
+"disk I/O error"니까. 근데 원인을 추적해보니 전혀 달랐다.
 
 DB 잠금 경합이었다.
 
@@ -49,9 +43,7 @@ context-mode는 SQLite를 쓴다.
 
 0이면 기다리지 않고 바로 실패한다.
 
-이게 왜 문제인가.
-
-동시 쓰기가 발생하면 첫 번째 충돌에서 바로 실패한다.
+이게 왜 문제인가. 동시 쓰기가 발생하면 첫 번째 충돌에서 바로 실패한다.
 
 30초를 기다리지 않고 즉시 실패하는 거다.
 

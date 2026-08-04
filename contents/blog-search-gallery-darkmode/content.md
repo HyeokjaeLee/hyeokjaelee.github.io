@@ -1,9 +1,6 @@
----
-title: '블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다'
-description: 'Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날.'
-date: '2026-08-03'
-tags: [journal]
-titleImage: '@shared/assets/dev-diary.png'
+--- title: '블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다'
+description: 'Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날.' date: '2026-08-03'
+tags: [journal] titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 블로그가 커지기 전에 미리 검색을 넣었다
