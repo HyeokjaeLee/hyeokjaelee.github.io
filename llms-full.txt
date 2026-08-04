@@ -170,12 +170,6 @@ AI가 쓴 초안에서 기계적인 리듬과 상투적 어휘를 걸러내는 �
 
 의미, 사실, 수치, 고유명사는 한 글자도 바꾸지 않고 문체만 다듬는다.
 
-## 참고 자료
-
-- [Pagefind 공식 문서](https://pagefind.app/)
-- [`@microflash/rehype-figure`](https://www.npmjs.com/package/@microflash/rehype-figure)
-- [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) — humanize-kr 원본
-
 ---
 
 ## pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정

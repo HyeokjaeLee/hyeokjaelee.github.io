@@ -79,12 +79,6 @@
 &lt;p&gt;이 블로그 일기 변환에도 적용했다.&lt;/p&gt;
 &lt;p&gt;AI가 쓴 초안에서 기계적인 리듬과 상투적 어휘를 걸러내는 용도다.&lt;/p&gt;
 &lt;p&gt;의미, 사실, 수치, 고유명사는 한 글자도 바꾸지 않고 문체만 다듬는다.&lt;/p&gt;
-&lt;h2&gt;참고 자료&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://pagefind.app/&quot;&gt;Pagefind 공식 문서&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/@microflash/rehype-figure&quot;&gt;&lt;code&gt;@microflash/rehype-figure&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/epoko77-ai/im-not-ai&quot;&gt;epoko77-ai/im-not-ai&lt;/a&gt; — humanize-kr 원본&lt;/li&gt;
-&lt;/ul&gt;
 </content:encoded></item><item><title>pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정</title><link>https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/</guid><description>pnpm catalog 범프 비대칭 실측 의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다. catalog는 pnpm workspace.yaml 에 버전을 한 번 적어두고, 각 package.json 에서 catalog: 키워드로 참조하는 방식이다</description><pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;pnpm catalog 범프 비대칭 실측&lt;/h2&gt;
 &lt;p&gt;의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다.
 catalog는 &lt;code&gt;pnpm-workspace.yaml&lt;/code&gt;에 버전을 한 번 적어두고, 각 &lt;code&gt;package.json&lt;/code&gt;에서 &lt;code&gt;catalog:&lt;/code&gt; 키워드로 참조하는 방식이다.
