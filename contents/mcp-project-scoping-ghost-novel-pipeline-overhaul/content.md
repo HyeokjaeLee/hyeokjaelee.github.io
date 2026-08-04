@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## MCP를 프로젝트마다 다르게
 
-이날 나는 두 가지 큰 작업을 한 날이다.
+이날은 두 가지 큰 작업을 한 날이다.
 
 하나는 MCP 서버를 프로젝트마다
 

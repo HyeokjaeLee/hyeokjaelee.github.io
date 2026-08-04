@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 네 번의 실패
 
-이날 나는 메시지 배달 API를 설계하면서 네 번 실패한 날이다.
+이날은 메시지 배달 API를 설계하면서 네 번 실패한 날이다.
 
 "언제 배달할지"와 "깨울지 말지"를 하나의 필드로 표현하고 싶었다.
 
@@ -131,7 +131,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 5개 값으로 확정한 후, 6개 확장의 13개 호출 지점을 전부 매핑했다.
 
-기존의 `triggerTurn: true`는 "쉴 때 깨우기"으로, `triggerTurn: false`는 "대기" 또는 "다음
+기존의 `깨움 설정: true`는 "쉴 때 깨우기"으로, `깨움 설정: false`는 "대기" 또는 "다음
 
 단계"으로 변환됐다.
 

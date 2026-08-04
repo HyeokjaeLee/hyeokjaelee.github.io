@@ -1,6 +1,6 @@
 ---
 title: 'pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정'
-description: 'pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록'
+description: 'pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록.'
 date: '2026-08-02'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'

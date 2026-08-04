@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 코드 의미 검색을 만들었다
 
-이날 나는 코드 의미 검색 기능을 만들면서 onnxruntime 교착 상태를 디버깅한 날이다.
+이날은 코드 의미 검색 기능을 만들면서 onnxruntime 교착 상태를 디버깅한 날이다.
 
 핵심 교훈은 "멈춘 이벤트 루프는 자기 자신을 감시할 수 없다"였다.
 

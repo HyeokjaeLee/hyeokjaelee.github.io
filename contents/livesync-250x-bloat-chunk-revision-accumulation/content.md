@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 11MB가 2.76GB가 되다
 
-이날 나는 LiveSync 데이터베이스가 250배 부풀어 있는 걸 발견하고 원인을 추적한 날이다.
+이날은 LiveSync 데이터베이스가 250배 부풀어 있는 걸 발견하고 원인을 추적한 날이다.
 
 실제 콘텐츠는 11MB인데 데이터베이스가 2.76GB였다.
 

@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## Claude 계정이 revoke됐다
 
-이날 나는 중간에 계정이 날아가서 강제 마이그레이션을 한 날이다.
+이날은 중간에 계정이 날아가서 강제 마이그레이션을 한 날이다.
 
 Claude 직접 계정이 revoke됐다.
 
