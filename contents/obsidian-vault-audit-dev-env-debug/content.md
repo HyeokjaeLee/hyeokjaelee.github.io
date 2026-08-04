@@ -18,9 +18,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 문서들이 분류 없이 쌓이기 시작했다.
 
-Inbox랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다
-
-문제가 꽤 많았다.
+Inbox랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다 문제가 꽤 많았다.
 
 기존 볼트는 type이랑 area 두 가지 필드로 문서를 분류하고 있었다.
 

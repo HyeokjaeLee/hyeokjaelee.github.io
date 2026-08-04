@@ -33,9 +33,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 가장 큰 기대는 속도였다.
 
-Biome가 ESLint보다
-
-훨씬 빠르다고 들었다.
+Biome가 ESLint보다 훨씬 빠르다고 들었다.
 
 근데 실제로 측정해보니까
 

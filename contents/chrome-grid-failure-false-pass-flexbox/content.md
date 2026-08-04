@@ -89,15 +89,11 @@ Chrome이 grid에서는 track sizing을 안 지켰지만 flexbox에서는 비율
 
 이 버그를 진단하는 결정적 증거를 찾았다. grid 행 높이를 실측한다.
 
-getComputedStyle으로 행 높이를 읽는다. footer 행이 footer 엘리먼트 높이보다
-
-크면, grid가 제대로 sizing을 안 한 거다.
+getComputedStyle으로 행 높이를 읽는다. footer 행이 footer 엘리먼트 높이보다 크면, grid가 제대로 sizing을 안 한 거다.
 
 이 방법이 확실하다.
 
-"빈 공간이 있나"를 눈으로 보는 것보다
-
-정확하다.
+"빈 공간이 있나"를 눈으로 보는 것보다 정확하다.
 
 왜냐면 눈으로는 grid 행 경계를 못 본다.
 

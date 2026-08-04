@@ -32,9 +32,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## CLI 매번 띄우던 걸 서버 세션으로
 
-근데 제목 정리보다
-
-더 큰 작업은 실행 방식을 바꾼 거다.
+근데 제목 정리보다 더 큰 작업은 실행 방식을 바꾼 거다.
 
 그 전까지는 QA Agent가 테스트를 돌릴 때마다 opencode를 CLI로 새로 띄웠다.
 
