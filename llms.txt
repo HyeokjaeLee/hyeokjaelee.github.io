@@ -13,7 +13,9 @@
 - [독립된 세션이 같은 해결책에 수렴하면, 그게 정답이다](https://hyeokjaelee.github.io/independent-convergence-is-the-answer-confabulation-in-agent-self-report/): 9개 오픈소스 프로젝트의 버그를 독립된 세션에서 수정했다. axios는 3개 세션이 독립적으로 같은 해결책에 도달했다 같은 버그를 보고 같은 수정을 내놓으면, 그게 가장 자연스러운 일반화다 그리고 에이전트가 자기 추측을 사실로 보고한 것도 발견했다.
 - [프롬프트로 부탁하면 결국 우회된다, 물리적으로 막아야 한다](https://hyeokjaelee.github.io/prompt-is-a-request-not-enforcement-hard-gate-simplification-regression/): 에이전트에게 프롬프트로 "이걸 해라, 하지 마라"라고 부탁했다 근데 결국 우회됐다 프롬프트는 부탁이지 강제가 아니다 물리적으로 막아야 한다 그리고 무해해 보이는 중복 제거가 3개의 안전장치를 동시에 무력화한 것도 발견했다.
 - [99%는 영원히 끝나지 않는다: 표면 숫자가 거짓말을 할 때](https://hyeokjaelee.github.io/99-percent-never-finishes-surface-numbers-lie-git-orphaned-uu-swap/): 코드 인덱싱이 99%에서 멈췄다 근데 99%가 아니었다 영구적으로 건너뛴 조각들이 빠져서 99%로 보이는 거였다 표면 숫자가 거짓말을 하는 날이었다 깃 충돌 표시도, 스왑 사용량도, 전부 표면과 실제가 달랐다.
-- [하나의 규칙으로 세 종목을 판단했다: 들고 있을 것, 팔 것, 들고 있을 것](https://hyeokjaelee.github.io/one-rule-three-stocks-bb-lower-band-stop-loss-honest-verification/): 반도체가 폭락한 날이었다 삼성 -7.6%, SK하이닉스 -8.3%, 기아 -12.9%. 사용자가 물었다 "계속 들고 있어야 해?" 하나의 규칙으로 세 종목을 판단했다 들고 있을 것, 팔 것, 들고 있을 것. 그리고 단위 테스트가 통과했다고 "테스트했다"고 말하면 안 된다는 것도 배웠다.
+- [하나의 규칙으로 세 종목을 판단했다: 들고 있을 것, 팔 것, 들고 있을 것](https://hyeokjaelee.github.io/one-rule-three-stocks-bb-lower-band-stop-loss-honest-verification/): 반도체가 폭락한 날이었다 삼성 -7.6%, SK하이닉스 -8.3%, 기아 -12.9%.
+사용자가 물었다 "계속 들고 있어야 해?" 하나의 규칙으로 세 종목을 판단했다 들고 있을 것, 팔 것, 들고 있을 것.
+그리고 단위 테스트가 통과했다고 "테스트했다"고 말하면 안 된다는 것도 배웠다.
 - [삭제하고 넣는 사이에 실패하면 데이터가 사라진다](https://hyeokjaelee.github.io/delete-then-insert-data-loss-atomic-operation-sqlite-wal-reversed/): 삭제하고 삽입하는 2단계 작업이 있었다 중간에 실패하면 데이터가 영원히 사라진다 원자적 연산으로 바꿨다 그리고 SQLite WAL 복사가 위험하다는 내 결론이 틀렸다는 것도 깨달았다.
 - [화면에서 숨겼다고 모델이 안 보는 게 아니다](https://hyeokjaelee.github.io/display-false-not-model-invisible-three-axis-message-injection/): 확장 메시지를 화면에서 숨겼다 근데 모델은 여전히 읽고 있었다. display false는 TUI 박스를 지울 뿐, 모델 컨텍스트에서는 제외되지 않는다 이걸 깨닫고 메시지 주입 3축을 정리했다 그리고 같은 날 두 세션이 같은 프롬프트를 반대 방향으로 수정한 것도 발견했다.
 - [멈춘 이벤트 루프는 자기 자신을 감시할 수 없다](https://hyeokjaelee.github.io/frozen-event-loop-cannot-self-monitor-mock-tests-mask-scale/): 코드 인덱싱 데몬이 응답하지 않았다 원인은 onnxruntime 동기 호출이 이벤트 루프를 얼린 거였다 근데 얼어붙은 루프가 자기 자신을 감시할 수는 없다 별도 프로세스가 필요했다 그리고 통과한 테스트가 실제 규모에서는 의미가 없었다.
@@ -29,8 +31,10 @@
 - [데이터 소스가 단위에 대해 거짓말을 할 때](https://hyeokjaelee.github.io/yfinance-currency-unit-lie-security-filter-self-block/): yfinance가 한국 주식 시가총액을 원화인데 달러로 표기했다 SK하이닉스가 1,547조 달러가 됐다 가격은 맞는데 시가총액이랑 배당률이 전부 잘못이었다 그리고 보안 필터가 자기 스킬을 차단하는 일도 있었다.
 - [역할 고정 LLM은 약한 힌트로 안 바뀐다, 정체성을 바꿔야 한다](https://hyeokjaelee.github.io/llm-role-identity-override-debate-desk/): 투자 분석 에이전트에게 가격 예측을 물어도 자꾸 매매 추천을 했다 시스템 프롬프트의 정체성이 매매 추론을 강제하고 있었다 정체성 자체를 바꿔야 했다 그리고 에이전트들이 토론하는 투자 데스크도 만들었다.
 - [스스로 거짓말을 잡는 투자 분석 에이전트](https://hyeokjaelee.github.io/investment-agent-self-verification-git-dot-traps/): 투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다 PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다 그리고 깃 세 점과 두 점의 함정도 겪었다.
-- [올바른 질문이 최적화보다  낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다 "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.
-- [같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접](https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/): 자율 검증 루프가 멈추는 현상을 추적했더니 4개의 독립된 근본 원인이 있었다. design-reviewer는 핵심 도구를 9번 중 0번 호출했다 강제성은 간접 위임이 아니라 직접 행위에 붙여야 한다.
+- [올바른 질문이 최적화보다  낫다, 90% 절감의 순간](https://hyeokjaelee.github.io/right-question-beats-optimization-90-percent-cut/): 위키 로거가 30개 스킬을 전부 인라인하고 있었다 "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다 90% 절감.
+그리고 배포 정밀도랑 매도 원칙도 정립했다.
+- [같은 증상에 4개의 독립된 원인, 강제성은 행위에 직접](https://hyeokjaelee.github.io/4-independent-causes-same-symptom-force-on-action/): 자율 검증 루프가 멈추는 현상을 추적했더니 4개의 독립된 근본 원인이 있었다.
+디자인 검토자는 핵심 도구를 9번 중 0번 호출했다 강제성은 간접 위임이 아니라 직접 행위에 붙여야 한다.
 - [한 턴에 하나의 서브에이전트 호출만 허용되는 이유](https://hyeokjaelee.github.io/subagent-1-call-per-turn-tasks-array-quality-gate/): 같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다 원인은 턴당 1회 호출 가드였다 해결은 tasks 배열이었다 그리고 괴담 소설 품질 게이트도 구현했다.
 - [주말에 주가를 보는 법과 헤드리스 서버 스크래핑](https://hyeokjaelee.github.io/weekend-stock-estimates-headless-scraping-fallback/): 한국 정규장은 주말에 안 돈다 GDR 추정가랑 야간선물로 방향을 가늠할 수 있다 그리고 헤드리스 서버에서 브라우저 없이 웹 스크래핑하는 fallback 체인도 정리했다.
 - [MCP 프로젝트 단위 스코핑과 괴담 소설 파이프라인 개편](https://hyeokjaelee.github.io/mcp-project-scoping-ghost-novel-pipeline-overhaul/): MCP 서버를 프로젝트마다 다르게 로드하는 구조를 설계했다 그리고 괴담 소설 생성 파이프라인을 4개 에이전트로 개편했다.
@@ -54,11 +58,13 @@
 - [3일간의 교훈이 한 커밋에 담긴 날](https://hyeokjaelee.github.io/three-lessons-one-commit-qa-summary-provider-speed/): QA 에이전트가 요약된 값을 받아서 잘못 통과시킨 일로 검증 규칙을 네 번 다듬었다 같은 모델인데 프로바이더에 따라 60배 느린 것도 확인했다 며칠의 교훈이 한 커밋에 담겼다.
 - [Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응](https://hyeokjaelee.github.io/zed-tui-rendering-glm52-release-day/): Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.
 - [강제 마이그레이션과 제약에서 패턴을 만드는 날](https://hyeokjaelee.github.io/forced-migration-constraints-to-patterns/): Claude 계정이 갑자기 revoke돼서 사내 AI 게이트웨이로 마이그레이션했다 그 제약이 이중 설정 패턴이 됐다 그리고 수료증 PDF 다운로드와 화상감독 메시지 수정도 끝냈다.
-- [프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계](https://hyeokjaelee.github.io/prompt-injection-cascade-bugs-ghost-crawler-redesign/): 프롬프트 주입 시스템에서 5개의 연쇄 버그를 잡았다 필터 교차 제외, 전역 상태 오염, Go 코어 단일 파트 제한까지. 그리고 괴담 크롤러 파이프라인을 재설계했다.
+- [프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계](https://hyeokjaelee.github.io/prompt-injection-cascade-bugs-ghost-crawler-redesign/): 프롬프트 주입 시스템에서 5개의 연쇄 버그를 잡았다 필터 교차 제외, 전역 상태 오염, Go 코어 단일 파트 제한까지.
+그리고 괴담 크롤러 파이프라인을 재설계했다.
 - [존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템](https://hyeokjaelee.github.io/nonexistent-bug-token-budget-overengineering/): 프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.
 - [멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제](https://hyeokjaelee.github.io/multi-agent-team-prompt-junk-data-30-percent/): PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.
 - [싸고 빠른 모델이 큰 스키마에서 자꾸 실패하는 패턴](https://hyeokjaelee.github.io/deepseek-large-schema-failure-pattern/): DeepSeek 모델이 큰 JSON 스키마를 처리하지 못해서 계획 에이전트가 60% 실패하고 상태 추출이 전부 빈 값이 나왔다 해결은 호출을 작게 쪼개는 거였다.
-- [NVIDIA 모델에서 JSON 스키마가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 JSON 스키마를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.
+- [NVIDIA 모델에서 JSON 스키마가 40초 타임아웃 나는 문제](https://hyeokjaelee.github.io/nvidia-json-schema-timeout-continuity-ledger/): 구조화된 출력을 위해 JSON 스키마를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유.
+그리고 연속성 원장을 전체 스택에 구현했다.
 - [LLM 캐시 적중률 0%를 발견한 날](https://hyeokjaelee.github.io/llm-cache-zero-percent-git-secret-exposure/): 소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다 그리고 깃 시크릿 노출 사고도 겪었다.
 - [CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로](https://hyeokjaelee.github.io/css-has-scroll-lock-simplification-to-robustness/): 모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.
 - [과도한 배포를 막으려다  배포가 안 되는 문제를 만들다](https://hyeokjaelee.github.io/deploy-allowlist-silent-omission-lms-mode-header/): 배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.
