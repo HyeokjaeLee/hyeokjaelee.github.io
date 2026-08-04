@@ -80,7 +80,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 
 ## 실패 연쇄 차단 복구
 
-두 번째 작업은 hardBlockDownstream 동작을 복구한 거다.
+두 번째 작업은 하위 단계 차단 설정 동작을 복구한 거다.
 
 선행 케이스가 실패하면, 그 케이스에 의존하는 하위 케이스를 자동으로 막아야 한다.
 
@@ -153,7 +153,7 @@ LLM이 답하기도 쉽고 결과도 안정적이다.
 <!--
 HUMANIZE-SUMMARY
 - genre: blog (dev journal)
-- run_id: 2026-04-20-001
+- 실행 식별자: 2026-04-20-001
 - original chars (non-ws): 1694 | polished chars (non-ws): 1688
 - change rate: 0.35% (Levenshtein 6 / 1694) — well under 15% target; source was already natural
 - grade: A
@@ -180,7 +180,7 @@ HUMANIZE-SUMMARY
 "올렸고, 이날" → "올렸고 이날"
 
 - preserved 100%: facts/numbers (60% 73% 18% 30개 22개 73.3% 네 배 일주일), date (2026-04-20),
-  tech terms (QA Agent, Planner, LLM, DAG, hardBlockDownstream, unreliable, UI, 탐색 에이전트),
+  tech terms (QA Agent, Planner, LLM, DAG, 하위 단계 차단 설정, unreliable, UI, 탐색 에이전트),
   casual register (근데/그래서/그러니까/날리고), sentence endings (-다/-했다/-거다), blockquote.
 - intentionally NOT touched: L65 list "없애고, 도구를 걷어내고," — legitimate 3-item list enumeration, not connective join.
 - self-check (6/6 passed): names/numbers/quotes 100% preserved; rate <30%; no genre drift; register preserved; 0 S1 residual (all 6 C-11 removed); no new rhetoric added.

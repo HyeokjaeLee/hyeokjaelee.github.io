@@ -40,8 +40,8 @@ Rails의 Strong Parameters에서 배열을 스칼라로 permit하고 있었다.
 Rails에서 파라미터를 허용할 때, 스칼라랑 배열을 다르게 써야 한다.
 
 ```ruby
-params.permit(:part_ids)      # 스칼라만 허용
-params.permit(part_ids: [])   # 배열 허용
+params.permit(:파트 식별자 목록)      # 스칼라만 허용
+params.permit(파트 식별자 목록: [])   # 배열 허용
 ```
 
 첫 번째는 스칼라만 받는다.
@@ -62,7 +62,7 @@ params.permit(part_ids: [])   # 배열 허용
 
 해결은 한 글자만 바꾸는 거다.
 
-`:part_ids`를 `part_ids: []`로.
+`:파트 식별자 목록`를 `파트 식별자 목록: []`로.
 
 배열을 허용하게 만드는 거다.
 

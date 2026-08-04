@@ -1,6 +1,6 @@
 ---
 title: 'QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백'
-description: 'Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 reasoning_content에 담아 보내는 빈 응답 문제를 잡았다.'
+description: 'Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 추론 내용 필드에 담아 보내는 빈 응답 문제를 잡았다.'
 date: '2026-04-14'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
@@ -94,13 +94,13 @@ ClawMux는 정상적으로 돌아가고 있었는데, 라우팅 결과가 누락
 
 원인을 찾아보니 ZAI GLM이 텍스트를 예상한 필드가 아닌 다른 필드에 담아 보내고 있었다.
 
-응답 본문은 content가 아니라 reasoning_content 필드에 들어 있었다.
+응답 본문은 content가 아니라 추론 내용 필드 필드에 들어 있었다.
 
 기존 파서는 content만 보니까, 응답이 비어 있다고 판단한 거다.
 
-해결은 reasoning_content 폴백을 추가하는 거다.
+해결은 추론 내용 필드 폴백을 추가하는 거다.
 
-content가 비어 있으면 reasoning_content를 확인하는 식이다.
+content가 비어 있으면 추론 내용 필드를 확인하는 식이다.
 
 그리고 명시적으로 빈 값인지 확인하도록 로직을 고쳤다.
 

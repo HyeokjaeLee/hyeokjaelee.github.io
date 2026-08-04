@@ -1,6 +1,6 @@
 ---
 title: 'disk I/O 에러가 사실은 DB 잠금 경합이었던 날'
-description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 busy_timeout 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.'
+description: 'context-mode에서 disk I/O 에러가 나서 원인을 추적해보니, node:sqlite가 대기 시간 설정 설정을 무시하고 있었다 업그레이드랑 KB 재구축으로 해결했다.'
 
 date: '2026-05-25'
 tags: [journal]
@@ -29,21 +29,21 @@ HTTP 요청은 200으로 성공하는데, 인덱스 쓰기에서 실패하는 �
 
 DB 잠금 경합이었다.
 
-## node:sqlite가 busy_timeout을 무시한다
+## node:sqlite가 대기 시간 설정을 무시한다
 
-원인은 node:sqlite가 busy_timeout 설정을 무시하고 있었다는 거다.
+원인은 node:sqlite가 대기 시간 설정 설정을 무시하고 있었다는 거다.
 
 context-mode는 SQLite를 쓴다.
 
 여러 프로세스가 동시에 DB에 쓸 수 있게 설계되어 있다.
 
-동시 쓰기 충돌을 막기 위해 busy_timeout을 30초로 잡아놨다.
+동시 쓰기 충돌을 막기 위해 대기 시간 설정을 30초로 잡아놨다.
 
 충돌이 나면 30초 동안 기다렸다가 재시도하는 거다.
 
 근데 node:sqlite는 이 설정을 무시했다.
 
-생성자에 timeout 옵션을 넘겨도 무시하고 busy_timeout을 0으로 둔다.
+생성자에 timeout 옵션을 넘겨도 무시하고 대기 시간 설정을 0으로 둔다.
 
 0이면 기다리지 않고 바로 실패한다.
 
@@ -81,7 +81,7 @@ SQLite가 WAL 모드에서 잠금 실패를 디스크 에러처럼 보고하기 
 
 세 가지가 겹쳐 있었다.
 
-첫째, busy_timeout이 0이었다.
+첫째, 대기 시간 설정이 0이었다.
 
 이게 핵심이다.
 
@@ -105,7 +105,7 @@ WAL 모드는 추가 공간이 필요한데, 여유가 없었다.
 
 첫 번째는 플러그인을 업그레이드하는 거다.
 
-버전을 올리니까 busy_timeout 전파 수정이 포함되어 있었다. node:sqlite 경로에서도 busy_timeout이 제대로 설정된다.
+버전을 올리니까 대기 시간 설정 전파 수정이 포함되어 있었다. node:sqlite 경로에서도 대기 시간 설정이 제대로 설정된다.
 
 두 번째는 지식 기반을 갈아엎는 거다. purge 명령으로 기존 인덱스를 날리고 다시 구축했다.
 

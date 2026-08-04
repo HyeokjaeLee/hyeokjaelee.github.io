@@ -37,7 +37,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그래서 새로운 백엔드 필드를 만들었다.
 
-has_course_registration_history.
+과거 등록 이력.
 
 과거 등록 기록을 포함해서 검사한다.
 

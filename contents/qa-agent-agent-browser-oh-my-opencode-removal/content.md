@@ -20,7 +20,7 @@ Playwright MCP는 OpenCode 런타임이 관리하는 외부 도구라, QA Agent�
 
 그래서 agent-browser라는 CLI 래퍼를 만들어서 그 사이에 끼웠다.
 
-이제 브라우저 조작은 전부 `execFile("agent-browser", [action, ...args])` 형태로 agent-browser를 호출한다.
+이제 브라우저 조작은 전부 `파일 실행 함수("agent-browser", [action, ...args])` 형태로 agent-browser를 호출한다.
 
 QA Agent 코드베이스에는 Playwright import가 하나도 없다. agent-browser가 내부적으로 Playwright와 Chromium을 쓰는 거지, QA Agent는 그냥 CLI 호출만 한다.
 

@@ -22,7 +22,7 @@ syncpack의 fix 명령은 루트 devDependencies를 `*`로 바꿔버리는 파�
 
 도입 자체는 es-toolkit과 내부 패키지 4종으로 끝났다.
 그런데 peerDep를 catalog로 전환하면서 Extension API의 이중 버전 문제가 드러났다.
-`autoInstallPeers: true` 환경에서 peerDep를 `*`로 두면, pnpm이 구 버전을 고정하는 함정이 있었다.
+`자동 의존성 설치 설정: true` 환경에서 peerDep를 `*`로 두면, pnpm이 구 버전을 고정하는 함정이 있었다.
 
 ### add와 update는 catalog를 다르게 취급한다
 
