@@ -537,7 +537,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;688킬로토큰을 담을 수 있는 GPT 모델은 존재하지 않는다.&lt;/p&gt;
 &lt;h3&gt;가격 구간이 컨텍스트 창이 아니다&lt;/h3&gt;
 &lt;p&gt;혼란의 원인을 찾았다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;inputTokensAbove: 272000&lt;/code&gt;이라는 설정이 있었다.&lt;/p&gt;
+&lt;p&gt;272킬로토큰 이상부터 다른 가격을 받는 설정이 있었다.&lt;/p&gt;
 &lt;p&gt;이걸 &amp;quot;컨텍스트 창 상한&amp;quot;으로 해석했다.&lt;/p&gt;
 &lt;p&gt;근데 이건 가격 구분 임계값이었다.&lt;/p&gt;
 &lt;p&gt;272킬로토큰 이상부터 다른 가격을 받는다는 뜻이지, 272킬로토큰까지만 처리한다는 뜻이 아니다.&lt;/p&gt;
@@ -545,9 +545,9 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;소스 코드를 읽기 전까지 이 차이를 몰랐다.&lt;/p&gt;
 &lt;h3&gt;해결&lt;/h3&gt;
 &lt;p&gt;해결은 모델과 무관했다.&lt;/p&gt;
-&lt;p&gt;포크의 기본 컨텍스트를 &lt;code&gt;fork&lt;/code&gt;에서 &lt;code&gt;fresh&lt;/code&gt;로 바꾼다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;fork&lt;/code&gt;는 부모 세션의 전체 맥락을 상속한다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;fresh&lt;/code&gt;는 맥락을 상속하지 않는다.&lt;/p&gt;
+&lt;p&gt;포크의 기본 컨텍스트를 &amp;#39;상속&amp;#39;에서 &amp;#39;새로 시작&amp;#39;으로 바꾼다.&lt;/p&gt;
+&lt;p&gt;&amp;#39;상속&amp;#39;은 부모 세션의 전체 맥락을 물려받는다.&lt;/p&gt;
+&lt;p&gt;&amp;#39;새로 시작&amp;#39;은 맥락을 물려받지 않는다.&lt;/p&gt;
 &lt;p&gt;688킬로토큰을 상속받을 필요가 없다.&lt;/p&gt;
 &lt;p&gt;검증자는 검증만 하면 된다.&lt;/p&gt;
 &lt;h2&gt;폴백은 왜 안 살렸는가&lt;/h2&gt;
@@ -555,7 +555,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;근데 안 했다.&lt;/p&gt;
 &lt;p&gt;왜?&lt;/p&gt;
 &lt;h3&gt;&amp;quot;무시&amp;quot;로 분류했다&lt;/h3&gt;
-&lt;p&gt;폴백의 &lt;code&gt;classify()&lt;/code&gt;가 &amp;quot;context window&amp;quot; 패턴을 보고 &amp;quot;ignore&amp;quot;를 반환했다.&lt;/p&gt;
+&lt;p&gt;폴백의 분류 함수가 &amp;quot;context window&amp;quot; 패턴을 보고 &amp;quot;ignore&amp;quot;를 반환했다.&lt;/p&gt;
 &lt;p&gt;재시도도 폴백도 하지 않는다.&lt;/p&gt;
 &lt;p&gt;설계 가정이 &amp;quot;pi가 압축으로 처리한다&amp;quot;였다.&lt;/p&gt;
 &lt;p&gt;근데 압축은 메인 세션에서만 실행된다.&lt;/p&gt;
@@ -574,7 +574,7 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;브랜치 분기점에서 전부 옵션 API였다.&lt;/p&gt;
 &lt;p&gt;이 PR이 도입한 게 아니라, 메인 브랜치에서 상속한 레거시였다.&lt;/p&gt;
 &lt;h3&gt;머지 베이스 방법&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;git merge-base origin/main FETCH_HEAD&lt;/code&gt;로 분기점을 찾는다.&lt;/p&gt;
+&lt;p&gt;깃 머지 베이스 명령으로 분기점을 찾는다.&lt;/p&gt;
 &lt;p&gt;분기점에서 파일이 이미 존재했는지 확인한다.&lt;/p&gt;
 &lt;p&gt;존재했으면 상속이다.&lt;/p&gt;
 &lt;p&gt;존재하지 않았으면 이 PR이 도입한 것이다.&lt;/p&gt;
@@ -1578,15 +1578,15 @@ catalog 비대칭 같은 발견은 실측 없이는 절대 문서만 보고 알 
 &lt;p&gt;라우팅 키도 맞았다.&lt;/p&gt;
 &lt;p&gt;그냥 라우팅이 요청을 분산시키고 있었다.&lt;/p&gt;
 &lt;h3&gt;올바른 해결&lt;/h3&gt;
-&lt;p&gt;프로바이더 우선순위 설정를 우선순위 리스트로 쓴다.&lt;/p&gt;
+&lt;p&gt;프로바이더 우선순위 설정을 리스트로 쓴다.&lt;/p&gt;
 &lt;p&gt;&amp;quot;이 프로바이더만 써라&amp;quot;가 아니라 &amp;quot;이 순서로 시도하되, 첫 번째가 안 되면 다음으로&amp;quot;다.&lt;/p&gt;
 &lt;p&gt;정상 상황에서는 전부 첫 번째 프로바이더로 수렴한다.&lt;/p&gt;
 &lt;p&gt;캐시가 따뜻해진다.&lt;/p&gt;
 &lt;p&gt;장애 때만 다음으로 넘어간다.&lt;/p&gt;
-&lt;p&gt;&amp;quot;하나만 고정하면 캐시가 따뜻해지지만 단일 실패 지점이 된다.&amp;quot; &amp;quot;여러 개 쓰면 가용성은 좋지만 캐시가 안 따뜻해진다.&amp;quot; 이 딜레마를 &lt;code&gt;order&lt;/code&gt; 리스트로 해결한다.&lt;/p&gt;
+&lt;p&gt;&amp;quot;하나만 고정하면 캐시가 따뜻해지지만 단일 실패 지점이 된다.&amp;quot; &amp;quot;여러 개 쓰면 가용성은 좋지만 캐시가 안 따뜻해진다.&amp;quot; 이 딜레마를 우선순위 리스트로 해결한다.&lt;/p&gt;
 &lt;p&gt;정상일 때는 집중, 장애일 때만 분산.&lt;/p&gt;
 &lt;h2&gt;chartPreviousClose를 잘못 읽었다&lt;/h2&gt;
-&lt;p&gt;야후 파이낸스의 야후 파이낸스의 범위 시작점 종가 필드를 &amp;quot;전 거래일 종가&amp;quot;로 읽었다.&lt;/p&gt;
+&lt;p&gt;야후 파이낸스의 범위 시작점 종가 필드를 &amp;quot;전 거래일 종가&amp;quot;로 읽었다.&lt;/p&gt;
 &lt;p&gt;근데 이건 &amp;quot;조회 범위 시작점의 종가&amp;quot;였다.&lt;/p&gt;
 &lt;p&gt;이걸 잘못 읽어서 &amp;quot;금요일 하루 -9.98% 폭락&amp;quot;이라고 보고했다.&lt;/p&gt;
 &lt;p&gt;근데 실제는 일주일 누적 -7.1%였다.&lt;/p&gt;
