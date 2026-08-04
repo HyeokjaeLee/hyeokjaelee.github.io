@@ -20,7 +20,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그 전까지 옵시디언 노트에 frontmatter를 두 개 필드로 나눠 쓰고 있었다.
 
-`type`이랑 `area`.
+type이랑 area.
 
 근데 노트가 쌓이다
 
@@ -30,11 +30,11 @@ titleImage: '@shared/assets/dev-diary.png'
 
 하나의 노트가 프로젝트 기록이면서 동시에 journal 성격도 띄고 그러면 type에 뭘 넣어야 할지 애매해진다.
 
-결국 `category` 단일 필드 하나로 합쳤다.
+결국 category 단일 필드 하나로 합쳤다.
 
 하나만 쓰는 게 분류하거나 검색할 때 훨씬 직관적이더라.
 
-`type` 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.
+type 필드는 있어야 할 때도 있긴 한데, 내 사용 패턴에서는 오히려 분기를 만들어서 복잡도만 늘렸다.
 
 그리고 같은 날 Linux 서버에 옵시디언 LiveSync 환경을 구축했다.
 
@@ -103,7 +103,7 @@ SQLite로 바꾸면서 URL 기준으로 fixture를 조회하게 만들었다.
 
 qa_lookup_fixture_knowledge라는 도구를 만들어서 Executor가 실행 전에 이전 지식을 조회하도록 했다.
 
-그리고 케이스별 진실 소스(source of truth)는 `status.json`으로 유지하면서 세션 단위 집계는 `fixtures.json`으로 분리했다.
+그리고 케이스별 진실 소스(source of truth)는 status.json으로 유지하면서 세션 단위 집계는 fixtures.json으로 분리했다.
 
 무엇이 durable knowledge고 무엇이 임시 기록인지 경계를 명확히 한 게 핵심이다.
 
@@ -117,7 +117,7 @@ qa_lookup_fixture_knowledge라는 도구를 만들어서 Executor가 실행 전�
 
 결과적으로 잘한 선택이었다.
 
-`category` 단일 필드는 이후 노트 관리가 확실히 편해졌고 QA Agent 파이프라인도 8단계 분리 이후로 디버깅과 smoke 실행이 훨씬 나아졌다.
+category 단일 필드는 이후 노트 관리가 확실히 편해졌고 QA Agent 파이프라인도 8단계 분리 이후로 디버깅과 smoke 실행이 훨씬 나아졌다.
 
 Fixture Knowledge의 SQLite 전환은 특히 체감이 크다.
 

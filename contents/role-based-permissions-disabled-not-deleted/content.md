@@ -1,7 +1,5 @@
 ---
-title: '역할별 권한 설계와 disabled가 삭제보다
-
-철저한 이유'
+title: '역할별 권한 설계와 disabled가 삭제보다  철저한 이유'
 
 description: '15개 서브에이전트의 도구 접근 권한을 역할별로 정리했다. delegate 에이전트는 재귀 위험으로 disabled 처리했다 삭제보다 disabled가 더 철저한 이유도 확인했다.'
 

@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 ## pnpm catalog 범프 비대칭 실측
 
 의존성 버전을 모노레포 전체에 하나로 고정하려고 pnpm의 catalog 기능을 도입했다.
-catalog는 `pnpm-workspace.yaml`에 버전을 한 번 적어두고, 각 `package.json`에서 `catalog:` 키워드로 참조하는 방식이다.
+catalog는 pnpm-workspace.yaml에 버전을 한 번 적어두고, 각 package.json에서 catalog: 키워드로 참조하는 방식이다.
 최초 도입은 syncpack을 대체하려는 의도였다.
 
 syncpack은 94건의 lint 에러를 뱉었는데, 실제 의존성 드리프트는 4건뿐이었다.
@@ -30,15 +30,15 @@ syncpack의 fix 명령은 루트 devDependencies를 `*`로 바꿔버리는 파�
 임시 워크스페이스를 만들어 before/after로 직접 실측했다.
 
 `pnpm update <패키지> --latest -r`는 catalog 참조를 그대로 유지한다.
-catalog 항목만 최신으로 범프되고, 각 `package.json`의 `catalog:` 키워드는 건드리지 않는다.
+catalog 항목만 최신으로 범프되고, 각 package.json의 catalog: 키워드는 건드리지 않는다.
 메이저 버전 횡단도 허용한다.
 
 반면 `pnpm add -D <패키지>@latest`는 catalog 패턴을 파괴한다.
-`package.json`의 `catalog:` 참조가 literal 버전 문자열로 치환되고 catalog 항목은 아무도 참조하지 않는 고아가 된다.
+package.json의 catalog: 참조가 literal 버전 문자열로 치환되고 catalog 항목은 아무도 참조하지 않는 고아가 된다.
 더 골치인 건 pnpm이 정상 종료되면서 아무런 경고도 주지 않는다는 점이다.
-`git diff`로 `package.json`을 확인해야만 깨달을 수 있다.
+`git diff`로 package.json을 확인해야만 깨달을 수 있다.
 
-그래서 catalog를 쓰는 워크스페이스에서는 범위 내 갱신은 `pnpm update -r`, 메이저 횡단은 `pnpm update --latest -r`, 직접 편집은 `pnpm-workspace.yaml`의 catalog 항목을 수정한 뒤 `pnpm install`로 확정했다.
+그래서 catalog를 쓰는 워크스페이스에서는 범위 내 갱신은 `pnpm update -r`, 메이저 횡단은 `pnpm update --latest -r`, 직접 편집은 pnpm-workspace.yaml의 catalog 항목을 수정한 뒤 `pnpm install`로 확정했다.
 `pnpm add`는 catalog 패키지에 절대 쓰지 않는다.
 
 ### 업데이트 스크립트 네 건을 손봤다
@@ -62,10 +62,10 @@ pnpm 글로벌 경로 탐지도 소소한 함정이 있었다.
 GitHub 이슈에 올려둔 이미지 51개를 로컬로 전부 이관했다.
 에셋 종류에 따라 경로 규칙이 갈라진다는 걸 이 과정에서 확정했다.
 
-titleImage는 frontmatter에서 상대경로 문자열로 적으면 빌드 시 `import.meta.glob`이 URL로 매핑한다.
+titleImage는 frontmatter에서 상대경로 문자열로 적으면 빌드 시 import.meta.glob이 URL로 매핑한다.
 본문 이미지는 마크다운 `![]()`로 상대경로를 쓰면 Astro가 빌드타임에 WebP와 srcset을 만든다.
 문제는 GIF를 video로 바꿀 때다.
-마크다운 안에 직접 쓴 raw HTML의 `src`는 Astro가 전혀 건드리지 않는다.
+마크다운 안에 직접 쓴 raw HTML의 src는 Astro가 전혀 건드리지 않는다.
 그래서 `public/videos/<slug>/`에 파일을 두고 루트 절대경로로 참조해야 한다.
 
 GIF를 WebM으로 바꾸니 용량이 약 95% 줄었다.
@@ -78,10 +78,10 @@ GIF 압축률이 워낙 나빠서 video 전환만으로 20배 가까이 줄어�
 원인을 Playwright로 실측했다.
 375px 모바일 뷰포트에서 본문 폭은 343px인데 테이블이 471px까지 밀어내고 있었다.
 
-핵심은 브라우저가 `display:table` 요소의 `overflow`를 무시한다는 점이다.
-테이블에 `overflow-x:auto`만 줘봤자 동작하지 않는다.
-반드시 `display:block`으로 바꿔야 overflow가 걸린다.
-거기에 `width:max-content`, `max-width:100%`, `overflow-x:auto`를 더한 네 선언으로 테이블 자체가 가로 스크롤되도록 잡았다.
+핵심은 브라우저가 display:table 요소의 overflow를 무시한다는 점이다.
+테이블에 overflow-x:auto만 줘봤자 동작하지 않는다.
+반드시 display:block으로 바꿔야 overflow가 걸린다.
+거기에 width:max-content, `max-width:100%`, overflow-x:auto를 더한 네 선언으로 테이블 자체가 가로 스크롤되도록 잡았다.
 
 좁은 토큰이 원인이었다.
 `octo-org/octo-repo#100` 같은 형태는 중간에 줄바꿈 포인트가 없어서 셀 너비를 밀어낸다.
@@ -89,14 +89,14 @@ GIF 압축률이 워낙 나빠서 video 전환만으로 20배 가까이 줄어�
 ### Tailwind size-full 하단 패딩 함정
 
 랜딩 페이지 하단에 여백이 안 생기는 현상도 Playwright로 측정했다.
-scrollHeight가 3147px인데 `article`의 paddingBottom은 0px, bottomGap은 0.5px였다.
+scrollHeight가 3147px인데 article의 paddingBottom은 0px, bottomGap은 0.5px였다.
 
-`<article>`이 `size-full`, 즉 `width:100%; height:100%`를 쓰고 있었다.
-고정 높이를 가진 요소는 `padding-bottom`을 줘도 오버플로우된 콘텐츠 아래까지 닿지 않는다.
+`<article>`이 size-full, 즉 `width:100%; height:100%`를 쓰고 있었다.
+고정 높이를 가진 요소는 padding-bottom을 줘도 오버플로우된 콘텐츠 아래까지 닿지 않는다.
 padding은 요소 높이 내부의 여백으로만 작동한다.
 
-`size-full`을 `min-h-full w-full`로 바꿔서 고정 높이를 최소 높이로 풀었다.
-그 위에 `pb-16`을 주니 하단에 64px 여백이 잡혔다.
+size-full을 `min-h-full w-full`로 바꿔서 고정 높이를 최소 높이로 풀었다.
+그 위에 pb-16을 주니 하단에 64px 여백이 잡혔다.
 오버플로우 레이아웃에서 하단 여백은 고정 높이 해제가 선행 조건이다.
 
 ## 위키 저널을 블로그로 옮기는 파이프라인

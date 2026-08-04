@@ -8,7 +8,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 키워드에서 임베딩으로
 
-나는 어제 ClawMux에 LLM 분류기를 붙이고 QA Agent를 처음 배포했다.
+나는 어제 ClawMux에 LLM 분류기를 붙이고 QA Agent를 처음
+
+배포했다.
 
 오늘은 두 시스템을 더 다듬는 날이었다.
 

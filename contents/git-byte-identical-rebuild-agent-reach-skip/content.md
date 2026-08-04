@@ -37,7 +37,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 로컬 main은 stale일 수 있으니까.
 
-`main..HEAD`를 쓰면 이미 머지된 다른 사람의 PR까지 diff에 포함되어 범위가 부풀어진다.
+main..HEAD를 쓰면 이미 머지된 다른 사람의 PR까지 diff에 포함되어 범위가 부풀어진다.
 
 파일 단위로 버킷팅했다. hunk 단위로 분할하면 교차 파일이 많을 때 오류율이 급증한다.
 

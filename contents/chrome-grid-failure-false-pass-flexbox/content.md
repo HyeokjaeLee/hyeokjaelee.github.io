@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## footer가 화면 바닥에 안 붙는다
 
-이날 나는은 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.
+이날 나는 CSS 레이아웃 버그와 5번 싸운 날이다. footer가 화면 바닥에 안 붙었다. grid로 잡았는데 대화면에서만 실패했다.
 
 소화면에서는 통과한 줄 알았다가 거짓 PASS였다.
 
@@ -39,7 +39,7 @@ CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차�
 
 남은 공간을 흡수하지 않는 거다. footer 행에 715픽셀이 배당됐다. footer 엘리먼트는 80픽셀인데.
 
-`overflow:hidden`을 추가해봤다.
+overflow:hidden을 추가해봤다.
 
 안 됐다. track sizing이 안 바뀐다.
 
@@ -75,7 +75,7 @@ CSS 스펙상 `minmax(0,1fr)`은 첫 번째 행이 남은 공간을 전부 차�
 
 섹션을 flex column으로 만들었다.
 
-내용 영역에 `flex:1`이랑 `min-height:0`을 줬다. footer에 `shrink:0`을 줬다.
+내용 영역에 flex:1이랑 min-height:0을 줬다. footer에 shrink:0을 줬다.
 
 flexbox는 이 조합을 신뢰성 있게 존중한다.
 

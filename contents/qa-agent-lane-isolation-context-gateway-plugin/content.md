@@ -92,7 +92,7 @@ Context-Gateway 바이너리를 플러그인 안에 같이 묶고 플러그인�
 
 패키지 매니저는 npm, pnpm, bun 어느 쪽이든 지원한다.
 
-플랫폼별 바이너리는 GitHub Releases로 배포하고 `postinstall` 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다. macOS arm64, x64, Linux x64, arm64, Windows x64를 다
+플랫폼별 바이너리는 GitHub Releases로 배포하고 postinstall 스크립트가 알아서 플랫폼에 맞는 바이너리를 내려받는다. macOS arm64, x64, Linux x64, arm64, Windows x64를 다
 
 커버한다.
 
@@ -106,7 +106,7 @@ API 키도 여기서 재사용하고 컨텍스트 윈도우 크기도 모델 메
 
 사용자가 설정할 게 거의 없다.
 
-디폴트로 대부분 커버되고 세부 조정이 필요하면 `context-gateway.json`으로 잡는다.
+디폴트로 대부분 커버되고 세부 조정이 필요하면 context-gateway.json으로 잡는다.
 
 ## opencode 세션 저장소가 바뀐 배경
 

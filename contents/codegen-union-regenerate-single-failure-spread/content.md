@@ -9,7 +9,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## 생성물 충돌은 합집합에서 재생성
 
-이날 나는은 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다.
+이날 나는 같은 패턴이 반복된 날이다. codegen 충돌은 하루에 두 번 같은 방식으로 풀었다. vee-validate 버그는 하루에 세 번 재발했다.
 
 그리고 단일 실패 지점 하나가 파이프라인 전체를 무효화했다.
 
@@ -17,7 +17,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 양쪽이 각각 새 API 엔드포인트를 추가해서 같은 파일에 다른 내용이 들어간 거다.
 
-이런 충돌은 `ours`나 `theirs`로 통째로 선택하면 안 된다.
+이런 충돌은 ours나 theirs로 통째로 선택하면 안 된다.
 
 한쪽을 선택하면 다른 쪽의 API가 사라진다.
 

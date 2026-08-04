@@ -18,7 +18,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 Astro 빌드가 끝난 뒤 Pagefind CLI가 `dist/`를 인덱싱하는 구조다.
 
-`package.json`의 build 스크립트 한 줄만 바꿨다.
+package.json의 build 스크립트 한 줄만 바꿨다.
 
 ```json
 "build": "astro build && pagefind --site dist"
@@ -30,7 +30,7 @@ Astro 빌드가 끝난 뒤 Pagefind CLI가 `dist/`를 인덱싱하는 구조다.
 
 ### 메타를 세 곳에 나눠 심기
 
-Pagefind는 가장 가까운 `data-pagefind-body` 기준으로 인덱싱한다.
+Pagefind는 가장 가까운 data-pagefind-body 기준으로 인덱싱한다.
 
 그런데 내 블로그 상세 페이지는 하나의 글이 여러 HTML 요소에 걸쳐 있다.
 
@@ -40,7 +40,7 @@ Pagefind는 가장 가까운 `data-pagefind-body` 기준으로 인덱싱한다.
 
 ### 한국어 stemming 미지원
 
-Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko" 경고를 뱉는다.
+Pagefind가 ko 언어에 대해 "doesn't support stemming for the language ko" 경고를 뱉는다.
 
 검색 자체는 동작하지만 어형 변화를 정규화하지 않는다.
 
@@ -70,7 +70,9 @@ Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko"
 
 한 단계로는 안 된다.
 
-두 단계가 필요한 이유는 트리 구조가 파싱 단계마다 달라지기 때문이다.
+두 단계가 필요한 이유는 트리 구조가 파싱 단계마다
+
+달라지기 때문이다.
 
 ### rehype-figure로 캡션 정식화
 
@@ -88,7 +90,9 @@ Pagefind가 `ko` 언어에 대해 "doesn't support stemming for the language ko"
 
 플러그인 순서도 중요했다.
 
-rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
+rehypeFigure가 rehypeGallery보다
+
+먼저 실행되어야 gallery 안 이미지도 figure로 감싸진 뒤 평탄화된다.
 
 ### 변환 범위
 
@@ -96,7 +100,7 @@ rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지
 
 2-이미지 blockquote 1곳은 `:::gallery` + 공유 캡션으로 변환했다.
 
-그 과정에서 기존 `image`라고만 적힌 무의미 alt 6곳도 의미 있는 alt로 교체했다.
+그 과정에서 기존 image라고만 적힌 무의미 alt 6곳도 의미 있는 alt로 교체했다.
 
 비디오 blockquote 6곳은 rehype-figure가 `<img>`만 처리하므로 그대로 뒀다.
 
@@ -110,13 +114,13 @@ rehypeFigure가 rehypeGallery보다 먼저 실행되어야 gallery 안 이미지
 
 그런데 의존성 자체를 삭제하면 안 됐다.
 
-검색 결과가 비었을 때 빈 상태를 표시하는 `Search.tsx`가 `empty.lottie`를 쓰고 있었기 때문이다.
+검색 결과가 비었을 때 빈 상태를 표시하는 Search.tsx가 empty.lottie를 쓰고 있었기 때문이다.
 
 삭제 대상은 딱 두 개로 좁혔다.
 
 첫째는 `public/lotties/dark-mode-switch.lottie` orphan 에셋이다.
 
-둘째는 `DarkModeSwitch.tsx` 안의 `DotLottieReact` 사용부다.
+둘째는 DarkModeSwitch.tsx 안의 DotLottieReact 사용부다.
 
 컴포넌트를 순수 CSS로 전면 재작성했다.
 

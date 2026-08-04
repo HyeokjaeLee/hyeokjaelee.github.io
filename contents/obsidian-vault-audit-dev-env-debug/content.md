@@ -18,11 +18,11 @@ titleImage: '@shared/assets/dev-diary.png'
 
 문서들이 분류 없이 쌓이기 시작했다.
 
-`Inbox`랑 `Daily` 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다
+Inbox랑 Daily 빼고 모든 문서의 분류 상태를 확인했는데, 생각보다
 
 문제가 꽤 많았다.
 
-기존 볼트는 `type`이랑 `area` 두 가지 필드로 문서를 분류하고 있었다.
+기존 볼트는 type이랑 area 두 가지 필드로 문서를 분류하고 있었다.
 
 근데 이 체계가 잘 안 먹혔다.
 
@@ -30,7 +30,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 그래서 아예 분류를 안 한 문서도 꽤 있었다.
 
-이 감사는 다음 날 분류 체계를 단일 `category` 필드로 통합하려고 미리 해둔 조사였다.
+이 감사는 다음
+
+날 분류 체계를 단일 category 필드로 통합하려고 미리 해둔 조사였다.
 
 전체 상태를 파악하고, 문제 있는 문서 목록을 만들었다.
 
@@ -46,7 +48,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 볼트 감사랑 별개로, 개발 환경도 점검해야 했다.
 
-`env:pull`이랑 `gen:supabase` 두 가지 명령이 동시에 실패하고 있었다.
+env:pull이랑 gen:supabase 두 가지 명령이 동시에 실패하고 있었다.
 
 두 문제가 동시에 터졌지만, 원인은 각각 달랐다.
 
@@ -54,9 +56,9 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ### Doppler 키체인 잠김
 
-`env:pull`이 실패하는 원인은 Doppler 키체인이 잠겨 있었기 때문이다.
+env:pull이 실패하는 원인은 Doppler 키체인이 잠겨 있었기 때문이다.
 
-Doppler는 운영체제 키체인에 시크릿을 저장하는데, 리눅스에서 키체인이 잠긴 상태면 — 예를 들어 재부팅 후 데스크톱 로그인을 하지 않은 경우 — `env:pull`이 오류를 내거나 조용히 실패한다.
+Doppler는 운영체제 키체인에 시크릿을 저장하는데, 리눅스에서 키체인이 잠긴 상태면 — 예를 들어 재부팅 후 데스크톱 로그인을 하지 않은 경우 — env:pull이 오류를 내거나 조용히 실패한다.
 
 해결 방법은 간단했다.
 
@@ -68,7 +70,7 @@ Doppler는 운영체제 키체인에 시크릿을 저장하는데, 리눅스에�
 
 ### Supabase CLI 미설치
 
-`gen:supabase`가 실패하는 원인은 Supabase CLI가 설치되어 있지 않았기 때문이다.
+gen:supabase가 실패하는 원인은 Supabase CLI가 설치되어 있지 않았기 때문이다.
 
 이 명령은 npm 스크립트로, 내부에서 Supabase CLI 바이너리를 호출한다.
 
@@ -82,7 +84,7 @@ Supabase CLI를 설치하고 나서야 이 명령이 정상 동작했다.
 
 대신 각 문제의 원인을 개별적으로 확인했다.
 
-`env:pull`이 왜 실패하는지, `gen:supabase`가 왜 실패하는지 따로따로 추적했다.
+env:pull이 왜 실패하는지, gen:supabase가 왜 실패하는지 따로따로 추적했다.
 
 이렇게 하니까
 

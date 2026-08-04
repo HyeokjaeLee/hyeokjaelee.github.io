@@ -8,7 +8,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 ## planning 시간 30분에서 6초
 
-이날 나는은 숨겨진 근본 원인을 찾아서 해결한 날이었다.
+이날 나는 숨겨진 근본 원인을 찾아서 해결한 날이었다.
 
 가장 극적인 건 QA Agent의 planning 시간을 30분에서 6초로 줄인 거다.
 
@@ -94,13 +94,13 @@ ClawMux는 정상적으로 돌아가고 있었는데, 라우팅 결과가 누락
 
 원인을 찾아보니 ZAI GLM이 텍스트를 예상한 필드가 아닌 다른 필드에 담아 보내고 있었다.
 
-응답 본문은 `content`가 아니라 reasoning_content 필드에 들어 있었다.
+응답 본문은 content가 아니라 reasoning_content 필드에 들어 있었다.
 
-기존 파서는 `content`만 보니까, 응답이 비어 있다고 판단한 거다.
+기존 파서는 content만 보니까, 응답이 비어 있다고 판단한 거다.
 
 해결은 reasoning_content 폴백을 추가하는 거다.
 
-`content`가 비어 있으면 reasoning_content를 확인하는 식이다.
+content가 비어 있으면 reasoning_content를 확인하는 식이다.
 
 그리고 명시적으로 빈 값인지 확인하도록 로직을 고쳤다.
 

@@ -91,7 +91,7 @@ titleImage: '@shared/assets/dev-diary.png'
 
 캐시를 무효화하려고 했는데 안 됐다.
 
-Vue Query에서 캐시를 무효화할 때 키에 Vue `Ref`가 들어 있었다.
+Vue Query에서 캐시를 무효화할 때 키에 Vue Ref가 들어 있었다.
 
 Ref는 객체다.
 
@@ -127,7 +127,9 @@ Playwright를 쓰지 않고 이미지를 가져오는 방법을 찾았다.
 
 이 토큰으로 보호된 첨부 파일을 직접 다운로드한다.
 
-Playwright를 띄울 필요 없이, curl로 바로 받는다.
+Playwright를 띄울 필요
+
+없이, curl로 바로 받는다.
 
 두 마리 토끼를 잡았다.
 
