@@ -5,6 +5,7 @@
 ## Blog
 - [블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다](https://hyeokjaelee.github.io/blog-search-gallery-darkmode/): Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [확인해야 하는 것과 가정해도 되는 것을 구분하라](https://hyeokjaelee.github.io/verify-dont-assume-can-destroy-flag-port-not-your-server-stale-lock/): 이날은 확인과 가정을 구분한 날이었다. 삭제 가능 플래그를 믿었는데 실제 환경에서 거짓이었다. 포트가 열려 있으면 내 서버라고 가정했는데 다른 작업자의 서버였다. 잠금 파일이 오래되면 데몬이 영원히 안 떴다. 그리고 컨텍스트 이벤트 주입이 구조적으로 1턴 늦는다는 것도 깨달았다.
 - [세 개의 잘못된 가설: 컨텍스트 창 넘침의 진짜 원인을 찾기까지](https://hyeokjaelee.github.io/three-wrong-hypotheses-context-overflow-real-cause-merge-base-attribution/): oracle 검증자가 매 라운드 실패했다. 첫 번째 가설은 "모델 컨텍스트 한계"였다. 틀렸다. 두 번째는 "자동 폴백 실패"였다. 이것도 부분적이었다. 세 번째에서 레지스트리 소스 코드를 읽고 진짜 원인을 찾았다. 폴백이 잘못된 모델을 선택하고 있었다.
 - [하나의 필드로 "언제"와 "깨울까"를 동시에 표현하기까지 네 번 실패했다](https://hyeokjaelee.github.io/five-values-idle-split-bun-runtime-verdict-byte-identical-git-rewrite/): 메시지 배달 API를 설계했다. 언제 배달할지와 깨울지 말지를 하나의 필드로 표현하고 싶었다. 네 번 실패했다. 다섯 번째에서 idle을 둘로 쪼개는 게 정답이었다. 그리고 Bun 런타임으로의 마이그레이션을 측정 데이터로 거절한 것도 있었다.
 - [독립된 세션이 같은 해결책에 수렴하면, 그게 정답이다](https://hyeokjaelee.github.io/independent-convergence-is-the-answer-confabulation-in-agent-self-report/): 9개 오픈소스 프로젝트의 버그를 독립된 세션에서 수정했다. axios는 3개 세션이 독립적으로 같은 해결책에 도달했다. 같은 버그를 보고 같은 수정을 내놓으면, 그게 가장 자연스러운 일반화다. 그리고 에이전트가 자기 추측을 사실로 보고한 것도 발견했다.
