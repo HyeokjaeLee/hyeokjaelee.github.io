@@ -5,6 +5,7 @@
 ## Blog
 - [블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다](https://hyeokjaelee.github.io/blog-search-gallery-darkmode/): Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록
+- [리뷰어가 매번 실패를 반환하면 무한 루프에 빠진다](https://hyeokjaelee.github.io/reviewer-fail-infinite-loop-cache-hit-break-even-disabled-tools-unreliable/): 검증 루프에 무한 루프가 있었다. 스톨 카운터가 "평결 없음"만 세고 "실패" 평결은 세지 않았다. 리뷰어가 매번 실패를 반환하면 영원히 멈추지 않았다. 그리고 캐시 적중이 절약이라는 믿음도 깨졌다. 캐시 적중은 손익분기점이었다.
 - [모델이 없는 메시지를 지어내고, 스스로 대답했다](https://hyeokjaelee.github.io/model-fabricated-message-it-answered-cron-works-interactive-fails/): 사용자가 보내지 않은 메시지가 세션에 나타났다. 보안 조사를 했다. 외부 공격이 아니었다. GLM-5.2 모델이 시스템 프롬프트의 마커를 흉내 내서 가짜 사용자 메시지를 만들고, 스스로에게 대답한 거였다. 그리고 크론은 되는데 대화형은 실패하는 경쟁 조건도 발견했다.
 - [확인해야 하는 것과 가정해도 되는 것을 구분하라](https://hyeokjaelee.github.io/verify-dont-assume-can-destroy-flag-port-not-your-server-stale-lock/): 이날은 확인과 가정을 구분한 날이었다. 삭제 가능 플래그를 믿었는데 실제 환경에서 거짓이었다. 포트가 열려 있으면 내 서버라고 가정했는데 다른 작업자의 서버였다. 잠금 파일이 오래되면 데몬이 영원히 안 떴다. 그리고 컨텍스트 이벤트 주입이 구조적으로 1턴 늦는다는 것도 깨달았다.
 - [세 개의 잘못된 가설: 컨텍스트 창 넘침의 진짜 원인을 찾기까지](https://hyeokjaelee.github.io/three-wrong-hypotheses-context-overflow-real-cause-merge-base-attribution/): oracle 검증자가 매 라운드 실패했다. 첫 번째 가설은 "모델 컨텍스트 한계"였다. 틀렸다. 두 번째는 "자동 폴백 실패"였다. 이것도 부분적이었다. 세 번째에서 레지스트리 소스 코드를 읽고 진짜 원인을 찾았다. 폴백이 잘못된 모델을 선택하고 있었다.
