@@ -47,9 +47,7 @@ titleImage: '@shared/assets/dev-diary.png'
 구조를 잡았다.
 
 - 계획을 담당하는 세션 하나를 따로 만들고
-- 실행 Lane마다
-
-각자 세션을 따로 쓴다
+- 실행 Lane마다 각자 세션을 따로 쓴다
 
 여기서 Lane은 병렬 실행 단위다.
 
