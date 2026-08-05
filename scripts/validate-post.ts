@@ -18,6 +18,63 @@ function findChinese(raw: string): { line: number; snippet: string }[] {
   return hits;
 }
 
+/**
+ * Pre-check YAML frontmatter formatting before gray-matter parsing.
+ * Catches common mistakes: missing newlines after ---, merged fields, etc.
+ */
+function checkFrontmatterFormat(raw: string): string[] {
+  const errors: string[] = [];
+  const lines = raw.split('\n');
+
+  // Line 0 must be exactly '---'
+  if (lines[0] !== '---') {
+    if (lines[0].startsWith('---')) {
+      errors.push(
+        `line 1: opening '---' must be on its own line (found: "${lines[0].slice(0, 50)}...")`,
+      );
+    } else {
+      errors.push('line 1: must start with ---');
+    }
+    return errors; // can't safely check further
+  }
+
+  // Find closing ---
+  let closeIdx = -1;
+  for (let i = 1; i < lines.length; i++) {
+    if (lines[i] === '---') {
+      closeIdx = i;
+      break;
+    }
+  }
+  if (closeIdx === -1) {
+    errors.push('missing closing --- delimiter');
+    return errors;
+  }
+
+  // Each frontmatter line (1..closeIdx-1) must have at most one YAML key
+  const knownKeys = ['title', 'description', 'date', 'tags', 'titleImage', 'author'];
+  for (let i = 1; i < closeIdx; i++) {
+    const line = lines[i];
+
+    // Count how many known keys appear on this line
+    let keysOnLine: string[] = [];
+    for (const key of knownKeys) {
+      const pattern = new RegExp(`\\b${key}:`);
+      if (pattern.test(line)) {
+        keysOnLine.push(key);
+      }
+    }
+
+    if (keysOnLine.length > 1) {
+      errors.push(
+        `line ${i + 1}: multiple YAML keys on one line (${keysOnLine.join(', ')}) — each field must be on its own line`,
+      );
+    }
+  }
+
+  return errors;
+}
+
 const files = process.argv.slice(2);
 
 if (files.length === 0) {
@@ -38,7 +95,29 @@ for (const file of files) {
     continue;
   }
 
-  const parsed = matter(raw);
+  // Pre-check: catch YAML formatting issues before gray-matter
+  const fmtErrors = checkFrontmatterFormat(raw);
+  if (fmtErrors.length > 0) {
+    console.log(`✖ ${rel}`);
+    for (const error of fmtErrors) {
+      console.log(`  • ${error}`);
+    }
+    failed++;
+    continue;
+  }
+
+  // Parse with gray-matter (wrapped in try-catch for safety)
+  let parsed: matter.GrayMatterFile<string>;
+  try {
+    parsed = matter(raw);
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    console.log(`✖ ${rel}`);
+    console.log(`  • frontmatter parse error: ${msg}`);
+    failed++;
+    continue;
+  }
+
   const result = postSchema.safeParse(parsed.data);
   if (!result.success) {
     for (const issue of result.error.issues) {
