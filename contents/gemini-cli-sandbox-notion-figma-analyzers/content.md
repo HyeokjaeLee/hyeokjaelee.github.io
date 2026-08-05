@@ -1,6 +1,9 @@
---- title: 'Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트'
-description: 'Gemini CLI를 격리된 샌드박스에서 에이전트처럼 부르게 만들고 노션과 피그마 문서를 분석하는 서브에이전트를 만들었다.' date: '2026-04-21'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'Gemini CLI 샌드박스 통합과 노션 피그마 분석 에이전트'
+description: 'Gemini CLI를 격리된 샌드박스에서 에이전트처럼 부르게 만들고 노션과 피그마 문서를 분석하는 서브에이전트를 만들었다.'
+date: '2026-04-21'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Gemini CLI 샌드박스 통합

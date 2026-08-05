@@ -1,6 +1,9 @@
---- title: '커밋 9개로 재구성하고 후속 버그 9개를 잡은 날'
-description: '새 코스 종류 도입 커밋을 리뷰하기 좋게 9개로 재구성했다 그리고 파생된 후속 버그 9개를 잡고 알파 배포를 다섯 번 돌렸다.' date: '2026-05-18'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '커밋 9개로 재구성하고 후속 버그 9개를 잡은 날'
+description: '새 코스 종류 도입 커밋을 리뷰하기 좋게 9개로 재구성했다 그리고 파생된 후속 버그 9개를 잡고 알파 배포를 다섯 번 돌렸다.'
+date: '2026-05-18'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 커밋 9개로 재구성

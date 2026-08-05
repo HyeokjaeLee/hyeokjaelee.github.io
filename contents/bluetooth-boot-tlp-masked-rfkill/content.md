@@ -1,7 +1,9 @@
---- title: '블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스'
-
-description: '매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.' date: '2026-04-24'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '블루투스가 부팅마다  꺼지는 문제, TLP가 숨긴 서비스'
+description: '매번 부팅할 때마다 블루투스가 꺼져서 수동으로 켜야 했던 문제의 원인이, 한참 전에 설치한 절전 패키지가 서비스를 숨긴 것이었다.'
+date: '2026-04-24'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 매번 부팅하면 블루투스가 꺼진다

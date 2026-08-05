@@ -1,6 +1,9 @@
---- title: 'QA Agent 브라우저 추상화와 에이전트 카탈로그 자체 구현'
-description: '브라우저 제어를 agent-browser로 옮기고 oh-my-opencode 의존성을 걷어내면서 런타임 복잡도를 줄였다.' date: '2026-03-23'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 브라우저 추상화와 에이전트 카탈로그 자체 구현'
+description: '브라우저 제어를 agent-browser로 옮기고 oh-my-opencode 의존성을 걷어내면서 런타임 복잡도를 줄였다.'
+date: '2026-03-23'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Playwright MCP에서 agent-browser로

@@ -1,6 +1,9 @@
---- title: 'ClawMux 임베딩에서 LLM 분류기로 전환 완료, 컨텍스트 압축 마무리'
-description: '며칠간 시도하던 임베딩 분류기를 싼 LLM 한 글자 방식으로 최종 전환하고, 컨텍스트 압축 시스템을 완성했다.' date: '2026-04-07'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'ClawMux 임베딩에서 LLM 분류기로 전환 완료, 컨텍스트 압축 마무리'
+description: '며칠간 시도하던 임베딩 분류기를 싼 LLM 한 글자 방식으로 최종 전환하고, 컨텍스트 압축 시스템을 완성했다.'
+date: '2026-04-07'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 임베딩에서 LLM으로 최종 전환

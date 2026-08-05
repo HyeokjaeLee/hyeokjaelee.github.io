@@ -1,6 +1,9 @@
---- title: '강제 마이그레이션과 제약에서 패턴을 만드는 날'
-description: 'Claude 계정이 갑자기 revoke돼서 사내 AI 게이트웨이로 마이그레이션했다 그 제약이 이중 설정 패턴이 됐다 그리고 수료증 PDF 다운로드와 화상감독 메시지 수정도 끝냈다.' date: '2026-06-12'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '강제 마이그레이션과 제약에서 패턴을 만드는 날'
+description: 'Claude 계정이 갑자기 revoke돼서 사내 AI 게이트웨이로 마이그레이션했다 그 제약이 이중 설정 패턴이 됐다 그리고 수료증 PDF 다운로드와 화상감독 메시지 수정도 끝냈다.'
+date: '2026-06-12'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Claude 계정이 revoke됐다

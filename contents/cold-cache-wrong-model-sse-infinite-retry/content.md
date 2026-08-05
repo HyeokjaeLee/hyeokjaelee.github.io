@@ -1,6 +1,9 @@
---- title: '콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제와 SSE 무한 재시도'
-description: '에이전트가 처음 실행될 때 캐시가 비어서 엉뚱한 모델을 할당받는 문제를 잡고, 폴백 플러그인의 SSE 무한 재시도 루프도 고쳤다.' date: '2026-04-30'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '콜드 캐시가 에이전트에게 잘못된 모델을 주는 문제와 SSE 무한 재시도'
+description: '에이전트가 처음 실행될 때 캐시가 비어서 엉뚱한 모델을 할당받는 문제를 잡고, 폴백 플러그인의 SSE 무한 재시도 루프도 고쳤다.'
+date: '2026-04-30'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 콜드 캐시 모델 해석 버그

@@ -1,6 +1,9 @@
---- title: '에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과'
-description: 'pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다 그리고 토스증권 CLI도 새로 만들었다.' date: '2026-06-18'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '에이전트가 스스로를 개선하는 날, 4회 크래시 끝에 수료증 QA 통과'
+description: 'pi 확장 7종을 새로 짜고 스킬 20개를 포팅했다 그러는 사이 수료증 기능은 모델 장애로 4번 크래시 났다가 마지막에 통과했다 그리고 토스증권 CLI도 새로 만들었다.'
+date: '2026-06-18'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## bash timeout이 8.3시간이 될 수 있다

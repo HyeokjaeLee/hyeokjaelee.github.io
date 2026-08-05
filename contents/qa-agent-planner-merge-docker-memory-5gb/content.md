@@ -1,6 +1,9 @@
---- title: 'QA Agent planning 단일화와 도커 메모리 5GB 문제'
-description: '3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.' date: '2026-04-17'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent planning 단일화와 도커 메모리 5GB 문제'
+description: '3단계 planning을 단일 Planner로 합치고 1,200줄을 지웠다 그리고 4개 Chromium이 5GB를 잡아먹던 도커 메모리 문제를 잡았다.'
+date: '2026-04-17'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## planning 다시 단일화

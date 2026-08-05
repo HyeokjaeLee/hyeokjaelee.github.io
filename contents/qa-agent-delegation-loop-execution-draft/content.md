@@ -1,6 +1,9 @@
---- title: 'QA Agent 마스터 위임 루프와 실행 초안 설계'
-description: '브라우저 격리를 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.' date: '2026-03-24'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 마스터 위임 루프와 실행 초안 설계'
+description: '브라우저 격리를 검증하고 마스터 에이전트가 작업을 위임하는 루프를 만들고 Planner가 실행 초안을 미리 짜도록 했다.'
+date: '2026-03-24'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## agent-browser 경로 재검증

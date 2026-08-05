@@ -1,6 +1,9 @@
---- title: '잠금 파트 UI 구현과 폴백 플러그인 설정 스키마 통합'
-description: '순차 수강 잠금 화면을 만들고 요구사항 검증으로 빠진 걸 잡았다 그리고 폴백 플러그인의 흩어진 설정을 하나로 통합했다.' date: '2026-05-07'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '잠금 파트 UI 구현과 폴백 플러그인 설정 스키마 통합'
+description: '순차 수강 잠금 화면을 만들고 요구사항 검증으로 빠진 걸 잡았다 그리고 폴백 플러그인의 흩어진 설정을 하나로 통합했다.'
+date: '2026-05-07'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 잠금 파트 UI

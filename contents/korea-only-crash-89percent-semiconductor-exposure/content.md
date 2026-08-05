@@ -1,6 +1,9 @@
---- title: '한국만 폭락한 날, 89% 반도체 노출을 발견하다'
-description: 'KOSPI가 -7.89%로 서킷브레이커가 걸린 날, 8개 에이전트 투표로 SELL을 내렸다 포트폴리오를 분석해보니 현금이 0.19%였고 분산된 줄 알았던 ETF가 전부 반도체였다.' date: '2026-07-02'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '한국만 폭락한 날, 89% 반도체 노출을 발견하다'
+description: 'KOSPI가 -7.89%로 서킷브레이커가 걸린 날, 8개 에이전트 투표로 SELL을 내렸다 포트폴리오를 분석해보니 현금이 0.19%였고 분산된 줄 알았던 ETF가 전부 반도체였다.'
+date: '2026-07-02'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 한국만 떨어졌다

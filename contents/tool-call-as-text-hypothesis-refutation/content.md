@@ -1,8 +1,9 @@
---- title: '에이전트가 도구를 호출하지 않고 텍스트로 뱉는 현상의 원인 추적'
+---
+title: '에이전트가 도구를 호출하지 않고 텍스트로 뱉는 현상의 원인 추적'
 description: 'AI 에이전트가 도구 호출을 텍스트로 출력하기만 하고 실행하지 않았다.
-
 prefill 에러를 원인으로 지목했다가, 같은 현상이 다른 모델에서도 재현되면서 가설이 깨졌다.' date: '2026-06-15'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 도구 호출이 텍스트로 나온다

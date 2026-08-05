@@ -1,6 +1,9 @@
---- title: '주말에 주가를 보는 법과 헤드리스 서버 스크래핑'
-description: '한국 정규장은 주말에 안 돈다 GDR 추정가랑 야간선물로 방향을 가늠할 수 있다 그리고 헤드리스 서버에서 브라우저 없이 웹 스크래핑하는 fallback 체인도 정리했다.' date: '2026-07-04'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '주말에 주가를 보는 법과 헤드리스 서버 스크래핑'
+description: '한국 정규장은 주말에 안 돈다 GDR 추정가랑 야간선물로 방향을 가늠할 수 있다 그리고 헤드리스 서버에서 브라우저 없이 웹 스크래핑하는 fallback 체인도 정리했다.'
+date: '2026-07-04'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 주말에도 주가를 본다

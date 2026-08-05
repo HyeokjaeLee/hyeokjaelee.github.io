@@ -1,6 +1,9 @@
---- title: '인쇄 DOM 텔레포트와 Module Federation 공유 캐시'
-description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.' date: '2026-06-29'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '인쇄 DOM 텔레포트와 Module Federation 공유 캐시'
+description: '수료증 인쇄할 때 호스트 크롬이 같이 나오는 문제를 DOM 텔레포트로 해결했다 그리고 Module Federation에서 각자 만드는 QueryClient를 하나로 통합했다.'
+date: '2026-06-29'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 인쇄하면 호스트가 같이 나온다

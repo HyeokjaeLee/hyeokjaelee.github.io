@@ -1,6 +1,9 @@
---- title: 'LiveSync가 11MB를 2.76GB로 부풀린 이유'
-description: '옵시디언 볼트 실제 콘텐츠는 11MB인데 CouchDB가 2.76GB까지 부풀었다 원인은 청크 단위 리비전 누적이었다 자동 삭제 설정은 소스코드에 존재하지 않았다.' date: '2026-07-01'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'LiveSync가 11MB를 2.76GB로 부풀린 이유'
+description: '옵시디언 볼트 실제 콘텐츠는 11MB인데 CouchDB가 2.76GB까지 부풀었다 원인은 청크 단위 리비전 누적이었다 자동 삭제 설정은 소스코드에 존재하지 않았다.'
+date: '2026-07-01'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 11MB가 2.76GB가 되다

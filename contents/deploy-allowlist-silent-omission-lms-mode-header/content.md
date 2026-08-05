@@ -1,7 +1,9 @@
---- title: '과도한 배포를 막으려다  배포가 안 되는 문제를 만들다'
-
-description: '배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.' date: '2026-06-04'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '과도한 배포를 막으려다  배포가 안 되는 문제를 만들다'
+description: '배포 대상을 줄이려고 허용 목록을 만들었는데, 목록에 없는 앱이 조용히 배포에서 제외되었다 문제를 고치려다 새 문제를 만든 셈이다.'
+date: '2026-06-04'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 알고리즘 앱이 배포가 안 된다

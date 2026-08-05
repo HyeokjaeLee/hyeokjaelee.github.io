@@ -1,6 +1,9 @@
---- title: '비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번'
-description: '진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍이 두 버그에서 동시에 발견됐다 그리고 교육 규칙이 함정을 만들고 있었다 언어 drift 원인도 규명했다.' date: '2026-06-24'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '비대칭 이벤트 쌍이 만드는 플래그 고착, 같은 날 두 번'
+description: '진입은 무조건 발화하는데 해제는 조건부인 이벤트 쌍이 두 버그에서 동시에 발견됐다 그리고 교육 규칙이 함정을 만들고 있었다 언어 drift 원인도 규명했다.'
+date: '2026-06-24'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 중지하라고 했는데 왜 안 멈추는가

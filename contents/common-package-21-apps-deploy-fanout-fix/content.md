@@ -1,6 +1,9 @@
---- title: '공통 패키지 하나 바꿨더니 21개 앱이 배포되는 문제'
-description: '공통 패키지 파일 하나를 바꿨더니 배포 추론이 21개 앱을 잡았다 실제로는 5개만 배포하면 됐다 추론 정확도를 올리고 명시적 허용 목록도 추가했다.' date: '2026-06-01'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '공통 패키지 하나 바꿨더니 21개 앱이 배포되는 문제'
+description: '공통 패키지 파일 하나를 바꿨더니 배포 추론이 21개 앱을 잡았다 실제로는 5개만 배포하면 됐다 추론 정확도를 올리고 명시적 허용 목록도 추가했다.'
+date: '2026-06-01'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 공통 패키지의 의존성 전파

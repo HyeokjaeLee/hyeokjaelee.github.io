@@ -1,6 +1,9 @@
---- title: '멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제'
-description: 'PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.' date: '2026-06-09'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '멀티 에이전트 팀 프롬프트 설계와 쓰레기 데이터 30% 문제'
+description: 'PM, 프론트엔드, 백엔드, QA 에이전트가 협력하는 팀을 만들었다 픽셀 퍼펙트와 토큰 우선의 충돌을 해결했다 그리고 괴담 수집에서 30%가 쓰레기 데이터인 문제도 진단했다.'
+date: '2026-06-09'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 픽셀 퍼펙트 vs 토큰 우선

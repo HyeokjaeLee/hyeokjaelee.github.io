@@ -1,6 +1,9 @@
---- title: 'QA Agent 캐싱 정책과 Slack 리포트 다이어트'
-description: 'QA Agent가 매번 처음부터 계획하던 비용을 시트 단위 캐시로 없애고, Slack 리포트를 사람이 읽기 좋게 줄였다.' date: '2026-03-19'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 캐싱 정책과 Slack 리포트 다이어트'
+description: 'QA Agent가 매번 처음부터 계획하던 비용을 시트 단위 캐시로 없애고, Slack 리포트를 사람이 읽기 좋게 줄였다.'
+date: '2026-03-19'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Slack 리포트가 너무 시끄러웠다

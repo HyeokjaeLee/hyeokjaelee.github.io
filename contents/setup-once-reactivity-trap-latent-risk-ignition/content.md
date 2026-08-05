@@ -1,6 +1,9 @@
---- title: '설정 한 번으로 영원히 막히는 반응성 버그와 잠재 위험 점화'
-description: 'Vue의 setup 한 번 값이 watchEffect를 영구적으로 막아서 간헐적 버그를 만들었다 그리고 두 달 전의 변경이 이미지 리빌드로 점화된 MCP 멈춤도 잡았다.' date: '2026-06-16'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '설정 한 번으로 영원히 막히는 반응성 버그와 잠재 위험 점화'
+description: 'Vue의 setup 한 번 값이 watchEffect를 영구적으로 막아서 간헐적 버그를 만들었다 그리고 두 달 전의 변경이 이미지 리빌드로 점화된 MCP 멈춤도 잡았다.'
+date: '2026-06-16'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 날짜가 가끔 안 바뀐다

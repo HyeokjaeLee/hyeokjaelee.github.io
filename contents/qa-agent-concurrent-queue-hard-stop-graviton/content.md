@@ -1,6 +1,9 @@
---- title: 'QA Agent 병렬 실행 큐와 hard stop, Graviton 마이그레이션'
-description: '병렬 실행을 조율하는 큐 시스템과 실행을 강제로 멈추는 hard stop을 만들고, 알파 서버를 ARM64 Graviton으로 옮겼다.' date: '2026-04-05'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 병렬 실행 큐와 hard stop, Graviton 마이그레이션'
+description: '병렬 실행을 조율하는 큐 시스템과 실행을 강제로 멈추는 hard stop을 만들고, 알파 서버를 ARM64 Graviton으로 옮겼다.'
+date: '2026-04-05'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 동시 실행 큐

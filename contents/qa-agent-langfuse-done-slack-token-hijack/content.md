@@ -1,6 +1,9 @@
---- title: 'QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건'
-description: 'LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.' date: '2026-04-10'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent Langfuse 연동 완료와 Slack 토큰 가로채기 사건'
+description: 'LLM 호출 추적을 위한 Langfuse를 연동하고, ARM64 네이티브 빌드를 배포하고, 로컬 도커가 운영 봇의 Slack 토큰을 가로채던 문제를 잡았다.'
+date: '2026-04-10'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Langfuse 연동 완료

@@ -1,6 +1,9 @@
---- title: 'QA Agent가 기억하고 병렬로 돌기 시작한 날'
-description: 'opencode를 CLI 호출에서 서버 세션으로 바꾸고 학습한 지식을 코드 저장소 밖으로 빼서 슬랙 스레드 제목까지 정리했다.' date: '2026-03-20'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent가 기억하고 병렬로 돌기 시작한 날'
+description: 'opencode를 CLI 호출에서 서버 세션으로 바꾸고 학습한 지식을 코드 저장소 밖으로 빼서 슬랙 스레드 제목까지 정리했다.'
+date: '2026-03-20'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 슬랙 스레드 제목부터 고쳤다

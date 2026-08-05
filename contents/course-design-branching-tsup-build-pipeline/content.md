@@ -1,6 +1,9 @@
---- title: '새 코스 분류 디자인 분기 처리와 tsup 빌드 파이프라인 수정'
-description: '피그마 디자인과 구현을 비교해서 빠진 분기를 찾아 넣고 에디터에서 ESLint가 안 돌던 문제를 tsup 빌드로 해결했다.' date: '2026-05-06'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '새 코스 분류 디자인 분기 처리와 tsup 빌드 파이프라인 수정'
+description: '피그마 디자인과 구현을 비교해서 빠진 분기를 찾아 넣고 에디터에서 ESLint가 안 돌던 문제를 tsup 빌드로 해결했다.'
+date: '2026-05-06'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 피그마랑 구현을 비교해서 빠진 분기 찾기

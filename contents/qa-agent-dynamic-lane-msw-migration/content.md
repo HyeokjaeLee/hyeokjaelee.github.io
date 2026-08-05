@@ -1,6 +1,9 @@
---- title: 'QA Agent 병렬 실행 개선과 MSW 마이그레이션 삽질'
-description: 'QA Agent 실행 흐름을 정리하고, 회사 프로젝트의 MSW 마이그레이션 PR 리뷰를 반영하느라 하루가 금방 간 날.' date: '2026-03-18'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 병렬 실행 개선과 MSW 마이그레이션 삽질'
+description: 'QA Agent 실행 흐름을 정리하고, 회사 프로젝트의 MSW 마이그레이션 PR 리뷰를 반영하느라 하루가 금방 간 날.'
+date: '2026-03-18'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## QA Agent, 동적 Lane 선택

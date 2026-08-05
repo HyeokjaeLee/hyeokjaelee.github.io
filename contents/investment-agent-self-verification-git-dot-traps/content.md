@@ -1,6 +1,9 @@
---- title: '스스로 거짓말을 잡는 투자 분석 에이전트'
-description: '투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다 PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다 그리고 깃 세 점과 두 점의 함정도 겪었다.' date: '2026-07-08'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '스스로 거짓말을 잡는 투자 분석 에이전트'
+description: '투자 분석 에이전트가 결론을 낸 뒤 독립 에이전트가 결론을 검증했다 PER 7.0배랑 EPS 성장률 205.9%가 양립할 수 없다는 걸 스스로 잡아냈다 그리고 깃 세 점과 두 점의 함정도 겪었다.'
+date: '2026-07-08'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 데이터는 무료로, 추론은 유료로

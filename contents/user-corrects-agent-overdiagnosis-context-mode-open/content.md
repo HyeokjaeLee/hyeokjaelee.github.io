@@ -1,6 +1,9 @@
---- title: '사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다'
-description: '검증 루프 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.' date: '2026-06-21'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '사용자가 정정하는 날, 에이전트 과잉 진단을 걸러내다'
+description: '검증 루프 감사에서 분석 에이전트가 6개 버그를 찾았는데 진짜는 1개였다 컨텍스트 모드 권한 설계에서도 내 판단이 사용자 정정으로 뒤집혔다.'
+date: '2026-06-21'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 6개 버그 중 진짜는 1개

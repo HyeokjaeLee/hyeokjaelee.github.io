@@ -1,6 +1,9 @@
---- title: 'Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응'
-description: 'Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.' date: '2026-06-13'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'Zed 터미널 렌더링 깨짐과 GLM-5.2 출시일 동시 대응'
+description: 'Zed에서 TUI가 깨지는 원인이 동기화 출력 미지원이었다 같은 날 GLM-5.2가 나와서 커스텀 프로바이더를 등록하고 컨텍스트 한계를 직접 검증했다.'
+date: '2026-06-13'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Zed에서 TUI가 깨진다

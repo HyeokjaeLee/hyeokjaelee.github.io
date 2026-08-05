@@ -1,6 +1,9 @@
---- title: '두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인'
-description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.' date: '2026-06-28'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '두 시스템이 같은 위키에 쓰는 문제와 3단계 수집 파이프라인'
+description: 'Pi랑 Hermes가 같은 위키 볼트에 직접 쓰니까 중복이 생겼다 양쪽을 하나의 _raw 디렉토리로 모으고 단일 크론이 정제하는 3단계 파이프라인으로 바꿨다.'
+date: '2026-06-28'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 두 시스템이 같은 위키에 쓴다

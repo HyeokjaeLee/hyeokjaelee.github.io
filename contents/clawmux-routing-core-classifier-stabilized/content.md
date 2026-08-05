@@ -1,6 +1,9 @@
---- title: 'ClawMux 라우팅 코어 완성과 분류기 안정화'
-description: '6개 API 어댑터와 크로스 프로바이더 라우팅을 마무리하고, 며칠간 요동치던 분류기를 LLM 한 글자 방식으로 안정화했다.' date: '2026-04-04'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'ClawMux 라우팅 코어 완성과 분류기 안정화'
+description: '6개 API 어댑터와 크로스 프로바이더 라우팅을 마무리하고, 며칠간 요동치던 분류기를 LLM 한 글자 방식으로 안정화했다.'
+date: '2026-04-04'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 라우팅 코어 완성

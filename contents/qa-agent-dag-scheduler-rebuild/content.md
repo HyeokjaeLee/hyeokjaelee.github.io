@@ -1,6 +1,9 @@
---- title: 'QA Agent 실행 모델을 DAG 스케줄러로 바꾼 날'
-description: '정적 그룹 기반 실행을 의존성 그래프 기반 스케줄링으로 바꿔서, 병렬 실행을 극대화하고 케이스 의존성을 정확히 표현했다.' date: '2026-03-31'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 실행 모델을 DAG 스케줄러로 바꾼 날'
+description: '정적 그룹 기반 실행을 의존성 그래프 기반 스케줄링으로 바꿔서, 병렬 실행을 극대화하고 케이스 의존성을 정확히 표현했다.'
+date: '2026-03-31'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 정적 그룹의 한계

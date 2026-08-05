@@ -1,6 +1,9 @@
---- title: 'QA Agent 파일 접근 권한 분리와 첫 60% 통과율 달성'
-description: '추론 에이전트에서 파일 접근을 빼고 탐색 전용 에이전트로 몰아넣었고, 슬랙 명령을 모달로 바꾸고, 스킬도 직접 쌓아서 첫 60% 통과율을 찍었다.' date: '2026-04-13'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 파일 접근 권한 분리와 첫 60% 통과율 달성'
+description: '추론 에이전트에서 파일 접근을 빼고 탐색 전용 에이전트로 몰아넣었고, 슬랙 명령을 모달로 바꾸고, 스킬도 직접 쌓아서 첫 60% 통과율을 찍었다.'
+date: '2026-04-13'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 파일 접근 권한 분리

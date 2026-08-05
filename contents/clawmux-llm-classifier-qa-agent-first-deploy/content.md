@@ -1,6 +1,9 @@
---- title: 'ClawMux LLM 분류기와 QA Agent 첫 배포'
-description: 'LLM 프록시에 한 글자로 요청을 분류하는 시스템을 붙이고, QA Agent를 처음으로 AWS에 배포해서 통과율 76%까지 올렸다.' date: '2026-04-02'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'ClawMux LLM 분류기와 QA Agent 첫 배포'
+description: 'LLM 프록시에 한 글자로 요청을 분류하는 시스템을 붙이고, QA Agent를 처음으로 AWS에 배포해서 통과율 76%까지 올렸다.'
+date: '2026-04-02'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## ClawMux 요청 분류기

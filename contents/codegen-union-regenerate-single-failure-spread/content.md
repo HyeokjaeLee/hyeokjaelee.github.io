@@ -1,8 +1,9 @@
---- title: '생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급'
+---
+title: '생성물 충돌은 합집합에서 재생성, 단일 실패 지점의 파급'
 description: 'codegen 충돌은 양쪽을 합쳐서 재생성한다.
-
 init-deep의 단일 실패 지점이 파이프라인 전체를 무효화했다 그리고 같은 버그가 하루에 세 번 재발했다.' date: '2026-06-25'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 생성물 충돌은 합집합에서 재생성

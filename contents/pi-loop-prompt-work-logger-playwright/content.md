@@ -1,6 +1,9 @@
---- title: 'Pi 에이전트 루프 프롬프트 개선과 워크 로거 구현'
-description: '자율 루프가 자꾸 질문으로 끊기는 문제를 3중 차단으로 막고 세션 작업 기록을 자동으로 옵시디언에 남기게 만들었다.' date: '2026-05-20'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'Pi 에이전트 루프 프롬프트 개선과 워크 로거 구현'
+description: '자율 루프가 자꾸 질문으로 끊기는 문제를 3중 차단으로 막고 세션 작업 기록을 자동으로 옵시디언에 남기게 만들었다.'
+date: '2026-05-20'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 루프가 자꾸 질문으로 끊긴다

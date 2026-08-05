@@ -1,6 +1,9 @@
---- title: '오픈소스에 기여한 날, 그리고 ESLint 코드 품질 게이트 도입'
-description: '리팩터링 중 사라진 파라미터가 레거시 경로 초기화를 건너뛰게 한 회귀 버그를 잡아 상위 프로젝트에 PR을 올리고, 폴백 플러그인에 엄격한 린트 규칙을 도입했다.' date: '2026-05-03'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '오픈소스에 기여한 날, 그리고 ESLint 코드 품질 게이트 도입'
+description: '리팩터링 중 사라진 파라미터가 레거시 경로 초기화를 건너뛰게 한 회귀 버그를 잡아 상위 프로젝트에 PR을 올리고, 폴백 플러그인에 엄격한 린트 규칙을 도입했다.'
+date: '2026-05-03'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 회귀 버그를 잡아서 상위 프로젝트에 기여하다

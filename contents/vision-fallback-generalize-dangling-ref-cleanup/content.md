@@ -1,6 +1,9 @@
---- title: '비전 폴백 패턴 일반화와 삭제는 정리가 아니다'
-description: '이미지를 읽는 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 일반화했다 그리고 npm 삭제 후 남은 dangling 참조도 정리했다.' date: '2026-06-27'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '비전 폴백 패턴 일반화와 삭제는 정리가 아니다'
+description: '이미지를 읽는 도구가 두 개가 되면서 비전 폴백 패턴을 재사용 가능한 헬퍼로 일반화했다 그리고 npm 삭제 후 남은 dangling 참조도 정리했다.'
+date: '2026-06-27'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 비전 폴백 패턴을 일반화하다

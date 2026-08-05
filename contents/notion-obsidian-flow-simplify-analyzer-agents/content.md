@@ -1,6 +1,9 @@
---- title: '노션에서 옵시디언 계획 노트로 가는 흐름 단순화와 분석 에이전트'
-description: '노션 기획서를 옵시디언 구현 계획으로 바꾸는 흐름을 4단계에서 2단계로 줄이고, 노션과 피그마 분석을 전문 에이전트로 분리했다.' date: '2026-04-28'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '노션에서 옵시디언 계획 노트로 가는 흐름 단순화와 분석 에이전트'
+description: '노션 기획서를 옵시디언 구현 계획으로 바꾸는 흐름을 4단계에서 2단계로 줄이고, 노션과 피그마 분석을 전문 에이전트로 분리했다.'
+date: '2026-04-28'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 새 코스 분류 첫 단계 구현

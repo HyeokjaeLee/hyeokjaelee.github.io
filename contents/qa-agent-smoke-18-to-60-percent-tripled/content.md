@@ -1,6 +1,9 @@
---- title: 'QA Agent smoke 통과율 18%에서 60%로 세 배 뛴 날'
-description: '시트 품질을 올리고 에이전트 모델을 분산하고 탐색 에이전트를 붙이니 smoke 통과율이 18%에서 60%로 세 배 뛰었다.' date: '2026-04-19'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent smoke 통과율 18%에서 60%로 세 배 뛴 날'
+description: '시트 품질을 올리고 에이전트 모델을 분산하고 탐색 에이전트를 붙이니 smoke 통과율이 18%에서 60%로 세 배 뛰었다.'
+date: '2026-04-19'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 시트 품질이 낮으니까 통과율도 낮다

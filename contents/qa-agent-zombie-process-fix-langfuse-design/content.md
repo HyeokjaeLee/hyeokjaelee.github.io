@@ -1,6 +1,9 @@
---- title: 'QA Agent 좀비 프로세스 근본 수정과 관측성 설계'
-description: 'Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.' date: '2026-04-09'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 좀비 프로세스 근본 수정과 관측성 설계'
+description: 'Chromium 좀비 프로세스를 직접 감지해서 죽이도록 고치고 실행 큐 경합과 캐시 갱신 문제를 잡고 LLM 호출 관측을 위한 Langfuse 연동을 설계했다.'
+date: '2026-04-09'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 좀비 프로세스 근본 수정

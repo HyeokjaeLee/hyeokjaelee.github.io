@@ -1,6 +1,9 @@
---- title: 'LLM 실패를 감지하고 폴백하는 플러그인 하루 만에 만들기'
-description: '에이전트 세션이 LLM 에러로 죽는 문제를 막기 위해, 에러를 분류하고 백업 모델로 전환하는 플러그인을 하루 만에 만들었다.' date: '2026-04-29'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'LLM 실패를 감지하고 폴백하는 플러그인 하루 만에 만들기'
+description: '에이전트 세션이 LLM 에러로 죽는 문제를 막기 위해, 에러를 분류하고 백업 모델로 전환하는 플러그인을 하루 만에 만들었다.'
+date: '2026-04-29'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 문제는 세션이 죽는 거다

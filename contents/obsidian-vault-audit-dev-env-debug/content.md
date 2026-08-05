@@ -1,6 +1,9 @@
---- title: '옵시디언 볼트 분류 감사와 개발 환경 삽질'
-description: '볼트 문서 분류 상태를 전체 점검하고, 개발 환경의 두 가지 독립적인 문제를 차례로 해결했다.' date: '2026-03-15'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '옵시디언 볼트 분류 감사와 개발 환경 삽질'
+description: '볼트 문서 분류 상태를 전체 점검하고, 개발 환경의 두 가지 독립적인 문제를 차례로 해결했다.'
+date: '2026-03-15'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 옵시디언 볼트 분류 감사

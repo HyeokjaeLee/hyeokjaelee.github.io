@@ -1,6 +1,9 @@
---- title: 'QA Agent 멀티 에이전트 전환 계획과 browser-use 검토'
-description: '브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.' date: '2026-03-22'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 멀티 에이전트 전환 계획과 browser-use 검토'
+description: '브라우저 자동화 도구를 검토하고 OpenCode를 오케스트레이션 계층으로 유지하면서 런타임 복잡도를 줄일 구조를 설계했다.'
+date: '2026-03-22'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## browser-use를 QA에 도입할까

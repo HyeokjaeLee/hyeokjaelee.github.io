@@ -1,6 +1,9 @@
---- title: '픽셀 퍼펙트 토큰화와 파일 시스템 루트를 복사할 뻔한 훅'
-description: '알림 설정 UI를 픽셀 퍼펙트로 맞추고 임의 값을 전부 의미 토큰으로 바꿨다 그리고 Zed 훅에서 파일 시스템 루트를 복사하려던 치명적 버그를 잡았다.' date: '2026-05-26'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '픽셀 퍼펙트 토큰화와 파일 시스템 루트를 복사할 뻔한 훅'
+description: '알림 설정 UI를 픽셀 퍼펙트로 맞추고 임의 값을 전부 의미 토큰으로 바꿨다 그리고 Zed 훅에서 파일 시스템 루트를 복사하려던 치명적 버그를 잡았다.'
+date: '2026-05-26'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 임의 값을 의미 토큰으로

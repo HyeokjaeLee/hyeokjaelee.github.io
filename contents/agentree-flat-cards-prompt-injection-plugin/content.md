@@ -1,6 +1,9 @@
---- title: 'Agentree 사이드바 플랫 카드 개편과 프롬프트 인젝션 플러그인'
-description: '사이드바를 드롭다운에서 플랫 카드로 바꾸고 세션 상태에 따라 다른 프롬프트를 주입하는 플러그인을 만들었다.' date: '2026-05-21'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'Agentree 사이드바 플랫 카드 개편과 프롬프트 인젝션 플러그인'
+description: '사이드바를 드롭다운에서 플랫 카드로 바꾸고 세션 상태에 따라 다른 프롬프트를 주입하는 플러그인을 만들었다.'
+date: '2026-05-21'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 사이드바를 드롭다운에서 플랫 카드로

@@ -1,6 +1,9 @@
---- title: 'QA Agent 단일 함수에서 멀티 에이전트로 전환한 날'
-description: 'QA 실행 함수 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다 틈틈이 세션 로거 플러그인도 만들었다.' date: '2026-03-26'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 단일 함수에서 멀티 에이전트로 전환한 날'
+description: 'QA 실행 함수 하나짜리 함수를 역할별 에이전트로 쪼개고, 2단계 재시도와 스킬 승격 파이프라인을 다시 짰다 틈틈이 세션 로거 플러그인도 만들었다.'
+date: '2026-03-26'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## QA 실행 함수 하나에서 에이전트 여럿으로

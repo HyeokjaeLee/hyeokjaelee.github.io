@@ -1,6 +1,9 @@
---- title: '역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로'
-description: '역량 진단 리포트 확장을 마무리하고, QA 시트에서 노션 API 의존성을 빼고 두 번째 실행 멈춤 문제를 잡았다.' date: '2026-04-23'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '역량 진단 리포트 마무리와 QA 시트 타임아웃 1시간에서 20분으로'
+description: '역량 진단 리포트 확장을 마무리하고, QA 시트에서 노션 API 의존성을 빼고 두 번째 실행 멈춤 문제를 잡았다.'
+date: '2026-04-23'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 역량 진단 리포트 마무리

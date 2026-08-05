@@ -1,6 +1,9 @@
---- title: 'CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로'
-description: '모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.' date: '2026-06-05'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'CSS :has()와 모달 전환 버그, 그리고 단순화에서 견고함으로'
+description: '모바일에서 모달을 열고 데스크탑으로 크기를 바꾸면 스크롤이 잠기는 버그를 잡았다 그리고 소설 생성 프로젝트의 설계 목표를 단순화에서 견고함으로 바꿨다.'
+date: '2026-06-05'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 스크롤이 잠기는 버그

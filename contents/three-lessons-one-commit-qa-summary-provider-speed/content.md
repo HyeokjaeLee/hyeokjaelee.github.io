@@ -1,6 +1,9 @@
---- title: '3일간의 교훈이 한 커밋에 담긴 날'
-description: 'QA 에이전트가 요약된 값을 받아서 잘못 통과시킨 일로 검증 규칙을 네 번 다듬었다 같은 모델인데 프로바이더에 따라 60배 느린 것도 확인했다 며칠의 교훈이 한 커밋에 담겼다.' date: '2026-06-14'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '3일간의 교훈이 한 커밋에 담긴 날'
+description: 'QA 에이전트가 요약된 값을 받아서 잘못 통과시킨 일로 검증 규칙을 네 번 다듬었다 같은 모델인데 프로바이더에 따라 60배 느린 것도 확인했다 며칠의 교훈이 한 커밋에 담겼다.'
+date: '2026-06-14'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## QA 에이전트가 잘못 통과시켰다

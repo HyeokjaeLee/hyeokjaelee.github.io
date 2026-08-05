@@ -1,6 +1,9 @@
---- title: 'QA Agent 의존성 판단을 두 질문으로 줄이고 통과율 73% 달성'
-description: '여러 의존성 타입을 두 질문으로 줄이고 실패 연쇄 차단을 복구하니 통과율이 60%에서 73%로 올랐다.' date: '2026-04-20'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 의존성 판단을 두 질문으로 줄이고 통과율 73% 달성'
+description: '여러 의존성 타입을 두 질문으로 줄이고 실패 연쇄 차단을 복구하니 통과율이 60%에서 73%로 올랐다.'
+date: '2026-04-20'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 의존성 판단이 흐릿했다

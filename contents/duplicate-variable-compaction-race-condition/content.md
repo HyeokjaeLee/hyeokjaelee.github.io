@@ -1,6 +1,9 @@
---- title: '변수 중복 선언이 모든 핸들러를 죽인 날, 컨텍스트 압축 경쟁 조건'
-description: '폴백 플러그인에서 변수 중복 선언이 모든 이벤트 핸들러를 멈추게 한 치명적 버그를 잡고, 컨텍스트 압축 경쟁 조건도 해결했다.' date: '2026-05-02'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '변수 중복 선언이 모든 핸들러를 죽인 날, 컨텍스트 압축 경쟁 조건'
+description: '폴백 플러그인에서 변수 중복 선언이 모든 이벤트 핸들러를 멈추게 한 치명적 버그를 잡고, 컨텍스트 압축 경쟁 조건도 해결했다.'
+date: '2026-05-02'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 변수 중복 선언이 전부를 멈추다

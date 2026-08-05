@@ -1,6 +1,9 @@
---- title: 'QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백'
-description: 'Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 추론 내용 필드에 담아 보내는 빈 응답 문제를 잡았다.' date: '2026-04-14'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent planning 시간 30분에서 6초로, GLM 빈 응답 폴백'
+description: 'Explore 서브에이전트의 근본 원인을 찾아 planning 시간을 30분에서 6초로 줄이고, ZAI GLM이 추론 내용 필드에 담아 보내는 빈 응답 문제를 잡았다.'
+date: '2026-04-14'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## planning 시간 30분에서 6초

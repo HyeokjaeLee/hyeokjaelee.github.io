@@ -1,10 +1,10 @@
---- title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
+---
+title: 'Chrome grid 결함과 flexbox로 돌아선 날, 거짓 PASS의 함정'
 description: 'footer가 화면 바닥에 안 붙었다.
-
 grid minmax가 대화면에서만 실패했다 소화면에서 PASS라고 믿었다가 거짓 PASS였다.
-
 flexbox로 전환해서 해결했다.' date: '2026-06-17'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## footer가 화면 바닥에 안 붙는다

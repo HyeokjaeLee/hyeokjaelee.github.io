@@ -1,6 +1,9 @@
---- title: 'QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계'
-description: '병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.' date: '2026-03-21'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent Lane 세션 분리와 Context-Gateway 플러그인 설계'
+description: '병렬 실행 Lane이 세션을 공유하면 생기는 문제를 막고, 컨텍스트 압축 도구를 플러그인으로 다시 설계했다.'
+date: '2026-03-21'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## Lane은 세션을 공유하면 안 된다

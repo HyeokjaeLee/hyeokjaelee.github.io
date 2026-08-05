@@ -1,6 +1,9 @@
---- title: 'ClawMux 임베딩 분류기와 자동화 불가 케이스 표시'
-description: '키워드 매칭을 버리고 로컬 임베딩 모델로 요청을 분류해봤고, QA Agent에서 자동화할 수 없는 케이스를 명시적으로 표시하는 체계를 만들었다.' date: '2026-04-03'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'ClawMux 임베딩 분류기와 자동화 불가 케이스 표시'
+description: '키워드 매칭을 버리고 로컬 임베딩 모델로 요청을 분류해봤고, QA Agent에서 자동화할 수 없는 케이스를 명시적으로 표시하는 체계를 만들었다.'
+date: '2026-04-03'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 키워드에서 임베딩으로

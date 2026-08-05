@@ -1,7 +1,9 @@
---- title: '존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템'
-
-description: '프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.' date: '2026-06-10'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '존재하지 않는 버그를 고치려다  과도하게 만든 토큰 예산 시스템'
+description: '프롬프트가 매번 주입된다고 생각해서 토큰 예산 시스템을 복잡하게 만들었다 근데 실제로는 한 번 주입되고 컨텍스트에 남아있는 것뿐이었다 간단한 해결로 되돌렸다.'
+date: '2026-06-10'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 프롬프트가 매번 주입된다?

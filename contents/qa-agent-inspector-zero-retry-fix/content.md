@@ -1,6 +1,9 @@
---- title: 'QA Agent 재시도 성공률 0%를 잡은 날'
-description: 'Inspector 에이전트를 배포해서 막힌 케이스의 원인을 분석하고 재시도가 처음부터 실패하던 문제를 해결했다.' date: '2026-03-27'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 재시도 성공률 0%를 잡은 날'
+description: 'Inspector 에이전트를 배포해서 막힌 케이스의 원인을 분석하고 재시도가 처음부터 실패하던 문제를 해결했다.'
+date: '2026-03-27'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 재시도가 0%밖에 안 되던 문제

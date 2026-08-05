@@ -1,6 +1,9 @@
---- title: '당연한 원인이 틀렸을 때 - GPT-5.4 403와 크론잡 폴백 연쇄'
-description: 'GPT-5.4가 403을 뱉을 때 Cloudflare 탓이라고 생각했는데 필수 필드 누락이었고, 크론잡 실패는 용량 부족인 줄 알았는데 폴백 다양성 부족이었다.' date: '2026-04-18'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '당연한 원인이 틀렸을 때 - GPT-5.4 403와 크론잡 폴백 연쇄'
+description: 'GPT-5.4가 403을 뱉을 때 Cloudflare 탓이라고 생각했는데 필수 필드 누락이었고, 크론잡 실패는 용량 부족인 줄 알았는데 폴백 다양성 부족이었다.'
+date: '2026-04-18'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## GPT-5.4가 403을 뱉는다

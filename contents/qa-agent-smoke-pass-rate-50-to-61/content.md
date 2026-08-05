@@ -1,6 +1,9 @@
---- title: 'QA Agent 통과율 50%에서 61%로 끌어올린 날'
-description: '블록된 케이스만 다시 돌리는 2단계 재시도와 뷰포트 프리셋, Zod 검증을 붙여서 QA 통과율을 올렸다.' date: '2026-03-25'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 통과율 50%에서 61%로 끌어올린 날'
+description: '블록된 케이스만 다시 돌리는 2단계 재시도와 뷰포트 프리셋, Zod 검증을 붙여서 QA 통과율을 올렸다.'
+date: '2026-03-25'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 통과율 50%는 신뢰할 수 없다

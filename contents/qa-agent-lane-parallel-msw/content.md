@@ -1,6 +1,9 @@
---- title: 'QA Agent 병렬 실행과 MSW 마이그레이션'
-description: 'QA Agent 순차 실행을 lane 병렬로 전환하고, 테스트 환경 mock을 Shared API 기반 MSW로 통합한 날.' date: '2026-03-17'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'QA Agent 병렬 실행과 MSW 마이그레이션'
+description: 'QA Agent 순차 실행을 lane 병렬로 전환하고, 테스트 환경 mock을 Shared API 기반 MSW로 통합한 날.'
+date: '2026-03-17'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## QA Agent 병렬 실행

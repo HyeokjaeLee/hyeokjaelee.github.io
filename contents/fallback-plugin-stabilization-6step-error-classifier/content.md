@@ -1,6 +1,9 @@
---- title: '폴백 플러그인 안정화와 에러 분류 6단계 분류기 완성'
-description: '며칠간 만든 폴백 플러그인을 안정화했다 쿨다운 인식 폴백, 세션 에러 처리, 구조화된 로깅을 갖추고 에러 분류를 6단계로 정리했다.' date: '2026-05-01'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '폴백 플러그인 안정화와 에러 분류 6단계 분류기 완성'
+description: '며칠간 만든 폴백 플러그인을 안정화했다 쿨다운 인식 폴백, 세션 에러 처리, 구조화된 로깅을 갖추고 에러 분류를 6단계로 정리했다.'
+date: '2026-05-01'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 쿨다운 인식 폴백

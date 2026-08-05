@@ -1,6 +1,9 @@
---- title: 'LLM 캐시 적중률 0%를 발견한 날'
-description: '소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다 그리고 깃 시크릿 노출 사고도 겪었다.' date: '2026-06-06'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: 'LLM 캐시 적중률 0%를 발견한 날'
+description: '소설 생성 에이전트의 프롬프트 구조가 Gemini 캐시를 무력화하고 있었다 정적 컨텍스트 5.5K 토큰을 매 호출마다 다시 보내고 있었다 그리고 깃 시크릿 노출 사고도 겪었다.'
+date: '2026-06-06'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 캐시 적중률이 0%다

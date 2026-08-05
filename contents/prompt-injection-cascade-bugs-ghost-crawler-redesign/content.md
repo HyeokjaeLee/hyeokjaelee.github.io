@@ -1,8 +1,11 @@
---- title: '프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계'
+---
+title: '프롬프트 주입 시스템 연쇄 버그와 괴담 크롤러 파이프라인 재설계'
 description: '프롬프트 주입 시스템에서 5개의 연쇄 버그를 잡았다 필터 교차 제외, 전역 상태 오염, Go 코어 단일 파트 제한까지. 그리고 괴담 크롤러 파이프라인을 재설계했다.'
 
-date: '2026-06-11' tags: [journal]
-titleImage: '@shared/assets/dev-diary.png' ---
+date: '2026-06-11'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
+---
 
 ## 필터 교차 제외
 

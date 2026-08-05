@@ -1,6 +1,9 @@
---- title: '새 코스 종류 전면 도입, 8단계 25개 파일 변경 마무리'
-description: '며칠간 설계해온 새 코스 분류를 플랫폼 전체에 걸쳐 구현했다 코스 생성부터 수료, 출석체크, 약관까지 8단계 25개 파일을 건드렸다.' date: '2026-05-13'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '새 코스 종류 전면 도입, 8단계 25개 파일 변경 마무리'
+description: '며칠간 설계해온 새 코스 분류를 플랫폼 전체에 걸쳐 구현했다 코스 생성부터 수료, 출석체크, 약관까지 8단계 25개 파일을 건드렸다.'
+date: '2026-05-13'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 8단계 구현

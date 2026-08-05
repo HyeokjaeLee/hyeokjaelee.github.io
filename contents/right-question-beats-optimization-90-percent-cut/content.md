@@ -1,9 +1,12 @@
---- title: '올바른 질문이 최적화보다  낫다, 90% 절감의 순간'
+---
+title: '올바른 질문이 최적화보다  낫다, 90% 절감의 순간'
 
 description: '위키 로거가 30개 스킬을 전부 인라인하고 있었다 "어떻게 줄일까"가 아니라 "실제로 몇 개가 필요한가"를 물으니 2개만 필요했다 90% 절감. 그리고 배포 정밀도랑 매도 원칙도 정립했다.'
 
-date: '2026-07-07' tags: [journal]
-titleImage: '@shared/assets/dev-diary.png' ---
+date: '2026-07-07'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
+---
 
 ## 7,568줄을 710줄로
 

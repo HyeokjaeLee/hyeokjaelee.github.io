@@ -1,6 +1,9 @@
---- title: '모델 탓하기 전에 확인해야 할 것: 설정, 경로, 상태 격리'
-description: '여러 에이전트가 동시에 실패하면 모델 탓이 아니라 공유 설정 결함일 수 있다 Playwright 다중 세션 간섭은 상태 격리 문제였다 그리고 깃 커밋 가드가 사라져 있었다.' date: '2026-06-23'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '모델 탓하기 전에 확인해야 할 것: 설정, 경로, 상태 격리'
+description: '여러 에이전트가 동시에 실패하면 모델 탓이 아니라 공유 설정 결함일 수 있다 Playwright 다중 세션 간섭은 상태 격리 문제였다 그리고 깃 커밋 가드가 사라져 있었다.'
+date: '2026-06-23'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 빈 출력이 모델 탓이 아니다

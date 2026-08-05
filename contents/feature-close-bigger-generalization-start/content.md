@@ -1,6 +1,9 @@
---- title: '한 기능을 닫으며 더 큰 일반화 작업을 시작한 날'
-description: '특정 코스 전용이던 기능을 전 코스로 확장해 배포를 마무리하고 같은 패턴으로 코스 분류 체계 전체를 재설계하는 작업을 시작했다.' date: '2026-04-27'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '한 기능을 닫으며 더 큰 일반화 작업을 시작한 날'
+description: '특정 코스 전용이던 기능을 전 코스로 확장해 배포를 마무리하고 같은 패턴으로 코스 분류 체계 전체를 재설계하는 작업을 시작했다.'
+date: '2026-04-27'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 역량 진단 리포트 확장 마무리

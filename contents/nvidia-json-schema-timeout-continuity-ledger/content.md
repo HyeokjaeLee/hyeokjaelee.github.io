@@ -1,8 +1,11 @@
---- title: 'NVIDIA 모델에서 JSON 스키마가 40초 타임아웃 나는 문제'
+---
+title: 'NVIDIA 모델에서 JSON 스키마가 40초 타임아웃 나는 문제'
 description: '구조화된 출력을 위해 JSON 스키마를 보냈더니 NVIDIA 모델이 40초마다 타임아웃 났다 OpenAI 호환이라는 말을 믿으면 안 되는 이유. 그리고 연속성 원장을 전체 스택에 구현했다.'
 
-date: '2026-06-07' tags: [journal]
-titleImage: '@shared/assets/dev-diary.png' ---
+date: '2026-06-07'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
+---
 
 ## 구조화된 출력이 안 된다
 

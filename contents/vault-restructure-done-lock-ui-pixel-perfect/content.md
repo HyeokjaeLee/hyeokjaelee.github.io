@@ -1,6 +1,9 @@
---- title: '볼트 재구성 완료와 잠금 UI 픽셀 퍼펙트 달성'
-description: '며칠간 진행한 옵시디언 볼트 재구성을 마무리하고 잠금 화면의 피그마 픽셀 일치를 끝까지 밀어붙였다.' date: '2026-05-09'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '볼트 재구성 완료와 잠금 UI 픽셀 퍼펙트 달성'
+description: '며칠간 진행한 옵시디언 볼트 재구성을 마무리하고 잠금 화면의 피그마 픽셀 일치를 끝까지 밀어붙였다.'
+date: '2026-05-09'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 볼트 재구성 완료

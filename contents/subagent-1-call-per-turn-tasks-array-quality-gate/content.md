@@ -1,6 +1,9 @@
---- title: '한 턴에 하나의 서브에이전트 호출만 허용되는 이유'
-description: '같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다 원인은 턴당 1회 호출 가드였다 해결은 tasks 배열이었다 그리고 괴담 소설 품질 게이트도 구현했다.' date: '2026-07-05'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '한 턴에 하나의 서브에이전트 호출만 허용되는 이유'
+description: '같은 턴에서 서브에이전트를 여러 번 호출하면 나머지가 전부 거부됐다 원인은 턴당 1회 호출 가드였다 해결은 tasks 배열이었다 그리고 괴담 소설 품질 게이트도 구현했다.'
+date: '2026-07-05'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 같은 턴에 여러 서브에이전트를 부르면 거부된다

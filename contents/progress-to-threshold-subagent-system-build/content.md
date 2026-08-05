@@ -1,6 +1,9 @@
---- title: '진행률을 목표 대비로 바꾸고 서브에이전트 시스템을 구축한 날'
-description: '프로그레스바를 절대 진행량이 아니라 완료 기준 대비 비율로 바꿨다 그리고 역할별 서브에이전트 시스템을 구축했다.' date: '2026-05-19'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '진행률을 목표 대비로 바꾸고 서브에이전트 시스템을 구축한 날'
+description: '프로그레스바를 절대 진행량이 아니라 완료 기준 대비 비율로 바꿨다 그리고 역할별 서브에이전트 시스템을 구축했다.'
+date: '2026-05-19'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 진행률을 목표 대비로 바꾸다

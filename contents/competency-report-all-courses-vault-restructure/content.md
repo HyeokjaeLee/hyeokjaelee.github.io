@@ -1,6 +1,9 @@
---- title: '역량 진단 리포트 전 코스 확장과 볼트 199개 파일 디렉토리 재구성'
-description: '국비지원 코스 전용이던 역량 진단 리포트를 모든 코스로 확장하고 평평하게 쌓여 있던 위키 파일 199개를 디렉토리로 재구성했다.' date: '2026-04-22'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '역량 진단 리포트 전 코스 확장과 볼트 199개 파일 디렉토리 재구성'
+description: '국비지원 코스 전용이던 역량 진단 리포트를 모든 코스로 확장하고 평평하게 쌓여 있던 위키 파일 199개를 디렉토리로 재구성했다.'
+date: '2026-04-22'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 역량 진단 리포트 전 코스 확장

@@ -1,6 +1,9 @@
---- title: '직접 만든 에러 클래스를 227줄 지운 날'
-description: '프레임워크가 이미 제공하는 기능을 직접 구현하고 있었다 에러 클래스 227줄을 지우고 프레임워크 내장 기능으로 교체했다 그리고 린터도 통합했다.' date: '2026-05-28'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '직접 만든 에러 클래스를 227줄 지운 날'
+description: '프레임워크가 이미 제공하는 기능을 직접 구현하고 있었다 에러 클래스 227줄을 지우고 프레임워크 내장 기능으로 교체했다 그리고 린터도 통합했다.'
+date: '2026-05-28'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 에러 클래스를 왜 지웠는가

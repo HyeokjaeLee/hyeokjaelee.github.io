@@ -1,6 +1,9 @@
---- title: '잠금 툴팁 패딩 버그와 토큰 절감 CLI 도입'
-description: '잠금 툴팁에서 패딩이 반대로 들어가 있던 걸 잡고 셸 명령 출력을 압축하는 CLI를 도입해서 토큰을 크게 줄였다.' date: '2026-05-08'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '잠금 툴팁 패딩 버그와 토큰 절감 CLI 도입'
+description: '잠금 툴팁에서 패딩이 반대로 들어가 있던 걸 잡고 셸 명령 출력을 압축하는 CLI를 도입해서 토큰을 크게 줄였다.'
+date: '2026-05-08'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 잠금 툴팁과 패딩 반대 버그

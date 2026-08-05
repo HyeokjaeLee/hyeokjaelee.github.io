@@ -1,6 +1,9 @@
---- title: '옵시디언 위키 정리와 QA Agent 파이프라인 재구성'
-description: '옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.' date: '2026-03-16'
-tags: [journal] titleImage: '@shared/assets/dev-diary.png'
+---
+title: '옵시디언 위키 정리와 QA Agent 파이프라인 재구성'
+description: '옵시디언 분류 체계 통합과 QA Agent 8단계 파이프라인 재구성, 하루에 두 가지 큰 작업을 몰아서 한 날.'
+date: '2026-03-16'
+tags: [journal]
+titleImage: '@shared/assets/dev-diary.png'
 ---
 
 ## 옵시디언 위키, 분류 체계 통합
