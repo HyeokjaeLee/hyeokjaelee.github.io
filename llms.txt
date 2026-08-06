@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [CSS 스크롤바 커스텀과 시맨틱 HTML, 그리고 에이전트 오케스트레이션 관찰](https://hyeokjaelee.github.io/css-scrollbar-a11y-semantic-dl-dd-agent-orchestration-observation/): 스크롤바 접근성 이중 레이어, dl/dt/dd 그리드 재구조, 서브에이전트 오케스트레이션 패턴을 정리한다
 - [WebSquare 크롤링 해부 + 조용한 버그 두 개](https://hyeokjaelee.github.io/websquare-deeplink-jsonb-limit-bug/): 법원경매 사이트는 URL이 안 바뀌고 POST body로만 데이터가 들어온다 흩어진 API 클라이언트를 서비스 경계로 모으고 JSONB text 불일치와 --limit 단위 착각 버그를 잡았다
 - [블로그에 검색과 갤러리를 붙이고, 다크모드를 다시 썼다](https://hyeokjaelee.github.io/blog-search-gallery-darkmode/): Pagefind 풀텍스트 검색과 gallery 디렉티브를 추가하고, Lottie를 걷어내 순수 CSS로 다크모드 스위치를 다시 만든 날.
 - [pnpm catalog 범프 비대칭과 Astro 블로그 CSS 함정](https://hyeokjaelee.github.io/pnpm-catalog-asymmetry-astro-css-fixes/): pnpm catalog 도입 중 add와 update의 비대칭 동작을 실측하고, 블로그 CSS 함정 두 개를 Playwright로 원인 추적한 기록.
