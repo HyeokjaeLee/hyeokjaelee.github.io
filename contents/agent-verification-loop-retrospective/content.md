@@ -1,7 +1,7 @@
 ---
 title: '에이전트가 "완료"라고 보고할 때 — 검증 루프 회고'
 description: '에이전트 자기 보고를 신뢰하지 못하게 된 계기와 prefix cache hit을 노린 session-title 재작성 이야기'
-date: '2026-08-07'
+date: '2026-08-06'
 tags: [journal]
 titleImage: '@shared/assets/dev-diary.png'
 ---
