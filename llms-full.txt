@@ -5,7 +5,7 @@
 ## 에이전트가 "완료"라고 보고할 때 — 검증 루프 회고
 
 - URL: https://hyeokjaelee.github.io/agent-verification-loop-retrospective/
-- Date: 2026-08-07
+- Date: 2026-08-06
 - Tags: journal
 
 ## 에이전트가 거짓말을 했다
