@@ -1,4 +1,150 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>CSS 암묵적 컨텍스트 함정과 공급망 게이트</title><link>https://hyeokjaelee.github.io/css-context-traps-pnpm-supply-chain/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/css-context-traps-pnpm-supply-chain/</guid><description>CSS는 위치 지정과 무관해 보이는 속성으로 함정을 만든다 부동산 매물 상세 페이지를 재설계하면서 CSS 함정 두 개를 연달아 만났다. 둘 다 position 이나 z index 와 아무 상관없어 보이는 속성이 원인이었다. 첫 번째는 overflow x: hidden 이 position</description><pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;CSS는 위치 지정과 무관해 보이는 속성으로 함정을 만든다&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>Tailwind 디자인 토큰과 한국어 접근성, 그리고 프론트엔드 함정 4종</title><link>https://hyeokjaelee.github.io/tailwind-design-tokens-korean-accessibility/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/tailwind-design-tokens-korean-accessibility/</guid><description>디자인 토큰을 반으로 줄이기로 했다 비디자이너인 내가 화면을 보다가 하나의 판단을 내렸다. 컬러가 너무 많아서 촌스러웠다. 기존에는 49개 CSS 변수가 있었다. hue만 7종 indigo, cyan, violet, blue, green, red, amber 이었고 거기에 glass m</description><pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;디자인 토큰을 반으로 줄이기로 했다&lt;/h2&gt;
+&lt;p&gt;비디자이너인 내가 화면을 보다가 하나의 판단을 내렸다.
+컬러가 너무 많아서 촌스러웠다.&lt;/p&gt;
+&lt;p&gt;기존에는 49개 CSS 변수가 있었다.
+hue만 7종(indigo, cyan, violet, blue, green, red, amber)이었고 거기에 glass morphism 토큰 4개, mesh 토큰 8개, gauge 토큰 4개가 얹혀 있었다.
+전부 semantic 토큰으로 통합하거나 제거했다.
+결과는 약 20개 코어 변수.&lt;/p&gt;
+&lt;p&gt;가장 결정이 빨랐던 건 glass morphism이었다.
+glass의 시각적 효과는 배경의 컬러풀한 콘텐츠를 블러하는 데서 나온다.
+내 화면은 배경을 순백이나 순흑으로 고정해 두었다.
+&lt;code&gt;backdrop-filter: blur()&lt;/code&gt;가 아무것도 블러하지 않는 상태였다.
+결국 glass 75곳은 &amp;quot;약간 투명한 카드&amp;quot;에 불과했다.
+opacity modifier(&lt;code&gt;/5&lt;/code&gt;~&lt;code&gt;/80&lt;/code&gt;)로 대체했다.&lt;/p&gt;
+&lt;p&gt;WCAG AA 대비율도 전 토큰을 통과시켰다.
+v1에서는 success 토큰이 4.27:1로 미달이었는데 v2에서는 5.50:1로 올렸다.
+순백 토큰은 3개만 남겼다.
+순흑은 아예 쓰지 않는다.
+가장 어두운 &lt;code&gt;--foreground&lt;/code&gt;도 bluish-gray 계열의 &lt;code&gt;#0f1319&lt;/code&gt;다.&lt;/p&gt;
+&lt;h2&gt;radius와 사이즈도 단일화&lt;/h2&gt;
+&lt;p&gt;radius는 7개에서 4개로 줄였다.
+핵심은 모든 인터랙티브 컨트롤을 단일 radius &lt;code&gt;lg&lt;/code&gt;(6px)로 통일한 것이다.
+Button, Input, Select, Toggle이 같은 둥글기를 공유한다.&lt;/p&gt;
+&lt;p&gt;사이즈 체계도 정리했다.
+Button과 Input은 높이가 같다.
+sm 36 / default 40 / lg 44 / xl 48.
+모바일 최소 터치 타겟은 &lt;code&gt;lg&lt;/code&gt;(44px)로 잡았다.
+Apple HIG와 WCAG 2.5.5 권장을 따른 것이다.&lt;/p&gt;
+&lt;p&gt;Toss와 비교해 보면 흥미로운 점이 있다.
+Toss는 radius가 사이즈에 비례해서 커진다(8→10→14→16).
+대형 버튼이 더 부드러워 보인다.
+나는 고정값(6/6/6/6)이라 각이 조금 더 느껴진다.
+비례 radius는 흡수 가능한 개선점이지만 토큰 수가 늘어나는 트레이드오프가 있다.&lt;/p&gt;
+&lt;h2&gt;한국어와 Tailwind 기본 line-height&lt;/h2&gt;
+&lt;p&gt;이 부분이 이번 작업에서 가장 큰 발견이었다.
+grep 기반으로 감사를 돌려 보니 텍스트 크기를 사용한 곳이 437곳이었다.
+&lt;code&gt;text-sm&lt;/code&gt;(14px)이 251건으로 가장 많았다.&lt;/p&gt;
+&lt;p&gt;문제는 line-height였다.
+KRDS와 WCAG는 한국어 body에 LH 1.5(150%) 하한선을 요구한다.
+그런데 Tailwind v3 기본값은 이를 충족하지 못한다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;text-sm&lt;/code&gt;(14px)의 기본 LH는 1.429다.
+&lt;code&gt;text-xs&lt;/code&gt;(12px)는 1.333이다.
+둘 다 1.5에 못 미친다.&lt;/p&gt;
+&lt;p&gt;해결책은 의외로 단순했다.
+&lt;code&gt;theme.extend.fontSize&lt;/code&gt;에서 기존 &lt;code&gt;text-sm&lt;/code&gt;과 &lt;code&gt;text-xs&lt;/code&gt;의 LH만 override하면 됐다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// tailwind.preset.ts
+xs: [&amp;quot;0.75rem&amp;quot;,  &amp;quot;1.125rem&amp;quot;],   // LH 1.50 (기존 1.333 → 수정)
+sm: [&amp;quot;0.875rem&amp;quot;, &amp;quot;1.3125rem&amp;quot;],  // LH 1.50 (기존 1.429 → 수정)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;437곳의 코드를 한 줄도 안 바꾸고 접근성을 수정한 셈이다.
+문제는 폰트 크기가 아니라 line-height였다.&lt;/p&gt;
+&lt;p&gt;14px body는 유지했다.
+이건 대시보드지, 읽기 매체가 아니다.
+토스나 카카오페이뱅크도 13~14px를 쓴다.
+KRDS의 17px은 정부 포털이나 뉴스용 기준이다.&lt;/p&gt;
+&lt;h2&gt;프론트엔드 함정 4종&lt;/h2&gt;
+&lt;p&gt;토큰 재설계 과정에서 함정 4종을 만났다.
+하나씩 정리해둔다.&lt;/p&gt;
+&lt;h3&gt;CSS @import 순서&lt;/h3&gt;
+&lt;p&gt;CSS 스펙상 &lt;code&gt;@import&lt;/code&gt;는 다른 모든 규칙보다 먼저 와야 한다.
+&lt;code&gt;@tailwind&lt;/code&gt; 디렉티브 뒤에 두면 무효 처리된다.
+Storybook에서 색이 하나도 안 나온 적이 있었다.
+콘솔 에러 없이 조용히 실패했다.
+해결은 &lt;code&gt;@import&lt;/code&gt;를 맨 위로 옮기는 것이었다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;/* @import를 맨 위로 */
+@import &amp;quot;./tokens.css&amp;quot;;
+@import &amp;quot;./components.css&amp;quot;;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;HMR이 변경분을 반영한 뒤에도 브라우저 수동 새로고침이 필요했다.
+Storybook HMR만 믿으면 안 된다.&lt;/p&gt;
+&lt;h3&gt;tailwind-merge가 커스텀 fontSize 토큰을 색으로 오분류&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;text-&lt;/code&gt; prefix가 font-size와 text-color 양쪽에 겹친다.
+tailwind-merge는 등록되지 않은 커스텀 토큰을 가장 비슷해 보이는 기본 그룹으로 추론한다.&lt;/p&gt;
+&lt;p&gt;Button에서 &lt;code&gt;text-primary-foreground&lt;/code&gt;(색)와 &lt;code&gt;text-body&lt;/code&gt;(크기)를 함께 썼다.
+tailwind-merge가 같은 그룹으로 취급해서 &lt;code&gt;text-body&lt;/code&gt;만 남기고 흰색 텍스트 색을 제거해버렸다.
+모든 버튼 텍스트가 검게 됐다.&lt;/p&gt;
+&lt;p&gt;해결은 &lt;code&gt;extendTailwindMerge&lt;/code&gt;로 font-size 그룹을 명시 등록하는 것이었다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;export const cn = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      &amp;quot;font-size&amp;quot;: [
+        &amp;quot;text-caption&amp;quot;, &amp;quot;text-body&amp;quot;, &amp;quot;text-body-lg&amp;quot;,
+        &amp;quot;text-title&amp;quot;, &amp;quot;text-headline&amp;quot;,
+        &amp;quot;text-display-1&amp;quot;, &amp;quot;text-display-2&amp;quot;, &amp;quot;text-display-3&amp;quot;,
+      ],
+    },
+  },
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;tailwindcss-animate가 transform을 강제 주입&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;tailwindcss-animate&lt;/code&gt;의 &lt;code&gt;animate-in&lt;/code&gt;이 keyframe 안에서 &lt;code&gt;transform&lt;/code&gt;을 항상 주입한다.
+이 transform이 &lt;code&gt;fixed + left/top 50% + translate-x/y&lt;/code&gt;로 중앙정렬한 DialogContent의 centering을 덮어썼다.
+Dialog가 우하단에서 중앙으로 밀려왔다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;zoom-in-95&lt;/code&gt;를 빼면 해결될 줄 알았다.
+하지만 &lt;code&gt;--tw-enter-scale&lt;/code&gt;만 안 쓰게 만들 뿐, transform 자체를 주입하는 keyframe은 그대로였다.&lt;/p&gt;
+&lt;p&gt;결국 opacity 전용 커스텀 keyframe을 정의했다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// tailwind.preset.ts
+keyframes: {
+  &amp;quot;dialog-enter&amp;quot;: { from: { opacity: &amp;quot;0&amp;quot; }, to: { opacity: &amp;quot;1&amp;quot; } },
+  &amp;quot;dialog-exit&amp;quot;:  { from: { opacity: &amp;quot;1&amp;quot; }, to: { opacity: &amp;quot;0&amp;quot; } },
+},
+animation: {
+  &amp;quot;dialog-enter&amp;quot;: &amp;quot;dialog-enter 0.2s ease-out&amp;quot;,
+  &amp;quot;dialog-exit&amp;quot;:  &amp;quot;dialog-exit 0.15s ease-in&amp;quot;,
+},
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;방어 원칙은 명확해졌다.
+transform은 애니메이션과 위치 지정 중 한 곳에서만 소유해야 한다.&lt;/p&gt;
+&lt;h3&gt;Radix asChild Slot이 props를 미전달&lt;/h3&gt;
+&lt;p&gt;Radix &lt;code&gt;DialogTrigger asChild&lt;/code&gt;는 Slot으로 &lt;code&gt;onClick&lt;/code&gt;과 &lt;code&gt;ref&lt;/code&gt;, &lt;code&gt;props&lt;/code&gt;를 단일 자식에 주입한다.
+커스텀 &lt;code&gt;TriggerButton&lt;/code&gt;이 &lt;code&gt;{...props}&lt;/code&gt;를 spread하지 않으면 &lt;code&gt;onClick&lt;/code&gt;이 도달하지 못한다.
+콘솔 에러 없이 다이얼로그가 안 열렸다.&lt;/p&gt;
+&lt;p&gt;가장 까다로운 함정이었다.
+에러가 0건이라 디버깅 난이도가 높았다.&lt;/p&gt;
+&lt;h2&gt;컴포넌트 라이브러리 생명주기&lt;/h2&gt;
+&lt;p&gt;같은 날 컴포넌트 라이브러리 패키지가 3단계로 진화했다.&lt;/p&gt;
+&lt;p&gt;Phase 1은 dead code 감사였다.
+&lt;code&gt;@nakchulai/ui&lt;/code&gt; 컴포넌트 import가 0건이었다.
+CSS import도 dead code였다.
+패키지를 통째로 제거했다.&lt;/p&gt;
+&lt;p&gt;Phase 2는 재추출이었다.
+6단계 프로세스로 26개 shadcn 컴포넌트를 추출하고, 48개 import 사이트를 마이그레이션했다.
+Radix 16종 의존성도 이관했다.&lt;/p&gt;
+&lt;p&gt;Phase 3은 Storybook 구축이었다.
+26개 CSF3 스토리를 작성하고, &lt;code&gt;tailwind.preset.ts&lt;/code&gt;를 토큰 SOT로 두었다.
+전 스토리 검증을 통과했다.&lt;/p&gt;
+&lt;p&gt;Storybook 10에서는 Controls가 코어에 내장됐다.
+addon-essentials를 제거해도 GUI props 컨트롤이 작동한다.
+다만 Default 스토리(&lt;code&gt;args&lt;/code&gt; + &lt;code&gt;argTypes&lt;/code&gt; + &lt;code&gt;render(args)&lt;/code&gt;)에서만 Controls가 활성화된다.
+정적 쇼케이스 스토리에는 Controls가 없다.&lt;/p&gt;
+&lt;p&gt;Meta 타이핑에도 함정이 있다.
+&lt;code&gt;Meta&amp;lt;TArgs&amp;gt;&lt;/code&gt;는 타입 인자를 최대 1개만 받는다.
+&lt;code&gt;children&lt;/code&gt; 같은 required prop이 있는 컴포넌트는 &lt;code&gt;component&lt;/code&gt; 필드를 생략해야 한다.
+그렇지 않으면 required prop 충족 부담으로 에러가 난다.&lt;/p&gt;
+&lt;h2&gt;Atomic Design 분류 기준&lt;/h2&gt;
+&lt;p&gt;작업하다 보니 &amp;quot;복합처럼 보이는 단순 컨트롤&amp;quot;을 Organism으로 과대분류하는 함정을 발견했다.
+Accordion, Tabs, Table, Select는 Molecule이다.
+단순 제어와 그룹핑이 핵심 역할이라서 그렇다.
+Organism은 포털이나 오버레이, 다중 파트 복합 섹션에 한정하는 게 맞다.&lt;/p&gt;
+&lt;h2&gt;마무리하며&lt;/h2&gt;
+&lt;p&gt;이번 작업의 핵심은 &amp;quot;문제는 크기가 아니라 line-height&amp;quot;라는 문장으로 요약된다.
+디자인 토큰의 양을 줄이는 것도 중요했지만 Tailwind 기본값이 한국어 접근성 기준에 미달한다는 사실을 발견한 게 더 큰 수확이었다.&lt;/p&gt;
+&lt;p&gt;437곳을 손대지 않고 &lt;code&gt;theme.extend.fontSize&lt;/code&gt; 한 줄로 수정할 수 있다는 점이 Tailwind의 장점이기도 하고 반대로 기본값을 맹신하면 안 된다는 교훈이기도 하다.&lt;/p&gt;
+</content:encoded></item><item><title>CSS 암묵적 컨텍스트 함정과 공급망 게이트</title><link>https://hyeokjaelee.github.io/css-context-traps-pnpm-supply-chain/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/css-context-traps-pnpm-supply-chain/</guid><description>CSS는 위치 지정과 무관해 보이는 속성으로 함정을 만든다 부동산 매물 상세 페이지를 재설계하면서 CSS 함정 두 개를 연달아 만났다. 둘 다 position 이나 z index 와 아무 상관없어 보이는 속성이 원인이었다. 첫 번째는 overflow x: hidden 이 position</description><pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;CSS는 위치 지정과 무관해 보이는 속성으로 함정을 만든다&lt;/h2&gt;
 &lt;p&gt;부동산 매물 상세 페이지를 재설계하면서 CSS 함정 두 개를 연달아 만났다.&lt;/p&gt;
 &lt;p&gt;둘 다 &lt;code&gt;position&lt;/code&gt;이나 &lt;code&gt;z-index&lt;/code&gt;와 아무 상관없어 보이는 속성이 원인이었다.&lt;/p&gt;
 &lt;p&gt;첫 번째는 &lt;code&gt;overflow-x: hidden&lt;/code&gt;이 &lt;code&gt;position: sticky&lt;/code&gt;를 깨뜨리는 문제다.&lt;/p&gt;
