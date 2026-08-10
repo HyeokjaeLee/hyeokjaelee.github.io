@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [R3F 레이더 씬, 디자인 토큰 v2, loop-guard 순환 루프 법의학](https://hyeokjaelee.github.io/r3f-radar-scene-design-tokens-loop-guard-forensics/): 랜딩 비주얼 5단계 진화, AA 기반 컬러 시스템 재설계, line-height 접근성 통찰, 서브에이전트 폴링 안티패턴 분석
 - [Tailwind 디자인 토큰과 한국어 접근성, 그리고 프론트엔드 함정 4종](https://hyeokjaelee.github.io/tailwind-design-tokens-korean-accessibility/): 비디자이너가 디자인 시스템 토큰을 반으로 줄이고 Tailwind 기본 line-height의 한국어 접근성 문제를 수정한 기록
 - [CSS 암묵적 컨텍스트 함정과 공급망 게이트](https://hyeokjaelee.github.io/css-context-traps-pnpm-supply-chain/): 위치 지정과 무관해 보이는 CSS 속성이 sticky와 드롭다운을 깨는 두 사례, 그리고 pnpm v11이 만든 공급망 게이트 함정
 - [에이전트가 "완료"라고 보고할 때 — 검증 루프 회고](https://hyeokjaelee.github.io/agent-verification-loop-retrospective/): 에이전트 자기 보고를 신뢰하지 못하게 된 계기와 prefix cache hit을 노린 session-title 재작성 이야기
