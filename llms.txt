@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [로마자 표기 하나 바꿨더니 인프라 전체가 흔들렸다](https://hyeokjaelee.github.io/romanization-rename-infrastructure-overhaul/): 사이드 프로젝트 이름 표기 정정 한 건이 GCP 풀스택 마이그레이션, ORM 전환, 데드코드 대정리, 크롤러 직렬화까지 몰고 온 하루
 - [DB 스키마 드리프트, WAF 복구 아키텍처, GLM 에러 1210 정체](https://hyeokjaelee.github.io/schema-drift-waf-recovery-quota-diagnosis/): 3자간 DB 스키마 동기화, 분산 크롤 WAF 복구 설계, GLM 에러 1210이 쿼터 소프트 리미팅의 위장이었던 진단 과정
 - [KRDS 디자인 시스템 전면 마이그레이션 — 17라운드 검증 루프와 사일런트 실패](https://hyeokjaelee.github.io/krds-migration-verification-loop-false-fail/): KRDS v1.0.0 토큰을 공식 JSON 기준으로 전면 정렬하고, 검증 루프의 false-fail과 사일런트 실패를 잡아낸 과정
 - [R3F 레이더 씬, 디자인 토큰 v2, loop-guard 순환 루프 법의학](https://hyeokjaelee.github.io/r3f-radar-scene-design-tokens-loop-guard-forensics/): 랜딩 비주얼 5단계 진화, AA 기반 컬러 시스템 재설계, line-height 접근성 통찰, 서브에이전트 폴링 안티패턴 분석

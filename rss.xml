@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>DB 스키마 드리프트, WAF 복구 아키텍처, GLM 에러 1210 정체</title><link>https://hyeokjaelee.github.io/schema-drift-waf-recovery-quota-diagnosis/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/schema-drift-waf-recovery-quota-diagnosis/</guid><description>DB 스키마 드리프트, 3자간을 묶다 법원경매 권리분석 프로젝트의 production DB 스키마를 정리했다. 로컬에서만 마이그레이션이 쌓이고 production은 과거 상태에 고착된 지 오래였다. schema.sql, migrations 디렉토리, production DB — 셋이 제</description><pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;DB 스키마 드리프트, 3자간을 묶다&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>로마자 표기 하나 바꿨더니 인프라 전체가 흔들렸다</title><link>https://hyeokjaelee.github.io/romanization-rename-infrastructure-overhaul/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/romanization-rename-infrastructure-overhaul/</guid><description>시작은 단순한 오타 정정이었다 사이드 프로젝트 이름을 로마자로 쓸 때 표기가 틀렸다는 걸 알았다. &apos;낙출&apos;로 읽히던 이름을 &apos;낙찰&apos;에 맞는 철자로 고치기로 했다. 국립국어원 개정 로마자 표기법을 기준으로 확인하니, 내가 쓰던 철자는 &apos;낙출&apos;에 해당하는 표기였다. 글자 하나 바꾸는 일인 </description><pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시작은 단순한 오타 정정이었다&lt;/h2&gt;
+&lt;p&gt;사이드 프로젝트 이름을 로마자로 쓸 때 표기가 틀렸다는 걸 알았다.
+&amp;#39;낙출&amp;#39;로 읽히던 이름을 &amp;#39;낙찰&amp;#39;에 맞는 철자로 고치기로 했다.&lt;/p&gt;
+&lt;p&gt;국립국어원 개정 로마자 표기법을 기준으로 확인하니, 내가 쓰던 철자는 &amp;#39;낙출&amp;#39;에 해당하는 표기였다.
+글자 하나 바꾸는 일인 줄 알았는데, 이게 전체 인프라를 갈아엎는 작업으로 번졌다.&lt;/p&gt;
+&lt;h2&gt;GCP 풀스택 마이그레이션&lt;/h2&gt;
+&lt;p&gt;문제는 소스코드가 아니었다.
+코드 안의 패키지명을 일괄 치환하면 되니까 모노레포 전체를 훑어서 142개 파일을 교체했다.&lt;/p&gt;
+&lt;p&gt;진짜 걸림돌은 인프라 리소스였다.
+GCP 프로젝트 ID, GCS 버킷명, Supabase 프로젝트명은 한 번 만들면 변경할 수 없다.
+즉 새 철자를 쓰려면 프로젝트 자체를 새로 만들어야 했다.&lt;/p&gt;
+&lt;p&gt;그래서 API 15개를 활성화하고 서비스 계정 2개를 세팅하고 Artifact Registry 2개를 만들고 Secret Manager 시크릿 전체를 새 프로젝트로 복사했다.
+GCS 버킷도 새로 파서 데이터를 이전했다.&lt;/p&gt;
+&lt;p&gt;여기서 얻은 교훈은 명확하다.
+rename은 코드 수준에서는 끝나지만 인프라 리소스명은 대부분 불변이다.
+&amp;quot;무엇이 rename 가능하고 불가능한가&amp;quot;를 사전에 분류하는 게 마이그레이션 계획의 핵심이다.&lt;/p&gt;
+&lt;h2&gt;DNS 마이그레이션과 SSL 트러블슈팅&lt;/h2&gt;
+&lt;p&gt;DNS는 Cloudflare를 쓰고 있었다.
+Cloudflare 프록시와 Cloud Run을 직접 연결하니, Google Frontend에서 404가 떴다.
+Host 헤더가 도메인으로 가니까 Cloud Run 입장에서는 매핑된 도메인이 아닌 셈이다.&lt;/p&gt;
+&lt;p&gt;처음에는 Cloudflare Transform Rule로 Host 헤더를 재작성해서 우회했다.
+그런데 Cloudflare 프록시에 의존하는 구조가 마음에 걸렸다.
+DNS를 GCP Cloud DNS로 전환하기로 했다.&lt;/p&gt;
+&lt;p&gt;그 과정에서 SSL 발급 문제가 터졌다.
+Cloud Run 도메인 매핑은 SSL 인증서가 발급되어야 트래픽을 라우팅한다.
+근데 AAAA 레코드 4개 중 1개가 빠 있었다.
+한 개라도 누락되면 SSL 발급이 영구 차단된다.
+전부 채우고 나서야 해결됐다.&lt;/p&gt;
+&lt;h2&gt;배포: Vercel vs Cloud Run&lt;/h2&gt;
+&lt;p&gt;Vercel Pro는 월 20달러다.
+Cloud Run은 트래픽 없을 때 인스턴스를 0으로 줄이는 scale-to-zero가 가능하다.
+사이드 프로젝트 규모에서는 트래픽이 들어올 때만 비용이 발생하는 쪽이 합리적이었다.&lt;/p&gt;
+&lt;p&gt;Cloud Run을 유지하기로 했다.&lt;/p&gt;
+&lt;h2&gt;Supabase에서 Drizzle ORM으로&lt;/h2&gt;
+&lt;p&gt;DB 접근이 두 곳에 나뉘어 있었다.
+배치 작업은 batch-repository.ts에서 PostgREST를 쓰고, 웹은 queries.ts에서 따로 쿼리를 날렸다.
+같은 DB를 다루는데 접근 계층이 이원화되어 있으니 일관성이 흐려졌다.&lt;/p&gt;
+&lt;p&gt;PostgREST의 한계도 눈에 밟혔다.
+JOIN을 못 해서 N+1 HTTP 라운드트립이 발생하고 트랜잭션을 쓰려면 PL/pgSQL RPC로 우회해야 했다.
+Drizzle을 쓰면 &lt;code&gt;db.transaction()&lt;/code&gt; 하나로 끝나는 일이다.&lt;/p&gt;
+&lt;p&gt;그래서 Supabase 의존을 Drizzle으로 전면 전환하기로 했다.
+4단계로 나눴다.
+레포지토리를 완성하고 웹 쪽을 포팅하고 호출부를 교체하고 마지막에 cleanup.&lt;/p&gt;
+&lt;h2&gt;drizzle-kit introspect 버그 2종&lt;/h2&gt;
+&lt;p&gt;도입 과정에서 introspect 버그 두 개를 만났다.&lt;/p&gt;
+&lt;p&gt;첫째, 빈문자열 default가 &lt;code&gt;default()&lt;/code&gt;로 깨져서 TS 컴파일 에러가 났다.
+둘째, Supabase의 &lt;code&gt;auth.users&lt;/code&gt; 크로스스키마 외래키를 인식하지 못해 TS2304 에러가 떴다.&lt;/p&gt;
+&lt;p&gt;둘 다 drizzle v1 beta에만 수정되어 있고, 정식 0.31.x에는 백포트되지 않았다.
+auth.users 문제는 &lt;code&gt;drizzle-orm/supabase&lt;/code&gt;에서 제공하는 &lt;code&gt;authUsers&lt;/code&gt; 테이블 import로 해결했다.&lt;/p&gt;
+&lt;p&gt;마이그레이션 오디트를 하다가 기존 코드의 잠재 버그도 발견했다.
+PostgREST로 짜던 시절 &lt;code&gt;market_prices.tradeType&lt;/code&gt;의 &lt;code&gt;SALE&lt;/code&gt; 필터가 누락되어 있었다.
+마이그레이션은 내가 만든 회귀와 원래 있던 잠재 버그를 구분하는 작업이기도 하다.&lt;/p&gt;
+&lt;h2&gt;Knip 데드코드 대정리&lt;/h2&gt;
+&lt;p&gt;Bun 모노레포 전체를 Knip으로 긁었다.
+의존성 7개, 파일 35개, 미선언 의존성 1개가 잡혔다.&lt;/p&gt;
+&lt;p&gt;여기서 중요한 건 정제 과정이다.
+Knip이 잡은 항목이 전부 진짜 미사용은 아니다.
+동적 import로 쓰는 패키지, CLI entry로만 쓰는 패키지, Next.js가 암시적으로 참조하는 패키지는 오탐이다.&lt;/p&gt;
+&lt;p&gt;하나씩 grep으로 교차검증했다.
+오탐 4개를 걸러내고, 진짜 미사용 3개를 확정했다.
+knip.json을 다듬어서 Configuration hints를 0으로 떨어뜨렸다.
+pre-commit 훅에 넣으니 전체 스캔이 1.2초 걸린다.&lt;/p&gt;
+&lt;p&gt;정리하다가 phantom dependency도 발견했다.
+fast-xml-parser가 어디에도 선언되지 않았는데 Bun hoisting 덕에 우연히 동작하고 있었다.&lt;/p&gt;
+&lt;h2&gt;크롤러 직렬화와 레이트리밋&lt;/h2&gt;
+&lt;p&gt;법원경매 크롤러에서 429 문제가 있었다.
+한 법원의 일일 요청 한도를 소진하면 429가 뜨는 게 아니라, 브라우저가 알아서 다음 법원으로 넘어가버렸다.
+차단을 감지해야 하는데 흘려보내고 있었다.&lt;/p&gt;
+&lt;p&gt;그래서 60개 법원을 순차 크롤링하는 직렬화 전략으로 바꿨다.
+429가 발생하면 즉시 중단하고 2시간 대기 후 재개한다.
+중단 지점부터 이어서 크롤링한다.&lt;/p&gt;
+&lt;p&gt;XHR pageSize도 조정했다.
+&lt;code&gt;page.route()&lt;/code&gt;로 &lt;code&gt;pageSize: 10&lt;/code&gt; 요청을 가로채서 &lt;code&gt;40&lt;/code&gt;으로 재작성했다.
+한 번에 더 많은 데이터를 가져오는 셈이다.&lt;/p&gt;
+&lt;p&gt;건축HUB API는 100% 실패하고 있었다.
+법정동 코드를 역추론하는 방식의 한계였다.
+도로명주소 기반 VWorld API로 전환하니 성공률이 95% 이상으로 올라갔다.&lt;/p&gt;
+&lt;h2&gt;Biome, lint-staged, husky 툴링 충돌&lt;/h2&gt;
+&lt;p&gt;Biome에서 &lt;code&gt;noRestrictedImports&lt;/code&gt;로 깊은 상대경로 import를 금지했다.
+그런데 TS 모노레포에서 패키지에 정의한 path alias가 소비 app으로 자동 전파되지 않는다.
+각 app의 tsconfig에 alias를 복제해야 한다.&lt;/p&gt;
+&lt;p&gt;Biome 2.x에서 &lt;code&gt;organizeImports&lt;/code&gt;는 linter rule이 아니라 assist action이다.
+그래서 &lt;code&gt;biome lint .&lt;/code&gt;는 import 정렬을 검사하지 않는다.
+&lt;code&gt;biome check .&lt;/code&gt;만 import 정렬까지 잡는다.&lt;/p&gt;
+&lt;p&gt;husky pre-commit에서 lint-staged, lint:custom, type-check를 병렬로 돌렸더니 문제가 생겼다.
+lint-staged의 내부 git stash → restore 과정이 다른 프로세스의 git 조작과 경쟁한다.
+결정적으로 &lt;code&gt;&amp;#39;Failed to stage changes from tasks&amp;#39;&lt;/code&gt; 에러가 떴다.&lt;/p&gt;
+&lt;p&gt;근본 원인은 따로 있었다.
+lint-staged가 커밋 후 재스테이지할 때 tracked 파일 경로가 &lt;code&gt;.gitignore&lt;/code&gt;에 걸리면 &lt;code&gt;git add&lt;/code&gt;가 실패한다.
+biome과 type-check는 통과해도 커밋이 차단된다.&lt;/p&gt;
+&lt;h2&gt;tRPC 도입 검토 — 결국 안 썼다&lt;/h2&gt;
+&lt;p&gt;tRPC를 도입할지 검토했다.
+이전에는 App Router에서 1급 지원이 아니라는 이유로 보류했는데 tRPC v11에서 App Router 1급 지원이 확인됐다.
+그래서 판단을 정정했다.&lt;/p&gt;
+&lt;p&gt;하지만 API Route 8개 중 5개가 Supabase 래퍼다.
+tRPC 프로시저가 결국 Supabase 호출을 한 번 더 감싸는 꼴이 된다.
+추상화 계층만 늘어나는 셈이다.&lt;/p&gt;
+&lt;p&gt;RLS 정책이 인가를 이미 처리하고 있으니 tRPC 미들웨어는 중복이다.
+TanStack Query + Supabase 클라이언트 직접 호출로 통일하기로 했다.&lt;/p&gt;
+&lt;h2&gt;에이전트 인프라 디버깅&lt;/h2&gt;
+&lt;p&gt;작업 도구인 에이전트 쪽에서도 이슈가 있었다.&lt;/p&gt;
+&lt;p&gt;code-index가 0%로 정지한 원인은 유령 inode였다.
+인덱서가 이미 삭제된 inode에 계속 쓰고 세션은 같은 경로의 새 파일(빈 파일)을 읽고 있었다.
+inode 불일치로 인한 desync였다.&lt;/p&gt;
+&lt;p&gt;Node 데몬이 조용히 죽는 문제도 있었다.
+&lt;code&gt;setTimeout(...).unref()&lt;/code&gt; 폴 타이머와 지연 연결 소켓 조합에서, 이벤트 루프가 비어서 즉시 종료되는 현상이었다.
+&lt;code&gt;.unref()&lt;/code&gt;는 타이머 참조를 해제하는데 다른 활성 핸들이 없으면 프로세스가 끝난다.&lt;/p&gt;
+&lt;h2&gt;돌아보면&lt;/h2&gt;
+&lt;p&gt;글자 하나 고치려다 인프라, ORM, 크롤러, 린트 툴체인까지 전부 손을 댄 하루였다.
+다행히 각 작업에서 &amp;quot;왜 이렇게 했는지&amp;quot;를 위키에 남겨둬서, 나중에 다시 봐도 맥락이 사라지지 않을 것 같다.&lt;/p&gt;
+&lt;p&gt;다음에는 크롤러 직렬화 전략이 실제 운영에서 429 없이 안정적으로 도는지 지켜볼 생각이다.&lt;/p&gt;
+</content:encoded></item><item><title>DB 스키마 드리프트, WAF 복구 아키텍처, GLM 에러 1210 정체</title><link>https://hyeokjaelee.github.io/schema-drift-waf-recovery-quota-diagnosis/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/schema-drift-waf-recovery-quota-diagnosis/</guid><description>DB 스키마 드리프트, 3자간을 묶다 법원경매 권리분석 프로젝트의 production DB 스키마를 정리했다. 로컬에서만 마이그레이션이 쌓이고 production은 과거 상태에 고착된 지 오래였다. schema.sql, migrations 디렉토리, production DB — 셋이 제</description><pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;DB 스키마 드리프트, 3자간을 묶다&lt;/h2&gt;
 &lt;p&gt;법원경매 권리분석 프로젝트의 production DB 스키마를 정리했다.
 로컬에서만 마이그레이션이 쌓이고 production은 과거 상태에 고착된 지 오래였다.
 schema.sql, migrations 디렉토리, production DB — 셋이 제각각이었다.&lt;/p&gt;
