@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [크롤러가 5일째 차단됐는데 전부 성공으로 기록돼 있었다](https://hyeokjaelee.github.io/crawler-blocked-exit0-forensics-v2-redesign/): 법원경매 크롤러 차단 포렌식, 봇 시그널 4종, 공고 API 발견으로 브라우저를 없애는 v2 개편, 그리고 모델 전환 크론잡 사고 복구
 - [크롤러 구조를 아예 갈아엎고 나니 보이던 것들](https://hyeokjaelee.github.io/crawler-single-browser-architecture-oom-forensics/): 워커 3개가 법원 사이트를 차단당한 이야기, 지표는 정상인데 SIGKILL이 떨어지던 OOM, 그리고 46GB를 회수한 디스크 정리까지
 - [크롤러가 자꾸 죽던 원인을 찾고, 배포 파이프라인까지 갈아엎었다](https://hyeokjaelee.github.io/crawler-timeout-and-deploy-pipeline/): 외부 API 타임아웃 누락이 만든 IDLE TIMEOUT 오탐, Cloud Run 롤백 전략, Docker 빌드 최적화, Drizzle 전환 역설까지
 - [로마자 표기 하나 바꿨더니 인프라 전체가 흔들렸다](https://hyeokjaelee.github.io/romanization-rename-infrastructure-overhaul/): 사이드 프로젝트 이름 표기 정정 한 건이 GCP 풀스택 마이그레이션, ORM 전환, 데드코드 대정리, 크롤러 직렬화까지 몰고 온 하루
