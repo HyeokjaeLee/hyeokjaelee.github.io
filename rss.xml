@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>68파일 PR 리뷰 — 도메인 슬라이스와 스팟검증</title><link>https://hyeokjaelee.github.io/large-diff-review-domain-slices-spotverify/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/large-diff-review-domain-slices-spotverify/</guid><description>68파일 PR을 어떻게 리뷰할 것인가 법원 경매 데이터를 수집해서 권리분석까지 돌리는 개인 프로젝트에 next gen 브랜치 작업이 쌓였다. master로 보내는 PR을 만들었는데 28커밋, 68파일, +4,053/−472였다. 변경 테마만 다섯 개다. 법원 서류 원문 수집 체인, VW</description><pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;68파일 PR을 어떻게 리뷰할 것인가&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>데이터 위생 대청소 — 빈 문자열, 고아 오판, 429까지</title><link>https://hyeokjaelee.github.io/data-hygiene-blitz-empty-string-orphan-audit/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/data-hygiene-blitz-empty-string-orphan-audit/</guid><description>어제는 법원 경매 데이터 프로젝트에서 데이터 위생 대청소를 했다. 크롤러 파서를 폐지하고 원문을 본체로 삼는 구조 개편의 실행 단계였다. 하루 동안 빈 문자열 업서트 버그, 휴리스틱 필드 전산 제거, 사진 고아 감사, GCS 대량 업로드 병렬화까지 진행했다. 그 과정에서 배운 것들을 정</description><pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;어제는 법원 경매 데이터 프로젝트에서 데이터 위생 대청소를 했다.
+크롤러 파서를 폐지하고 원문을 본체로 삼는 구조 개편의 실행 단계였다.
+하루 동안 빈 문자열 업서트 버그, 휴리스틱 필드 전산 제거, 사진 고아 감사, GCS 대량 업로드 병렬화까지 진행했다.
+그 과정에서 배운 것들을 정리해본다.&lt;/p&gt;
+&lt;h2&gt;빈 문자열은 null이 아닌 세 번째 상태다&lt;/h2&gt;
+&lt;p&gt;시작은 사소한 증상이었다.
+신규 물건 6건 중 5건의 게시 스탬프가 찍히지 않았고, 특정 물건의 제목이 사라졌다.
+fallback_title IS NOT NULL 조회는 통과하는데 화면에는 제목이 없는 상태였다.&lt;/p&gt;
+&lt;p&gt;원인을 추적하니 재발행 경로의 업서트가 범인이었다.
+코드는 record.fallbackTitle ?? null 형태로 가드하고 있었다.
+null 병합 연산자는 null과 undefined만 막고 빈 문자열은 그대로 통과시킨다.
+새벽 2시 30분에 저장된 제목이 2시 32분의 재발행 저장에서 빈 문자열로 갈아져버린 것이다.&lt;/p&gt;
+&lt;p&gt;수정은 두 저장 경로에 모두 의미적 가드를 넣는 것이었다.
+빈 제목으로 기존 제목을 덮어쓰지 못하게 막았다.
+한 경로만 고치면 다른 경로에서 같은 사고가 재발한다.
+덮어써진 2행은 주소 필드에서 재료를 찾아 정상 행의 제목 스타일로 복원했다.&lt;/p&gt;
+&lt;p&gt;이 일로 빈 문자열에 대한 생각이 정리됐다.
+값이 없음을 표현하는 필드에 빈 문자열이 들어올 수 있는 입력 경로가 하나라도 있으면 null 병합 가드만으로는 부족하다.
+진단 팁도 하나 얻었다.
+값이 있는데 로직이 안 탄다면 length 함수로 실제 길이를 확인해야 한다.
+문제가 됐던 6행 모두 길이가 0이었다.&lt;/p&gt;
+&lt;h2&gt;12,265행 휴리스틱 제거와 데이터 원문화&lt;/h2&gt;
+&lt;p&gt;같은 날 실행한 큰 작업은 휴리스틱 파생 필드 전산 제거였다.
+크롤러가 키워드 필터로 추측해서 채우던 권리 정보 중 우선순위가 0보다 큰 행 12,265개를 전부 삭제했다.
+권리 19,723행은 전부 원문 기반 P0로 단일화됐다.
+파생 컬럼 6개를 drop하고 다가구 오분류 129건도 수정했다.&lt;/p&gt;
+&lt;p&gt;삭제가 무서운 작업이라 원문 보존 여부를 전수 확인했다.
+매각물건 비고 원문 5,074행이 P0 권리 행에 그대로 있었고, 감정의견도 다른 필드에 10,111건 전문 보존됐다.
+지워진 것은 키워드 필터가 뽑은 중복본뿐이었다.&lt;/p&gt;
+&lt;p&gt;실행 방식도 기록해둔다.
+로컬 DB에 수동 적용한 뒤 프로덕션용 마이그레이션 파일을 별도로 만드는 이원화를 썼다.
+프로덕션 파일은 DROP COLUMN IF EXISTS로 로컬 재적용에도 안전하다.
+실측치는 로드맵 추정과 달랐다.
+추정 5,800행이었는데 실제로는 12,265행이었다.
+추정이 아닌 전수 카운트 후 실행하는 원칙을 다시 확인했다.&lt;/p&gt;
+&lt;h2&gt;행 수 차이는 고아가 아니다&lt;/h2&gt;
+&lt;p&gt;사진 데이터 감사에서는 오판을 할 뻔했다.
+배치 종료 후 DB 사진 행이 109,288인데 로컬 파일은 100,982였다.
+차이가 8,306행이니 파일 없는 고아가 그만큼 있다고 추정하기 쉽다.
+이대로 중복 정리를 했다면 수천 개 물건에서 관련사진이 통째로 사라질 뻔했다.&lt;/p&gt;
+&lt;p&gt;URL당 행 수 분포를 정밀하게 분해해봤다.
+정확히 12, 24, 36, 42처럼 12의 배수로 딱 떨어졌다.
+한 사건의 관련사진 12장을 같은 사건 내 12개 물건이 나눠 보는 정상 구조였다.
+파일 1개에 행 12개가 진실이다.
+사건이라는 책을 가족이 같이 보는 구조라고 이해했다.&lt;/p&gt;
+&lt;p&gt;진짜 고아는 양방향 감사로만 보였다.
+파일 없는 DB 행은 60행, DB가 가리키지 않는 파일은 108개뿐이었다.
+삭제 후 같은 감사를 재실행해 양방향 0을 확인하고 마무리했다.
+행 수 차이만 보고 고아를 단정하지 말고 차이의 구조를 봐야 한다는 교훈을 남긴다.&lt;/p&gt;
+&lt;h2&gt;GCS 업로드 15배 가속&lt;/h2&gt;
+&lt;p&gt;109,228파일을 GCS에 올리는 작업도 있었다.
+처음엔 순차 await 루프로 돌렸는데 초당 11파일 정도로 전체 2시간 45분이 걸렸다.
+커서 기반 16워커 bounded pool로 바꾸니 초당 167파일, 전체 11분이 됐다.
+15배 가속이었다.&lt;/p&gt;
+&lt;p&gt;재실행에서 함정을 만났다.
+중단 후 몇 분 내에 다시 돌리면 첫 실행이 올린 객체들을 다시 쓰면서 GCS 객체 단위 쓰기 rate limit인 429가 터졌다.
+재실행이 자기 발을 밟는 구조다.
+skip-existing, 즉 업로드 전 객체 존재 검사를 기본 내장해서 재실행은 잔여분만 올리도록 고쳤다.
+동일 경로 덮어쓰기가 안전하다는 이유로 전부 재업로드하면 429를 자초한다.&lt;/p&gt;
+&lt;p&gt;백업 설계도 같이 했다.
+GCS에는 디렉터리가 없어서 스냅숏 prefix의 파일들이 같은 시각에 생성된다.
+lifecycle age 조건이 creation time 기준이라 룰 하나로 스냅숏 전체가 같은 날 만료된다.
+여기서 기본 soft-delete 7일 함정을 발견했다.
+lifecycle이 지워도 7일간 유령으로 남아 과금된다.
+백업 버킷은 soft-delete를 0초로 끄는 설정을 적용했다.
+압축도 실측해봤다.
+Postgres 덤프는 gzip으로 6배 줄었지만 webp 이미지는 재압축해봤자 5.7퍼센트 이득뿐이었다.
+이미 압축 포맷이라 원본 그대로 두는 게 맞다.&lt;/p&gt;
+&lt;h2&gt;Drizzle introspect 스키마에서 row-mapper는 필연이다&lt;/h2&gt;
+&lt;p&gt;웹 쪽에서는 Drizzle row-mapper를 중앙화했다.
+계기는 캘린더 화면이었다.
+페이지 로컬 mapper가 특정 필드를 누락해서 DB에 있는 값이 UI 직전에 증발했다.&lt;/p&gt;
+&lt;p&gt;원인을 파고들니 구조적인 문제였다.
+drizzle-kit introspect로 생성한 스키마에서는 numeric에 mode 옵션을 붙이거나 제네릭 타입 주입 같은 핸드작성 전용 기능을 못 쓴다.
+재생성 시점에 오버라이드가 전부 날아간다.
+DB를 진실원천으로 유지하는 이상 타입 보정은 소비자 쪽에서 할 수밖에 없다.
+Postgres numeric은 전부 문자열로 오고 jsonb는 구조를 모른 채 unknown으로 온다.
+변환 레이어는 우아함의 문제가 아니라 구조적 필연이다.&lt;/p&gt;
+&lt;p&gt;그래서 packages/db에 공용 mapper를 두고 pick과 omit 투영으로 각 화면이 필요한 필드만 가져가게 중앙화했다.
+비유하자면 Drizzle은 통관사다.
+짐을 안전히 넘겨주지만 전압 변환은 안 해준다.&lt;/p&gt;
+&lt;p&gt;충돌 0 병합의 함정도 같은 날 만났다.
+한쪽 브랜치가 공유 타입에 필드를 5개 추가했는데 그 타입을 소비하는 테스트는 다른 쪽에만 있었다.
+양쪽 어디서도 안 깨지던 조합이 병합 후에 깨졌다.
+병합 성공은 병합 안전이 아니다.
+병합 후에는 캐시를 우회해서 타입체크와 전체 테스트를 무조건 재실행해야 한다.&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;하루에 데이터 품질 관점의 교훈이 여섯 개나 쌓였다.
+빈 문자열은 null이 아닌 세 번째 상태라는 것, 행 수 차이의 구조를 봐야 한다는 것, 추정이 아닌 전수 카운트, 병합 성공과 병합 안전은 다르다는 것 등이 그것이다.
+공통점은 전부 표면 수치를 넘어서 실제 데이터의 구조를 확인했을 때만 보이는 것들이다.
+다음에는 이 원문 중심 구조 위에서 권리 판정을 AI에게 맡기는 단계를 붙일 계획이다.&lt;/p&gt;
+</content:encoded></item><item><title>68파일 PR 리뷰 — 도메인 슬라이스와 스팟검증</title><link>https://hyeokjaelee.github.io/large-diff-review-domain-slices-spotverify/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/large-diff-review-domain-slices-spotverify/</guid><description>68파일 PR을 어떻게 리뷰할 것인가 법원 경매 데이터를 수집해서 권리분석까지 돌리는 개인 프로젝트에 next gen 브랜치 작업이 쌓였다. master로 보내는 PR을 만들었는데 28커밋, 68파일, +4,053/−472였다. 변경 테마만 다섯 개다. 법원 서류 원문 수집 체인, VW</description><pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;68파일 PR을 어떻게 리뷰할 것인가&lt;/h2&gt;
 &lt;p&gt;법원 경매 데이터를 수집해서 권리분석까지 돌리는 개인 프로젝트에 next-gen 브랜치 작업이 쌓였다.&lt;/p&gt;
 &lt;p&gt;master로 보내는 PR을 만들었는데 28커밋, 68파일, +4,053/−472였다.&lt;/p&gt;
 &lt;p&gt;변경 테마만 다섯 개다.&lt;/p&gt;

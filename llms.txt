@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [데이터 위생 대청소 — 빈 문자열, 고아 오판, 429까지](https://hyeokjaelee.github.io/data-hygiene-blitz-empty-string-orphan-audit/): 법원 경매 데이터 프로젝트의 데이터 위생 대청소 기록. 빈 문자열이 null 병합 가드를 뚫고 제목을 지운 사건, 행 수 차이를 고아로 오판할 뻔한 12배수 공유 구조, GCS 업로드 15배 가속과 재실행 429 함정까지 정리했다.
 - [68파일 PR 리뷰 — 도메인 슬라이스와 스팟검증](https://hyeokjaelee.github.io/large-diff-review-domain-slices-spotverify/): 68파일 diff를 도메인 4슬라이스로 잘라 병렬 리뷰하고 최고 영향도 발견은 직접 소스로 재확정했다. 리뷰어 주장은 가설이라는 원칙, 스키마 드리프트가 코드 버그로 위장한 TS 에러, turbo 캐시가 실패까지 재생한 함정까지 정리했다.
 - [500은 오류가 아니라 종료 신호였다](https://hyeokjaelee.github.io/court-documents-500-end-signal-inline-tx/): 법원경매 서류 원문 확보를 위한 뷰어 프로토콜 해독과 함정 5종, 소멸하는 서류를 위한 인라인 트랜잭션 전환, 크롤러 차단 기준 실측과 키 오타 교정
 - [크롤러가 5일째 차단됐는데 전부 성공으로 기록돼 있었다](https://hyeokjaelee.github.io/crawler-blocked-exit0-forensics-v2-redesign/): 법원경매 크롤러 차단 포렌식, 봇 시그널 4종, 공고 API 발견으로 브라우저를 없애는 v2 개편, 그리고 모델 전환 크론잡 사고 복구
