@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [사건번호 충돌은 생일 역설이었고 버그는 열쇠에 있었다](https://hyeokjaelee.github.io/court-case-collision-birthday-paradox-db-surgery/): 법원경매 데이터에서 별개 사건이 한 행으로 병합된 933행 흔적을 발견한 과정, 법원별 독립 채번으로 생기는 자연키 충돌의 원리, 프로덕션 DB를 통째로 교체한 5단계 분리 수술, 그리고 숫자 시퀀스를 조용히 null로 드롭하던 파서 버그
 - [HeroUI v3 전면 개편 — hydration crash와 radius 토큰과 싸운 하루](https://hyeokjaelee.github.io/heroui-v3-rebuild-hydration-radius/): 법원경매 프로젝트 웹을 HeroUI v3와 Tailwind v4로 하루 만에 재구축했다 RSC 스트리밍 children이 React Aria Tabs를 깨는 hydration crash를 만났고 radius 토큰 하나로는 전면 제어가 안 된다는 구조적 충돌도 해결했다.
 - [12.6만 장 사진의 cache-control 백필과 CDN 직접 서빙 전환](https://hyeokjaelee.github.io/measure-before-delete-or-rewrite/): 법원경매 프로젝트에서 사진 12.6만 장에 불변 캐시 헤더를 백필하고 런타임 이미지 최적화가 중복이라는 걸 실측으로 확인해서 CDN 직접 서빙으로 전환했다 크롤러 장애 대응을 3계층으로 정리했고 삭제 직전 8,306행의 분포를 보고 되돌린 이야기.
 - [EXIT=0인데 아무 일도 일어나지 않았다 — 무음 업데이트 실패 추적](https://hyeokjaelee.github.io/silent-update-failure-exit0-verification-traps/): 에이전트 확장 업데이트가 성공 종료했는데 실제로는 아무것도 설치되지 않았다. pnpm minimumReleaseAge의 무음 변형을 추적하고, 검증 파이프라인이 스스로 오탐을 뱉는 함정 네 가지를 정리했다.
