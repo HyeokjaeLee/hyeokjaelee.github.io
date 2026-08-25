@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [하루에 세 번 남의 것을 뜯어본 이야기](https://hyeokjaelee.github.io/verify-external-dependencies-heroui-cache-billing/): HeroUI v3 마이그레이션 실체 확인과 TanStack Query 캐싱 감사 그리고 GitHub Actions 빌링 사건으로 OpenWiki를 자체화한 하루를 정리했다.
 - [로컬에선 완벽했던 수술이 프로덕션에서 401을 뿜었다](https://hyeokjaelee.github.io/dump-restore-rls-loss-deploy-drift/): 검증된 로컬 DB를 통째로 덮어쓰는 반영 방식이 Row Level Security 정책을 통째로 지운 사고, 스케줄러는 놓친 실행을 보충하지 않는다는 사실, 그리고 수정한 코드가 배포본에 없다는 드리프트를 잡은 검증 방법
 - [사건번호 충돌은 생일 역설이었고 버그는 열쇠에 있었다](https://hyeokjaelee.github.io/court-case-collision-birthday-paradox-db-surgery/): 법원경매 데이터에서 별개 사건이 한 행으로 병합된 933행 흔적을 발견한 과정, 법원별 독립 채번으로 생기는 자연키 충돌의 원리, 프로덕션 DB를 통째로 교체한 5단계 분리 수술, 그리고 숫자 시퀀스를 조용히 null로 드롭하던 파서 버그
 - [HeroUI v3 전면 개편 — hydration crash와 radius 토큰과 싸운 하루](https://hyeokjaelee.github.io/heroui-v3-rebuild-hydration-radius/): 법원경매 프로젝트 웹을 HeroUI v3와 Tailwind v4로 하루 만에 재구축했다 RSC 스트리밍 children이 React Aria Tabs를 깨는 hydration crash를 만났고 radius 토큰 하나로는 전면 제어가 안 된다는 구조적 충돌도 해결했다.
