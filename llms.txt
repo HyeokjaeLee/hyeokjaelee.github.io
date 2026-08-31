@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [갤러리 캐러셀 3대 버그와 Lottie 상태 컴포넌트 정착기](https://hyeokjaelee.github.io/gallery-carousel-lottie-tailwind-canonical/): Embla 캐러셀 버그 추적, Lottie 상태 컴포넌트 계승, Tailwind canonical 검증 스캐너 만들기
 - [폴더 구조를 감이 아니라 grep으로 정한다](https://hyeokjaelee.github.io/folder-structure-by-grep-not-hunch/): 컴포넌트 폴더화 기준을 소비자 수 실측으로 세우고, git mv 트러블을 원복·규명한 뒤 루프 에이전트에 넘길 골 계약을 쓰고 검증까지 통과시킨 하루
 - [보이지 않는 1px이 만든 유령 스크롤 — Tailwind sr-only 디버깅](https://hyeokjaelee.github.io/tailwind-sr-only-icb-ghost-scroll/): sr-only 스팬 하나가 문서 전체에 311px 빈 스크롤을 만든 이야기
 - [pi 생태계 업데이트 런북 완주와 도구 퇴적물 청소](https://hyeokjaelee.github.io/pi-ecosystem-runbook-dotdir-cleanup/): pnpm catalog 기반 업데이트 런북을 끝까지 돌면서 얻은 함정 두 가지와, 점 디렉터리 733MB 정리에서 배운 고아 검증 프로토콜
