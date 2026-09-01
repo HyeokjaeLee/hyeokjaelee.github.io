@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>Cloud Run 유휴 비용이 웹 서빙의 3배 나온 이유 — GCP 8월 청구서 SKU 해부</title><link>https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/</guid><description>결론부터 말하면 &quot;Cloud Run이 비싸다&quot;는 체감은 틀렸다. 월 ₩27,221의 Cloud Run 청구를 SKU 단위로 분해했더니, 순수 웹 서빙은 26만 요청에 약 ₩3,900이었다. 나머지는 요청 없이도 24시간 켜 둔 유휴 인스턴스와 리전 이전 잔재였다. 결국 Cloud Run</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;결론부터 말하면&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>Cloud Run 유휴 비용이 웹 서빙의 3배 나온 이유: GCP 8월 청구서 SKU 해부</title><link>https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/</guid><description>결론부터 말하면 &quot;Cloud Run이 비싸다&quot;는 체감은 틀렸다. 월 ₩27,221의 Cloud Run 청구를 SKU 단위로 분해했더니, 순수 웹 서빙은 26만 요청에 약 ₩3,900이었다. 나머지는 요청 없이도 24시간 켜 둔 유휴 인스턴스와 리전 이전 잔재였다. 결국 Cloud Run</description><pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;결론부터 말하면&lt;/h2&gt;
 &lt;p&gt;&amp;quot;Cloud Run이 비싸다&amp;quot;는 체감은 틀렸다.
 월 ₩27,221의 Cloud Run 청구를 SKU 단위로 분해했더니, 순수 웹 서빙은 26만 요청에 약 ₩3,900이었다.
 나머지는 요청 없이도 24시간 켜 둔 유휴 인스턴스와 리전 이전 잔재였다.&lt;/p&gt;
@@ -60,9 +60,9 @@ Domains 연납, Storage 마이그레이션 과도기, Cloud Build 수동 배포�
 &lt;p&gt;Cloud Run ₩27,221을 다시 열어보니 구성이 이랬다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;유휴 Min Instance 4개 SKU: ₩13,331 (49%)&lt;/li&gt;
-&lt;li&gt;그중 도쿄 리전(Tier 2)분: ₩8,123 — 리전 이전 전 잔재&lt;/li&gt;
-&lt;li&gt;Jobs CPU: 크레딧 후 ₩2,208 — 이미 Batch로 전환해서 9월부턴 소멸&lt;/li&gt;
-&lt;li&gt;대륙간 이그레스: ₩2,003 — 도쿄 서빙 시절의 일회성 트래픽&lt;/li&gt;
+&lt;li&gt;그중 도쿄 리전(Tier 2)분: ₩8,123, 리전 이전 전의 잔재&lt;/li&gt;
+&lt;li&gt;Jobs CPU: 크레딧 후 ₩2,208, 이미 Batch로 전환해서 9월부턴 소멸&lt;/li&gt;
+&lt;li&gt;대륙간 이그레스: ₩2,003, 도쿄 서빙 시절의 일회성 트래픽&lt;/li&gt;
 &lt;li&gt;순수 웹 서빙: 약 ₩3,900&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;핵심 아이러니는 웹 서빙 본체보다 유휴비가 3배라는 점이다.
