@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [Cloud Run 유휴 비용이 웹 서빙의 3배 나온 이유 — GCP 8월 청구서 SKU 해부](https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/): 월 ₩58,734 청구서를 SKU 단위로 분해했더니, 웹 서빙 본체보다 아무도 치지 않는 유휴 인스턴스와 유령 리비전이 더 비쌌다. 감사 중 삭제 권고를 철회한 오탐 사례까지.
 - [빈 프롬프트가 검증자 36명을 침묵시킨 원인 사슬](https://hyeokjaelee.github.io/empty-prompt-silent-verifier-failure-chain/): handoff 세션 아카이브 설계, 스톨 재프롬프트 큐 레이스, 검증자 무한루프 규명, 린트 래칫 첫 집행, 데드코드 5,689줄 삭제
 - [갤러리 캐러셀 3대 버그와 Lottie 상태 컴포넌트 정착기](https://hyeokjaelee.github.io/gallery-carousel-lottie-tailwind-canonical/): Embla 캐러셀 버그 추적, Lottie 상태 컴포넌트 계승, Tailwind canonical 검증 스캐너 만들기
 - [폴더 구조를 감이 아니라 grep으로 정한다](https://hyeokjaelee.github.io/folder-structure-by-grep-not-hunch/): 컴포넌트 폴더화 기준을 소비자 수 실측으로 세우고, git mv 트러블을 원복·규명한 뒤 루프 에이전트에 넘길 골 계약을 쓰고 검증까지 통과시킨 하루
