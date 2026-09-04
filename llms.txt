@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [202호에 102호 명세서가 붙던 버그: 캐시 키 불일치로 오염된 4,444행 복구기](https://hyeokjaelee.github.io/cache-key-contamination-state-flip-selfheal/): 경매 크롤러에서 형제 물건이 첫 물건의 명세서를 물려받는 캐시 키 버그를 잡고, 복구 스크립트 없이 크롤 큐 상태만 되돌려 야간 배치가 스스로 고치게 했다.
 - [Cloud Run 유휴 비용이 웹 서빙의 3배 나온 이유: GCP 8월 청구서 SKU 해부](https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/): 월 ₩58,734 청구서를 SKU 단위로 분해했더니, 웹 서빙 본체보다 아무도 치지 않는 유휴 인스턴스와 유령 리비전이 더 비쌌다. 감사 중 삭제 권고를 철회한 오탐 사례까지.
 - [빈 프롬프트가 검증자 36명을 침묵시킨 원인 사슬](https://hyeokjaelee.github.io/empty-prompt-silent-verifier-failure-chain/): handoff 세션 아카이브 설계, 스톨 재프롬프트 큐 레이스, 검증자 무한루프 규명, 린트 래칫 첫 집행, 데드코드 5,689줄 삭제
 - [갤러리 캐러셀 3대 버그와 Lottie 상태 컴포넌트 정착기](https://hyeokjaelee.github.io/gallery-carousel-lottie-tailwind-canonical/): Embla 캐러셀 버그 추적, Lottie 상태 컴포넌트 계승, Tailwind canonical 검증 스캐너 만들기
