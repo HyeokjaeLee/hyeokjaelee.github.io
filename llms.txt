@@ -3,6 +3,7 @@
 > 덕업일치 개발자의 블로그입니다. 프론트엔드 엔지니어 이혁재(HyeokjaeLee)의 기술 블로그로, 프론트엔드 개발·컴포넌트 설계·개발 환경(DX)·트러블슈팅·디지털 노마드 경험을 다룹니다.
 
 ## Blog
+- [크롤러 로그의 500이 전부 장애는 아니었다, 4,134건 중 회복 0건을 증명한 이야기](https://hyeokjaelee.github.io/http-500-not-always-outage-gone-classification/): 기일공고 문서뷰어 500 실패를 프로브·전수 로그·브라우저 실측으로 추적해 소멸 판별로 전환, 물건당 요청 4회를 2회로 줄인 과정
 - [크롤러가 하루 네 번 차단됐다, WAF는 속도가 아니라 누적량을 보고 있었다](https://hyeokjaelee.github.io/waf-cumulative-blocking-poll-exemption/): 스로틀 A/B 실험으로 속도 기반이 아님을 확인하고, 폴링 대상 94.5% 면제와 게이트 지터로 6시간 39분 무차단 완주까지
 - [202호에 102호 명세서가 붙던 버그: 캐시 키 불일치로 오염된 4,444행 복구기](https://hyeokjaelee.github.io/cache-key-contamination-state-flip-selfheal/): 경매 크롤러에서 형제 물건이 첫 물건의 명세서를 물려받는 캐시 키 버그를 잡고, 복구 스크립트 없이 크롤 큐 상태만 되돌려 야간 배치가 스스로 고치게 했다.
 - [Cloud Run 유휴 비용이 웹 서빙의 3배 나온 이유: GCP 8월 청구서 SKU 해부](https://hyeokjaelee.github.io/cloud-run-idle-cost-gcp-billing-audit/): 월 ₩58,734 청구서를 SKU 단위로 분해했더니, 웹 서빙 본체보다 아무도 치지 않는 유휴 인스턴스와 유령 리비전이 더 비쌌다. 감사 중 삭제 권고를 철회한 오탐 사례까지.
