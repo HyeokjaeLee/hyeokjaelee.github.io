@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>코드 검색 임베딩이 한국어 질의에서 0/12로 전멸한 이유: CodeRankEmbed에서 Qwen3로 교체까지</title><link>https://hyeokjaelee.github.io/korean-query-embedding-swap/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/korean-query-embedding-swap/</guid><description>코드베이스 검색 도구에 한국어로 물어봤더니 열두 문항이 전부 빗나갔다. &quot;로그인 처리가 어느 파일에 있지&quot; 같은 실사용 스타일 질문 12개를 던졌는데 정답 파일이 top 1에 들어간 게 0건이었다. 결론부터 말하면 임베딩 모델이 코드 전용 영어 모델이었고, Qwen3 Embedding </description><pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;코드베이스 검색 도구에 한국어로 물어봤더니 열두 문항이 전부 빗나갔다.
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>덕업일치 개발자</title><description>덕업일치 개발자의 블로그입니다.</description><link>https://hyeokjaelee.github.io/</link><language>ko-kr</language><item><title>tool-call 인자가 30,807자에서 세 번 끊긴 이유: Z.ai GLM 스트리밍 스톨</title><link>https://hyeokjaelee.github.io/stream-stall-toolcall-abort-stall-guard/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/stream-stall-toolcall-abort-stall-guard/</guid><description>에이전트가 같은 지점에서 세 번 죽었다. 30,806자와 30,807자, 오차 1자. 결론부터 말하면 범인은 내가 만든 가드 확장이 아니라 모델 제공사의 스트리밍이었다. 나는 무죄를 숫자로 입증하고, 같은 지점에서만 전송이 멈추는 스톨을 잡는 stall guard 확장을 만들었다. LL</description><pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;에이전트가 같은 지점에서 세 번 죽었다.
+30,806자와 30,807자, 오차 1자.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;결론부터 말하면 범인은 내가 만든 가드 확장이 아니라 모델 제공사의 스트리밍이었다.
+나는 무죄를 숫자로 입증하고, 같은 지점에서만 전송이 멈추는 스톨을 잡는 stall-guard 확장을 만들었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;LLM 에이전트를 운영하다 보면 이상하게 죽는 순간이 온다.
+나는 pi라는 코딩 에이전트를 여러 확장과 함께 운영하는데 그날은 매물 상세 페이지 목업 HTML(약 30KB)을 파일로 쓰는 작업이 세 번 연속 같은 자리에서 죽었다.
+첫 번째는 08:01:05, 두 번째는 08:06:31, 세 번째는 08:13:31.
+컷 위치는 30,807자, 30,806자, 30,807자.
+3만 자짜리 출력이 오차 1자 안에서 잘리고 &amp;quot;Operation aborted&amp;quot;로 종료됐다.&lt;/p&gt;
+&lt;p&gt;이 글은 그 세 번의 abort에서 시작해서 용의자를 코드로 무죄 입증하고 진범을 특정하고 같은 일이 반복되지 않게 하는 감시 확장을 만들기까지의 과정을 정리해봤다.&lt;/p&gt;
+&lt;h2&gt;1차 진단과 뒤집기&lt;/h2&gt;
+&lt;p&gt;첫 진단은 그럴듯했다.
+&amp;quot;loop-guard의 Rule B가 대형 HTML을 오판해서 강제 abort했다.&amp;quot;
+loop-guard는 내가 달아둔 확장인데 툴콜 인자가 퇴화 반복(같은 문구가 계속 찍히는 증상)에 빠지는지 감시하다가 임계를 넘으면 스트림을 끊고 모델에게 상황을 알려준다.
+3만 자짜리 HTML 마크업이면 비슷한 카드 구조가 반복되니 오판했을 법하다는 이야기였다.&lt;/p&gt;
+&lt;p&gt;그런데 이 진단에는 근거가 없었다.
+&amp;quot;반복 문구가 실제로 있었는지 확인된 적 없다&amp;quot;는 지적이 나오면서 재조사가 시작됐다.&lt;/p&gt;
+&lt;h2&gt;무죄 입증, 세션 로그 읽기 대신 시뮬레이션&lt;/h2&gt;
+&lt;p&gt;재조사에서 한 것은 코드 읽기도, 로그 훑기도 아니었다.
+loop-guard의 판정 로직 그 자체를 Python으로 옮긴 다음, 세션에 저장된 잘린 HTML에 직접 적용해본 것이다.
+판정 알고리즘의 핵심 파라미터는 이렇다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;감시 창(TAIL_WINDOW): 최근 64KB&lt;/li&gt;
+&lt;li&gt;프로브(PROBE_LEN): 스트림 끝 16자&lt;/li&gt;
+&lt;li&gt;발동 조건: 프로브가 임계 30회 이상 반복되고 구조 문자를 포함해야 유효한 프로브로 인정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;실제 세 번의 abort 지점에 이 알고리즘을 적용한 결과는 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;08:01:05 abort: 마지막 16자 프로브 반복 2회 (임계 30 미달)&lt;/li&gt;
+&lt;li&gt;08:06:31 abort: 프로브 반복 18회 (미달)&lt;/li&gt;
+&lt;li&gt;08:13:31 abort: 프로브 반복 2회 (미달)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;세 건 모두 발동 불가였다.
+loop-guard는 무죄.
+임계 30에 비해 실측은 최대 18.
+숫자가 나오는 순간 진단은 끝났다.&lt;/p&gt;
+&lt;p&gt;여기서 얻은 교훈이 하나 있다.
+LLM의 초기 진단이 &amp;quot;임계 통과&amp;quot;라고 단정해도 임계 근처인지 아닌지는 숫자로 확인되기 전까지 믿지 않는다.
+피고 알고리즘을 실제 아티팩트에 포트해서 실행해보는 것이 세션 로그를 다시 읽는 것보다 강한 증거다.&lt;/p&gt;
+&lt;h2&gt;진범, 스트림이 멈춘 지점&lt;/h2&gt;
+&lt;p&gt;무죄가 확정되고 나니 진범의 윤곽이 보였다.
+Z.ai의 GLM 모델이 tool-call 인자를 스트리밍으로 내보내는데 세 번 모두 정확히 약 31,970자에서 바이트 전송을 멈췄다.
+같은 콘텐츠를 같은 길이에서.
+크기 때문도 아니고 시간 때문도 아니다.
+콘텐츠에 결정적으로 묶인 컷이었다.&lt;/p&gt;
+&lt;p&gt;세 abort 모두 약 120.0초 후에 종료됐다.
+이 타이밍의 정체도 추적했다.
+HTTP 클라이언트(undici)의 bodyTimeout은 idle 기반 타이머라서 바디 청크가 도착할 때마다 리프레시된다.
+즉 스트리밍이 계속되는 동안엔 절대 발동하지 않고 서버가 완전히 멈춘 스트림에서만 정확히 설정 시간 만에 소켓을 파괴한다.
+120초 정확히 걸린 abort는 이 타이머(또는 그 전의 사용자 Esc)의 서명이었다.&lt;/p&gt;
+&lt;p&gt;포렌식 할 때 주의할 점도 하나 찾았다.
+abort된 메시지는 사용량 기록에서 output_tokens=0으로 남는다.
+토큰이 실제로 흘렀는데도 0으로 기록되니 로그만 보면 &amp;quot;아무것도 생성하지 못한 실패&amp;quot;로 오독할 수 있다.&lt;/p&gt;
+&lt;h2&gt;왜 아무도 에이전트를 깨우지 않았나&lt;/h2&gt;
+&lt;p&gt;진범을 알았으니 다음 문제는 대응이었다.
+그런데 여기서 구조적인 구멍이 3개나 겹쳐 있었다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;loop-guard는 반복 임계 미달이라 발동하지 않았다.&lt;/li&gt;
+&lt;li&gt;pi에는 애초에 스트림 스톨을 감시하는 컴포넌트 자체가 없었다.&lt;/li&gt;
+&lt;li&gt;abort는 terminal 상태라서 재시도 로직이 절대 건드리지 않았다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;재시도 로직(retry.js)의 판정을 직접 확인했는데 stop=aborted는 즉시 반환하고 stop=error만 재시도 대상으로 판정한다.
+timeout 문구가 포함된 에러는 재시도되지만 일반 AbortError는 아니다.&lt;/p&gt;
+&lt;p&gt;재시도가 정답이 아니라는 결론도 여기서 나왔다.
+결정적으로 멈춘 스톨은 똑같이 재시도하면 똑같은 지점에서 또 멈춘다.
+필요한 것은 &amp;quot;왜 죽었는지 알려주고 전략을 바꾸게 하는 깨움&amp;quot;이었다.
+3만 자를 한 번에 쓰지 말고 뼈대 파일을 먼저 쓰고 편집으로 분할해서 채우라는 지시를 에이전트 스스로 받아내야 했다.&lt;/p&gt;
+&lt;h2&gt;stall-guard 확장 만들기&lt;/h2&gt;
+&lt;p&gt;그래서 만든 것이 stall-guard 확장이다.
+설계는 단순하게 갔다.
+&lt;code&gt;message_update&lt;/code&gt; 이벤트로 스트림 활동을 추적하다가 &lt;code&gt;message_end&lt;/code&gt;에서 판정한다.
+판정 조건 4가지는 이렇다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;stopReason이 aborted일 것&lt;/li&gt;
+&lt;li&gt;tool-call 인자 중 최장 문자열이 16,384자 이상일 것&lt;/li&gt;
+&lt;li&gt;마지막 스트림 활동으로부터 15,000ms 이상 침묵이 이어졌을 것&lt;/li&gt;
+&lt;li&gt;연속 wake는 3회 미만, 재깨움 사이 쿨다운 30초&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;세 번째 조건이 핵심이다.
+사용자가 의도적으로 Esc를 누른 것과 provider가 멈춘 것을 구별할 수 있는 유일한 신호가 침묵 시간이기 때문이다.
+사람이 Esc를 누를 때는 보통 스트리밍이 한창 활발하던 중이고 스톨은 바이트가 완전히 끊긴 뒤의 긴 침묵에서 일어난다.&lt;/p&gt;
+&lt;p&gt;판정 로직은 순수 함수(evaluate.ts)로 뽑고 탈락 사유를 6종 verdict로 남긴다.
+not-assistant, not-aborted, no-tool-call, arg-too-small, stream-active, ok.
+왜 깨우지 않았는지가 항상 설명 가능해야 나중에 진단할 수 있다.
+stopReason이 error인 케이스는 범위 밖으로 뒀다.
+pi 코어의 retry가 이미 재시도하는 영역이라 이중으로 트리거할 위험이 있다.&lt;/p&gt;
+&lt;p&gt;깨우는 방식도 조심스럽게 정했다.
+다루는 턴은 이미 종료된 뒤니까 idle 시점에 배달되는 시스템 노티로 wake를 건다.
+노티 본문은 3단 구성이다.
+무엇이 abort됐는지, 침묵이 provider 스톨을 시사한다는 것, 그래서 뼈대 write와 편집 분할로 전략을 바꾸라는 지시.&lt;/p&gt;
+&lt;p&gt;검증은 smoke-test 8개 시나리오, 포맷터와 린터와 타입체크 0 에러, 런타임 클린 부팅, 그리고 리뷰어 서브에이전트 통과로 마쳤다.
+환경변수 &lt;code&gt;PI_STALL_GUARD=0&lt;/code&gt;으로 끌 수도 있게 했다.&lt;/p&gt;
+&lt;h2&gt;같은 날 밝혀진 것들, 그리고 남은 한계&lt;/h2&gt;
+&lt;p&gt;이 사가를 파면서 같은 날 오탐 3종도 같이 정리됐다.
+짧게만 적는다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;마크다운 표 셀 패딩의 공백 런이 프로브에 걸려 오탐 abort한 건 줄바꿈 없는 순수 공백 프로브를 점수 0으로 처리하는 패치로 고쳤다.&lt;/li&gt;
+&lt;li&gt;세션 구분 주석(&lt;code&gt;// ==== ... ====&lt;/code&gt;)이 창 전체에서 360회 합산돼 자기 발동한 건 확인했지만 패치는 아직 적용하지 못했다.
+제안은 구분선 문자 run을 프로브에서 제외하는 것.
+적용 전까지 큰 파일은 조각내서 쓴다.&lt;/li&gt;
+&lt;li&gt;노티가 52분 늦게 배달된 건은 abort 정산과 큐 enqueue 사이의 race로 추정한다.
+여기는 확정이 아니라 추정임을 밝혀둔다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;남은 한계도 명확하다.
+stall-guard의 임계값(16,384자, 15,000ms, 120초 서명)은 이번 사건 3회에서 도출한 값이다.
+재현 최소 케이스를 만들어 벤더에 리포트하면 좋겠지만 아직이고 다른 provider에서 같은 증상이 나오는지도 관측이 필요하다.
+그리고 당장의 운영 대응은 확실하다.
+이 제공사의 flash 모델에서는 3만 자 이상의 tool-call 인자를 한 번에 스트리밍하지 않는다.
+뼈대를 쓰고 편집으로 나눈다.&lt;/p&gt;
+&lt;p&gt;같은 지점에서 세 번 죽는 버그는 사실 선물이다.
+우연이 아닌 패턴이 있다는 뜻이고 패턴이 있으면 숫자로 잡을 수 있다.&lt;/p&gt;
+</content:encoded></item><item><title>코드 검색 임베딩이 한국어 질의에서 0/12로 전멸한 이유: CodeRankEmbed에서 Qwen3로 교체까지</title><link>https://hyeokjaelee.github.io/korean-query-embedding-swap/</link><guid isPermaLink="true">https://hyeokjaelee.github.io/korean-query-embedding-swap/</guid><description>코드베이스 검색 도구에 한국어로 물어봤더니 열두 문항이 전부 빗나갔다. &quot;로그인 처리가 어느 파일에 있지&quot; 같은 실사용 스타일 질문 12개를 던졌는데 정답 파일이 top 1에 들어간 게 0건이었다. 결론부터 말하면 임베딩 모델이 코드 전용 영어 모델이었고, Qwen3 Embedding </description><pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;코드베이스 검색 도구에 한국어로 물어봤더니 열두 문항이 전부 빗나갔다.
 &amp;quot;로그인 처리가 어느 파일에 있지&amp;quot; 같은 실사용 스타일 질문 12개를 던졌는데 정답 파일이 top-1에 들어간 게 0건이었다.
 결론부터 말하면 임베딩 모델이 코드 전용 영어 모델이었고, Qwen3-Embedding-0.6B로 교체하면서 파일 적중 top-1이 1에서 8로 올라갔다.
 그런데 원인을 추적하는 동안 &amp;quot;도구를 버려야 하나&amp;quot;까지 갔었고 반증 실험 하나로 그 판단을 되돌린 게 이번 사건의 핵심이었다.&lt;/p&gt;
